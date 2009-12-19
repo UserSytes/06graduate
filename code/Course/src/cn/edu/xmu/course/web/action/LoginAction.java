@@ -15,7 +15,7 @@ public class LoginAction extends BaseAction{
 	private String password;
 	
 	public String login(){
-		Teacher teacher = loginService.login(userName, password);
+		Teacher teacher = loginService.teacherLogin(userName, password);
 		System.out.println(userName);
 		if(null == teacher)
 			return ERROR;
