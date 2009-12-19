@@ -34,25 +34,29 @@ public class AdministratorDAO extends HibernateDaoSupport {
 		// do nothing
 	}
 
-	public void save(Administrator transientInstance) {
+	public boolean save(Administrator transientInstance) {
 		log.debug("saving Administrator instance");
 		try {
 			getHibernateTemplate().save(transientInstance);
 			log.debug("save successful");
+			return true;
 		} catch (RuntimeException re) {
 			log.error("save failed", re);
-			throw re;
+			//throw re;
+			return false;
 		}
 	}
 
-	public void delete(Administrator persistentInstance) {
+	public boolean delete(Administrator persistentInstance) {
 		log.debug("deleting Administrator instance");
 		try {
 			getHibernateTemplate().delete(persistentInstance);
 			log.debug("delete successful");
+			return true;
 		} catch (RuntimeException re) {
 			log.error("delete failed", re);
-			throw re;
+			//throw re;
+			return false;
 		}
 	}
 

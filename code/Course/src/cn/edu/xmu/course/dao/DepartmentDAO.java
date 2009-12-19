@@ -31,25 +31,29 @@ public class DepartmentDAO extends HibernateDaoSupport {
 		// do nothing
 	}
 
-	public void save(Department transientInstance) {
+	public boolean save(Department transientInstance) {
 		log.debug("saving Department instance");
 		try {
 			getHibernateTemplate().save(transientInstance);
 			log.debug("save successful");
+			return true;
 		} catch (RuntimeException re) {
 			log.error("save failed", re);
-			throw re;
+			//throw re;
+			return false;
 		}
 	}
 
-	public void delete(Department persistentInstance) {
+	public boolean delete(Department persistentInstance) {
 		log.debug("deleting Department instance");
 		try {
 			getHibernateTemplate().delete(persistentInstance);
 			log.debug("delete successful");
+			return true;
 		} catch (RuntimeException re) {
 			log.error("delete failed", re);
-			throw re;
+			//throw re;
+			return false;
 		}
 	}
 

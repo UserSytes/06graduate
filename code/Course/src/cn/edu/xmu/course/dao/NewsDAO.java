@@ -32,25 +32,29 @@ public class NewsDAO extends HibernateDaoSupport {
 		// do nothing
 	}
 
-	public void save(News transientInstance) {
+	public boolean save(News transientInstance) {
 		log.debug("saving News instance");
 		try {
 			getHibernateTemplate().save(transientInstance);
 			log.debug("save successful");
+			return true;
 		} catch (RuntimeException re) {
 			log.error("save failed", re);
-			throw re;
+			//throw re;
+			return false;
 		}
 	}
 
-	public void delete(News persistentInstance) {
+	public boolean delete(News persistentInstance) {
 		log.debug("deleting News instance");
 		try {
 			getHibernateTemplate().delete(persistentInstance);
 			log.debug("delete successful");
+			return true;
 		} catch (RuntimeException re) {
 			log.error("delete failed", re);
-			throw re;
+			//throw re;
+			return false;
 		}
 	}
 
