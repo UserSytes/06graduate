@@ -14,6 +14,12 @@
          <result name="success">/teacher/index.jsp</result>
          <result name="error">/teacher/error.jsp</result>
        </action>
+       
+       <action name="addSchoolAction" method="addSchool" class="cn.edu.xmu.course.web.action.SchoolManageAction">
+         <result name="success">/admin/right.jsp</result>
+         <result name="error">/admin/error.jsp</result>
+       </action>
+       
     </package>
 
 
