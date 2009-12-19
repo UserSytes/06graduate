@@ -25,9 +25,6 @@
         <property name="mobile" type="java.lang.Long">
             <column name="mobile" precision="20" scale="0" />
         </property>
-        <property name="position" type="java.lang.String">
-            <column name="position" length="20" />
-        </property>
         <set name="messages" inverse="true">
             <key>
                 <column name="userinfo_id" />

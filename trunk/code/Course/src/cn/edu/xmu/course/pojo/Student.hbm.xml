@@ -13,14 +13,14 @@
         <many-to-one name="userInfo" class="cn.edu.xmu.course.pojo.UserInfo" fetch="select">
             <column name="userinfo_id" />
         </many-to-one>
+        <many-to-one name="grade" class="cn.edu.xmu.course.pojo.Grade" fetch="select">
+            <column name="gradeId" />
+        </many-to-one>
         <property name="studentNo" type="java.lang.String">
             <column name="student_no" length="20" not-null="true" />
         </property>
         <property name="password" type="java.lang.String">
             <column name="password" not-null="true" />
-        </property>
-        <property name="grade" type="java.lang.Integer">
-            <column name="grade" />
         </property>
         <set name="collections" inverse="true">
             <key>
