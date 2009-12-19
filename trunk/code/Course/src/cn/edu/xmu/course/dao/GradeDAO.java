@@ -8,34 +8,32 @@ import org.hibernate.LockMode;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import cn.edu.xmu.course.pojo.UserInfo;
+import cn.edu.xmu.course.pojo.Grade;
 
 /**
- * A data access object (DAO) providing persistence and search support for
- * UserInfo entities. Transaction control of the save(), update() and delete()
- * operations can directly support Spring container-managed transactions or they
- * can be augmented to handle user-managed Spring transactions. Each of these
- * methods provides additional information for how to configure it for the
- * desired type of transaction control.
+ * A data access object (DAO) providing persistence and search support for Grade
+ * entities. Transaction control of the save(), update() and delete() operations
+ * can directly support Spring container-managed transactions or they can be
+ * augmented to handle user-managed Spring transactions. Each of these methods
+ * provides additional information for how to configure it for the desired type
+ * of transaction control.
  * 
- * @see cn.edu.xmu.course.pojo.UserInfo
+ * @see cn.edu.xmu.course.pojo.Grade
  * @author MyEclipse Persistence Tools
  */
 
-public class UserInfoDAO extends HibernateDaoSupport {
-	private static final Log log = LogFactory.getLog(UserInfoDAO.class);
+public class GradeDAO extends HibernateDaoSupport {
+	private static final Log log = LogFactory.getLog(GradeDAO.class);
 	// property constants
+	public static final String GRADE = "grade";
 	public static final String NAME = "name";
-	public static final String SEX = "sex";
-	public static final String EMAIL = "email";
-	public static final String MOBILE = "mobile";
 
 	protected void initDao() {
 		// do nothing
 	}
 
-	public void save(UserInfo transientInstance) {
-		log.debug("saving UserInfo instance");
+	public void save(Grade transientInstance) {
+		log.debug("saving Grade instance");
 		try {
 			getHibernateTemplate().save(transientInstance);
 			log.debug("save successful");
@@ -45,8 +43,8 @@ public class UserInfoDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public void delete(UserInfo persistentInstance) {
-		log.debug("deleting UserInfo instance");
+	public void delete(Grade persistentInstance) {
+		log.debug("deleting Grade instance");
 		try {
 			getHibernateTemplate().delete(persistentInstance);
 			log.debug("delete successful");
@@ -56,11 +54,11 @@ public class UserInfoDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public UserInfo findById(java.lang.Integer id) {
-		log.debug("getting UserInfo instance with id: " + id);
+	public Grade findById(java.lang.Integer id) {
+		log.debug("getting Grade instance with id: " + id);
 		try {
-			UserInfo instance = (UserInfo) getHibernateTemplate().get(
-					"cn.edu.xmu.course.pojo.UserInfo", id);
+			Grade instance = (Grade) getHibernateTemplate().get(
+					"cn.edu.xmu.course.pojo.Grade", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -68,8 +66,8 @@ public class UserInfoDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByExample(UserInfo instance) {
-		log.debug("finding UserInfo instance by example");
+	public List findByExample(Grade instance) {
+		log.debug("finding Grade instance by example");
 		try {
 			List results = getHibernateTemplate().findByExample(instance);
 			log.debug("find by example successful, result size: "
@@ -82,10 +80,10 @@ public class UserInfoDAO extends HibernateDaoSupport {
 	}
 
 	public List findByProperty(String propertyName, Object value) {
-		log.debug("finding UserInfo instance with property: " + propertyName
+		log.debug("finding Grade instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
-			String queryString = "from UserInfo as model where model."
+			String queryString = "from Grade as model where model."
 					+ propertyName + "= ?";
 			return getHibernateTemplate().find(queryString, value);
 		} catch (RuntimeException re) {
@@ -94,26 +92,18 @@ public class UserInfoDAO extends HibernateDaoSupport {
 		}
 	}
 
+	public List findByGrade(Object grade) {
+		return findByProperty(GRADE, grade);
+	}
+
 	public List findByName(Object name) {
 		return findByProperty(NAME, name);
 	}
 
-	public List findBySex(Object sex) {
-		return findByProperty(SEX, sex);
-	}
-
-	public List findByEmail(Object email) {
-		return findByProperty(EMAIL, email);
-	}
-
-	public List findByMobile(Object mobile) {
-		return findByProperty(MOBILE, mobile);
-	}
-
 	public List findAll() {
-		log.debug("finding all UserInfo instances");
+		log.debug("finding all Grade instances");
 		try {
-			String queryString = "from UserInfo";
+			String queryString = "from Grade";
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find all failed", re);
@@ -121,10 +111,10 @@ public class UserInfoDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public UserInfo merge(UserInfo detachedInstance) {
-		log.debug("merging UserInfo instance");
+	public Grade merge(Grade detachedInstance) {
+		log.debug("merging Grade instance");
 		try {
-			UserInfo result = (UserInfo) getHibernateTemplate().merge(
+			Grade result = (Grade) getHibernateTemplate().merge(
 					detachedInstance);
 			log.debug("merge successful");
 			return result;
@@ -134,8 +124,8 @@ public class UserInfoDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public void attachDirty(UserInfo instance) {
-		log.debug("attaching dirty UserInfo instance");
+	public void attachDirty(Grade instance) {
+		log.debug("attaching dirty Grade instance");
 		try {
 			getHibernateTemplate().saveOrUpdate(instance);
 			log.debug("attach successful");
@@ -145,8 +135,8 @@ public class UserInfoDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public void attachClean(UserInfo instance) {
-		log.debug("attaching clean UserInfo instance");
+	public void attachClean(Grade instance) {
+		log.debug("attaching clean Grade instance");
 		try {
 			getHibernateTemplate().lock(instance, LockMode.NONE);
 			log.debug("attach successful");
@@ -156,7 +146,7 @@ public class UserInfoDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public static UserInfoDAO getFromApplicationContext(ApplicationContext ctx) {
-		return (UserInfoDAO) ctx.getBean("UserInfoDAO");
+	public static GradeDAO getFromApplicationContext(ApplicationContext ctx) {
+		return (GradeDAO) ctx.getBean("GradeDAO");
 	}
 }

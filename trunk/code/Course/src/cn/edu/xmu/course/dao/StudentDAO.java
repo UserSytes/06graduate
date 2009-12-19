@@ -27,7 +27,6 @@ public class StudentDAO extends HibernateDaoSupport {
 	// property constants
 	public static final String STUDENT_NO = "studentNo";
 	public static final String PASSWORD = "password";
-	public static final String GRADE = "grade";
 
 	protected void initDao() {
 		// do nothing
@@ -99,10 +98,6 @@ public class StudentDAO extends HibernateDaoSupport {
 
 	public List findByPassword(Object password) {
 		return findByProperty(PASSWORD, password);
-	}
-
-	public List findByGrade(Object grade) {
-		return findByProperty(GRADE, grade);
 	}
 
 	public List findAll() {
