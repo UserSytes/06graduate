@@ -8,4 +8,32 @@
 		</property>
 	</bean>
 	
+	<!--超级管理员-->
+	<bean id="superAdminService"
+		class="cn.edu.xmu.course.service.impl.SuperAdminService">
+		<property name="superAdminDAO">
+			<ref bean="SuperAdminDAO" />
+		</property>
+		<property name="administratorDAO">
+			<ref bean="AdministratorDAO" />
+		</property>
+		<property name="schoolDAO">
+			<ref bean="SchoolDAO" />
+		</property>
+		<property name="departmentDAO">
+			<ref bean="DepartmentDAO" />
+		</property>
+		<property name="newsDAO">
+			<ref bean="NewsDAO" />
+		</property>
+		<property name="gradeDAO">
+			<ref bean="GradeDAO" />
+		</property>
+	</bean>
+	
+	<!--学院管理员-->
+	<bean id="adminService"
+		class="cn.edu.xmu.course.service.impl.AdminService">
+	</bean>
+	
 </beans>
