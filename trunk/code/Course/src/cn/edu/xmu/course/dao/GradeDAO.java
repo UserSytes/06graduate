@@ -32,25 +32,29 @@ public class GradeDAO extends HibernateDaoSupport {
 		// do nothing
 	}
 
-	public void save(Grade transientInstance) {
+	public boolean save(Grade transientInstance) {
 		log.debug("saving Grade instance");
 		try {
 			getHibernateTemplate().save(transientInstance);
 			log.debug("save successful");
+			return true;
 		} catch (RuntimeException re) {
 			log.error("save failed", re);
-			throw re;
+			//throw re;
+			return false;
 		}
 	}
 
-	public void delete(Grade persistentInstance) {
+	public boolean delete(Grade persistentInstance) {
 		log.debug("deleting Grade instance");
 		try {
 			getHibernateTemplate().delete(persistentInstance);
 			log.debug("delete successful");
+			return true;
 		} catch (RuntimeException re) {
 			log.error("delete failed", re);
-			throw re;
+			//throw re;
+			return false;
 		}
 	}
 

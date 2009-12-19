@@ -31,25 +31,29 @@ public class SchoolDAO extends HibernateDaoSupport {
 		// do nothing
 	}
 
-	public void save(School transientInstance) {
+	public boolean save(School transientInstance) {
 		log.debug("saving School instance");
 		try {
 			getHibernateTemplate().save(transientInstance);
 			log.debug("save successful");
+			return true;
 		} catch (RuntimeException re) {
 			log.error("save failed", re);
-			throw re;
+			//throw re;
+			return false;
 		}
 	}
 
-	public void delete(School persistentInstance) {
+	public boolean delete(School persistentInstance) {
 		log.debug("deleting School instance");
 		try {
 			getHibernateTemplate().delete(persistentInstance);
 			log.debug("delete successful");
+			return true;
 		} catch (RuntimeException re) {
 			log.error("delete failed", re);
-			throw re;
+			//throw re;
+			return false;
 		}
 	}
 
