@@ -156,7 +156,13 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<import resource="daoContext.xml" />
+	<bean id="GradeDAO" class="cn.edu.xmu.course.dao.GradeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+		<import resource="daoContext.xml" />
 	<import resource="serviceContext.xml" />
 	<import resource="actionContext.xml" />
 	</beans>

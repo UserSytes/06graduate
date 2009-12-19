@@ -15,9 +15,9 @@ public class Student implements java.io.Serializable {
 
 	private Integer id;
 	private UserInfo userInfo;
+	private Grade grade;
 	private String studentNo;
 	private String password;
-	private Integer grade;
 	private Set collections = new HashSet(0);
 	private Set studentCourses = new HashSet(0);
 
@@ -34,12 +34,12 @@ public class Student implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Student(UserInfo userInfo, String studentNo, String password,
-			Integer grade, Set collections, Set studentCourses) {
+	public Student(UserInfo userInfo, Grade grade, String studentNo,
+			String password, Set collections, Set studentCourses) {
 		this.userInfo = userInfo;
+		this.grade = grade;
 		this.studentNo = studentNo;
 		this.password = password;
-		this.grade = grade;
 		this.collections = collections;
 		this.studentCourses = studentCourses;
 	}
@@ -62,6 +62,14 @@ public class Student implements java.io.Serializable {
 		this.userInfo = userInfo;
 	}
 
+	public Grade getGrade() {
+		return this.grade;
+	}
+
+	public void setGrade(Grade grade) {
+		this.grade = grade;
+	}
+
 	public String getStudentNo() {
 		return this.studentNo;
 	}
@@ -76,14 +84,6 @@ public class Student implements java.io.Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public Integer getGrade() {
-		return this.grade;
-	}
-
-	public void setGrade(Integer grade) {
-		this.grade = grade;
 	}
 
 	public Set getCollections() {

@@ -2,6 +2,11 @@ package cn.edu.xmu.course.service;
 
 import cn.edu.xmu.course.pojo.*;
 
+/**
+ * µÇÂ¼Ä£¿é
+ * @author ºÎÉêÃÜ 
+ *
+ */
 public interface ILoginService {
 
 	/**

@@ -19,6 +19,9 @@
         <property name="password" type="java.lang.String">
             <column name="password" not-null="true" />
         </property>
+        <property name="position" type="java.lang.String">
+            <column name="position" length="50" />
+        </property>
         <set name="teacherCourses" inverse="true">
             <key>
                 <column name="teacher_id" not-null="true" />

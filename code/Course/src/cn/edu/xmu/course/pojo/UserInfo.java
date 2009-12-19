@@ -19,7 +19,6 @@ public class UserInfo implements java.io.Serializable {
 	private String sex;
 	private String email;
 	private Long mobile;
-	private String position;
 	private Set messages = new HashSet(0);
 	private Set teachers = new HashSet(0);
 	private Set students = new HashSet(0);
@@ -32,14 +31,12 @@ public class UserInfo implements java.io.Serializable {
 
 	/** full constructor */
 	public UserInfo(Department department, String name, String sex,
-			String email, Long mobile, String position, Set messages,
-			Set teachers, Set students) {
+			String email, Long mobile, Set messages, Set teachers, Set students) {
 		this.department = department;
 		this.name = name;
 		this.sex = sex;
 		this.email = email;
 		this.mobile = mobile;
-		this.position = position;
 		this.messages = messages;
 		this.teachers = teachers;
 		this.students = students;
@@ -93,14 +90,6 @@ public class UserInfo implements java.io.Serializable {
 
 	public void setMobile(Long mobile) {
 		this.mobile = mobile;
-	}
-
-	public String getPosition() {
-		return this.position;
-	}
-
-	public void setPosition(String position) {
-		this.position = position;
 	}
 
 	public Set getMessages() {
