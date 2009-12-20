@@ -20,6 +20,20 @@
          <result name="error">/admin/error.jsp</result>
        </action>
        
+       <action name="findAllSchoolsAction" method="findAllSchools" class="cn.edu.xmu.course.web.action.SchoolManageAction">
+         <result name="allSchools">/admin/schoolmanage/schoollist.jsp</result>
+         <result name="error">/admin/error.jsp</result>
+       </action>
+       
+       <action name="findDepartmentAction" method="findDepartmentBySchool" class="cn.edu.xmu.course.web.action.SchoolManageAction">
+         <result name="success">/admin/schoolmanage/departmentlist.jsp</result>
+         <result name="error">/admin/error.jsp</result>
+       </action>
+       
+       <action name="deleteSchoolAction" method="deleteSchool" class="cn.edu.xmu.course.web.action.SchoolManageAction">
+         <result name="success">/admin/schoolmanage/schoollist.jsp</result>
+         <result name="error">/admin/error.jsp</result>
+       </action>
     </package>
 
 
