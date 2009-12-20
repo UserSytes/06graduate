@@ -166,6 +166,26 @@ public class SuperAdminService implements ISuperAdminService {
 	public String getPassword() {
 		return password;
 	}
+
+	public Administrator findAdminById(int id) {
+		// TODO Auto-generated method stub
+		return administratorDAO.findById(id);
+	}
+
+	public Grade findGradeById(int id) {
+		// TODO Auto-generated method stub
+		return gradeDAO.findById(id);
+	}
+
+	public News findNewsById(int id) {
+		// TODO Auto-generated method stub
+		return newsDAO.findById(id);
+	}
+
+	public School findSchoolById(int id) {
+		// TODO Auto-generated method stub
+		return schoolDAO.findById(id);
+	}
 	
 	
 
