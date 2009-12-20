@@ -3,38 +3,52 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
 	"http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-
-
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
-    <constant name="struts.devMode" value="false" />
-    <constant name="struts.i18n.encoding" value="UTF-8"/>
-
-    <package name="struts" extends="struts-default">
-       <action name="loginAction" method="login" class="cn.edu.xmu.course.web.action.LoginAction">
-         <result name="success">/teacher/index.jsp</result>
-         <result name="error">/teacher/error.jsp</result>
-       </action>
-       
-       <action name="addSchoolAction" method="addSchool" class="cn.edu.xmu.course.web.action.SchoolManageAction">
-         <result name="success">/admin/right.jsp</result>
-         <result name="error">/admin/error.jsp</result>
-       </action>
-       
-       <action name="findAllSchoolsAction" method="findAllSchools" class="cn.edu.xmu.course.web.action.SchoolManageAction">
-         <result name="allSchools">/admin/schoolmanage/schoollist.jsp</result>
-         <result name="error">/admin/error.jsp</result>
-       </action>
-       
-       <action name="findDepartmentAction" method="findDepartmentBySchool" class="cn.edu.xmu.course.web.action.SchoolManageAction">
-         <result name="success">/admin/schoolmanage/departmentlist.jsp</result>
-         <result name="error">/admin/error.jsp</result>
-       </action>
-       
-       <action name="deleteSchoolAction" method="deleteSchool" class="cn.edu.xmu.course.web.action.SchoolManageAction">
-         <result name="success">/admin/schoolmanage/schoollist.jsp</result>
-         <result name="error">/admin/error.jsp</result>
-       </action>
-    </package>
-
-
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.ui.theme" value="simple" />
+	<package name="struts" extends="struts-default">
+		<action name="loginAction" method="login"
+			class="cn.edu.xmu.course.web.action.LoginAction">
+			<result name="success">/teacher/index.jsp</result>
+			<result name="error">/teacher/error.jsp</result>
+		</action>
+		<action name="changeTeacherInfoAction" method="changeTeacherInfo"
+			class="teacherInfoAction">
+			<result name="success">/teacher/index.jsp</result>
+			<result name="error">/teacher/error.jsp</result>
+		</action>
+		<action name="getTeacherInfoAction" method="getTeacherInfo"
+			class="teacherInfoAction">
+			<result name="success">/teacher/teacherinfo.jsp</result>
+			<result name="error">/teacher/error.jsp</result>
+		</action>
+		<action name="changePwdAction" method="changePassword" class="teacherInfoAction">
+			<result name="success">/teacher/index.jsp</result>
+			<result name="error">/teacher/error.jsp</result>
+		</action>
+		<action name="addSchoolAction" method="addSchool"
+			class="cn.edu.xmu.course.web.action.SchoolManageAction">
+			<result name="success">/admin/right.jsp</result>
+			<result name="error">/admin/error.jsp</result>
+		</action>
+		<action name="findAllSchoolsAction" method="findAllSchools"
+			class="cn.edu.xmu.course.web.action.SchoolManageAction">
+			<result name="allSchools">/admin/schoolmanage/schoollist.jsp
+			</result>
+			<result name="error">/admin/error.jsp</result>
+		</action>
+		<action name="findDepartmentAction" method="findDepartmentBySchool"
+			class="cn.edu.xmu.course.web.action.SchoolManageAction">
+			<result name="success">/admin/schoolmanage/departmentlist.jsp
+			</result>
+			<result name="error">/admin/error.jsp</result>
+		</action>
+		<action name="deleteSchoolAction" method="deleteSchool"
+			class="cn.edu.xmu.course.web.action.SchoolManageAction">
+			<result name="success">/admin/schoolmanage/schoollist.jsp
+			</result>
+			<result name="error">/admin/error.jsp</result>
+		</action>
+	</package>
 </struts>
