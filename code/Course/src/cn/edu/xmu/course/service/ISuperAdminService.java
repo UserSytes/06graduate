@@ -26,6 +26,8 @@ public interface ISuperAdminService {
 	
 	public List findAllSchool();
 	
+	public School findSchoolById(int id);
+	
 	public List findDepartmentBySchool(School school);
 	
 	public boolean addAdmin(String name, String account, School school);
@@ -34,6 +36,8 @@ public interface ISuperAdminService {
 	
 	public List findAllAdmin();
 	
+	public Administrator findAdminById(int id);
+	
 	//新闻管理
 	public List findAllNews();
 	
@@ -41,10 +45,14 @@ public interface ISuperAdminService {
 	
 	public boolean deleteNews(News news); 
 	
+	public News findNewsById(int id);
+	
 	//年级管理
 	public boolean addGrade(String name, Integer grade);
 	
 	public boolean deleteGrade(Grade grade);
 	
 	public List findAllGrade();
+	
+	public Grade findGradeById(int id);
 }

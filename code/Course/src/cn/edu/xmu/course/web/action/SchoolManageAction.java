@@ -1,5 +1,9 @@
 package cn.edu.xmu.course.web.action;
 
+import java.util.List;
+
+import cn.edu.xmu.course.pojo.Department;
+import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.service.ISuperAdminService;
 
 public class SchoolManageAction extends BaseAction{
@@ -12,6 +16,10 @@ public class SchoolManageAction extends BaseAction{
 	private ISuperAdminService superAdminService;
 
 	private String schoolName;
+	private List<School> allSchoolList;
+	private List<Department> departmentList;
+	private int schoolId;
+	
 	
 	/**
 	 * 添加学院
@@ -20,9 +28,51 @@ public class SchoolManageAction extends BaseAction{
 	public String addSchool(){
 		boolean result = false;
 		result = superAdminService.addSchool(schoolName);
+//		List schools = superAdminService.findAllSchool();		
+//		School sc = (School) schools.get(0);
+//		System.out.println("test:  "+sc.getName());
 		if(result)
 			return SUCCESS;
 		else 
+			return ERROR;
+	}
+	
+	/**
+	 * 查找所有学院
+	 * @return
+	 */
+	public String findAllSchools(){
+		allSchoolList = superAdminService.findAllSchool();
+		//System.out.println("test:  "+allSchoolList.get(0).getName());
+		if(allSchoolList.size()==0){
+			return ERROR;
+		}else
+			return "allSchools";
+	}
+	
+    /**
+     * 查找系
+     * @return
+     */
+	public String findDepartmentBySchool(){
+		School s = superAdminService.findSchoolById(schoolId);
+		departmentList = superAdminService.findDepartmentBySchool(s);
+		if(departmentList.size()==0){
+			return ERROR;
+		}else
+			return "departments";
+	}
+	
+	/**
+	 * 删除学院
+	 * @return
+	 */
+	public String deleteSchool(){
+		School s = superAdminService.findSchoolById(schoolId);
+		boolean result = superAdminService.deleteSchool(s);
+		if(result){
+			return SUCCESS;
+		}else
 			return ERROR;
 	}
 	
