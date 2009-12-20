@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../../commons/taglibs.jsp"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
 		<META http-equiv=Content-Type content="text/html; charset=UTF-8">
@@ -49,16 +49,8 @@
 						请输入新学院信息
 					</td>
 				</tr>
-				<tr>
-					<td colspan="7" bgcolor="#FFFFFF">
-						<s:textfield name="schoolName" label="名称"></s:textfield>
-					</td>
-				</tr>
-				<tr bgcolor="#ECF3FD">
-					<td width="30%">
-						<s:submit value="确定添加"></s:submit>
-					</td>
-				</tr>
+		    <s:textfield cssClass="INPUT" name="schoolName" label="学院名称"></s:textfield>
+			<s:submit cssClass="editFooterTr" value="确定添加"></s:submit>
 			</table>
 		</s:form>
 	</body>
