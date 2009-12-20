@@ -8,6 +8,15 @@
 		</property>
 	</bean>
 	
+	<bean id="teacherInfoService" class="cn.edu.xmu.course.service.impl.TeacherInfoService">
+		<property name="teacherDAO">
+		<ref bean="TeacherDAO"/>
+		</property>
+		<property name="userInfoDAO">
+		<ref bean="UserInfoDAO"/>
+		</property>
+	</bean>	
+	
 	<!--超级管理员-->
 	<bean id="superAdminService"
 		class="cn.edu.xmu.course.service.impl.SuperAdminService">

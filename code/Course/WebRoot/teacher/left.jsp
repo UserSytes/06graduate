@@ -43,12 +43,12 @@ border=0 align=right cellPadding=0 cellSpacing=0 class=leftframetable>
               <TBODY>
                 <TR>
                   <TD width="2%"><IMG src="Images/closed.gif"></TD>
-                  <TD height=23><A href="System_Admin.asp" 
+                  <TD height=23><A href="getTeacherInfoAction.action" 
             target=main>个人信息</A></TD>
                 </TR>
                 <TR>
                   <TD><IMG src="Images/closed.gif"></TD>
-                  <TD height=23><A href="Log_Admin.asp" 
+                  <TD height=23><A href="changepassword.jsp" 
             target=main>修改密码</A></TD>
                 </TR>
               </TBODY>
