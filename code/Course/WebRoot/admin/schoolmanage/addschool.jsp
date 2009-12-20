@@ -50,7 +50,7 @@
 					</td>
 				</tr>
 		    <s:textfield cssClass="INPUT" name="schoolName" label="学院名称"></s:textfield>
-			<s:submit cssClass="editFooterTr" value="确定添加"></s:submit>
+			<s:submit cssClass="editRightTd" value="确定添加"></s:submit>
 			</table>
 		</s:form>
 	</body>
