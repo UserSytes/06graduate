@@ -19,6 +19,7 @@
 		<property name="connection.driver_class">
 			com.mysql.jdbc.Driver
 		</property>
+		<property name="connection.autocommit">true </property> 
 		<mapping resource="cn/edu/xmu/course/pojo/Courseware.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/Department.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/Course.hbm.xml" />
