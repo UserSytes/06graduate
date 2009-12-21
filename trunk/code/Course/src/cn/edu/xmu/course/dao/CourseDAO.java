@@ -27,6 +27,7 @@ public class CourseDAO extends HibernateDaoSupport {
 	// property constants
 	public static final String NAME = "name";
 	public static final String REMARK = "remark";
+	public static final String DEPARTMENT = "department";
 
 	protected void initDao() {
 		// do nothing
@@ -98,6 +99,19 @@ public class CourseDAO extends HibernateDaoSupport {
 
 	public List findByRemark(Object remark) {
 		return findByProperty(REMARK, remark);
+	}
+	
+	public List findByDepartment(Integer departmentId){
+		log.debug("finding Course instance with property: " + DEPARTMENT
+				+ ", value: " + departmentId);
+		try {
+			String queryString = "from Course as model where model.department.id=?";
+					
+			return getHibernateTemplate().find(queryString, departmentId);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
 	}
 
 	public List findAll() {

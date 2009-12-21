@@ -28,6 +28,13 @@
 		</property>
 	</bean>	
 	
+	<!-- 院系管理 -->
+	<bean id="departmentService" class="cn.edu.xmu.course.service.impl.DepartmentService">
+		<property name="departmentDAO">
+			<ref bean="DepartmentDAO" />
+		</property>
+	</bean>	
+	
 	<!--超级管理员（院系管理模块）-->
 	<bean id="superAdminService" class="cn.edu.xmu.course.service.impl.SuperAdminService">
 		<property name="superAdminDAO">
