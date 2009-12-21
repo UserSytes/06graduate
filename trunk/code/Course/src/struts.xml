@@ -41,7 +41,7 @@
 		
 		<!--超级管理员-->
 		<action name="addSchoolAction" method="addSchool" class="schoolManageAction">
-			<result name="success">/admin/right.jsp</result>
+			<result name="success">/admin/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="findAllSchoolsAction" method="findAllSchools"
