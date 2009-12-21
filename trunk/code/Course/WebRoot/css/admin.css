@@ -24,7 +24,7 @@ SELECT {
 	FONT-SIZE: 12px; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"
 }
 TEXTAREA {
-	FONT-SIZE: 12px; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"
+	FONT-SIZE: 12px; width: 80%;INE-HEIGHT: 150%; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"
 }
 A:link {
 	COLOR: #036; TEXT-DECORATION: none
