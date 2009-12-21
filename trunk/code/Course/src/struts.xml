@@ -67,12 +67,12 @@
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="addAdminAction" method="addAdmin" class="schoolManageAction">
-			<result name="success">/admin/right.jsp
+			<result name="success">/admin/prompt.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="addGradeAction" method="addGrade" class="schoolManageAction">
-			<result name="success">/admin/right.jsp
+			<result name="success">/admin/prompt.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>

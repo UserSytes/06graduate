@@ -46,8 +46,10 @@ public class SchoolManageAction extends BaseAction {
 		// List schools = superAdminService.findAllSchool();
 		// School sc = (School) schools.get(0);
 		// System.out.println("test:  "+sc.getName());
-		if (result)
+		if (result){
+			addActionMessage("添加学院成功！"); 
 			return SUCCESS;
+		}
 		else
 			return ERROR;
 	}
@@ -103,8 +105,10 @@ public class SchoolManageAction extends BaseAction {
 		adminSchool = superAdminService.findSchoolById(adminSchoolId);
 		boolean result = false;
 		result = adminService.addAdmin(adminName, adminAccount, adminSchool);
-		if (result)
+		if (result){
+			addActionMessage("添加学院管理员成功！"); 
 			return SUCCESS;
+		}
 		else
 			return ERROR;
 	}
@@ -133,11 +137,10 @@ public class SchoolManageAction extends BaseAction {
 			gradeName = "硕博";
 			break;
 		}
-//		System.out.println("test1:  " + gradeName);
-//		System.out.println("test2:  " + gradeNum);
 		result = superAdminService.addGrade(gradeName, Integer
 				.parseInt(gradeNum));
 		if (result) {
+			addActionMessage("添加年级成功！"); 
 			return SUCCESS;
 		} else
 			return ERROR;
