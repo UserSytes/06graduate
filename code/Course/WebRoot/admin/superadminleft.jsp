@@ -113,9 +113,8 @@ eval("submenu" + sid + ".style.display=\"none\";");
 													<img src="Images/closed.gif" />
 												</td>
 												<td height="23">
-													<a
-														href="<s:url action='findAllSchoolsAction'> </s:url>"  target="main">
-														学院列表</a>┆
+													<a href="<s:url action='findAllSchoolsAction'> </s:url>"
+														target="main"> 学院列表</a>┆
 													<a href="schoolmanage/addschool.jsp" target="main">添加学院</a>
 												</td>
 											</tr>
@@ -133,8 +132,8 @@ eval("submenu" + sid + ".style.display=\"none\";");
 													<img src="Images/closed.gif" />
 												</td>
 												<td height="23">
-													<a href="Article/Article_Manage.asp?action=ListisAccept"
-														target="main">添加学院管理员</a>
+													<a href="<s:url action='goAddAdminAction'> </s:url>"
+														target="main"> 添加学院管理员</a>
 												</td>
 											</tr>
 										</tbody>

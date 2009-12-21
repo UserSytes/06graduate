@@ -27,5 +27,8 @@
 		<property name="superAdminService">
 		<ref bean="superAdminService"/>
 		</property>
+		<property name="adminService">
+		<ref bean="adminService"/>
+		</property>
 	</bean>
 </beans>
