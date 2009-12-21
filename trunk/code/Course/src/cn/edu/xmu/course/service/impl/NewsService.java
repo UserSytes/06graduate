@@ -17,7 +17,12 @@ public class NewsService implements INewsService {
 
 	public boolean deleteNews(News news) {
 		// TODO Auto-generated method stub
-		return newsDAO.delete(news);
+		try {
+			newsDAO.delete(news);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	public List findAllNews() {

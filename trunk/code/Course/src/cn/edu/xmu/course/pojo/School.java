@@ -4,9 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * School entity.
- * 
- * @author MyEclipse Persistence Tools
+ * School entity. @author MyEclipse Persistence Tools
  */
 
 public class School implements java.io.Serializable {

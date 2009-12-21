@@ -3,9 +3,7 @@ package cn.edu.xmu.course.pojo;
 import java.util.Date;
 
 /**
- * Courseware entity.
- * 
- * @author MyEclipse Persistence Tools
+ * Courseware entity. @author MyEclipse Persistence Tools
  */
 
 public class Courseware implements java.io.Serializable {

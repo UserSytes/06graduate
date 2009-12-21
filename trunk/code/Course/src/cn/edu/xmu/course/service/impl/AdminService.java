@@ -16,12 +16,22 @@ public class AdminService implements IAdminService {
 		// TODO Auto-generated method stub
 		admin.setSchool(school);
 		admin.setPassword(password);	
-		return administratorDAO.save(admin);
+		try {
+			administratorDAO.save(admin);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 	
 	public boolean deleteAdmin(Administrator admin) {
 		// TODO Auto-generated method stub
-		return administratorDAO.delete(admin);
+		try {
+			administratorDAO.delete(admin);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 	
 	public List findAllAdmin() {

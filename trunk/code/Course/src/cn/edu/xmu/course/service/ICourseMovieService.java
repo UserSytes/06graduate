@@ -16,7 +16,7 @@ public interface ICourseMovieService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public List getAllCourseMovies(TeacherCourse teacherCourse);
+	public List getAllCourseMovies(Course course);
 	
 	/**
 	 * 查找课程录像
@@ -31,7 +31,7 @@ public interface ICourseMovieService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public boolean addCourseMovie(CourseMovie courseMovie, TeacherCourse teacherCourse);
+	public boolean addCourseMovie(CourseMovie courseMovie, Course course);
 	
 	/**
 	 * 更新课程录像

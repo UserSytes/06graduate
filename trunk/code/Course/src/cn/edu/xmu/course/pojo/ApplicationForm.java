@@ -3,9 +3,7 @@ package cn.edu.xmu.course.pojo;
 import java.util.Date;
 
 /**
- * ApplicationForm entity.
- * 
- * @author MyEclipse Persistence Tools
+ * ApplicationForm entity. @author MyEclipse Persistence Tools
  */
 
 public class ApplicationForm implements java.io.Serializable {
@@ -13,7 +11,7 @@ public class ApplicationForm implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private TeacherCourse teacherCourse;
+	private Course course;
 	private String unit;
 	private String school;
 	private String name;
@@ -40,11 +38,11 @@ public class ApplicationForm implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public ApplicationForm(TeacherCourse teacherCourse, String unit,
-			String school, String name, String level, String sort,
-			String firstSubject, String secondSubjet, String responser,
-			Date time, String fileLink, String filename) {
-		this.teacherCourse = teacherCourse;
+	public ApplicationForm(Course course, String unit, String school,
+			String name, String level, String sort, String firstSubject,
+			String secondSubjet, String responser, Date time, String fileLink,
+			String filename) {
+		this.course = course;
 		this.unit = unit;
 		this.school = school;
 		this.name = name;
@@ -68,12 +66,12 @@ public class ApplicationForm implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public TeacherCourse getTeacherCourse() {
-		return this.teacherCourse;
+	public Course getCourse() {
+		return this.course;
 	}
 
-	public void setTeacherCourse(TeacherCourse teacherCourse) {
-		this.teacherCourse = teacherCourse;
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 	public String getUnit() {

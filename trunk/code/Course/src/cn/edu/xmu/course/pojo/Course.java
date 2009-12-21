@@ -4,9 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Course entity.
- * 
- * @author MyEclipse Persistence Tools
+ * Course entity. @author MyEclipse Persistence Tools
  */
 
 public class Course implements java.io.Serializable {
@@ -15,12 +13,22 @@ public class Course implements java.io.Serializable {
 
 	private Integer id;
 	private Department department;
+	private Teacher teacher;
 	private String name;
 	private String remark;
+	private Integer status;
+	private String level;
+	private Set courseMovies = new HashSet(0);
 	private Set collections = new HashSet(0);
-	private Set teacherCourses = new HashSet(0);
+	private Set teachers = new HashSet(0);
+	private Set topics = new HashSet(0);
+	private Set achievements = new HashSet(0);
+	private Set books = new HashSet(0);
 	private Set teacherTeams = new HashSet(0);
+	private Set applicationForms = new HashSet(0);
+	private Set examinations = new HashSet(0);
 	private Set courseInfos = new HashSet(0);
+	private Set chapters = new HashSet(0);
 	private Set studentCourses = new HashSet(0);
 
 	// Constructors
@@ -35,16 +43,28 @@ public class Course implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Course(Department department, String name, String remark,
-			Set collections, Set teacherCourses, Set teacherTeams,
-			Set courseInfos, Set studentCourses) {
+	public Course(Department department, Teacher teacher, String name,
+			String remark, Integer status, String level, Set courseMovies,
+			Set collections, Set teachers, Set topics, Set achievements,
+			Set books, Set teacherTeams, Set applicationForms,
+			Set examinations, Set courseInfos, Set chapters, Set studentCourses) {
 		this.department = department;
+		this.teacher = teacher;
 		this.name = name;
 		this.remark = remark;
+		this.status = status;
+		this.level = level;
+		this.courseMovies = courseMovies;
 		this.collections = collections;
-		this.teacherCourses = teacherCourses;
+		this.teachers = teachers;
+		this.topics = topics;
+		this.achievements = achievements;
+		this.books = books;
 		this.teacherTeams = teacherTeams;
+		this.applicationForms = applicationForms;
+		this.examinations = examinations;
 		this.courseInfos = courseInfos;
+		this.chapters = chapters;
 		this.studentCourses = studentCourses;
 	}
 
@@ -66,6 +86,14 @@ public class Course implements java.io.Serializable {
 		this.department = department;
 	}
 
+	public Teacher getTeacher() {
+		return this.teacher;
+	}
+
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+
 	public String getName() {
 		return this.name;
 	}
@@ -82,6 +110,30 @@ public class Course implements java.io.Serializable {
 		this.remark = remark;
 	}
 
+	public Integer getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
+	public String getLevel() {
+		return this.level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
+	}
+
+	public Set getCourseMovies() {
+		return this.courseMovies;
+	}
+
+	public void setCourseMovies(Set courseMovies) {
+		this.courseMovies = courseMovies;
+	}
+
 	public Set getCollections() {
 		return this.collections;
 	}
@@ -90,12 +142,36 @@ public class Course implements java.io.Serializable {
 		this.collections = collections;
 	}
 
-	public Set getTeacherCourses() {
-		return this.teacherCourses;
+	public Set getTeachers() {
+		return this.teachers;
 	}
 
-	public void setTeacherCourses(Set teacherCourses) {
-		this.teacherCourses = teacherCourses;
+	public void setTeachers(Set teachers) {
+		this.teachers = teachers;
+	}
+
+	public Set getTopics() {
+		return this.topics;
+	}
+
+	public void setTopics(Set topics) {
+		this.topics = topics;
+	}
+
+	public Set getAchievements() {
+		return this.achievements;
+	}
+
+	public void setAchievements(Set achievements) {
+		this.achievements = achievements;
+	}
+
+	public Set getBooks() {
+		return this.books;
+	}
+
+	public void setBooks(Set books) {
+		this.books = books;
 	}
 
 	public Set getTeacherTeams() {
@@ -106,12 +182,36 @@ public class Course implements java.io.Serializable {
 		this.teacherTeams = teacherTeams;
 	}
 
+	public Set getApplicationForms() {
+		return this.applicationForms;
+	}
+
+	public void setApplicationForms(Set applicationForms) {
+		this.applicationForms = applicationForms;
+	}
+
+	public Set getExaminations() {
+		return this.examinations;
+	}
+
+	public void setExaminations(Set examinations) {
+		this.examinations = examinations;
+	}
+
 	public Set getCourseInfos() {
 		return this.courseInfos;
 	}
 
 	public void setCourseInfos(Set courseInfos) {
 		this.courseInfos = courseInfos;
+	}
+
+	public Set getChapters() {
+		return this.chapters;
+	}
+
+	public void setChapters(Set chapters) {
+		this.chapters = chapters;
 	}
 
 	public Set getStudentCourses() {

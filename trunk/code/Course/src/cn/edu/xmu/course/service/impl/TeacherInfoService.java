@@ -4,7 +4,8 @@ import java.util.List;
 
 import cn.edu.xmu.course.dao.TeacherDAO;
 import cn.edu.xmu.course.dao.UserInfoDAO;
-import cn.edu.xmu.course.pojo.*;
+import cn.edu.xmu.course.pojo.Teacher;
+import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.ITeacherInfoService;
 
 public class TeacherInfoService implements ITeacherInfoService {

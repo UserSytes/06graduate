@@ -1,9 +1,7 @@
 package cn.edu.xmu.course.pojo;
 
 /**
- * TeacherTeam entity.
- * 
- * @author MyEclipse Persistence Tools
+ * TeacherTeam entity. @author MyEclipse Persistence Tools
  */
 
 public class TeacherTeam implements java.io.Serializable {

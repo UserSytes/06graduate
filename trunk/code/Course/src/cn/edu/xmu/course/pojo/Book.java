@@ -3,9 +3,7 @@ package cn.edu.xmu.course.pojo;
 import java.util.Date;
 
 /**
- * Book entity.
- * 
- * @author MyEclipse Persistence Tools
+ * Book entity. @author MyEclipse Persistence Tools
  */
 
 public class Book implements java.io.Serializable {
@@ -13,7 +11,7 @@ public class Book implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private TeacherCourse teacherCourse;
+	private Course course;
 	private String name;
 	private String filename;
 	private Date time;
@@ -35,9 +33,9 @@ public class Book implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Book(TeacherCourse teacherCourse, String name, String filename,
-			Date time, String author, String publication, String fileLink) {
-		this.teacherCourse = teacherCourse;
+	public Book(Course course, String name, String filename, Date time,
+			String author, String publication, String fileLink) {
+		this.course = course;
 		this.name = name;
 		this.filename = filename;
 		this.time = time;
@@ -56,12 +54,12 @@ public class Book implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public TeacherCourse getTeacherCourse() {
-		return this.teacherCourse;
+	public Course getCourse() {
+		return this.course;
 	}
 
-	public void setTeacherCourse(TeacherCourse teacherCourse) {
-		this.teacherCourse = teacherCourse;
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 	public String getName() {

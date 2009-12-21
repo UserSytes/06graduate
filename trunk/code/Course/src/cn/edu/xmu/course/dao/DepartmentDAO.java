@@ -26,35 +26,30 @@ public class DepartmentDAO extends HibernateDaoSupport {
 	private static final Log log = LogFactory.getLog(DepartmentDAO.class);
 	// property constants
 	public static final String NAME = "name";
-	public static final String SCHOOL = "school";
 
 	protected void initDao() {
 		// do nothing
 	}
 
-	public boolean save(Department transientInstance) {
+	public void save(Department transientInstance) {
 		log.debug("saving Department instance");
 		try {
 			getHibernateTemplate().save(transientInstance);
 			log.debug("save successful");
-			return true;
 		} catch (RuntimeException re) {
 			log.error("save failed", re);
-			//throw re;
-			return false;
+			throw re;
 		}
 	}
 
-	public boolean delete(Department persistentInstance) {
+	public void delete(Department persistentInstance) {
 		log.debug("deleting Department instance");
 		try {
 			getHibernateTemplate().delete(persistentInstance);
 			log.debug("delete successful");
-			return true;
 		} catch (RuntimeException re) {
 			log.error("delete failed", re);
-			//throw re;
-			return false;
+			throw re;
 		}
 	}
 
@@ -98,10 +93,6 @@ public class DepartmentDAO extends HibernateDaoSupport {
 
 	public List findByName(Object name) {
 		return findByProperty(NAME, name);
-	}
-	
-	public List findBySchool(Integer schoolId){
-		return this.findByProperty("school.id", schoolId);
 	}
 
 	public List findAll() {

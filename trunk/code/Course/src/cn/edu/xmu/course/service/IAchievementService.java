@@ -14,7 +14,7 @@ public interface IAchievementService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public Achievement getAchievement(TeacherCourse teacherCourse);
+	public Achievement getAchievement(Course course);
 	
 	/**
 	 * 添加教学成果
@@ -22,7 +22,7 @@ public interface IAchievementService {
 	 * @param achievement
 	 * @return
 	 */
-	public boolean addAchievement(TeacherCourse teacherCourse, Achievement achievement);
+	public boolean addAchievement(Course course, Achievement achievement);
 	
 	/**
 	 * 删除教学成果

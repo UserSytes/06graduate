@@ -1,9 +1,7 @@
 package cn.edu.xmu.course.pojo;
 
 /**
- * Collection entity.
- * 
- * @author MyEclipse Persistence Tools
+ * Collection entity. @author MyEclipse Persistence Tools
  */
 
 public class Collection implements java.io.Serializable {

@@ -2,14 +2,13 @@ package cn.edu.xmu.course.service.impl;
 
 import java.util.List;
 
+import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.CourseMovie;
-import cn.edu.xmu.course.pojo.TeacherCourse;
 import cn.edu.xmu.course.service.ICourseMovieService;
 
 public class CourseMovieService implements ICourseMovieService {
 
-	public boolean addCourseMovie(CourseMovie courseMovie,
-			TeacherCourse teacherCourse) {
+	public boolean addCourseMovie(CourseMovie courseMovie, Course course) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -19,7 +18,7 @@ public class CourseMovieService implements ICourseMovieService {
 		return false;
 	}
 
-	public List getAllCourseMovies(TeacherCourse teacherCourse) {
+	public List getAllCourseMovies(Course course) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -33,5 +32,6 @@ public class CourseMovieService implements ICourseMovieService {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 
 }

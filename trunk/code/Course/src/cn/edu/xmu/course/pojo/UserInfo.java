@@ -4,9 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * UserInfo entity.
- * 
- * @author MyEclipse Persistence Tools
+ * UserInfo entity. @author MyEclipse Persistence Tools
  */
 
 public class UserInfo implements java.io.Serializable {

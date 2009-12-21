@@ -16,7 +16,7 @@ public interface IExaminationService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public List getAllExaminations(TeacherCourse teacherCourse);
+	public List getAllExaminations(Course course);
 	
 	/**
 	 * 查找课程考卷
@@ -31,7 +31,7 @@ public interface IExaminationService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public boolean addExamination(Examination examination, TeacherCourse teacherCourse);
+	public boolean addExamination(Examination examination, Course course);
 	
 	/**
 	 * 更新课程考卷

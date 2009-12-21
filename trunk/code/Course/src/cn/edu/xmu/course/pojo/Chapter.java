@@ -4,9 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Chapter entity.
- * 
- * @author MyEclipse Persistence Tools
+ * Chapter entity. @author MyEclipse Persistence Tools
  */
 
 public class Chapter implements java.io.Serializable {
@@ -14,7 +12,7 @@ public class Chapter implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private TeacherCourse teacherCourse;
+	private Course course;
 	private Integer number;
 	private String name;
 	private String remark;
@@ -35,9 +33,9 @@ public class Chapter implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Chapter(TeacherCourse teacherCourse, Integer number, String name,
-			String remark, Set exercises, Set experiments, Set coursewares) {
-		this.teacherCourse = teacherCourse;
+	public Chapter(Course course, Integer number, String name, String remark,
+			Set exercises, Set experiments, Set coursewares) {
+		this.course = course;
 		this.number = number;
 		this.name = name;
 		this.remark = remark;
@@ -56,12 +54,12 @@ public class Chapter implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public TeacherCourse getTeacherCourse() {
-		return this.teacherCourse;
+	public Course getCourse() {
+		return this.course;
 	}
 
-	public void setTeacherCourse(TeacherCourse teacherCourse) {
-		this.teacherCourse = teacherCourse;
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 	public Integer getNumber() {

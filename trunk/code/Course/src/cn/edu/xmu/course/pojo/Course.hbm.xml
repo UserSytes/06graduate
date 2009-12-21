@@ -13,23 +13,56 @@
         <many-to-one name="department" class="cn.edu.xmu.course.pojo.Department" fetch="select">
             <column name="department_id" />
         </many-to-one>
+        <many-to-one name="teacher" class="cn.edu.xmu.course.pojo.Teacher" fetch="select">
+            <column name="course_id" />
+        </many-to-one>
         <property name="name" type="java.lang.String">
             <column name="name" length="50" not-null="true" />
         </property>
         <property name="remark" type="java.lang.String">
             <column name="remark" />
         </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <property name="level" type="java.lang.String">
+            <column name="level" length="50" />
+        </property>
+        <set name="courseMovies" inverse="true">
+            <key>
+                <column name="course_id" />
+            </key>
+            <one-to-many class="cn.edu.xmu.course.pojo.CourseMovie" />
+        </set>
         <set name="collections" inverse="true">
             <key>
                 <column name="course_id" />
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.Collection" />
         </set>
-        <set name="teacherCourses" inverse="true">
+        <set name="teachers" inverse="true">
             <key>
-                <column name="course_Id" />
+                <column name="course_id" />
             </key>
-            <one-to-many class="cn.edu.xmu.course.pojo.TeacherCourse" />
+            <one-to-many class="cn.edu.xmu.course.pojo.Teacher" />
+        </set>
+        <set name="topics" inverse="true">
+            <key>
+                <column name="course_id" />
+            </key>
+            <one-to-many class="cn.edu.xmu.course.pojo.Topic" />
+        </set>
+        <set name="achievements" inverse="true">
+            <key>
+                <column name="course_id" />
+            </key>
+            <one-to-many class="cn.edu.xmu.course.pojo.Achievement" />
+        </set>
+        <set name="books" inverse="true">
+            <key>
+                <column name="course_id" />
+            </key>
+            <one-to-many class="cn.edu.xmu.course.pojo.Book" />
         </set>
         <set name="teacherTeams" inverse="true">
             <key>
@@ -37,11 +70,29 @@
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.TeacherTeam" />
         </set>
+        <set name="applicationForms" inverse="true">
+            <key>
+                <column name="course_id" />
+            </key>
+            <one-to-many class="cn.edu.xmu.course.pojo.ApplicationForm" />
+        </set>
+        <set name="examinations" inverse="true">
+            <key>
+                <column name="course_id" />
+            </key>
+            <one-to-many class="cn.edu.xmu.course.pojo.Examination" />
+        </set>
         <set name="courseInfos" inverse="true">
             <key>
                 <column name="courseId" />
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.CourseInfo" />
+        </set>
+        <set name="chapters" inverse="true">
+            <key>
+                <column name="course_id" />
+            </key>
+            <one-to-many class="cn.edu.xmu.course.pojo.Chapter" />
         </set>
         <set name="studentCourses" inverse="true">
             <key>

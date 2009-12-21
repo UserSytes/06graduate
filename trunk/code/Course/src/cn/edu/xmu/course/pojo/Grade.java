@@ -4,9 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Grade entity.
- * 
- * @author MyEclipse Persistence Tools
+ * Grade entity. @author MyEclipse Persistence Tools
  */
 
 public class Grade implements java.io.Serializable {

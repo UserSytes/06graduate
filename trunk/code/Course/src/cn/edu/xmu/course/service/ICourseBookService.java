@@ -16,7 +16,7 @@ public interface ICourseBookService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public List getAllbooks(TeacherCourse teacherCourse);
+	public List getAllbooks(Course course);
 	
 	/**
 	 * 查找课程参考书
@@ -31,7 +31,7 @@ public interface ICourseBookService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public boolean addbook(Book book, TeacherCourse teacherCourse);
+	public boolean addbook(Book book,Course course);
 	
 	/**
 	 * 更新课程参考书

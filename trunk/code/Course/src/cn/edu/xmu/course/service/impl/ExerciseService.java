@@ -3,8 +3,8 @@ package cn.edu.xmu.course.service.impl;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.Chapter;
+import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Exercise;
-import cn.edu.xmu.course.pojo.TeacherCourse;
 import cn.edu.xmu.course.service.IExerciseService;
 
 public class ExerciseService implements IExerciseService {
@@ -19,7 +19,7 @@ public class ExerciseService implements IExerciseService {
 		return false;
 	}
 
-	public List getAllExercises(TeacherCourse teacherCoures) {
+	public List getAllExercises(Course course) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -39,4 +39,5 @@ public class ExerciseService implements IExerciseService {
 		return false;
 	}
 
+	
 }

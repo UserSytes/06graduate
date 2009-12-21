@@ -16,7 +16,7 @@ public interface IChapterService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public List getAllChapter(TeacherCourse teacherCourse);
+	public List getAllChapter(Course course);
 	
 	/**
 	 * 添加课程目录
@@ -24,7 +24,7 @@ public interface IChapterService {
 	 * @param chapter
 	 * @return
 	 */
-	public boolean addChapter(TeacherCourse teacherCourse, Chapter chapter);
+	public boolean addChapter(Course course, Chapter chapter);
 
 	/**
 	 * 更新课程目录
