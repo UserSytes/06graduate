@@ -101,16 +101,7 @@ public class DepartmentDAO extends HibernateDaoSupport {
 	}
 	
 	public List findBySchool(Integer schoolId){
-		log.debug("finding Department instance with property: " + SCHOOL
-				+ ", value: " + schoolId);
-		try {
-			String queryString = "from Department as model where model.school.id=?";
-					
-			return getHibernateTemplate().find(queryString, schoolId);
-		} catch (RuntimeException re) {
-			log.error("find by property name failed", re);
-			throw re;
-		}
+		return this.findByProperty("school.id", schoolId);
 	}
 
 	public List findAll() {

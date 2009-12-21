@@ -29,7 +29,6 @@ public class TeacherInfoAction extends BaseAction{
 	}
 	
 	public String changeTeacherInfo(){
-		System.out.println(teacher.getTeacherNo());
 		if(teacherInfoService.updateTeacher(teacher, userInfo))
 			return SUCCESS;
 		else
