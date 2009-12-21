@@ -18,5 +18,12 @@
 		<convert converter="bean" match="cn.edu.xmu.course.pojo.Department">
 			<param name="include" value="id,name" />
 		</convert>
+		
+		<create creator="spring" javascript="CourseDAO" >
+			<param name="beanName" value="CourseDAO" />
+		</create>
+		<convert converter="bean" match="cn.edu.xmu.course.pojo.Course">
+			<param name="include" value="id,name" />
+		</convert>
 	</allow>
 </dwr>

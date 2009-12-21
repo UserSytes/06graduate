@@ -32,7 +32,11 @@
 		</action>
 		<action name="applyCourseAction" method="applyCourse" class="applyCourseAction">
 			<result name="success">/teacher/index.jsp</result>
-			<result name="error">/teacher/error.jsp</result>
+			<result name="error">/commons/errorpage.jsp</result>
+		</action>
+		<action name="addNewCourseAction" method="addNewCourse" class="applyCourseAction">
+			<result name="success">/teacher/index.jsp</result>
+			<result name="error">/commons/errorpage.jsp</result>
 		</action>
 		
 		<!--超级管理员-->

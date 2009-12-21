@@ -21,9 +21,9 @@ public class ApplyCourserAction extends BaseAction {
 	private final String userName = "123";
 
 	public String applyCourse() {
-		Course course = courseService.getCourseById(Integer.parseInt(courseId));
+		Course course = getCourseService().getCourseById(Integer.parseInt(courseId));
 		Teacher teacher = teacherInfoService.getTeacher(userName);
-		if (courseService.applyCourse(teacher, course, teacherCourse))
+		if (getCourseService().applyCourse(teacher, course, teacherCourse))
 			return SUCCESS;
 		else
 			return ERROR;
@@ -32,7 +32,7 @@ public class ApplyCourserAction extends BaseAction {
 	public String addNewCourse() {
 		Department dept = departmentService.getDepartmentById(Integer
 				.parseInt(departmentId));
-		if (courseService.addCourse(course, dept))
+		if (getCourseService().addCourse(course, dept))
 			return SUCCESS;
 		else
 			return ERROR;
@@ -100,5 +100,13 @@ public class ApplyCourserAction extends BaseAction {
 
 	public String getCourseId() {
 		return courseId;
+	}
+
+	public void setCourseService(ICourseService courseService) {
+		this.courseService = courseService;
+	}
+
+	public ICourseService getCourseService() {
+		return courseService;
 	}
 }
