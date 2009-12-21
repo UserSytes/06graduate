@@ -86,7 +86,7 @@
 				</div>
 				<div class="notreload">
 					如果页面没有自动跳转回上一页，请
-					<a href="javascript:history.back()">点击此处</a>继续
+					<a href="javascript:history.back()"><strong><font color="#ffff00">点击此处</font></strong></a>继续
 				</div>
 			</div>
 		</div>
