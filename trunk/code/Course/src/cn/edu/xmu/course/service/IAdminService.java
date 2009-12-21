@@ -7,7 +7,7 @@ import cn.edu.xmu.course.pojo.School;
 
 public interface IAdminService {
 
-public boolean addAdmin(String name, String account, School school);
+public boolean addAdmin(Administrator admin, School school);
 	
 	public boolean deleteAdmin(Administrator admin);
 	

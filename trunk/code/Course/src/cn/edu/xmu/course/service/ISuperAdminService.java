@@ -16,11 +16,11 @@ import cn.edu.xmu.course.pojo.School;
 public interface ISuperAdminService {
 
 	//院系管理
-	public boolean addSchool(String schoolName);
+	public boolean addSchool(School school);
 	
 	public boolean deleteSchool(School school);
 	
-	public boolean addDepartment(School school, String departmentName);
+	public boolean addDepartment(School school, Department department);
 	
 	public boolean deleteDepartment(Department department);
 	
@@ -31,7 +31,7 @@ public interface ISuperAdminService {
 	public List findDepartmentBySchool(School school);
 
 	//年级管理
-	public boolean addGrade(String name, Integer grade);
+	public boolean addGrade(Grade grade);
 	
 	public boolean deleteGrade(Grade grade);
 	

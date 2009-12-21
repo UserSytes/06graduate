@@ -8,7 +8,7 @@
 		<META http-equiv=Pragma content=no-cache>
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
-		<LINK href="../Images/css1/admin.css" type=text/css rel=stylesheet>
+		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
 		<title>添加学院</title>
 		<style type="text/css">
 <!--
@@ -19,28 +19,38 @@
 </style>
 	</head>
 	<body>
-		<table>
-				<tr <s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
+<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+			align=center border=0>
+			<tr class=position bgcolor="#ECF3FD">
+				<td>
+					当前位置: 院系管理 -&gt; 学院列表 
+				</td>
+			</tr>
+		</table>
+		<div align="center">
+			<table class="listTable">
+				<tr class="listHeaderTr"
+					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>
-						序号   
+						学院id
 					</th>
 					<th>
-						学院名称   
+						学院名称
 					</th>
 					<th>
-						所有系   
+						所有系
 					</th>
 					<th>
-						操作   
+						操作
 					</th>
 				</tr>
-				<s:iterator value="allSchools" status="school">
-					<tr>
+				<s:iterator value="allSchoolList" status="school">
+					<tr class="listTr">
 						<td>
-							<s:property value="#school.id" />
+							<s:property value="id" />
 						</td>
 						<td>
-							<s:property value="#school.name" />
+							<s:property value="name" />
 						</td>
 						<td>
 							<a
@@ -49,7 +59,8 @@
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
-								<font color="green">【查看】</font></a>
+								<font color="green">【查看】</font>
+							</a>
 						</td>
 						<td>
 							<a
@@ -58,25 +69,15 @@
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
-								<font color="red">【删除】</font></a>
+								<font color="red">【删除】</font>
+							</a>
 						</td>
 					</tr>
 				</s:iterator>
+				<tr class="listFooterTr">
+
+				</tr>
 			</table>
-			<s:url id="url_pre" value="allSchools.action">
-				<s:param name="pageNow" value="pageNow-1"></s:param>
-			</s:url>
-			<s:url id="url_next" value="allSchools.action">
-				<s:param name="pageNow" value="pageNow+1"></s:param>
-			</s:url>
-			<s:a href="%{url_pre}">上一页</s:a>
-
-			<s:iterator value="allSchools" status="status">
-				<s:url id="url" value="allSchools.action">
-					<s:param name="pageNow" value="pageNow" />
-				</s:url>
-			</s:iterator>
-			<s:a href="%{url_next}">下一页</s:a>
-
+		</div>
 	</body>
 </html>
