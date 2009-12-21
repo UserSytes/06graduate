@@ -66,7 +66,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" name="adminName" label="姓名"></s:textfield>
+						<s:textfield cssClass="INPUT" id="adminName" name="admin.name" label="姓名"></s:textfield>
 						&nbsp;*
 					</td>
 				</tr>
@@ -90,7 +90,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" name="adminAccount" label="登陆账号"></s:textfield>
+						<s:textfield cssClass="INPUT" id="adminAccount" name="admin.account" label="登陆账号"></s:textfield>
 						&nbsp;*
 					</td>
 				</tr>

@@ -13,7 +13,7 @@
 		<SCRIPT language=javascript>
 			function check(form)
 			{
-				if (form.gradeNameId.value == -1)
+				if (form.gradeName.value == -1)
 				{
 					alert("学籍类型不能为空！");
 					return false;
@@ -68,8 +68,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:select list="# {'1':'本科','2':'硕士','3':'博士','4':'博士后','5':'硕博'}"
-							headerKey="-1" headerValue="请选择" name="gradeNameId"></s:select>
+						<s:select id="gradeName" name="grade.name" list="{'本科生','硕士','博士','博士后','硕博'}" headerKey="-1" headerValue="请选择" />
 						&nbsp;*
 					</td>
 				</tr>
@@ -81,7 +80,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" name="gradeNum" label="年级"></s:textfield>
+						<s:textfield id="gradeNum" cssClass="INPUT" name="grade.grade" label="年级"></s:textfield>
 						&nbsp;*
 					</td>
 				</tr>

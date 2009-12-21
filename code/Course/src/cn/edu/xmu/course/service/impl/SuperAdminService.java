@@ -23,26 +23,19 @@ public class SuperAdminService implements ISuperAdminService {
 	private DepartmentDAO departmentDAO;
 	private GradeDAO gradeDAO;
 
-	public boolean addDepartment(School school, String departmentName) {
+	public boolean addDepartment(School school, Department department) {
 		// TODO Auto-generated method stub
-		Department department = new Department();
-		department.setName(departmentName);
 		department.setSchool(school);
 		return departmentDAO.save(department);
 	}
 
-	public boolean addGrade(String name, Integer gra) {
+	public boolean addGrade(Grade grade) {
 		// TODO Auto-generated method stub
-		Grade grade = new Grade();
-		grade.setGrade(gra);
-		grade.setName(name);
 		return gradeDAO.save(grade);
 	}
 
-	public boolean addSchool(String schoolName) {
+	public boolean addSchool(School school) {
 		// TODO Auto-generated method stub
-		School school = new School();
-		school.setName(schoolName);
 		return schoolDAO.save(school);
 	}
 

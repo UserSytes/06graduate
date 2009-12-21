@@ -12,11 +12,8 @@ public class AdminService implements IAdminService {
 	private AdministratorDAO administratorDAO;
 	final String password = "123456";
 	
-	public boolean addAdmin(String name, String account, School school) {
+	public boolean addAdmin(Administrator admin, School school) {
 		// TODO Auto-generated method stub
-		Administrator admin = new Administrator();
-		admin.setAccount(account);
-		admin.setName(name);
 		admin.setSchool(school);
 		admin.setPassword(password);	
 		return administratorDAO.save(admin);

@@ -57,7 +57,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" name="schoolName" label="学院名称"></s:textfield>
+						<s:textfield cssClass="INPUT" id="schoolName" name="school.Name" label="学院名称"></s:textfield>
 						&nbsp;*
 					</td>
 				</tr>
