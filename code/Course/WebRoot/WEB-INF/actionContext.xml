@@ -17,7 +17,7 @@
 	<bean id="applyCourseAction"  scope="prototype" class="cn.edu.xmu.course.web.action.ApplyCourserAction">
 	</bean>	
 	
-	<bean id="schoolManageAction"  scope="prototype" class="cn.edu.xmu.course.web.action.schoolManageAction">
+	<bean id="schoolManageAction"  scope="prototype" class="cn.edu.xmu.course.web.action.SchoolManageAction">
 		<property name="superAdminService">
 		<ref bean="superAdminService"/>
 		</property>
