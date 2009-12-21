@@ -8,12 +8,23 @@
 		</property>
 	</bean>
 	
+	<!-- 教师信息管理 -->
 	<bean id="teacherInfoService" class="cn.edu.xmu.course.service.impl.TeacherInfoService">
 		<property name="teacherDAO">
 		<ref bean="TeacherDAO"/>
 		</property>
 		<property name="userInfoDAO">
 		<ref bean="UserInfoDAO"/>
+		</property>
+	</bean>	
+	
+	<!-- 教师申报课程管理 -->
+	<bean id="courseService" class="cn.edu.xmu.course.service.impl.CourseService">
+		<property name="courseDAO">
+		<ref bean="CourseDAO"/>
+		</property>
+		<property name="teacherCourseDAO">
+		<ref bean="TeacherCourseDAO"/>
 		</property>
 	</bean>	
 	
