@@ -58,7 +58,7 @@
 			<result name="error">/admin/error.jsp</result>
 		</action>
 		<action name="goAddAdminAction" method="findAllSchools" class="schoolManageAction">
-			<result name="success">/admin/schoolmanage/addadmin.jsp
+			<result name="allSchools">/admin/schoolmanage/addadmin.jsp
 			</result>
 			<result name="error">/admin/error.jsp</result>
 		</action>
