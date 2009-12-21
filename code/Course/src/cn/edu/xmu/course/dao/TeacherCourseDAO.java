@@ -27,6 +27,7 @@ public class TeacherCourseDAO extends HibernateDaoSupport {
 	// property constants
 	public static final String STATUS = "status";
 	public static final String REMARK = "remark";
+	public static final String LEVEL = "level";
 
 	protected void initDao() {
 		// do nothing
@@ -98,6 +99,10 @@ public class TeacherCourseDAO extends HibernateDaoSupport {
 
 	public List findByRemark(Object remark) {
 		return findByProperty(REMARK, remark);
+	}
+
+	public List findByLevel(Object level) {
+		return findByProperty(LEVEL, level);
 	}
 
 	public List findAll() {

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN"
+    "http://getahead.org/dwr/dwr20.dtd">
+
+<dwr>
+	<allow>
+		<create creator="spring" javascript="SchoolDAO" >
+			<param name="beanName" value="SchoolDAO" />
+		</create>
+		<convert converter="bean" match="cn.edu.xmu.course.pojo.School">
+			<param name="include" value="id,name" />
+		</convert>
+		
+		<create creator="spring" javascript="DepartmentDAO" >
+			<param name="beanName" value="DepartmentDAO" />
+		</create>
+		<convert converter="bean" match="cn.edu.xmu.course.pojo.Department">
+			<param name="include" value="id,name" />
+		</convert>
+	</allow>
+</dwr>
