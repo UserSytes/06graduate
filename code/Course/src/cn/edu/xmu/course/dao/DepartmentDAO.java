@@ -94,6 +94,10 @@ public class DepartmentDAO extends HibernateDaoSupport {
 	public List findByName(Object name) {
 		return findByProperty(NAME, name);
 	}
+	
+	public List findBySchool(Integer schoolId) {
+		return findByProperty("school.id", schoolId);
+	}
 
 	public List findAll() {
 		log.debug("finding all Department instances");
