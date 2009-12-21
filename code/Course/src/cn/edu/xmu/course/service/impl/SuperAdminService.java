@@ -2,18 +2,13 @@ package cn.edu.xmu.course.service.impl;
 
 import java.util.List;
 
-import cn.edu.xmu.course.dao.AdministratorDAO;
 import cn.edu.xmu.course.dao.DepartmentDAO;
 import cn.edu.xmu.course.dao.GradeDAO;
-import cn.edu.xmu.course.dao.NewsDAO;
 import cn.edu.xmu.course.dao.SchoolDAO;
 import cn.edu.xmu.course.dao.SuperAdminDAO;
-import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.Grade;
-import cn.edu.xmu.course.pojo.News;
 import cn.edu.xmu.course.pojo.School;
-import cn.edu.xmu.course.pojo.SuperAdmin;
 import cn.edu.xmu.course.service.ISuperAdminService;
 
 public class SuperAdminService implements ISuperAdminService {
@@ -26,32 +21,63 @@ public class SuperAdminService implements ISuperAdminService {
 	public boolean addDepartment(School school, Department department) {
 		// TODO Auto-generated method stub
 		department.setSchool(school);
-		return departmentDAO.save(department);
+		try {
+			departmentDAO.save(department);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	public boolean addGrade(Grade grade) {
 		// TODO Auto-generated method stub
-		return gradeDAO.save(grade);
+		try {
+			gradeDAO.save(grade);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+
 	}
 
 	public boolean addSchool(School school) {
 		// TODO Auto-generated method stub
-		return schoolDAO.save(school);
+		try {
+			schoolDAO.save(school);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	public boolean deleteDepartment(Department department) {
 		// TODO Auto-generated method stub
-		return departmentDAO.delete(department);
+		try {
+			departmentDAO.delete(department);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	public boolean deleteGrade(Grade grade) {
 		// TODO Auto-generated method stub
-		return gradeDAO.delete(grade);
+		try {
+			gradeDAO.delete(grade);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	public boolean deleteSchool(School school) {
 		// TODO Auto-generated method stub
-		return schoolDAO.delete(school);
+		try {
+			schoolDAO.delete(school);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	public List findAllGrade() {

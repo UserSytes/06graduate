@@ -5,9 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Topic entity.
- * 
- * @author MyEclipse Persistence Tools
+ * Topic entity. @author MyEclipse Persistence Tools
  */
 
 public class Topic implements java.io.Serializable {
@@ -15,7 +13,7 @@ public class Topic implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private TeacherCourse teacherCourse;
+	private Course course;
 	private String name;
 	private Date time;
 	private String authorName;
@@ -36,9 +34,9 @@ public class Topic implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Topic(TeacherCourse teacherCourse, String name, Date time,
-			String authorName, String lastAnswer, Set messages) {
-		this.teacherCourse = teacherCourse;
+	public Topic(Course course, String name, Date time, String authorName,
+			String lastAnswer, Set messages) {
+		this.course = course;
 		this.name = name;
 		this.time = time;
 		this.authorName = authorName;
@@ -56,12 +54,12 @@ public class Topic implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public TeacherCourse getTeacherCourse() {
-		return this.teacherCourse;
+	public Course getCourse() {
+		return this.course;
 	}
 
-	public void setTeacherCourse(TeacherCourse teacherCourse) {
-		this.teacherCourse = teacherCourse;
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 	public String getName() {

@@ -16,7 +16,7 @@ public interface IExperimentService {
 	 * @param teacherCoures
 	 * @return
 	 */
-	public List getAllExperiments(TeacherCourse teacherCoures);
+	public List getAllExperiments(Course course);
 	
 	/**
 	 * 查找该目录下所有的习题

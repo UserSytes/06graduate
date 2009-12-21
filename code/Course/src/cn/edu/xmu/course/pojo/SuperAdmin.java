@@ -1,9 +1,7 @@
 package cn.edu.xmu.course.pojo;
 
 /**
- * SuperAdmin entity.
- * 
- * @author MyEclipse Persistence Tools
+ * SuperAdmin entity. @author MyEclipse Persistence Tools
  */
 
 public class SuperAdmin implements java.io.Serializable {

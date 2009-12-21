@@ -11,6 +11,10 @@
 			value="classpath:hibernate.cfg.xml">
 		</property>
 	</bean>
+	
+		<import resource="daoContext.xml" />
+	<import resource="serviceContext.xml" />
+	<import resource="actionContext.xml" />
 	<bean id="CoursewareDAO"
 		class="cn.edu.xmu.course.dao.CoursewareDAO">
 		<property name="sessionFactory">
@@ -29,12 +33,6 @@
 		</property>
 	</bean>
 	<bean id="ExerciseDAO" class="cn.edu.xmu.course.dao.ExerciseDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
-	<bean id="TeacherCourseDAO"
-		class="cn.edu.xmu.course.dao.TeacherCourseDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -79,6 +77,11 @@
 	</bean>
 	<bean id="StudentCourseDAO"
 		class="cn.edu.xmu.course.dao.StudentCourseDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="GradeDAO" class="cn.edu.xmu.course.dao.GradeDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -155,14 +158,4 @@
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
-	</bean>
-	<bean id="GradeDAO" class="cn.edu.xmu.course.dao.GradeDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
-	
-		<import resource="daoContext.xml" />
-	<import resource="serviceContext.xml" />
-	<import resource="actionContext.xml" />
-	</beans>
+	</bean></beans>

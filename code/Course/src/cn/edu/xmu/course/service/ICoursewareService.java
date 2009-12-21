@@ -16,7 +16,7 @@ public interface ICoursewareService {
 	 * @param teacherCoures
 	 * @return
 	 */
-	public List getAllCoursewares(TeacherCourse teacherCoures);
+	public List getAllCoursewares(Course course);
 	
 	/**
 	 * 查找该目录下所有的习题

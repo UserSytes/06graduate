@@ -3,9 +3,7 @@ package cn.edu.xmu.course.pojo;
 import java.util.Date;
 
 /**
- * News entity.
- * 
- * @author MyEclipse Persistence Tools
+ * News entity. @author MyEclipse Persistence Tools
  */
 
 public class News implements java.io.Serializable {

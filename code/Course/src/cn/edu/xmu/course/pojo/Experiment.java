@@ -3,9 +3,7 @@ package cn.edu.xmu.course.pojo;
 import java.util.Date;
 
 /**
- * Experiment entity.
- * 
- * @author MyEclipse Persistence Tools
+ * Experiment entity. @author MyEclipse Persistence Tools
  */
 
 public class Experiment implements java.io.Serializable {

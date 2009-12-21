@@ -10,8 +10,11 @@
             <column name="id" />
             <generator class="increment" />
         </id>
-        <many-to-one name="userInfo" class="cn.edu.xmu.course.pojo.UserInfo" lazy="false" fetch="select">
+        <many-to-one name="userInfo" class="cn.edu.xmu.course.pojo.UserInfo" fetch="select">
             <column name="userinfo_id" />
+        </many-to-one>
+        <many-to-one name="course" class="cn.edu.xmu.course.pojo.Course" fetch="select">
+            <column name="course_id" />
         </many-to-one>
         <property name="teacherNo" type="java.lang.String">
             <column name="teacher_no" length="20" not-null="true" />
@@ -22,11 +25,11 @@
         <property name="position" type="java.lang.String">
             <column name="position" length="50" />
         </property>
-        <set name="teacherCourses" inverse="true">
+        <set name="courses" inverse="true">
             <key>
-                <column name="teacher_id" not-null="true" />
+                <column name="course_id" />
             </key>
-            <one-to-many class="cn.edu.xmu.course.pojo.TeacherCourse" />
+            <one-to-many class="cn.edu.xmu.course.pojo.Course" />
         </set>
     </class>
 </hibernate-mapping>

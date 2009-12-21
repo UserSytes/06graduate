@@ -3,9 +3,7 @@ package cn.edu.xmu.course.pojo;
 import java.util.Date;
 
 /**
- * CourseMovie entity.
- * 
- * @author MyEclipse Persistence Tools
+ * CourseMovie entity. @author MyEclipse Persistence Tools
  */
 
 public class CourseMovie implements java.io.Serializable {
@@ -13,7 +11,7 @@ public class CourseMovie implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private TeacherCourse teacherCourse;
+	private Course course;
 	private String title;
 	private String filename;
 	private Date time;
@@ -34,9 +32,9 @@ public class CourseMovie implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public CourseMovie(TeacherCourse teacherCourse, String title,
-			String filename, Date time, String author, String fileLink) {
-		this.teacherCourse = teacherCourse;
+	public CourseMovie(Course course, String title, String filename, Date time,
+			String author, String fileLink) {
+		this.course = course;
 		this.title = title;
 		this.filename = filename;
 		this.time = time;
@@ -54,12 +52,12 @@ public class CourseMovie implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public TeacherCourse getTeacherCourse() {
-		return this.teacherCourse;
+	public Course getCourse() {
+		return this.course;
 	}
 
-	public void setTeacherCourse(TeacherCourse teacherCourse) {
-		this.teacherCourse = teacherCourse;
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 	public String getTitle() {

@@ -14,7 +14,7 @@ public interface IApplicationFormService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public ApplicationForm getApplicationForm(TeacherCourse teacherCourse);
+	public ApplicationForm getApplicationForm(Course course);
 	
 	/**
 	 * 添加课程申报表格
@@ -22,7 +22,7 @@ public interface IApplicationFormService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public boolean addApplicationForm(ApplicationForm applicationForm, TeacherCourse teacherCourse);
+	public boolean addApplicationForm(ApplicationForm applicationForm, Course course);
 	
 	/**
 	 * 更新课程申报表格

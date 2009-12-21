@@ -1,13 +1,13 @@
 package cn.edu.xmu.course.service.impl;
 
 import cn.edu.xmu.course.pojo.ApplicationForm;
-import cn.edu.xmu.course.pojo.TeacherCourse;
+import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.service.IApplicationFormService;
 
 public class ApplicationFormService implements IApplicationFormService {
 
 	public boolean addApplicationForm(ApplicationForm applicationForm,
-			TeacherCourse teacherCourse) {
+			Course course) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -17,7 +17,7 @@ public class ApplicationFormService implements IApplicationFormService {
 		return false;
 	}
 
-	public ApplicationForm getApplicationForm(TeacherCourse teacherCourse) {
+	public ApplicationForm getApplicationForm(Course course) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -27,4 +27,5 @@ public class ApplicationFormService implements IApplicationFormService {
 		return false;
 	}
 
+	
 }

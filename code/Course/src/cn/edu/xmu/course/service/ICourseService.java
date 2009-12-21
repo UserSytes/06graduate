@@ -19,7 +19,7 @@ public interface ICourseService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public boolean applyCourse(Teacher teacher, Course course, TeacherCourse teacherCourse);
+	public boolean applyCourse(Teacher teacher, Course course);
 	
 	/**
 	 * 根据课程Id查找课程

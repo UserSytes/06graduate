@@ -4,9 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Department entity.
- * 
- * @author MyEclipse Persistence Tools
+ * Department entity. @author MyEclipse Persistence Tools
  */
 
 public class Department implements java.io.Serializable {

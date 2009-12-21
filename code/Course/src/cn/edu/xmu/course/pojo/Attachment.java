@@ -1,9 +1,7 @@
 package cn.edu.xmu.course.pojo;
 
 /**
- * Attachment entity.
- * 
- * @author MyEclipse Persistence Tools
+ * Attachment entity. @author MyEclipse Persistence Tools
  */
 
 public class Attachment implements java.io.Serializable {

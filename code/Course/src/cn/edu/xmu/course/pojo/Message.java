@@ -3,9 +3,7 @@ package cn.edu.xmu.course.pojo;
 import java.util.Date;
 
 /**
- * Message entity.
- * 
- * @author MyEclipse Persistence Tools
+ * Message entity. @author MyEclipse Persistence Tools
  */
 
 public class Message implements java.io.Serializable {

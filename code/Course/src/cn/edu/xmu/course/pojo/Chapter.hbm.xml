@@ -10,8 +10,8 @@
             <column name="id" />
             <generator class="increment" />
         </id>
-        <many-to-one name="teacherCourse" class="cn.edu.xmu.course.pojo.TeacherCourse" fetch="select">
-            <column name="teacher_course_id" />
+        <many-to-one name="course" class="cn.edu.xmu.course.pojo.Course" fetch="select">
+            <column name="course_id" />
         </many-to-one>
         <property name="number" type="java.lang.Integer">
             <column name="number" not-null="true" />

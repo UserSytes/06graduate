@@ -3,8 +3,8 @@ package cn.edu.xmu.course.service.impl;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.Chapter;
+import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Courseware;
-import cn.edu.xmu.course.pojo.TeacherCourse;
 import cn.edu.xmu.course.service.ICoursewareService;
 
 public class CoursewareService implements ICoursewareService {
@@ -19,7 +19,7 @@ public class CoursewareService implements ICoursewareService {
 		return false;
 	}
 
-	public List getAllCoursewares(TeacherCourse teacherCoures) {
+	public List getAllCoursewares(Course course) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -38,5 +38,7 @@ public class CoursewareService implements ICoursewareService {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+
 
 }

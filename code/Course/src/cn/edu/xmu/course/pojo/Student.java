@@ -4,9 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Student entity.
- * 
- * @author MyEclipse Persistence Tools
+ * Student entity. @author MyEclipse Persistence Tools
  */
 
 public class Student implements java.io.Serializable {

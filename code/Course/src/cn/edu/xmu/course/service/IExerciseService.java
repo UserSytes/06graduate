@@ -16,7 +16,7 @@ public interface IExerciseService {
 	 * @param teacherCoures
 	 * @return
 	 */
-	public List getAllExercises(TeacherCourse teacherCoures);
+	public List getAllExercises(Course course);
 	
 	/**
 	 * 查找该目录下所有的习题

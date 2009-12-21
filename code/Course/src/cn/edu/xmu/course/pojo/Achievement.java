@@ -5,9 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Achievement entity.
- * 
- * @author MyEclipse Persistence Tools
+ * Achievement entity. @author MyEclipse Persistence Tools
  */
 
 public class Achievement implements java.io.Serializable {
@@ -15,7 +13,7 @@ public class Achievement implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private TeacherCourse teacherCourse;
+	private Course course;
 	private String title;
 	private String content;
 	private Date time;
@@ -35,9 +33,9 @@ public class Achievement implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Achievement(TeacherCourse teacherCourse, String title,
-			String content, Date time, Set attachments) {
-		this.teacherCourse = teacherCourse;
+	public Achievement(Course course, String title, String content, Date time,
+			Set attachments) {
+		this.course = course;
 		this.title = title;
 		this.content = content;
 		this.time = time;
@@ -54,12 +52,12 @@ public class Achievement implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public TeacherCourse getTeacherCourse() {
-		return this.teacherCourse;
+	public Course getCourse() {
+		return this.course;
 	}
 
-	public void setTeacherCourse(TeacherCourse teacherCourse) {
-		this.teacherCourse = teacherCourse;
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 	public String getTitle() {

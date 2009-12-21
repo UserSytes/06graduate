@@ -4,9 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Teacher entity.
- * 
- * @author MyEclipse Persistence Tools
+ * Teacher entity. @author MyEclipse Persistence Tools
  */
 
 public class Teacher implements java.io.Serializable {
@@ -15,10 +13,11 @@ public class Teacher implements java.io.Serializable {
 
 	private Integer id;
 	private UserInfo userInfo;
+	private Course course;
 	private String teacherNo;
 	private String password;
 	private String position;
-	private Set teacherCourses = new HashSet(0);
+	private Set courses = new HashSet(0);
 
 	// Constructors
 
@@ -33,13 +32,14 @@ public class Teacher implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Teacher(UserInfo userInfo, String teacherNo, String password,
-			String position, Set teacherCourses) {
+	public Teacher(UserInfo userInfo, Course course, String teacherNo,
+			String password, String position, Set courses) {
 		this.userInfo = userInfo;
+		this.course = course;
 		this.teacherNo = teacherNo;
 		this.password = password;
 		this.position = position;
-		this.teacherCourses = teacherCourses;
+		this.courses = courses;
 	}
 
 	// Property accessors
@@ -58,6 +58,14 @@ public class Teacher implements java.io.Serializable {
 
 	public void setUserInfo(UserInfo userInfo) {
 		this.userInfo = userInfo;
+	}
+
+	public Course getCourse() {
+		return this.course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 	public String getTeacherNo() {
@@ -84,12 +92,12 @@ public class Teacher implements java.io.Serializable {
 		this.position = position;
 	}
 
-	public Set getTeacherCourses() {
-		return this.teacherCourses;
+	public Set getCourses() {
+		return this.courses;
 	}
 
-	public void setTeacherCourses(Set teacherCourses) {
-		this.teacherCourses = teacherCourses;
+	public void setCourses(Set courses) {
+		this.courses = courses;
 	}
 
 }

@@ -1,9 +1,7 @@
 package cn.edu.xmu.course.pojo;
 
 /**
- * Administrator entity.
- * 
- * @author MyEclipse Persistence Tools
+ * Administrator entity. @author MyEclipse Persistence Tools
  */
 
 public class Administrator implements java.io.Serializable {
