@@ -189,7 +189,7 @@ eval("submenu" + sid + ".style.display=\"none\";");
 													<IMG src="Images/closed.gif">
 												</TD>
 												<TD height=23>
-													<A href="User/Edays_User.asp" target=main>添加年级</A>
+													<A href="schoolmanage/addgrade.jsp" target=main>添加年级</A>
 												</TD>
 											</TR>
 										</TBODY>

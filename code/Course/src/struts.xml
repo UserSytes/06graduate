@@ -32,44 +32,49 @@
 		</action>
 		<action name="applyCourseAction" method="applyCourse" class="applyCourseAction">
 			<result name="success">/teacher/index.jsp</result>
-			<result name="error">/commons/errorpage.jsp</result>
+			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="addNewCourseAction" method="addNewCourse" class="applyCourseAction">
 			<result name="success">/teacher/index.jsp</result>
-			<result name="error">/commons/errorpage.jsp</result>
+			<result name="error">/commons/error.jsp</result>
 		</action>
 		
 		<!--超级管理员-->
 		<action name="addSchoolAction" method="addSchool" class="schoolManageAction">
 			<result name="success">/admin/right.jsp</result>
-			<result name="error">/admin/error.jsp</result>
+			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="findAllSchoolsAction" method="findAllSchools"
 			class="schoolManageAction">
 			<result name="allSchools">/admin/schoolmanage/schoollist.jsp
 			</result>
-			<result name="error">/admin/error.jsp</result>
+			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="findDepartmentAction" method="findDepartmentBySchool"
 			class="schoolManageAction">
 			<result name="success">/admin/schoolmanage/departmentlist.jsp
 			</result>
-			<result name="error">/admin/error.jsp</result>
+			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="deleteSchoolAction" method="deleteSchool" class="schoolManageAction">
 			<result name="success">/admin/schoolmanage/schoollist.jsp
 			</result>
-			<result name="error">/admin/error.jsp</result>
+			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="goAddAdminAction" method="findAllSchools" class="schoolManageAction">
 			<result name="allSchools">/admin/schoolmanage/addadmin.jsp
 			</result>
-			<result name="error">/admin/error.jsp</result>
+			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="addAdminAction" method="addAdmin" class="schoolManageAction">
 			<result name="success">/admin/right.jsp
 			</result>
-			<result name="error">/admin/error.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="addGradeAction" method="addGrade" class="schoolManageAction">
+			<result name="success">/admin/right.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
 		</action>
 		<!--学院管理员-->
 	</package>
