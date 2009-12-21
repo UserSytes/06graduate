@@ -4,38 +4,34 @@
 <beans>
 	<bean id="loginService" class="cn.edu.xmu.course.service.impl.LoginService">
 		<property name="teacherDAO">
-		<ref bean="TeacherDAO"/>
+			<ref bean="TeacherDAO" />
 		</property>
 	</bean>
 	
 	<!-- 教师信息管理 -->
 	<bean id="teacherInfoService" class="cn.edu.xmu.course.service.impl.TeacherInfoService">
 		<property name="teacherDAO">
-		<ref bean="TeacherDAO"/>
+			<ref bean="TeacherDAO" />
 		</property>
 		<property name="userInfoDAO">
-		<ref bean="UserInfoDAO"/>
+			<ref bean="UserInfoDAO" />
 		</property>
 	</bean>	
 	
 	<!-- 教师申报课程管理 -->
 	<bean id="courseService" class="cn.edu.xmu.course.service.impl.CourseService">
 		<property name="courseDAO">
-		<ref bean="CourseDAO"/>
+			<ref bean="CourseDAO" />
 		</property>
 		<property name="teacherCourseDAO">
-		<ref bean="TeacherCourseDAO"/>
+			<ref bean="TeacherCourseDAO" />
 		</property>
 	</bean>	
 	
-	<!--超级管理员-->
-	<bean id="superAdminService"
-		class="cn.edu.xmu.course.service.impl.SuperAdminService">
+	<!--超级管理员（院系管理模块）-->
+	<bean id="superAdminService" class="cn.edu.xmu.course.service.impl.SuperAdminService">
 		<property name="superAdminDAO">
 			<ref bean="SuperAdminDAO" />
-		</property>
-		<property name="administratorDAO">
-			<ref bean="AdministratorDAO" />
 		</property>
 		<property name="schoolDAO">
 			<ref bean="SchoolDAO" />
@@ -43,17 +39,22 @@
 		<property name="departmentDAO">
 			<ref bean="DepartmentDAO" />
 		</property>
-		<property name="newsDAO">
-			<ref bean="NewsDAO" />
-		</property>
 		<property name="gradeDAO">
 			<ref bean="GradeDAO" />
 		</property>
 	</bean>
 	
-	<!--学院管理员-->
-	<bean id="adminService"
-		class="cn.edu.xmu.course.service.impl.AdminService">
+	<!--新闻管理模块-->
+	<bean id="newsService" class="cn.edu.xmu.course.service.impl.NewsService">
+		<property name="newsDAO">
+			<ref bean="NewsDAO" />
+		</property>
 	</bean>
 	
+	<!--学院管理员-->
+	<bean id="adminService" class="cn.edu.xmu.course.service.impl.AdminService">
+		<property name="administratorDAO">
+			<ref bean="AdministratorDAO" />
+		</property>
+	</bean>
 </beans>

@@ -29,24 +29,7 @@ public interface ISuperAdminService {
 	public School findSchoolById(int id);
 	
 	public List findDepartmentBySchool(School school);
-	
-	public boolean addAdmin(String name, String account, School school);
-	
-	public boolean deleteAdmin(Administrator admin);
-	
-	public List findAllAdmin();
-	
-	public Administrator findAdminById(int id);
-	
-	//新闻管理
-	public List findAllNews();
-	
-	public boolean addNews(News news);
-	
-	public boolean deleteNews(News news); 
-	
-	public News findNewsById(int id);
-	
+
 	//年级管理
 	public boolean addGrade(String name, Integer grade);
 	

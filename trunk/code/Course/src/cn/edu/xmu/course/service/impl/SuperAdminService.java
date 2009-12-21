@@ -18,24 +18,10 @@ import cn.edu.xmu.course.service.ISuperAdminService;
 
 public class SuperAdminService implements ISuperAdminService {
 
-	private AdministratorDAO administratorDAO;
 	private SuperAdminDAO superAdminDAO;
 	private SchoolDAO schoolDAO;
 	private DepartmentDAO departmentDAO;
-	private NewsDAO newsDAO;
 	private GradeDAO gradeDAO;
-	
-	final String password = "123456";
-	
-	public boolean addAdmin(String name, String account, School school) {
-		// TODO Auto-generated method stub
-		Administrator admin = new Administrator();
-		admin.setAccount(account);
-		admin.setName(name);
-		admin.setSchool(school);
-		admin.setPassword(password);	
-		return administratorDAO.save(admin);
-	}
 
 	public boolean addDepartment(School school, String departmentName) {
 		// TODO Auto-generated method stub
@@ -53,21 +39,11 @@ public class SuperAdminService implements ISuperAdminService {
 		return gradeDAO.save(grade);
 	}
 
-	public boolean addNews(News news) {
-		// TODO Auto-generated method stub
-		return newsDAO.save(news);
-	}
-
 	public boolean addSchool(String schoolName) {
 		// TODO Auto-generated method stub
 		School school = new School();
 		school.setName(schoolName);
 		return schoolDAO.save(school);
-	}
-
-	public boolean deleteAdmin(Administrator admin) {
-		// TODO Auto-generated method stub
-		return administratorDAO.delete(admin);
 	}
 
 	public boolean deleteDepartment(Department department) {
@@ -80,29 +56,14 @@ public class SuperAdminService implements ISuperAdminService {
 		return gradeDAO.delete(grade);
 	}
 
-	public boolean deleteNews(News news) {
-		// TODO Auto-generated method stub
-		return newsDAO.delete(news);
-	}
-
 	public boolean deleteSchool(School school) {
 		// TODO Auto-generated method stub
 		return schoolDAO.delete(school);
 	}
 
-	public List findAllAdmin() {
-		// TODO Auto-generated method stub
-		return administratorDAO.findAll();
-	}
-
 	public List findAllGrade() {
 		// TODO Auto-generated method stub
 		return gradeDAO.findAll();
-	}
-
-	public List findAllNews() {
-		// TODO Auto-generated method stub
-		return newsDAO.findAll();
 	}
 
 	public List findAllSchool() {
@@ -113,14 +74,6 @@ public class SuperAdminService implements ISuperAdminService {
 	public List findDepartmentBySchool(School school) {
 		// TODO Auto-generated method stub
 		return departmentDAO.findByProperty("school", school);
-	}
-
-	public AdministratorDAO getAdministratorDAO() {
-		return administratorDAO;
-	}
-
-	public void setAdministratorDAO(AdministratorDAO administratorDAO) {
-		this.administratorDAO = administratorDAO;
 	}
 
 	public SuperAdminDAO getSuperAdminDAO() {
@@ -147,14 +100,6 @@ public class SuperAdminService implements ISuperAdminService {
 		this.departmentDAO = departmentDAO;
 	}
 
-	public NewsDAO getNewsDAO() {
-		return newsDAO;
-	}
-
-	public void setNewsDAO(NewsDAO newsDAO) {
-		this.newsDAO = newsDAO;
-	}
-
 	public GradeDAO getGradeDAO() {
 		return gradeDAO;
 	}
@@ -163,30 +108,14 @@ public class SuperAdminService implements ISuperAdminService {
 		this.gradeDAO = gradeDAO;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public Administrator findAdminById(int id) {
-		// TODO Auto-generated method stub
-		return administratorDAO.findById(id);
-	}
-
 	public Grade findGradeById(int id) {
 		// TODO Auto-generated method stub
 		return gradeDAO.findById(id);
-	}
-
-	public News findNewsById(int id) {
-		// TODO Auto-generated method stub
-		return newsDAO.findById(id);
 	}
 
 	public School findSchoolById(int id) {
 		// TODO Auto-generated method stub
 		return schoolDAO.findById(id);
 	}
-	
-	
 
 }
