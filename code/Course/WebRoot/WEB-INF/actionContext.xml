@@ -15,6 +15,12 @@
 	</bean>	
 	
 	<bean id="applyCourseAction"  scope="prototype" class="cn.edu.xmu.course.web.action.ApplyCourserAction">
+		<property name="courseService">
+			<ref bean="courseService"/>
+		</property>
+		<property name="teacherInfoService">
+			<ref bean="teacherInfoService"/>
+		</property>
 	</bean>	
 	
 	<bean id="schoolManageAction"  scope="prototype" class="cn.edu.xmu.course.web.action.SchoolManageAction">
