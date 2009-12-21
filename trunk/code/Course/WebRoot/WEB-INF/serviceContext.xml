@@ -23,9 +23,6 @@
 		<property name="courseDAO">
 			<ref bean="CourseDAO" />
 		</property>
-		<property name="teacherCourseDAO">
-			<ref bean="TeacherCourseDAO" />
-		</property>
 	</bean>	
 	
 	<!-- 院系管理 -->

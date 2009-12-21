@@ -62,7 +62,7 @@
 			</tr>
 		</table>
 
-		<s:form action="addnewCourseAction" method="post"
+		<s:form action="addNewCourseAction" method="post"
 			onsubmit="">&nbsp;&nbsp; 
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
