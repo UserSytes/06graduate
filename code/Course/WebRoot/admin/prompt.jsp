@@ -9,23 +9,8 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
-		<title>添加学院管理员</title>
-		<SCRIPT language=javascript>
-			function check(form)
-			{
-				if (form.gradeNameId.value == -1)
-				{
-					alert("学籍类型不能为空！");
-					return false;
-				}
-				if (form.gradeNum.value == "")
-				{
-					alert("年级不能为空！");
-					return false;
-				}
-				return true;
-			}
-		</SCRIPT>
+		<title>信息提示</title>
+
 		<style type="text/css">
 <!--
 .STYLE1 {
@@ -36,15 +21,32 @@
 	</head>
 
 	<body>
+
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
-			<tr class=position bgcolor="#ECF3FD">
-				<td>
-					当前位置: 年级管理 -&gt; 添加年级
+			<tr class=editHeaderTr>
+				<td class=editHeaderTd colSpan=7>
+					信息提示
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFFFF">
+					<div align="left">
+						<br>
+						<font size="3"><strong><s:actionmessage />
+						</strong>
+						</font>
+					</div>
+				</td>
+			</tr>
+			<tr bgcolor="#FFFFFF">
+				<td width="30%">
+					返回上页请
+					<a href="javascript:history.back()"><strong><font
+							color="#ffff00">点击此处</font> </strong> </a>
 				</td>
 			</tr>
 		</table>
-		
-		</s:form>
+
 	</body>
 </html>
