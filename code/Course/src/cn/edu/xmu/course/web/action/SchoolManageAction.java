@@ -73,9 +73,10 @@ public class SchoolManageAction extends BaseAction {
 		school = superAdminService.findSchoolById(schoolId);
 		departmentList = superAdminService.findDepartmentBySchool(school);
 		if (departmentList.size() == 0) {
+			addActionMessage("该学院没有系！"); 
 			return ERROR;
 		} else
-			return "departments";
+			return SUCCESS;
 	}
 
 	/**
