@@ -79,7 +79,7 @@
                      			<s:param name="adminId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
-                					</s:url>">
+                					</s:url>"  onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
 								<font color="red">【删除】</font> </a>
 						</td>
 					</tr>
