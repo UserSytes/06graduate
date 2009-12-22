@@ -29,6 +29,8 @@ public interface ISuperAdminService {
 	public School findSchoolById(int id);
 	
 	public List findDepartmentBySchool(School school);
+	
+	public Department findDepartmentById(int id);
 
 	//年级管理
 	public boolean addGrade(Grade grade);

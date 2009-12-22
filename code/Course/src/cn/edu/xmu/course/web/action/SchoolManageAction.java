@@ -25,6 +25,7 @@ public class SchoolManageAction extends BaseAction {
 	private int schoolId;
 	private School school;
 	private int departmentId;
+	private Department department;
 
 	// 添加学院管理员
 	private int adminSchoolId;
@@ -118,29 +119,51 @@ public class SchoolManageAction extends BaseAction {
 	 */
 	public String addGrade() {
 		boolean result = false;
-//		switch (gradeNameId) {
-//		case 1:
-//			gradeName = "本科";
-//			break;
-//		case 2:
-//			gradeName = "硕士";
-//			break;
-//		case 3:
-//			gradeName = "博士";
-//			break;
-//		case 4:
-//			gradeName = "博士后";
-//			break;
-//		case 5:
-//			gradeName = "硕博";
-//			break;
-//		}
-//		result = superAdminService.addGrade(gradeName, Integer
-//				.parseInt(gradeNum));
 		if (result) {
 			addActionMessage("添加年级成功！"); 
 			return SUCCESS;
 		} else
+			return ERROR;
+	}
+	
+	/**
+	 * 删除系
+	 * @return
+	 */
+	public String deleteDepartment(){
+		Department d = superAdminService.findDepartmentById(departmentId);
+		boolean result = superAdminService.deleteDepartment(d);
+		if (result) {
+			this.findDepartmentBySchool();
+			return SUCCESS;
+		} else
+			return ERROR;
+	}
+	
+	/**
+	 * 跳转到添加系
+	 * @return
+	 */
+	public String goAddDepartment(){
+		school = superAdminService.findSchoolById(schoolId);
+		System.out.println("测试1： "+school.getName());
+		if(school==null)
+			return ERROR;
+		else 
+			return SUCCESS;
+	}
+	
+	/**
+	 * 添加系
+	 * @return
+	 */
+	public String addDepartment(){
+		//department.setSchool(school);
+		System.out.println("测试2： "+school.getName());
+		boolean result = superAdminService.addDepartment(school, department);
+		if(result)
+			return SUCCESS;
+		else 
 			return ERROR;
 	}
 

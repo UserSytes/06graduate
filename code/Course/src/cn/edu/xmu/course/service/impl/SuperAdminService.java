@@ -136,5 +136,9 @@ public class SuperAdminService implements ISuperAdminService {
 		// TODO Auto-generated method stub
 		return schoolDAO.findById(id);
 	}
+	
+	public Department findDepartmentById(int id){
+		return departmentDAO.findById(id);
+	}
 
 }
