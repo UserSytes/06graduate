@@ -34,4 +34,13 @@
 		<ref bean="adminService"/>
 		</property>
 	</bean>
+	<!-- 前台 -->
+		<bean id="ExecuteViewAction"  scope="prototype" class="cn.edu.xmu.course.web.action.ExecuteViewAction">
+		<property name="searchCourseService">
+		<ref bean="searchCourseService"/>
+		</property>
+		<property name="applicationFormService">
+		<ref bean="applicationFormService"/>
+		</property>
+	</bean>
 </beans>

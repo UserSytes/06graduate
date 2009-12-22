@@ -52,4 +52,16 @@
 			<ref bean="adminServiceTarget" />
 		</property>
 	</bean>
+	<!-- 前台 -->
+		<bean id="searchCourseService" parent="transactionBase">
+		<property name="target">
+			<ref bean="searchCourseServiceTarget" />
+		</property>
+	</bean>
+			<bean id="applicationFormService" parent="transactionBase">
+		<property name="target">
+			<ref bean="applicationFormServiceTarget" />
+		</property>
+	</bean>
+	
 </beans>
