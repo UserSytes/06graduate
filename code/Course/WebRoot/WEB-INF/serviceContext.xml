@@ -61,4 +61,12 @@
 			<ref bean="AdministratorDAO" />
 		</property>
 	</bean>
+	<!-- 前台 -->
+	<bean id="searchCourseServiceTarget" class="cn.edu.xmu.course.service.impl.SearchCourseService">
+		<property name="courseDAO">
+			<ref bean="CourseDAO" />
+		</property>
+	</bean>
+	<bean id="applicationFormServiceTarget" class="cn.edu.xmu.course.service.impl.ApplicationFormService">
+	</bean>
 </beans>
