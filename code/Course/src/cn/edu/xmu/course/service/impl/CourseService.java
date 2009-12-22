@@ -34,6 +34,19 @@ public class CourseService implements ICourseService {
 			return courseDAO.findByTeacherAndType(teacherId, type);
 	}
 
+
+	public boolean deleteCourse(Course course) {
+		// TODO Auto-generated method stub
+		try{
+			courseDAO.delete(course);
+			return true;
+		}catch(Exception e){
+			return false;
+		}
+
+	}
+
+	
 	public Course getCourseById(Integer courseId) {
 		// TODO Auto-generated method stub
 		return courseDAO.findById(courseId);
@@ -46,5 +59,6 @@ public class CourseService implements ICourseService {
 	public CourseDAO getCourseDAO() {
 		return courseDAO;
 	}
+
 
 }

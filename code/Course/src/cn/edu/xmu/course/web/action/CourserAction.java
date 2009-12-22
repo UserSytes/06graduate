@@ -45,6 +45,15 @@ public class CourserAction extends BaseAction {
 		else 
 			return SUCCESS;
 	}
+	public String deleteCourse(){
+		Course deleteCourse = courseService.getCourseById(Integer.parseInt(courseId));
+
+		if(courseService.deleteCourse(deleteCourse)){
+			return SUCCESS;
+		}
+		else 
+			return ERROR;
+	}
 
 	public Teacher getTeacher() {
 		return teacher;

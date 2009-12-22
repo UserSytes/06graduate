@@ -138,7 +138,7 @@
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit cssClass="label" value="确认" />
+						<s:submit loadingText="正在提交，请稍候……" cssClass="label" value="确认" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>
