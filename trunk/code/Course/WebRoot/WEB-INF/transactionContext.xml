@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+
+<!-- 利用继承的思想简化配置，把abstract="true" -->
+	<bean id="transactionBase"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		lazy-init="true" abstract="true">
+      <!-- 配置事务管理器 -->
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+      <!-- 配置事务属性 -->
+		<property name="transactionAttributes">
+			<props>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="courseService" parent="transactionBase">
+		<property name="target">
+			<ref bean="courseServiceTarget" />
+		</property>
+	</bean>
+	<bean id="departmentService" parent="transactionBase">
+		<property name="target">
+			<ref bean="departmentServiceTarget" />
+		</property>
+	</bean>
+	<bean id="teacherInfoService" parent="transactionBase">
+		<property name="target">
+			<ref bean="teacherInfoServiceTarget" />
+		</property>
+	</bean>
+</beans>

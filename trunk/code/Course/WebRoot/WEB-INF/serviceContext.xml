@@ -9,7 +9,7 @@
 	</bean>
 	
 	<!-- 教师信息管理 -->
-	<bean id="teacherInfoService" class="cn.edu.xmu.course.service.impl.TeacherInfoService">
+	<bean id="teacherInfoServiceTarget" class="cn.edu.xmu.course.service.impl.TeacherInfoService">
 		<property name="teacherDAO">
 			<ref bean="TeacherDAO" />
 		</property>
@@ -19,14 +19,14 @@
 	</bean>	
 	
 	<!-- 教师申报课程管理 -->
-	<bean id="courseService" class="cn.edu.xmu.course.service.impl.CourseService">
+	<bean id="courseServiceTarget" class="cn.edu.xmu.course.service.impl.CourseService">
 		<property name="courseDAO">
 			<ref bean="CourseDAO" />
 		</property>
 	</bean>	
 	
 	<!-- 院系管理 -->
-	<bean id="departmentService" class="cn.edu.xmu.course.service.impl.DepartmentService">
+	<bean id="departmentServiceTarget" class="cn.edu.xmu.course.service.impl.DepartmentService">
 		<property name="departmentDAO">
 			<ref bean="DepartmentDAO" />
 		</property>
