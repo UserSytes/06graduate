@@ -27,7 +27,7 @@
         </property>
         <set name="courses" inverse="true">
             <key>
-                <column name="course_id" />
+                <column name="teacher_id" />
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.Course" />
         </set>
