@@ -1,17 +1,21 @@
 package cn.edu.xmu.course.web.action;
 
+import java.util.List;
+
 import cn.edu.xmu.course.pojo.*;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.IDepartmentService;
 import cn.edu.xmu.course.service.ITeacherInfoService;
 
-public class ApplyCourserAction extends BaseAction {
+public class CourserAction extends BaseAction {
 
 	private String departmentId;
 	private String courseId;
 	private Department department;
 	private Teacher teacher;
 	private Course course;
+	private List<Course> myCoursesList;
+	private int type=2;
 
 	private ITeacherInfoService teacherInfoService;
 	private ICourseService courseService;
@@ -19,22 +23,27 @@ public class ApplyCourserAction extends BaseAction {
 
 	private final String userName = "123";
 
-	public String applyCourse() {
-		Course course = getCourseService().getCourseById(Integer.parseInt(courseId));
-		Teacher teacher = teacherInfoService.getTeacher(userName);
-		if (getCourseService().applyCourse(teacher, course))
-			return SUCCESS;
-		else
-			return ERROR;
-	}
-
 	public String addNewCourse() {
 		Department dept = departmentService.getDepartmentById(Integer
 				.parseInt(departmentId));
-		if (getCourseService().addCourse(course, dept))
+		Teacher tea = teacherInfoService.getTeacher(userName);
+		if (getCourseService().addCourse(course, dept,tea)){
+			addActionMessage("申报课程成功！"); 
 			return SUCCESS;
+		}
 		else
 			return ERROR;
+	}
+	
+	public String findMyCoursesList(){
+		Teacher tea = teacherInfoService.getTeacher(userName); 
+		myCoursesList = courseService.findCoursesByTeacher(tea.getId(), type);
+		if(myCoursesList.size()<=0){
+			addActionMessage("暂无任何课程！"); 
+			return ERROR;
+		}
+		else 
+			return SUCCESS;
 	}
 
 	public Teacher getTeacher() {
@@ -100,4 +109,22 @@ public class ApplyCourserAction extends BaseAction {
 	public ICourseService getCourseService() {
 		return courseService;
 	}
+
+	public void setMyCoursesList(List<Course> myCoursesList) {
+		this.myCoursesList = myCoursesList;
+	}
+
+	public List<Course> getMyCoursesList() {
+		return myCoursesList;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+
 }

@@ -9,18 +9,16 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
-		<title>修改密码</title>
+		<title>课程申报</title>
 	</head>
 
 	<body onload="getSchool()">
 		<script type="text/javascript" src="/dwr/engine.js"></script>
 		<script type="text/javascript" src="/dwr/util.js"></script>
-		<script type="text/javascript"
-			src="/dwr/interface/DepartmentDAO.js"></script>
-		<script type="text/javascript"
-			src="/dwr/interface/SchoolDAO.js"></script>
+		<script type="text/javascript" src="/dwr/interface/DepartmentDAO.js"></script>
+		<script type="text/javascript" src="/dwr/interface/SchoolDAO.js"></script>
 		<script language="javascript">
-		function callbackorgcus(data) {
+	function callbackorgcus(data) {
 		if (data) {
 			DWRUtil.setValue("check", "该用户已存在");
 		} else {
@@ -51,19 +49,28 @@
 		DWRUtil.removeAllOptions("Department");
 		DWRUtil.addOptions("Department", data, "id", "name");
 	}
-		
+		function check(form) {
+		if (form.Department.value == -1) {
+			alert("请选择院系！");
+			return false;
+		}
+		if (form.name.value == "") {
+			alert("课程名称不能为空！");
+			return false;
+		}
+	
+	}
 </script>
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 个人资料 -&gt; 个人信息
+					当前位置: 课程申报-&gt; 课程申报
 				</td>
 			</tr>
 		</table>
 
-		<s:form action="addNewCourseAction" method="post"
-			onsubmit="">&nbsp;&nbsp; 
+		<s:form action="addNewCourseAction" method="post" onsubmit="">&nbsp;&nbsp; 
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
@@ -94,8 +101,20 @@
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
-						<div align="center"> 
-							名称： 
+						<div align="center">
+							级别：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<s:select id="level" list="{'国家级','省级','市级','校级','其它'}"
+							name="course.level"></s:select>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							名称：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
@@ -105,7 +124,8 @@
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
-						<div align="center">备注: 
+						<div align="center">
+							备注:
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">

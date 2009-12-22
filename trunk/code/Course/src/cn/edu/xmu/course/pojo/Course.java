@@ -20,7 +20,6 @@ public class Course implements java.io.Serializable {
 	private String level;
 	private Set courseMovies = new HashSet(0);
 	private Set collections = new HashSet(0);
-	private Set teachers = new HashSet(0);
 	private Set topics = new HashSet(0);
 	private Set achievements = new HashSet(0);
 	private Set books = new HashSet(0);
@@ -45,9 +44,9 @@ public class Course implements java.io.Serializable {
 	/** full constructor */
 	public Course(Department department, Teacher teacher, String name,
 			String remark, Integer status, String level, Set courseMovies,
-			Set collections, Set teachers, Set topics, Set achievements,
-			Set books, Set teacherTeams, Set applicationForms,
-			Set examinations, Set courseInfos, Set chapters, Set studentCourses) {
+			Set collections, Set topics, Set achievements, Set books,
+			Set teacherTeams, Set applicationForms, Set examinations,
+			Set courseInfos, Set chapters, Set studentCourses) {
 		this.department = department;
 		this.teacher = teacher;
 		this.name = name;
@@ -56,7 +55,6 @@ public class Course implements java.io.Serializable {
 		this.level = level;
 		this.courseMovies = courseMovies;
 		this.collections = collections;
-		this.teachers = teachers;
 		this.topics = topics;
 		this.achievements = achievements;
 		this.books = books;
@@ -140,14 +138,6 @@ public class Course implements java.io.Serializable {
 
 	public void setCollections(Set collections) {
 		this.collections = collections;
-	}
-
-	public Set getTeachers() {
-		return this.teachers;
-	}
-
-	public void setTeachers(Set teachers) {
-		this.teachers = teachers;
 	}
 
 	public Set getTopics() {

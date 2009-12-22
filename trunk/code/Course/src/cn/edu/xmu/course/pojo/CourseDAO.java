@@ -1,4 +1,4 @@
-package cn.edu.xmu.course.dao;
+package cn.edu.xmu.course.pojo;
 
 import java.util.List;
 import java.util.Set;
@@ -94,19 +94,6 @@ public class CourseDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByTeacherAndType(Integer teacherId, int status) {
-		log.debug("finding Course instance with property: teacher,status" +
-				", value: " + teacherId+" and "+status);
-		try {
-			String queryString = "from Course as model where model.teacher.id="
-					+ teacherId + "and model.status= "+status;
-			return getHibernateTemplate().find(queryString);
-		} catch (RuntimeException re) {
-			log.error("find by property name failed", re);
-			throw re;
-		}
-	}
-
 	public List findByName(Object name) {
 		return findByProperty(NAME, name);
 	}
@@ -121,10 +108,6 @@ public class CourseDAO extends HibernateDaoSupport {
 
 	public List findByLevel(Object level) {
 		return findByProperty(LEVEL, level);
-	}
-
-	public List findByTeacherId(Object teacherId) {
-		return findByProperty("teacher.id", teacherId);
 	}
 
 	public List findAll() {

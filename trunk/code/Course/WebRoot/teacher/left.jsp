@@ -81,10 +81,10 @@ border="0">
                 <tr>
                   <td width="2%"><img src="Images/closed.gif" /></td>
                   <td height="23"><a 
-            href="Article/Article_Add.asp" 
-            target="main">课程列表</a>┆<a 
-            href="include/Make.asp" 
-            target="main">搜索学生</a></td>
+            href="getMyCourseAction.action" 
+            target="main">我的课程</a>┆<a 
+            href="addnewcourse.jsp" 
+            target="main">课程申请</a></td>
                 </tr>
                 <tr>
                   <td><img src="Images/closed.gif" /></td>
