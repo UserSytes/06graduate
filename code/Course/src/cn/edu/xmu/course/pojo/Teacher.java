@@ -13,7 +13,6 @@ public class Teacher implements java.io.Serializable {
 
 	private Integer id;
 	private UserInfo userInfo;
-	private Course course;
 	private String teacherNo;
 	private String password;
 	private String position;
@@ -32,10 +31,9 @@ public class Teacher implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Teacher(UserInfo userInfo, Course course, String teacherNo,
-			String password, String position, Set courses) {
+	public Teacher(UserInfo userInfo, String teacherNo, String password,
+			String position, Set courses) {
 		this.userInfo = userInfo;
-		this.course = course;
 		this.teacherNo = teacherNo;
 		this.password = password;
 		this.position = position;
@@ -58,14 +56,6 @@ public class Teacher implements java.io.Serializable {
 
 	public void setUserInfo(UserInfo userInfo) {
 		this.userInfo = userInfo;
-	}
-
-	public Course getCourse() {
-		return this.course;
-	}
-
-	public void setCourse(Course course) {
-		this.course = course;
 	}
 
 	public String getTeacherNo() {

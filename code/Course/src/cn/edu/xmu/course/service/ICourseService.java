@@ -1,5 +1,7 @@
 package cn.edu.xmu.course.service;
 
+import java.util.List;
+
 import cn.edu.xmu.course.pojo.*;
 
 public interface ICourseService {
@@ -10,16 +12,7 @@ public interface ICourseService {
 	 * @param department
 	 * @return
 	 */
-	public boolean addCourse(Course course, Department department);
-	
-	/**
-	 * 申报课程
-	 * @param teacher
-	 * @param course
-	 * @param teacherCourse
-	 * @return
-	 */
-	public boolean applyCourse(Teacher teacher, Course course);
+	public boolean addCourse(Course course, Department department,Teacher teacher);
 	
 	/**
 	 * 根据课程Id查找课程
@@ -27,4 +20,11 @@ public interface ICourseService {
 	 * @return
 	 */
 	public Course getCourseById(Integer courseId);
+	
+	/**
+	 * 根据教师查找课程
+	 * @param teacherId
+	 * @return
+	 */
+	public List findCoursesByTeacher(Integer teacherId,int type);
 }

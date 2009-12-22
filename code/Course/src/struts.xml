@@ -15,6 +15,7 @@
 		</action>
 		
 		<!--教师子系统-->
+		<!-- 个人信息管理 -->
 		<action name="changeTeacherInfoAction" method="changeTeacherInfo"
 			class="teacherInfoAction">
 			<result name="success">/commons/prompt.jsp</result>
@@ -30,12 +31,14 @@
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="applyCourseAction" method="applyCourse" class="applyCourseAction">
+		
+		<!-- 课程申报管理 -->
+		<action name="addNewCourseAction" method="addNewCourse" class="courseAction">
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="addNewCourseAction" method="addNewCourse" class="applyCourseAction">
-			<result name="success">/commons/prompt.jsp</result>
+		<action name="getMyCourseAction" method="findMyCoursesList" class="courseAction">
+			<result name="success">/teacher/mycourseslist.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		
