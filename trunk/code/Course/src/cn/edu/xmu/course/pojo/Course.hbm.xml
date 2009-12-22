@@ -82,7 +82,7 @@
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.CourseInfo" />
         </set>
-        <set name="chapters" inverse="true">
+        <set name="chapters" inverse="true" cascade="delete">
             <key>
                 <column name="course_id" />
             </key>

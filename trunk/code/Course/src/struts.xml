@@ -41,6 +41,10 @@
 			<result name="success">/teacher/mycourseslist.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+		<action name="deleteCourseAction" method="deleteCourse" class="courseAction">
+			<result name="success">/teacher/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
 		
 		<!--超级管理员-->
 		<!--1、学院管理模块-->

@@ -27,4 +27,11 @@ public interface ICourseService {
 	 * @return
 	 */
 	public List findCoursesByTeacher(Integer teacherId,int type);
+	
+	/**
+	 * É¾³ý¿Î³Ì
+	 * @param course
+	 * @return
+	 */
+	public boolean deleteCourse(Course course);
 }

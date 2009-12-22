@@ -15,19 +15,10 @@
 	<body>
 		<script language="javascript">
 	function check(form) {
-		if (form.Department.value == -1) {
-			alert("请选择院系！");
-			return false;
-		}
-		if (form.name.value == "") {
-			alert("课程名称不能为空！");
-			return false;
-		}
 
 	}
-	function test(){
+	function getCourseByState(){
 	document.getElementById("form").submit();
-	
 		 
 		
 	}
@@ -49,7 +40,7 @@
 					<td>
 						筛选：&nbsp;&nbsp;&nbsp;
 						<s:select name="type" list="#{2:'全部',1:'己审核',0:'未审核'}" 
-							listKey="key" listValue="value" onchange="test()" />
+							listKey="key" listValue="value" onchange="getCourseByState()" />
 
 					</td>
 				</tr>
@@ -100,8 +91,8 @@
                 					</s:url>">
 								<font color="green">【查看】</font> </a>
 							<a
-								href="<s:url action="deleteSchoolAction"> 
-                     			<s:param name="schoolId"> 
+								href="<s:url action="deleteCourseAction" > 
+                     			<s:param name="courseId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
