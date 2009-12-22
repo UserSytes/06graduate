@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="../commons/taglibs.jsp"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -35,9 +36,11 @@
             href="System_Admin.asp" 
             target="main" class="STYLE2">新闻政策</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
-          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif" ><a   href="Article/Article_Manage.asp" target="main">院系管理</a></td>
+          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif" ><a href="<s:url action='findAllSchoolsAction'> </s:url>"
+														target="main" class="STYLE3">院系管理</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
-          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif" ><a  href="Label_Admin.asp?Type=1" target="main" class="STYLE3">年级管理</a></td>
+          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif" ><a href="<s:url action='allGradeAction'> </s:url>"
+														target="main" class="STYLE3">年级管理</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
           <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a  href="Class_Templet.asp?ChannelID=1&Type=2"  target="main" class="STYLE2">个人信息</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
