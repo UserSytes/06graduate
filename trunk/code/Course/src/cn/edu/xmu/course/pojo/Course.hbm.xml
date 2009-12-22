@@ -14,7 +14,7 @@
             <column name="department_id" />
         </many-to-one>
         <many-to-one name="teacher" class="cn.edu.xmu.course.pojo.Teacher" fetch="select">
-            <column name="course_id" />
+            <column name="teacher_id" />
         </many-to-one>
         <property name="name" type="java.lang.String">
             <column name="name" length="50" not-null="true" />
