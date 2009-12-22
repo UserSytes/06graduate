@@ -54,7 +54,7 @@
 			class="schoolManageAction">
 			<result name="success">/admin/schoolmanage/departmentlist.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/admin/prompt.jsp</result>
 		</action>
 		<action name="deleteSchoolAction" method="deleteSchool" class="schoolManageAction">
 			<result name="success">/admin/schoolmanage/schoollist.jsp
@@ -72,6 +72,21 @@
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="addGradeAction" method="addGrade" class="schoolManageAction">
+			<result name="success">/admin/prompt.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="deleteDepartmentAction" method="deleteDepartment" class="schoolManageAction">
+			<result name="success">/admin/schoolmanage/departmentlist.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="goAddDepartmentAction" method="goAddDepartment" class="schoolManageAction">
+			<result name="success">/admin/schoolmanage/adddepartment.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="addDepartmentAction" method="addDepartment" class="schoolManageAction">
 			<result name="success">/admin/prompt.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>

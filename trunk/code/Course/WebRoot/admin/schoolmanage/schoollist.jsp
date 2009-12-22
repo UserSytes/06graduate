@@ -61,6 +61,14 @@
                 					</s:url>">
 								<font color="green">【查看】</font>
 							</a>
+							<a
+								href="<s:url action="goAddDepartmentAction"> 
+                     			<s:param name="schoolId"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param> 
+                					</s:url>">
+								<font color="green">【添加系】</font>
+							</a>
 						</td>
 						<td>
 							<a
