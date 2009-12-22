@@ -123,8 +123,8 @@ eval("submenu" + sid + ".style.display=\"none\";");
 													<img src="Images/closed.gif" />
 												</td>
 												<td height="23">
-													<a href="Article/Article_Manage.asp?action=ListisAccept"
-														target="main">学院管理员列表</a>
+													<a href="<s:url action='allAdminAction'> </s:url>"
+														target="main"> 学院管理员列表</a>
 												</td>
 											</tr>
 											<tr>
@@ -181,7 +181,8 @@ eval("submenu" + sid + ".style.display=\"none\";");
 													<IMG src="Images/closed.gif">
 												</TD>
 												<TD height=23>
-													<A href="User/Point_Log_ACT.asp" target=main>年级列表</A>
+													<a href="<s:url action='allGradeAction'> </s:url>"
+														target="main">年级列表</A>
 												</TD>
 											</TR>
 											<TR>

@@ -23,7 +23,7 @@
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 院系管理 -&gt; <s:text name="">${school.name}</s:text>学院  -&gt; 系列表
+					当前位置: 院系管理 -&gt; <s:text name="">${school.name}</s:text>  -&gt; 系列表
 				</td>
 			</tr>
 		</table>

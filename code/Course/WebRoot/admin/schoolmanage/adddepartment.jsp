@@ -43,6 +43,7 @@
 		</table>
 		<s:form action="addDepartmentAction" method="post"
 			onsubmit="return check(this);">
+			<s:hidden name="schoolId" />
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
@@ -59,7 +60,6 @@
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<s:text name="">${school.name}</s:text>
-						&nbsp;*
 					</td>
 				</tr>
 				<tr>
