@@ -33,7 +33,7 @@
 	</bean>	
 	
 	<!--超级管理员（院系管理模块）-->
-	<bean id="superAdminService" class="cn.edu.xmu.course.service.impl.SuperAdminService">
+	<bean id="superAdminServiceTarget" class="cn.edu.xmu.course.service.impl.SuperAdminService">
 		<property name="superAdminDAO">
 			<ref bean="SuperAdminDAO" />
 		</property>
@@ -49,14 +49,14 @@
 	</bean>
 	
 	<!--新闻管理模块-->
-	<bean id="newsService" class="cn.edu.xmu.course.service.impl.NewsService">
+	<bean id="newsServiceTarget" class="cn.edu.xmu.course.service.impl.NewsService">
 		<property name="newsDAO">
 			<ref bean="NewsDAO" />
 		</property>
 	</bean>
 	
 	<!--学院管理员-->
-	<bean id="adminService" class="cn.edu.xmu.course.service.impl.AdminService">
+	<bean id="adminServiceTarget" class="cn.edu.xmu.course.service.impl.AdminService">
 		<property name="administratorDAO">
 			<ref bean="AdministratorDAO" />
 		</property>
