@@ -20,7 +20,7 @@ public class SuperAdminService implements ISuperAdminService {
 
 	public boolean addDepartment(School school, Department department) {
 		// TODO Auto-generated method stub
-		department.setSchool(school);
+		//department.setSchool(school);
 		try {
 			departmentDAO.save(department);
 			return true;

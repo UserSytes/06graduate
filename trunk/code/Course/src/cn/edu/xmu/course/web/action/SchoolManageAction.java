@@ -31,10 +31,14 @@ public class SchoolManageAction extends BaseAction {
 	private int adminSchoolId;
 	private Administrator admin;
 	private School adminSchool;
+	private int adminId;
+	private List<Administrator> adminList;
 
 	// 年级管理
 	private List<Grade> allGradeList;
 	private Grade grade;
+	private int gradeId;
+
 	/**
 	 * 添加学院
 	 * 
@@ -43,11 +47,10 @@ public class SchoolManageAction extends BaseAction {
 	public String addSchool() {
 		boolean result = false;
 		result = superAdminService.addSchool(school);
-		if (result){
-			addActionMessage("添加学院成功！"); 
+		if (result) {
+			addActionMessage("添加学院成功！");
 			return SUCCESS;
-		}
-		else
+		} else
 			return ERROR;
 	}
 
@@ -58,7 +61,7 @@ public class SchoolManageAction extends BaseAction {
 	 */
 	public String findAllSchools() {
 		allSchoolList = superAdminService.findAllSchool();
-		//System.out.println("test:  "+allSchoolList.get(6).getName());
+		// System.out.println("test:  "+allSchoolList.get(6).getName());
 		if (allSchoolList.size() == 0) {
 			return ERROR;
 		} else
@@ -74,7 +77,7 @@ public class SchoolManageAction extends BaseAction {
 		school = superAdminService.findSchoolById(schoolId);
 		departmentList = superAdminService.findDepartmentBySchool(school);
 		if (departmentList.size() == 0) {
-			addActionMessage("该学院没有系！"); 
+			addActionMessage("该学院没有系！");
 			return ERROR;
 		} else
 			return SUCCESS;
@@ -104,11 +107,10 @@ public class SchoolManageAction extends BaseAction {
 		adminSchool = superAdminService.findSchoolById(adminSchoolId);
 		boolean result = false;
 		result = adminService.addAdmin(admin, adminSchool);
-		if (result){
-			addActionMessage("添加学院管理员成功！"); 
+		if (result) {
+			addActionMessage("添加学院管理员成功！");
 			return SUCCESS;
-		}
-		else
+		} else
 			return ERROR;
 	}
 
@@ -119,18 +121,20 @@ public class SchoolManageAction extends BaseAction {
 	 */
 	public String addGrade() {
 		boolean result = false;
+		result = superAdminService.addGrade(grade);
 		if (result) {
-			addActionMessage("添加年级成功！"); 
+			addActionMessage("添加年级成功！");
 			return SUCCESS;
 		} else
 			return ERROR;
 	}
-	
+
 	/**
 	 * 删除系
+	 * 
 	 * @return
 	 */
-	public String deleteDepartment(){
+	public String deleteDepartment() {
 		Department d = superAdminService.findDepartmentById(departmentId);
 		boolean result = superAdminService.deleteDepartment(d);
 		if (result) {
@@ -139,31 +143,97 @@ public class SchoolManageAction extends BaseAction {
 		} else
 			return ERROR;
 	}
-	
+
 	/**
 	 * 跳转到添加系
+	 * 
 	 * @return
 	 */
-	public String goAddDepartment(){
+	public String goAddDepartment() {
 		school = superAdminService.findSchoolById(schoolId);
-		System.out.println("测试1： "+school.getName());
-		if(school==null)
+		if (school == null)
 			return ERROR;
-		else 
+		else
 			return SUCCESS;
 	}
-	
+
 	/**
 	 * 添加系
+	 * 
 	 * @return
 	 */
-	public String addDepartment(){
-		//department.setSchool(school);
-		System.out.println("测试2： "+school.getName());
+	public String addDepartment() {
+		// department.setSchool(school);
+		school = superAdminService.findSchoolById(schoolId);
+		// System.out.println("测试2： "+school);
+		// System.out.println("测试3： "+school.getName());
+		department.setSchool(school);
 		boolean result = superAdminService.addDepartment(school, department);
-		if(result)
+		if (result) {
+			addActionMessage("添加系成功！");
 			return SUCCESS;
-		else 
+		} else
+			return ERROR;
+	}
+
+	/**
+	 * 跳转到学院管理员列表
+	 * 
+	 * @return
+	 */
+	public String getAllAdmin() {
+		adminList = adminService.findAllAdmin();
+		if (adminList.size() != 0) {
+			return SUCCESS;
+		} else {
+			addActionMessage("目前还没有学院管理员！");
+			return ERROR;
+		}
+
+	}
+
+	/**
+	 * 删除学院管理员
+	 * 
+	 * @return
+	 */
+	public String deleteAdmin() {
+		Administrator a = adminService.findAdminById(adminId);
+		boolean result = adminService.deleteAdmin(a);
+		if (result) {
+			adminList = adminService.findAllAdmin();
+			return SUCCESS;
+		} else
+			return ERROR;
+	}
+
+	/**
+	 * 查找所有年级
+	 * 
+	 * @return
+	 */
+	public String findAllGrade() {
+		allGradeList = superAdminService.findAllGrade();
+		if (allGradeList.size() != 0) {
+			return SUCCESS;
+		} else {
+			addActionMessage("目前还没有年级！");
+			return ERROR;
+		}
+	}
+
+	/**
+	 * 删除年级
+	 * 
+	 * @return
+	 */
+	public String deleteGrade() {
+		Grade g = superAdminService.findGradeById(gradeId);
+		boolean result = superAdminService.deleteGrade(g);
+		if (result) {
+			allGradeList = superAdminService.findAllGrade();
+			return SUCCESS;
+		} else
 			return ERROR;
 	}
 
@@ -275,5 +345,36 @@ public class SchoolManageAction extends BaseAction {
 		this.grade = grade;
 	}
 
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	public List<Administrator> getAdminList() {
+		return adminList;
+	}
+
+	public void setAdminList(List<Administrator> adminList) {
+		this.adminList = adminList;
+	}
+
+	public int getAdminId() {
+		return adminId;
+	}
+
+	public void setAdminId(int adminId) {
+		this.adminId = adminId;
+	}
+
+	public int getGradeId() {
+		return gradeId;
+	}
+
+	public void setGradeId(int gradeId) {
+		this.gradeId = gradeId;
+	}
 
 }
