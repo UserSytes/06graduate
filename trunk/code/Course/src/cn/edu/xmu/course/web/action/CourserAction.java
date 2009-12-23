@@ -10,7 +10,7 @@ import cn.edu.xmu.course.service.ITeacherInfoService;
 public class CourserAction extends BaseAction {
 
 	private String departmentId;
-	private String courseId;
+	private int courseId;
 	private Department department;
 	private Teacher teacher;
 	private Course course;
@@ -46,7 +46,7 @@ public class CourserAction extends BaseAction {
 			return SUCCESS;
 	}
 	public String deleteCourse(){
-		Course deleteCourse = courseService.getCourseById(Integer.parseInt(courseId));
+		Course deleteCourse = courseService.getCourseById(courseId);
 
 		if(courseService.deleteCourse(deleteCourse)){
 			return SUCCESS;
@@ -103,14 +103,6 @@ public class CourserAction extends BaseAction {
 		return teacherInfoService;
 	}
 
-	public void setCourseId(String courseId) {
-		this.courseId = courseId;
-	}
-
-	public String getCourseId() {
-		return courseId;
-	}
-
 	public void setCourseService(ICourseService courseService) {
 		this.courseService = courseService;
 	}
@@ -133,6 +125,10 @@ public class CourserAction extends BaseAction {
 
 	public void setType(int type) {
 		this.type = type;
+	}
+
+	public void setCourseId(int courseId) {
+		this.courseId = courseId;
 	}
 
 
