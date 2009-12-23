@@ -82,9 +82,10 @@
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="deleteCourseAction" method="deleteCourse" class="courseAction">
-			<result type="redirect-action">show</result>  
+			<result name="success" type="redirect-action">getMyCourseByStateAction</result> 
+			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="show" method="findMyCoursesList" class="courseAction">
+		<action name="getMyCourseByStateAction" method="findMyCoursesList" class="courseAction">
 			<result>/teacher/courseslist.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>

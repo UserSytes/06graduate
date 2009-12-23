@@ -13,15 +13,43 @@
 	</head>
 
 	<body>
+		<script type="text/javascript" src="../js/prototype.js"></script>
 		<script language="javascript">
-	function check(form) {
-
+	function getCourseByState() {
+		document.getElementById("form").submit();
 	}
-	function getCourseByState(){
-	document.getElementById("form").submit();
-		 
-		
-	}
+	function getCourseByType(type) {
+        var url = "getMyCourseByStateAction.action?type="+type;   
+   		new Ajax.Updater (   
+        	'courseListMain',   
+        	url,    
+       		 {   
+         	   onLoading:function (){   
+         	   },   
+         	   onSuccess:function (request) {   
+       		   },    
+       		   onFailure:function (request) {   
+                 alert("服务器故障，请稍候重试");  
+         	  }   
+      	  }   
+   	 	);   
+	}  
+		function deleteCourse(courseId) {
+        var url = "deleteCourseAction.action?courseId="+courseId;   
+   		new Ajax.Updater (   
+        	'courseListMain',   
+        	url,    
+       		 {   
+         	   onLoading:function (){   
+         	   },   
+         	   onSuccess:function (request) {   
+       		   },    
+       		   onFailure:function (request) {   
+                 alert("服务器故障，请稍候重试");  
+         	  }   
+      	  }   
+   	 	);   
+	}  
 	
 </script>
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
@@ -32,79 +60,9 @@
 				</td>
 			</tr>
 		</table>
-
-<s:form id="form" action="getMyCourseAction" method="post">
-		<div align="center">
-			<table class="listTable">
-				<tr>
-					<td>
-						筛选：&nbsp;&nbsp;&nbsp;
-						<s:select name="type" list="#{2:'全部',1:'己审核',0:'未审核'}" 
-							listKey="key" listValue="value" onchange="getCourseByState()" />
-
-					</td>
-				</tr>
-				<tr class="listHeaderTr"
-					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
-					<th>
-						课程id
-					</th>
-					<th>
-						课程名称
-					</th>
-					<th>
-						级别
-					</th>
-					<th>
-						学院
-					</th>
-					<th>
-						系
-					</th>
-					<th>
-						操作
-					</th>
-				</tr>
-				<s:iterator value="myCoursesList" status="course">
-					<tr class="listTr">
-						<td>
-							<s:property value="id" />
-						</td>
-						<td>
-							<s:property value="name" />
-						</td>
-						<td>
-							<s:property value="level" />
-						</td>
-						<td>
-							<s:property value="department.school.name" />
-						</td>
-						<td>
-							<s:property value="department.name" />
-						</td>
-						<td>
-							<a
-								href="<s:url action="findDepartmentAction"> 
-                     			<s:param name="schoolId"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param> 
-                					</s:url>">
-								<font color="green">【查看】</font> </a>
-							<a
-								href="<s:url action="deleteCourseAction" > 
-                     			<s:param name="courseId"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param> 
-                					</s:url>">
-								<font color="red">【删除】</font> </a>
-						</td>
-					</tr>
-				</s:iterator>
-				<tr class="listFooterTr">
-
-				</tr>
-			</table>
+	
+		<div id="courseListMain">
+			<s:include value="courseslist.jsp"></s:include>
 		</div>
-</s:form>
 	</body>
 </html>
