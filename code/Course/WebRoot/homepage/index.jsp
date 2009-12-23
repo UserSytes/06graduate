@@ -30,17 +30,17 @@
 							</tr>
 							<tr>
 								<td width="210" height="10" valign="top">
-									<table width="210" height="5400%" border="0" cellspacing="0"
+									<table width="218" height="688" border="0" cellspacing="0"
 										cellpadding="0">
 										<tr>
 											<td height="60">
-												<img src="images/up-1.jpg" width="210" height="60">
+												<img src="images/up-1.jpg" width="218" height="60">
 											</td>
 										</tr>
 
 										<tr>
 											<td height="42">
-												<img src="images/but-1.jpg" width="210" height="42">
+												<img src="images/but-1.jpg" width="218" height="42">
 											</td>
 										</tr>
 										<tr>
@@ -77,7 +77,7 @@
 										</tr>
 										<tr>
 											<td height="38">
-												<img src="images/but-2.jpg" width="210" height="38">
+												<img src="images/but-2.jpg" width="218" height="38">
 											</td>
 										</tr>
 										<tr>
@@ -125,7 +125,7 @@
 													</tr>
 													<tr>
 														<td width="166" height="100%" valign="top">
-															<img src="images/pic-10.jpg" width="149" height="156">
+															<img src="images/pic-10.jpg" width="154" height="156" style="width: 154px; height: 156px;">
 														</td>
 
 														<td width="389" valign="top" style="padding-left: 5px">
@@ -162,7 +162,7 @@
 												<tr>
 													<td width="553" height="33"
 														background="images/back-but-4.jpg">
-														<img src="images/but-4.jpg" width="157" height="33">
+														<img src="images/but-4.jpg" width="160" height="33">
 														<img src="images/spacer.gif" width="108" height="1">
 													</td>
 												</tr>

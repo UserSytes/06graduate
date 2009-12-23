@@ -25,7 +25,7 @@
 							cellpadding="0">
 							<tr>
 								<td colspan="2" WIDTH=765 height="102">
-									<s:include value="include/header4.jsp"></s:include>
+									<s:include value="include/header3.jsp"></s:include>
 								</td>
 							</tr>
 							<tr>
