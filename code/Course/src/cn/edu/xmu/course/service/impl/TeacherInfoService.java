@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -62,9 +63,10 @@ public class TeacherInfoService implements ITeacherInfoService {
 	 * cn.edu.xmu.course.service.ITeacherInfoService#addTeacher(cn.edu.xmu.course
 	 * .pojo.Teacher)
 	 */
-	public boolean addTeacher(Teacher teacher) {
+	public boolean addTeacher(Teacher teacher, UserInfo userInfo) {
 		// TODO Auto-generated method stub
 		try {
+			userInfoDAO.save(userInfo);
 			teacherDAO.save(teacher);
 			return true;
 		} catch (Exception e) {
@@ -108,12 +110,14 @@ public class TeacherInfoService implements ITeacherInfoService {
 		return teacherDAO.findById(id);
 	}
 
-	public List findTeacherBySchool(School school) {
-		// TODO Auto-generated method stub
-		List<Teacher> teacherList=null;
-		List<Department> departments = (List<Department>) school.getDepartments();
-		for(Department d: departments){  
-			teacherList.addAll(teacherDAO.findByDepartment(d));
+	public List findTeachersByDepartments(List<Department> departments) {
+		List<Teacher> teacherList = new ArrayList();
+		for (Department d : departments) {
+			List<Teacher> teachers = null;
+			teachers = teacherDAO.findByDepartment(d);
+			if (teachers.size() > 0) {
+				teacherList.addAll(teachers);
+			}
 		}
 		return teacherList;
 	}

@@ -3,11 +3,14 @@ package cn.edu.xmu.course.web.action;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.*;
+import cn.edu.xmu.course.service.ISuperAdminService;
 import cn.edu.xmu.course.service.ITeacherInfoService;
+import cn.edu.xmu.course.service.impl.SuperAdminService;
 
 public class TeacherInfoAction extends BaseAction{
 
 	private ITeacherInfoService teacherInfoService;
+	private ISuperAdminService superAdminService;
 	
 	private Teacher teacher;
 	private UserInfo userInfo;
@@ -17,6 +20,7 @@ public class TeacherInfoAction extends BaseAction{
 	private List<Teacher> teacherList;
 	private List<Department> departmentList;
 	private int teacherId;
+	private int departmentId;
 	
 	public String changePassword(){
 		teacher = teacherInfoService.getTeacher("123");
@@ -51,7 +55,8 @@ public class TeacherInfoAction extends BaseAction{
 	public String findTeacherBySchool(){
 		Administrator admin = (Administrator) ActionSession.getSession().get(ADMIN);
 		School school = admin.getSchool();
-		teacherList = teacherInfoService.findTeacherBySchool(school);
+		List<Department> departments = superAdminService.findDepartmentBySchool(school);
+		teacherList = teacherInfoService.findTeachersByDepartments(departments);
 		if (teacherList.size() == 0) {
 			addActionMessage("本学院还没添加教师！");
 			return ERROR;
@@ -66,7 +71,7 @@ public class TeacherInfoAction extends BaseAction{
 	public String getDepartmentBySchool(){
 		Administrator admin = (Administrator) ActionSession.getSession().get(ADMIN);
 		School school = admin.getSchool();
-		departmentList = (List<Department>) school.getDepartments();
+		departmentList = superAdminService.findDepartmentBySchool(school);
 		if (departmentList.size() == 0) {
 			addActionMessage("本学院还没有系，请先向 校方管理员申请开设系！");
 			return ERROR;
@@ -80,8 +85,11 @@ public class TeacherInfoAction extends BaseAction{
 	 */
 	public String addTeacher(){
 		boolean result = false;
+		Department department = superAdminService.findDepartmentById(departmentId);
 		teacher.setPassword(teacher.getTeacherNo());
-		result = teacherInfoService.addTeacher(teacher);
+		userInfo.setDepartment(department);
+		teacher.setUserInfo(userInfo);
+		result = teacherInfoService.addTeacher(teacher, userInfo);
 		if (result) {
 			addActionMessage("添加教师成功！");
 			return SUCCESS;
@@ -170,6 +178,31 @@ public class TeacherInfoAction extends BaseAction{
 
 	public void setDepartmentList(List<Department> departmentList) {
 		this.departmentList = departmentList;
+	}
+
+
+	public int getTeacherId() {
+		return teacherId;
+	}
+
+	public void setTeacherId(int teacherId) {
+		this.teacherId = teacherId;
+	}
+
+	public ISuperAdminService getSuperAdminService() {
+		return superAdminService;
+	}
+
+	public void setSuperAdminService(ISuperAdminService superAdminService) {
+		this.superAdminService = superAdminService;
+	}
+
+	public int getDepartmentId() {
+		return departmentId;
+	}
+
+	public void setDepartmentId(int departmentId) {
+		this.departmentId = departmentId;
 	}
 	
 }

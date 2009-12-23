@@ -115,13 +115,13 @@ border=0>
           <TD height="25" style="background:url(Images/left_tt.gif) no-repeat"><table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
               <TD width="20"></TD>
-          <TD class=STYLE1 style="CURSOR: hand" onclick=showsubmenu(4); 
+          <TD class=STYLE1 style="CURSOR: hand" onclick=showsubmenu(3); 
     height=25>学生管理</TD>
             </tr>
           </table></TD>
           </TR>
         <TR>
-          <TD><TABLE id=submenu4 cellSpacing=0 cellPadding=0 width="100%" border=0>
+          <TD><TABLE id=submenu3 cellSpacing=0 cellPadding=0 width="100%" border=0>
               <TBODY>
                 <TR>
                   <TD width="2%"><IMG src="Images/closed.gif"></TD>
@@ -158,12 +158,12 @@ border=0>
           <TD height="25" style="background:url(Images/left_tt.gif) no-repeat"><table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
               <TD width="20"></TD>
-          <TD class=STYLE1 style="CURSOR: hand" onclick=showsubmenu(5); height=25>教师管理</TD>
+          <TD class=STYLE1 style="CURSOR: hand" onclick=showsubmenu(4); height=25>教师管理</TD>
             </tr>
           </table></TD>
           </TR>
         <TR>
-          <TD><TABLE id=submenu5 cellSpacing=0 cellPadding=0 width="100%" border=0>
+          <TD><TABLE id=submenu4 cellSpacing=0 cellPadding=0 width="100%" border=0>
               <TBODY>
                 <TR>
                   <TD width="2%"><IMG src="Images/closed.gif"></TD>

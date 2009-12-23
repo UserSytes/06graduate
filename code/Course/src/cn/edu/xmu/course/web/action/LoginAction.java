@@ -2,6 +2,7 @@ package cn.edu.xmu.course.web.action;
 
 import cn.edu.xmu.course.service.ILoginService;
 import cn.edu.xmu.course.pojo.Administrator;
+import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.SuperAdmin;
 import cn.edu.xmu.course.pojo.Teacher;
 
