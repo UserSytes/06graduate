@@ -28,7 +28,6 @@ public class ExecuteViewAction extends BaseAction {
 	private ApplicationForm applicationForm;
 	private ISearchCourseService searchCourseService;
 	private IDepartmentService departmentService;
-	private ICourseService courseService;
 
 	public int getCourseId() {
 		return courseId;
@@ -64,7 +63,7 @@ public class ExecuteViewAction extends BaseAction {
 	public String findCourseByDepartment() {
 		Department dept = departmentService.getDepartmentById(Integer
 				.parseInt(departmentId));
-		setCourseList(getCourseService().findCourseByDepartment(dept));
+		setCourseList(searchCourseService.findCourseByDepartment(dept));
 		System.out.print("\n&&&&&&&&&&&&&&&&&&&&&&" + getCourseList().size()
 				+ getCourseList().get(0).getName()
 				+ getCourseList().get(0).getId());
@@ -158,14 +157,6 @@ public class ExecuteViewAction extends BaseAction {
 
 	public IDepartmentService getDepartmentService() {
 		return departmentService;
-	}
-
-	public void setCourseService(ICourseService courseService) {
-		this.courseService = courseService;
-	}
-
-	public ICourseService getCourseService() {
-		return courseService;
 	}
 
 }
