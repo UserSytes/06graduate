@@ -23,7 +23,6 @@ public class ExecuteViewAction extends BaseAction {
 	private int courseId;
 	private List<Course> courseList;
 	private Course course;
-	private School school;
 
 	private ApplicationForm applicationForm;
 	private ISearchCourseService searchCourseService;
@@ -135,13 +134,6 @@ public class ExecuteViewAction extends BaseAction {
 		this.applicationForm = applicationForm;
 	}
 
-	public School getSchool() {
-		return school;
-	}
-
-	public void setSchool(School school) {
-		this.school = school;
-	}
 
 	public void setDepartmentId(String departmentId) {
 		this.departmentId = departmentId;
