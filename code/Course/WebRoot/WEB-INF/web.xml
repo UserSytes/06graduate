@@ -9,7 +9,7 @@
 	
 	<error-page>
     <exception-type>java.lang.Exception</exception-type>
-    <location>/commons/errorpage.jsp</location>
+    <location>/commons/error.jsp</location>
   	</error-page>
 	
 	<listener>

@@ -70,7 +70,7 @@
 			</tr>
 		</table>
 
-		<s:form action="addNewCourseAction" method="post" onsubmit="">&nbsp;&nbsp; 
+		<s:form action="addNewCourseAction" method="post" onsubmit="return check(this);">&nbsp;&nbsp; 
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
