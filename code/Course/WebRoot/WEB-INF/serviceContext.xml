@@ -6,6 +6,12 @@
 		<property name="teacherDAO">
 			<ref bean="TeacherDAO" />
 		</property>
+		<property name="administratorDAO">
+			<ref bean="AdministratorDAO" />
+		</property>
+		<property name="superAdminDAO">
+			<ref bean="SuperAdminDAO" />
+		</property>
 	</bean>
 	
 	<!-- 教师信息管理 -->

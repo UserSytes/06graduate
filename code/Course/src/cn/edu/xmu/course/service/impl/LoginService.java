@@ -2,6 +2,8 @@ package cn.edu.xmu.course.service.impl;
 
 import java.util.List;
 
+import cn.edu.xmu.course.dao.AdministratorDAO;
+import cn.edu.xmu.course.dao.SuperAdminDAO;
 import cn.edu.xmu.course.dao.TeacherDAO;
 import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Student;
@@ -9,9 +11,17 @@ import cn.edu.xmu.course.pojo.SuperAdmin;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.service.ILoginService;
 
+/**
+ * ¸ºÔðµÇÂ½
+ * @author ºÎÉêÃÜ
+ * @author Ö£±ùÁè
+ *
+ */
 public class LoginService implements ILoginService {
 
 	private TeacherDAO teacherDAO;
+	private AdministratorDAO administratorDAO;
+	private SuperAdminDAO superAdminDAO;
 
 	public Teacher teacherLogin(String account, String password) {
 		// TODO Auto-generated method stub
@@ -25,6 +35,18 @@ public class LoginService implements ILoginService {
 			return null;
 	}
 
+	public Administrator adminLogin(String account, String password) {
+		// TODO Auto-generated method stub
+		List<Administrator> admins = administratorDAO.findByAccount(account);
+		if (0 == admins.size())
+			return null;
+		Administrator a = admins.get(0);
+		if (password.equals(a.getPassword()))
+			return a;
+		else
+			return null;
+	}
+	
 	public TeacherDAO getTeacherDAO() {
 		return teacherDAO;
 	}
@@ -33,9 +55,20 @@ public class LoginService implements ILoginService {
 		this.teacherDAO = teacherDAO;
 	}
 
-	public Administrator adminLogin(String userName, String password) {
-		// TODO Auto-generated method stub
-		return null;
+	public AdministratorDAO getAdministratorDAO() {
+		return administratorDAO;
+	}
+
+	public void setAdministratorDAO(AdministratorDAO administratorDAO) {
+		this.administratorDAO = administratorDAO;
+	}
+
+	public SuperAdminDAO getSuperAdminDAO() {
+		return superAdminDAO;
+	}
+
+	public void setSuperAdminDAO(SuperAdminDAO superAdminDAO) {
+		this.superAdminDAO = superAdminDAO;
 	}
 
 	public Student studentLogin(String userName, String password) {
@@ -43,9 +76,16 @@ public class LoginService implements ILoginService {
 		return null;
 	}
 
-	public SuperAdmin superAdminLogin(String userName, String password) {
+	public SuperAdmin superAdminLogin(String account, String password) {
 		// TODO Auto-generated method stub
-		return null;
+		List<SuperAdmin> superAdmins = superAdminDAO.findByAccount(account);
+		if (0 == superAdmins.size())
+			return null;
+		SuperAdmin a = superAdmins.get(0);
+		if (password.equals(a.getPassword()))
+			return a;
+		else
+			return null;
 	}
 
 }
