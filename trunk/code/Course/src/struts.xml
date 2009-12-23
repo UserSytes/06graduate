@@ -16,8 +16,10 @@
 		</action>
 		<action name="adminLoginAction" method="adminLogin"
 			class="cn.edu.xmu.course.web.action.LoginAction">
-			<result name="superAdmin">/admin/superadminindex.jsp</result>
-			<result name="admin">/admin/adminindex.jsp</result>
+			<result name="superAdmin">/admin/superadminindex.jsp
+			</result>
+			<result name="admin">/admin/adminindex.jsp
+			</result>
 			<result name="error">/admin/login.jsp</result>
 		</action>
 		
@@ -41,27 +43,30 @@
 		<!--教师管理-->
 		<action name="goAddTeacherAction" method="getDepartmentBySchool"
 			class="teacherInfoAction">
-			<result name="success">/admin/teachermanage/addteacher.jsp</result>
+			<result name="success">/admin/teachermanage/addteacher.jsp
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="addTeacherAction" method="addTeacher"
-			class="teacherInfoAction">
+		<action name="addTeacherAction" method="addTeacher" class="teacherInfoAction">
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="teacherListAction" method="findTeacherBySchool"
 			class="teacherInfoAction">
-			<result name="success">/admin/teachermanage/teacherlist.jsp</result>
+			<result name="success">/admin/teachermanage/teacherlist.jsp
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="deleteTeacherAction" method="deleteTeacher"
 			class="teacherInfoAction">
-			<result name="success">/admin/teachermanage/teacherlist.jsp</result>
+			<result name="success">/admin/teachermanage/teacherlist.jsp
+			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="goEditTeacherAction" method="goEditTeacher"
 			class="teacherInfoAction">
-			<result name="success">/admin/teachermanage/editteacher.jsp</result>
+			<result name="success">/admin/teachermanage/editteacher.jsp
+			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		
@@ -70,8 +75,10 @@
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="getMyCourseAction" method="findMyCoursesList" class="courseAction">
-			<result name="success">/teacher/mycourseslist.jsp</result>
+		<action name="getMyCourseAction" method="findMyCoursesList"
+			class="courseAction">
+			<result name="success">/teacher/mycourseslist.jsp
+			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="deleteCourseAction" method="deleteCourse" class="courseAction">
@@ -108,28 +115,28 @@
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="addAdminAction" method="addAdmin" class="schoolManageAction">
-			<result name="success">/commons/prompt.jsp
-			</result>
+			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="addGradeAction" method="addGrade" class="schoolManageAction">
-			<result name="success">/commons/prompt.jsp
-			</result>
+			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="deleteDepartmentAction" method="deleteDepartment" class="schoolManageAction">
+		<action name="deleteDepartmentAction" method="deleteDepartment"
+			class="schoolManageAction">
 			<result name="success">/admin/schoolmanage/departmentlist.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="goAddDepartmentAction" method="goAddDepartment" class="schoolManageAction">
+		<action name="goAddDepartmentAction" method="goAddDepartment"
+			class="schoolManageAction">
 			<result name="success">/admin/schoolmanage/adddepartment.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="addDepartmentAction" method="addDepartment" class="schoolManageAction">
-			<result name="success">/commons/prompt.jsp
-			</result>
+		<action name="addDepartmentAction" method="addDepartment"
+			class="schoolManageAction">
+			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="allAdminAction" method="getAllAdmin" class="schoolManageAction">
@@ -155,17 +162,19 @@
 		<!--学院管理员-->
 		
 		<!-- 前台 -->
-		<action name="findCourseByDepartmentAction" method="findCourseByDepartment" class="executeViewAction">
+		<action name="findCourseByDepartmentAction" method="findCourseByDepartment"
+			class="executeViewAction">
 			<result name="courses">/homepage/courseList.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="findCourseByNameAction" method="findCourseByName" class="executeViewAction">
+		<action name="findCourseByNameAction" method="findCourseByName"
+			class="executeViewAction">
 			<result name="courses">/homepage/courseList.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-				<action name="enterCourseAction" method="enterCourse" class="executeViewAction">
+		<action name="enterCourseAction" method="enterCourse" class="executeViewAction">
 			<result name="course">/homepage/courseIndex.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
