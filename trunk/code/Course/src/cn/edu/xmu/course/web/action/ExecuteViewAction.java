@@ -1,4 +1,3 @@
-
 package cn.edu.xmu.course.web.action;
 
 import java.util.List;
@@ -8,32 +7,28 @@ import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.service.IApplicationFormService;
+import cn.edu.xmu.course.service.ICourseService;
+import cn.edu.xmu.course.service.IDepartmentService;
 import cn.edu.xmu.course.service.ISearchCourseService;
 
-public class ExecuteViewAction extends BaseAction{
-	private Department department;
-	private String courseName;
-	private int courseId;
-	private List<Course> courseList;
-	private Course course;
-	private School school;
-	public School getSchool() {
-		return school;
-	}
-
-	public void setSchool(School school) {
-		this.school = school;
-	}
+public class ExecuteViewAction extends BaseAction {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private Department department;
+	private String departmentId;
+	private String courseName;
+	private int courseId;
+	private List<Course> courseList;
+	private Course course;
+	private School school;
 
 	private ApplicationForm applicationForm;
 	private ISearchCourseService searchCourseService;
-	private IApplicationFormService applicationFormService;
-
+	private IDepartmentService departmentService;
+	private ICourseService courseService;
 
 	public int getCourseId() {
 		return courseId;
@@ -59,79 +54,79 @@ public class ExecuteViewAction extends BaseAction{
 		this.courseName = courseName;
 	}
 
-	
 	/**
 	 * 通过院系查找
+	 * 
 	 * @param department
 	 * @return
 	 */
-	
-public String findCourseByDepartment(){
-	System.out.println(department.getName());
-	courseList=searchCourseService.findCourseByDepartment(department);
-	System.out.print("\n&&&&&&&&&&&&&&&&&&&&&&"+courseList.size()+courseList.get(0).getName()+courseList.get(0).getId());
-	if(courseList.size()==0){
-		return ERROR;
-	}else
-		return "courses";
-}
-public static long getSerialVersionUID() {
+
+	public String findCourseByDepartment() {
+		Department dept = departmentService.getDepartmentById(Integer
+				.parseInt(departmentId));
+		setCourseList(getCourseService().findCourseByDepartment(dept));
+		System.out.print("\n&&&&&&&&&&&&&&&&&&&&&&" + getCourseList().size()
+				+ getCourseList().get(0).getName()
+				+ getCourseList().get(0).getId());
+		if (getCourseList().size() == 0) {
+			return ERROR;
+		} else
+			return "courses";
+	}
+
+	public static long getSerialVersionUID() {
 		return serialVersionUID;
 	}
 
-/**
- * 通过名称查找
- * @param courseName
- * @return
- */
-public String findCourseByName(){
-	courseList=searchCourseService.findCourseByName(courseName);
-	System.out.print("\n&&&&&&&&&&&&&&&&&&&&&&"+courseList.size()+courseList.get(0).getName()+courseList.get(0).getId());
-	if(courseList.size()==0){
-		return ERROR;
-	}else
-		return "courses";
-}
-
-public String enterCourse(){
-	course=searchCourseService.findCourseById(courseId);
-	if(course==null){
-		return ERROR;
-	}else
-		return "course";
-	
-}
-
-public List<Course> getCourseList() {
-	return courseList;
-}
-
-public void setCourseList(List<Course> courseList) {
-	this.courseList = courseList;
-}
-
-public Course getCourse() {
-	return course;
-}
-
-public void setCourse(Course course) {
-	this.course = course;
-}
-
-public ISearchCourseService getSearchCourseService() {
-	return searchCourseService;
-}
-public void setSearchCourseService(ISearchCourseService searchCourseService) {
-	this.searchCourseService = searchCourseService;
-}
-	public IApplicationFormService getApplicationFormService() {
-		return applicationFormService;
+	/**
+	 * 通过名称查找
+	 * 
+	 * @param courseName
+	 * @return
+	 */
+	public String findCourseByName() {
+		courseList = searchCourseService.findCourseByName(courseName);
+		System.out.print("\n&&&&&&&&&&&&&&&&&&&&&&" + courseList.size()
+				+ courseList.get(0).getName() + courseList.get(0).getId());
+		if (courseList.size() == 0) {
+			return ERROR;
+		} else
+			return "courses";
 	}
 
-	public void setApplicationFormService(
-			IApplicationFormService applicationFormService) {
-		this.applicationFormService = applicationFormService;
+	public String enterCourse() {
+		course = searchCourseService.findCourseById(courseId);
+		if (course == null) {
+			return ERROR;
+		} else
+			return "course";
+
 	}
+
+	public List<Course> getCourseList() {
+		return courseList;
+	}
+
+	public void setCourseList(List<Course> courseList) {
+		this.courseList = courseList;
+	}
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
+	public ISearchCourseService getSearchCourseService() {
+		return searchCourseService;
+	}
+
+	public void setSearchCourseService(ISearchCourseService searchCourseService) {
+		this.searchCourseService = searchCourseService;
+	}
+
 
 	public ApplicationForm getApplicationForm() {
 		return applicationForm;
@@ -140,8 +135,37 @@ public void setSearchCourseService(ISearchCourseService searchCourseService) {
 	public void setApplicationForm(ApplicationForm applicationForm) {
 		this.applicationForm = applicationForm;
 	}
-	
-	
-	
+
+	public School getSchool() {
+		return school;
+	}
+
+	public void setSchool(School school) {
+		this.school = school;
+	}
+
+	public void setDepartmentId(String departmentId) {
+		this.departmentId = departmentId;
+	}
+
+	public String getDepartmentId() {
+		return departmentId;
+	}
+
+	public void setDepartmentService(IDepartmentService departmentService) {
+		this.departmentService = departmentService;
+	}
+
+	public IDepartmentService getDepartmentService() {
+		return departmentService;
+	}
+
+	public void setCourseService(ICourseService courseService) {
+		this.courseService = courseService;
+	}
+
+	public ICourseService getCourseService() {
+		return courseService;
+	}
 
 }
