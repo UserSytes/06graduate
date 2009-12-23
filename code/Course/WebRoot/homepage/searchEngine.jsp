@@ -86,7 +86,7 @@
 								--请选择院--
 							</option>
 						</select>
-						<select id="Department" name="department">
+						<select id="Department" name="departmentId">
 							<option value="-1">
 								--请选择系--
 							</option>

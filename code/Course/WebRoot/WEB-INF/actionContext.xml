@@ -2,45 +2,50 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 <!-- service的配置文件 -->
 <beans>
-	<bean id="loginAction"  scope="prototype" class="cn.edu.xmu.course.web.action.LoginAction">
+	<bean id="loginAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.LoginAction">
 		<property name="loginService">
-		<ref bean="loginService"/>
+			<ref bean="loginService" />
 		</property>
 	</bean>
-	
-	<bean id="teacherInfoAction"  scope="prototype" class="cn.edu.xmu.course.web.action.TeacherInfoAction">
+	<bean id="teacherInfoAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.TeacherInfoAction">
 		<property name="teacherInfoService">
-		<ref bean="teacherInfoService"/>
+			<ref bean="teacherInfoService" />
 		</property>
-	</bean>	
-	
-	<bean id="courseAction"  scope="prototype" class="cn.edu.xmu.course.web.action.CourserAction">
+	</bean>
+	<bean id="courseAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.CourserAction">
 		<property name="courseService">
-			<ref bean="courseService"/>
+			<ref bean="courseService" />
 		</property>
 		<property name="teacherInfoService">
-			<ref bean="teacherInfoService"/>
+			<ref bean="teacherInfoService" />
 		</property>
 		<property name="departmentService">
-			<ref bean="departmentService"/>
+			<ref bean="departmentService" />
 		</property>
-	</bean>	
-	
-	<bean id="schoolManageAction"  scope="prototype" class="cn.edu.xmu.course.web.action.SchoolManageAction">
+	</bean>
+	<bean id="schoolManageAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.SchoolManageAction">
 		<property name="superAdminService">
-		<ref bean="superAdminService"/>
+			<ref bean="superAdminService" />
 		</property>
 		<property name="adminService">
-		<ref bean="adminService"/>
+			<ref bean="adminService" />
 		</property>
 	</bean>
 	<!-- 前台 -->
-		<bean id="ExecuteViewAction"  scope="prototype" class="cn.edu.xmu.course.web.action.ExecuteViewAction">
+	<bean id="executeViewAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.ExecuteViewAction">
 		<property name="searchCourseService">
-		<ref bean="searchCourseService"/>
+			<ref bean="searchCourseService" />
 		</property>
-		<property name="applicationFormService">
-		<ref bean="applicationFormService"/>
+		<property name="departmentService">
+			<ref bean="departmentService" />
+		</property>
+		<property name="courseService">
+			<ref bean="courseService" />
 		</property>
 	</bean>
 </beans>
