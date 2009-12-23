@@ -122,17 +122,17 @@
 		<!--学院管理员-->
 		
 		<!-- 前台 -->
-		<action name="findCourseByDepartmentAction" method="findCourseByDepartment" class="ExecuteViewAction">
+		<action name="findCourseByDepartmentAction" method="findCourseByDepartment" class="executeViewAction">
 			<result name="courses">/homepage/courseList.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="findCourseByNameAction" method="findCourseByName" class="ExecuteViewAction">
+		<action name="findCourseByNameAction" method="findCourseByName" class="executeViewAction">
 			<result name="courses">/homepage/courseList.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-				<action name="enterCourseAction" method="enterCourse" class="ExecuteViewAction">
+				<action name="enterCourseAction" method="enterCourse" class="executeViewAction">
 			<result name="course">/homepage/courseIndex.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
