@@ -11,7 +11,7 @@ public class SearchCourseService implements ISearchCourseService {
 	private CourseDAO courseDAO;
 	@SuppressWarnings("unchecked")
 	public List<Course> findCourseByDepartment(Department department){	
-		return courseDAO.findByProperty("Department", department);		
+		return courseDAO.findByDepartment(department);
 	}
 	@SuppressWarnings("unchecked")
 	public List<Course> findCourseByName(String name) {
