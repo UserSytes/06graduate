@@ -1,29 +1,56 @@
 package cn.edu.xmu.course.web.action;
 
 import cn.edu.xmu.course.service.ILoginService;
+import cn.edu.xmu.course.pojo.Administrator;
+import cn.edu.xmu.course.pojo.SuperAdmin;
 import cn.edu.xmu.course.pojo.Teacher;
-public class LoginAction extends BaseAction{
+
+public class LoginAction extends BaseAction {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -3613304347937871262L;
-	
+
 	private ILoginService loginService;
 
 	private String userName;
 	private String password;
-	
-	public String login(){
+	private int flag;
+
+	public String login() {
 		Teacher teacher = loginService.teacherLogin(userName, password);
 		System.out.println(userName);
-		if(null == teacher)
+		if (null == teacher)
 			return ERROR;
-		else 
+		else {
 			System.out.println(teacher.getPassword());
-		return SUCCESS;
+			ActionSession.getSession().put(TEACHER, teacher);
+			return SUCCESS;
+		}
 	}
-	
+
+	public String adminLogin() {
+		if (flag == 0) {
+			Administrator admin = loginService.adminLogin(userName, password);
+			if (null == admin)
+				return ERROR;
+			else {
+				ActionSession.getSession().put(ADMIN, admin);
+				return "admin";
+			}
+		} else {
+			SuperAdmin superAdmin = loginService.superAdminLogin(userName,
+					password);
+			if (null == superAdmin)
+				return ERROR;
+			else {
+				ActionSession.getSession().put(SUPERADMIN, superAdmin);
+				return "superAdmin";
+			}
+		}
+	}
+
 	public ILoginService getLoginService() {
 		return loginService;
 	}
@@ -47,7 +74,13 @@ public class LoginAction extends BaseAction{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
+	public int getFlag() {
+		return flag;
+	}
+
+	public void setFlag(int flag) {
+		this.flag = flag;
+	}
 
 }

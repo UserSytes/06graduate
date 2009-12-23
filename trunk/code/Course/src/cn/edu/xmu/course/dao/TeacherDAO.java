@@ -5,10 +5,13 @@ import java.util.Set;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
+import org.hibernate.Session;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.Teacher;
+import org.hibernate.Query;
 
 /**
  * A data access object (DAO) providing persistence and search support for
@@ -33,6 +36,19 @@ public class TeacherDAO extends HibernateDaoSupport {
 		// do nothing
 	}
 
+	public List findByDepartment(Department department){
+		String sql = " from Teacher t where t.userInfo.department=:department ";
+		Session session = null;
+		session = this.getSession();
+		Query query = session.createQuery(sql);
+		query.setParameter("department", department);
+		
+		List list = query.list();
+		session.flush();
+		session.close();
+		return list;
+	}
+	
 	public void save(Teacher transientInstance) {
 		log.debug("saving Teacher instance");
 		try {

@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="../commons/taglibs.jsp"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -34,7 +35,7 @@ border=0 align=right cellPadding=0 cellSpacing=0 class=leftframetable>
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <TD width="20"></TD>
-          <TD class=STYLE1 style="CURSOR: hand" onclick=showsubmenu(1); height=25>教师信息</TD>
+          <TD class=STYLE1 style="CURSOR: hand" onclick=showsubmenu(1); height=25>课程管理</TD>
               </tr>
             </table>            </TD>
           </TR>
@@ -44,7 +45,7 @@ border=0 align=right cellPadding=0 cellSpacing=0 class=leftframetable>
                 <TR>
                   <TD width="2%"><IMG src="Images/closed.gif"></TD>
                   <TD height=23><A href="System_Admin.asp" 
-            target=main>个人信息</A></TD>
+            target=main>课程列表</A></TD>
                 </TR>
                 <TR>
                   <TD><IMG src="Images/closed.gif"></TD>
@@ -71,7 +72,7 @@ border="0">
           <td height="25" style="background:url(Images/left_tt.gif) no-repeat"><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="20"></td>
-          <td height="25" class="titledaohang" style="CURSOR: hand" onClick="showsubmenu(2);"><span class="STYLE1">课程管理</span></td>
+          <td height="25" class="titledaohang" style="CURSOR: hand" onClick="showsubmenu(2);"><span class="STYLE1">申报管理</span></td>
               </tr>
             </table></td>
           </tr>
@@ -115,7 +116,7 @@ border=0>
             <tr>
               <TD width="20"></TD>
           <TD class=STYLE1 style="CURSOR: hand" onclick=showsubmenu(4); 
-    height=25>课程申报</TD>
+    height=25>学生管理</TD>
             </tr>
           </table></TD>
           </TR>
@@ -124,14 +125,20 @@ border=0>
               <TBODY>
                 <TR>
                   <TD width="2%"><IMG src="Images/closed.gif"></TD>
-                  <TD height=23><A href="User/Point_Log_ACT.asp" 
-            target=main>教师列表</A> </TD>
-                </TR>
-                <TR>
-                  <TD><IMG src="Images/closed.gif"></TD>
-                  <TD height=23><A href="User/Edays_User.asp" 
-            target=main>添加教师</A></TD>
-                </TR>
+                  <td height="23"><a 
+            href="Article/Article_Add.asp" 
+            target="main">学生列表</a>┆<a 
+            href="include/Make.asp" 
+            target="main">搜索学生</a></td>
+                </tr>
+                <tr>
+                  <td><img src="Images/closed.gif" /></td>
+                  <td height="23"><a 
+            href="Article/Article_Manage.asp?action=ListisAccept" 
+            target="main">添加学生</a>┆<a 
+            href="Article/SetArticle.asp" 
+            target="main">批量添加</a></td>
+                </tr>		
               </TBODY>
           </TABLE></TD>
         </TR>
@@ -142,6 +149,42 @@ border=0>
     <td height="5" background="Images/tableline_bottom.jpg" bgcolor="#9BC2ED"></td>
   </tr>
   <tr>
+    <td height="5" background="Images/tableline_top.jpg" bgcolor="#9BC2ED"></td>
+  </tr>
+  <tr>
+    <td><TABLE class=leftframetable cellSpacing=0 cellPadding=0 width="97%" align=right border=0>
+      <TBODY>
+        <TR>
+          <TD height="25" style="background:url(Images/left_tt.gif) no-repeat"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <TD width="20"></TD>
+          <TD class=STYLE1 style="CURSOR: hand" onclick=showsubmenu(5); height=25>教师管理</TD>
+            </tr>
+          </table></TD>
+          </TR>
+        <TR>
+          <TD><TABLE id=submenu5 cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+                <TR>
+                  <TD width="2%"><IMG src="Images/closed.gif"></TD>
+                  <TD height=23><a href="<s:url action='teacherListAction'> </s:url>"
+														target="main">教师列表</A> </TD>
+             </TR>
+                <TR>
+                  <TD><IMG src="Images/closed.gif"></TD>
+                  <TD height=23><a href="<s:url action='goAddTeacherAction'> </s:url>"
+														target="main">添加教师</A></TD>
+                </TR>
+              </TBODY>
+          </TABLE></TD>
+        </TR>
+      </TBODY>
+    </TABLE></td>
+  </tr>
+  <tr>
+    <td height="5" background="Images/tableline_bottom.jpg" bgcolor="#9BC2ED"></td>
+  </tr>
+<tr>
     <td height="5" background="Images/tableline_top.jpg" bgcolor="#9BC2ED"></td>
   </tr>
   <tr>

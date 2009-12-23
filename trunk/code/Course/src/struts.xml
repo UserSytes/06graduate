@@ -8,10 +8,17 @@
 	<constant name="struts.i18n.encoding" value="UTF-8" />
 	<constant name="struts.ui.theme" value="simple" />
 	<package name="struts" extends="struts-default">
+		<!--登陆系统-->
 		<action name="loginAction" method="login"
 			class="cn.edu.xmu.course.web.action.LoginAction">
 			<result name="success">/teacher/index.jsp</result>
 			<result name="error">/teacher/error.jsp</result>
+		</action>
+		<action name="adminLoginAction" method="adminLogin"
+			class="cn.edu.xmu.course.web.action.LoginAction">
+			<result name="superAdmin">/admin/superadminindex.jsp</result>
+			<result name="admin">/admin/adminindex.jsp</result>
+			<result name="error">/admin/login.jsp</result>
 		</action>
 		
 		<!--教师子系统-->
@@ -29,6 +36,32 @@
 		</action>
 		<action name="changePwdAction" method="changePassword" class="teacherInfoAction">
 			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<!--教师管理-->
+		<action name="goAddTeacherAction" method="getDepartmentBySchool"
+			class="teacherInfoAction">
+			<result name="success">/admin/teachermanage/addteacher.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="addTeacherAction" method="addTeacher"
+			class="teacherInfoAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="teacherListAction" method="findTeacherBySchool"
+			class="teacherInfoAction">
+			<result name="success">/admin/teachermanage/teacherlist.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteTeacherAction" method="deleteTeacher"
+			class="teacherInfoAction">
+			<result name="success">/admin/teachermanage/teacherlist.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="goEditTeacherAction" method="goEditTeacher"
+			class="teacherInfoAction">
+			<result name="success">/admin/teachermanage/editteacher.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		
