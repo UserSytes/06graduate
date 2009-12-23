@@ -18,13 +18,12 @@ public interface ITeacherInfoService {
 	
 	public boolean changePassword(Teacher teacher);
 	
-	public boolean addTeacher(Teacher teacher);
+	public boolean addTeacher(Teacher teacher, UserInfo userInfo);
 	
 	public Teacher findTeacherById(int id);
 	
 	public boolean deleteTeacher(Teacher teacher);
 	
-	public List findTeacherBySchool(School school);
-	
+	public List findTeachersByDepartments(List<Department> departments);
 	
 }

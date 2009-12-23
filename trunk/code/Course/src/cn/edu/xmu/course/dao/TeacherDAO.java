@@ -45,7 +45,6 @@ public class TeacherDAO extends HibernateDaoSupport {
 		
 		List list = query.list();
 		session.flush();
-		session.close();
 		return list;
 	}
 	

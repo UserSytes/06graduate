@@ -23,7 +23,7 @@
 					alert("性别不能为空！");
 					return false;
 				}
-				if (form.department.value == -1)
+				if (form.departmentId.value == -1)
 				{
 					alert("所属系不能为空！");
 					return false;
@@ -72,7 +72,7 @@
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<s:textfield cssClass="INPUT" id="teacherName"
-							name="teacher.userInfo.name" label="姓名"></s:textfield>
+							name="userInfo.name" label="姓名"></s:textfield>
 						&nbsp;*
 					</td>
 				</tr>
@@ -84,8 +84,8 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:select id="sex" name="teacher.userInfo.sex" list="{'男','女'}"
-							headerKey="-1" headerValue="请选择" listKey="id" listValue="name" />
+						<s:select id="sex" name="userInfo.sex" list="{'男','女'}"
+							headerKey="-1" headerValue="请选择"/>
 						&nbsp;*
 					</td>
 				</tr>
@@ -97,7 +97,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:select id="department" name="teacher.userInfo.department"
+						<s:select name="departmentId"
 							list="departmentList" headerKey="-1" headerValue="请选择"
 							listKey="id" listValue="name" />
 						&nbsp;*
