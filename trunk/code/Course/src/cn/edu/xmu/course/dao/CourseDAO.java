@@ -126,6 +126,10 @@ public class CourseDAO extends HibernateDaoSupport {
 	public List findByTeacherId(Object teacherId) {
 		return findByProperty("teacher.id", teacherId);
 	}
+	
+	public List findByDepartment(Object department) {
+		return findByProperty("department", department);
+	}
 
 	public List findAll() {
 		log.debug("finding all Course instances");
