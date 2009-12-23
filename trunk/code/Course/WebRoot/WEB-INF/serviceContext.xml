@@ -67,6 +67,5 @@
 			<ref bean="CourseDAO" />
 		</property>
 	</bean>
-	<bean id="applicationFormServiceTarget" class="cn.edu.xmu.course.service.impl.ApplicationFormService">
-	</bean>
+	
 </beans>

@@ -58,10 +58,6 @@
 			<ref bean="searchCourseServiceTarget" />
 		</property>
 	</bean>
-			<bean id="applicationFormService" parent="transactionBase">
-		<property name="target">
-			<ref bean="applicationFormServiceTarget" />
-		</property>
-	</bean>
+			
 	
 </beans>
