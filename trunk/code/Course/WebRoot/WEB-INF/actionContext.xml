@@ -48,4 +48,10 @@
 			<ref bean="departmentService" />
 		</property>
 	</bean>
+	<bean id="homePageAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.HomePageAction">
+		<property name="newsService">
+			<ref bean="newsService" />
+		</property>
+	</bean>
 </beans>
