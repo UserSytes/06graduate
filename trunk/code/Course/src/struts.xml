@@ -70,6 +70,37 @@
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		
+		<!--学生管理-->
+		<action name="goAddStudentAction" method="goAddStudent"
+			class="studentAction">
+			<result name="success">/admin/studentmanage/addstudent.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="addStudentAction" method="addStudent"
+			class="studentAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="allStudentAction" method="findStudentBySchool"
+			class="studentAction">
+			<result name="success">/admin/studentmanage/studentlist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteStudentAction" method="deleteStudent"
+			class="studentAction">
+			<result name="success">/admin/studentmanage/studentlist.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="goEditStudentAction" method="goEditStudent"
+			class="studentAction">
+			<result name="success">/admin/studentmanage/editstudet.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		
 		<!-- 课程申报管理 -->
 		<action name="addNewCourseAction" method="addNewCourse" class="courseAction">
 			<result name="success">/commons/prompt.jsp</result>

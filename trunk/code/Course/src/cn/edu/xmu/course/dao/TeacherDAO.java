@@ -10,6 +10,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import cn.edu.xmu.course.pojo.Department;
+import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Teacher;
 import org.hibernate.Query;
 
@@ -35,17 +36,16 @@ public class TeacherDAO extends HibernateDaoSupport {
 	protected void initDao() {
 		// do nothing
 	}
-
-	public List findByDepartment(Department department){
-		String sql = " from Teacher t where t.userInfo.department=:department ";
-		Session session = null;
-		session = this.getSession();
-		Query query = session.createQuery(sql);
-		query.setParameter("department", department);
-		
-		List list = query.list();
-		session.flush();
-		return list;
+	
+	public List findBySchool(School school){
+		log.debug("finding Teacher instance with property: userInfo.department.school, value: " + school);
+		try {
+			String queryString = "from Teacher as model where model.userInfo.department.school = ?";
+			return getHibernateTemplate().find(queryString, school);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
 	}
 	
 	public void save(Teacher transientInstance) {

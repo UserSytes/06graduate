@@ -8,6 +8,7 @@ import org.hibernate.LockMode;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Student;
 
 /**
@@ -32,6 +33,17 @@ public class StudentDAO extends HibernateDaoSupport {
 		// do nothing
 	}
 
+	public List findBySchool(School school){
+		log.debug("finding Student instance with property: userInfo.department.school, value: " + school);
+		try {
+			String queryString = "from Student as model where model.userInfo.department.school = ?";
+			return getHibernateTemplate().find(queryString, school);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	
 	public void save(Student transientInstance) {
 		log.debug("saving Student instance");
 		try {

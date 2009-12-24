@@ -110,18 +110,10 @@ public class TeacherInfoService implements ITeacherInfoService {
 		return teacherDAO.findById(id);
 	}
 
-	public List findTeachersByDepartments(List<Department> departments) {
-		List<Teacher> teacherList = new ArrayList();
-		for (Department d : departments) {
-			List<Teacher> teachers = null;
-			teachers = teacherDAO.findByDepartment(d);
-			if (teachers.size() > 0) {
-				teacherList.addAll(teachers);
-			}
-		}
-		return teacherList;
+	public List findTeachersBySchool(School school) {	
+		return teacherDAO.findBySchool(school);
+		
 	}
-
 	public void setTeacherDAO(TeacherDAO teacherDAO) {
 		this.teacherDAO = teacherDAO;
 	}
