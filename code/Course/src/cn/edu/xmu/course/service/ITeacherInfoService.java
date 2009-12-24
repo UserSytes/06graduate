@@ -24,6 +24,6 @@ public interface ITeacherInfoService {
 	
 	public boolean deleteTeacher(Teacher teacher);
 	
-	public List findTeachersByDepartments(List<Department> departments);
+	public List findTeachersBySchool(School school);
 	
 }

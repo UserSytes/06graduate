@@ -125,17 +125,15 @@ border=0>
               <TBODY>
                 <TR>
                   <TD width="2%"><IMG src="Images/closed.gif"></TD>
-                  <td height="23"><a 
-            href="Article/Article_Add.asp" 
-            target="main">学生列表</a>┆<a 
+                  <td height="23"><a href="<s:url action='allStudentAction'> </s:url>"
+														target="main">学生列表</a>┆<a 
             href="include/Make.asp" 
             target="main">搜索学生</a></td>
                 </tr>
                 <tr>
                   <td><img src="Images/closed.gif" /></td>
-                  <td height="23"><a 
-            href="Article/Article_Manage.asp?action=ListisAccept" 
-            target="main">添加学生</a>┆<a 
+                  <td height="23"><a href="<s:url action='goAddStudentAction'> </s:url>"
+														target="main">添加学生</a>┆<a 
             href="Article/SetArticle.asp" 
             target="main">批量添加</a></td>
                 </tr>		

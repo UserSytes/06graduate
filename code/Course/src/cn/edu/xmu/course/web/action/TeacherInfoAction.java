@@ -55,8 +55,7 @@ public class TeacherInfoAction extends BaseAction{
 	public String findTeacherBySchool(){
 		Administrator admin = (Administrator) ActionSession.getSession().get(ADMIN);
 		School school = admin.getSchool();
-		List<Department> departments = superAdminService.findDepartmentBySchool(school);
-		teacherList = teacherInfoService.findTeachersByDepartments(departments);
+		teacherList = teacherInfoService.findTeachersBySchool(school);
 		if (teacherList.size() == 0) {
 			addActionMessage("本学院还没添加教师！");
 			return ERROR;
