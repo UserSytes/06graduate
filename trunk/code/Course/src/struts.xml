@@ -226,5 +226,20 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+		<action name="findCourseByTeacherAction" method="findCourseByTeacher" class="executeViewAction">
+			<result name="courses">/homepage/courseList.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+				<action name="findApplicationFormAction" method="findApplicationForm" class="viewDetailAction">
+			<result name="applicationForm">/coursePage/applicationform.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+						<action name="findCourseInfoAction" method="findCourseInfo" class="viewDetailAction">
+			<result name="courseInfo">/coursePage/courseintro.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
 	</package>
 </struts>
