@@ -40,4 +40,11 @@ public interface ICourseInfoService {
 	 * @return
 	 */
 	public boolean deleteCourseInfo(CourseInfo courseInfo, int sort);
+	/**
+	 * 通过课程Id查找课程简介/大纲
+	 * @param courseId
+	 * @param sort
+	 * @return
+	 */
+	public CourseInfo getCourseInfo(int courseId,int sort);
 }

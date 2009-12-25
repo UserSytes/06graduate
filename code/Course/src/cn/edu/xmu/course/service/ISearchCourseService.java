@@ -14,4 +14,5 @@ public interface ISearchCourseService {
 	public List<Course> findCourseByDepartment(Department department);
 	public List<Course> findCourseByName(String name);
 	public Course findCourseById(int id);
+	public List<Course> findCourseByTeacher(String teacherName);
 }
