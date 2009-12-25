@@ -10,12 +10,12 @@
 <body>
 <TABLE WIDTH=765 height="102" BORDER=0 CELLPADDING=0 CELLSPACING=0>
 				<TR>
-					<TD ROWSPAN=3><IMG SRC="images/back-1.jpg" WIDTH=209 HEIGHT=102 ALT=""></TD>
-					<TD ROWSPAN=2><a href="index.html"><IMG SRC="images/1-case-1.jpg" WIDTH=85 HEIGHT=70 ALT="" border="0"></a></TD>
-					<TD ROWSPAN=2><a href="index-1.html"><IMG SRC="images/case-2.jpg" WIDTH=86 HEIGHT=70 ALT="" border="0"></a></TD>
-					<TD ROWSPAN=2><a href="index-2.html"><IMG SRC="images/case-3.jpg" WIDTH=85 HEIGHT=70 ALT="" border="0"></a></TD>
-					<TD ROWSPAN=2><a href="index-3.html"><IMG SRC="images/3-case-4.jpg" WIDTH=86 HEIGHT=70 ALT="" border="0"></a></TD>
-					<TD ROWSPAN=2><a href="index-4.html"><IMG SRC="images/case-5.jpg" WIDTH=85 HEIGHT=70 ALT="" border="0"></a></TD>
+<TD ROWSPAN=3><IMG SRC="images/back-1.jpg" WIDTH=209 HEIGHT=102 ALT=""></TD>
+					<TD ROWSPAN=2><a href="index.jsp"><IMG SRC="images/1-case-1.jpg" WIDTH=85 HEIGHT=70 ALT="" border="0"></a></TD>
+					<TD ROWSPAN=2><a href="news.jsp"><IMG SRC="images/case-2.jpg" WIDTH=86 HEIGHT=70 ALT="" border="0"></a></TD>
+					<TD ROWSPAN=2><a href="searchbyachievement.jsp"><IMG SRC="images/case-3.jpg" WIDTH=85 HEIGHT=70 ALT="" border="0"></a></TD>
+					<TD ROWSPAN=2><a href="searchbyschool.jsp"><IMG SRC="images/3-case-4.jpg" WIDTH=86 HEIGHT=70 ALT="" border="0"></a></TD>
+					<TD ROWSPAN=2><a href="contact.jsp"><IMG SRC="images/case-5.jpg" WIDTH=85 HEIGHT=70 ALT="" border="0"></a></TD>
 					<TD COLSPAN=4><IMG SRC="images/back-3.jpg" WIDTH=129 HEIGHT=37 ALT=""></TD>
 				</TR>
 				<TR>
