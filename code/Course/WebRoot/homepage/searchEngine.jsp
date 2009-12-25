@@ -109,7 +109,7 @@
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						课程名称搜索
+						课程搜索
 					</td>
 				</tr>
 				<tr>
@@ -121,6 +121,36 @@
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<s:textfield name="courseName" cssClass="input" />
+					</td>
+				</tr>
+				<tr bgcolor="#ECF3FD">
+					<td width="30%">
+						&nbsp;
+					</td>
+					<td width="70%">
+						<s:submit cssClass="label" value="确认" />
+						<s:reset cssClass="label" value="取消" />
+					</td>
+				</tr>
+			</table>
+		</s:form>
+<s:form action="findCourseByTeacherAction" method="post" onsubmit="">&nbsp;&nbsp;
+	<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+				align=center border=0>
+				<tr class=editHeaderTr>
+					<td class=editHeaderTd colSpan=7>
+						教师搜索
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							教师名称：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<s:textfield name="teacherName" cssClass="input" />
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">
