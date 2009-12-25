@@ -222,7 +222,7 @@
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="enterCourseAction" method="enterCourse" class="executeViewAction">
-			<result name="course">/homepage/courseIndex.jsp
+			<result name="course">/coursePage/index.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
