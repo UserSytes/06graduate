@@ -29,4 +29,8 @@ public class SearchCourseService implements ISearchCourseService {
 	public void setCourseDAO(CourseDAO courseDAO) {
 		this.courseDAO = courseDAO;
 	}
+	@SuppressWarnings("unchecked")
+	public List<Course> findCourseByTeacher(String teacherName) {
+		return courseDAO.findByTeacher(teacherName);
+	}
 }
