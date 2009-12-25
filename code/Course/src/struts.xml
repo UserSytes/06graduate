@@ -94,6 +94,12 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+		<action name="findStudentByGradeAction" method="findStudentsByGrade"
+			class="studentAction">
+			<result name="success">/admin/studentmanage/studentlist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		<action name="goEditStudentAction" method="goEditStudent"
 			class="studentAction">
 			<result name="success">/admin/studentmanage/editstudet.jsp
