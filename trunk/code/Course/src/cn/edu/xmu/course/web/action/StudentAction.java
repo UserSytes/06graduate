@@ -46,6 +46,10 @@ public class StudentAction extends BaseAction{
 			return SUCCESS;
 	}
 	
+	/**
+	 * 初始化添加学生界面
+	 * @return
+	 */
 	public String goAddStudent(){	
 		gradeList = superAdminService.findAllGrade();
 		if(gradeList.size()==0){
@@ -82,6 +86,10 @@ public class StudentAction extends BaseAction{
 			return ERROR;
 	}
 
+	/**
+	 * 查找所有的年级
+	 * @return
+	 */
 	public String findAllGrade(){
 		gradeList = superAdminService.findAllGrade();
 		if(gradeList.size()==0){
@@ -91,7 +99,12 @@ public class StudentAction extends BaseAction{
 		}
 	}
 	
+	/**
+	 * 根据年级查找学生
+	 * @return
+	 */
 	public String findStudentsByGrade(){
+		gradeList = superAdminService.findAllGrade();
 		grade = superAdminService.findGradeById(gradeId);
 		studentList = studentInfoService.findByGrade(grade);
 		if(studentList.size()==0){
@@ -102,11 +115,20 @@ public class StudentAction extends BaseAction{
 		}
 	}
 	
+	/**
+	 * 根据学院查找学生
+	 * @return
+	 */
 	public String findStudentBySchool(){
+		gradeList = superAdminService.findAllGrade();
+		if(gradeList.size()==0){
+			addActionMessage("本学院还没有系，请先向 校方管理员申请开设系！");
+			return ERROR;
+		}
 		Administrator admin = (Administrator) ActionSession.getSession().get(ADMIN);
 		School school = admin.getSchool();
 		studentList = studentInfoService.findBySchool(school);
-		System.out.println("测试1： "+studentList.size());
+//		System.out.println("测试1： "+studentList.size());
 		if(studentList.size()==0){
 			addActionMessage("本学院尚未添加学生！");
 			return ERROR;
@@ -115,9 +137,14 @@ public class StudentAction extends BaseAction{
 		}
 	}
 	
+	/**
+	 * 跳转到编辑学生
+	 * @return
+	 */
 	public String goEditStudent(){
 		return ERROR;
 	}
+	
 	/**
 	 * 删除学生
 	 * @return
@@ -126,6 +153,7 @@ public class StudentAction extends BaseAction{
 		student = studentInfoService.findById(studentId);
 		boolean result = studentInfoService.deleteStudent(student);
 		if(result){
+			this.findStudentBySchool();
 			return SUCCESS;
 		}else
 			return ERROR;
