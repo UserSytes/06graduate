@@ -10,17 +10,6 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
 		<title>学生列表</title>
-<SCRIPT language=javascript>
-			function check(form)
-			{
-				if (form.gradeId.value == -1)
-				{
-					alert("年级不能为空！");
-					return false;
-				}
-				return true;
-			}
-		</SCRIPT>
 		<style type="text/css">
 <!--
 .STYLE1 {
@@ -39,8 +28,7 @@
 			</tr>
 		</table>
 		<div align="center">
-			<s:form action="findStudentByGradeAction" method="post"
-				onsubmit="return check(this);">
+			<s:form action="findStudentByGradeAction" method="post">
 				<table class="listTable">
 					<tr class=editHeaderTr>
 						<td class=editHeaderTd colSpan=7>
@@ -56,10 +44,28 @@
 						<td colspan="3" bgcolor="#FFFFFF">
 							&nbsp;&nbsp;&nbsp;
 							<s:select name="gradeId" list="gradeList" headerKey="-1"
-								headerValue="请选择" listKey="id" listValue="name+grade" />
+								headerValue="所有" listKey="id" listValue="name+grade" />
 							&nbsp;*
 						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#FFFDF0">
+							<div align="center">
+								请选择筛选系：
+							</div>
+						</td>
 						<td colspan="3" bgcolor="#FFFFFF">
+							&nbsp;&nbsp;&nbsp;
+							<s:select name="departmentId" list="departmentList"
+								headerKey="-1" headerValue="所有" listKey="id" listValue="name" />
+							&nbsp;*
+						</td>
+					</tr>
+					<tr bgcolor="#ECF3FD">
+						<td width="30%">
+							&nbsp;
+						</td>
+						<td width="70%">
 							<s:submit cssClass="label" value="查找"></s:submit>
 						</td>
 					</tr>
@@ -67,74 +73,79 @@
 			</s:form>
 		</div>
 		<div align="center">
-			<table class="listTable">
-				<tr class="listHeaderTr"
-					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
-					<th>
-						学生id
-					</th>
-					<th>
-						姓名
-					</th>
-					<th>
-						性别
-					</th>
-					<th>
-						账号
-					</th>
-					<th>
-						年级
-					</th>
-					<th>
-						所属系
-					</th>
-					<th>
-						操作
-					</th>
-				</tr>
-				<s:iterator value="studentList" status="student">
-					<tr class="listTr">
-						<td>
-							<s:property value="id" />
-						</td>
-						<td>
-							<s:property value="userInfo.name" />
-						</td>
-						<td>
-							<s:property value="userInfo.sex" />
-						</td>
-						<td>
-							<s:property value="studentNo" />
-						</td>
-						<td>
-							<s:property value="grade.name+grade.grade" />
-						</td>
-						<td>
-							<s:property value="userInfo.department.name" />
-						</td>
-						<td>
-							<a
-								href="<s:url action="goEditStudentAction"> 
+			<s:form action="deleteStudentListAction" method="post">
+				<s:hidden name="studentList" />
+				<table class="listTable">
+					<tr class="listHeaderTr"
+						<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
+						<th>
+							学生id
+						</th>
+						<th>
+							姓名
+						</th>
+						<th>
+							性别
+						</th>
+						<th>
+							账号
+						</th>
+						<th>
+							年级
+						</th>
+						<th>
+							所属系
+						</th>
+						<th>
+							操作
+						</th>
+					</tr>
+					<s:iterator value="studentList" status="student">
+						<tr class="listTr">
+							<td>
+								<s:property value="id" />
+							</td>
+							<td>
+								<s:property value="userInfo.name" />
+							</td>
+							<td>
+								<s:property value="userInfo.sex" />
+							</td>
+							<td>
+								<s:property value="studentNo" />
+							</td>
+							<td>
+								<s:property value="grade.name+grade.grade" />
+							</td>
+							<td>
+								<s:property value="userInfo.department.name" />
+							</td>
+							<td>
+								<a
+									href="<s:url action="goEditStudentAction"> 
                      			<s:param name="studentId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
-								<font color="green">【修改】</font> </a>
-							<a
-								href="<s:url action="deleteStudentAction"> 
+									<font color="green">【修改】</font> </a>
+								<a
+									href="<s:url action="deleteStudentAction"> 
                      			<s:param name="studentId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>"
-								onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
-								<font color="red">【删除】</font> </a>
-						</td>
-					</tr>
-				</s:iterator>
-				<tr class="listFooterTr">
-
-				</tr>
-			</table>
+									onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
+									<font color="red">【删除】</font> </a>
+							</td>
+						</tr>
+					</s:iterator>
+				</table>
+				<div align="right">
+					<s:submit cssClass="label"
+						onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;"
+						value="删除列表中所有学生"></s:submit>
+					<div align="center">
+			</s:form>
 		</div>
 	</body>
 </html>
