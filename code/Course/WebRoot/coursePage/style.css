@@ -1,0 +1,46 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #FFFFFF;
+}
+.style1 {
+	color: #9a9a9a;
+	font-size: 10px;
+	font-family: tahoma;
+	text-decoration:none
+}
+.style2 {
+	color: #3b3b3b;
+	font-size: 11px;
+	font-family: tahoma;
+	font-weight: bold;
+}
+.style3 {
+	color: #2f7495;
+	font-size: 10px;
+	font-family: tahoma;
+}
+.style4 {
+	color: #848282;
+	font-size: 10px;
+	font-family: tahoma;
+}
+.style5 {
+	color: #898989;
+	font-size: 10px;
+	font-family: tahoma;
+	line-height:11px
+}
+.style6 {
+	color: #3b4759;
+	font-size: 10px;
+	font-family: tahoma;
+	text-decoration:none
+}
+.style8 {
+	font-size: 10px;
+	font-family: tahoma;
+	color:#A0A0A0
+}
