@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import cn.edu.xmu.course.pojo.ApplicationForm;
+import cn.edu.xmu.course.pojo.Course;
 
 /**
  * A data access object (DAO) providing persistence and search support for
@@ -139,7 +140,11 @@ public class ApplicationFormDAO extends HibernateDaoSupport {
 	public List findByFilename(Object filename) {
 		return findByProperty(FILENAME, filename);
 	}
-
+	public List findByCourse(int courseId)
+	{
+		System.out.println("\nfindByCourse&&&&&&&&&&&&&&&&&&"+courseId);
+		return findByProperty("course.id", courseId);
+	}
 	public List findAll() {
 		log.debug("finding all ApplicationForm instances");
 		try {
