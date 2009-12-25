@@ -14,7 +14,7 @@ public interface IApplicationFormService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public ApplicationForm getApplicationForm(Course course);
+	public ApplicationForm getApplicationForm(int courseId);
 	
 	/**
 	 * 添加课程申报表格
