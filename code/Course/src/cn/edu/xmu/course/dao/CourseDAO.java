@@ -130,7 +130,10 @@ public class CourseDAO extends HibernateDaoSupport {
 	public List findByDepartment(Object department) {
 		return findByProperty("department", department);
 	}
-
+	public List findByTeacher(String teacherName)
+	{
+		return findByProperty("teacher.userInfo.name", teacherName);
+	}
 	public List findAll() {
 		log.debug("finding all Course instances");
 		try {
