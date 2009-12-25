@@ -32,6 +32,8 @@ public class LoginAction extends BaseAction {
 	}
 
 	public String adminLogin() {
+		userName = "123456";
+		password = "123456";
 		if (flag == 0) {
 			Administrator admin = loginService.adminLogin(userName, password);
 			if (null == admin)

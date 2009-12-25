@@ -106,6 +106,12 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+		<action name="deleteStudentListAction" method="deleteStudentList"
+			class="studentAction">
+			<result name="success">/admin/studentmanage/studentList.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
 		
 		<!-- 课程申报管理 -->
 		<action name="addNewCourseAction" method="addNewCourse" class="courseAction">
