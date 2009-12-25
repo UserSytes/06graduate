@@ -83,5 +83,15 @@
 			<ref bean="CourseDAO" />
 		</property>
 	</bean>
+	<bean id="applicationFormServiceTarget" class="cn.edu.xmu.course.service.impl.ApplicationFormService">
+	<property name="applicationFormDAO">
+			<ref bean="ApplicationFormDAO" />
+		</property>
+	</bean>
+		<bean id="courseInfoServiceTarget" class="cn.edu.xmu.course.service.impl.CourseInfoService">
+	<property name="courseInfoDAO">
+			<ref bean="CourseInfoDAO" />
+		</property>
+	</bean>
 	
 </beans>
