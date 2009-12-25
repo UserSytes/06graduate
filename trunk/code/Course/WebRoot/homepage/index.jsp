@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ include file="../commons/taglibs.jsp"%>
+
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -54,8 +56,7 @@
 																style="font-size: 11px; color: #FFFFFF"><strong>用户名:
 																	<div style="padding-top: 14px">
 																		密码:
-																	</div> </strong>
-															</font>
+																	</div> </strong> </font>
 														</td>
 														<td width="55%" valign="top"
 															style="padding-top: 10px; padding-bottom: 11px">
@@ -64,12 +65,26 @@
 															<br>
 															<input name="" type="password"
 																style="width: 93px; height: 17px; font-size: 11px">
+															<br>
+															<br>
+															<select name="select"
+																style="width: 93px; height: 17px; font-size: 11px">
+																<option>
+																	管理员
+																</option>
+																<option>
+																	老师
+																</option>
+																<option>
+																	学生
+																</option>
+															</select>
 														</td>
 														<td width="16%" valign="top"
 															style="padding-right: 5px; padding-top: 38px">
+
 															<a href="#"><img src="images/ok.jpg" width="25"
-																	height="17" border="0">
-															</a>
+																	height="17" border="0"> </a>
 														</td>
 													</tr>
 												</table>
@@ -84,22 +99,15 @@
 											<td width="210" height="100%" valign="top"
 												background="images/back-but-2.jpg"
 												style="padding-left: 28px; padding-top: 4px; padding-bottom: 15px">
-												<img src="images/text-2.jpg" width="92" height="17">
 												<br>
+												<div style="line-height: 15px; padding-bottom: 10px"></div>
+												<a href="http://www.moe.edu.cn/" class="style3">中华人民共和国教育部</a>
 												<div style="line-height: 15px; padding-bottom: 10px">
-													<font face="tahoma"
-														style="font-size: 10px; color: #666666; line-height: 15px">11
-														Some Street Second Floor<br>New York WA 02020<br>Tel./Fax
-														1(800)111-1111</font>
 												</div>
-												<img src="images/text-2.jpg" width="92" height="17">
-												<br>
-												<div style="line-height: 14px">
-													<font face="tahoma"
-														style="font-size: 10px; color: #666666; line-height: 14px">3030
-														Some street Suite 1500<br>Atlanta GA 30300<br>Tel./Fax
-														1(800)111-1111</font>
+												<a href="http://www.jpk.pku.edu.cn/pkujpk/" class="style3">北京大学精品课程</a>
+												<div style="line-height: 15px; padding-bottom: 10px">
 												</div>
+												<a href="http://jpkc.fudan.edu.cn/" class="style3">复旦大学精品课程</a>
 											</td>
 										</tr>
 									</table>
@@ -125,30 +133,38 @@
 													</tr>
 													<tr>
 														<td width="166" height="100%" valign="top">
-															<img src="images/pic-10.jpg" width="154" height="156" style="width: 154px; height: 156px;">
+															<img src="images/pic-10.jpg" width="154" height="156"
+																style="width: 154px; height: 156px;">
 														</td>
-
 														<td width="389" valign="top" style="padding-left: 5px">
 															<img src="images/text-19.jpg" width="114" height="17"
 																style="margin-bottom: 10px">
 															<br>
 															<font face="tahoma"
 																style="font-size: 10px; color: #828688"><strong>
-																	<img src="images/but.jpg" width="4" height="7">&nbsp;
-																	<a href="#"
-																	style="color: #828688; text-decoration: none">Allergy</a>
-																<br> <img src="images/but.jpg" width="4" height="7">&nbsp;
-																	<a href="#"
+
+																	<s:iterator value="newsList" status="new">
+																		<img src="images/but.jpg" width="4" height="7">&nbsp;
+																		<a
+																			href="<s:url action="enterNewsAction"> 
+	                     											<s:param name="newsId"> 
+	                       			 									<s:property value="id"/> 
+	                    											</s:param> 
+	                													</s:url>">
+																			<s:property value="title" />&nbsp;&nbsp;
+																		<s:property value="time" /></a>
+																		
+																		<br>
+																	</s:iterator> <br> <img src="images/but.jpg" width="4"
+																		height="7"> <a href="#"
 																	style="color: #828688; text-decoration: none">Cardiology</a>
-																<br> <img src="images/but.jpg" width="4" height="7">&nbsp;
-																	<a href="#"
+																	<br> <img src="images/but.jpg" width="4"
+																		height="7">&nbsp; <a href="#"
 																	style="color: #828688; text-decoration: none">Chronic
-																		Disease</a>
-																<br> <img src="images/but.jpg" width="4" height="7">&nbsp;
-																	<a href="#"
+																		Disease</a> <br> <img src="images/but.jpg" width="4"
+																		height="7">&nbsp; <a href="#"
 																	style="color: #828688; text-decoration: none">Dentistry</a>
-																<br> </strong>
-															</font>
+																	<br> </strong> </font>
 														</td>
 
 													</tr>
@@ -177,22 +193,15 @@
 													<tr>
 														<td width="281" height="267" valign="top"
 															style="padding-left: 9px; padding-bottom: 15px">
-															<img src="images/text-18.jpg" width="99" height="18">
-															<br>
-															<img src="images/pic-3.jpg" width="132" height="52"
-																align="left" style="margin-right: 10px">
-															<font face="tahoma"
-																style="font-size: 10px; color: #828688"> <strong
-																style="color: #FF3300">Lorem ipsum dolor sime </strong>
-															<br> consectetuer adipiscing elit. Praesent
-																vestibulum moltie. consectetuer adipiscing elit.
-																Praesent vestibulum moltie.
 
+
+															<font face="tahoma" style="font-size: 13px"> <br>
+																<img src="images/but.jpg" width="4" height="7"> <a
+																href="#">09年</a> <br> <br> <br> <br>
 																<div style="padding-top: 4px">
 																	<a href="#"
 																		style="color: #0CA4FF; text-decoration: none"><strong>learn
-																			more</strong>
-																	</a>
+																			more</strong> </a>
 																	<img src="images/but-blue.jpg" width="15" height="7">
 																</div> </font>
 														</td>
@@ -241,9 +250,18 @@
 															<img src="images/pic-5.jpg" width="123" height="71"
 																align="left" style="margin-right: 10px">
 															<font face="tahoma"
-																style="font-size: 10px; color: #828688; line-height: 11px">
-																nisl, porta vel, scelerisque get, male suada at, nequ
-																ivamus eget nibh tiam cursus leo vel. </font>
+																style="font-size: 13px; color: #828688; line-height: 11px">
+																国家级：10门 </font>
+															<br>
+															<br>
+															<font face="tahoma"
+																style="font-size: 13px; color: #828688; line-height: 11px">
+																省级：10门 </font>
+															<br>
+															<br>
+															<font face="tahoma"
+																style="font-size: 13px; color: #828688; line-height: 11px">
+																校级：10门 </font>
 														</td>
 
 														<td width="2" height="100%"
