@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
+import org.hibernate.Query;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -92,7 +93,23 @@ public class CourseInfoDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
+	public List findByCourse(int courseId,int sort){
+		log.debug("finding CourseInfo instance by courseId and sort");
+		try {
 
+			Query q = getSession().createQuery(
+					"select courseInfo from CourseInfo courseInfo where courseInfo.course.id='" + courseId
+							+ "' and sort='" + sort + "'");
+			List results = q.list();
+			log
+					.debug("find by Loginname and password successful, result size: "
+							+ results.size());
+			return results;
+		} catch (RuntimeException re) {
+			log.error("find by Loginname and password failed", re);
+			throw re;
+		}
+	}
 	public List findByTitle(Object title) {
 		return findByProperty(TITLE, title);
 	}
