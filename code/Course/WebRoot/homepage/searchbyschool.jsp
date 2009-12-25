@@ -76,18 +76,101 @@
 												<table width="555" height="534" border="0" cellspacing="0"
 													cellpadding="0" background="images/end-3.jpg"
 													style="background-repeat: no-repeat; background-position: center bottom;">
+													<table class=editTable cellSpacing=1 cellPadding=0
+														width="553" align=center border=0 height="38"
+														style="width: 553px;">
+
+														<tr class=position bgcolor="#ECF3FD">
+															<td>
+																当前位置: 首页 -&gt; 搜索课程
+															</td>
+														</tr>
+													</table>
+
+													<s:form action="findCourseByDepartmentAction" method="post"
+														onsubmit="">&nbsp;&nbsp; 
+			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+															align=center border=0>
+															<tr class=editHeaderTr>
+																<td class=editHeaderTd colSpan=7>
+																	院系搜索
+																</td>
+															</tr>
+															<tr>
+																<td bgcolor="#FFFDF0">
+																	<div align="center">
+																		院系：
+																	</div>
+																</td>
+																<td colspan="3" bgcolor="#FFFFFF">
+																	&nbsp;&nbsp;&nbsp;
+																	<select id="School" name="school"
+																		onchange="getDepartment(this.value)">
+																		<option value="-1">
+																			--请选择院--
+																		</option>
+																	</select>
+																	<select id="Department" name="departmentId">
+																		<option value="-1">
+																			--请选择系--
+																		</option>
+																	</select>
+																</td>
+															</tr>
+															<tr bgcolor="#ECF3FD">
+																<td width="30%">
+																	&nbsp;
+																</td>
+																<td width="70%">
+																	<s:submit cssClass="label" value="确认" />
+																	<s:reset cssClass="label" value="取消" />
+																</td>
+															</tr>
+														</table>
+													</s:form>
+													<s:form action="findCourseByNameAction" method="post"
+														onsubmit="">&nbsp;&nbsp;
+	<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+															align=center border=0>
+															<tr class=editHeaderTr>
+																<td class=editHeaderTd colSpan=7>
+																	课程名称搜索
+																</td>
+															</tr>
+															<tr>
+																<td bgcolor="#FFFDF0">
+																	<div align="center">
+																		名称：
+																	</div>
+																</td>
+																<td colspan="3" bgcolor="#FFFFFF">
+																	&nbsp;&nbsp;&nbsp;
+																	<s:textfield name="courseName" cssClass="input" />
+																</td>
+															</tr>
+															<tr bgcolor="#ECF3FD">
+																<td width="30%">
+																	&nbsp;
+																</td>
+																<td width="70%">
+																	<s:submit cssClass="label" value="确认" />
+																	<s:reset cssClass="label" value="取消" />
+																</td>
+															</tr>
+														</table>
+													</s:form>
 													<tr>
 														<td colspan="3"
-															style="padding-left: 110px; padding-bottom: 8px"
-															valign="top">
-															<br>
-														</td>
+															style="padding-left: 110px; padding-bottom: 0px"
+															valign="top"></td>
 													</tr>
+
+
 													<tr>
 														<td width="389" valign="top" style="padding-left: 5px">
 															<img src="images/text-19.jpg" width="114" height="17"
 																style="margin-bottom: 10px">
-															
+
 														</td>
 
 													</tr>
