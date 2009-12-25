@@ -2,6 +2,8 @@ package cn.edu.xmu.course.web.action;
 
 import java.util.List;
 
+import org.apache.struts2.config.Namespace;
+
 import cn.edu.xmu.course.pojo.ApplicationForm;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Department;
@@ -23,11 +25,9 @@ public class ExecuteViewAction extends BaseAction {
 	private int courseId;
 	private List<Course> courseList;
 	private Course course;
-
-	private ApplicationForm applicationForm;
+	private String teacherName;
 	private ISearchCourseService searchCourseService;
 	private IDepartmentService departmentService;
-
 	public int getCourseId() {
 		return courseId;
 	}
@@ -55,7 +55,6 @@ public class ExecuteViewAction extends BaseAction {
 	/**
 	 * 通过院系查找
 	 * 
-	 * @param department
 	 * @return
 	 */
 
@@ -79,7 +78,6 @@ public class ExecuteViewAction extends BaseAction {
 	/**
 	 * 通过名称查找
 	 * 
-	 * @param courseName
 	 * @return
 	 */
 	public String findCourseByName() {
@@ -91,7 +89,23 @@ public class ExecuteViewAction extends BaseAction {
 		} else
 			return "courses";
 	}
-
+	/**
+	 * 通过教师查找
+	 * @return
+	 */
+	public String findCourseByTeacher(){
+		courseList = searchCourseService.findCourseByTeacher(teacherName);
+		System.out.print("\n&&&&&&&&&&&&&&&&&&&&&&" + courseList.size()
+				+ courseList.get(0).getName() + courseList.get(0).getId());
+		if (courseList.size() == 0) {
+			return ERROR;
+		} else
+			return "courses";
+	}
+	/**
+	 * 进入课程
+	 * @return
+	 */
 	public String enterCourse() {
 		course = searchCourseService.findCourseById(courseId);
 		if (course == null) {
@@ -100,7 +114,6 @@ public class ExecuteViewAction extends BaseAction {
 			return "course";
 
 	}
-
 	public List<Course> getCourseList() {
 		return courseList;
 	}
@@ -126,15 +139,6 @@ public class ExecuteViewAction extends BaseAction {
 	}
 
 
-	public ApplicationForm getApplicationForm() {
-		return applicationForm;
-	}
-
-	public void setApplicationForm(ApplicationForm applicationForm) {
-		this.applicationForm = applicationForm;
-	}
-
-
 	public void setDepartmentId(String departmentId) {
 		this.departmentId = departmentId;
 	}
@@ -150,5 +154,14 @@ public class ExecuteViewAction extends BaseAction {
 	public IDepartmentService getDepartmentService() {
 		return departmentService;
 	}
+
+	public void setTeacherName(String teacherName) {
+		this.teacherName = teacherName;
+	}
+
+	public String getTeacherName() {
+		return teacherName;
+	}
+
 
 }
