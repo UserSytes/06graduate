@@ -55,7 +55,7 @@ public class CourserAction extends BaseAction {
 		myCoursesList = courseService.findCoursesByTeacher(tea.getId(), type);
 		if(myCoursesList.size()==0){
 			addActionError("暂无任何课程！");
-			return ERROR;
+			return null;
 		}
 		else 
 			return SUCCESS;

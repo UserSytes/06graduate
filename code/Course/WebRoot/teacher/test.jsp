@@ -62,8 +62,8 @@
 		</table>
 	
 		<div id="courseListMain" align="center">
-		<s:textarea theme="ajax"></s:textarea>
-<iframe ID="editor" src="../editor.jsp" frameborder="0" scrolling=no width="100%" height="405"></iframe>
+		<s:property escape="false" value="test"  ></s:property>
+
 
 		</div>
 	</body>
