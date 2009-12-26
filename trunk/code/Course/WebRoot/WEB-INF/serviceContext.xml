@@ -93,5 +93,11 @@
 			<ref bean="CourseInfoDAO" />
 		</property>
 	</bean>
+			<bean id="teacherTeamServiceTarget" class="cn.edu.xmu.course.service.impl.TeacherTeamService">
+	<property name="teacherTeamDAO">
+			<ref bean="TeacherTeamDAO" />
+		</property>
+	</bean>
+	
 	
 </beans>
