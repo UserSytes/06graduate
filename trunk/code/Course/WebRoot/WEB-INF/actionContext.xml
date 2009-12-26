@@ -81,6 +81,9 @@
 		<property name="teacherTeamService">
 			<ref bean="teacherTeamService" />
 		</property>	
+		<property name="achievementService">
+			<ref bean="achievementService" />
+		</property>	
 		</bean>
 		
 </beans>

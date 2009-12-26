@@ -98,6 +98,10 @@
 			<ref bean="TeacherTeamDAO" />
 		</property>
 	</bean>
-	
+	<bean id="achievementServiceTarget" class="cn.edu.xmu.course.service.impl.AchievementService">
+	<property name="achievementDAO">
+			<ref bean="AchievementDAO" />
+		</property>
+	</bean>
 	
 </beans>
