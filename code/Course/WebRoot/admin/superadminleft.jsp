@@ -65,7 +65,8 @@ eval("submenu" + sid + ".style.display=\"none\";");
 													<IMG src="Images/closed.gif">
 												</TD>
 												<TD height=23>
-													<A href="Log_Admin.asp" target=main>发布新闻政策</A>
+													<a href="<s:url action='goAddNewsAction'> </s:url>"
+														target="main"> 发布新闻政策</A>
 												</TD>
 											</TR>
 										</TBODY>

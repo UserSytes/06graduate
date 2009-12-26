@@ -56,6 +56,11 @@
 		</table>
 		<s:form action="editTeacherAction" method="post"
 			onsubmit="return check(this);">
+				<s:hidden name="teacher.id" />
+				<s:hidden name="teacher.password" />
+				<s:hidden name="userInfo.id" />
+				<s:hidden name="teacher.teacherNo" />
+				<s:hidden name="teacher.userInfo.id" />
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
@@ -84,8 +89,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:select id="sex" name="userInfo.sex" list="{'男','女'}"
-							headerKey="-1" headerValue="请选择"/>
+						<s:select id="sex" name="userInfo.sex" list="{'男','女'}" />
 						&nbsp;*
 					</td>
 				</tr>
@@ -97,9 +101,8 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:select name="departmentId"
-							list="departmentList" headerKey="-1" headerValue="请选择"
-							listKey="id" listValue="name" />
+						<s:select name="userInfo.department.id"
+							list="departmentList" listKey="id" listValue="name" />
 						&nbsp;*
 					</td>
 				</tr>
@@ -124,9 +127,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" id="teacherNo"
-							name="teacher.teacherNo" label="账号"></s:textfield>
-						&nbsp;*
+						<s:text name="">${teacher.teacherNo}</s:text>
 					</td>
 				</tr>
 				<tr>

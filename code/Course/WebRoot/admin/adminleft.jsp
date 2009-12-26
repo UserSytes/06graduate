@@ -126,8 +126,7 @@ border=0>
                 <TR>
                   <TD width="2%"><IMG src="Images/closed.gif"></TD>
                   <td height="23"><a href="<s:url action='allStudentAction'> </s:url>"
-														target="main">学生列表</a>┆<a href="<s:url action='gradeListAction'> </s:url>"
-														target="main">>批量删除</a></td>
+														target="main">学生列表</a></td>
                 </tr>
                 <tr>
                   <td><img src="Images/closed.gif" /></td>
