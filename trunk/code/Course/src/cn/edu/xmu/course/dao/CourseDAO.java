@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.School;
 
 /**
  * A data access object (DAO) providing persistence and search support for
@@ -101,6 +102,39 @@ public class CourseDAO extends HibernateDaoSupport {
 			String queryString = "from Course as model where model.teacher.id="
 					+ teacherId + "and model.status= "+status;
 			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	
+	public List findApplicationBySchool(School school) {
+		log.debug("finding Course instance with status = 0 and department.school, value: " + school);
+		try {
+			String queryString = "from Course as model where model.status = 0 and model.department.school = ?";
+			return getHibernateTemplate().find(queryString, school);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	
+	public List findBySchool(School school) {
+		log.debug("finding Course instance with status = 1 and department.school, value: " + school);
+		try {
+			String queryString = "from Course as model where model.status = 1 and model.department.school = ?";
+			return getHibernateTemplate().find(queryString, school);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	
+	public List findNotPassBySchool(School school) {
+		log.debug("finding Course instance with status = 2 and department.school, value: " + school);
+		try {
+			String queryString = "from Course as model where model.status = 2 and model.department.school = ?";
+			return getHibernateTemplate().find(queryString, school);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
 			throw re;
