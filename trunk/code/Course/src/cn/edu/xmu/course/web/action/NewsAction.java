@@ -5,7 +5,7 @@ import java.util.List;
 import cn.edu.xmu.course.pojo.News;
 import cn.edu.xmu.course.service.INewsService;
 
-public class NewsAction {
+public class NewsAction extends BaseAction{
 
 	private INewsService newsService;
 
@@ -20,7 +20,7 @@ public class NewsAction {
 	 * @return
 	 */
 	public String goAddNews(){
-		return "success";
+		return SUCCESS;
 	}
 	
 	/**
@@ -30,11 +30,11 @@ public class NewsAction {
 	public String addNews(){
 		boolean result = newsService.addNews(news);
 		if(result){
-			//addActionMessage("添加新闻成功！");
-			return "success";
+			addActionMessage("添加新闻成功！");
+			return SUCCESS;
 		}
 		else
-			return "error";
+			return ERROR;
 	}
 
 	/**
@@ -44,10 +44,10 @@ public class NewsAction {
 	public String findAllNews(){
 		newsList = newsService.findAllNews();
 		if(newsList.size() == 0){
-			//addActionMessage("目前尚未发布任何新闻政策！");
-			return "error";
+			addActionMessage("目前尚未发布任何新闻政策！");
+			return ERROR;
 		}else{
-			return "success";
+			return SUCCESS;
 		}
 	}
 	
@@ -59,11 +59,11 @@ public class NewsAction {
 		news = newsService.findNewsById(newsId);
 		boolean result = newsService.deleteNews(news);
 		if(result){
-			//addActionMessage("删除新闻成功！");
-			return "success";
+			addActionMessage("删除新闻成功！");
+			return SUCCESS;
 		}
 		else
-			return "error";
+			return ERROR;
 	}
 	
 	/**
@@ -73,14 +73,14 @@ public class NewsAction {
 	public String viewNews(){
 		news = newsService.findNewsById(newsId);
 		if(news != null){
-			return "success";
+			return SUCCESS;
 		}
 		else
-			return "error";
+			return ERROR;
 	}
 	
 	public String goEditNews(){
-		return "success";
+		return SUCCESS;
 	}
 	
 	/**
@@ -90,11 +90,11 @@ public class NewsAction {
 	public String editNews(){
 		boolean result = newsService.updateNews(news);
 		if(result){
-			//addActionMessage("更新新闻成功！");
-			return "success";
+			addActionMessage("更新新闻成功！");
+			return SUCCESS;
 		}
 		else{
-			return "error";
+			return ERROR;
 		}
 	}
 	public News getNews() {
