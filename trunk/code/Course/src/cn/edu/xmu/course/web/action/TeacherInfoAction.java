@@ -116,11 +116,26 @@ public class TeacherInfoAction extends BaseAction{
 	 */
 	public String goEditTeacher(){
 		teacher = teacherInfoService.findTeacherById(teacherId);
+		userInfo = teacher.getUserInfo();
 		if(null == teacher){
 			return ERROR;
 		}
 		else
 			return SUCCESS;
+	}
+	
+	/**
+	 * 修改教师信息
+	 * @return
+	 */
+	public String editTeacher(){
+		teacher.setUserInfo(userInfo);
+		boolean result = teacherInfoService.updateTeacher(teacher, userInfo);
+		if(result){
+			addActionMessage("修改教师信息成功！");
+			return SUCCESS;
+		}else
+			return ERROR;
 	}
 	
 	public void setTeacherInfoService(ITeacherInfoService teacherInfoService) {
