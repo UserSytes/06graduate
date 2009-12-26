@@ -78,5 +78,9 @@
 		<property name="courseInfoService">
 			<ref bean="courseInfoService" />
 		</property>	
+		<property name="teacherTeamService">
+			<ref bean="teacherTeamService" />
+		</property>	
 		</bean>
+		
 </beans>
