@@ -27,6 +27,9 @@ public class NewsDAO extends HibernateDaoSupport {
 	// property constants
 	public static final String TITLE = "title";
 	public static final String CONTENT = "content";
+	public static final String AUTHOR = "author";
+	public static final String FILE_NAME = "fileName";
+	public static final String FILE_LINK = "fileLink";
 
 	protected void initDao() {
 		// do nothing
@@ -98,6 +101,18 @@ public class NewsDAO extends HibernateDaoSupport {
 
 	public List findByContent(Object content) {
 		return findByProperty(CONTENT, content);
+	}
+
+	public List findByAuthor(Object author) {
+		return findByProperty(AUTHOR, author);
+	}
+
+	public List findByFileName(Object fileName) {
+		return findByProperty(FILE_NAME, fileName);
+	}
+
+	public List findByFileLink(Object fileLink) {
+		return findByProperty(FILE_LINK, fileLink);
 	}
 
 	public List findAll() {

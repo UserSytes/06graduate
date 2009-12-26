@@ -1,4 +1,4 @@
-package cn.edu.xmu.course.dao;
+package cn.edu.xmu.course.pojo;
 
 import java.util.Date;
 import java.util.List;

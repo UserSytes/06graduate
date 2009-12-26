@@ -12,7 +12,7 @@ public class ApplicationForm implements java.io.Serializable {
 
 	private Integer id;
 	private Course course;
-	private String unit;
+	private String recommender;
 	private String school;
 	private String name;
 	private String level;
@@ -31,19 +31,19 @@ public class ApplicationForm implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public ApplicationForm(String unit, String school, String name) {
-		this.unit = unit;
+	public ApplicationForm(String recommender, String school, String name) {
+		this.recommender = recommender;
 		this.school = school;
 		this.name = name;
 	}
 
 	/** full constructor */
-	public ApplicationForm(Course course, String unit, String school,
+	public ApplicationForm(Course course, String recommender, String school,
 			String name, String level, String sort, String firstSubject,
 			String secondSubjet, String responser, Date time, String fileLink,
 			String filename) {
 		this.course = course;
-		this.unit = unit;
+		this.recommender = recommender;
 		this.school = school;
 		this.name = name;
 		this.level = level;
@@ -74,12 +74,12 @@ public class ApplicationForm implements java.io.Serializable {
 		this.course = course;
 	}
 
-	public String getUnit() {
-		return this.unit;
+	public String getRecommender() {
+		return this.recommender;
 	}
 
-	public void setUnit(String unit) {
-		this.unit = unit;
+	public void setRecommender(String recommender) {
+		this.recommender = recommender;
 	}
 
 	public String getSchool() {

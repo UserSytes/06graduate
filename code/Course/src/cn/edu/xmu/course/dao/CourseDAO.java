@@ -30,6 +30,7 @@ public class CourseDAO extends HibernateDaoSupport {
 	public static final String REMARK = "remark";
 	public static final String STATUS = "status";
 	public static final String LEVEL = "level";
+	public static final String REFUSE_REASON = "refuseReason";
 
 	protected void initDao() {
 		// do nothing
@@ -95,6 +96,37 @@ public class CourseDAO extends HibernateDaoSupport {
 		}
 	}
 
+	public List findByName(Object name) {
+		return findByProperty(NAME, name);
+	}
+
+	public List findByRemark(Object remark) {
+		return findByProperty(REMARK, remark);
+	}
+
+	public List findByStatus(Object status) {
+		return findByProperty(STATUS, status);
+	}
+
+	public List findByLevel(Object level) {
+		return findByProperty(LEVEL, level);
+	}
+
+	public List findByRefuseReason(Object refuseReason) {
+		return findByProperty(REFUSE_REASON, refuseReason);
+	}
+	public List findByTeacherId(Object teacherId) {
+		return findByProperty("teacher.id", teacherId);
+	}
+	
+	public List findByDepartment(Object department) {
+		return findByProperty("department", department);
+	}
+	public List findByTeacher(String teacherName)
+	{
+		return findByProperty("teacher.userInfo.name", teacherName);
+	}
+	
 	public List findByTeacherAndType(Integer teacherId, int status) {
 		log.debug("finding Course instance with property: teacher,status" +
 				", value: " + teacherId+" and "+status);
@@ -107,6 +139,8 @@ public class CourseDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
+
+
 	
 	public List findApplicationBySchool(School school) {
 		log.debug("finding Course instance with status = 0 and department.school, value: " + school);
@@ -141,33 +175,6 @@ public class CourseDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByName(Object name) {
-		return findByProperty(NAME, name);
-	}
-
-	public List findByRemark(Object remark) {
-		return findByProperty(REMARK, remark);
-	}
-
-	public List findByStatus(Object status) {
-		return findByProperty(STATUS, status);
-	}
-
-	public List findByLevel(Object level) {
-		return findByProperty(LEVEL, level);
-	}
-
-	public List findByTeacherId(Object teacherId) {
-		return findByProperty("teacher.id", teacherId);
-	}
-	
-	public List findByDepartment(Object department) {
-		return findByProperty("department", department);
-	}
-	public List findByTeacher(String teacherName)
-	{
-		return findByProperty("teacher.userInfo.name", teacherName);
-	}
 	public List findAll() {
 		log.debug("finding all Course instances");
 		try {

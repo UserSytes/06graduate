@@ -25,6 +25,9 @@
         <property name="lastAnswer" type="java.lang.String">
             <column name="last_answer" length="40" />
         </property>
+        <property name="countPerson" type="java.lang.Integer">
+            <column name="count_person" />
+        </property>
         <set name="messages" inverse="true">
             <key>
                 <column name="topic_id" />

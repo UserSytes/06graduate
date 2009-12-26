@@ -19,5 +19,14 @@
         <property name="time" type="java.util.Date">
             <column name="time" length="19" not-null="true" />
         </property>
+        <property name="author" type="java.lang.String">
+            <column name="author" length="50" not-null="true" />
+        </property>
+        <property name="fileName" type="java.lang.String">
+            <column name="file_name" />
+        </property>
+        <property name="fileLink" type="java.lang.String">
+            <column name="file_link" length="500" />
+        </property>
     </class>
 </hibernate-mapping>

@@ -13,8 +13,8 @@
         <many-to-one name="course" class="cn.edu.xmu.course.pojo.Course" fetch="select">
             <column name="course_id" />
         </many-to-one>
-        <property name="unit" type="java.lang.String">
-            <column name="unit" length="50" not-null="true" />
+        <property name="recommender" type="java.lang.String">
+            <column name="recommender" length="50" not-null="true" />
         </property>
         <property name="school" type="java.lang.String">
             <column name="school" length="50" not-null="true" />

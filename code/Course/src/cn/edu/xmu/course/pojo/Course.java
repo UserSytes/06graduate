@@ -16,8 +16,9 @@ public class Course implements java.io.Serializable {
 	private Teacher teacher;
 	private String name;
 	private String remark;
-	private Integer status; //是否审核通过，0：未审核，1：审核通过，2审核未通过
+	private Integer status;
 	private String level;
+	private String refuseReason;
 	private Set courseMovies = new HashSet(0);
 	private Set collections = new HashSet(0);
 	private Set topics = new HashSet(0);
@@ -43,16 +44,17 @@ public class Course implements java.io.Serializable {
 
 	/** full constructor */
 	public Course(Department department, Teacher teacher, String name,
-			String remark, Integer status, String level, Set courseMovies,
-			Set collections, Set topics, Set achievements, Set books,
-			Set teacherTeams, Set applicationForms, Set examinations,
-			Set courseInfos, Set chapters, Set studentCourses) {
+			String remark, Integer status, String level, String refuseReason,
+			Set courseMovies, Set collections, Set topics, Set achievements,
+			Set books, Set teacherTeams, Set applicationForms,
+			Set examinations, Set courseInfos, Set chapters, Set studentCourses) {
 		this.department = department;
 		this.teacher = teacher;
 		this.name = name;
 		this.remark = remark;
 		this.status = status;
 		this.level = level;
+		this.refuseReason = refuseReason;
 		this.courseMovies = courseMovies;
 		this.collections = collections;
 		this.topics = topics;
@@ -122,6 +124,14 @@ public class Course implements java.io.Serializable {
 
 	public void setLevel(String level) {
 		this.level = level;
+	}
+
+	public String getRefuseReason() {
+		return this.refuseReason;
+	}
+
+	public void setRefuseReason(String refuseReason) {
+		this.refuseReason = refuseReason;
 	}
 
 	public Set getCourseMovies() {
