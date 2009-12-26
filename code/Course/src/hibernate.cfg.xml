@@ -25,7 +25,6 @@
 		<mapping resource="cn/edu/xmu/course/pojo/Course.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/Exercise.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/Chapter.hbm.xml" />
-		<mapping resource="cn/edu/xmu/course/pojo/Attachment.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/Message.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/CourseMovie.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/Teacher.hbm.xml" />
