@@ -47,7 +47,7 @@ body {
               </tr>
               <tr>
                 <td height="25">&nbsp;</td>
-                <td height="25"><a href="main.jsp"><img src="img/dl.gif" width="37" height="19" border="0"></a> <img src="img/qx.gif" width="37" height="19"></td>
+                <td height="25"><a href="loginAction.action"><img src="img/dl.gif" width="37" height="19" border="0"></a> <img src="img/qx.gif" width="37" height="19"></td>
                 </tr>
             </table></td>
             <td width="156" background="img/login_09.gif">&nbsp;</td>

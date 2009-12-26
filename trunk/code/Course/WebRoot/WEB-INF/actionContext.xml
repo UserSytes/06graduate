@@ -7,9 +7,6 @@
 		<property name="loginService">
 			<ref bean="loginService" />
 		</property>
-		<property name="courseService">
-			<ref bean="courseService" />
-		</property>
 	</bean>
 	<bean id="teacherInfoAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.TeacherInfoAction">
