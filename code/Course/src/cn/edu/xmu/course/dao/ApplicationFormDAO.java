@@ -142,7 +142,6 @@ public class ApplicationFormDAO extends HibernateDaoSupport {
 	}
 	public List findByCourse(int courseId)
 	{
-		System.out.println("\nfindByCourse&&&&&&&&&&&&&&&&&&"+courseId);
 		return findByProperty("course.id", courseId);
 	}
 	public List findAll() {
