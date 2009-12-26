@@ -144,7 +144,7 @@
 					<s:submit cssClass="label"
 						onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;"
 						value="删除列表中所有学生"></s:submit>
-					<div align="center">
+				</div>
 			</s:form>
 		</div>
 	</body>

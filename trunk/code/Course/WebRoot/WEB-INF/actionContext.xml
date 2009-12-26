@@ -47,6 +47,13 @@
 			<ref bean="adminService" />
 		</property>
 	</bean>
+	<bean id="newsAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.NewsAction">
+		<property name="newsService">
+			<ref bean="newsService" />
+		</property>
+	</bean>
+	
 	<!-- 前台 -->
 	<bean id="executeViewAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.ExecuteViewAction">
