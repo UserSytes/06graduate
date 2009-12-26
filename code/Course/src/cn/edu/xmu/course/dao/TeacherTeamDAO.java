@@ -108,7 +108,9 @@ public class TeacherTeamDAO extends HibernateDaoSupport {
 	public List findByRemark(Object remark) {
 		return findByProperty(REMARK, remark);
 	}
-
+	public List findByCourse(int courseId){
+		return findByProperty("course.id", courseId);
+	}
 	public List findAll() {
 		log.debug("finding all TeacherTeam instances");
 		try {
