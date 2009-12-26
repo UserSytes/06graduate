@@ -36,6 +36,13 @@ public interface ICourseService {
 	public boolean deleteCourse(Course course);
 	
 	/**
+	 * 更新课程
+	 * @param course
+	 * @return
+	 */
+	public boolean updateCourse(Course course);
+	
+	/**
 	 * 查找学院审核未通过的课程
 	 * @param school
 	 * @return
