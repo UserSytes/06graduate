@@ -11,7 +11,7 @@
 		<!--登陆系统-->
 		<action name="loginAction" method="login"
 			class="cn.edu.xmu.course.web.action.LoginAction">
-			<result name="success">/teacher/index.jsp</result>
+			<result name="success">/teacher/main.jsp</result>
 			<result name="error">/teacher/error.jsp</result>
 		</action>
 		<action name="adminLoginAction" method="adminLogin"
@@ -122,7 +122,7 @@
 			class="courseAction">
 			<result name="success">/teacher/mycourseslist.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="deleteCourseAction" method="deleteCourse" class="courseAction">
 			<result name="success" type="redirect-action">getMyCourseByStateAction</result> 
