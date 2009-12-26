@@ -12,7 +12,12 @@ public class NewsService implements INewsService {
 	
 	public boolean addNews(News news) {
 		// TODO Auto-generated method stub
-		return false;
+		try{
+			newsDAO.save(news);
+			return true;
+		}catch(Exception e){
+			return false;
+		}
 	}
 
 	public boolean deleteNews(News news) {
@@ -25,9 +30,18 @@ public class NewsService implements INewsService {
 		}
 	}
 
+	public boolean updateNews(News news){
+		try {
+			newsDAO.merge(news);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
 	public List findAllNews() {
 		// TODO Auto-generated method stub
-		return null;
+		return newsDAO.findAll();
 	}
 
 	public News findNewsById(int id) {

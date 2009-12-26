@@ -84,8 +84,8 @@ public class TeacherInfoService implements ITeacherInfoService {
 	public boolean updateTeacher(Teacher teacher, UserInfo userInfo) {
 		// TODO Auto-generated method stub
 		try {
-			Teacher t = teacherDAO.merge(teacher);
 			UserInfo u = userInfoDAO.merge(userInfo);
+			Teacher t = teacherDAO.merge(teacher);
 			if (t == null || u == null)
 				return false;
 			else
@@ -98,6 +98,7 @@ public class TeacherInfoService implements ITeacherInfoService {
 	public boolean deleteTeacher(Teacher teacher) {
 		// TODO Auto-generated method stub
 		try {
+			userInfoDAO.delete(teacher.getUserInfo());
 			teacherDAO.delete(teacher);
 			return true;
 		} catch (Exception e) {
