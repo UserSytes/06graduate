@@ -73,5 +73,11 @@
 			<ref bean="courseInfoServiceTarget" />
 		</property>
 	</bean>
+				<bean id="teacherTeamService" parent="transactionBase">
+		<property name="target">
+			<ref bean="teacherTeamServiceTarget" />
+		</property>
+	</bean>
+	
 	
 </beans>
