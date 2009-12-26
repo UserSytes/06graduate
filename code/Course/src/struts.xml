@@ -287,5 +287,20 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+		<action name="newsAction" method="newsDisplay" class="homePageAction">
+			<result name="news">/homepage/index.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="enterNewsAction" method="enterNews" class="homePageAction">
+			<result name="newsdetail">/homepage/newsdetail.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+				<action name="findTeacherTeamAction" method="findTeacherTeam" class="viewDetailAction">
+			<result name="teachers">/coursePage/teacherteam.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		
 	</package>
 </struts>
