@@ -14,7 +14,7 @@ public interface IAchievementService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public Achievement getAchievement(Course course);
+	public Achievement getAchievement(int courseId);
 	
 	/**
 	 * 添加教学成果
