@@ -1,4 +1,4 @@
-package cn.edu.xmu.course.dao;
+package cn.edu.xmu.course.pojo;
 
 import java.util.Date;
 import java.util.List;
@@ -138,11 +138,6 @@ public class ApplicationFormDAO extends HibernateDaoSupport {
 
 	public List findByFilename(Object filename) {
 		return findByProperty(FILENAME, filename);
-	}
-	
-	public List findByCourse(int courseId)
-	{
-		return findByProperty("course.id", courseId);
 	}
 
 	public List findAll() {

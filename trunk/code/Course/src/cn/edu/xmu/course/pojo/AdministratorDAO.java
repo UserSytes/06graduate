@@ -1,6 +1,5 @@
-package cn.edu.xmu.course.dao;
+package cn.edu.xmu.course.pojo;
 
-import java.util.Date;
 import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -8,34 +7,35 @@ import org.hibernate.LockMode;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import cn.edu.xmu.course.pojo.Achievement;
+import cn.edu.xmu.course.pojo.Administrator;
 
 /**
  * A data access object (DAO) providing persistence and search support for
- * Achievement entities. Transaction control of the save(), update() and
+ * Administrator entities. Transaction control of the save(), update() and
  * delete() operations can directly support Spring container-managed
  * transactions or they can be augmented to handle user-managed Spring
  * transactions. Each of these methods provides additional information for how
  * to configure it for the desired type of transaction control.
  * 
- * @see cn.edu.xmu.course.pojo.Achievement
+ * @see cn.edu.xmu.course.pojo.Administrator
  * @author MyEclipse Persistence Tools
  */
 
-public class AchievementDAO extends HibernateDaoSupport {
-	private static final Log log = LogFactory.getLog(AchievementDAO.class);
+public class AdministratorDAO extends HibernateDaoSupport {
+	private static final Log log = LogFactory.getLog(AdministratorDAO.class);
 	// property constants
-	public static final String TITLE = "title";
-	public static final String CONTENT = "content";
-	public static final String FILE_NAME = "fileName";
-	public static final String FILE_LINK = "fileLink";
+	public static final String NAME = "name";
+	public static final String ACCOUNT = "account";
+	public static final String PASSWORD = "password";
+	public static final String EMAIL = "email";
+	public static final String MOBILE = "mobile";
 
 	protected void initDao() {
 		// do nothing
 	}
 
-	public void save(Achievement transientInstance) {
-		log.debug("saving Achievement instance");
+	public void save(Administrator transientInstance) {
+		log.debug("saving Administrator instance");
 		try {
 			getHibernateTemplate().save(transientInstance);
 			log.debug("save successful");
@@ -45,8 +45,8 @@ public class AchievementDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public void delete(Achievement persistentInstance) {
-		log.debug("deleting Achievement instance");
+	public void delete(Administrator persistentInstance) {
+		log.debug("deleting Administrator instance");
 		try {
 			getHibernateTemplate().delete(persistentInstance);
 			log.debug("delete successful");
@@ -56,11 +56,11 @@ public class AchievementDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public Achievement findById(java.lang.Integer id) {
-		log.debug("getting Achievement instance with id: " + id);
+	public Administrator findById(java.lang.Integer id) {
+		log.debug("getting Administrator instance with id: " + id);
 		try {
-			Achievement instance = (Achievement) getHibernateTemplate().get(
-					"cn.edu.xmu.course.pojo.Achievement", id);
+			Administrator instance = (Administrator) getHibernateTemplate()
+					.get("cn.edu.xmu.course.pojo.Administrator", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -68,8 +68,8 @@ public class AchievementDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByExample(Achievement instance) {
-		log.debug("finding Achievement instance by example");
+	public List findByExample(Administrator instance) {
+		log.debug("finding Administrator instance by example");
 		try {
 			List results = getHibernateTemplate().findByExample(instance);
 			log.debug("find by example successful, result size: "
@@ -82,10 +82,10 @@ public class AchievementDAO extends HibernateDaoSupport {
 	}
 
 	public List findByProperty(String propertyName, Object value) {
-		log.debug("finding Achievement instance with property: " + propertyName
-				+ ", value: " + value);
+		log.debug("finding Administrator instance with property: "
+				+ propertyName + ", value: " + value);
 		try {
-			String queryString = "from Achievement as model where model."
+			String queryString = "from Administrator as model where model."
 					+ propertyName + "= ?";
 			return getHibernateTemplate().find(queryString, value);
 		} catch (RuntimeException re) {
@@ -94,26 +94,30 @@ public class AchievementDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByTitle(Object title) {
-		return findByProperty(TITLE, title);
+	public List findByName(Object name) {
+		return findByProperty(NAME, name);
 	}
 
-	public List findByContent(Object content) {
-		return findByProperty(CONTENT, content);
+	public List findByAccount(Object account) {
+		return findByProperty(ACCOUNT, account);
 	}
 
-	public List findByFileName(Object fileName) {
-		return findByProperty(FILE_NAME, fileName);
+	public List findByPassword(Object password) {
+		return findByProperty(PASSWORD, password);
 	}
 
-	public List findByFileLink(Object fileLink) {
-		return findByProperty(FILE_LINK, fileLink);
+	public List findByEmail(Object email) {
+		return findByProperty(EMAIL, email);
+	}
+
+	public List findByMobile(Object mobile) {
+		return findByProperty(MOBILE, mobile);
 	}
 
 	public List findAll() {
-		log.debug("finding all Achievement instances");
+		log.debug("finding all Administrator instances");
 		try {
-			String queryString = "from Achievement";
+			String queryString = "from Administrator";
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find all failed", re);
@@ -121,11 +125,11 @@ public class AchievementDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public Achievement merge(Achievement detachedInstance) {
-		log.debug("merging Achievement instance");
+	public Administrator merge(Administrator detachedInstance) {
+		log.debug("merging Administrator instance");
 		try {
-			Achievement result = (Achievement) getHibernateTemplate().merge(
-					detachedInstance);
+			Administrator result = (Administrator) getHibernateTemplate()
+					.merge(detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -134,8 +138,8 @@ public class AchievementDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public void attachDirty(Achievement instance) {
-		log.debug("attaching dirty Achievement instance");
+	public void attachDirty(Administrator instance) {
+		log.debug("attaching dirty Administrator instance");
 		try {
 			getHibernateTemplate().saveOrUpdate(instance);
 			log.debug("attach successful");
@@ -145,8 +149,8 @@ public class AchievementDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public void attachClean(Achievement instance) {
-		log.debug("attaching clean Achievement instance");
+	public void attachClean(Administrator instance) {
+		log.debug("attaching clean Administrator instance");
 		try {
 			getHibernateTemplate().lock(instance, LockMode.NONE);
 			log.debug("attach successful");
@@ -156,8 +160,8 @@ public class AchievementDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public static AchievementDAO getFromApplicationContext(
+	public static AdministratorDAO getFromApplicationContext(
 			ApplicationContext ctx) {
-		return (AchievementDAO) ctx.getBean("AchievementDAO");
+		return (AdministratorDAO) ctx.getBean("AdministratorDAO");
 	}
 }

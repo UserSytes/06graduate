@@ -1,8 +1,6 @@
 package cn.edu.xmu.course.pojo;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Achievement entity. @author MyEclipse Persistence Tools
@@ -17,7 +15,8 @@ public class Achievement implements java.io.Serializable {
 	private String title;
 	private String content;
 	private Date time;
-	private Set attachments = new HashSet(0);
+	private String fileName;
+	private String fileLink;
 
 	// Constructors
 
@@ -34,12 +33,13 @@ public class Achievement implements java.io.Serializable {
 
 	/** full constructor */
 	public Achievement(Course course, String title, String content, Date time,
-			Set attachments) {
+			String fileName, String fileLink) {
 		this.course = course;
 		this.title = title;
 		this.content = content;
 		this.time = time;
-		this.attachments = attachments;
+		this.fileName = fileName;
+		this.fileLink = fileLink;
 	}
 
 	// Property accessors
@@ -84,12 +84,20 @@ public class Achievement implements java.io.Serializable {
 		this.time = time;
 	}
 
-	public Set getAttachments() {
-		return this.attachments;
+	public String getFileName() {
+		return this.fileName;
 	}
 
-	public void setAttachments(Set attachments) {
-		this.attachments = attachments;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getFileLink() {
+		return this.fileLink;
+	}
+
+	public void setFileLink(String fileLink) {
+		this.fileLink = fileLink;
 	}
 
 }

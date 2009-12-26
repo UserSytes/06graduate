@@ -22,11 +22,11 @@
         <property name="time" type="java.util.Date">
             <column name="time" length="19" not-null="true" />
         </property>
-        <set name="attachments" inverse="true">
-            <key>
-                <column name="achievement_id" />
-            </key>
-            <one-to-many class="cn.edu.xmu.course.pojo.Attachment" />
-        </set>
+        <property name="fileName" type="java.lang.String">
+            <column name="file_name" />
+        </property>
+        <property name="fileLink" type="java.lang.String">
+            <column name="file_link" length="500" />
+        </property>
     </class>
 </hibernate-mapping>

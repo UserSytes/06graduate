@@ -18,6 +18,7 @@ public class Topic implements java.io.Serializable {
 	private Date time;
 	private String authorName;
 	private String lastAnswer;
+	private Integer countPerson;
 	private Set messages = new HashSet(0);
 
 	// Constructors
@@ -35,12 +36,13 @@ public class Topic implements java.io.Serializable {
 
 	/** full constructor */
 	public Topic(Course course, String name, Date time, String authorName,
-			String lastAnswer, Set messages) {
+			String lastAnswer, Integer countPerson, Set messages) {
 		this.course = course;
 		this.name = name;
 		this.time = time;
 		this.authorName = authorName;
 		this.lastAnswer = lastAnswer;
+		this.countPerson = countPerson;
 		this.messages = messages;
 	}
 
@@ -92,6 +94,14 @@ public class Topic implements java.io.Serializable {
 
 	public void setLastAnswer(String lastAnswer) {
 		this.lastAnswer = lastAnswer;
+	}
+
+	public Integer getCountPerson() {
+		return this.countPerson;
+	}
+
+	public void setCountPerson(Integer countPerson) {
+		this.countPerson = countPerson;
 	}
 
 	public Set getMessages() {

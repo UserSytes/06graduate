@@ -10,10 +10,10 @@
             <column name="id" />
             <generator class="increment" />
         </id>
-        <many-to-one name="department" class="cn.edu.xmu.course.pojo.Department" lazy="false" fetch="select">
+        <many-to-one name="department" class="cn.edu.xmu.course.pojo.Department" fetch="select">
             <column name="department_id" />
         </many-to-one>
-        <many-to-one name="teacher" class="cn.edu.xmu.course.pojo.Teacher" lazy="false" fetch="select">
+        <many-to-one name="teacher" class="cn.edu.xmu.course.pojo.Teacher" fetch="select">
             <column name="teacher_id" />
         </many-to-one>
         <property name="name" type="java.lang.String">
@@ -27,6 +27,9 @@
         </property>
         <property name="level" type="java.lang.String">
             <column name="level" length="50" />
+        </property>
+        <property name="refuseReason" type="java.lang.String">
+            <column name="refuse_reason" length="500" />
         </property>
         <set name="courseMovies" inverse="true">
             <key>
@@ -82,7 +85,7 @@
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.CourseInfo" />
         </set>
-        <set name="chapters" inverse="true" cascade="delete">
+        <set name="chapters" inverse="true">
             <key>
                 <column name="course_id" />
             </key>
