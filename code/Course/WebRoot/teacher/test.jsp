@@ -12,7 +12,7 @@
 		<title>我的课程</title>
 	</head>
 
-	<body onload="getCourseByType(2)">
+	<body>
 		<script type="text/javascript" src="../js/prototype.js"></script>
 		<script language="javascript">
 	function getCourseByState() {
@@ -62,7 +62,9 @@
 		</table>
 	
 		<div id="courseListMain" align="center">
-			<s:include value="left_course_children.jsp"></s:include>
+		<s:textarea theme="ajax"></s:textarea>
+<iframe ID="editor" src="../editor.jsp" frameborder="0" scrolling=no width="100%" height="405"></iframe>
+
 		</div>
 	</body>
 </html>
