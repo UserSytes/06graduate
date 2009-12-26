@@ -69,6 +69,12 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+		<action name="editTeacherAction" method="editTeacher"
+			class="teacherInfoAction">
+			<result name="success">/commons/prompt.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
 		
 		<!--学生管理-->
 		<action name="goAddStudentAction" method="goAddStudent"
@@ -102,7 +108,13 @@
 		</action>
 		<action name="goEditStudentAction" method="goEditStudent"
 			class="studentAction">
-			<result name="success">/admin/studentmanage/editstudet.jsp
+			<result name="success">/admin/studentmanage/editstudent.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="editStudentAction" method="editStudent"
+			class="teacherInfoAction">
+			<result name="success">/commons/prompt.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>

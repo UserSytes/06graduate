@@ -64,7 +64,6 @@ public class StudentAction extends BaseAction {
 				ADMIN);
 		School school = admin.getSchool();
 		departmentList = superAdminService.findDepartmentBySchool(school);
-		System.out.println("测试1： " + departmentList.size());
 		if (departmentList.size() == 0) {
 			addActionMessage("本学院还没有系，请先向 校方管理员申请开设系！");
 			return ERROR;
@@ -176,6 +175,14 @@ public class StudentAction extends BaseAction {
 	 * @return
 	 */
 	public String goEditStudent() {
+		return SUCCESS;
+	}
+	
+	/**
+	 * 编辑学生信息
+	 * @return
+	 */
+	public String editStudent(){
 		return ERROR;
 	}
 
@@ -199,9 +206,12 @@ public class StudentAction extends BaseAction {
 	 * @return
 	 */
 	public String deleteStudentList(){
+		System.out.println("测试1： "+studentList.size());
 		for(Student s: studentList){
+			System.out.println("测试中： "+s.getStudentNo());
 			studentInfoService.deleteStudent(s);
 		}
+		System.out.println("测试2： ");
 		return SUCCESS;
 	}
 	public IStudentInfoService getStudentInfoService() {
