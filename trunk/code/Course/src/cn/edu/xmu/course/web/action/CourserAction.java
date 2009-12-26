@@ -67,7 +67,6 @@ public class CourserAction extends BaseAction {
 	 */
 	public String deleteCourse(){
 		Course deleteCourse = courseService.getCourseById(courseId);
-
 		if(courseService.deleteCourse(deleteCourse)){
 			return SUCCESS;
 		}
@@ -75,11 +74,87 @@ public class CourserAction extends BaseAction {
 			return ERROR;
 	}
 	
+	/**
+	 * 获取申请课程列表
+	 * @return
+	 */
 	public String findApplicationCourse(){
-		//applicationCourseList = courseService.findApplicationCourse(school);
-		return SUCCESS;
+		Administrator admin = (Administrator) ActionSession.getSession().get(
+				ADMIN);
+		School school = admin.getSchool();
+		applicationCourseList = courseService.findApplicationCourse(school);
+		if(applicationCourseList.size()==0){
+			addActionError("暂无新申报课程！");
+			return ERROR;
+		}else{
+			return SUCCESS;
+		}
 	}
 
+	/**
+	 * 审核课程通过
+	 * @return
+	 */
+	public String coursePass(){
+		course = courseService.getCourseById(courseId);
+		course.setStatus(1);
+		boolean result = courseService.updateCourse(course);
+		if(result){
+			this.findApplicationCourse();
+			return SUCCESS;
+		}else
+			return ERROR;
+	}
+	
+	/**
+	 * 审核课程未通过
+	 * @return
+	 */
+	public String courseNoPass(){
+		course = courseService.getCourseById(courseId);
+		course.setStatus(2);
+		boolean result = courseService.updateCourse(course);
+		if(result){
+			this.findApplicationCourse();
+			return SUCCESS;
+		}else
+			return ERROR;
+	}
+	
+	/**
+	 * 获取学院课程列表
+	 * @return
+	 */
+	public String findCourse(){
+		Administrator admin = (Administrator) ActionSession.getSession().get(
+				ADMIN);
+		School school = admin.getSchool();
+		applicationCourseList = courseService.findBySchool(school);
+		if(applicationCourseList.size()==0){
+			addActionError("暂无课程！");
+			return ERROR;
+		}else{
+			return SUCCESS;
+		}
+	}
+	
+	/**
+	 * 获取学院退回课程列表
+	 * @return
+	 */
+	public String findNoPassCourse(){
+		Administrator admin = (Administrator) ActionSession.getSession().get(
+				ADMIN);
+		School school = admin.getSchool();
+		applicationCourseList = courseService.findNoPassCourse(school);
+		if(applicationCourseList.size()==0){
+			addActionError("暂无退回课程！");
+			return ERROR;
+		}else{
+			return SUCCESS;
+		}
+	}
+	
 	public Teacher getTeacher() {
 		return teacher;
 	}

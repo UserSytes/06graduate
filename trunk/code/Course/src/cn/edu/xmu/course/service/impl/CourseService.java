@@ -73,4 +73,18 @@ public class CourseService implements ICourseService {
 	}
 
 
+	/**
+	 * 
+	 */
+	public boolean updateCourse(Course course) {
+		// TODO Auto-generated method stub
+		try{
+			courseDAO.merge(course);
+			return true;
+		}catch(Exception e){
+			return false;
+		}
+	}
+
+
 }

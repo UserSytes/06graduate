@@ -145,7 +145,21 @@
 			<result>/teacher/left_course_children.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
-		</action>	
+		</action>
+			
+		<!-- 课程管理 (学院管理员)-->
+		<action name="applicationCourseAction" method="findApplicationCourse" class="courseAction">
+			<result name="success">/admin/coursemanage/applicationlist.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="coursePassAction" method="coursePass" class="courseAction">
+			<result name="success">/admin/coursemanage/applicationlist.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="courseNoPassAction" method="courseNoPass" class="courseAction">
+			<result name="success">/admin/coursemanage/applicationlist.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		
 		<!--超级管理员-->
 		<!--1、学院管理模块-->

@@ -81,9 +81,8 @@ border="0">
               <tbody>
                 <tr>
                   <td width="2%"><img src="Images/closed.gif" /></td>
-                  <td height="23"><a 
-            href="Article/Article_Add.asp" 
-            target="main">申报列表</a>┆<a 
+                  <td height="23"><a href="<s:url action='applicationCourseAction'> </s:url>"
+														target="main">申报列表</a>┆<a 
             href="include/Make.asp" 
             target="main">历史申报</a></td>
                 </tr>
