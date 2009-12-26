@@ -34,4 +34,25 @@ public interface ICourseService {
 	 * @return
 	 */
 	public boolean deleteCourse(Course course);
+	
+	/**
+	 * 查找学院审核未通过的课程
+	 * @param school
+	 * @return
+	 */
+	public List<Course> findNoPassCourse(School school);
+	
+	/**
+	 * 查找学院等待审核的课程
+	 * @param school
+	 * @return
+	 */
+	public List<Course> findApplicationCourse(School school);
+	
+	/**
+	 * 查找本院已通过审核的课程
+	 * @param school
+	 * @return
+	 */
+	public List<Course> findBySchool(School school);
 }

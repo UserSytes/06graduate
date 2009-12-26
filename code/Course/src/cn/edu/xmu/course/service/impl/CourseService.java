@@ -5,6 +5,7 @@ import java.util.List;
 import cn.edu.xmu.course.dao.CourseDAO;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Department;
+import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.service.ICourseService;
 
@@ -45,13 +46,24 @@ public class CourseService implements ICourseService {
 		}
 
 	}
-
 	
 	public Course getCourseById(Integer courseId) {
 		// TODO Auto-generated method stub
 		return courseDAO.findById(courseId);
 	}
 
+	public List<Course> findApplicationCourse(School school){
+		return courseDAO.findApplicationBySchool(school);
+	}
+	
+	public List<Course> findNoPassCourse(School school){
+		return courseDAO.findNotPassBySchool(school);
+	}
+	
+	public List<Course> findBySchool(School school){
+		return courseDAO.findBySchool(school);
+	}
+	
 	public void setCourseDAO(CourseDAO courseDAO) {
 		this.courseDAO = courseDAO;
 	}

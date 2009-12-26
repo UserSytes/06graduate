@@ -6,7 +6,12 @@ import cn.edu.xmu.course.pojo.*;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.IDepartmentService;
 import cn.edu.xmu.course.service.ITeacherInfoService;
-
+/**
+ * 
+ * @author 何申密
+ * @author 郑冰凌
+ *
+ */
 public class CourserAction extends BaseAction {
 
 	private String departmentId;
@@ -20,9 +25,15 @@ public class CourserAction extends BaseAction {
 	private ITeacherInfoService teacherInfoService;
 	private ICourseService courseService;
 	private IDepartmentService departmentService;
+	
+	private List<Course> applicationCourseList;
 
 	private final String userName = "123";
 
+	/**
+	 * 申报课程
+	 * @return
+	 */
 	public String addNewCourse() {
 		Department dept = departmentService.getDepartmentById(Integer
 				.parseInt(departmentId));
@@ -35,6 +46,10 @@ public class CourserAction extends BaseAction {
 			return ERROR;
 	}
 	
+	/**
+	 * 获取某教师的课程
+	 * @return
+	 */
 	public String findMyCoursesList(){
 		Teacher tea = teacherInfoService.getTeacher(userName); 
 		myCoursesList = courseService.findCoursesByTeacher(tea.getId(), type);
@@ -45,6 +60,11 @@ public class CourserAction extends BaseAction {
 		else 
 			return SUCCESS;
 	}
+	
+	/**
+	 * 删除课程
+	 * @return
+	 */
 	public String deleteCourse(){
 		Course deleteCourse = courseService.getCourseById(courseId);
 
@@ -53,6 +73,11 @@ public class CourserAction extends BaseAction {
 		}
 		else 
 			return ERROR;
+	}
+	
+	public String findApplicationCourse(){
+		//applicationCourseList = courseService.findApplicationCourse(school);
+		return SUCCESS;
 	}
 
 	public Teacher getTeacher() {

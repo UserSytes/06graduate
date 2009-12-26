@@ -16,7 +16,7 @@ public class Course implements java.io.Serializable {
 	private Teacher teacher;
 	private String name;
 	private String remark;
-	private Integer status;
+	private Integer status; //是否审核通过，0：未审核，1：审核通过，2审核未通过
 	private String level;
 	private Set courseMovies = new HashSet(0);
 	private Set collections = new HashSet(0);
