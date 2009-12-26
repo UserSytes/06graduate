@@ -1,10 +1,14 @@
 package cn.edu.xmu.course.web.action;
 
+import java.util.List;
+
 import cn.edu.xmu.course.pojo.ApplicationForm;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.CourseInfo;
+import cn.edu.xmu.course.pojo.TeacherTeam;
 import cn.edu.xmu.course.service.IApplicationFormService;
 import cn.edu.xmu.course.service.ICourseInfoService;
+import cn.edu.xmu.course.service.ITeacherTeamService;
 
 public class viewDetailAction extends BaseAction{
 	/**
@@ -14,9 +18,11 @@ public class viewDetailAction extends BaseAction{
 	private ApplicationForm applicationForm;
 	private CourseInfo courseInfo;
 	private Course course;
+	private List<TeacherTeam> teacherTeamList;
 	private int courseId;
 	private IApplicationFormService applicationFormService;
 	private ICourseInfoService courseInfoService;
+	private ITeacherTeamService teacherTeamService;
 	public ApplicationForm getApplicationForm() {
 		return applicationForm;
 	}
@@ -41,7 +47,7 @@ public class viewDetailAction extends BaseAction{
 	 */
 	public String findApplicationForm(){
 		applicationForm=applicationFormService.getApplicationForm(courseId);
-		if (applicationForm == null) {
+		if (getApplicationForm() == null) {
 			return ERROR;
 		} else
 			return "applicationForm";
@@ -57,6 +63,18 @@ public class viewDetailAction extends BaseAction{
 			return ERROR;
 		} else
 			return "courseInfo";
+	}
+	/**
+	 * 查找师资队伍
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public String findTeacherTeam(){
+		teacherTeamList=teacherTeamService.getTeacherTeam(courseId);
+		if (getTeacherTeamList() == null) {
+			return ERROR;
+		} else
+			return "teachers";
 	}
 	public void setCourseId(int courseId) {
 		this.courseId = courseId;
@@ -88,6 +106,22 @@ public class viewDetailAction extends BaseAction{
 
 	public CourseInfo getCourseInfo() {
 		return courseInfo;
+	}
+
+	public void setTeacherTeamService(ITeacherTeamService teacherTeamService) {
+		this.teacherTeamService = teacherTeamService;
+	}
+
+	public ITeacherTeamService getTeacherTeamService() {
+		return teacherTeamService;
+	}
+
+	public void setTeacherTeamList(List<TeacherTeam> teacherTeamList) {
+		this.teacherTeamList = teacherTeamList;
+	}
+
+	public List<TeacherTeam> getTeacherTeamList() {
+		return teacherTeamList;
 	}
 
 }
