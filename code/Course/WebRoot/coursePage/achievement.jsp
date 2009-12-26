@@ -329,13 +329,13 @@
 												</table>
 <span style="font-size: 16px; font-weight: bold; text-align: center; width: 98%; margin-left: auto; margin-right: auto;">
 													<center>
-														<s:property value="courseInfo.title" />
+														<s:property value="achievement.title" />
 													</center>
 												</span>
 												<P style="LINE-HEIGHT: 150%;  text-intent:2em">
 													<SPAN style="FONT-SIZE: 10.5pt; LINE-HEIGHT: 150%"><FONT
 														face=宋体><s:property
-																value="courseInfo.content" />
+																value="achievement.content" />
 													</FONT>
 													</SPAN>
 													</td>
