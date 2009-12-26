@@ -155,10 +155,10 @@ document.writeln('</tr>');
 <td>
 <table border=0 cellPadding=0 cellSpacing=0 id=GrayTable
 style="CURSOR: hand">
-<SCRIPT language=JavaScript>
+<script type="text/javascript">
 for(i = 255; i >= 0; i -= 8.5)
 document.write('<tr BGCOLOR=#' + ToHex(i) + ToHex(i) + ToHex(i) + '><td TITLE=' + Math.floor(i * 16 / 17) + ' height=4 width=20></td></tr>');
-</SCRIPT>
+</script>
 
 <TBODY></TBODY></table></td></tr></TBODY></table></CENTER></DIV>
 <DIV align=center>

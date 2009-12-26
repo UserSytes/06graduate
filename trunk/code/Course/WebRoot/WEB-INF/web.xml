@@ -54,6 +54,23 @@
 		<url-pattern>/dwr/*</url-pattern>
 	</servlet-mapping>
 
+<display-name>FCKeditor.Java Sample Web Application</display-name>
+	<description>FCKeditor.Java Sample Web Application</description>
+
+	<servlet>
+		<servlet-name>ConnectorServlet</servlet-name>
+		<servlet-class>
+			net.fckeditor.connector.ConnectorServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ConnectorServlet</servlet-name>
+		<!-- Do not wrap this line otherwise Glassfish will fail to load this file -->
+		<url-pattern>/fckeditor/editor/filemanager/connectors/*</url-pattern>
+	</servlet-mapping>
+
 	<filter>
 		<filter-name>struts</filter-name>
 		<filter-class>

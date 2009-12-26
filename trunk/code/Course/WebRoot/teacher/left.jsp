@@ -261,7 +261,8 @@ a:visited {
 																<td height="23" style="cursor: hand"
 																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
 																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
-																	<span class="STYLE2">&nbsp;<a href="#">用户维护</a>
+																	<span class="STYLE2">&nbsp;<a
+																		href="addcourseinfo.jsp" target=I2>用户维护</a>
 																	</span>
 																</td>
 															</tr>

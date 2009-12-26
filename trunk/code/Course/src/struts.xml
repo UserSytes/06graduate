@@ -146,7 +146,11 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-			
+		<!-- 课程管理 (教师)-->
+		<action name="addNewCourseInfoAction" method="addNewCourseInfo" class="courseInfoAction">
+			<result name="success">/teacher/test.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		<!-- 课程管理 (学院管理员)-->
 		<action name="applicationCourseAction" method="findApplicationCourse" class="courseAction">
 			<result name="success">/admin/coursemanage/applicationlist.jsp</result>

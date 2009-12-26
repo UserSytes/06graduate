@@ -38,6 +38,12 @@
 			<ref bean="departmentService" />
 		</property>
 	</bean>
+	<bean id="courseInfoAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.CourseInfoAction">
+		<property name="courseInfoService">
+			<ref bean="courseInfoService" />
+		</property>
+	</bean>
 	<bean id="schoolManageAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.SchoolManageAction">
 		<property name="superAdminService">
@@ -68,22 +74,21 @@
 		class="cn.edu.xmu.course.web.action.HomePageAction">
 		<property name="newsService">
 			<ref bean="newsService" />
-		</property>	
+		</property>
 	</bean>
 	<bean id="viewDetailAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.viewDetailAction">
 		<property name="applicationFormService">
 			<ref bean="applicationFormService" />
-		</property>	
+		</property>
 		<property name="courseInfoService">
 			<ref bean="courseInfoService" />
-		</property>	
+		</property>
 		<property name="teacherTeamService">
 			<ref bean="teacherTeamService" />
-		</property>	
+		</property>
 		<property name="achievementService">
 			<ref bean="achievementService" />
-		</property>	
-		</bean>
-		
+		</property>
+	</bean>
 </beans>
