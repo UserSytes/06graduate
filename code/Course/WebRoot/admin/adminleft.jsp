@@ -35,7 +35,7 @@ border=0 align=right cellPadding=0 cellSpacing=0 class=leftframetable>
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <TD width="20"></TD>
-          <TD class=STYLE1 style="CURSOR: hand" onclick=showsubmenu(1); height=25>课程管理</TD>
+          <TD class=STYLE1 style="CURSOR: hand" onclick=showsubmenu(1); height=25>个人信息</TD>
               </tr>
             </table>            </TD>
           </TR>
@@ -45,7 +45,7 @@ border=0 align=right cellPadding=0 cellSpacing=0 class=leftframetable>
                 <TR>
                   <TD width="2%"><IMG src="Images/closed.gif"></TD>
                   <TD height=23><A href="System_Admin.asp" 
-            target=main>课程列表</A></TD>
+            target=main>我的信息</A></TD>
                 </TR>
                 <TR>
                   <TD><IMG src="Images/closed.gif"></TD>
@@ -72,7 +72,7 @@ border="0">
           <td height="25" style="background:url(Images/left_tt.gif) no-repeat"><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="20"></td>
-          <td height="25" class="titledaohang" style="CURSOR: hand" onClick="showsubmenu(2);"><span class="STYLE1">申报管理</span></td>
+          <td height="25" class="titledaohang" style="CURSOR: hand" onClick="showsubmenu(2);"><span class="STYLE1">课程管理</span></td>
               </tr>
             </table></td>
           </tr>
@@ -83,17 +83,15 @@ border="0">
                   <td width="2%"><img src="Images/closed.gif" /></td>
                   <td height="23"><a 
             href="Article/Article_Add.asp" 
-            target="main">课程列表</a>┆<a 
+            target="main">申报列表</a>┆<a 
             href="include/Make.asp" 
-            target="main">搜索学生</a></td>
+            target="main">历史申报</a></td>
                 </tr>
                 <tr>
                   <td><img src="Images/closed.gif" /></td>
                   <td height="23"><a 
             href="Article/Article_Manage.asp?action=ListisAccept" 
-            target="main">添加学生</a>┆<a 
-            href="Article/SetArticle.asp" 
-            target="main">批量添加</a></td>
+            target="main">课程列表</a></td>
                 </tr>					
               </tbody>
           </table></td>
