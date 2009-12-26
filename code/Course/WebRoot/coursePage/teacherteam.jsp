@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<title>课程简介</title>
+		<title><s:property value="teacherTeamList.course.name" />师资队伍</title>
 		<meta http-equiv="Content-Style-Type" content="text/css">
 		<LINK HREF="style.css" TYPE="text/css" REL="stylesheet">
 	</head>
@@ -26,8 +26,7 @@
 											<div style="padding-left: 22px; padding-top: 43px">
 												<a href="index.jsp"><img
 														src="coursePage/images/logo.jpg" width="248" height="38"
-														border="0">
-												</a>
+														border="0"> </a>
 											</div>
 										</td>
 										<td>
@@ -76,8 +75,7 @@
                        			 	<s:property value="id"/> 
                     			</s:param>
                 					</s:url>">
-												<font color="green">首页</font>
-											</a>
+												<font color="green">首页</font> </a>
 										</td>
 										<td background="coursePage/images/com_1.jpg" width="101"
 											height="30" border="0" align="center">
@@ -87,8 +85,7 @@
                        			 	<s:property value="id"/> 
                     			</s:param>
                 					</s:url>">
-												<font color="green">申报表格</font>
-											</a>
+												<font color="green">申报表格</font> </a>
 										</td>
 										<td background="coursePage/images/com_2.jpg" width="101"
 											height="30" border="0" align="center">
@@ -98,12 +95,11 @@
                        			 	<s:property value="id"/> 
                     			</s:param>
                 					</s:url>">
-												<font color="green">课程简介</font>
-											</a>
+												<font color="green">课程简介</font> </a>
 										</td>
 										<td background="coursePage/images/com_3.jpg" width="101"
 											height="30" border="0" align="center">
-																						<a
+											<a
 												href="<s:url action="findTeacherTeamAction"> 
                      			<s:param name="course"> 
                        			 	<s:property value="id"/> 
@@ -310,34 +306,66 @@
 												</tr>
 											</table>
 										</td>
-										<td width="346" height="100%">
-											<table width="340" height="100%" border="0" cellpadding="0"
+										<td width="450" height="100%">
+											<table width="450" height="100%" border="0" cellpadding="0"
 												cellspacing="0">
 												<tr>
-													<td height="100%" align="left" valign="top">
+													<td height="100%" align="center" valign="top">
 														<table class=editTable cellSpacing=1 cellPadding=0
-													width="100%" align=center border=0>
-													<tr class=position bgcolor="#ECF3FD">
-														<td>
-															当前位置: 首页 -&gt; 课程信息
-														</td>
-													</tr>
-													<tr>
-														<td>
-														</td>
-													</tr>
-												</table>
-<span style="font-size: 16px; font-weight: bold; text-align: center; width: 98%; margin-left: auto; margin-right: auto;">
-													<center>
-														<s:property value="courseInfo.title" />
-													</center>
-												</span>
-												<P style="LINE-HEIGHT: 150%;  text-intent:2em">
-													<SPAN style="FONT-SIZE: 10.5pt; LINE-HEIGHT: 150%"><FONT
-														face=宋体><s:property
-																value="courseInfo.content" />
-													</FONT>
-													</SPAN>
+															width="100%" align=center border=0>
+															<tr class=position bgcolor="#ECF3FD">
+																<td>
+																	当前位置: 首页 -&gt; 教师队伍
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	&nbsp;
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	&nbsp;
+																</td>
+															</tr>
+</table>
+															<table width="450" border="1" align="center"
+																cellpadding="0" cellspacing="1" bordercolor="#045294">
+																<tr bgcolor="#CCCCCC">
+																	<td width="50" height="25">
+																		<div align="center">
+																			<font color="#045294"><strong>教师姓名</strong>
+																			</font>
+																		</div>
+																	</td>
+																	<td width="60">
+																		<div align="center">
+																			<font color="#045294"><strong>职 称</strong>
+																			</font>
+																		</div>
+																	</td>
+																	<td width="290">
+																		<div align="center">
+																			<font color="#045294"><strong>研究领域</strong>
+																			</font>
+																		</div>
+																	</td>
+																	<td width="50">
+																		<div align="center">
+																			<font color="#045294"><strong>个人简历</strong>
+																			</font>
+																		</div>
+																	</td>
+																</tr>
+<s:iterator value="teacherTeamList" status="teacher">
+<tr> 
+                <td> <div align="center"><s:property value="name" /></div></td>
+                <td><div align="center"><s:property value="position" /></div></td>
+                <td><div align="center"><s:property value="remark" /></div></td>
+                <td><div align="center"><a href="<s:property value="link" />" target="_blank">点击浏览</a></div></td>
+              </tr>
+</s:iterator>
+															</table>
 													</td>
 												</tr>
 											</table>
@@ -512,18 +540,15 @@
 													<tr align="left" valign="middle">
 														<td width="82">
 															<a href="#"><img src="coursePage/images/pay_1.jpg"
-																	width="80" height="26" border="0">
-															</a>
+																	width="80" height="26" border="0"> </a>
 														</td>
 														<td width="41">
 															<a href="#"><img src="coursePage/images/pay_2.jpg"
-																	width="39" height="26" border="0">
-															</a>
+																	width="39" height="26" border="0"> </a>
 														</td>
 														<td>
 															<a href="#"><img src="coursePage/images/pay_3.jpg"
-																	width="39" height="26" border="0">
-															</a>
+																	width="39" height="26" border="0"> </a>
 														</td>
 													</tr>
 												</table>
@@ -532,26 +557,24 @@
 										<td>
 											<div style="padding-left: 0px; padding-top: 15px">
 												<span class="style6"><a href="#" class="style6">Computers</a>
-												<img src="coursePage/images/point_2.jpg" hspace="11"
+													<img src="coursePage/images/point_2.jpg" hspace="11"
 														vspace="2"><a href="#" class="style6">Peripherals</a>
-												<img src="coursePage/images/point_2.jpg" hspace="11"
+													<img src="coursePage/images/point_2.jpg" hspace="11"
 														vspace="2"><a href="#" class="style6">Networking</a>
-												<img src="coursePage/images/point_2.jpg" hspace="11"
-														vspace="2"><a href="#" class="style6">Software</a>
-												<img src="coursePage/images/point_2.jpg" hspace="11"
-														vspace="2"><a href="#" class="style6">Supplies</a>
-												<img src="coursePage/images/point_2.jpg" hspace="11"
-														vspace="2"><a href="#" class="style6">Services</a>
-												<img src="coursePage/images/point_2.jpg" hspace="11"
-														vspace="2"><a href="#" class="style6">Promotion</a>
-												</span>
+													<img src="coursePage/images/point_2.jpg" hspace="11"
+														vspace="2"><a href="#" class="style6">Software</a> <img
+														src="coursePage/images/point_2.jpg" hspace="11" vspace="2"><a
+													href="#" class="style6">Supplies</a> <img
+														src="coursePage/images/point_2.jpg" hspace="11" vspace="2"><a
+													href="#" class="style6">Services</a> <img
+														src="coursePage/images/point_2.jpg" hspace="11" vspace="2"><a
+													href="#" class="style6">Promotion</a> </span>
 											</div>
 											<div style="padding-left: 0px; padding-top: 3px">
 												<span class="style8">Copyright ?2005 Company name,
 													Inc. All Rights Reserved. <a href="index-2.html"
 													class="style8" style="text-decoration: none">Privacy
-														Policy</a>
-												</span>
+														Policy</a> </span>
 											</div>
 										</td>
 									</tr>

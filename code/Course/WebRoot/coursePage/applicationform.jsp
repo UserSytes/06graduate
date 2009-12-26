@@ -71,7 +71,7 @@
 											height="30" border="0" align="center">
 											<a
 												href="<s:url action="enterCourseAction"> 
-                     			<s:param name="applicationForm.course"> 
+                     			<s:param name="course"> 
                        			 	<s:property value="id"/> 
                     			</s:param>
                 					</s:url>">
@@ -81,7 +81,7 @@
 											height="30" border="0" align="center">
 											<a
 												href="<s:url action="findApplicationFormAction"> 
-                     			<s:param name="application.course"> 
+                     			<s:param name="course"> 
                        			 	<s:property value="id"/> 
                     			</s:param>
                 					</s:url>">
@@ -91,7 +91,7 @@
 											height="30" border="0" align="center">
 											<a
 												href="<s:url action="findCourseInfoAction"> 
-                     			<s:param name="application.course"> 
+                     			<s:param name="course"> 
                        			 	<s:property value="id"/> 
                     			</s:param>
                 					</s:url>">
@@ -99,11 +99,25 @@
 										</td>
 										<td background="coursePage/images/com_3.jpg" width="101"
 											height="30" border="0" align="center">
-											<a href="#">师资队伍</a>
+											<a
+												href="<s:url action="findTeacherTeamAction"> 
+                     			<s:param name="course"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param>
+                					</s:url>">
+												<font color="green">师资队伍</font>
+											</a>
 										</td>
 										<td background="coursePage/images/com_4.jpg" width="101"
 											height="30" border="0" align="center">
-											<a href="#">成果展示</a>
+											<a
+												href="<s:url action="findAchievementAction"> 
+                     			<s:param name="course"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param>
+                					</s:url>">
+												<font color="green">成果展示</font>
+											</a>
 										</td>
 										<td background="coursePage/images/com_5.jpg" width="101"
 											height="30" border="0" align="center">
@@ -307,8 +321,7 @@
 <tr><td>&nbsp;</td></tr>
 <tr><td>&nbsp;</td></tr>
 												</table>
-<table class=editTable cellSpacing=1 cellPadding=0
-													width="450" align=center border=0>
+<table class=editTable cellSpacing=1 cellPadding=0 width="450" align=center border=0>
 													<tr bgcolor="#FFFDF0" height="30">
 														<td>
 															<div align="center">
