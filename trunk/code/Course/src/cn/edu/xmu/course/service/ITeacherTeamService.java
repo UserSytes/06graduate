@@ -16,7 +16,7 @@ public interface ITeacherTeamService {
 	 * @param course
 	 * @return
 	 */
-	public List getTeacherTeam(Course course);
+	public List getTeacherTeam(int courseId);
 	
 	/**
 	 * 添加课程教师队伍
