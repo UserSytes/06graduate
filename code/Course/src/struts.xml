@@ -301,6 +301,11 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+		<action name="findAchievementAction" method="findAchievement" class="viewDetailAction">
+			<result name="achievement">/coursePage/achievement.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
 		
 	</package>
 </struts>
