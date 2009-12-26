@@ -9,7 +9,7 @@
 	<session-factory>
 		<property name="connection.username">root</property>
 		<property name="connection.url">
-			jdbc:mysql://localhost:3306/graduate
+			jdbc:mysql://localhost:3306/graduate?characterEncoding=utf-8
 		</property>
 		<property name="dialect">
 			org.hibernate.dialect.MySQLDialect
@@ -19,14 +19,12 @@
 		<property name="connection.driver_class">
 			com.mysql.jdbc.Driver
 		</property>
+		<property name="show_sql">true</property>
 		<mapping resource="cn/edu/xmu/course/pojo/Courseware.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/Department.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/Course.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/Exercise.hbm.xml" />
-		<mapping
-			resource="cn/edu/xmu/course/pojo/TeacherCourse.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/Chapter.hbm.xml" />
-		<mapping resource="cn/edu/xmu/course/pojo/Attachment.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/Message.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/CourseMovie.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/Teacher.hbm.xml" />
@@ -34,6 +32,7 @@
 		<mapping resource="cn/edu/xmu/course/pojo/SuperAdmin.hbm.xml" />
 		<mapping
 			resource="cn/edu/xmu/course/pojo/StudentCourse.hbm.xml" />
+		<mapping resource="cn/edu/xmu/course/pojo/Grade.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/CourseInfo.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/School.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/Achievement.hbm.xml" />
