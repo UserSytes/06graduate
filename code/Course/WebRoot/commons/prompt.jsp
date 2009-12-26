@@ -36,6 +36,9 @@
 						<font size="3"><strong><s:actionmessage />
 						</strong>
 						</font>
+						<font size="3"><strong><s:actionerror />
+						</strong>
+						</font>
 					</div>
 				</td>
 			</tr>

@@ -19,7 +19,7 @@
 		document.getElementById("form").submit();
 	}
 	function getCourseByType(type) {
-        var url = "getMyCourseByStateAction.action?type="+type;   
+        var url = "getMyCourseInLeft.action?type="+type;
    		new Ajax.Updater (   
         	'courseListMain',   
         	url,    
@@ -62,7 +62,7 @@
 		</table>
 	
 		<div id="courseListMain" align="center">
-			<s:include value="courseslist.jsp"></s:include>
+			<s:include value="left_course_children.jsp"></s:include>
 		</div>
 	</body>
 </html>

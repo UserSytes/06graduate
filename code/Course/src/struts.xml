@@ -69,22 +69,18 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="editTeacherAction" method="editTeacher"
-			class="teacherInfoAction">
-			<result name="success">/commons/prompt.jsp
-			</result>
+		<action name="editTeacherAction" method="editTeacher" class="teacherInfoAction">
+			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		
 		<!--学生管理-->
-		<action name="goAddStudentAction" method="goAddStudent"
-			class="studentAction">
+		<action name="goAddStudentAction" method="goAddStudent" class="studentAction">
 			<result name="success">/admin/studentmanage/addstudent.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="addStudentAction" method="addStudent"
-			class="studentAction">
+		<action name="addStudentAction" method="addStudent" class="studentAction">
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
@@ -112,10 +108,8 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="editStudentAction" method="editStudent"
-			class="teacherInfoAction">
-			<result name="success">/commons/prompt.jsp
-			</result>
+		<action name="editStudentAction" method="editStudent" class="teacherInfoAction">
+			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="deleteStudentListAction" method="deleteStudentList"
@@ -137,13 +131,21 @@
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="deleteCourseAction" method="deleteCourse" class="courseAction">
-			<result name="success" type="redirect-action">getMyCourseByStateAction</result> 
+			<result name="success" type="redirect-action">getMyCourseByStateAction
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="getMyCourseByStateAction" method="findMyCoursesList" class="courseAction">
+		<action name="getMyCourseByStateAction" method="findMyCoursesList"
+			class="courseAction">
 			<result>/teacher/courseslist.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
+		<action name="getMyCourseInLeft" method="findMyCoursesList"
+			class="courseAction">
+			<result>/teacher/left_course_children.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>	
 		
 		<!--超级管理员-->
 		<!--1、学院管理模块-->
@@ -238,17 +240,20 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="findCourseByTeacherAction" method="findCourseByTeacher" class="executeViewAction">
+		<action name="findCourseByTeacherAction" method="findCourseByTeacher"
+			class="executeViewAction">
 			<result name="courses">/homepage/courseList.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-				<action name="findApplicationFormAction" method="findApplicationForm" class="viewDetailAction">
+		<action name="findApplicationFormAction" method="findApplicationForm"
+			class="viewDetailAction">
 			<result name="applicationForm">/coursePage/applicationform.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-						<action name="findCourseInfoAction" method="findCourseInfo" class="viewDetailAction">
+		<action name="findCourseInfoAction" method="findCourseInfo"
+			class="viewDetailAction">
 			<result name="courseInfo">/coursePage/courseintro.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
