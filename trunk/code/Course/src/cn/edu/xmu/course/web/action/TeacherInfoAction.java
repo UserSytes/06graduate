@@ -5,9 +5,13 @@ import java.util.List;
 import cn.edu.xmu.course.pojo.*;
 import cn.edu.xmu.course.service.ISuperAdminService;
 import cn.edu.xmu.course.service.ITeacherInfoService;
-import cn.edu.xmu.course.service.impl.SuperAdminService;
 
 public class TeacherInfoAction extends BaseAction{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private ITeacherInfoService teacherInfoService;
 	private ISuperAdminService superAdminService;
@@ -115,6 +119,7 @@ public class TeacherInfoAction extends BaseAction{
 	 * @return
 	 */
 	public String goEditTeacher(){
+		this.getDepartmentBySchool();
 		teacher = teacherInfoService.findTeacherById(teacherId);
 		userInfo = teacher.getUserInfo();
 		if(null == teacher){
@@ -129,7 +134,6 @@ public class TeacherInfoAction extends BaseAction{
 	 * @return
 	 */
 	public String editTeacher(){
-		teacher.setUserInfo(userInfo);
 		boolean result = teacherInfoService.updateTeacher(teacher, userInfo);
 		if(result){
 			addActionMessage("修改教师信息成功！");
