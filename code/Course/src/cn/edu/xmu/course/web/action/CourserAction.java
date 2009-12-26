@@ -38,8 +38,8 @@ public class CourserAction extends BaseAction {
 	public String findMyCoursesList(){
 		Teacher tea = teacherInfoService.getTeacher(userName); 
 		myCoursesList = courseService.findCoursesByTeacher(tea.getId(), type);
-		if(myCoursesList.size()<=0){
-			addActionMessage("暂无任何课程！"); 
+		if(myCoursesList.size()==0){
+			addActionError("暂无任何课程！");
 			return ERROR;
 		}
 		else 
