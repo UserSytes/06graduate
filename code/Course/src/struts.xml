@@ -220,7 +220,36 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<!--学院管理员-->
+		
+		<!--新闻政策管理-->
+		<action name="goAddNewsAction" method="goAddNews" class="newsAction">
+			<result name="success">/admin/newsmanage/addnews.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="addNewsAction" method="addNews" class="newsAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="newsListAction" method="findAllNews" class="newsAction">
+			<result name="success">/admin/newsmanage/newslist.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="deleteNewsAction" method="deleteNews" class="newsAction">
+			<result name="success">/admin/newsmanage/newslist.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="viewNewsAction" method="viewNews" class="newsAction">
+			<result name="success">/admin/newsmanage/viewnews.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="goEditNewsAction" method="goEditNews" class="newsAction">
+			<result name="success">/admin/newsmanage/editnews.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="editNewsAction" method="editNews" class="newsAction">
+			<result name="success">/admin/newsmanage/viewnews.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
 		
 		<!-- 前台 -->
 		<action name="findCourseByDepartmentAction" method="findCourseByDepartment"

@@ -27,7 +27,7 @@ public interface IStudentInfoService {
 	
 	public Student findByStudentNo(String studentNo);
 	
-	public boolean updateStudent(Student student);
+	public boolean updateStudent(Student student, UserInfo userInfo);
 	
 	public List<Student> findByGrade(Grade grade);
 	

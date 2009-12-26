@@ -1,6 +1,5 @@
 package cn.edu.xmu.course.web.action;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.Administrator;
@@ -175,7 +174,15 @@ public class StudentAction extends BaseAction {
 	 * @return
 	 */
 	public String goEditStudent() {
-		return SUCCESS;
+		this.getDepartmentBySchool();
+		this.findAllGrade();
+		student = studentInfoService.findById(studentId);
+		userInfo = student.getUserInfo();
+		if(null == student){
+			return ERROR;
+		}
+		else
+			return SUCCESS;
 	}
 	
 	/**
@@ -183,7 +190,12 @@ public class StudentAction extends BaseAction {
 	 * @return
 	 */
 	public String editStudent(){
-		return ERROR;
+		boolean result = studentInfoService.updateStudent(student, userInfo);
+		if(result){
+			addActionMessage("修改学生信息成功！");
+			return SUCCESS;
+		}else
+			return ERROR;
 	}
 
 	/**
