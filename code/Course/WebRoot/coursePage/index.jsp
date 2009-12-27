@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<title>精品课程</title>
+		<title>精品课程网站</title>
 		<meta http-equiv="Content-Style-Type" content="text/css">
 		<LINK HREF="style.css" TYPE="text/css" REL="stylesheet">
 	</head>
