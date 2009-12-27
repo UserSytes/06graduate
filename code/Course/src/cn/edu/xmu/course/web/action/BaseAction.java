@@ -1,10 +1,7 @@
 package cn.edu.xmu.course.web.action;
 
 
-import cn.edu.xmu.course.pojo.Administrator;
-import cn.edu.xmu.course.pojo.Student;
-import cn.edu.xmu.course.pojo.SuperAdmin;
-import cn.edu.xmu.course.pojo.Teacher;
+import cn.edu.xmu.course.pojo.*;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -20,6 +17,7 @@ public class BaseAction extends ActionSupport {
 	public String ADMIN = "admin";
 	public String STUDENT = "student";
 	public String SUPERADMIN = "superAdmin";
+	public String COURSE="course";
 
 	public BaseAction() {
 	}
@@ -42,6 +40,9 @@ public class BaseAction extends ActionSupport {
 	
 	public SuperAdmin getSuperAdmin(){
 		return (SuperAdmin) ActionSession.getSession().get(SUPERADMIN);
+	}
+	public Course getCourse(){
+		return (Course) ActionSession.getSession().get(COURSE);
 	}
 	
 	public String logout() {
