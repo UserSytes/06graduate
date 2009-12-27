@@ -1,5 +1,8 @@
 package cn.edu.xmu.course.service;
 
+import java.util.Date;
+import java.util.List;
+
 import cn.edu.xmu.course.pojo.*;
 
 /**
@@ -37,5 +40,18 @@ public interface IApplicationFormService {
 	 * @return
 	 */
 	public boolean deleteApplicationForm(ApplicationForm applicationForm);
+	/**
+	 * 根据级别查找申请表
+	 * @param level
+	 * @return
+	 */
+	public List findApplicationByLevel(Object level);
+	/**
+	 * 根据时间查找申请表
+	 * @param time
+	 * @return
+	 */
+	public List findApplicationByTime(Date time);
+	
 	
 }
