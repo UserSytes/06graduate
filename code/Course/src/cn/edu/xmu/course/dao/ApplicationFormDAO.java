@@ -35,6 +35,8 @@ public class ApplicationFormDAO extends HibernateDaoSupport {
 	public static final String RESPONSER = "responser";
 	public static final String FILE_LINK = "fileLink";
 	public static final String FILENAME = "filename";
+	public static final String UNIVERSITY = "university";
+	public static final String PROVINCE = "province";
 
 	protected void initDao() {
 		// do nothing
@@ -139,9 +141,16 @@ public class ApplicationFormDAO extends HibernateDaoSupport {
 	public List findByFilename(Object filename) {
 		return findByProperty(FILENAME, filename);
 	}
-	
-	public List findByCourse(int courseId)
-	{
+
+	public List findByUniversity(Object university) {
+		return findByProperty(UNIVERSITY, university);
+	}
+
+	public List findByProvince(Object province) {
+		return findByProperty(PROVINCE, province);
+	}
+
+	public List findByCourse(int courseId) {
 		return findByProperty("course.id", courseId);
 	}
 

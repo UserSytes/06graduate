@@ -14,6 +14,7 @@ public class TeacherTeam implements java.io.Serializable {
 	private String position;
 	private String link;
 	private String remark;
+	private String field;
 
 	// Constructors
 
@@ -29,12 +30,13 @@ public class TeacherTeam implements java.io.Serializable {
 
 	/** full constructor */
 	public TeacherTeam(Course course, String name, String position,
-			String link, String remark) {
+			String link, String remark, String field) {
 		this.course = course;
 		this.name = name;
 		this.position = position;
 		this.link = link;
 		this.remark = remark;
+		this.field = field;
 	}
 
 	// Property accessors
@@ -85,6 +87,14 @@ public class TeacherTeam implements java.io.Serializable {
 
 	public void setRemark(String remark) {
 		this.remark = remark;
+	}
+
+	public String getField() {
+		return this.field;
+	}
+
+	public void setField(String field) {
+		this.field = field;
 	}
 
 }
