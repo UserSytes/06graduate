@@ -31,8 +31,8 @@
         <property name="firstSubject" type="java.lang.String">
             <column name="first_subject" length="50" />
         </property>
-        <property name="secondSubjet" type="java.lang.String">
-            <column name="second_subjet" length="50" />
+        <property name="secondSubject" type="java.lang.String">
+            <column name="second_subject" length="50" />
         </property>
         <property name="responser" type="java.lang.String">
             <column name="responser" length="20" />
@@ -45,9 +45,6 @@
         </property>
         <property name="filename" type="java.lang.String">
             <column name="filename" />
-        </property>
-        <property name="university" type="java.lang.String">
-            <column name="university" length="50" />
         </property>
         <property name="province" type="java.lang.String">
             <column name="province" length="100" />
