@@ -8,10 +8,10 @@
 </head>
 
 <frameset rows="60,*" frameborder="no" border="0" framespacing="0">
-  <frame src="right_top.jsp" name="topFrame" scrolling="No" 
+  <frame src="${ctx}/teacher/right_top.jsp" name="topFrame" scrolling="No" 
 
 noresize="noresize" id="topFrame" />
-  <frame src="" name="mainFrame" id="mainFrame" />
+  <frame src="${ctx}/teacher/manageapplicationform.jsp" name="mainFrame" id="mainFrame" />
 </frameset>
 <noframes><body>
 </body>

@@ -2,15 +2,18 @@ package cn.edu.xmu.course.web.action;
 
 import java.util.List;
 
+import com.opensymphony.xwork2.ActionSupport;
+
 import cn.edu.xmu.course.pojo.*;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.IDepartmentService;
 import cn.edu.xmu.course.service.ITeacherInfoService;
+
 /**
  * 
  * @author 何申密
  * @author 郑冰凌
- *
+ * 
  */
 public class CourserAction extends BaseAction {
 
@@ -20,141 +23,157 @@ public class CourserAction extends BaseAction {
 	private Teacher teacher;
 	private Course course;
 	private List<Course> myCoursesList;
-	private int type=2;
+	private int type = 2;
 
 	private ITeacherInfoService teacherInfoService;
 	private ICourseService courseService;
 	private IDepartmentService departmentService;
-	
+
 	private List<Course> applicationCourseList;
 
 	private final String userName = "123";
 
 	/**
 	 * 申报课程
+	 * 
 	 * @return
 	 */
 	public String addNewCourse() {
 		Department dept = departmentService.getDepartmentById(Integer
 				.parseInt(departmentId));
 		Teacher tea = teacherInfoService.getTeacher(userName);
-		if (getCourseService().addCourse(course, dept,tea)){
-			addActionMessage("申报课程成功！"); 
+		if (getCourseService().addCourse(course, dept, tea)) {
+			addActionMessage("申报课程成功！");
 			return SUCCESS;
-		}
-		else
+		} else
 			return ERROR;
 	}
-	
+
 	/**
 	 * 获取某教师的课程
+	 * 
 	 * @return
 	 */
-	public String findMyCoursesList(){
-		Teacher tea = teacherInfoService.getTeacher(userName); 
+	public String findMyCoursesList() {
+		Teacher tea = teacherInfoService.getTeacher(userName);
 		myCoursesList = courseService.findCoursesByTeacher(tea.getId(), type);
-		if(myCoursesList.size()==0){
+		if (myCoursesList.size() == 0) {
 			addActionError("暂无任何课程！");
 			return null;
-		}
-		else 
+		} else
 			return SUCCESS;
 	}
-	
+
 	/**
 	 * 删除课程
+	 * 
 	 * @return
 	 */
-	public String deleteCourse(){
+	public String deleteCourse() {
 		Course deleteCourse = courseService.getCourseById(courseId);
-		if(courseService.deleteCourse(deleteCourse)){
+		if (courseService.deleteCourse(deleteCourse)) {
 			return SUCCESS;
-		}
-		else 
+		} else
 			return ERROR;
 	}
-	
+
 	/**
 	 * 获取申请课程列表
+	 * 
 	 * @return
 	 */
-	public String findApplicationCourse(){
+	public String findApplicationCourse() {
 		Administrator admin = (Administrator) ActionSession.getSession().get(
 				ADMIN);
 		School school = admin.getSchool();
 		applicationCourseList = courseService.findApplicationCourse(school);
-		if(applicationCourseList.size()==0){
+		if (applicationCourseList.size() == 0) {
 			addActionError("暂无新申报课程！");
 			return ERROR;
-		}else{
+		} else {
 			return SUCCESS;
 		}
 	}
 
 	/**
 	 * 审核课程通过
+	 * 
 	 * @return
 	 */
-	public String coursePass(){
+	public String coursePass() {
 		course = courseService.getCourseById(courseId);
 		course.setStatus(1);
 		boolean result = courseService.updateCourse(course);
-		if(result){
+		if (result) {
 			this.findApplicationCourse();
 			return SUCCESS;
-		}else
+		} else
 			return ERROR;
 	}
-	
+
 	/**
 	 * 审核课程未通过
+	 * 
 	 * @return
 	 */
-	public String courseNoPass(){
+	public String courseNoPass() {
 		course = courseService.getCourseById(courseId);
 		course.setStatus(2);
 		boolean result = courseService.updateCourse(course);
-		if(result){
+		if (result) {
 			this.findApplicationCourse();
 			return SUCCESS;
-		}else
+		} else
 			return ERROR;
 	}
-	
+
 	/**
 	 * 获取学院课程列表
+	 * 
 	 * @return
 	 */
-	public String findCourse(){
+	public String findCourse() {
 		Administrator admin = (Administrator) ActionSession.getSession().get(
 				ADMIN);
 		School school = admin.getSchool();
 		applicationCourseList = courseService.findBySchool(school);
-		if(applicationCourseList.size()==0){
+		if (applicationCourseList.size() == 0) {
 			addActionError("暂无课程！");
 			return ERROR;
-		}else{
+		} else {
 			return SUCCESS;
 		}
 	}
-	
+
 	/**
 	 * 获取学院退回课程列表
+	 * 
 	 * @return
 	 */
-	public String findNoPassCourse(){
+	public String findNoPassCourse() {
 		Administrator admin = (Administrator) ActionSession.getSession().get(
 				ADMIN);
 		School school = admin.getSchool();
 		applicationCourseList = courseService.findNoPassCourse(school);
-		if(applicationCourseList.size()==0){
+		if (applicationCourseList.size() == 0) {
 			addActionError("暂无退回课程！");
 			return ERROR;
-		}else{
+		} else {
 			return SUCCESS;
 		}
 	}
-	
+
+	public String saveCurrentCourse() {
+		Course currentCourse = courseService.getCourseById(courseId);
+		try {
+			ActionSession.getSession().put(COURSE, currentCourse);
+			return SUCCESS;
+		} catch (Exception e) {
+			return ERROR;
+		}
+
+	}
+
 	public Teacher getTeacher() {
 		return teacher;
 	}
@@ -230,6 +249,5 @@ public class CourserAction extends BaseAction {
 	public void setCourseId(int courseId) {
 		this.courseId = courseId;
 	}
-
 
 }

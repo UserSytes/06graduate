@@ -151,6 +151,13 @@
 			<result name="success">/teacher/test.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
+		<action name="saveCurrentCourseAction" method="saveCurrentCourse" class="courseAction">
+			<result name="success">/teacher/right.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="getCurrentCourseAction" method="getCurrentCourse" class="courseInfoAction">
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		<!-- 课程管理 (学院管理员)-->
 		<action name="applicationCourseAction" method="findApplicationCourse" class="courseAction">
 			<result name="success">/admin/coursemanage/applicationlist.jsp</result>

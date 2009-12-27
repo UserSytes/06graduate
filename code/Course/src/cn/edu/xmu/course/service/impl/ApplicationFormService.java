@@ -1,5 +1,7 @@
 package cn.edu.xmu.course.service.impl;
 
+import java.util.List;
+
 import cn.edu.xmu.course.dao.ApplicationFormDAO;
 import cn.edu.xmu.course.pojo.ApplicationForm;
 import cn.edu.xmu.course.pojo.Course;
@@ -7,6 +9,7 @@ import cn.edu.xmu.course.service.IApplicationFormService;
 
 public class ApplicationFormService implements IApplicationFormService {
 	private ApplicationFormDAO applicationFormDAO;
+
 	public boolean addApplicationForm(ApplicationForm applicationForm,
 			Course course) {
 		// TODO Auto-generated method stub
@@ -19,8 +22,12 @@ public class ApplicationFormService implements IApplicationFormService {
 	}
 
 	public ApplicationForm getApplicationForm(int courseId) {
-		
-		return (ApplicationForm)applicationFormDAO.findByCourse(courseId).get(0);
+		List<ApplicationForm> applicationForms = applicationFormDAO
+				.findByCourse(courseId);
+		if (applicationForms.size() > 0)
+			return applicationForms.get(0);
+		else
+			return null;
 	}
 
 	public boolean updateApplicationForm(ApplicationForm applicationForm) {
@@ -36,5 +43,4 @@ public class ApplicationFormService implements IApplicationFormService {
 		return applicationFormDAO;
 	}
 
-	
 }

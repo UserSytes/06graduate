@@ -23,7 +23,7 @@ body {
   <tr>
     <td width="8" background="images/main_29.gif">　</td>
     <td align="center" valign="top">
-	<iframe name="I1" src="middel.jsp" height="100%" width="100%" scrolling="no" border="0" frameborder="0">
+	<iframe name="I1" src="middle.jsp" height="100%" width="100%" scrolling="no" border="0" frameborder="0">
 	浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。</iframe></td>
     <td width="7" background="images/main_32.gif">　</td>
   </tr>
