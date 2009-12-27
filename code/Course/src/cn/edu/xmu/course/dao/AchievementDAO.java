@@ -93,8 +93,9 @@ public class AchievementDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-	public Achievement findByCourse(int courseId){
-		return (Achievement)findByProperty("course.id", courseId).get(0);
+	public List findByCourse(int courseId){
+		
+		return findByProperty("course.id", courseId);
 		
 	}
 	public List findByTitle(Object title) {
