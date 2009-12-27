@@ -20,12 +20,11 @@ public class ApplicationForm  implements java.io.Serializable {
      private String level;
      private String sort;
      private String firstSubject;
-     private String secondSubjet;
+     private String secondSubject;
      private String responser;
      private Date time;
      private String fileLink;
      private String filename;
-     private String university;
      private String province;
 
 
@@ -43,7 +42,7 @@ public class ApplicationForm  implements java.io.Serializable {
     }
     
     /** full constructor */
-    public ApplicationForm(Course course, String recommender, String school, String name, String level, String sort, String firstSubject, String secondSubjet, String responser, Date time, String fileLink, String filename, String university, String province) {
+    public ApplicationForm(Course course, String recommender, String school, String name, String level, String sort, String firstSubject, String secondSubject, String responser, Date time, String fileLink, String filename, String province) {
         this.course = course;
         this.recommender = recommender;
         this.school = school;
@@ -51,12 +50,11 @@ public class ApplicationForm  implements java.io.Serializable {
         this.level = level;
         this.sort = sort;
         this.firstSubject = firstSubject;
-        this.secondSubjet = secondSubjet;
+        this.secondSubject = secondSubject;
         this.responser = responser;
         this.time = time;
         this.fileLink = fileLink;
         this.filename = filename;
-        this.university = university;
         this.province = province;
     }
 
@@ -127,12 +125,12 @@ public class ApplicationForm  implements java.io.Serializable {
         this.firstSubject = firstSubject;
     }
 
-    public String getSecondSubjet() {
-        return this.secondSubjet;
+    public String getSecondSubject() {
+        return this.secondSubject;
     }
     
-    public void setSecondSubjet(String secondSubjet) {
-        this.secondSubjet = secondSubjet;
+    public void setSecondSubject(String secondSubject) {
+        this.secondSubject = secondSubject;
     }
 
     public String getResponser() {
@@ -165,14 +163,6 @@ public class ApplicationForm  implements java.io.Serializable {
     
     public void setFilename(String filename) {
         this.filename = filename;
-    }
-
-    public String getUniversity() {
-        return this.university;
-    }
-    
-    public void setUniversity(String university) {
-        this.university = university;
     }
 
     public String getProvince() {

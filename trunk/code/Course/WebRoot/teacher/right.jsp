@@ -11,7 +11,7 @@
   <frame src="${ctx}/teacher/right_top.jsp" name="topFrame" scrolling="No" 
 
 noresize="noresize" id="topFrame" />
-  <frame src="${ctx}/teacher/manageapplicationform.jsp" name="mainFrame" id="mainFrame" />
+  <frame src="${ctx}/teacher/navigation.jsp" name="mainFrame" id="mainFrame" />
 </frameset>
 <noframes><body>
 </body>

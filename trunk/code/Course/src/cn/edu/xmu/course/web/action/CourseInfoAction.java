@@ -34,12 +34,13 @@ public class CourseInfoAction extends BaseAction {
 		} else
 			applicationForm = applicationFormService.getApplicationForm(course
 					.getId());
-
-		return null;
+		System.out.println(applicationForm.getSort());
+		return SUCCESS;
 	}
 
 	public String addApplicationForm() {
 		Course course = super.getCourse();
+		System.out.println("the date is"+applicationForm.getTime());
 		if (applicationFormService.addApplicationForm(applicationForm, course)) {
 			return SUCCESS;
 		} else

@@ -126,7 +126,7 @@
 		</action>
 		<action name="getMyCourseAction" method="findMyCoursesList"
 			class="courseAction">
-			<result name="success">/teacher/mycourseslist.jsp
+			<result name="success">/teacher/coursemanage/mycourseslist.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
@@ -137,7 +137,7 @@
 		</action>
 		<action name="getMyCourseByStateAction" method="findMyCoursesList"
 			class="courseAction">
-			<result>/teacher/courseslist.jsp</result>
+			<result>/teacher/coursemanage/courseslist.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="getMyCourseInLeft" method="findMyCoursesList"
@@ -156,8 +156,14 @@
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="getCurrentCourseAction" method="getCurrentCourse" class="courseInfoAction">
+			<result name="success">/teacher/coursemanage/manageapplicationform.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
+		<action name="addApplicationFormAction" method="addApplicationForm" class="courseInfoAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		
 		<!-- 课程管理 (学院管理员)-->
 		<action name="applicationCourseAction" method="findApplicationCourse" class="courseAction">
 			<result name="success">/admin/coursemanage/applicationlist.jsp</result>
