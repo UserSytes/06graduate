@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.service;
 
+import java.util.Date;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.*;
@@ -34,6 +35,22 @@ public interface ICourseService {
 	 * @return
 	 */
 	public boolean deleteCourse(Course course);
+
+	
+	/**
+	 * 根据级别查找课程
+	 * @param level
+	 * @return
+	 */
+	public List findCourseByLevel(Object level);
+	
+	/**
+	 * 根据时间查找课程
+	 * @param time
+	 * @return
+	 */
+	public List findCourseByTime(Date time);
+
 	
 	/**
 	 * 更新课程
@@ -62,4 +79,5 @@ public interface ICourseService {
 	 * @return
 	 */
 	public List<Course> findBySchool(School school);
+
 }
