@@ -1,8 +1,11 @@
 package cn.edu.xmu.course.service.impl;
 
+import java.util.List;
+
 import cn.edu.xmu.course.dao.AchievementDAO;
 import cn.edu.xmu.course.pojo.Achievement;
 import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.service.IAchievementService;
 
 public class AchievementService implements IAchievementService {
@@ -17,8 +20,14 @@ public class AchievementService implements IAchievementService {
 		return false;
 	}
 
+	@SuppressWarnings("unchecked")
 	public Achievement getAchievement(int courseId) {
-		return achievementDAO.findByCourse(courseId);
+		List<Achievement> achievements = achievementDAO.findByCourse(courseId);;
+		if(achievements.size()==0){
+			return null;
+		}else{
+			return achievements.get(0);
+		}
 	}
 
 	public boolean updateAchievement(Achievement achievement) {
