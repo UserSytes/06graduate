@@ -361,7 +361,7 @@
 <tr> 
                 <td> <div align="center"><s:property value="name" /></div></td>
                 <td><div align="center"><s:property value="position" /></div></td>
-                <td><div align="center"><s:property value="remark" /></div></td>
+                <td><div align="center"><s:property value="field" /></div></td>
                 <td><div align="center"><a href="<s:property value="link" />" target="_blank">点击浏览</a></div></td>
               </tr>
 </s:iterator>
