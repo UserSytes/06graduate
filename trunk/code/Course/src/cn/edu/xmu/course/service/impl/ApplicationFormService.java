@@ -38,7 +38,12 @@ public class ApplicationFormService implements IApplicationFormService {
 
 	public boolean updateApplicationForm(ApplicationForm applicationForm) {
 		// TODO Auto-generated method stub
-		return false;
+		try {
+			applicationFormDAO.merge(applicationForm);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	public void setApplicationFormDAO(ApplicationFormDAO applicationFormDAO) {

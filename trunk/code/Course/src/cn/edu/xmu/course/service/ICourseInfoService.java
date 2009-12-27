@@ -1,5 +1,7 @@
 package cn.edu.xmu.course.service;
 
+import java.util.List;
+
 import cn.edu.xmu.course.pojo.*;
 
 /**
@@ -10,12 +12,18 @@ import cn.edu.xmu.course.pojo.*;
 public interface ICourseInfoService {
 	
 	/**
-	 * 获取该门课程的信息
+	 * 查找当前课程信息
 	 * @param course
-	 * @param sort 类型（大纲或者简介）
 	 * @return
 	 */
-	public CourseInfo getCourseInfo(Course course, int sort);
+	public List getCourseInfosByCourse(Course course);
+	
+	/**
+	 * 根据课程信息Id查找该课程信息
+	 * @param courseInfoId
+	 * @return
+	 */
+	public CourseInfo getCourseInfoById(Integer courseInfoId);
 	
 	/**
 	 * 添加课程信息
@@ -23,7 +31,7 @@ public interface ICourseInfoService {
 	 * @param sort
 	 * @return
 	 */
-	public boolean addCoureseInfo(CourseInfo courseInfo, int sort);
+	public boolean addCoureseInfo(CourseInfo courseInfo,Course course);
 
 	/**
 	 * 更新课程信息
@@ -39,7 +47,7 @@ public interface ICourseInfoService {
 	 * @param sort
 	 * @return
 	 */
-	public boolean deleteCourseInfo(CourseInfo courseInfo, int sort);
+	public boolean deleteCourseInfo(CourseInfo courseInfo);
 	/**
 	 * 通过课程Id查找课程简介/大纲
 	 * @param courseId

@@ -54,7 +54,7 @@ a.v1:visited {font-size:12px; text-decoration:none; color:#03515d;}
 														style="background: url(images/right_06.gif); border-left: solid 1px #82bcbd; border-top: solid 1px #82bcbd; border-right: solid 1px #82bcbd; cursor: ">
 														<div align="center">
 															<img src="images/1.gif" width="9" height="9" />
-															<span class="STYLE1"><A href="getTeacherInfoAction.action" target=mainFrame class="v1" >填写基本信息</A></span>
+															<span class="STYLE1"><A href="getCurrentCourseAction.action" target=mainFrame class="v1" >申报表格</A></span>
 														</div>
 													</td>
 												</tr>
@@ -68,7 +68,7 @@ a.v1:visited {font-size:12px; text-decoration:none; color:#03515d;}
 														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
 														<div align="center">
 															<img src="images/2_1.gif" width="9" height="9" />
-															<span class="STYLE1">填写财务报表</span>
+															<span class="STYLE1"><A href="findCurrentCourseInfoAction.action" target=mainFrame class="v1" >课程信息</A></span>
 														</div>
 													</td>
 												</tr>

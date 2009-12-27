@@ -49,7 +49,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:select name="courseInfo.sort" list="#{2:'全部',1:'己审核',0:'未审核'}"
+						<s:select name="courseInfo.sort" list="#{2:'教学大纲',1:'课程简介'}"
 							listKey="key" listValue="value" />
 					</td>
 				</tr>
@@ -61,7 +61,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="course.name" cssClass="input" />
+						<s:textfield name="courseInfo.title" cssClass="input" />
 					</td>
 				</tr>
 				<tr>

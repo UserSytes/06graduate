@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.service.impl;
 
+import java.util.Calendar;
 import java.util.List;
 
 import cn.edu.xmu.course.dao.CourseInfoDAO;
@@ -13,6 +14,7 @@ public class CourseInfoService implements ICourseInfoService {
 	public boolean addCoureseInfo(CourseInfo courseInfo, Course course) {
 		// TODO Auto-generated method stub
 		courseInfo.setCourse(course);
+		courseInfo.setTime(Calendar.getInstance().getTime());
 		try {
 			courseInfoDAO.save(courseInfo);
 			return true;
@@ -21,10 +23,21 @@ public class CourseInfoService implements ICourseInfoService {
 		}
 	}
 
-	public boolean deleteCourseInfo(CourseInfo courseInfo, int sort) {
+	public boolean deleteCourseInfo(CourseInfo courseInfo) {
 		// TODO Auto-generated method stub
-		return false;
+		try {
+			courseInfoDAO.delete(courseInfo);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
+	
+	public CourseInfo getCourseInfoById(Integer courseInfoId) {
+		// TODO Auto-generated method stub
+		return courseInfoDAO.findById(courseInfoId);
+	}
+	
 
 	public List getCourseInfosByCourse(Course course) {
 		// TODO Auto-generated method stub
@@ -37,8 +50,9 @@ public class CourseInfoService implements ICourseInfoService {
 	}
 
 	public CourseInfo getCourseInfo(int courseId, int sort) {
-		List<CourseInfo> courseInfos = getCourseInfoDAO().findByCourse(courseId, sort);
-		if(courseInfos.size()==0)
+		List<CourseInfo> courseInfos = getCourseInfoDAO().findByCourse(
+				courseId, sort);
+		if (courseInfos.size() == 0)
 			return null;
 		else
 			return courseInfos.get(0);
@@ -51,5 +65,7 @@ public class CourseInfoService implements ICourseInfoService {
 	public CourseInfoDAO getCourseInfoDAO() {
 		return courseInfoDAO;
 	}
+
+
 
 }

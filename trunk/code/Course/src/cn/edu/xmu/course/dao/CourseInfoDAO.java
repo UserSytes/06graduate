@@ -28,7 +28,8 @@ public class CourseInfoDAO extends HibernateDaoSupport {
 	public static final String TITLE = "title";
 	public static final String CONTENT = "content";
 	public static final String SORT = "sort";
-
+	public static final String COURSE = "course";
+	
 	protected void initDao() {
 		// do nothing
 	}
@@ -105,6 +106,10 @@ public class CourseInfoDAO extends HibernateDaoSupport {
 
 	public List findBySort(Object sort) {
 		return findByProperty(SORT, sort);
+	}
+	
+	public List findByCourse(Object course) {
+		return findByProperty(COURSE, course);
 	}
 
 	public List findAll() {

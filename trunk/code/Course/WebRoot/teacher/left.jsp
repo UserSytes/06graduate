@@ -222,7 +222,7 @@ a:visited {
 																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
 																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
 																	<span class="STYLE2">&nbsp;<a
-																		href="addnewcourse.jsp" target=I2>课程申请</a> </span>
+																		href="coursemanage/addnewcourse.jsp" target=I2>课程申请</a> </span>
 																</td>
 															</tr>
 														</table>
