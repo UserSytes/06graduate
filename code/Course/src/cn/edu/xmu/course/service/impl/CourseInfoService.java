@@ -1,5 +1,7 @@
 package cn.edu.xmu.course.service.impl;
 
+import java.util.List;
+
 import cn.edu.xmu.course.dao.CourseInfoDAO;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.CourseInfo;
@@ -7,9 +9,16 @@ import cn.edu.xmu.course.service.ICourseInfoService;
 
 public class CourseInfoService implements ICourseInfoService {
 	private CourseInfoDAO courseInfoDAO;
-	public boolean addCoureseInfo(CourseInfo courseInfo, int sort) {
+
+	public boolean addCoureseInfo(CourseInfo courseInfo, Course course) {
 		// TODO Auto-generated method stub
-		return false;
+		courseInfo.setCourse(course);
+		try {
+			courseInfoDAO.save(courseInfo);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	public boolean deleteCourseInfo(CourseInfo courseInfo, int sort) {
@@ -17,9 +26,9 @@ public class CourseInfoService implements ICourseInfoService {
 		return false;
 	}
 
-	public CourseInfo getCourseInfo(Course course, int sort) {
+	public List getCourseInfosByCourse(Course course) {
 		// TODO Auto-generated method stub
-		return null;
+		return courseInfoDAO.findByCourse(course);
 	}
 
 	public boolean updateCourseInfo(CourseInfo courseInfo, int sort) {
@@ -28,8 +37,11 @@ public class CourseInfoService implements ICourseInfoService {
 	}
 
 	public CourseInfo getCourseInfo(int courseId, int sort) {
-		System.out.println("\n&&&&&&&&&&&"+courseId+"&&&&&&&&"+sort);
-		return (CourseInfo)getCourseInfoDAO().findByCourse(courseId,sort).get(0);
+		List<CourseInfo> courseInfos = getCourseInfoDAO().findByCourse(courseId, sort);
+		if(courseInfos.size()==0)
+			return null;
+		else
+			return courseInfos.get(0);
 	}
 
 	public void setCourseInfoDAO(CourseInfoDAO courseInfoDAO) {
