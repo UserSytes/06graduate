@@ -60,7 +60,16 @@
 				</td>
 			</tr>
 		</table>
-	
+<table class=listTable align="center">
+<tr>
+		<td>
+			筛选：&nbsp;&nbsp;&nbsp;	
+			<s:select name="type" list="#{2:'全部',1:'己审核',0:'未审核'}" listKey="key"
+				listValue="value" onchange="javascript:getCourseByType(this.value)" />
+
+		</td>
+	</tr>
+</table>
 		<div id="courseListMain" align="center">
 			<s:include value="courseslist.jsp"></s:include>
 		</div>

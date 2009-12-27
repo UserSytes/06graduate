@@ -34,11 +34,13 @@
 
 		<s:form action="addApplicationFormAction" method="post"
 			onsubmit="return check(this);">&nbsp;&nbsp; 
+			<s:hidden name="applicationForm.id"></s:hidden>
+			<s:hidden name="applicationForm.course.id"></s:hidden>
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						添加课程信息：
+						添加课程申报表格：
 					</td>
 				</tr>
 				<tr>
@@ -93,9 +95,9 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-	<s:select id="level" list="{'本科','专科'}"
+						<s:select id="level" list="{'本科','专科'}"
 							name="applicationForm.level"></s:select>
-						
+
 					</td>
 				</tr>
 				<tr>
@@ -106,7 +108,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-							<s:select id="level" list="{'理论课(不含实践)','理论课(含实践)','实践课'}"
+						<s:select id="level" list="{'理论课(不含实践)','理论课(含实践)','实践课'}"
 							name="applicationForm.sort"></s:select>
 					</td>
 				</tr>
@@ -123,8 +125,8 @@
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
-						<div align="center"> 
-							所属二级学科名称： 
+						<div align="center">
+							所属二级学科名称：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
@@ -143,7 +145,7 @@
 						<s:textfield name="applicationForm.responser" cssClass="input" />
 					</td>
 				</tr>
-<tr>
+				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
 							申报时间：
@@ -151,8 +153,8 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:head/>
-						<s:datetimepicker displayFormat="yyyy-MM-dd"  value="today" name="applicationForm.time" />
+						<s:head />
+						<s:datetimepicker displayFormat="yyyy-MM-dd" name="applicationForm.time" />
 					</td>
 				</tr>
 				<tr>

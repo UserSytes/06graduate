@@ -148,7 +148,11 @@
 		</action>
 		<!-- 课程管理 (教师)-->
 		<action name="addNewCourseInfoAction" method="addNewCourseInfo" class="courseInfoAction">
-			<result name="success">/teacher/test.jsp</result>
+			<result name="success" type="redirect-action">findCurrentCourseInfoAction</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteCourseInfoAction" method="deleteCourseInfo" class="courseInfoAction">
+			<result name="success" type="redirect-action">findCurrentCourseInfoAction</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="saveCurrentCourseAction" method="saveCurrentCourse" class="courseAction">
@@ -158,6 +162,12 @@
 		<action name="getCurrentCourseAction" method="getCurrentCourse" class="courseInfoAction">
 			<result name="success">/teacher/coursemanage/manageapplicationform.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="findCurrentCourseInfoAction" method="findCourseInfo" class="courseInfoAction">
+			<result name="success">/teacher/coursemanage/viewcourseinfo.jsp</result>
+		</action>
+		<action name="getCourseInfoDetailAction" method="getCourseInfoDetail" class="courseInfoAction">
+			<result name="success">/teacher/coursemanage/viewcourseinfo.jsp</result>
 		</action>
 		<action name="addApplicationFormAction" method="addApplicationForm" class="courseInfoAction">
 			<result name="success">/commons/prompt.jsp</result>

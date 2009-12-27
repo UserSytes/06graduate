@@ -2,14 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../../commons/taglibs.jsp"%>
 <table class="listTable">
-	<tr>
-		<td>
-			筛选：&nbsp;&nbsp;&nbsp;
-			<s:select name="type" list="#{2:'全部',1:'己审核',0:'未审核'}" listKey="key"
-				listValue="value" onchange="javascript:getCourseByType(this.value)" />
-
-		</td>
-	</tr>
+	
 	<tr class="listHeaderTr"
 		<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 		<th>
