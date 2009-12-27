@@ -15,8 +15,11 @@ public class SearchCourseService implements ISearchCourseService {
 	}
 	@SuppressWarnings("unchecked")
 	public List<Course> findCourseByName(String name) {
-		
-		return courseDAO.findByName(name);
+		List<Course> courses= courseDAO.findByName(name);
+		if(courses.size()==0)
+			return null;
+		else 
+			return courses;
 	}
 	
 	public Course findCourseById(int id){
