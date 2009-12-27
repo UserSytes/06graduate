@@ -47,7 +47,7 @@ document.all("frmTitle").style.display=""
 	浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。</iframe>	</td>
     <td width="4" valign="middle" background="images/main_27.gif" onclick=switchSysBar()><SPAN class=navPoint 
 id=switchPoint title=关闭/打开左栏><img src="images/main_30.gif" name="img1" width=4 height=47 id=img1></SPAN></td>
-    <td align="center" valign="top"><iframe name="I2" height="100%" width="100%" border="0" frameborder="0" src="right.jsp"> 浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。</iframe></td>
+    <td align="center" valign="top"><iframe name="I2" height="100%" width="100%" border="0" frameborder="0" src=""> 浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。</iframe></td>
   </tr>
 </table>
 </body>

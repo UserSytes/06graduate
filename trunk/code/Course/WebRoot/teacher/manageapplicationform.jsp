@@ -1,7 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../commons/taglibs.jsp"%>
-<%@ taglib uri="http://java.fckeditor.net" prefix="FCK"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
@@ -32,6 +31,7 @@
 				</td>
 			</tr>
 		</table>
+	<s:action name="getCurrentCourseAction" executeResult="true" namespace="/"></s:action>
 		<s:form action="addNewCourseInfoAction" method="post"
 			onsubmit="return check(this);">&nbsp;&nbsp; 
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
@@ -49,7 +49,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:select name="courseInfo.sort" list="#{2:'全部',1:'己审核',0:'未审核'}"
+						<s:select name="" list="#{2:'全部',1:'己审核',0:'未审核'}"
 							listKey="key" listValue="value" />
 					</td>
 				</tr>
@@ -61,27 +61,13 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="course.name" cssClass="input" />
+						<s:textfield name="applicationForm.level" cssClass="input" />
 					</td>
 				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							内容：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-
-					</td>
-				</tr>
+				
 				<tr>
 					<td colspan="3">
-						<FCK:editor instanceName="courseInfo.content" width="100%" height="405"
-							toolbarSet="Default">
-							<jsp:attribute name="value">
-                </jsp:attribute>
-						</FCK:editor>
+						
 					</td>
 				</tr>
 				<tr class=editHeaderTr>
