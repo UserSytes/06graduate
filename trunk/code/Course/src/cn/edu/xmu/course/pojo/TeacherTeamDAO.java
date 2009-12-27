@@ -1,4 +1,4 @@
-package cn.edu.xmu.course.dao;
+package cn.edu.xmu.course.pojo;
 
 import java.util.List;
 import org.apache.commons.logging.Log;
@@ -112,9 +112,6 @@ public class TeacherTeamDAO extends HibernateDaoSupport {
 
 	public List findByField(Object field) {
 		return findByProperty(FIELD, field);
-	}
-	public List findByCourse(int courseId){
-		return findByProperty("course.id", courseId);
 	}
 
 	public List findAll() {

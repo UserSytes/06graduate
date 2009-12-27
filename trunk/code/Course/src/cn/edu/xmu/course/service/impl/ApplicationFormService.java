@@ -13,7 +13,13 @@ public class ApplicationFormService implements IApplicationFormService {
 	public boolean addApplicationForm(ApplicationForm applicationForm,
 			Course course) {
 		// TODO Auto-generated method stub
-		return false;
+		applicationForm.setCourse(course);
+		try {
+			applicationFormDAO.save(applicationForm);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	public boolean deleteApplicationForm(ApplicationForm applicationForm) {

@@ -25,5 +25,8 @@
         <property name="remark" type="java.lang.String">
             <column name="remark" />
         </property>
+        <property name="field" type="java.lang.String">
+            <column name="field" />
+        </property>
     </class>
 </hibernate-mapping>
