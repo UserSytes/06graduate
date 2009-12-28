@@ -9,7 +9,7 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
-		<title>申报课程列表</title>
+		<title>未通过审核的课程列表</title>
 		<style type="text/css">
 <!--
 .STYLE1 {
@@ -23,7 +23,7 @@
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 课程管理 -&gt; 申报课程列表 
+					当前位置: 课程管理 -&gt; 审核退回课程列表 
 				</td>
 			</tr>
 		</table>
@@ -41,7 +41,7 @@
 						简介
 					</th>
 					<th>
-						操作
+						退回原因
 					</th>
 				</tr>
 				<s:iterator value="applicationCourseList" status="course">
@@ -56,22 +56,7 @@
 							<s:property value="remark" />
 						</td>
 						<td>
-							<a
-								href="<s:url action="coursePassAction">
-                     			<s:param name="courseId"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param> 
-                					</s:url>"  onclick="JAVAscript:if(!confirm('确认通过？')) return false;return true;">
-								<font color="green">【通过】</font>
-							</a>
-							<a
-								href="<s:url action="refuseReasonAction" >
-                     			<s:param name="courseId"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param> 
-                					</s:url>" >
-								<font color="red">【退回】</font>
-							</a>
+							<s:property value="refuseReason" />
 						</td>
 					</tr>
 				</s:iterator>

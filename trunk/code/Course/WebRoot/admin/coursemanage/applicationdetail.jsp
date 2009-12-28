@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.fckeditor.net" prefix="FCK"%>
 <%@ include file="../../commons/taglibs.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -10,17 +9,16 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
-		<title>发布新闻政策</title>
+		<title>省报课程详细</title>
 		<SCRIPT language=javascript>
 			function check(form)
 			{
-				if (form.schoolName.value == "")
+				if (form.refuseReason.value == "")
 				{
-					alert("学院名不能为空！");
+					alert("退回原因不能为空！");
 					return false;
-				}else{
-					return true;
 				}
+				return true;
 			}
 		</SCRIPT>
 		<style type="text/css">
@@ -37,69 +35,91 @@
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 新闻政策管理 -&gt; 发布新闻政策
+					当前位置: 课程管理 -&gt; 申报课程列表 -&gt; <s:text name="">${course.name}</s:text>
 				</td>
 			</tr>
 		</table>
-		<s:form action="addNewaAction" method="post"
-			onsubmit="return check(this);">
+		<s:form action="courseNoPassAction">
+			<s:hidden name="course.id" />
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						请输入新学院信息
+						请填写退回原因
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							标题：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						<s:textfield cssClass="INPUT" id="title" name="news.title" label="标题"></s:textfield>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							发布时间：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						<s:textfield cssClass="INPUT" id="time" name="news.time" label="时间"></s:textfield>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							内容：
+							课程名称：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
+						<s:text name="">${course.name}</s:text>
 					</td>
 				</tr>
 				<tr>
-					<td colspan="3">
-						<FCK:editor instanceName="news.content" width="100%" height="405"
-							toolbarSet="Default">
-							<jsp:attribute name="value">
-                </jsp:attribute>
-						</FCK:editor>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							授课教师：
+						</div>
 					</td>
-				</tr>
-				<tr>
 					<td colspan="3" bgcolor="#FFFFFF">
-						<s:file></s:file>
+						&nbsp;&nbsp;&nbsp;
+						<s:text name="">${course.teacher.userInfo.name}</s:text>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							所属系：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<s:text name="">${course.department.name}</s:text>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							级别：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<s:text name="">${course.level}</s:text>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							简介：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<s:text name="">${course.remark}</s:text>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							退回原因：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<s:textfield cssClass="INPUT" id="refuseReason" name="refuseReason" label="退回原因"></s:textfield>&nbsp;*
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">
 					<td width="30%">
 						&nbsp;
 					</td>
-					<td width="70%">
-						<s:submit cssClass="label" value="确定添加"></s:submit>
+					<td width="70%">						
+						<s:submit onclick="return check(this);JAVAscript:if(!confirm('确认退回？')) return false;return true;" cssClass="label" value="退回"></s:submit>
 					</td>
 				</tr>
 			</table>

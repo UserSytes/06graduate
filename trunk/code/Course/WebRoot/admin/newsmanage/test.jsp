@@ -10,12 +10,6 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
 		<title>发布新闻政策</title>
-<script language="Javascript" src="../../htmlbox/jquery-1.3.2.min.js" type="text/javascript"></script>
-	<script language="Javascript" src="../../htmlbox/htmlbox.colors.js" type="text/javascript"></script>
-	<script language="Javascript" src="../../htmlbox/htmlbox.styles.js" type="text/javascript"></script>
-	<script language="Javascript" src="../../htmlbox/htmlbox.syntax.js" type="text/javascript"></script>
-	<script language="Javascript" src="../../htmlbox/xhtml.js" type="text/javascript"></script>
-	<script language="Javascript" src="../../htmlbox/htmlbox.min.js" type="text/javascript"></script>
 		<style type="text/css">
 <!--
 .STYLE1 {
@@ -26,40 +20,17 @@
 	</head>
 
 	<body>
-		<textarea id='ha'></textarea>
-<script language="Javascript" type="text/javascript">
-$("#ha").css("height","100%").css("width","100%").htmlbox({
-    toolbars:[
-	    [
-		// Cut, Copy, Paste
-		"separator","cut","copy","paste",
-		// Undo, Redo
-		"separator","undo","redo",
-		// Bold, Italic, Underline, Strikethrough, Sup, Sub
-		"separator","bold","italic","underline","strike","sup","sub",
-		// Left, Right, Center, Justify
-		"separator","justify","left","center","right",
-		// Ordered List, Unordered List, Indent, Outdent
-		"separator","ol","ul","indent","outdent",
-		// Hyperlink, Remove Hyperlink, Image
-		"separator","link","unlink","image"
-		
-		],
-		[// Show code
-		"separator","code",
-        // Formats, Font size, Font family, Font color, Font, Background
-        "separator","formats","fontsize","fontfamily",
-		"separator","fontcolor","highlight",
-		],
-		[
-		//Strip tags
-		"separator","removeformat","striptags","hr","paragraph",
-		// Styles, Source code syntax buttons
-		"separator","quote","styles","syntax"
-		]
-	],
-	skin:"blue"
-});
-</script>
+		<a
+			href="<s:url action="coursePassAction">
+                     			<s:param name="courseId"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param> 
+								<s:param name="departmentId"> 
+                       			 	国家级
+                    			</s:param> 
+                					</s:url>"
+			onclick="JAVAscript:if(!confirm('确认通过？')) return false;return true;">
+			<font color="green">【通过】</font> </a>
+
 	</body>
 </html>

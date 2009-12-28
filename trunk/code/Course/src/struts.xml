@@ -212,7 +212,7 @@
 		</action>
 		
 		<!-- 课程管理 (学院管理员)-->
-		<action name="courseNoPassAction" method="findNoPassCourse"
+		<action name="noPassListAction" method="findNoPassCourse"
 			class="courseAction">
 			<result name="success">/admin/coursemanage/nopasscourselist.jsp
 			</result>
@@ -229,15 +229,21 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="coursePassAction" method="coursePass" class="courseAction">
-			<result name="success">/admin/coursemanage/applicationlist.jsp
+		<action name="refuseReasonAction" method="courseDetail"
+			class="courseAction">
+			<result name="success">/admin/coursemanage/applicationdetail.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="courseNoPassAction" method="courseNoPass" class="courseAction">
+		<action name="coursePassAction" method="coursePass" class="courseAction">
 			<result name="success">/admin/coursemanage/applicationlist.jsp
 			</result>
-			<result name="error">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="courseNoPassAction" method="courseNoPass" class="courseAction">
+			<result name="success">/commons/prompt.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
 		</action>
 		
 		<!--超级管理员-->

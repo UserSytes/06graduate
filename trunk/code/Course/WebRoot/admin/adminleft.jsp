@@ -82,15 +82,13 @@ border="0">
                 <tr>
                   <td width="2%"><img src="Images/closed.gif" /></td>
                   <td height="23"><a href="<s:url action='applicationCourseAction'> </s:url>"
-														target="main">申报列表</a>┆<a 
-            href="include/Make.asp" 
-            target="main">历史申报</a></td>
+														target="main">申报列表</a>┆<a href="<s:url action='noPassListAction'> </s:url>"
+														target="main">审核未过</a></td>
                 </tr>
                 <tr>
                   <td><img src="Images/closed.gif" /></td>
-                  <td height="23"><a 
-            href="Article/Article_Manage.asp?action=ListisAccept" 
-            target="main">课程列表</a></td>
+                  <td height="23"><a href="<s:url action='courseBySchoolAction'> </s:url>"
+														target="main">课程列表</a></td>
                 </tr>					
               </tbody>
           </table></td>
