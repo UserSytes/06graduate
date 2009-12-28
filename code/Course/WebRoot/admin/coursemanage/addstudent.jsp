@@ -76,28 +76,6 @@
 						<s:text name="">${student.userInfo.name}</s:text>
 					</td>
 				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							所属系：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-						<s:text name="">${student.userInfo.department.name}</s:text>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							年级：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-						<s:text name="">${student.grade.name+student.grade.grade}</s:text>
-					</td>
-				</tr>
 				<tr bgcolor="#ECF3FD">
 					<td width="30%">
 						&nbsp;
