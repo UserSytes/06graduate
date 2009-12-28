@@ -39,11 +39,11 @@ body {
             <td width="156"><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="29%" height="22"><span class="STYLE4">用户名</span></td>
-                <td width="71" height="22"><input type="text" name="textfield" style="width:100px; height:16px; border:solid 1px #000000; color:#666666"></td>
+                <td width="71" height="22"><input type="text" name="userName" style="width:100px; height:16px; border:solid 1px #000000; color:#666666"></td>
               </tr>
               <tr>
                 <td height="22"><span class="STYLE4">密&nbsp;&nbsp;码</span></td>
-                <td height="22"><input type="password" name="textfield2" style="width:100px; height:16px; border:solid 1px #000000; color:#666666"></td>
+                <td height="22"><input type="password" name="password" style="width:100px; height:16px; border:solid 1px #000000; color:#666666"></td>
               </tr>
               <tr>
                 <td height="25">&nbsp;</td>

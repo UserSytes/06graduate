@@ -34,6 +34,9 @@
 		</table>
 		<s:form action="addNewCourseInfoAction" method="post"
 			onsubmit="return check(this);">&nbsp;&nbsp; 
+<s:hidden name="courseInfo.id"></s:hidden>
+<s:hidden name="courseInfo.course.id"></s:hidden>
+<s:hidden name="sort"></s:hidden>
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
@@ -49,8 +52,9 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:select name="courseInfo.sort" list="#{2:'教学大纲',1:'课程简介'}"
-							listKey="key" listValue="value" />
+						<s:set name="myflag" value="sort" />
+					<s:if test="#myflag==1">课程简介</s:if>
+					<s:if test="#myflag==2">教学大纲</s:if>
 					</td>
 				</tr>
 				<tr>
@@ -80,6 +84,7 @@
 						<FCK:editor instanceName="courseInfo.content" width="100%" height="405"
 							toolbarSet="Default">
 							<jsp:attribute name="value">
+<s:property escape="false" value="courseInfo.content"/>
                 </jsp:attribute>
 						</FCK:editor>
 					</td>

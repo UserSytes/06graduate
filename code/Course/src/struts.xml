@@ -169,6 +169,9 @@
 		<action name="getCourseInfoDetailAction" method="getCourseInfoDetail" class="courseInfoAction">
 			<result name="success">/teacher/coursemanage/viewcourseinfo.jsp</result>
 		</action>
+		<action name="updateCourseInfoAction" method="updateCourseInfo" class="courseInfoAction">
+			<result name="success">/teacher/coursemanage/addcourseinfo.jsp</result>
+		</action>
 		<action name="addApplicationFormAction" method="addApplicationForm" class="courseInfoAction">
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>

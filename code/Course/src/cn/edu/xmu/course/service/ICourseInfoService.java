@@ -39,7 +39,7 @@ public interface ICourseInfoService {
 	 * @param sort
 	 * @return
 	 */
-	public boolean updateCourseInfo(CourseInfo courseInfo, int sort);
+	public boolean updateCourseInfo(CourseInfo courseInfo);
 	
 	/**
 	 * É¾³ý¿Î³ÌÐÅÏ¢
