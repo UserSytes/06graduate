@@ -28,6 +28,13 @@ public interface IStudentInfoService {
 	
 	public Student findByStudentNo(String studentNo);
 	
+	/**
+	 * DWR用到的查找
+	 * @param studentNo
+	 * @return
+	 */
+	public UserInfo findUserInfoByStudentNo(String studentNo);
+	
 	public boolean updateStudent(Student student, UserInfo userInfo);
 	
 	public List<Student> findByGrade(Grade grade);
