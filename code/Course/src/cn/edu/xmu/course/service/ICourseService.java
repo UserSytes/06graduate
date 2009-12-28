@@ -37,20 +37,14 @@ public interface ICourseService {
 	public boolean deleteCourse(Course course);
 
 	
-	/**
-	 * 根据级别查找课程
-	 * @param level
-	 * @return
-	 */
-	public List findCourseByLevel(Object level);
+	
 	
 	/**
-	 * 根据时间查找课程
+	 * 根据时间和级别查找课程
 	 * @param time
 	 * @return
 	 */
-	public List findCourseByTime(Date time);
-
+	public List findCourseListByTimeAndLevel(String time, String level);
 	
 	/**
 	 * 更新课程
