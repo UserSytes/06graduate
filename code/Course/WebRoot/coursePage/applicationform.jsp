@@ -322,6 +322,17 @@
 <tr><td>&nbsp;</td></tr>
 												</table>
 <table class=editTable cellSpacing=1 cellPadding=0 width="450" align=center border=0>
+<tr bgcolor="#ECF3FD" height="30">
+														<td width="30%">
+															<div align="center">
+																推荐省份
+															</div>
+														</td>
+														<td width="70%">
+															&nbsp;&nbsp;
+															<s:property value="applicationForm.province" />
+														</td>
+													</tr>
 													<tr bgcolor="#FFFDF0" height="30">
 														<td>
 															<div align="center">
@@ -330,7 +341,7 @@
 														</td>
 														<td>
 															&nbsp;&nbsp;
-															<s:property value="applicationForm.unit" />
+															<s:property value="applicationForm.recommender" />
 														</td>
 													</tr>
 													<tr bgcolor="#ECF3FD" height="30">
@@ -353,6 +364,17 @@
 														<td>
 															&nbsp;&nbsp;
 															<s:property value="applicationForm.name" />
+														</td>
+													</tr>
+<tr bgcolor="#FFFDF0" height="30">
+														<td>
+															<div align="center">
+																课程级别
+															</div>
+														</td>
+														<td>
+															&nbsp;&nbsp;
+															<s:property value="applicationForm.level" />
 														</td>
 													</tr>
 													<tr bgcolor="#ECF3FD" height="30">
@@ -385,7 +407,7 @@
 														</td>
 														<td width="70%">
 															&nbsp;&nbsp;
-															<s:property value="applicationForm.secondSubjet" />
+															<s:property value="applicationForm.secondSubject" />
 														</td>
 													</tr>
 													<tr bgcolor="#FFFDF0" height="30">
@@ -407,7 +429,7 @@
 														</td>
 														<td width="70%">
 															&nbsp;&nbsp;
-															<s:property value="applicationForm.time" />
+															<s:date name="applicationForm.time" format="yyyy-MM-dd" />
 														</td>
 													</tr>
 <tr>

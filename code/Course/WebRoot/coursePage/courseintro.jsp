@@ -335,7 +335,7 @@
 												<P style="LINE-HEIGHT: 150%;  text-intent:2em">
 													<SPAN style="FONT-SIZE: 10.5pt; LINE-HEIGHT: 150%"><FONT
 														face=宋体><s:property
-																value="courseInfo.content" />
+																escape="false" value="courseInfo.content" />
 													</FONT>
 													</SPAN>
 													</td>
