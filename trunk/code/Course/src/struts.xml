@@ -255,7 +255,21 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		
+		<action name="goAddCourseStudentAction" method="courseDetail" class="courseAction">
+			<result name="success">/admin/coursemanage/addstudent.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="goAddCourseStudentBatchAction" method="courseDetail" class="courseAction">
+			<result name="success">/admin/coursemanage/addstudentbatch.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="addCourseStudentAction" method="addStudentCourse" class="courseAction">
+			<result name="success">/commons/prompt.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
 		
 		<!--超级管理员-->
 		<!--1、学院管理模块-->
