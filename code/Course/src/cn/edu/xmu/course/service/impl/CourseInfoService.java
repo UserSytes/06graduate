@@ -32,21 +32,25 @@ public class CourseInfoService implements ICourseInfoService {
 			return false;
 		}
 	}
-	
+
 	public CourseInfo getCourseInfoById(Integer courseInfoId) {
 		// TODO Auto-generated method stub
 		return courseInfoDAO.findById(courseInfoId);
 	}
-	
 
 	public List getCourseInfosByCourse(Course course) {
 		// TODO Auto-generated method stub
 		return courseInfoDAO.findByCourse(course);
 	}
 
-	public boolean updateCourseInfo(CourseInfo courseInfo, int sort) {
+	public boolean updateCourseInfo(CourseInfo courseInfo) {
 		// TODO Auto-generated method stub
-		return false;
+		try {
+			courseInfoDAO.merge(courseInfo);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	public CourseInfo getCourseInfo(int courseId, int sort) {
@@ -65,7 +69,5 @@ public class CourseInfoService implements ICourseInfoService {
 	public CourseInfoDAO getCourseInfoDAO() {
 		return courseInfoDAO;
 	}
-
-
 
 }
