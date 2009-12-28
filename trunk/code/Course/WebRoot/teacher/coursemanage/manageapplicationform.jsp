@@ -32,9 +32,11 @@
 			</tr>
 		</table>
 
-		<s:form action="addApplicationFormAction" method="post"
+		<s:form action="addApplicationFormAction" method="post"  enctype="multipart/form-data"  
 			onsubmit="return check(this);">&nbsp;&nbsp; 
 			<s:hidden name="applicationForm.id"></s:hidden>
+<s:hidden name="applicationForm.filename"></s:hidden>
+<s:hidden name="applicationForm.fileLink"></s:hidden>
 			<s:hidden name="applicationForm.course.id"></s:hidden>
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
@@ -51,7 +53,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="applicationForm.province" cssClass="input" />
+						<s:textfield name="applicationForm.province"  cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -157,11 +159,18 @@
 						<s:datetimepicker displayFormat="yyyy-MM-dd" name="applicationForm.time" />
 					</td>
 				</tr>
-				<tr>
-					<td colspan="3">
-
+<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							上传文件：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<s:file name="upload"></s:file>
 					</td>
 				</tr>
+				
 				<tr class=editHeaderTr>
 					<td width="30%" class=editFooterTd>
 						&nbsp;

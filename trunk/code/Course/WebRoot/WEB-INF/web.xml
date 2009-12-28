@@ -71,6 +71,23 @@
 		<url-pattern>/fckeditor/editor/filemanager/connectors/*</url-pattern>
 	</servlet-mapping>
 
+<filter>
+		<filter-name>FckeditorUploadFilter</filter-name>
+		<filter-class>
+			cn.edu.xmu.course.filter.FckeditorUploadFilter
+		</filter-class>
+		<init-param>
+			<param-name>DispatcherUrl</param-name>
+			<param-value>/fckeditor/editor/filemanager/connectors/</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>FckeditorUploadFilter</filter-name>
+		<url-pattern>
+			/fckeditor/editor/filemanager/connectors/*
+		</url-pattern>
+	</filter-mapping>
+
 	<filter>
 		<filter-name>struts</filter-name>
 		<filter-class>
@@ -82,4 +99,13 @@
 		<filter-name>struts</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	    <filter> 
+        <filter-name>struts-cleanup</filter-name> 
+        <filter-class>org.apache.struts2.dispatcher.ActionContextCleanUp</filter-class> 
+    </filter>
+    <filter-mapping>
+        <filter-name>struts-cleanup</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

@@ -12,9 +12,10 @@
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
 		<title>修改密码</title>
 		<SCRIPT language=javascript>
-	function sortChange(sort){
-	window.location.href="findCurrentCourseInfoAction.action?sort="+sort;
-		
+	function sortChange(sort) {
+		window.location.href = "findCurrentCourseInfoAction.action?sort="
+				+ sort;
+
 	}
 </SCRIPT>
 	</head>
@@ -56,8 +57,14 @@
 				</td>
 				<td colspan="3" bgcolor="#FFFFFF">
 					&nbsp;&nbsp;&nbsp;
-					<a href="#">编辑</a>
-
+					
+<a
+						href="<s:url action="updateCourseInfoAction"> 
+                     			<s:param name="courseInfoId"> 
+                       			 	<s:property value="courseInfo.id"/> 
+                    			</s:param> 
+                					</s:url>">
+						<font color="green">【编辑】</font> </a>
 					<a
 						href="<s:url action="deleteCourseInfoAction"> 
                      			<s:param name="courseInfoId"> 
