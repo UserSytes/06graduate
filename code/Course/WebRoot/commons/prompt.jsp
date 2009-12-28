@@ -42,13 +42,6 @@
 					</div>
 				</td>
 			</tr>
-			<tr bgcolor="#FFFFFF">
-				<td width="30%">
-					返回上页请
-					<a href="javascript:history.back()"><strong><font
-							color="#ffff00">点击此处</font> </strong> </a>
-				</td>
-			</tr>
 		</table>
 
 	</body>

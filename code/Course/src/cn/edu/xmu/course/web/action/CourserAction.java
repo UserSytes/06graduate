@@ -30,7 +30,8 @@ public class CourserAction extends BaseAction {
 	private IDepartmentService departmentService;
 
 	private List<Course> applicationCourseList;
-
+	private String refuseReason;
+	
 	private final String userName = "123";
 
 	/**
@@ -95,6 +96,15 @@ public class CourserAction extends BaseAction {
 		}
 	}
 
+	public String courseDetail(){
+		course = courseService.getCourseById(courseId);
+		if(course == null){
+			return ERROR;
+		}
+		else
+			return SUCCESS;
+	}
+	
 	/**
 	 * 审核课程通过
 	 * 
@@ -106,6 +116,7 @@ public class CourserAction extends BaseAction {
 		boolean result = courseService.updateCourse(course);
 		if (result) {
 			this.findApplicationCourse();
+			addActionError(course.getName()+"课程通过审核！");
 			return SUCCESS;
 		} else
 			return ERROR;
@@ -117,11 +128,13 @@ public class CourserAction extends BaseAction {
 	 * @return
 	 */
 	public String courseNoPass() {
-		course = courseService.getCourseById(courseId);
+		course = courseService.getCourseById(course.getId());
 		course.setStatus(2);
+		course.setRefuseReason(refuseReason);
 		boolean result = courseService.updateCourse(course);
 		if (result) {
-			this.findApplicationCourse();
+			addActionError(course.getName()+"课程审核后退回！");
+			//this.findApplicationCourse();
 			return SUCCESS;
 		} else
 			return ERROR;
@@ -248,6 +261,30 @@ public class CourserAction extends BaseAction {
 
 	public void setCourseId(int courseId) {
 		this.courseId = courseId;
+	}
+
+	public List<Course> getApplicationCourseList() {
+		return applicationCourseList;
+	}
+
+	public void setApplicationCourseList(List<Course> applicationCourseList) {
+		this.applicationCourseList = applicationCourseList;
+	}
+
+	public int getCourseId() {
+		return courseId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public String getRefuseReason() {
+		return refuseReason;
+	}
+
+	public void setRefuseReason(String refuseReason) {
+		this.refuseReason = refuseReason;
 	}
 
 }
