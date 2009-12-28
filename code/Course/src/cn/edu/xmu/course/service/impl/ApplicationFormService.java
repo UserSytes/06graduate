@@ -1,5 +1,7 @@
 package cn.edu.xmu.course.service.impl;
 
+
+import java.util.Date;
 import java.util.List;
 
 import cn.edu.xmu.course.dao.ApplicationFormDAO;
@@ -45,7 +47,14 @@ public class ApplicationFormService implements IApplicationFormService {
 			return false;
 		}
 	}
-
+	public List findApplicationByLevel(Object level) {
+		return applicationFormDAO.findByLevel(level);
+	}
+	public List findApplicationByTime(Date time) {
+		return applicationFormDAO.findByProperty("time", time);
+	}
+	
+	//get and set method
 	public void setApplicationFormDAO(ApplicationFormDAO applicationFormDAO) {
 		this.applicationFormDAO = applicationFormDAO;
 	}
@@ -53,5 +62,4 @@ public class ApplicationFormService implements IApplicationFormService {
 	public ApplicationFormDAO getApplicationFormDAO() {
 		return applicationFormDAO;
 	}
-
 }
