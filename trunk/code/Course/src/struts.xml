@@ -245,6 +245,17 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+		<action name="viewCourseStudentAction" method="getStudentByCourse" class="courseAction">
+			<result name="success">/admin/coursemanage/studentlist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteStudentFromCourseAction" method="deleteStudent" class="courseAction">
+			<result name="success">/admin/coursemanage/studentlist.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		
 		
 		<!--超级管理员-->
 		<!--1、学院管理模块-->

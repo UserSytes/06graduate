@@ -5,6 +5,7 @@ import java.util.List;
 import cn.edu.xmu.course.dao.StudentDAO;
 import cn.edu.xmu.course.dao.TeacherDAO;
 import cn.edu.xmu.course.dao.UserInfoDAO;
+import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.Grade;
 import cn.edu.xmu.course.pojo.School;
@@ -81,7 +82,7 @@ public class StudentInfoService implements IStudentInfoService {
 			return false;
 		}
 	}
- 
+	
 	public List<Student> findByDepartment(Department department){
 		return studentDAO.findByDepartment(department);
 	}

@@ -2,6 +2,7 @@ package cn.edu.xmu.course.service;
 
 import java.util.List;
 
+import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.Grade;
 import cn.edu.xmu.course.pojo.School;
@@ -34,4 +35,5 @@ public interface IStudentInfoService {
 	public List<Student> findByDepartment(Department department);
 	
 	public List<Student> findByDepartmentAndGrade(Department department, Grade grade);
+	
 }

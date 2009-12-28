@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.web.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -7,6 +8,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import cn.edu.xmu.course.pojo.*;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.IDepartmentService;
+import cn.edu.xmu.course.service.IStudentCourseService;
+import cn.edu.xmu.course.service.IStudentInfoService;
 import cn.edu.xmu.course.service.ITeacherInfoService;
 
 /**
@@ -26,10 +29,14 @@ public class CourserAction extends BaseAction {
 	private int type = 2;
 
 	private ITeacherInfoService teacherInfoService;
+	private IStudentCourseService studentCourseService;
 	private ICourseService courseService;
 	private IDepartmentService departmentService;
 
 	private List<Course> applicationCourseList;
+	private List<Student> studentList = new ArrayList();
+	private Student student;
+	private int studentId;
 	private String refuseReason;
 	
 	private final String userName = "123";
@@ -96,6 +103,53 @@ public class CourserAction extends BaseAction {
 		}
 	}
 
+	/**
+	 * 获取某课程的所有学生
+	 * @return
+	 */
+	public String getStudentByCourse(){
+		Course course = courseService.getCourseById(courseId);
+		List<StudentCourse> scList = studentCourseService.findByCourse(course);
+		for(StudentCourse sc: scList){
+			studentList.add(sc.getStudent());
+		}
+		if(studentList.size()==0){
+			addActionError("此课程暂未添加学生！");
+			return ERROR;
+		}else
+			return SUCCESS;
+	}
+	
+	/**
+	 * 删除course的某位学生关系
+	 * @return
+	 */
+	public String deleteStudent(){
+		student = studentCourseService.findStudentById(studentId);
+		boolean result = studentCourseService.delete(course, student);
+		if(result)
+			return SUCCESS;
+		else
+			return ERROR;
+	}
+	
+	/**
+	 * 为course添加学生
+	 * @return
+	 */
+	public String addStudentCourse(){
+		StudentCourse studentCourse = new StudentCourse();
+		studentCourse.setCourse(course);
+		studentCourse.setStudent(student);
+		studentCourse.setStatus(0);
+		boolean result = studentCourseService.addStudentCourse(studentCourse);
+		if(result){
+			addActionError("添加学生成功！");
+			return SUCCESS;
+		}else
+			return ERROR;
+	}
+	
 	public String courseDetail(){
 		course = courseService.getCourseById(courseId);
 		if(course == null){
@@ -285,6 +339,38 @@ public class CourserAction extends BaseAction {
 
 	public void setRefuseReason(String refuseReason) {
 		this.refuseReason = refuseReason;
+	}
+
+	public IStudentCourseService getStudentCourseService() {
+		return studentCourseService;
+	}
+
+	public void setStudentCourseService(IStudentCourseService studentCourseService) {
+		this.studentCourseService = studentCourseService;
+	}
+
+	public List<Student> getStudentList() {
+		return studentList;
+	}
+
+	public void setStudentList(List<Student> studentList) {
+		this.studentList = studentList;
+	}
+
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+
+	public int getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
 	}
 
 }
