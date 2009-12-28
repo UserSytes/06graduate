@@ -41,7 +41,7 @@
 						简介
 					</th>
 					<th>
-						操作
+						学生
 					</th>
 				</tr>
 				<s:iterator value="applicationCourseList" status="course">
@@ -62,15 +62,23 @@
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
-								<font color="green">【查看学生】</font>
+								<font color="green">【查看】</font>
 							</a>
 							<a
-								href="<s:url action="addCourseStudentAction"> 
+								href="<s:url action="goAddCourseStudentAction"> 
                      			<s:param name="courseId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
-								<font color="blue">【添加学生】</font>
+								<font color="blue">【添加】</font>
+							</a>
+							<a
+								href="<s:url action="goAddCourseStudentBatchAction"> 
+                     			<s:param name="courseId"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param> 
+                					</s:url>">
+								<font color="blue">【批量添加】</font>
 							</a>
 						</td>
 					</tr>
