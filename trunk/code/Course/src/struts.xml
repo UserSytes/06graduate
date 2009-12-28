@@ -175,6 +175,14 @@
 		</action>
 		
 		<!-- 课程管理 (学院管理员)-->
+		<action name="courseNoPassAction" method="findNoPassCourse" class="courseAction">
+			<result name="success">/admin/coursemanage/nopasscourselist.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="courseBySchoolAction" method="findCourse" class="courseAction">
+			<result name="success">/admin/coursemanage/courselist.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		<action name="applicationCourseAction" method="findApplicationCourse" class="courseAction">
 			<result name="success">/admin/coursemanage/applicationlist.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
