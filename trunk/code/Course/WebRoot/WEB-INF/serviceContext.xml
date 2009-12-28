@@ -41,6 +41,15 @@
 		</property>
 	</bean>	
 	
+	<bean id="studentCourseServiceTarget" class="cn.edu.xmu.course.service.impl.StudentCourseService">
+		<property name="studentCourseDAO">
+			<ref bean="StudentCourseDAO" />
+		</property>
+		<property name="studentDAO">
+			<ref bean="StudentDAO" />
+		</property>
+	</bean>	
+	
 	<!-- 院系管理 -->
 	<bean id="departmentServiceTarget" class="cn.edu.xmu.course.service.impl.DepartmentService">
 		<property name="departmentDAO">

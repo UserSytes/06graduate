@@ -37,6 +37,9 @@
 		<property name="departmentService">
 			<ref bean="departmentService" />
 		</property>
+		<property name="studentCourseService">
+			<ref bean="studentCourseService" />
+		</property>
 	</bean>
 	<bean id="courseInfoAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.CourseInfoAction">
