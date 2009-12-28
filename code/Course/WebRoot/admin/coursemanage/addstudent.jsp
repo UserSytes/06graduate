@@ -35,7 +35,7 @@
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 课程管理 -&gt;课程列表 -&gt; <s:text name="">${course.name}</s:text>
+					当前位置: 课程管理  -&gt; <s:text name="">${course.name}</s:text>
 					-&gt; 添加学生
 				</td>
 			</tr>
@@ -49,7 +49,7 @@
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						添加学生
+						<s:text name="">${course.name}</s:text>课程添加学生
 					</td>
 				</tr>
 				<tr>

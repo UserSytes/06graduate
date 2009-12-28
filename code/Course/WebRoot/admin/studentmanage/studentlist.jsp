@@ -45,7 +45,6 @@
 							&nbsp;&nbsp;&nbsp;
 							<s:select name="gradeId" list="gradeList" headerKey="-1"
 								headerValue="所有" listKey="id" listValue="name+grade" />
-							&nbsp;*
 						</td>
 					</tr>
 					<tr>
@@ -58,7 +57,6 @@
 							&nbsp;&nbsp;&nbsp;
 							<s:select name="departmentId" list="departmentList"
 								headerKey="-1" headerValue="所有" listKey="id" listValue="name" />
-							&nbsp;*
 						</td>
 					</tr>
 					<tr bgcolor="#ECF3FD">
