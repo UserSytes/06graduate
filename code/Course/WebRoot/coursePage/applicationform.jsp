@@ -432,6 +432,24 @@
 															<s:date name="applicationForm.time" format="yyyy-MM-dd" />
 														</td>
 													</tr>
+													<tr bgcolor="#FFFDF0" height="30">
+														<td>
+															<div align="center">
+																申报表格下载
+															</div>
+														</td>
+														<td>
+															<a
+						href="<s:url action="download"> 
+                     			<s:param name="fileName"> 
+                       			 	<s:property value="applicationForm.fileLink"/> 
+                    			</s:param> 
+                					</s:url>"
+						onclick="JAVAscript:if(!confirm('确认下载附件？')) return false;return true;">
+						<font color="red">点此下载</font> </a>
+														</td>
+													</tr>
+
 <tr>
 										<td height="5" align="left" valign="top" colspan="2">
 											<img src="coursePage/images/bot_4.jpg" width="100%" height="5">
