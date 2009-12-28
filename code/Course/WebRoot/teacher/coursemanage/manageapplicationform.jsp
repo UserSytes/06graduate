@@ -32,11 +32,11 @@
 			</tr>
 		</table>
 
-		<s:form action="addApplicationFormAction" method="post"  enctype="multipart/form-data"  
-			onsubmit="return check(this);">&nbsp;&nbsp; 
+		<s:form action="addApplicationFormAction" method="post"
+			enctype="multipart/form-data" onsubmit="return check(this);">&nbsp;&nbsp; 
 			<s:hidden name="applicationForm.id"></s:hidden>
-<s:hidden name="applicationForm.filename"></s:hidden>
-<s:hidden name="applicationForm.fileLink"></s:hidden>
+			<s:hidden name="applicationForm.filename"></s:hidden>
+			<s:hidden name="applicationForm.fileLink"></s:hidden>
 			<s:hidden name="applicationForm.course.id"></s:hidden>
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
@@ -53,7 +53,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="applicationForm.province"  cssClass="input" />
+						<s:textfield name="applicationForm.province" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -156,10 +156,11 @@
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<s:head />
-						<s:datetimepicker displayFormat="yyyy-MM-dd" name="applicationForm.time" />
+						<s:datetimepicker displayFormat="yyyy-MM-dd"
+							name="applicationForm.time" />
 					</td>
 				</tr>
-<tr>
+				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
 							上传文件：
@@ -170,7 +171,24 @@
 						<s:file name="upload"></s:file>
 					</td>
 				</tr>
-				
+<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							查看文件：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<a
+						href="<s:url action="download"> 
+                     			<s:param name="fileName"> 
+                       			 	<s:property value="applicationForm.fileLink"/> 
+                    			</s:param> 
+                					</s:url>"
+						onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
+						<font color="red">点击这里查看上传的附件</font> </a>
+					</td>
+				</tr>
 				<tr class=editHeaderTr>
 					<td width="30%" class=editFooterTd>
 						&nbsp;

@@ -7,7 +7,26 @@
 	<constant name="struts.devMode" value="false" />
 	<constant name="struts.i18n.encoding" value="UTF-8" />
 	<constant name="struts.ui.theme" value="simple" />
+	
 	<package name="struts" extends="struts-default">
+	
+		<action name="download" class="cn.edu.xmu.course.web.action.DownloadAction">
+			 <!-- 设置文件名参数，由页面上传入 -->    
+            <param name="fileName"></param>    
+            <result name="success" type="stream">    
+                <!-- 下载文件类型定义 -->    
+               <param name="contentType">application/octet-stream</param>
+                                
+                <!-- 下载文件处理方法 -->    
+                <param name="contentDisposition">    
+                    attachment;filename="${fileName}"   
+                </param>    
+                <!-- 下载文件输出流定义 -->    
+                <param name="inputName">downloadFile</param>    
+            </result>    
+		</action>
+	
+	
 		<!--登陆系统-->
 		<action name="loginAction" method="login"
 			class="cn.edu.xmu.course.web.action.LoginAction">
@@ -137,7 +156,8 @@
 		</action>
 		<action name="getMyCourseByStateAction" method="findMyCoursesList"
 			class="courseAction">
-			<result>/teacher/coursemanage/courseslist.jsp</result>
+			<result>/teacher/coursemanage/courseslist.jsp
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="getMyCourseInLeft" method="findMyCoursesList"
@@ -147,55 +167,76 @@
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<!-- 课程管理 (教师)-->
-		<action name="addNewCourseInfoAction" method="addNewCourseInfo" class="courseInfoAction">
-			<result name="success" type="redirect-action">findCurrentCourseInfoAction</result>
+		<action name="addNewCourseInfoAction" method="addNewCourseInfo"
+			class="courseInfoAction">
+			<result name="success" type="redirect-action">findCurrentCourseInfoAction
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="deleteCourseInfoAction" method="deleteCourseInfo" class="courseInfoAction">
-			<result name="success" type="redirect-action">findCurrentCourseInfoAction</result>
+		<action name="deleteCourseInfoAction" method="deleteCourseInfo"
+			class="courseInfoAction">
+			<result name="success" type="redirect-action">findCurrentCourseInfoAction
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="saveCurrentCourseAction" method="saveCurrentCourse" class="courseAction">
+		<action name="saveCurrentCourseAction" method="saveCurrentCourse"
+			class="courseAction">
 			<result name="success">/teacher/right.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="getCurrentCourseAction" method="getCurrentCourse" class="courseInfoAction">
-			<result name="success">/teacher/coursemanage/manageapplicationform.jsp</result>
+		<action name="getCurrentCourseAction" method="getCurrentCourse"
+			class="courseInfoAction">
+			<result name="success">/teacher/coursemanage/manageapplicationform.jsp
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="findCurrentCourseInfoAction" method="findCourseInfo" class="courseInfoAction">
-			<result name="success">/teacher/coursemanage/viewcourseinfo.jsp</result>
+		<action name="findCurrentCourseInfoAction" method="findCourseInfo"
+			class="courseInfoAction">
+			<result name="success">/teacher/coursemanage/viewcourseinfo.jsp
+			</result>
 		</action>
-		<action name="getCourseInfoDetailAction" method="getCourseInfoDetail" class="courseInfoAction">
-			<result name="success">/teacher/coursemanage/viewcourseinfo.jsp</result>
+		<action name="getCourseInfoDetailAction" method="getCourseInfoDetail"
+			class="courseInfoAction">
+			<result name="success">/teacher/coursemanage/viewcourseinfo.jsp
+			</result>
 		</action>
-		<action name="updateCourseInfoAction" method="updateCourseInfo" class="courseInfoAction">
-			<result name="success">/teacher/coursemanage/addcourseinfo.jsp</result>
+		<action name="updateCourseInfoAction" method="updateCourseInfo"
+			class="courseInfoAction">
+			<result name="success">/teacher/coursemanage/addcourseinfo.jsp
+			</result>
 		</action>
-		<action name="addApplicationFormAction" method="addApplicationForm" class="courseInfoAction">
+		<action name="addApplicationFormAction" method="addApplicationForm"
+			class="courseInfoAction">
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		
 		<!-- 课程管理 (学院管理员)-->
-		<action name="courseNoPassAction" method="findNoPassCourse" class="courseAction">
-			<result name="success">/admin/coursemanage/nopasscourselist.jsp</result>
+		<action name="courseNoPassAction" method="findNoPassCourse"
+			class="courseAction">
+			<result name="success">/admin/coursemanage/nopasscourselist.jsp
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="courseBySchoolAction" method="findCourse" class="courseAction">
-			<result name="success">/admin/coursemanage/courselist.jsp</result>
+			<result name="success">/admin/coursemanage/courselist.jsp
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="applicationCourseAction" method="findApplicationCourse" class="courseAction">
-			<result name="success">/admin/coursemanage/applicationlist.jsp</result>
+		<action name="applicationCourseAction" method="findApplicationCourse"
+			class="courseAction">
+			<result name="success">/admin/coursemanage/applicationlist.jsp
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="coursePassAction" method="coursePass" class="courseAction">
-			<result name="success">/admin/coursemanage/applicationlist.jsp</result>
+			<result name="success">/admin/coursemanage/applicationlist.jsp
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="courseNoPassAction" method="courseNoPass" class="courseAction">
-			<result name="success">/admin/coursemanage/applicationlist.jsp</result>
+			<result name="success">/admin/coursemanage/applicationlist.jsp
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		
@@ -275,7 +316,8 @@
 		
 		<!--新闻政策管理-->
 		<action name="goAddNewsAction" method="goAddNews" class="newsAction">
-			<result name="success">/admin/newsmanage/addnews.jsp</result>
+			<result name="success">/admin/newsmanage/addnews.jsp
+			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="addNewsAction" method="addNews" class="newsAction">
@@ -283,23 +325,28 @@
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="newsListAction" method="findAllNews" class="newsAction">
-			<result name="success">/admin/newsmanage/newslist.jsp</result>
+			<result name="success">/admin/newsmanage/newslist.jsp
+			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="deleteNewsAction" method="deleteNews" class="newsAction">
-			<result name="success">/admin/newsmanage/newslist.jsp</result>
+			<result name="success">/admin/newsmanage/newslist.jsp
+			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="viewNewsAction" method="viewNews" class="newsAction">
-			<result name="success">/admin/newsmanage/viewnews.jsp</result>
+			<result name="success">/admin/newsmanage/viewnews.jsp
+			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="goEditNewsAction" method="goEditNews" class="newsAction">
-			<result name="success">/admin/newsmanage/editnews.jsp</result>
+			<result name="success">/admin/newsmanage/editnews.jsp
+			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="editNewsAction" method="editNews" class="newsAction">
-			<result name="success">/admin/newsmanage/viewnews.jsp</result>
+			<result name="success">/admin/newsmanage/viewnews.jsp
+			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		
@@ -348,16 +395,17 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-				<action name="findTeacherTeamAction" method="findTeacherTeam" class="viewDetailAction">
+		<action name="findTeacherTeamAction" method="findTeacherTeam"
+			class="viewDetailAction">
 			<result name="teachers">/coursePage/teacherteam.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="findAchievementAction" method="findAchievement" class="viewDetailAction">
+		<action name="findAchievementAction" method="findAchievement"
+			class="viewDetailAction">
 			<result name="achievement">/coursePage/achievement.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		
 	</package>
 </struts>

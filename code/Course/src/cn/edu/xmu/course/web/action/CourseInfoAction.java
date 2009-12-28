@@ -91,6 +91,7 @@ public class CourseInfoAction extends BaseAction {
 
 	/**
 	 * 编辑课程信息
+	 * 
 	 * @return
 	 */
 	public String updateCourseInfo() {
@@ -143,31 +144,27 @@ public class CourseInfoAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	private String fileRename() {
+	private String refactorFileLink() {
 		Teacher teacher = super.getTeacher();
-		String fileName = ServletActionContext.getServletContext().getRealPath(
-				"/Uploadfile")
-				+ "/"
-				+ teacher.getTeacherNo()
-				+ "_"
-				+ teacher.getUserInfo().getName()
-				+ "/"
-				+ new Date().getTime()
+		String fileLink = teacher.getUserInfo().getName() + "/" + new Date().getTime()
 				+ "_" + uploadFileName;
-		return fileName;
+		return fileLink;
 	}
 
 	/**
 	 * 添加新的申报表格
+	 * 
 	 * @return
 	 */
 	public String addApplicationForm() {
-	
+		
 		File file = null;
 		if (upload != null) {
-			String fileName = this.fileRename();
+			String path = ServletActionContext.getServletContext().getRealPath(
+			"/upload");
+			String fileName = path+"/"+this.refactorFileLink();
 			file = new File(fileName);
-			applicationForm.setFileLink(fileName);
+			applicationForm.setFileLink(this.refactorFileLink());
 			applicationForm.setFilename(uploadFileName);
 		}
 		if (applicationForm.getId() == null)
@@ -175,16 +172,16 @@ public class CourseInfoAction extends BaseAction {
 		else 
 			return updateApplicationForm(file);
 	}
-	
+
 	/**
 	 * 添加申报表格
+	 * 
 	 * @param file
 	 * @return
 	 */
-	public String addNewApplicationForm(File file){
+	public String addNewApplicationForm(File file) {
 		Course course = super.getCourse();
-		if (applicationFormService.addApplicationForm(applicationForm,
-				course)
+		if (applicationFormService.addApplicationForm(applicationForm, course)
 				&& FileOperation.copy(upload, file)) {
 			addActionMessage("添加课程申报表格成功！!");
 			return SUCCESS;
@@ -193,13 +190,14 @@ public class CourseInfoAction extends BaseAction {
 			return ERROR;
 		}
 	}
-	
+
 	/**
 	 * 更新申报表格
+	 * 
 	 * @param file
 	 * @return
 	 */
-	public String updateApplicationForm(File file){
+	public String updateApplicationForm(File file) {
 		if (applicationFormService.updateApplicationForm(applicationForm)
 				&& FileOperation.copy(upload, file)) {
 			addActionMessage("更改课程申报表格成功!");
