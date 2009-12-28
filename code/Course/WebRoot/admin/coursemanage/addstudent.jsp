@@ -10,17 +10,27 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
 		<title>添加学生</title>
+		<script type="text/javascript" src="/dwr/engine.js"></script>
+		<script type="text/javascript" src="/dwr/util.js"></script>
+		<script type="text/javascript" src="/dwr/interface/StudentInfoService.js"></script>
 		<SCRIPT language=javascript>
-			function check(form)
-			{
-				if (form.studentNo.value == "")
-				{
-					alert("学号不能为空！");
-					return false;
-				}
-				return true;
-			}
-		</SCRIPT>
+	function check(form) {
+		if (form.studentNo.value == "") {
+			alert("学号不能为空！");
+			return false;
+		}
+		return true;
+	}
+	function getStudentName(stuNo) {
+		StudentInfoService.findUserInfoByStudentNo(stuNo,callBack);
+	}
+	function callBack(data){
+		if(data != null)
+			DWRUtil.setValue('result',data.name);
+		else
+			DWRUtil.setValue('result',"该学生不存在");
+	}
+</SCRIPT>
 		<style type="text/css">
 <!--
 .STYLE1 {
@@ -35,21 +45,23 @@
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 课程管理  -&gt; <s:text name="">${course.name}</s:text>
+					当前位置: 课程管理 -&gt;
+					<s:text name="">${course.name}</s:text>
 					-&gt; 添加学生
 				</td>
 			</tr>
 		</table>
 		<s:form action="addCourseStudentAction" method="post"
 			onsubmit="return check(this);">
-				<s:hidden name="course.id" />
-				<s:hidden name="student.id" />
-				<s:hidden name="student.studentNo" />
+			<s:hidden name="course.id" />
+			<s:hidden name="student.id" />
+			<s:hidden name="student.studentNo" />
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						<s:text name="">${course.name}</s:text>课程添加学生
+						<s:text name="">${course.name}</s:text>
+						课程添加学生
 					</td>
 				</tr>
 				<tr>
@@ -61,7 +73,9 @@
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<s:textfield cssClass="INPUT" id="studentNo"
-							name="student.studentNo" label="学号"></s:textfield>
+							name="student.studentNo" label="学号"
+							onblur="getStudentName(this.value)"></s:textfield>
+
 						&nbsp;*
 					</td>
 				</tr>
@@ -71,9 +85,9 @@
 							姓名：
 						</div>
 					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-						<s:text name="">${student.userInfo.name}</s:text>
+					<td colspan="3" bgcolor="#FFFFFF">					
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="result">
+						</span>
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">

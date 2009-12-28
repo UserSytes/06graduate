@@ -106,4 +106,14 @@ public class StudentInfoService implements IStudentInfoService {
 		this.userInfoDAO = userInfoDAO;
 	}
 
+	public UserInfo findUserInfoByStudentNo(String studentNo) {
+		// TODO Auto-generated method stub
+		List<Student> students = studentDAO.findByStudentNo(studentNo);
+		if(students.size()==0){
+			return null;
+		}else{
+			return students.get(0).getUserInfo();
+		}
+	}
+
 }
