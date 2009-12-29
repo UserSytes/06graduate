@@ -3,6 +3,7 @@ package cn.edu.xmu.course.service.impl;
 import java.util.List;
 
 import cn.edu.xmu.course.dao.AdministratorDAO;
+import cn.edu.xmu.course.dao.StudentDAO;
 import cn.edu.xmu.course.dao.SuperAdminDAO;
 import cn.edu.xmu.course.dao.TeacherDAO;
 import cn.edu.xmu.course.pojo.Administrator;
@@ -20,6 +21,7 @@ import cn.edu.xmu.course.service.ILoginService;
 public class LoginService implements ILoginService {
 
 	private TeacherDAO teacherDAO;
+	private StudentDAO studentDAO;
 	private AdministratorDAO administratorDAO;
 	private SuperAdminDAO superAdminDAO;
 
@@ -73,7 +75,14 @@ public class LoginService implements ILoginService {
 
 	public Student studentLogin(String userName, String password) {
 		// TODO Auto-generated method stub
-		return null;
+		List<Student> students = studentDAO.findByStudentNo(userName);
+		if (0 == students.size())
+			return null;
+		Student st = students.get(0);
+		if (password.equals(st.getPassword()))
+			return st;
+		else
+			return null;
 	}
 
 	public SuperAdmin superAdminLogin(String account, String password) {
@@ -86,6 +95,14 @@ public class LoginService implements ILoginService {
 			return a;
 		else
 			return null;
+	}
+
+	public StudentDAO getStudentDAO() {
+		return studentDAO;
+	}
+
+	public void setStudentDAO(StudentDAO studentDAO) {
+		this.studentDAO = studentDAO;
 	}
 
 }
