@@ -14,13 +14,18 @@
 		<SCRIPT language=javascript>
 			function check(form)
 			{
-				if (form.schoolName.value == "")
+				if (form.title.value == "")
 				{
 					alert("学院名不能为空！");
 					return false;
-				}else{
-					return true;
 				}
+				if (form.anthor.value == "")
+				{
+					alert("作者不能为空！");
+					return false;
+				}
+				return true;
+				
 			}
 		</SCRIPT>
 		<style type="text/css">
@@ -41,13 +46,13 @@
 				</td>
 			</tr>
 		</table>
-		<s:form action="addNewaAction" method="post"
+		<s:form action="addNewsAction" method="post"
 			onsubmit="return check(this);">
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						请输入新学院信息
+						请输入新闻信息
 					</td>
 				</tr>
 				<tr>
@@ -56,18 +61,18 @@
 							标题：
 						</div>
 					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						<s:textfield cssClass="INPUT" id="title" name="news.title" label="标题"></s:textfield>
+					<td colspan="4" bgcolor="#FFFFFF">
+						<s:textfield cssClass="LONGINPUT" id="title" name="news.title" label="标题"></s:textfield>&nbsp;*
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							发布时间：
+							作者：
 						</div>
 					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						<s:textfield cssClass="INPUT" id="time" name="news.time" label="时间"></s:textfield>
+					<td colspan="4" bgcolor="#FFFFFF">
+						<s:textfield cssClass="LONGINPUT" id="author" name="news.author" label="作者"></s:textfield>&nbsp;*
 					</td>
 				</tr>
 				<tr>
@@ -76,29 +81,29 @@
 							内容：
 						</div>
 					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-					</td>
-				</tr>
-				<tr>
-					<td colspan="3">
+					<td colspan="4" bgcolor="#FFFFFF">
 						<FCK:editor instanceName="news.content" width="100%" height="405"
 							toolbarSet="Default">
 							<jsp:attribute name="value">
-                </jsp:attribute>
+                            </jsp:attribute>
 						</FCK:editor>
 					</td>
 				</tr>
 				<tr>
-					<td colspan="3" bgcolor="#FFFFFF">
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							附件：
+						</div>
+					</td>
+					<td bgcolor="#FFFFFF">
 						<s:file></s:file>
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">
-					<td width="30%">
+					<td width="15%">
 						&nbsp;
 					</td>
-					<td width="70%">
+					<td width="85%">
 						<s:submit cssClass="label" value="确定添加"></s:submit>
 					</td>
 				</tr>

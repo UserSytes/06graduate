@@ -38,20 +38,50 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="3" bgcolor="#FFFFFF">
-						发布时间：<s:text name="">${news.time}</s:text></s:textfield>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							标题：
+						</div>
+					</td>
+					<td colspan="4" bgcolor="#FFFFFF">
+						<s:property value="news.title"></s:property>
 					</td>
 				</tr>
 				<tr>
-					<td colspan="3" bgcolor="#FFFFFF">
-						<s:text name="">${news.content}</s:text></s:textfield>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							作者：
+						</div>
+					</td>
+					<td colspan="4" bgcolor="#FFFFFF">
+						<s:property value="news.author"></s:property>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							内容：
+						</div>
+					</td>
+					<td colspan="4" bgcolor="#FFFFFF">
+						<s:text name="">${news.content}</s:text>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							附件：
+						</div>
+					</td>
+					<td bgcolor="#FFFFFF">
+						<s:file></s:file>
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">
-					<td width="30%">
+					<td width="15%">
 						&nbsp;
 					</td>
-					<td width="70%">
+					<td width="85%">
 						<s:submit cssClass="label" value="修改"></s:submit>
 					</td>
 				</tr>

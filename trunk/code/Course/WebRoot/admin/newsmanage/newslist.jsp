@@ -32,7 +32,7 @@
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>
-						新闻政策id
+						序号
 					</th>
 					<th>
 						标题
@@ -41,21 +41,27 @@
 						发布时间
 					</th>
 					<th>
+						作者
+					</th>
+					<th>
 						操作
 					</th>
 				</tr>
 				<s:iterator value="newsList" status="news">
 					<tr class="listTr">
-						<td>
-							<s:property value="id" />
+						<td width="5%">
+							<s:property value="#news.count" />
 						</td>
-						<td>
+						<td width="35%">
 							<s:property value="title" />
 						</td>
-						<td>
+						<td width="25%">
 							<s:property value="time" />
 						</td>
-						<td>
+						<td width="15%">
+							<s:property value="author" />
+						</td>
+						<td width="20%">
 							<a
 								href="<s:url action="viewNewsAction"> 
                      			<s:param name="newsId"> 

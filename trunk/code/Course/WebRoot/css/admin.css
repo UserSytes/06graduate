@@ -20,6 +20,9 @@ label {
 INPUT {
 	FONT-SIZE: 12px; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"
 }
+LONGINPUT {
+	FONT-SIZE: 12px; width: 250px; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"
+}
 SELECT {
 	FONT-SIZE: 12px; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"
 }

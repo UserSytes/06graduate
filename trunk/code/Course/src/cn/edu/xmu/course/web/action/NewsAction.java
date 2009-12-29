@@ -1,10 +1,15 @@
 package cn.edu.xmu.course.web.action;
 
+import java.util.Date;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.News;
 import cn.edu.xmu.course.service.INewsService;
-
+/**
+ * 新闻管理
+ * @author Sky
+ *
+ */
 public class NewsAction extends BaseAction{
 
 	private INewsService newsService;
@@ -28,6 +33,8 @@ public class NewsAction extends BaseAction{
 	 * @return
 	 */
 	public String addNews(){
+		Date nowDate = new Date();
+		news.setTime(nowDate);
 		boolean result = newsService.addNews(news);
 		if(result){
 			addActionMessage("添加新闻成功！");
@@ -59,6 +66,7 @@ public class NewsAction extends BaseAction{
 		news = newsService.findNewsById(newsId);
 		boolean result = newsService.deleteNews(news);
 		if(result){
+			this.findAllNews();
 			addActionMessage("删除新闻成功！");
 			return SUCCESS;
 		}
@@ -79,7 +87,13 @@ public class NewsAction extends BaseAction{
 			return ERROR;
 	}
 	
+	/**
+	 * 跳转到修改新闻
+	 * @return
+	 */
 	public String goEditNews(){
+		System.out.print("测试1："+news.getId());
+		news = newsService.findNewsById(news.getId());
 		return SUCCESS;
 	}
 	
