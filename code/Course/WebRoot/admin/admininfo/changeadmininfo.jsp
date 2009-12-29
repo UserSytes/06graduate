@@ -16,7 +16,7 @@
 			alert("电话不能为空！");
 			return false;
 		}
-		if (form.email.value == -1) {
+		if (form.email.value == "") {
 			alert("E-mail不能为空！");
 			return false;
 		}
@@ -55,8 +55,10 @@
 		</table>
 		<s:form action="changeAdminInfoAction" method="post" onsubmit="return check(this);">
 			<s:hidden name="admin.id" />
-			<s:hidden name="admin.mobile" />
-			<s:hidden name="admin.email" />
+			<s:hidden name="admin.name" />
+			<s:hidden name="admin.account" />
+			<s:hidden name="admin.password" />
+			<s:hidden name="admin.school.id" />
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>

@@ -4,6 +4,23 @@
   <head> 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title></title>
+<SCRIPT language=javascript>
+	function check(form) {
+		if (form.userName.value == "") {
+			alert("账号不能为空！");
+			return false;
+		}
+		if (form.password.value == "") {
+			alert("密码不能为空！");
+			return false;
+		}
+		if (form.flag.value == -1) {
+			alert("请选择权限！");
+			return false;
+		}
+		return true;
+	}
+</SCRIPT>
  <!--
 a{ color:#008EE3}
 a:link  { text-decoration: none;color:#008EE3}
@@ -109,7 +126,7 @@ body {
       </tr>
     </table></td>
     <td width="195" background="Images/login_2.gif"><table width="190" height="106" border="0" align="center" cellpadding="2" cellspacing="0">
-      <s:form action="adminLoginAction" method="post" onsubmit="return chk(this);" name="NETSJ_Login">
+      <s:form action="adminLoginAction" method="post" onsubmit="return check(this);" name="NETSJ_Login">
             <tr>
               <td height="50" colspan="2" align="left">&nbsp;</td>
             </tr>

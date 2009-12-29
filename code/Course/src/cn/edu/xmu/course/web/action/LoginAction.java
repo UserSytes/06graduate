@@ -44,7 +44,7 @@ public class LoginAction extends BaseAction {
 				ActionSession.getSession().put(ADMIN, admin);
 				return "admin";
 			}
-		} else {
+		} else if(flag == 1){
 			SuperAdmin superAdmin = loginService.superAdminLogin(userName,
 					password);
 			if (null == superAdmin)
@@ -53,7 +53,8 @@ public class LoginAction extends BaseAction {
 				ActionSession.getSession().put(SUPERADMIN, superAdmin);
 				return "superAdmin";
 			}
-		}
+		}else
+			return ERROR;
 	}
 
 	public ILoginService getLoginService() {
