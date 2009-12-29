@@ -10,6 +10,13 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
 		<title>教师队伍列表</title>
+		<SCRIPT language=javascript>
+			function popwin(url)
+			{
+			window.open(url);
+			}
+
+		</SCRIPT>
 	</head>
 	<body>
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
@@ -25,7 +32,8 @@
 			<table class="listTable">
 				<tr>
 					<td>
-						<a href="coursemanage/addteacherteam.jsp">点击这里添加新的教师<a>
+						<a href="coursemanage/addteacherteam.jsp"><font size="3">点击这里添加新的教师</font>
+						</a>
 					</td>
 				</tr>
 				<tr class="listHeaderTr"
@@ -43,6 +51,9 @@
 						链接
 					</th>
 					<th>
+						备注
+					</th>
+					<th>
 						操作
 					</th>
 				</tr>
@@ -58,12 +69,23 @@
 							<s:property value="field" />
 						</td>
 						<td>
-							<a href="javascript:openLink();"><s:property value="link"/></a>							
+							<a href="javascript:popwin('${link}')"><s:property id="link"
+									value="link" /> </a>
+						</td>
+						<td>
+							<s:property value="remark" />
 						</td>
 						<td>
 							<a
-								href="<s:url action="deleteCourseInfoAction"> 
-                     			<s:param name="courseInfoId"> 
+								href="<s:url action="goEidtTeacherTeamAction"> 
+                     			<s:param name="teacherTeamId"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param> 
+                					</s:url>">
+								<font color="green">【编辑】</font> </a>
+							<a
+								href="<s:url action="deleteTeacherTeamAction"> 
+                     			<s:param name="teacherTeamId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>"
