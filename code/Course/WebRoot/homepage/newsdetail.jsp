@@ -26,7 +26,7 @@
 							cellpadding="0">
 							<tr>
 								<td colspan="2" WIDTH=765 height="102">
-									<s:include value="homepage/include/header3.jsp"></s:include>
+									<s:include value="include/header3.jsp"></s:include>
 								</td>
 							</tr>
 							<tr>
@@ -41,29 +41,20 @@
 
 										<tr>
 											<td height="38">
-												<img src="homepage/images/but-2.jpg" width="214" height="38">
+												<img src="${ctx}/homepage/images/but-2-1.jpg" width="214" height="38" style="">
 											</td>
 										</tr>
 										<tr>
 											<td width="210" height="100%" valign="top"
-												background="homepage/images/back-but-2.jpg"
+												background="${ctx}/homepage/images/back-but-2.jpg"
 												style="padding-left: 28px; padding-top: 4px; padding-bottom: 15px">
-												<img src="homepage/images/text-2.jpg" width="92" height="17">
 												<br>
+												<div style="line-height: 15px; padding-bottom: 10px"></div>
+												<a href="<s:url action="newsAction"> 
+                					</s:url>" class="style3">新闻公告</a>
 												<div style="line-height: 15px; padding-bottom: 10px">
-													<font face="tahoma"
-														style="font-size: 10px; color: #666666; line-height: 15px">11
-														Some Street Second Floor<br>New York WA 02020<br>Tel./Fax
-														1(800)111-1111</font>
 												</div>
-												<img src="homepage/images/text-2.jpg" width="92" height="17">
-												<br>
-												<div style="line-height: 14px">
-													<font face="tahoma"
-														style="font-size: 10px; color: #666666; line-height: 14px">3030
-														Some street Suite 1500<br>Atlanta GA 30300<br>Tel./Fax
-														1(800)111-1111</font>
-												</div>
+												
 											</td>
 										</tr>
 									</table>

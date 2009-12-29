@@ -92,10 +92,13 @@
 							<a href="<s:url action="newsAction"> 
                 					</s:url>">
 								<font color="green">【查看新闻】</font></a>
+
 						</td>
 										<td background="coursePage/images/com_3.jpg" width="101"
 											height="30" border="0" align="center">
-											<a href="#">师资队伍</a>
+										<a href="<s:url action="courseDisplayAction"> 
+                					</s:url>">
+								<font color="green">【查看精品课程】</font></a>
 										</td>
 										<td background="coursePage/images/com_4.jpg" width="101"
 											height="30" border="0" align="center">

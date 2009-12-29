@@ -9,7 +9,7 @@
 </head>
 <body>
 <tr>
-			<td width="765" height="79" colspan="2" background="images/end.jpg" style="background-repeat:no-repeat;background-position:top;padding-top:18px" align="center" valign="top">
+			<td width="765" height="79" colspan="2" background="${ctx}/homepage/images/end.jpg" style="background-repeat:no-repeat;background-position:top;padding-top:18px" align="center" valign="top">
 				<font face="tahoma" style="font-size:10px;color:#FFFFFF"><strong>
 					<a href="index.html" style="color:#FFFFFF;text-decoration:none">HOME</a>   &nbsp;&nbsp;::&nbsp;&nbsp;   
 					<a href="index-1.html" style="color:#FFFFFF;text-decoration:none">SERVICES</a>    &nbsp;&nbsp;::&nbsp;&nbsp;   
