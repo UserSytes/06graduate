@@ -56,11 +56,8 @@
 		</property>
 	</bean>	
 	
-	<!--超级管理员（院系管理模块）-->
+	<!--院系管理模块-->
 	<bean id="superAdminServiceTarget" class="cn.edu.xmu.course.service.impl.SuperAdminService">
-		<property name="superAdminDAO">
-			<ref bean="SuperAdminDAO" />
-		</property>
 		<property name="schoolDAO">
 			<ref bean="SchoolDAO" />
 		</property>
@@ -79,10 +76,13 @@
 		</property>
 	</bean>
 	
-	<!--学院管理员-->
+	<!--管理员-->
 	<bean id="adminServiceTarget" class="cn.edu.xmu.course.service.impl.AdminService">
 		<property name="administratorDAO">
 			<ref bean="AdministratorDAO" />
+		</property>
+		<property name="superAdminDAO">
+			<ref bean="SuperAdminDAO" />
 		</property>
 	</bean>
 	<!-- 前台 -->
