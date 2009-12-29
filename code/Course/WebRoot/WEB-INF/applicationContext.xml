@@ -53,7 +53,7 @@
 		</property>
 	</bean>
 	<bean id="MessageDAO" class="cn.edu.xmu.course.dao.MessageDAO">
-		<property name="sessionFactory"> 
+		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>

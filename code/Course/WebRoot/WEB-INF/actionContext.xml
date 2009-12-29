@@ -87,6 +87,15 @@
 		<property name="newsService">
 			<ref bean="newsService" />
 		</property>
+		<property name="loginService">
+			<ref bean="loginService" />
+		</property>
+		<property name="applicationFormService">
+			<ref bean="applicationFormService" />
+		</property>
+		<property name="courseService">
+			<ref bean="courseService" />
+		</property>
 	</bean>
 	<bean id="viewDetailAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.ViewDetailAction">

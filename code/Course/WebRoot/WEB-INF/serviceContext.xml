@@ -6,6 +6,9 @@
 		<property name="teacherDAO">
 			<ref bean="TeacherDAO" />
 		</property>
+			<property name="studentDAO">
+			<ref bean="StudentDAO" />
+		</property>
 		<property name="administratorDAO">
 			<ref bean="AdministratorDAO" />
 		</property>
