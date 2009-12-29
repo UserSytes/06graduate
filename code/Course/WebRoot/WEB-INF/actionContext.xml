@@ -97,4 +97,10 @@
 			<ref bean="achievementService" />
 		</property>
 	</bean>
+	<bean id="teacherTeamAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.TeacherTeamAction">
+		<property name="teacherTeamService">
+			<ref bean="teacherTeamService" />
+		</property>
+	</bean>
 </beans>
