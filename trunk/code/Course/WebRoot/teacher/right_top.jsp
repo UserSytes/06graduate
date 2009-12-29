@@ -23,13 +23,37 @@ body {
 	font-size: 12px;
 	color: #FFFFFF;
 }
--->
-a:link {font-size:12px; text-decoration:none; color:#000000;}
-a:visited {font-size:12px; text-decoration:none; color:#000000;}
-a:hover {font-size:12px; text-decoration:none; color:#FF0000;}
 
-a.v1:link {font-size:12px; text-decoration:none; color:#03515d;}
-a.v1:visited {font-size:12px; text-decoration:none; color:#03515d;}
+-->
+a:link {
+	font-size: 12px;
+	text-decoration: none;
+	color: #000000;
+}
+
+a:visited {
+	font-size: 12px;
+	text-decoration: none;
+	color: #000000;
+}
+
+a:hover {
+	font-size: 12px;
+	text-decoration: none;
+	color: #FF0000;
+}
+
+a.v1:link {
+	font-size: 12px;
+	text-decoration: none;
+	color: #03515d;
+}
+
+a.v1:visited {
+	font-size: 12px;
+	text-decoration: none;
+	color: #03515d;
+}
 </style>
 	</head>
 
@@ -46,85 +70,103 @@ a.v1:visited {font-size:12px; text-decoration:none; color:#03515d;}
 							<td width="99%" valign="bottom">
 								<table width="100%" border="0" cellspacing="0" cellpadding="0">
 									<tr>
-										<td width="102" height="26" valign="bottom">
-											<table width="100" border="0" align="center" cellpadding="0"
+										<td width="87" height="26" valign="bottom">
+											<table width="85" border="0" align="center" cellpadding="0"
 												cellspacing="0">
 												<tr>
-													<td height="25" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(images/main_18.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "onmouseout="this.style.backgroundImage='url()'"
-														style="background: url(images/right_06.gif); border-left: solid 1px #82bcbd; border-top: solid 1px #82bcbd; border-right: solid 1px #82bcbd; cursor: ">
+													<td height="25"
+														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
 														<div align="center">
 															<img src="images/1.gif" width="9" height="9" />
-															<span class="STYLE1"><A href="getCurrentCourseAction.action" target=mainFrame class="v1" >申报表格</A></span>
+															<span class="STYLE1"><A
+																href="getCurrentCourseAction.action" target=mainFrame
+																class="v1">申报表格</A>
+															</span>
 														</div>
 													</td>
 												</tr>
 											</table>
 										</td>
-										<td width="102">
-											<table width="100" border="0" align="center" cellpadding="0"
+										<td width="87">
+											<table width=85 border="0" align="center" cellpadding="0"
 												cellspacing="0">
 												<tr>
 													<td height="25"
 														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
 														<div align="center">
 															<img src="images/2.gif" width="9" height="9" />
-															<span class="STYLE1"><A href="findCurrentCourseInfoAction.action" target=mainFrame class="v1" >课程信息</A></span>
+															<span class="STYLE1"><A
+																href="findCurrentCourseInfoAction.action"
+																target=mainFrame class="v1">课程信息</A>
+															</span>
 														</div>
 													</td>
 												</tr>
 											</table>
 										</td>
-										<td width="102">
-											<table width="100" border="0" align="center" cellpadding="0"
+										<td width="87">
+											<table width="85" border="0" align="center" cellpadding="0"
 												cellspacing="0">
 												<tr>
 													<td height="25"
-														style="background: url(images/right_06.gif); border-left: solid 1px #82bcbd; border-top: solid 1px #82bcbd; border-right: solid 1px #82bcbd;">
+														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
 														<div align="center">
 															<img src="images/3.gif" width="9" height="9" />
-															<span class="STYLE1"><A href="getTeacherTeamByCourseAction.action" target=mainFrame class="v1" >教师队伍</A></span>
+															<span class="STYLE1"><A
+																href="getTeacherTeamByCourseAction.action"
+																target=mainFrame class="v1">教师队伍</A>
+															</span>
 														</div>
 													</td>
 												</tr>
 											</table>
 										</td>
-										<td width="102">
-											<table width="100" border="0" align="center" cellpadding="0"
+										<td width="87">
+											<table width="85" border="0" align="center" cellpadding="0"
 												cellspacing="0">
 												<tr>
 													<td height="25"
-														style="background: url(images/right_06.gif); border-left: solid 1px #82bcbd; border-top: solid 1px #82bcbd; border-right: solid 1px #82bcbd;">
+														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
 														<div align="center">
 															<img src="images/4.gif" width="9" height="9" />
-															<span class="STYLE1">贷款担保状况</span>
+															<span class="STYLE1"><A
+																href="getTeacherTeamByCourseAction.action"
+																target=mainFrame class="v1">教师队伍</A>
+															</span>
 														</div>
 													</td>
 												</tr>
 											</table>
 										</td>
-										<td width="102">
-											<table width="100" border="0" align="center" cellpadding="0"
+									<td width="87">
+											<table width="85" border="0" align="center" cellpadding="0"
 												cellspacing="0">
 												<tr>
 													<td height="25"
-														style="background: url(images/right_06.gif); border-left: solid 1px #82bcbd; border-top: solid 1px #82bcbd; border-right: solid 1px #82bcbd;">
+														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
 														<div align="center">
 															<img src="images/5.gif" width="9" height="9" />
-															<span class="STYLE1">填写补充材料</span>
+															<span class="STYLE1"><A
+																href="getTeacherTeamByCourseAction.action"
+																target=mainFrame class="v1">教师队伍</A>
+															</span>
 														</div>
 													</td>
 												</tr>
 											</table>
 										</td>
-										<td width="102">
-											<table width="100" border="0" align="center" cellpadding="0"
+										<td width="87">
+											<table width="85" border="0" align="center" cellpadding="0"
 												cellspacing="0">
 												<tr>
 													<td height="25"
-														style="background: url(images/right_06.gif); border-left: solid 1px #82bcbd; border-top: solid 1px #82bcbd; border-right: solid 1px #82bcbd;">
+														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
 														<div align="center">
 															<img src="images/6.gif" width="9" height="9" />
-															<span class="STYLE1">完成添加操作</span>
+															<span class="STYLE1"><A
+																href="getTeacherTeamByCourseAction.action"
+																target=mainFrame class="v1">教师队伍</A>
+															</span>
 														</div>
 													</td>
 												</tr>

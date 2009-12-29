@@ -15,6 +15,9 @@
 			{
 			window.open(url);
 			}
+			function goToAddteacherTeam(){
+			 window.location.href="coursemanage/addteacherteam.jsp";
+			}
 
 		</SCRIPT>
 	</head>
@@ -27,7 +30,10 @@
 				</td>
 			</tr>
 		</table>
-
+<div align="right">
+				
+						<input type="button" onclick="goToAddteacherTeam()" value="添加教师队伍" />&nbsp;&nbsp;&nbsp;&nbsp;
+					</div>
 		<div align="center">
 			<table class="listTable">
 				<tr>

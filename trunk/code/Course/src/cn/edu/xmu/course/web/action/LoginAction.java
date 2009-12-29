@@ -23,7 +23,7 @@ public class LoginAction extends BaseAction {
 		userName = "123";
 		password = "123456";
 		Teacher teacher = loginService.teacherLogin(userName, password);
-		System.out.println(userName);
+		System.out.println(teacher.getTeacherNo());
 		if (null == teacher)
 			return ERROR;
 		else {
