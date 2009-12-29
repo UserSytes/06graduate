@@ -115,10 +115,10 @@
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">
-					<td width="30%">
+					<td width="20%">
 						&nbsp;
 					</td>
-					<td width="70%">						
+					<td width="80%">						
 						<s:submit onclick="return check(this);JAVAscript:if(!confirm('确认退回？')) return false;return true;" cssClass="label" value="退回"></s:submit>
 					</td>
 				</tr>

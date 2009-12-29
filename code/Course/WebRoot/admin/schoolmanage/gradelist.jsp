@@ -19,11 +19,11 @@
 </style>
 	</head>
 	<body>
-<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 年级管理 -&gt; 年级列表 
+					当前位置: 年级管理 -&gt; 年级列表
 				</td>
 			</tr>
 		</table>
@@ -32,7 +32,7 @@
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>
-						年级id
+						序号
 					</th>
 					<th>
 						学籍类型
@@ -46,24 +46,24 @@
 				</tr>
 				<s:iterator value="allGradeList" status="grade">
 					<tr class="listTr">
-						<td>
-							<s:property value="id" />
+						<td width="10%">
+							<s:property value="#grade.count" />
 						</td>
-						<td>
+						<td width="30%">
 							<s:property value="name" />
 						</td>
-<td>
+						<td width="30%">
 							<s:property value="grade" />
 						</td>
-						<td>
+						<td width="30%">
 							<a
 								href="<s:url action="deleteGradeAction"> 
                      			<s:param name="gradeId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
-                					</s:url>" onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
-								<font color="red">【删除】</font>
-							</a>
+                					</s:url>"
+								onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
+								<font color="red">【删除】</font> </a>
 						</td>
 					</tr>
 				</s:iterator>

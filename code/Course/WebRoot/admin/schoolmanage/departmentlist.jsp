@@ -32,7 +32,7 @@
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>
-						系id
+						序号
 					</th>
 					<th>
 						系名称
@@ -46,16 +46,16 @@
 				</tr>
 				<s:iterator value="departmentList" status="department">
 					<tr class="listTr">
-						<td>
-							<s:property value="id" />
+						<td width="10%">
+							<s:property value="#department.count" />
 						</td>
-						<td>
+						<td width="40%">
 							<s:property value="name" />
 						</td>
-						<td>
+						<td width="35%">
 							<s:property value="school.name" />
 						</td>
-						<td>
+						<td width="15%">
 							<a
 								href="<s:url action="deleteDepartmentAction"> 
                      			<s:param name="departmentId"> 

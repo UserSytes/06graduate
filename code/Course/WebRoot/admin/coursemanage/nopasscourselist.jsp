@@ -32,6 +32,9 @@
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>
+						序号
+					</th>
+					<th>
 						课程名
 					</th>
 					<th>
@@ -46,16 +49,19 @@
 				</tr>
 				<s:iterator value="applicationCourseList" status="course">
 					<tr class="listTr">
-						<td>
+						<td width="5%">
+							<s:property value="#course.count" />
+						</td>
+						<td width="20%">
 							<s:property value="name" />
 						</td>
-						<td>
+						<td width="10%">
 							<s:property value="teacher.userInfo.name" />
 						</td>
-						<td>
+						<td width="35%">
 							<s:property value="remark" />
 						</td>
-						<td>
+						<td width="30%">
 							<s:property value="refuseReason" />
 						</td>
 					</tr>

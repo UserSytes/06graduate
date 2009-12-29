@@ -32,7 +32,7 @@
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>
-						学院id
+						序号
 					</th>
 					<th>
 						学院名称
@@ -46,13 +46,13 @@
 				</tr>
 				<s:iterator value="allSchoolList" status="school">
 					<tr class="listTr">
-						<td>
-							<s:property value="id" />
+						<td width="8%">
+							<s:property value="#school.count" />
 						</td>
-						<td>
+						<td width="47%">
 							<s:property value="name" />
 						</td>
-						<td>
+						<td width="25%">
 							<a
 								href="<s:url action="findDepartmentAction"> 
                      			<s:param name="schoolId"> 
@@ -70,7 +70,7 @@
 								<font color="green">【添加系】</font>
 							</a>
 						</td>
-						<td>
+						<td width="20%">
 							<a
 								href="<s:url action="deleteSchoolAction"> 
                      			<s:param name="schoolId"> 
