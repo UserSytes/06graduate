@@ -108,8 +108,6 @@ public class CourseInfoAction extends BaseAction {
 
 			applicationForm = applicationFormService.getApplicationForm(course
 					.getId());
-			if (applicationForm.getFileLink() != null)
-				upload = new File(applicationForm.getFileLink());
 		}
 		return SUCCESS;
 	}

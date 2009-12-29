@@ -9,24 +9,46 @@ import cn.edu.xmu.course.service.ITeacherTeamService;
 
 public class TeacherTeamService implements ITeacherTeamService {
 	private TeacherTeamDAO teacherTeamDAO;
-	public boolean addTeacher(TeacherTeam teacherTeam, Course course) {
+
+	public boolean addTeacherTeam(TeacherTeam teacherTeam, Course course) {
 		// TODO Auto-generated method stub
-		return false;
+		teacherTeam.setCourse(course);
+		try {
+			teacherTeamDAO.save(teacherTeam);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
-	public boolean deleteTeacher(TeacherTeam teacherTeam) {
+	public TeacherTeam getTeacherTeam(int teacherTeamId) {
 		// TODO Auto-generated method stub
-		return false;
+		return teacherTeamDAO.findById(teacherTeamId);
 	}
 
-	public List getTeacherTeam(int courseId) {
+	public boolean deleteTeacherTeam(TeacherTeam teacherTeam) {
+		// TODO Auto-generated method stub
+		try {
+			teacherTeamDAO.delete(teacherTeam);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public List getTeacherTeamList(int courseId) {
 		return teacherTeamDAO.findByCourse(courseId);
-		
+
 	}
 
-	public boolean updateTeacher(TeacherTeam teacherTeam) {
+	public boolean updateTeacherTeam(TeacherTeam teacherTeam) {
 		// TODO Auto-generated method stub
-		return false;
+		try {
+			teacherTeamDAO.merge(teacherTeam);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	public void setTeacherTeamDAO(TeacherTeamDAO teacherTeamDAO) {
