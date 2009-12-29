@@ -162,4 +162,10 @@
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
+	</bean>
+	<bean id="AttachmentDAO"
+		class="cn.edu.xmu.course.dao.AttachmentDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
 	</bean></beans>
