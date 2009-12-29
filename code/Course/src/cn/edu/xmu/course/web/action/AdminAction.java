@@ -41,6 +41,7 @@ public class AdminAction extends BaseAction {
 	 * @return
 	 */
 	public String changeAdministratorInfo(){
+		System.out.print("²âÊÔ1£º"+admin.getMobile());
 		boolean result = adminService.updateAdmin(admin);
 		if(result){
 			return SUCCESS;
@@ -57,13 +58,17 @@ public class AdminAction extends BaseAction {
 		if(admin.getPassword().equals(oldPassword)){
 			admin.setPassword(newPassword);
 			boolean result = adminService.updateAdmin(admin);
-			if(result)
+			if(result){
+				addActionMessage("ĞŞ¸ÄÃÜÂë³É¹¦£¡");
 				return SUCCESS;
+			}
 			else
 				return ERROR;
 		}
-		else
-			return ERROR;
+		else{
+			addActionMessage("Ô­ÃÜÂë´íÎó£¡");
+			return SUCCESS;
+		}
 	}
 	
 	
@@ -76,13 +81,17 @@ public class AdminAction extends BaseAction {
 		if(superAdmin.getPassword().equals(oldPassword)){
 			superAdmin.setPassword(newPassword);
 			boolean result = adminService.updateSuperAdmin(superAdmin);
-			if(result)
+			if(result){
+				addActionMessage("ĞŞ¸ÄÃÜÂë³É¹¦£¡");
 				return SUCCESS;
+			}
 			else
 				return ERROR;
 		}
-		else
-			return ERROR;
+		else{
+			addActionMessage("Ô­ÃÜÂë´íÎó£¡");
+			return SUCCESS;
+		}
 	}
 
 	public IAdminService getAdminService() {

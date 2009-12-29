@@ -44,13 +44,11 @@ border=0 align=right cellPadding=0 cellSpacing=0 class=leftframetable>
               <TBODY>
                 <TR>
                   <TD width="2%"><IMG src="Images/closed.gif"></TD>
-                  <TD height=23><A href="System_Admin.asp" 
-            target=main>我的信息</A></TD>
+                  <TD height=23><A href="<s:url action='adminInfoAction'> </s:url>"target="main">我的信息</A></TD>
                 </TR>
                 <TR>
                   <TD><IMG src="Images/closed.gif"></TD>
-                  <TD height=23><A href="Log_Admin.asp" 
-            target=main>修改密码</A></TD>
+                  <TD height=23><A href="admininfo/changeadminpwd.jsp" target=main>修改密码</A></TD>
                 </TR>
               </TBODY>
           </TABLE></TD>

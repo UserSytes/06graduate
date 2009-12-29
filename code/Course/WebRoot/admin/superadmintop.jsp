@@ -41,7 +41,7 @@
           <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif" ><a href="<s:url action='allGradeAction'> </s:url>"
 														target="main" class="STYLE3">年级管理</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
-          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a href="<s:url action='changeSuperAdminPwdAction'> </s:url>"
+          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a href="admininfo/changepwd.jsp"
 														target="main">修改密码</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
           <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a href="http://help.865171.cn"   target="main" class="STYLE2">帮助中心</a></td>

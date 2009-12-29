@@ -271,7 +271,34 @@
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		
-		<!--超级管理员-->
+		<!--校管理员修改密码-->
+		<action name="changeSuperAdminPwdAction" method="changeSuperAdminPassword"
+			class="adminAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<!--学院管理员修改信息-->
+		<action name="changeAdminPwdAction" method="changeAdministratorPassword"
+			class="adminAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="adminInfoAction" method="getAdministratorInfo"
+			class="adminAction">
+			<result name="success">/admin/admininfo/admininfo.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="goChangeAdminInfoAction" method="getAdministratorInfo"
+			class="adminAction">
+			<result name="success">/admin/admininfo/changeadmininfo.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="changeAdminInfoAction" method="changeAdministratorInfo"
+			class="adminAction">
+			<result name="success">/admin/admininfo/admininfo.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		
 		<!--1、学院管理模块-->
 		<action name="addSchoolAction" method="addSchool" class="schoolManageAction">
 			<result name="success">/commons/prompt.jsp</result>
