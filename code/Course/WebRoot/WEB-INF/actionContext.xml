@@ -59,6 +59,12 @@
 			<ref bean="adminService" />
 		</property>
 	</bean>
+	<bean id="adminAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.AdminAction">
+		<property name="adminService">
+			<ref bean="adminService" />
+		</property>
+	</bean>
 	<bean id="newsAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.NewsAction">
 		<property name="newsService">
