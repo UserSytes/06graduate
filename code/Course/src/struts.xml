@@ -210,6 +210,29 @@
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
+		<action name="getTeacherTeamByCourseAction" method="getTeacherTeamListByCourse"
+			class="teacherTeamAction">
+			<result name="success">/teacher/coursemanage/teacherteamlist.jsp</result>
+		</action>
+		<action name="goEidtTeacherTeamAction" method="goEidtTeacherTeam"
+			class="teacherTeamAction">
+			<result name="success">/teacher/coursemanage/editteacherteam.jsp</result>
+		</action>
+		<action name="updateTeacherTeamAction" method="updateTeacherTeam"
+			class="teacherTeamAction">
+				<result name="success" type="redirect-action">getTeacherTeamByCourseAction</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteTeacherTeamAction" method="deleteTeacherTeam"
+			class="teacherTeamAction">
+				<result name="success" type="redirect-action">getTeacherTeamByCourseAction</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="addTeacherTeamAction" method="addTeacherTeam"
+			class="teacherTeamAction">
+			<result name="success" type="redirect-action">getTeacherTeamByCourseAction</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		
 		<!-- 课程管理 (学院管理员)-->
 		<action name="noPassListAction" method="findNoPassCourse"
