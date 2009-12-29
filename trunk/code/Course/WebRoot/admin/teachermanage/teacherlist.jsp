@@ -32,7 +32,7 @@
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>
-						教师id
+						序号
 					</th>
 					<th>
 						姓名
@@ -55,25 +55,25 @@
 				</tr>
 				<s:iterator value="teacherList" status="teacher">
 					<tr class="listTr">
-						<td>
-							<s:property value="id" />
+						<td width="5%">
+							<s:property value="#teacher.count" />
 						</td>
-						<td>
+						<td width="15%">
 							<s:property value="userInfo.name" />
 						</td>
-						<td>
+						<td width="5%">
 							<s:property value="userInfo.sex" />
 						</td>
-						<td>
+						<td width="20%">
 							<s:property value="teacherNo" />
 						</td>
-						<td>
+						<td width="15%">
 							<s:property value="position" />
 						</td>
-						<td>
+						<td width="20%">
 							<s:property value="userInfo.department.name" />
 						</td>
-						<td>
+						<td width="20%">
 							<a
 								href="<s:url action="goEditTeacherAction"> 
                      			<s:param name="teacherId"> 

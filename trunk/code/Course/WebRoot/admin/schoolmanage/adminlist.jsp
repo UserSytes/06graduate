@@ -32,7 +32,7 @@
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>
-						管理员id
+						序号
 					</th>
 					<th>
 						登陆账号
@@ -55,25 +55,25 @@
 				</tr>
 				<s:iterator value="adminList" status="admin">
 					<tr class="listTr">
-						<td>
-							<s:property value="id" />
+						<td width="5%">
+							<s:property value="#admin.count" />
 						</td>
-						<td>
+						<td width="15%">
 							<s:property value="account" />
 						</td>
-						<td>
+						<td width="10%">
 							<s:property value="name" />
 						</td>
-						<td>
+						<td width="20%">
 							<s:property value="school.name" />
 						</td>
-						<td>
+						<td width="20%">
 							<s:property value="email" />
 						</td>
-						<td>
+						<td width="15%">
 							<s:property value="mobile" />
 						</td>
-						<td>
+						<td width="15%">
 							<a
 								href="<s:url action="deleteAdminAction"> 
                      			<s:param name="adminId"> 

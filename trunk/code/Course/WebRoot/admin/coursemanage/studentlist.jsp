@@ -34,7 +34,7 @@
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>
-						学生id
+						序号
 					</th>
 					<th>
 						姓名
@@ -54,22 +54,22 @@
 				</tr>
 				<s:iterator value="studentList" status="student">
 					<tr class="listTr">
-						<td>
-							<s:property value="id" />
+						<td width="5%">
+							<s:property value="#student.count" />
 						</td>
-						<td>
+						<td width="15%">
 							<s:property value="userInfo.name" />
 						</td>
-						<td>
+						<td width="20%">
 							<s:property value="studentNo" />
 						</td>
-						<td>
+						<td width="20%">
 							<s:property value="grade.name+grade.grade" />
 						</td>
-						<td>
+						<td width="20%">
 							<s:property value="userInfo.department.name" />
 						</td>
-						<td>
+						<td width="20%">
 							<a
 								href="<s:url action="deleteStudentFromCourseAction"> 
                      			<s:param name="studentId"> 

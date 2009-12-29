@@ -92,10 +92,10 @@
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">
-					<td width="30%">
+					<td width="20%">
 						&nbsp;
 					</td>
-					<td width="70%">
+					<td width="80%">
 						<s:submit cssClass="label" value="修改联系方式"></s:submit>
 					</td>
 				</tr>

@@ -33,7 +33,7 @@
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>
-						id
+						序号
 					</th>
 					<th>
 						年级
@@ -45,7 +45,7 @@
 				<s:iterator value="gradeList" status="grade">
 					<tr class="listTr">
 						<td>
-							<s:property value="id" />
+							<s:property value="#grade.count" />
 						</td>
 						<td>
 							<s:property value="grade.name+grade.grade" />
