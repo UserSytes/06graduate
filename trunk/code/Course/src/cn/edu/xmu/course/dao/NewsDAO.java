@@ -2,6 +2,7 @@ package cn.edu.xmu.course.dao;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
@@ -28,8 +29,7 @@ public class NewsDAO extends HibernateDaoSupport {
 	public static final String TITLE = "title";
 	public static final String CONTENT = "content";
 	public static final String AUTHOR = "author";
-	public static final String FILE_NAME = "fileName";
-	public static final String FILE_LINK = "fileLink";
+	public static final String COUNT = "count";
 
 	protected void initDao() {
 		// do nothing
@@ -107,12 +107,8 @@ public class NewsDAO extends HibernateDaoSupport {
 		return findByProperty(AUTHOR, author);
 	}
 
-	public List findByFileName(Object fileName) {
-		return findByProperty(FILE_NAME, fileName);
-	}
-
-	public List findByFileLink(Object fileLink) {
-		return findByProperty(FILE_LINK, fileLink);
+	public List findByCount(Object count) {
+		return findByProperty(COUNT, count);
 	}
 
 	public List findAll() {

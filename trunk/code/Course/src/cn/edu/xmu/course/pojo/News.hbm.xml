@@ -22,11 +22,17 @@
         <property name="author" type="java.lang.String">
             <column name="author" length="50" not-null="true" />
         </property>
-        <property name="fileName" type="java.lang.String">
-            <column name="file_name" />
+        <property name="lastEditTime" type="java.util.Date">
+            <column name="last_edit_time" length="19" />
         </property>
-        <property name="fileLink" type="java.lang.String">
-            <column name="file_link" length="500" />
+        <property name="count" type="java.lang.Integer">
+            <column name="count" />
         </property>
+        <set name="attachments" inverse="true">
+            <key>
+                <column name="news_id" />
+            </key>
+            <one-to-many class="cn.edu.xmu.course.pojo.Attachment" />
+        </set>
     </class>
 </hibernate-mapping>

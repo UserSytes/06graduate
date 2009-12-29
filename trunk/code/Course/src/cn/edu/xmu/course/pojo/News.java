@@ -1,6 +1,8 @@
 package cn.edu.xmu.course.pojo;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * News entity. @author MyEclipse Persistence Tools
@@ -15,8 +17,9 @@ public class News implements java.io.Serializable {
 	private String content;
 	private Date time;
 	private String author;
-	private String fileName;
-	private String fileLink;
+	private Date lastEditTime;
+	private Integer count;
+	private Set attachments = new HashSet(0);
 
 	// Constructors
 
@@ -34,13 +37,14 @@ public class News implements java.io.Serializable {
 
 	/** full constructor */
 	public News(String title, String content, Date time, String author,
-			String fileName, String fileLink) {
+			Date lastEditTime, Integer count, Set attachments) {
 		this.title = title;
 		this.content = content;
 		this.time = time;
 		this.author = author;
-		this.fileName = fileName;
-		this.fileLink = fileLink;
+		this.lastEditTime = lastEditTime;
+		this.count = count;
+		this.attachments = attachments;
 	}
 
 	// Property accessors
@@ -85,20 +89,28 @@ public class News implements java.io.Serializable {
 		this.author = author;
 	}
 
-	public String getFileName() {
-		return this.fileName;
+	public Date getLastEditTime() {
+		return this.lastEditTime;
 	}
 
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
+	public void setLastEditTime(Date lastEditTime) {
+		this.lastEditTime = lastEditTime;
 	}
 
-	public String getFileLink() {
-		return this.fileLink;
+	public Integer getCount() {
+		return this.count;
 	}
 
-	public void setFileLink(String fileLink) {
-		this.fileLink = fileLink;
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+
+	public Set getAttachments() {
+		return this.attachments;
+	}
+
+	public void setAttachments(Set attachments) {
+		this.attachments = attachments;
 	}
 
 }
