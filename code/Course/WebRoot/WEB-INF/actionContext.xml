@@ -83,7 +83,7 @@
 		</property>
 	</bean>
 	<bean id="viewDetailAction" scope="prototype"
-		class="cn.edu.xmu.course.web.action.viewDetailAction">
+		class="cn.edu.xmu.course.web.action.ViewDetailAction">
 		<property name="applicationFormService">
 			<ref bean="applicationFormService" />
 		</property>
@@ -96,6 +96,13 @@
 		<property name="achievementService">
 			<ref bean="achievementService" />
 		</property>
+		<property name="chapterService">
+			<ref bean="chapterService" />
+		</property>
+		<property name="coursewareService">
+			<ref bean="coursewareService" />
+		</property>
+		
 	</bean>
 	<bean id="teacherTeamAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.TeacherTeamAction">
