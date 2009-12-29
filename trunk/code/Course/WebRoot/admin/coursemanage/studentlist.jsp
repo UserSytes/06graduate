@@ -30,7 +30,6 @@
 			</tr>
 		</table>
 		<div align="center">
-			<s:hidden name="course.id" />
 			<table class="listTable">
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
@@ -75,7 +74,10 @@
 								href="<s:url action="deleteStudentFromCourseAction"> 
                      			<s:param name="studentId"> 
                        			 	<s:property value="id"/> 
-                    			</s:param> 
+                    			</s:param>
+								<s:param name="courseId"> 
+                       			 	${course.id}
+                    			</s:param>  
                 					</s:url>"
 								onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
 								<font color="red">【删除】</font> </a>

@@ -46,16 +46,16 @@
 				</tr>
 				<s:iterator value="applicationCourseList" status="course">
 					<tr class="listTr">
-						<td>
+						<td width="20%">
 							<s:property value="name" />
 						</td>
-						<td>
+						<td width="10%">
 							<s:property value="teacher.userInfo.name" />
 						</td>
-						<td>
+						<td width="45%">
 							<s:property value="remark" />
 						</td>
-						<td>
+						<td width="25%">
 							<a
 								href="<s:url action="coursePassAction">
                      			<s:param name="courseId"> 
