@@ -39,8 +39,7 @@
 		<property name="courseDAO">
 			<ref bean="CourseDAO" />
 		</property>
-	</bean>	
-	
+	</bean>
 	<bean id="studentCourseServiceTarget" class="cn.edu.xmu.course.service.impl.StudentCourseService">
 		<property name="studentCourseDAO">
 			<ref bean="StudentCourseDAO" />
@@ -93,24 +92,23 @@
 		</property>
 	</bean>
 	<bean id="applicationFormServiceTarget" class="cn.edu.xmu.course.service.impl.ApplicationFormService">
-	<property name="applicationFormDAO">
+		<property name="applicationFormDAO">
 			<ref bean="ApplicationFormDAO" />
 		</property>
 	</bean>
-		<bean id="courseInfoServiceTarget" class="cn.edu.xmu.course.service.impl.CourseInfoService">
-	<property name="courseInfoDAO">
+	<bean id="courseInfoServiceTarget" class="cn.edu.xmu.course.service.impl.CourseInfoService">
+		<property name="courseInfoDAO">
 			<ref bean="CourseInfoDAO" />
 		</property>
 	</bean>
-			<bean id="teacherTeamServiceTarget" class="cn.edu.xmu.course.service.impl.TeacherTeamService">
-	<property name="teacherTeamDAO">
+	<bean id="teacherTeamServiceTarget" class="cn.edu.xmu.course.service.impl.TeacherTeamService">
+		<property name="teacherTeamDAO">
 			<ref bean="TeacherTeamDAO" />
 		</property>
 	</bean>
 	<bean id="achievementServiceTarget" class="cn.edu.xmu.course.service.impl.AchievementService">
-	<property name="achievementDAO">
+		<property name="achievementDAO">
 			<ref bean="AchievementDAO" />
 		</property>
 	</bean>
-	
 </beans>
