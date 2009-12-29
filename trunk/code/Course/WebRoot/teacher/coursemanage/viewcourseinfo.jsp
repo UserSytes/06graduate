@@ -17,10 +17,18 @@
 				+ sort;
 
 	}
+	function deleteCourseInfo(){
+	if(document.all.courseInfoId.value == ""){
+	alert("该目录下暂无任何内容,无法删除");
+	return false;}                 
+
+		if(!confirm('确认删除？')) return false;
+	}
 </SCRIPT>
 	</head>
 
 	<body>
+		<s:hidden id="courseInfoId" name="courseInfo.id"></s:hidden>
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position>
@@ -57,8 +65,8 @@
 				</td>
 				<td colspan="3" bgcolor="#FFFFFF">
 					&nbsp;&nbsp;&nbsp;
-					
-<a
+
+					<a
 						href="<s:url action="updateCourseInfoAction"> 
                      			<s:param name="courseInfoId"> 
                        			 	<s:property value="courseInfo.id"/> 
@@ -68,11 +76,11 @@
 					<a
 						href="<s:url action="deleteCourseInfoAction"> 
                      			<s:param name="courseInfoId"> 
-                       			 	<s:property value="courseInfo.id"/> 
+                       			 	<s:property   value="courseInfo.id"/> 
                     			</s:param> 
                 					</s:url>"
-						onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
-						<font color="red">【删除】</font> </a>
+						onclick="return deleteCourseInfo();"> <font color="red">【删除】</font>
+					</a>
 				</td>
 			</tr>
 			<tr>
