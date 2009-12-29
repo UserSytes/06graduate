@@ -69,24 +69,15 @@ public class CourseInfoAction extends BaseAction {
 	 * @return
 	 */
 	public String deleteCourseInfo() {
-		if (courseInfoId == null) {
-			if (sort == 1)
-				addActionError("课程简介暂无任何信息，无法删除！");
-			else if (sort == 2)
-				addActionError("教学大纲暂无任何信息，无法删除！");
+		CourseInfo delCourseInfo = courseInfoService
+				.getCourseInfoById(courseInfoId);
+		if (courseInfoService.deleteCourseInfo(delCourseInfo))
+			return SUCCESS;
+		else {
+			addActionError("删除课程信息失败，请重新操作！");
 			return ERROR;
 		}
 
-		else {
-			CourseInfo delCourseInfo = courseInfoService
-					.getCourseInfoById(courseInfoId);
-			if (courseInfoService.deleteCourseInfo(delCourseInfo))
-				return SUCCESS;
-			else {
-				addActionError("删除课程信息失败，请重新操作！");
-				return ERROR;
-			}
-		}
 	}
 
 	/**
@@ -146,8 +137,8 @@ public class CourseInfoAction extends BaseAction {
 	 */
 	private String refactorFileLink() {
 		Teacher teacher = super.getTeacher();
-		String fileLink = teacher.getUserInfo().getName() + "/" + new Date().getTime()
-				+ "_" + uploadFileName;
+		String fileLink = teacher.getUserInfo().getName() + "/"
+				+ new Date().getTime() + "_" + uploadFileName;
 		return fileLink;
 	}
 
@@ -157,19 +148,19 @@ public class CourseInfoAction extends BaseAction {
 	 * @return
 	 */
 	public String addApplicationForm() {
-		
+
 		File file = null;
 		if (upload != null) {
 			String path = ServletActionContext.getServletContext().getRealPath(
-			"/upload");
-			String fileName = path+"/"+this.refactorFileLink();
+					"/upload");
+			String fileName = path + "/" + this.refactorFileLink();
 			file = new File(fileName);
 			applicationForm.setFileLink(this.refactorFileLink());
 			applicationForm.setFilename(uploadFileName);
 		}
 		if (applicationForm.getId() == null)
 			return addNewApplicationForm(file);
-		else 
+		else
 			return updateApplicationForm(file);
 	}
 

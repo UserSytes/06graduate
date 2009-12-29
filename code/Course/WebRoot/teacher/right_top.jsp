@@ -67,7 +67,7 @@ a.v1:visited {font-size:12px; text-decoration:none; color:#03515d;}
 													<td height="25"
 														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
 														<div align="center">
-															<img src="images/2_1.gif" width="9" height="9" />
+															<img src="images/2.gif" width="9" height="9" />
 															<span class="STYLE1"><A href="findCurrentCourseInfoAction.action" target=mainFrame class="v1" >课程信息</A></span>
 														</div>
 													</td>
@@ -82,7 +82,7 @@ a.v1:visited {font-size:12px; text-decoration:none; color:#03515d;}
 														style="background: url(images/right_06.gif); border-left: solid 1px #82bcbd; border-top: solid 1px #82bcbd; border-right: solid 1px #82bcbd;">
 														<div align="center">
 															<img src="images/3.gif" width="9" height="9" />
-															<span class="STYLE1">定性指标测评</span>
+															<span class="STYLE1"><A href="findCurrentCourseInfoAction.action" target=mainFrame class="v1" >教师队伍</A></span>
 														</div>
 													</td>
 												</tr>
