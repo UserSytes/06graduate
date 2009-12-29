@@ -20,6 +20,10 @@ import cn.edu.xmu.course.service.ITeacherInfoService;
  */
 public class CourserAction extends BaseAction {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1435933948873647769L;
 	private String departmentId;
 	private int courseId;
 	private Department department;
@@ -34,9 +38,10 @@ public class CourserAction extends BaseAction {
 	private IDepartmentService departmentService;
 
 	private List<Course> applicationCourseList;
-	private List<Student> studentList = new ArrayList();
+	private List<Student> studentList;
 	private Student student;
 	private int studentId;
+	private String studentNo;
 	private String refuseReason;
 	
 	private final String userName = "123";
@@ -108,18 +113,17 @@ public class CourserAction extends BaseAction {
 	 * @return
 	 */
 	public String getStudentByCourse(){
-		Course course = courseService.getCourseById(courseId);
-		System.out.println("≤‚ ‘1£∫ "+course.getName());
-		List<StudentCourse> scList = new ArrayList();
+		course = courseService.getCourseById(courseId);
+		List<StudentCourse> scList = new ArrayList<StudentCourse>();
 		scList = studentCourseService.findByCourse(course);
 		if(scList.size()==0){
 			addActionError("¥ÀøŒ≥Ã‘›Œ¥ÃÌº”—ß…˙£°");
 			return ERROR;
 		}
+		studentList = new ArrayList<Student>();
 		for(StudentCourse sc: scList){
 			studentList.add(sc.getStudent());
-		}
-		
+		}	
 		return SUCCESS;
 	}
 	
@@ -129,9 +133,13 @@ public class CourserAction extends BaseAction {
 	 */
 	public String deleteStudent(){
 		student = studentCourseService.findStudentById(studentId);
+		System.out.println("≤‚ ‘1£∫ "+courseId);
+		course = courseService.getCourseById(courseId);
 		boolean result = studentCourseService.delete(course, student);
-		if(result)
+		if(result){
+			this.getStudentByCourse();
 			return SUCCESS;
+		}
 		else
 			return ERROR;
 	}
@@ -142,6 +150,8 @@ public class CourserAction extends BaseAction {
 	 */
 	public String addStudentCourse(){
 		StudentCourse studentCourse = new StudentCourse();
+		course = courseService.getCourseById(course.getId());
+		student = studentCourseService.findStudentByStudentNo(studentNo);
 		studentCourse.setCourse(course);
 		studentCourse.setStudent(student);
 		studentCourse.setStatus(0);
@@ -374,6 +384,14 @@ public class CourserAction extends BaseAction {
 
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
+	}
+
+	public String getStudentNo() {
+		return studentNo;
+	}
+
+	public void setStudentNo(String studentNo) {
+		this.studentNo = studentNo;
 	}
 
 }

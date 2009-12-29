@@ -28,6 +28,13 @@ public interface IStudentCourseService {
 	public Student findStudentById(int id);
 	
 	/**
+	 * 通过学号查找学生
+	 * @param studentNo
+	 * @return
+	 */
+	public Student findStudentByStudentNo(String studentNo);
+	
+	/**
 	 * 根据课程、学生删除 StudentCourse
 	 * @param course
 	 * @param student

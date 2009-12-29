@@ -54,8 +54,6 @@
 		<s:form action="addCourseStudentAction" method="post"
 			onsubmit="return check(this);">
 			<s:hidden name="course.id" />
-			<s:hidden name="student.id" />
-			<s:hidden name="student.studentNo" />
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
@@ -73,7 +71,7 @@
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<s:textfield cssClass="INPUT" id="studentNo"
-							name="student.studentNo" label="学号"
+							name="studentNo" label="学号"
 							onblur="getStudentName(this.value)"></s:textfield>
 
 						&nbsp;*

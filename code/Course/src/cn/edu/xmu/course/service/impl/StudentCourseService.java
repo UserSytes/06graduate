@@ -23,6 +23,10 @@ public class StudentCourseService implements IStudentCourseService {
 		return studentDAO.findById(id);
 	}
 	
+	public Student findStudentByStudentNo(String studentNo){
+		return (Student) studentDAO.findByStudentNo(studentNo).get(0);
+	}
+	
 	public boolean delete(Course course, Student student){
 		StudentCourse sc = (StudentCourse) studentCourseDAO.findByStudentAndCourse(course, student).get(0);
 		if(sc != null){
