@@ -432,7 +432,7 @@
 		</action>
 		
 		<!-- 前台 -->
-		<action name="findCourseByDepartmentAction" method="findCourseByDepartment"
+<action name="findCourseByDepartmentAction" method="findCourseByDepartment"
 			class="executeViewAction">
 			<result name="courses">/homepage/courseList.jsp
 			</result>
@@ -449,6 +449,42 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+
+		
+		<!-- 首页 -->
+		<action name="newsAction" method="newsDisplay" class="homePageAction">
+			<result name="news">/homepage/news.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+				<action name="enterNewsAction" method="enterNews" class="homePageAction">
+			<result name="newsdetail">/homepage/newsdetail.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+        
+		<action name="loginFromHomePageAction" method="loginFromHomePage" class="homePageAction">
+			<result name="teacher">/teacher/main.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+			<result name="student">/homepage/test.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+<!-- 首页精品课程列表 -->
+         <action name="courseDisplayAction" method="courseDisplay" class="homePageAction">
+			<result name="courseList">/homepage/courseList.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+<!-- 首页建设成果 -->		
+        <action name="achievementAction" method="achievementDisplay" class="homePageAction">
+			<result name="achievementList">/homepage/searchbyachievement.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		
+
 		<action name="findCourseByTeacherAction" method="findCourseByTeacher"
 			class="executeViewAction">
 			<result name="courses">/homepage/courseList.jsp
@@ -467,15 +503,10 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="newsAction" method="newsDisplay" class="homePageAction">
-			<result name="news">/homepage/index.jsp</result>
-			<result name="error">/commons/error.jsp</result>
-		</action>
-		<action name="enterNewsAction" method="enterNews" class="homePageAction">
-			<result name="newsdetail">/homepage/newsdetail.jsp
-			</result>
-			<result name="error">/commons/error.jsp</result>
-		</action>
+
+
+
+
 		<action name="findTeacherTeamAction" method="findTeacherTeam"
 			class="viewDetailAction">
 			<result name="teachers">/coursePage/teacherteam.jsp
@@ -488,5 +519,6 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+
 	</package>
 </struts>

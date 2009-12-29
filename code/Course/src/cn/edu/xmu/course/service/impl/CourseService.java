@@ -54,24 +54,35 @@ public class CourseService implements ICourseService {
 
 	}
 
-
+	public List findCourseListLevel(String level) {
+		courses=courseDAO.findByProperty("level", level);
+		return courses;		
+	}
+	
 	public List findCourseListByTimeAndLevel(String time, String level) {
 		courses = courseDAO.findAll();
-		tempList = null;
+		System.out.println("test1: "+courses.size());
+		tempList = new ArrayList();
 		for (int i = 0; i < courses.size(); i++)
 		{
 			Course course = courses.get(i);
-			if (course.getLevel().equals(level)) {
+			System.out.println("test2: "+course.getName());
+			boolean result = course.getLevel().equals(level);
+			if (result) {
 				tempList.add(course);
 			}
 		}
+		System.out.println("test3: "+tempList.size());
+		
 		for (int i = 0; i <tempList.size(); i++) {
 			applicationForm=(ApplicationForm)tempList.get(i)
 			.getApplicationForms().iterator().next();
-			if (!applicationForm.getTime().toString().substring(0, 3)
+			System.out.println("test4: "+ applicationForm.getTime().toString().substring(0, 4));
+			if (!applicationForm.getTime().toString().substring(0, 4)
 					.equals(time))
 				tempList.remove(i);
 		}
+		System.out.println("test5: "+tempList.size());
 		return tempList;
 	}
 
