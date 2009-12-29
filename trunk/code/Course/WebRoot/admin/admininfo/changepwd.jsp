@@ -16,11 +16,11 @@
 			alert("原密码不能为空！");
 			return false;
 		}
-		if (form.newPassword.value == -1) {
+		if (form.newPassword.value == "") {
 			alert("新密码不能为空！");
 			return false;
 		}
-		if (form.newPasswordAgain.value == -1) {
+		if (form.newPasswordAgain.value == "") {
 			alert("请再次输入新密码！");
 			return false;
 		}
@@ -49,7 +49,7 @@
 				</td>
 			</tr>
 		</table>
-		<s:form action="changeSuperPwdAction" method="post">
+		<s:form action="changeSuperPwdAction" method="post" onsubmit="return check(this);">
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
@@ -65,8 +65,8 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" id="mobile" name="oldPassword"
-							label="原密码"></s:textfield>
+						<s:password cssClass="INPUT" id="mobile" name="oldPassword"
+							label="原密码"></s:password>
 						&nbsp;*
 					</td>
 				</tr>
@@ -78,8 +78,8 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" name="newPassword"
-							label="新密码"></s:textfield>
+						<s:password cssClass="INPUT" name="newPassword"
+							label="新密码"></s:password>
 						&nbsp;*
 					</td>
 				</tr>
@@ -91,8 +91,8 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" name="newPasswordAgain"
-							label="新密码2"></s:textfield>
+						<s:password cssClass="INPUT" name="newPasswordAgain"
+							label="新密码2"></s:password>
 						&nbsp;*
 					</td>
 				</tr>

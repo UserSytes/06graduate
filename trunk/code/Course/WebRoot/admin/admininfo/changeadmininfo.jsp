@@ -53,7 +53,7 @@
 				</td>
 			</tr>
 		</table>
-		<s:form action="changeAdminInfoAction" method="post">
+		<s:form action="changeAdminInfoAction" method="post" onsubmit="return check(this);">
 			<s:hidden name="admin.id" />
 			<s:hidden name="admin.mobile" />
 			<s:hidden name="admin.email" />
