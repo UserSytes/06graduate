@@ -13,7 +13,6 @@ import cn.edu.xmu.course.service.ISuperAdminService;
 
 public class SuperAdminService implements ISuperAdminService {
 
-	private SuperAdminDAO superAdminDAO;
 	private SchoolDAO schoolDAO;
 	private DepartmentDAO departmentDAO;
 	private GradeDAO gradeDAO;
@@ -93,14 +92,6 @@ public class SuperAdminService implements ISuperAdminService {
 	public List findDepartmentBySchool(School school) {
 		// TODO Auto-generated method stub
 		return departmentDAO.findByProperty("school", school);
-	}
-
-	public SuperAdminDAO getSuperAdminDAO() {
-		return superAdminDAO;
-	}
-
-	public void setSuperAdminDAO(SuperAdminDAO superAdminDAO) {
-		this.superAdminDAO = superAdminDAO;
 	}
 
 	public SchoolDAO getSchoolDAO() {

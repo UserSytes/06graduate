@@ -32,9 +32,8 @@
             href="right.asp" 
           target="main" class="STYLE2">管理首页</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
-          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a 
-            href="System_Admin.asp" 
-            target="main" class="STYLE2">新闻政策</a></td>
+          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a href="<s:url action='newsListAction'> </s:url>"
+														target="main">新闻政策</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
           <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif" ><a href="<s:url action='findAllSchoolsAction'> </s:url>"
 														target="main" class="STYLE3">院系管理</a></td>
@@ -42,7 +41,8 @@
           <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif" ><a href="<s:url action='allGradeAction'> </s:url>"
 														target="main" class="STYLE3">年级管理</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
-          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a  href="Class_Templet.asp?ChannelID=1&Type=2"  target="main" class="STYLE2">个人信息</a></td>
+          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a href="<s:url action='changeSuperAdminPwdAction'> </s:url>"
+														target="main">修改密码</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
           <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a href="http://help.865171.cn"   target="main" class="STYLE2">帮助中心</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
