@@ -117,7 +117,12 @@
 		<property name="coursewareService">
 			<ref bean="coursewareService" />
 		</property>
-		
+		<property name="experimentService">
+			<ref bean="experimentService" />
+		</property>
+		<property name="courseService">
+			<ref bean="courseService" />
+		</property>
 	</bean>
 	<bean id="teacherTeamAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.TeacherTeamAction">
