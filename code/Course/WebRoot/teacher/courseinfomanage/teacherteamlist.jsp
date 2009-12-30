@@ -16,7 +16,7 @@
 			window.open(url);
 			}
 			function goToAddteacherTeam(){
-			 window.location.href="coursemanage/addteacherteam.jsp";
+			 window.location.href="courseinfomanage/addteacherteam.jsp";
 			}
 
 		</SCRIPT>
