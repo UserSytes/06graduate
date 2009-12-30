@@ -260,6 +260,31 @@
 		</action>
 		
 		
+		<!-- 课程管理-课件管理部分 (教师)-->
+		<action name="getCoursewareListByChapterAction" method="getCoursewareListByChapter"
+			class="coursewareAction">
+			<result name="success">/teacher/coursemanage/coursewarelist.jsp</result>
+		</action>
+		<action name="addCoursewareAction" method="addCourseware"
+			class="coursewareAction">
+			<result name="success" type="redirect-action">getCoursewareListByChapterAction</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="updateCoursewareAction" method="updateCourseware"
+			class="coursewareAction">
+			<result name="success" type="redirect-action">getCoursewareListByChapterAction</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteCoursewareAction" method="deleteCourseware"
+			class="coursewareAction">
+			<result name="success" type="redirect-action">getCoursewareListByChapterAction</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="goEditCoursewareAction" method="goEidtCourseware"
+			class="coursewareAction">
+			<result name="success">/teacher/coursemanage/editcourseware.jsp</result>
+		</action>
+		
 		<!-- 课程管理 (学院管理员)-->
 		<action name="noPassListAction" method="findNoPassCourse"
 			class="courseAction">
