@@ -147,8 +147,8 @@ a.v1:visited {
 														<div align="center">
 															<img src="images/5.gif" width="9" height="9" />
 															<span class="STYLE1"><A
-																href="getTeacherTeamByCourseAction.action"
-																target=mainFrame class="v1">教师队伍</A>
+																href="getCoursewareListByChapterAction.action"
+																target=mainFrame class="v1">课件管理</A>
 															</span>
 														</div>
 													</td>
