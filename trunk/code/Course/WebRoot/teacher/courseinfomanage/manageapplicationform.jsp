@@ -171,22 +171,25 @@
 						<s:file name="upload"></s:file>
 					</td>
 				</tr>
-<tr>
+				<tr>
 					<td bgcolor="#FFFDF0">
-						<div align="center">
-							查看文件：
+						<div align="center"> 
+							查看原来附件： 
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<a
-						href="<s:url action="download"> 
+							href="<s:url action="download"> 
                      			<s:param name="fileName"> 
                        			 	<s:property value="applicationForm.fileLink"/> 
                     			</s:param> 
+								<s:param name="originalFileName"> 
+                       			 	<s:property value="applicationForm.filename"/> 
+                    			</s:param> 
                 					</s:url>"
-						onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
-						<font color="red">点击这里查看上传的附件</font> </a>
+							onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
+							<font color="red"><s:property value="applicationForm.filename"/> </font> </a>
 					</td>
 				</tr>
 				<tr class=editHeaderTr>

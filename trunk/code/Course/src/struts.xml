@@ -14,12 +14,13 @@
 		<action name="download" class="cn.edu.xmu.course.web.action.DownloadAction">
 			 <!-- 设置文件名参数，由页面上传入 -->
 			<param name="fileName"></param>
+			<param name="originalFileName"></param>
 			<result name="success" type="stream">    
                 <!-- 下载文件类型定义 -->
 				<param name="contentType">application/octet-stream</param>
                                 
                 <!-- 下载文件处理方法 -->
-				<param name="contentDisposition"> attachment;filename="${fileName}" </param>    
+				<param name="contentDisposition"> attachment;filename="${originalFileName}" </param>    
                 <!-- 下载文件输出流定义 -->
 				<param name="inputName">downloadFile</param>
 			</result>
