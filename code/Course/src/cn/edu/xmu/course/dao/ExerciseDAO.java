@@ -29,6 +29,7 @@ public class ExerciseDAO extends HibernateDaoSupport {
 	public static final String FILENAME = "filename";
 	public static final String AUTHOR = "author";
 	public static final String FILE_LINK = "fileLink";
+	public static final String CHAPTER = "chapter";
 
 	protected void initDao() {
 		// do nothing
@@ -109,7 +110,15 @@ public class ExerciseDAO extends HibernateDaoSupport {
 	public List findByFileLink(Object fileLink) {
 		return findByProperty(FILE_LINK, fileLink);
 	}
+	
+	public List findByChapter(Object chapter) {
+		return findByProperty(CHAPTER, chapter);
+	}
 
+	public List findByCourse(Object courseId) {
+		return findByProperty("chapter.course.id", courseId);
+	}
+	
 	public List findAll() {
 		log.debug("finding all Exercise instances");
 		try {

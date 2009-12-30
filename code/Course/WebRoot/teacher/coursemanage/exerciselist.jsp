@@ -9,10 +9,10 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<title>课件列表</title>
+		<title>习题列表</title>
 		<SCRIPT language=javascript>		
-			function goToAddCourseware(){
-			 window.location.href="goAddCoursewareAction.action";
+			function goToAddExercise(){
+			 window.location.href="goAddExerciseAction.action";
 			}
 
 		</SCRIPT>
@@ -28,7 +28,7 @@
 		</table>
 		<div align="right">
 
-			<input type="button" onclick="goToAddCourseware()" value="添加课件" />
+			<input type="button" onclick="goToAddExercise()" value="添加习题" />
 			&nbsp;&nbsp;&nbsp;&nbsp;
 		</div>
 		<div align="center">
@@ -51,7 +51,7 @@
 						操作
 					</th>
 				</tr>
-				<s:iterator value="coursewareList" status="courseware">
+				<s:iterator value="exerciseList" status="exercise">
 					<tr class="listTr">
 						<td>
 							<s:property value="chapter.number" />
@@ -69,15 +69,15 @@
 						</td>
 						<td>
 							<a
-								href="<s:url action="goEditCoursewareAction"> 
-                     			<s:param name="coursewareId"> 
+								href="<s:url action="goEditExerciseAction"> 
+                     			<s:param name="exerciseId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
 								<font color="green">【编辑】</font> </a>
 							<a
-								href="<s:url action="deleteCoursewareAction"> 
-                     			<s:param name="coursewareId"> 
+								href="<s:url action="deleteExerciseAction"> 
+                     			<s:param name="exerciseId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>"

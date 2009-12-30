@@ -104,6 +104,27 @@
 						<s:file id="file" name="upload"></s:file>
 					</td>
 				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							查看原来课件：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<a
+							href="<s:url action="download"> 
+                     			<s:param name="fileName"> 
+                       			 	<s:property value="courseware.fileLink"/> 
+                    			</s:param> 
+								<s:param name="originalFileName"> 
+                       			 	<s:property value="courseware.filename"/> 
+                    			</s:param> 
+                					</s:url>">
+							<font color="red"><s:property value="courseware.filename" />
+						</font> </a>
+					</td>
+				</tr>
 				<tr class=editHeaderTr>
 					<td width="30%" class=editFooterTd>
 						&nbsp;

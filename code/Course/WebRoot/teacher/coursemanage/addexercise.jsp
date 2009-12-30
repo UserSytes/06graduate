@@ -9,7 +9,7 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<title>添加课程</title>
+		<title>添加课件</title>
 		<SCRIPT language=javascript>
 			function check(form)
 			{
@@ -20,17 +20,17 @@
 				}
 				if(form.title.value == "")
 				{
-					alert("课件标题不能为空！");
+					alert("习题标题不能为空！");
 					return false;
 				}
 				if(form.author.value == "")
 				{
-					alert("课件作者不能为空！");
+					alert("习题作者不能为空！");
 					return false;
 				}
 				if(form.upload.value == "")
 				{
-					alert("上传课件不能为空！");
+					alert("上传习题不能为空！");
 					return false;
 				}
 			}
@@ -42,18 +42,18 @@
 			align=center border=0>
 			<tr class=position bgcolor="#22cc77">
 				<td>
-					当前位置: 我的课程-&gt; 添加课件
+					当前位置: 我的课程-&gt; 添加习题
 				</td>
 			</tr>
 		</table>
 
-		<s:form action="addCoursewareAction" method="post"
+		<s:form action="addExerciseAction" method="post"
 			enctype="multipart/form-data" onsubmit="return check(this);">&nbsp;&nbsp; 
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						添加课件：
+						添加习题：
 					</td>
 				</tr>
 				<tr>
@@ -77,7 +77,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="title" name="courseware.title" cssClass="input" />
+						<s:textfield id="title" name="exercise.title" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -88,7 +88,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="author" name="courseware.author" cssClass="INPUT" />
+						<s:textfield id="author" name="exercise.author" cssClass="INPUT" />
 					</td>
 				</tr>
 				<tr>
