@@ -11,8 +11,8 @@
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
 		<title>章节列表</title>
 		<SCRIPT language=javascript>		
-			function goToAddteacherTeam(){
-			 window.location.href="courseinfomanage/addteacherteam.jsp";
+			function goToAddChapter(){
+			 window.location.href="coursemanage/addchapter.jsp";
 			}
 
 		</SCRIPT>
@@ -28,24 +28,18 @@
 		</table>
 <div align="right">
 				
-						<input type="button" onclick="goToAddteacherTeam()" value="添加章节" />&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="button" onclick="goToAddChapter()" value="添加章节" />&nbsp;&nbsp;&nbsp;&nbsp;
 					</div>
 		<div align="center">
 			<table class="listTable">				
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>
-						名字
+						目录
 					</th>
 					<th>
-						职称
-					</th>
-					<th>
-						研究领域
-					</th>
-					<th>
-						链接
-					</th>
+						名称
+					</th>					
 					<th>
 						备注
 					</th>
@@ -56,32 +50,25 @@
 				<s:iterator value="chapterList" status="chapter">
 					<tr class="listTr">
 						<td>
+							<s:property value="number" />
+						</td>
+						<td>
 							<s:property value="name" />
-						</td>
-						<td>
-							<s:property value="position" />
-						</td>
-						<td>
-							<s:property value="field" />
-						</td>
-						<td>
-							<a href="javascript:popwin('${link}')"><s:property id="link"
-									value="link" /> </a>
-						</td>
+						</td>					
 						<td>
 							<s:property value="remark" />
 						</td>
 						<td>
 							<a
-								href="<s:url action="goEidtTeacherTeamAction"> 
-                     			<s:param name="teacherTeamId"> 
+								href="<s:url action="goEditChapterAction"> 
+                     			<s:param name="chapterId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
 								<font color="green">【编辑】</font> </a>
 							<a
-								href="<s:url action="deleteTeacherTeamAction"> 
-                     			<s:param name="teacherTeamId"> 
+								href="<s:url action="deleteChapterAction"> 
+                     			<s:param name="chapterId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>"

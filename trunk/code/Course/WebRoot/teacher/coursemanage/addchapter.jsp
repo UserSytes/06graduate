@@ -27,64 +27,42 @@
 			align=center border=0>
 			<tr class=position bgcolor="#22cc77">
 				<td>
-					当前位置: 我的课程-&gt; 教师队伍
+					当前位置: 我的课程-&gt; 添加章节目录
 				</td>
 			</tr>
 		</table>
 
-		<s:form action="addTeacherTeamAction" method="post"
+		<s:form action="addChapterAction" method="post"
 			onsubmit="return check(this);">&nbsp;&nbsp; 
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>				
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-					添加教师队伍：
+					添加章节目录：
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							名字：
+							序号：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="name" name="teacherTeam.name" cssClass="input" />
+						<s:textfield id="number" name="chapter.number" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							职称：
+							名称：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="teacherTeam.position" cssClass="input" />
+						<s:textfield name="chapter.name" cssClass="input" />
 					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							研究领域：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="teacherTeam.field" cssClass="input" />
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							个人资料链接：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="teacherTeam.link" cssClass="INPUT" />
-					</td>
-				</tr>
+				</tr>				
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
@@ -93,7 +71,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textarea name="teacherTeam.remark" cssClass="TEXTAREA" />
+						<s:textarea name="chapter.remark" cssClass="TEXTAREA" />
 					</td>
 				</tr>
 				<tr class=editHeaderTr>

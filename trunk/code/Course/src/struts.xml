@@ -256,7 +256,7 @@
 		</action>
 		<action name="goEditChapterAction" method="goEidtChapter"
 			class="courseChapterAction">
-			<result name="success">/teacher/courseinfomanage/editchapter.jsp</result>
+			<result name="success">/teacher/coursemanage/editchapter.jsp</result>
 		</action>
 		
 		
