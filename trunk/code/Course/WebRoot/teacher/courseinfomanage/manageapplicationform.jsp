@@ -187,8 +187,7 @@
 								<s:param name="originalFileName"> 
                        			 	<s:property value="applicationForm.filename"/> 
                     			</s:param> 
-                					</s:url>"
-							onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
+                					</s:url>">
 							<font color="red"><s:property value="applicationForm.filename"/> </font> </a>
 					</td>
 				</tr>

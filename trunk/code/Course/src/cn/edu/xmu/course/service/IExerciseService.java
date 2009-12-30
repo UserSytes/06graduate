@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.service;
 
+import java.io.File;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.*;
@@ -38,7 +39,7 @@ public interface IExerciseService {
 	 * @param chapter
 	 * @return
 	 */
-	public boolean addExercise(Exercise exercise, Chapter chapter);
+	public boolean addExercise(Exercise exercise, Chapter chapter, File upload);
 
 	/**
 	 * ÃÌº”œ∞Ã‚
@@ -46,7 +47,7 @@ public interface IExerciseService {
 	 * @param chapter
 	 * @return
 	 */
-	public boolean updateExercise(Exercise exercise, Chapter chapter);
+	public boolean updateExercise(Exercise exercise, Chapter chapter, File upload);
 	
 	/**
 	 * …æ≥˝œ∞Ã‚

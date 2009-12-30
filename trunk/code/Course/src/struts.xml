@@ -303,6 +303,41 @@
 			<result name="success">/teacher/coursemanage/addcourseware.jsp</result>
 		</action>
 		
+		
+		<!-- 课程管理-习题管理部分 (教师)-->
+		<action name="getExerciseListByChapterAction" method="getExerciseListByChapter"
+			class="exerciseAction">
+			<result name="success">/teacher/coursemanage/exerciselist.jsp
+			</result>
+		</action>
+		<action name="addExerciseAction" method="addExercise"
+			class="exerciseAction">
+			<result name="success" type="redirect-action">getExerciseListByChapterAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="updateExerciseAction" method="updateExercise"
+			class="exerciseAction">
+			<result name="success" type="redirect-action">getExerciseListByChapterAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteExerciseAction" method="deleteExercise"
+			class="exerciseAction">
+			<result name="success" type="redirect-action">getExerciseListByChapterAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="goEditExerciseAction" method="goEditExercise"
+			class="exerciseAction">
+			<result name="success">/teacher/coursemanage/editexercise.jsp
+			</result>
+		</action>
+		<action name="goAddExerciseAction" method="goAddExercise"
+			class="exerciseAction">
+			<result name="success">/teacher/coursemanage/addexercise.jsp</result>
+		</action>
+		
 		<!-- 课程管理 (学院管理员)-->
 		<action name="noPassListAction" method="findNoPassCourse"
 			class="courseAction">
