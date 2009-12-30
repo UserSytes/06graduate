@@ -61,7 +61,7 @@ public class CourseChapterAction extends BaseAction{
 		}
 	}
 	
-	public String goEidtChapter(){
+	public String goEditChapter(){
 		chapter = chapterService.getChapterById(chapterId);
 		return SUCCESS;
 	}

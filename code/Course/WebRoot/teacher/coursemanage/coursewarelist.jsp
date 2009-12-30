@@ -9,10 +9,10 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<title>章节列表</title>
+		<title>课件列表</title>
 		<SCRIPT language=javascript>		
 			function goToAddCourseware(){
-			 window.location.href="coursemanage/addcourseware.jsp";
+			 window.location.href="goAddCoursewareAction.action";
 			}
 
 		</SCRIPT>
@@ -28,7 +28,7 @@
 		</table>
 		<div align="right">
 
-			<input type="button" onclick="goToAddCourseware()" value="添加章节" />
+			<input type="button" onclick="goToAddCourseware()" value="添加课件" />
 			&nbsp;&nbsp;&nbsp;&nbsp;
 		</div>
 		<div align="center">
@@ -65,7 +65,7 @@
 							<s:property value="author" />
 						</td>
 						<td>
-							<s:date format="yyyy-mm-dd" name="time"/>				
+							<s:date format="yyyy-mm-dd" name="time" />
 						</td>
 						<td>
 							<a

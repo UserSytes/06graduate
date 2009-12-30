@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.service;
 
+import java.io.File;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.*;
@@ -38,7 +39,7 @@ public interface ICoursewareService {
 	 * @param chapter
 	 * @return
 	 */
-	public boolean addCourseware(Courseware courseware, Chapter chapter);
+	public boolean addCourseware(Courseware courseware, Chapter chapter, File upload);
 
 	/**
 	 * Ìí¼ÓÏ°Ìâ
@@ -46,7 +47,7 @@ public interface ICoursewareService {
 	 * @param chapter
 	 * @return
 	 */
-	public boolean updateCourseware(Courseware courseware, Chapter chapter);
+	public boolean updateCourseware(Courseware courseware, Chapter chapter, File upload);
 	
 	/**
 	 * É¾³ıÏ°Ìâ

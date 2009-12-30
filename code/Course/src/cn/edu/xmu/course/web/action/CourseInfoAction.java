@@ -170,12 +170,18 @@ public class CourseInfoAction extends BaseAction {
 	 */
 	public String addNewApplicationForm(File file) {
 		Course course = super.getCourse();
-		if (applicationFormService.addApplicationForm(applicationForm, course)
-				&& FileOperation.copy(upload, file)) {
-			addActionMessage("添加课程申报表格成功！!");
-			return SUCCESS;
-		} else {
-			addActionError("添加课程申报表格失败，请重新操作！");
+		try {
+			if (applicationFormService.addApplicationForm(applicationForm,
+					course)
+					&& FileOperation.copy(upload, file)) {
+				addActionMessage("添加课程申报表格成功！!");
+				return SUCCESS;
+			} else {
+				addActionError("添加课程申报表格失败，请重新操作！");
+				return ERROR;
+			}
+		} catch (Exception e) {
+			addActionError("操作错误，请重新操作！");
 			return ERROR;
 		}
 	}
@@ -187,12 +193,17 @@ public class CourseInfoAction extends BaseAction {
 	 * @return
 	 */
 	public String updateApplicationForm(File file) {
-		if (applicationFormService.updateApplicationForm(applicationForm)
-				&& FileOperation.copy(upload, file)) {
-			addActionMessage("更改课程申报表格成功!");
-			return SUCCESS;
-		} else {
-			addActionError("更改课程申报表格失败，请重新操作！");
+		try {
+			if (applicationFormService.updateApplicationForm(applicationForm)
+					&& FileOperation.copy(upload, file)) {
+				addActionMessage("更改课程申报表格成功!");
+				return SUCCESS;
+			} else {
+				addActionError("更改课程申报表格失败，请重新操作！");
+				return ERROR;
+			}
+		} catch (Exception e) {
+			addActionError("操作错误，请重新操作！");
 			return ERROR;
 		}
 	}

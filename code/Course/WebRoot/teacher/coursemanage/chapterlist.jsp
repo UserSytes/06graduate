@@ -26,12 +26,13 @@
 				</td>
 			</tr>
 		</table>
-<div align="right">
-				
-						<input type="button" onclick="goToAddChapter()" value="添加章节" />&nbsp;&nbsp;&nbsp;&nbsp;
-					</div>
+		<div align="right">
+
+			<input type="button" onclick="goToAddChapter()" value="添加章节" />
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		</div>
 		<div align="center">
-			<table class="listTable">				
+			<table class="listTable">
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>
@@ -39,7 +40,7 @@
 					</th>
 					<th>
 						名称
-					</th>					
+					</th>
 					<th>
 						备注
 					</th>
@@ -54,7 +55,7 @@
 						</td>
 						<td>
 							<s:property value="name" />
-						</td>					
+						</td>
 						<td>
 							<s:property value="remark" />
 						</td>

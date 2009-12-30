@@ -1,10 +1,15 @@
 package cn.edu.xmu.course.web.action;
 
+import java.io.File;
+import java.util.Date;
 import java.util.List;
+
+import org.apache.struts2.ServletActionContext;
 
 import cn.edu.xmu.course.pojo.Chapter;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Courseware;
+import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.service.IChapterService;
 import cn.edu.xmu.course.service.ICoursewareService;
 
@@ -18,6 +23,10 @@ public class CoursewareAction extends BaseAction {
 	private Courseware courseware;
 	private Integer coursewareId;
 
+	private File upload;
+	private String uploadContentType;
+	private String uploadFileName;
+
 	private IChapterService chapterService;
 	private ICoursewareService coursewareService;
 
@@ -28,8 +37,16 @@ public class CoursewareAction extends BaseAction {
 	}
 
 	public String addCourseware() {
+		if(upload.length()>=new Long(10485760L)){
+			addActionError("上传课件大小不能超过10M,请重新上传！");
+			return ERROR;
+		}
+		String fileLink = super.getTeacher().getUserInfo().getName() + "/"
+				+ super.getCourse().getName() + "_" + uploadFileName;
+		courseware.setFilename(uploadFileName);
+		courseware.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);
-		if (coursewareService.addCourseware(courseware, chapter))
+		if (coursewareService.addCourseware(courseware, chapter, upload))
 			return SUCCESS;
 		else {
 			addActionError("添加课件失败，请重新添加！");
@@ -39,18 +56,23 @@ public class CoursewareAction extends BaseAction {
 
 	public String goEditCourseware() {
 		courseware = coursewareService.getCoursewareById(coursewareId);
+		chapterList = chapterService.getAllChapter(super.getCourse());
+		chapterId = courseware.getChapter().getId();
 		return SUCCESS;
 	}
-	
+
 	public String goAddCourseware() {
-		Course course = super.getCourse();
-		chapterList=chapterService.getAllChapter(course);
+		chapterList = chapterService.getAllChapter(super.getCourse());
 		return SUCCESS;
 	}
 
 	public String updateCourseware() {
+		String fileLink = super.getTeacher().getUserInfo().getName() + "/"
+				+ super.getCourse().getName() + "_" + uploadFileName;
+		courseware.setFilename(uploadFileName);
+		courseware.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);
-		if (coursewareService.updateCourseware(courseware, chapter))
+		if (coursewareService.updateCourseware(courseware, chapter,upload))
 			return SUCCESS;
 		else {
 			addActionError("更新课件失败，请重新操作！");
@@ -131,6 +153,30 @@ public class CoursewareAction extends BaseAction {
 
 	public Integer getCoursewareId() {
 		return coursewareId;
+	}
+
+	public File getUpload() {
+		return upload;
+	}
+
+	public void setUpload(File upload) {
+		this.upload = upload;
+	}
+
+	public String getUploadContentType() {
+		return uploadContentType;
+	}
+
+	public void setUploadContentType(String uploadContentType) {
+		this.uploadContentType = uploadContentType;
+	}
+
+	public String getUploadFileName() {
+		return uploadFileName;
+	}
+
+	public void setUploadFileName(String uploadFileName) {
+		this.uploadFileName = uploadFileName;
 	}
 
 }

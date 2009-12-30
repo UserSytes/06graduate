@@ -13,9 +13,24 @@
 		<SCRIPT language=javascript>
 			function check(form)
 			{
-				if (form.userName.value == "")
+				if (form.chapterId.value == -1)
 				{
-					alert("名字不能为空！");
+					alert("请先选择章节目录！");
+					return false;
+				}
+				if(form.title.value == "")
+				{
+					alert("课件标题不能为空！");
+					return false;
+				}
+				if(form.author.value == "")
+				{
+					alert("课件作者不能为空！");
+					return false;
+				}
+				if(form.file.value == "")
+				{
+					alert("上传课件不能为空！");
 					return false;
 				}
 			}
@@ -33,7 +48,7 @@
 		</table>
 
 		<s:form action="addCoursewareAction" method="post"
-			onsubmit="return check(this);">&nbsp;&nbsp; 
+			enctype="multipart/form-data" onsubmit="return check(this);">&nbsp;&nbsp; 
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
@@ -49,8 +64,9 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:select name="id" list="chapterList" listKey="id"
-							listValue="number" />
+						<s:select id="chapterId" name="chapterId" list="chapterList"
+							listKey="id" listValue="number+name" headerValue="请选择章节"
+							headerKey="-1" />
 					</td>
 				</tr>
 				<tr>
@@ -61,7 +77,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="courseware.title" cssClass="input" />
+						<s:textfield id="title" name="courseware.title" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -72,7 +88,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="courseware.author" cssClass="INPUT" />
+						<s:textfield id="author" name="courseware.author" cssClass="INPUT" />
 					</td>
 				</tr>
 				<tr>
@@ -83,7 +99,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:file name="upload"></s:file>
+						<s:file id="upload" name="upload"></s:file>
 					</td>
 				</tr>
 				<tr class=editHeaderTr>
