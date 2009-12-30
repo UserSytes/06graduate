@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.service;
 
+import java.io.File;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.News;
@@ -19,11 +20,21 @@ public interface INewsService {
 	public List findAllNews();
 	
 	/**
-	 * 发布新闻
+	 * 发布新闻（无附件）
 	 * @param news
 	 * @return
 	 */
-	public boolean addNews(News news);
+	public boolean addNewsWithoutAttachment(News news);
+	
+	/**
+	 * 发布新闻(带附件)
+	 * @param news
+	 * @param uploads
+	 * @param uploadsContentType
+	 * @param uploadsFileName
+	 * @return
+	 */
+	public boolean addNews(News news,File[] uploads, String[] myFileContentType, String[] myFileFileName);
 	
 	/**
 	 * 删除新闻
