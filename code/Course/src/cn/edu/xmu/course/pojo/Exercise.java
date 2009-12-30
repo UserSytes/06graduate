@@ -15,7 +15,6 @@ public class Exercise implements java.io.Serializable {
 	private String title;
 	private String filename;
 	private Date time;
-	private String author;
 	private String fileLink;
 
 	// Constructors
@@ -33,12 +32,11 @@ public class Exercise implements java.io.Serializable {
 
 	/** full constructor */
 	public Exercise(Chapter chapter, String title, String filename, Date time,
-			String author, String fileLink) {
+			String fileLink) {
 		this.chapter = chapter;
 		this.title = title;
 		this.filename = filename;
 		this.time = time;
-		this.author = author;
 		this.fileLink = fileLink;
 	}
 
@@ -83,15 +81,7 @@ public class Exercise implements java.io.Serializable {
 	public void setTime(Date time) {
 		this.time = time;
 	}
-
-	public String getAuthor() {
-		return this.author;
-	}
-
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-
+	
 	public String getFileLink() {
 		return this.fileLink;
 	}
