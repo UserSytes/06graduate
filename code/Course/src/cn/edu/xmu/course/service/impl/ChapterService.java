@@ -11,6 +11,12 @@ public class ChapterService implements IChapterService {
 
 	private ChapterDAO chapterDAO;
 
+	public Chapter getChapterById(int chapterId) {
+		// TODO Auto-generated method stub
+		return chapterDAO.findById(chapterId);
+	}
+
+	
 	public boolean addChapter(Course course, Chapter chapter) {
 		// TODO Auto-generated method stub
 		chapter.setCourse(course);
@@ -55,4 +61,5 @@ public class ChapterService implements IChapterService {
 		return chapterDAO;
 	}
 
+	
 }

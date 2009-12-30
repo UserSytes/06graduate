@@ -12,6 +12,13 @@ import cn.edu.xmu.course.pojo.*;
 public interface IChapterService {
 
 	/**
+	 * 根据id查找目录
+	 * @param chapterId
+	 * @return
+	 */
+	public Chapter getChapterById(int chapterId);
+	
+	/**
 	 * 获得该课程所有目录
 	 * @param teacherCourse
 	 * @return

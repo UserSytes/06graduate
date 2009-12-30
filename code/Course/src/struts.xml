@@ -166,7 +166,7 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<!-- 课程管理 (教师)-->
+		<!-- 课程信息管理 (教师)-->
 		<action name="addNewCourseInfoAction" method="addNewCourseInfo"
 			class="courseInfoAction">
 			<result name="success" type="redirect-action">findCurrentCourseInfoAction
@@ -233,6 +233,32 @@
 			<result name="success" type="redirect-action">getTeacherTeamByCourseAction</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
+		
+		<!-- 课程管理-章节目录部分 (教师)-->
+		<action name="getChapterListByCourseAction" method="getChapterListByCourse"
+			class="courseChapterAction">
+			<result name="success">/teacher/coursemanage/chapterlist.jsp</result>
+		</action>
+		<action name="addChapterAction" method="addChapter"
+			class="courseChapterAction">
+			<result name="success" type="redirect-action">getChapterListByCourseAction</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="updateChapterAction" method="updateChapter"
+			class="courseChapterAction">
+			<result name="success" type="redirect-action">getChapterListByCourseAction</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteChapterAction" method="deleteChapter"
+			class="courseChapterAction">
+			<result name="success" type="redirect-action">getChapterListByCourseAction</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="goEditChapterAction" method="goEidtChapter"
+			class="courseChapterAction">
+			<result name="success">/teacher/courseinfomanage/editchapter.jsp</result>
+		</action>
+		
 		
 		<!-- 课程管理 (学院管理员)-->
 		<action name="noPassListAction" method="findNoPassCourse"
