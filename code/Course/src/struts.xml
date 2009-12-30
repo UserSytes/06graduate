@@ -620,5 +620,28 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+				<action name="findChapterAction" method="findChapter"
+			class="viewDetailAction">
+			<result name="coursewares">/coursePage/coursewarelist.jsp
+			</result>
+			<result name="experiments">/coursePage/experimentlist.jsp
+			</result>
+			<result name="exercises">/coursePage/exerciselist.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+			<action name="downloadCoursewareAction" method="downloadCourseware"
+			class="viewDetailAction">
+			<result name="courseware">/coursePage/downloadcourseware.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+			<action name="downloadExperimentAction" method="downloadExperiment"
+			class="viewDetailAction">
+			<result name="experiment">/coursePage/downloadexperiment.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		
 	</package>
 </struts>
