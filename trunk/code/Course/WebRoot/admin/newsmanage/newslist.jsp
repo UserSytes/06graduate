@@ -82,7 +82,6 @@
 					</tr>
 				</s:iterator>
 				<tr class="listFooterTr">
-
 				</tr>
 			</table>
 		</div>
