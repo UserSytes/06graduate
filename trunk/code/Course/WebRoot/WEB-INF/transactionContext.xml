@@ -28,9 +28,15 @@
 		</property>
 	</bean>
 	
+	<!-- 课程管理（教师） -->
 	<bean id="chapterService" parent="transactionBase">
 		<property name="target">
 			<ref bean="chapterServiceTarget" />
+		</property>
+	</bean>
+	<bean id="coursewareService" parent="transactionBase">
+		<property name="target">
+			<ref bean="coursewareServiceTarget" />
 		</property>
 	</bean>
 	

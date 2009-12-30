@@ -57,6 +57,14 @@
 			<ref bean="ChapterDAO"/>
 		</property>
 	</bean>
+	<bean id="coursewareServiceTarget" class="cn.edu.xmu.course.service.impl.CoursewareService">
+		<property name="chapterDAO">
+			<ref bean="ChapterDAO"/>
+		</property>
+		<property name="coursewareDAO">
+			<ref bean="CoursewareDAO"/>
+		</property>
+	</bean>
 	
 	<!-- 院系管理 -->
 	<bean id="departmentServiceTarget" class="cn.edu.xmu.course.service.impl.DepartmentService">

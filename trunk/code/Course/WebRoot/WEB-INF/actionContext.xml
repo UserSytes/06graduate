@@ -125,10 +125,21 @@
 			<ref bean="teacherTeamService" />
 		</property>
 	</bean>
+	
+	<!-- 课程管理 （教师） -->
 	<bean id="courseChapterAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.CourseChapterAction">
 		<property name="chapterService">
 			<ref bean="chapterService" />
+		</property>
+	</bean>
+	<bean id="coursewareAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.CoursewareAction">
+		<property name="chapterService">
+			<ref bean="chapterService" />
+		</property>
+		<property name="coursewareService">
+			<ref bean="coursewareService" />
 		</property>
 	</bean>
 </beans>
