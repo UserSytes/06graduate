@@ -145,7 +145,7 @@
 		</action>
 		<action name="getMyCourseAction" method="findMyCoursesList"
 			class="courseAction">
-			<result name="success">/teacher/coursemanage/mycourseslist.jsp
+			<result name="success">/teacher/courseinfomanage/mycourseslist.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
@@ -156,7 +156,7 @@
 		</action>
 		<action name="getMyCourseByStateAction" method="findMyCoursesList"
 			class="courseAction">
-			<result>/teacher/coursemanage/courseslist.jsp
+			<result>/teacher/courseinfomanage/courseslist.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
@@ -186,23 +186,23 @@
 		</action>
 		<action name="getCurrentCourseAction" method="getCurrentCourse"
 			class="courseInfoAction">
-			<result name="success">/teacher/coursemanage/manageapplicationform.jsp
+			<result name="success">/teacher/courseinfomanage/manageapplicationform.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="findCurrentCourseInfoAction" method="findCourseInfo"
 			class="courseInfoAction">
-			<result name="success">/teacher/coursemanage/viewcourseinfo.jsp
+			<result name="success">/teacher/courseinfomanage/viewcourseinfo.jsp
 			</result>
 		</action>
 		<action name="getCourseInfoDetailAction" method="getCourseInfoDetail"
 			class="courseInfoAction">
-			<result name="success">/teacher/coursemanage/viewcourseinfo.jsp
+			<result name="success">/teacher/courseinfomanage/viewcourseinfo.jsp
 			</result>
 		</action>
 		<action name="updateCourseInfoAction" method="updateCourseInfo"
 			class="courseInfoAction">
-			<result name="success">/teacher/coursemanage/addcourseinfo.jsp
+			<result name="success">/teacher/courseinfomanage/addcourseinfo.jsp
 			</result>
 		</action>
 		<action name="addApplicationFormAction" method="addApplicationForm"
@@ -212,11 +212,11 @@
 		</action>
 		<action name="getTeacherTeamByCourseAction" method="getTeacherTeamListByCourse"
 			class="teacherTeamAction">
-			<result name="success">/teacher/coursemanage/teacherteamlist.jsp</result>
+			<result name="success">/teacher/courseinfomanage/teacherteamlist.jsp</result>
 		</action>
 		<action name="goEidtTeacherTeamAction" method="goEidtTeacherTeam"
 			class="teacherTeamAction">
-			<result name="success">/teacher/coursemanage/editteacherteam.jsp</result>
+			<result name="success">/teacher/courseinfomanage/editteacherteam.jsp</result>
 		</action>
 		<action name="updateTeacherTeamAction" method="updateTeacherTeam"
 			class="teacherTeamAction">
