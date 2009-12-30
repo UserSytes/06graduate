@@ -142,4 +142,13 @@
 			<ref bean="coursewareService" />
 		</property>
 	</bean>
+	<bean id="exerciseAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.ExerciseAction">
+		<property name="chapterService">
+			<ref bean="chapterService" />
+		</property>
+		<property name="exerciseService">
+			<ref bean="exerciseService" />
+		</property>
+	</bean>
 </beans>
