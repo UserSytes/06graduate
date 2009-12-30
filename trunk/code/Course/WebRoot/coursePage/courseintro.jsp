@@ -125,7 +125,13 @@
 										</td>
 										<td background="coursePage/images/com_5.jpg" width="101"
 											height="30" border="0" align="center">
-											<a href="#">课程教案</a>
+											<a
+												href="<s:url action="findChapterAction"> 
+                     			<s:param name="course"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param>
+                					</s:url>">
+												<font color="green">课程教案</font> </a>
 										</td>
 										<td background="coursePage/images/com_6.jpg" width="101"
 											height="30" border="0" align="center">
