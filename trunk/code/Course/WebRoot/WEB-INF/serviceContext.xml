@@ -62,6 +62,11 @@
 			<ref bean="CoursewareDAO"/>
 		</property>
 	</bean>
+	<bean id="exerciseServiceTarget" class="cn.edu.xmu.course.service.impl.ExerciseService">
+		<property name="exerciseDAO">
+			<ref bean="ExerciseDAO"/>
+		</property>
+	</bean>
 	
 	<!-- 院系管理 -->
 	<bean id="departmentServiceTarget" class="cn.edu.xmu.course.service.impl.DepartmentService">

@@ -39,7 +39,14 @@
 			<ref bean="coursewareServiceTarget" />
 		</property>
 	</bean>
+	<bean id="exerciseService" parent="transactionBase">
+		<property name="target">
+			<ref bean="exerciseServiceTarget" />
+		</property>
+	</bean>
 	
+	
+	<!--  -->
 	<bean id="studentCourseService" parent="transactionBase">
 		<property name="target">
 			<ref bean="studentCourseServiceTarget" />
