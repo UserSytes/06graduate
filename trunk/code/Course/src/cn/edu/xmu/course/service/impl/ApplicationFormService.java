@@ -1,9 +1,12 @@
 package cn.edu.xmu.course.service.impl;
 
-
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
+
+import cn.edu.xmu.course.commons.FileOperation;
 import cn.edu.xmu.course.dao.ApplicationFormDAO;
 import cn.edu.xmu.course.pojo.ApplicationForm;
 import cn.edu.xmu.course.pojo.Course;
@@ -13,11 +16,21 @@ public class ApplicationFormService implements IApplicationFormService {
 	private ApplicationFormDAO applicationFormDAO;
 
 	public boolean addApplicationForm(ApplicationForm applicationForm,
-			Course course) {
+			Course course, File upload) {
 		// TODO Auto-generated method stub
+
 		applicationForm.setCourse(course);
 		try {
+
 			applicationFormDAO.save(applicationForm);
+			if (upload != null) {
+				String path = ServletActionContext.getServletContext()
+						.getRealPath("/upload");
+				String fileName = path + "/" + applicationForm.getFileLink();
+				File file = new File(fileName);
+				if (!FileOperation.copy(upload, file))
+					return false;
+			}
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -38,23 +51,34 @@ public class ApplicationFormService implements IApplicationFormService {
 			return null;
 	}
 
-	public boolean updateApplicationForm(ApplicationForm applicationForm) {
+	public boolean updateApplicationForm(ApplicationForm applicationForm,
+			File upload) {
 		// TODO Auto-generated method stub
 		try {
 			applicationFormDAO.merge(applicationForm);
+			if (upload != null) {
+				String path = ServletActionContext.getServletContext()
+						.getRealPath("/upload");
+				String fileName = path + "/" + applicationForm.getFileLink();
+				File file = new File(fileName);
+				if (!FileOperation.copy(upload, file))
+					return false;
+			}
 			return true;
 		} catch (Exception e) {
 			return false;
 		}
 	}
+
 	public List findApplicationByLevel(Object level) {
 		return applicationFormDAO.findByLevel(level);
 	}
+
 	public List findApplicationByTime(Date time) {
 		return applicationFormDAO.findByProperty("time", time);
 	}
-	
-	//get and set method
+
+	// get and set method
 	public void setApplicationFormDAO(ApplicationFormDAO applicationFormDAO) {
 		this.applicationFormDAO = applicationFormDAO;
 	}
