@@ -136,7 +136,7 @@ public class CourseInfoAction extends BaseAction {
 	private String refactorFileLink() {
 		Teacher teacher = super.getTeacher();
 		String fileLink = teacher.getUserInfo().getName() + "/"
-				+ super.getCourse().getName() + "_" +"申报表格_"+ uploadFileName;
+				+ super.getCourse().getName() + "_" + "申报表格_" + uploadFileName;
 		return fileLink;
 	}
 
@@ -146,16 +146,18 @@ public class CourseInfoAction extends BaseAction {
 	 * @return
 	 */
 	public String addApplicationForm() {
-
-		File file = null;
 		if (upload != null) {
+			if (upload.length() >= new Long(10485760L)) {
+				addActionError("上传课件大小不能超过10M,请重新上传！");
+				return ERROR;
+			}
 			applicationForm.setFileLink(this.refactorFileLink());
 			applicationForm.setFilename(uploadFileName);
 		}
 		if (applicationForm.getId() == null)
-			return addNewApplicationForm(file);
+			return addNewApplicationForm();
 		else
-			return updateApplicationForm(file);
+			return updateApplicationForm();
 	}
 
 	/**
@@ -164,7 +166,7 @@ public class CourseInfoAction extends BaseAction {
 	 * @param file
 	 * @return
 	 */
-	public String addNewApplicationForm(File file) {
+	public String addNewApplicationForm() {
 		Course course = super.getCourse();
 		try {
 			if (applicationFormService.addApplicationForm(applicationForm,
@@ -187,7 +189,7 @@ public class CourseInfoAction extends BaseAction {
 	 * @param file
 	 * @return
 	 */
-	public String updateApplicationForm(File file) {
+	public String updateApplicationForm() {
 		try {
 			if (applicationFormService.updateApplicationForm(applicationForm,
 					upload)) {
