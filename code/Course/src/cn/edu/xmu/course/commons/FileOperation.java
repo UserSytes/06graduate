@@ -21,11 +21,11 @@ public class FileOperation {
 	}
 
 	public static boolean copy(File src, File dst) throws Exception {
-		if (src == null)
-			return true;
 		if (!dst.getParentFile().exists()) {
 			dst.getParentFile().mkdirs();
 		}
+		if(dst.exists())
+			dst.delete();
 		try {
 			InputStream in = null;
 			OutputStream out = null;
