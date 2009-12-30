@@ -39,7 +39,7 @@ public interface IChapterService {
 	 * @param chapter
 	 * @return
 	 */
-	public boolean addChapter(Chapter chapter);
+	public boolean deleteChapter(Chapter chapter);
 	
 	
 }

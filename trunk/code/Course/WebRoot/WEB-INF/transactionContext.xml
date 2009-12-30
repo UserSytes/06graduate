@@ -27,6 +27,13 @@
 			<ref bean="courseServiceTarget" />
 		</property>
 	</bean>
+	
+	<bean id="chapterService" parent="transactionBase">
+		<property name="target">
+			<ref bean="chapterServiceTarget" />
+		</property>
+	</bean>
+	
 	<bean id="studentCourseService" parent="transactionBase">
 		<property name="target">
 			<ref bean="studentCourseServiceTarget" />
