@@ -133,4 +133,9 @@
 			<ref bean="AchievementDAO" />
 		</property>
 	</bean>
+		<bean id="experimentServiceTarget" class="cn.edu.xmu.course.service.impl.ExperimentService">
+	<property name="experimentDAO">
+			<ref bean="ExperimentDAO" />
+		</property>
+	</bean>
 </beans>

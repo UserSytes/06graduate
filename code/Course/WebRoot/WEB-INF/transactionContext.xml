@@ -108,5 +108,9 @@
 			<ref bean="achievementServiceTarget" />
 		</property>
 	</bean>
-	
+				<bean id="experimentService" parent="transactionBase">
+		<property name="target">
+			<ref bean="experimentServiceTarget" />
+		</property>
+	</bean>
 </beans>
