@@ -10,23 +10,25 @@ import com.opensymphony.xwork2.ActionSupport;
 public class DownloadAction extends ActionSupport {
 	private final static String DOWNLOADFILEPATH = "/upload/";
 	private String fileName;
+	private String originalFileName;
 
 	public void setFileName() {
-		System.out.println("the file name is"+fileName);
 		// 得到请求下载的文件名
 		String fname = fileName;
+		String forginalFileName=originalFileName;
 		try {
 			/*
-			 * 对fname参数进行UTF-8解码,注意:实际进行UTF-8解码时会使用本地编码，本机为GBK。
+			 * 对参数进行UTF-8解码,注意:实际进行UTF-8解码时会使用本地编码，本机为GBK。
 			 * 这里使用request.setCharacterEncoding解码无效.
 			 * 只有解码了getDownloadFile()方法才能在下载目录下正确找到请求的文件
 			 */
 			fname = new String(fname.getBytes("ISO-8859-1"), "UTF-8");
+			forginalFileName =new String(forginalFileName.getBytes("ISO-8859-1"), "UTF-8");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		this.fileName = fname;
-		System.out.println(fileName);
+		this.originalFileName = forginalFileName;
 	}
 
 	/*
@@ -71,6 +73,15 @@ public class DownloadAction extends ActionSupport {
 
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
+	}
+
+	public void setOriginalFileName(String originalFileName) {
+		this.originalFileName = originalFileName;
+	}
+
+	public String getOriginalFileName() throws UnsupportedEncodingException {
+		originalFileName = new String(originalFileName.getBytes(), "ISO-8859-1");
+		return originalFileName;
 	}
 
 }
