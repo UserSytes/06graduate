@@ -1,9 +1,14 @@
 package cn.edu.xmu.course.web.action;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
+
+import cn.edu.xmu.course.pojo.Attachment;
 import cn.edu.xmu.course.pojo.News;
+import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.service.INewsService;
 /**
  * 新闻管理
@@ -19,7 +24,10 @@ public class NewsAction extends BaseAction{
 	private List<News> newsList;
 	
 	private int newsId;
-
+	private File upload;
+	private String uploadContentType;
+	private String uploadFileName;
+	
 	/**
 	 * 跳转到添加新闻
 	 * @return
@@ -29,12 +37,37 @@ public class NewsAction extends BaseAction{
 	}
 	
 	/**
+	 * 对上传文件进行重命名
+	 * 
+	 * @return
+	 */
+	private String refactorFileLink() {
+		Teacher teacher = super.getTeacher();
+		String fileLink = teacher.getUserInfo().getName() + "/"
+				+ new Date().getTime() + "_" + uploadFileName;
+		return fileLink;
+	}
+	
+	/**
 	 * 发布新闻
 	 * @return
 	 */
 	public String addNews(){
 		Date nowDate = new Date();
 		news.setTime(nowDate);
+		
+		File file = null;
+		Attachment a = new Attachment();
+		if (upload != null) {
+			String path = ServletActionContext.getServletContext().getRealPath(
+					"/upload/news");
+			String fileName = path + "/" + this.refactorFileLink();
+			file = new File(fileName);
+			a.setFileLink(this.refactorFileLink());
+			a.setFilename(uploadFileName);
+			a.setNews(news);
+		}	
+		
 		boolean result = newsService.addNews(news);
 		if(result){
 			addActionMessage("添加新闻成功！");
@@ -43,6 +76,7 @@ public class NewsAction extends BaseAction{
 		else
 			return ERROR;
 	}
+	
 
 	/**
 	 * 获取所有新闻政策

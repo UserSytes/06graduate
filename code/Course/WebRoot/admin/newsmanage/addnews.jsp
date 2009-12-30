@@ -96,7 +96,7 @@
 						</div>
 					</td>
 					<td bgcolor="#FFFFFF">
-						<s:file></s:file>
+						<s:file name="upload"></s:file>
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">

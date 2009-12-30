@@ -2,6 +2,7 @@ package cn.edu.xmu.course.service.impl;
 
 import java.util.List;
 
+import cn.edu.xmu.course.dao.AttachmentDAO;
 import cn.edu.xmu.course.dao.NewsDAO;
 import cn.edu.xmu.course.pojo.News;
 import cn.edu.xmu.course.service.INewsService;
@@ -9,6 +10,7 @@ import cn.edu.xmu.course.service.INewsService;
 public class NewsService implements INewsService {
 
 	private NewsDAO newsDAO;
+	private AttachmentDAO attachmentDAO;
 	
 	public boolean addNews(News news) {
 		// TODO Auto-generated method stub
@@ -55,6 +57,14 @@ public class NewsService implements INewsService {
 
 	public void setNewsDAO(NewsDAO newsDAO) {
 		this.newsDAO = newsDAO;
+	}
+
+	public AttachmentDAO getAttachmentDAO() {
+		return attachmentDAO;
+	}
+
+	public void setAttachmentDAO(AttachmentDAO attachmentDAO) {
+		this.attachmentDAO = attachmentDAO;
 	}
 
 }

@@ -88,6 +88,9 @@
 		<property name="newsDAO">
 			<ref bean="NewsDAO" />
 		</property>
+		<property name="attachmentDAO">
+			<ref bean="AttachmentDAO" />
+		</property>
 	</bean>
 	
 	<!--管理员-->
