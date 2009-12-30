@@ -16,6 +16,7 @@ public class CourseChapterAction extends BaseAction{
 
 	private List<Chapter> chapterList;
 	private Chapter chapter;
+	private Integer chapterId;
 	
 	private List<Courseware> coursewareList;
 	private Courseware courseware;
@@ -32,6 +33,49 @@ public class CourseChapterAction extends BaseAction{
 	private ICoursewareService coursewareService;
 	private IExerciseService exerciseService;
 	private IExperimentService experimentService;
+	
+	
+	public String addChapter(){
+		course=super.getCourse();
+		if(chapterService.addChapter(course, chapter))
+			return SUCCESS;
+		else{
+			addActionError("添加章节错误，请重新操作！");
+			return ERROR;
+		}
+	}
+	
+	public String getChapterListByCourse(){
+		course = super.getCourse();
+		chapterList = chapterService.getAllChapter(course);
+		return SUCCESS;
+	}
+	
+	public String deleteChapter(){
+		Chapter delChapter = chapterService.getChapterById(chapterId);
+		if(chapterService.deleteChapter(delChapter))
+			return SUCCESS;
+		else {
+			addActionError("删除章节失败，请重新操作！");
+			return ERROR;
+		}
+	}
+	
+	public String goEidtChapter(){
+		chapter = chapterService.getChapterById(chapterId);
+		return SUCCESS;
+	}
+	
+	public String updateChapter(){
+		if(chapterService.updateChapter(chapter))
+			return SUCCESS;
+		else {
+			addActionError("更新章节失败，请重新操作！");
+			return ERROR;
+		}
+	}
+	
+	
 	public List<Chapter> getChapterList() {
 		return chapterList;
 	}
@@ -109,6 +153,14 @@ public class CourseChapterAction extends BaseAction{
 	}
 	public void setExperimentService(IExperimentService experimentService) {
 		this.experimentService = experimentService;
+	}
+
+	public void setChapterId(Integer chapterId) {
+		this.chapterId = chapterId;
+	}
+
+	public Integer getChapterId() {
+		return chapterId;
 	}
 	
 	
