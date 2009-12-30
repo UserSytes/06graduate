@@ -13,7 +13,7 @@ public class Chapter implements java.io.Serializable {
 
 	private Integer id;
 	private Course course;
-	private Integer number;
+	private String number;
 	private String name;
 	private String remark;
 	private Set exercises = new HashSet(0);
@@ -27,13 +27,13 @@ public class Chapter implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Chapter(Integer number, String name) {
+	public Chapter(String number, String name) {
 		this.number = number;
 		this.name = name;
 	}
 
 	/** full constructor */
-	public Chapter(Course course, Integer number, String name, String remark,
+	public Chapter(Course course, String number, String name, String remark,
 			Set exercises, Set experiments, Set coursewares) {
 		this.course = course;
 		this.number = number;
@@ -62,11 +62,11 @@ public class Chapter implements java.io.Serializable {
 		this.course = course;
 	}
 
-	public Integer getNumber() {
+	public String getNumber() {
 		return this.number;
 	}
 
-	public void setNumber(Integer number) {
+	public void setNumber(String number) {
 		this.number = number;
 	}
 

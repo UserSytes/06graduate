@@ -13,7 +13,7 @@
         <many-to-one name="course" class="cn.edu.xmu.course.pojo.Course" fetch="select">
             <column name="course_id" />
         </many-to-one>
-        <property name="number" type="java.lang.Integer">
+        <property name="number" type="java.lang.String">
             <column name="number" not-null="true" />
         </property>
         <property name="name" type="java.lang.String">
