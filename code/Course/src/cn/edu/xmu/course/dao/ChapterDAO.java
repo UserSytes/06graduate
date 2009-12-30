@@ -28,7 +28,8 @@ public class ChapterDAO extends HibernateDaoSupport {
 	public static final String NUMBER = "number";
 	public static final String NAME = "name";
 	public static final String REMARK = "remark";
-
+	public static final String COURSE = "course";
+	
 	protected void initDao() {
 		// do nothing
 	}
@@ -103,6 +104,10 @@ public class ChapterDAO extends HibernateDaoSupport {
 
 	public List findByRemark(Object remark) {
 		return findByProperty(REMARK, remark);
+	}
+	
+	public List findByCourse(Object course) {
+		return findByProperty(COURSE, course);
 	}
 
 	public List findAll() {
