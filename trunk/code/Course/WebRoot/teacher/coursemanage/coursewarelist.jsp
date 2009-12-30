@@ -9,14 +9,10 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<title>教师队伍列表</title>
-		<SCRIPT language=javascript>
-			function popwin(url)
-			{
-			window.open(url);
-			}
-			function goToAddteacherTeam(){
-			 window.location.href="courseinfomanage/addteacherteam.jsp";
+		<title>章节列表</title>
+		<SCRIPT language=javascript>		
+			function goToAddCourseware(){
+			 window.location.href="coursemanage/addcourseware.jsp";
 			}
 
 		</SCRIPT>
@@ -26,66 +22,62 @@
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 我的课程 -&gt; 教师队伍列表
+					当前位置: 我的课程 -&gt; 课件列表
 				</td>
 			</tr>
 		</table>
-<div align="right">
-				
-						<input type="button" onclick="goToAddteacherTeam()" value="添加教师队伍" />&nbsp;&nbsp;&nbsp;&nbsp;
-					</div>
+		<div align="right">
+
+			<input type="button" onclick="goToAddCourseware()" value="添加章节" />
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		</div>
 		<div align="center">
-			<table class="listTable">				
+			<table class="listTable">
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>
-						名字
+						章节目录
 					</th>
 					<th>
-						职称
+						标题
 					</th>
 					<th>
-						研究领域
+						作者
 					</th>
 					<th>
-						链接
-					</th>
-					<th>
-						备注
+						时间
 					</th>
 					<th>
 						操作
 					</th>
 				</tr>
-				<s:iterator value="teacherTeamList" status="teacherTeam">
+				<s:iterator value="coursewareList" status="chapter">
 					<tr class="listTr">
 						<td>
-							<s:property value="name" />
+							<s:property value="chapter.number" />
+							--
+							<s:property value="chapter.name" />
 						</td>
 						<td>
-							<s:property value="position" />
+							<s:property value="title" />
 						</td>
 						<td>
-							<s:property value="field" />
+							<s:property value="author" />
 						</td>
 						<td>
-							<a href="javascript:popwin('${link}')"><s:property id="link"
-									value="link" /> </a>
-						</td>
-						<td>
-							<s:property value="remark" />
+							<s:date format="yyyy-mm-dd" name="time"/>				
 						</td>
 						<td>
 							<a
-								href="<s:url action="goEidtTeacherTeamAction"> 
-                     			<s:param name="teacherTeamId"> 
+								href="<s:url action="goEditCoursewareAction"> 
+                     			<s:param name="coursewareId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
 								<font color="green">【编辑】</font> </a>
 							<a
-								href="<s:url action="deleteTeacherTeamAction"> 
-                     			<s:param name="teacherTeamId"> 
+								href="<s:url action="deleteCoursewareAction"> 
+                     			<s:param name="coursewareId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>"
