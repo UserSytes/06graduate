@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.service;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 
@@ -25,14 +26,14 @@ public interface IApplicationFormService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public boolean addApplicationForm(ApplicationForm applicationForm, Course course);
+	public boolean addApplicationForm(ApplicationForm applicationForm, Course course,File upload);
 	
 	/**
 	 * 更新课程申报表格
 	 * @param applicationForm
 	 * @return
 	 */
-	public boolean updateApplicationForm(ApplicationForm applicationForm);
+	public boolean updateApplicationForm(ApplicationForm applicationForm,File upload);
 	
 	/**
 	 * 删除课程申报表格

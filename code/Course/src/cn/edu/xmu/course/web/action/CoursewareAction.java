@@ -67,6 +67,10 @@ public class CoursewareAction extends BaseAction {
 	}
 
 	public String updateCourseware() {
+		if(upload.length()>=new Long(10485760L)){
+			addActionError("上传课件大小不能超过10M,请重新上传！");
+			return ERROR;
+		}
 		String fileLink = super.getTeacher().getUserInfo().getName() + "/"
 				+ super.getCourse().getName() + "_" + uploadFileName;
 		courseware.setFilename(uploadFileName);

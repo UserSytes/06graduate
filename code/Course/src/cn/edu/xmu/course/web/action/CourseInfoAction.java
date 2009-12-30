@@ -136,7 +136,7 @@ public class CourseInfoAction extends BaseAction {
 	private String refactorFileLink() {
 		Teacher teacher = super.getTeacher();
 		String fileLink = teacher.getUserInfo().getName() + "/"
-				+ new Date().getTime() + "_" + uploadFileName;
+				+ super.getCourse().getName() + "_" +"申报表格_"+ uploadFileName;
 		return fileLink;
 	}
 
@@ -149,10 +149,6 @@ public class CourseInfoAction extends BaseAction {
 
 		File file = null;
 		if (upload != null) {
-			String path = ServletActionContext.getServletContext().getRealPath(
-					"/upload");
-			String fileName = path + "/" + this.refactorFileLink();
-			file = new File(fileName);
 			applicationForm.setFileLink(this.refactorFileLink());
 			applicationForm.setFilename(uploadFileName);
 		}
@@ -172,8 +168,7 @@ public class CourseInfoAction extends BaseAction {
 		Course course = super.getCourse();
 		try {
 			if (applicationFormService.addApplicationForm(applicationForm,
-					course)
-					&& FileOperation.copy(upload, file)) {
+					course, upload)) {
 				addActionMessage("添加课程申报表格成功！!");
 				return SUCCESS;
 			} else {
@@ -194,8 +189,8 @@ public class CourseInfoAction extends BaseAction {
 	 */
 	public String updateApplicationForm(File file) {
 		try {
-			if (applicationFormService.updateApplicationForm(applicationForm)
-					&& FileOperation.copy(upload, file)) {
+			if (applicationFormService.updateApplicationForm(applicationForm,
+					upload)) {
 				addActionMessage("更改课程申报表格成功!");
 				return SUCCESS;
 			} else {
