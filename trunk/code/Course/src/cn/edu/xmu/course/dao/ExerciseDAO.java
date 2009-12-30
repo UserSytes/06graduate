@@ -27,7 +27,6 @@ public class ExerciseDAO extends HibernateDaoSupport {
 	// property constants
 	public static final String TITLE = "title";
 	public static final String FILENAME = "filename";
-	public static final String AUTHOR = "author";
 	public static final String FILE_LINK = "fileLink";
 	public static final String CHAPTER = "chapter";
 
@@ -101,10 +100,6 @@ public class ExerciseDAO extends HibernateDaoSupport {
 
 	public List findByFilename(Object filename) {
 		return findByProperty(FILENAME, filename);
-	}
-
-	public List findByAuthor(Object author) {
-		return findByProperty(AUTHOR, author);
 	}
 
 	public List findByFileLink(Object fileLink) {
