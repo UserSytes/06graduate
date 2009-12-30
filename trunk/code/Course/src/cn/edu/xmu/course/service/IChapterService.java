@@ -47,6 +47,13 @@ public interface IChapterService {
 	 * @return
 	 */
 	public boolean deleteChapter(Chapter chapter);
+	/**
+	 * 通过课程查找
+	 * @param courseId
+	 * @return
+	 */
+	public List getAllChapter(int courseId);
 	
+	public Chapter getChapter(int chapterId);
 	
 }
