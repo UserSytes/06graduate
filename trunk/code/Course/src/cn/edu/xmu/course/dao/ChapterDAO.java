@@ -93,7 +93,11 @@ public class ChapterDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-
+public List findByCourse(int courseId){
+		
+		return findByProperty("course.id", courseId);
+		
+	}
 	public List findByNumber(Object number) {
 		return findByProperty(NUMBER, number);
 	}
