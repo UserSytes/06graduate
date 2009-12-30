@@ -35,10 +35,10 @@
 		<s:form action="addChapterAction" method="post"
 			onsubmit="return check(this);">&nbsp;&nbsp; 
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
-				align=center border=0>				
+				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-					添加章节目录：
+						添加章节目录：
 					</td>
 				</tr>
 				<tr>
@@ -62,7 +62,7 @@
 						&nbsp;&nbsp;&nbsp;
 						<s:textfield name="chapter.name" cssClass="input" />
 					</td>
-				</tr>				
+				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">

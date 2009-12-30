@@ -1,8 +1,12 @@
 package cn.edu.xmu.course.service.impl;
 
+import java.io.File;
 import java.util.Calendar;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
+
+import cn.edu.xmu.course.commons.FileOperation;
 import cn.edu.xmu.course.dao.CoursewareDAO;
 import cn.edu.xmu.course.pojo.Chapter;
 import cn.edu.xmu.course.pojo.Course;
@@ -13,13 +17,21 @@ public class CoursewareService implements ICoursewareService {
 
 	private CoursewareDAO coursewareDAO;
 
-	public boolean addCourseware(Courseware courseware, Chapter chapter) {
+	public boolean addCourseware(Courseware courseware, Chapter chapter,
+			File upload) {
 		// TODO Auto-generated method stub
+		String path = ServletActionContext.getServletContext().getRealPath(
+				"/upload");
+		String fileName = path + "/" + courseware.getFileLink();
+		File file = new File(fileName);
 		courseware.setChapter(chapter);
 		courseware.setTime(Calendar.getInstance().getTime());
 		try {
 			coursewareDAO.save(courseware);
-			return true;
+			if (FileOperation.copy(upload, file))
+				return true;
+			else
+				return false;
 		} catch (Exception e) {
 			return false;
 		}
@@ -50,12 +62,21 @@ public class CoursewareService implements ICoursewareService {
 		return coursewareDAO.findByChapter(chapter);
 	}
 
-	public boolean updateCourseware(Courseware courseware, Chapter chapter) {
+	public boolean updateCourseware(Courseware courseware, Chapter chapter,
+			File upload) {
 		// TODO Auto-generated method stub
+		String path = ServletActionContext.getServletContext().getRealPath(
+				"/upload");
+		String fileName = path + "/" + courseware.getFileLink();
+		File file = new File(fileName);
 		courseware.setChapter(chapter);
+		courseware.setTime(Calendar.getInstance().getTime());
 		try {
 			coursewareDAO.merge(courseware);
-			return true;
+			if (FileOperation.copy(upload, file))
+				return true;
+			else
+				return false;
 		} catch (Exception e) {
 			return false;
 		}

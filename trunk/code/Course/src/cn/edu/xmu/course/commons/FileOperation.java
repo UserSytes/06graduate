@@ -20,7 +20,7 @@ public class FileOperation {
 		return instance;
 	}
 
-	public static boolean copy(File src, File dst) {
+	public static boolean copy(File src, File dst) throws Exception {
 		if (src == null)
 			return true;
 		if (!dst.getParentFile().exists()) {
@@ -48,7 +48,7 @@ public class FileOperation {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
+			throw e;
 		}
 		return true;
 	}

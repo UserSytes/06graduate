@@ -13,9 +13,24 @@
 		<SCRIPT language=javascript>
 			function check(form)
 			{
-				if (form.userName.value == "")
+				if (form.chapterId.value == -1)
 				{
-					alert("名字不能为空！");
+					alert("请先选择章节目录！");
+					return false;
+				}
+				if(form.title.value == "")
+				{
+					alert("课件标题不能为空！");
+					return false;
+				}
+				if(form.author.value == "")
+				{
+					alert("课件作者不能为空！");
+					return false;
+				}
+				if(form.file.value == "")
+				{
+					alert("上传课件不能为空！");
 					return false;
 				}
 			}
@@ -33,10 +48,9 @@
 		</table>
 
 		<s:form action="updateCoursewareAction" method="post"
-			onsubmit="return check(this);">
+			onsubmit="return check(this);" enctype="multipart/form-data">
 			<s:hidden name="courseware.id"></s:hidden>
-			<s:hidden name="courseware.chapter.id"></s:hidden>
-			<s:hidden name="courseware.fileLink"></s:hidden>
+			<s:hidden name="courseware.chapter.id"></s:hidden>			
 &nbsp;&nbsp; 
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
@@ -53,8 +67,8 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:select name="chapterId" list="chapterList" listKey="id"
-							listValue="number" />
+						<s:select id="chapterId" name="chapterId" list="chapterList"
+							listKey="id" listValue="number+name" />
 					</td>
 				</tr>
 				<tr>
@@ -65,7 +79,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="courseware.title" cssClass="input" />
+						<s:textfield id="title" name="courseware.title" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -76,7 +90,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="courseware.author" cssClass="INPUT" />
+						<s:textfield id="author" name="courseware.author" cssClass="INPUT" />
 					</td>
 				</tr>
 				<tr>
@@ -87,7 +101,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:file name="upload"></s:file>
+						<s:file id="file" name="upload"></s:file>
 					</td>
 				</tr>
 				<tr class=editHeaderTr>
