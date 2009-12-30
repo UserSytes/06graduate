@@ -254,7 +254,7 @@
 			<result name="success" type="redirect-action">getChapterListByCourseAction</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="goEditChapterAction" method="goEidtChapter"
+		<action name="goEditChapterAction" method="goEditChapter"
 			class="courseChapterAction">
 			<result name="success">/teacher/coursemanage/editchapter.jsp</result>
 		</action>
@@ -280,7 +280,7 @@
 			<result name="success" type="redirect-action">getCoursewareListByChapterAction</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="goEditCoursewareAction" method="goEidtCourseware"
+		<action name="goEditCoursewareAction" method="goEditCourseware"
 			class="coursewareAction">
 			<result name="success">/teacher/coursemanage/editcourseware.jsp</result>
 		</action>
