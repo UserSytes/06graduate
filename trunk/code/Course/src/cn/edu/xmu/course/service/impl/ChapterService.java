@@ -1,15 +1,14 @@
 package cn.edu.xmu.course.service.impl;
 
 import java.util.List;
-
 import cn.edu.xmu.course.dao.ChapterDAO;
 import cn.edu.xmu.course.pojo.Chapter;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.service.IChapterService;
 
 public class ChapterService implements IChapterService {
+		private ChapterDAO chapterDAO;
 
-	private ChapterDAO chapterDAO;
 
 	public Chapter getChapterById(int chapterId) {
 		// TODO Auto-generated method stub
@@ -42,7 +41,15 @@ public class ChapterService implements IChapterService {
 		// TODO Auto-generated method stub
 		return chapterDAO.findByCourse(course);
 	}
-
+	@SuppressWarnings("unchecked")
+	public List getAllChapter(int courseId){
+		List<Chapter> chapterList = chapterDAO.findByCourse(courseId);
+		if (chapterList.size() > 0)
+			return chapterList;
+		else
+			return null;
+	}
+	
 	public boolean updateChapter(Chapter chapter) {
 		// TODO Auto-generated method stub
 		try {
@@ -61,5 +68,9 @@ public class ChapterService implements IChapterService {
 		return chapterDAO;
 	}
 
-	
+
+	public Chapter getChapter(int chapterId) {
+		return chapterDAO.findById(chapterId);
+	}
+
 }
