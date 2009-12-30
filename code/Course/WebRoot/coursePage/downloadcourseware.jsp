@@ -4,68 +4,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<title>精品课程网站</title>
+		<title>课程教案列表</title>
 		<meta http-equiv="Content-Style-Type" content="text/css">
 		<LINK HREF="style.css" TYPE="text/css" REL="stylesheet">
 	</head>
-<style type="text/css">
-body{
-font-family:Arial, Helvetica, sans-serif;
-}
-ul,li{
-margin:0px;
-padding:0px;
-}
-li{
-display:inline;
-list-style:none;
-list-style-position:outside;
-text-align:center;
-font-weight:bold;
-float:left;
-}
-
-#nav{
-width:750px;
-height:50px;
-border-bottom:0px;
-padding:0px 0px;
-position:absolute;
-z-index:1;
-left: 198px;
-top: 25px;
-}
-.list{
-line-height:30px;
-text-align:left;
-padding:4px;
-font-weight:normal;
-}
-.menu1{
-width:75px;
-height:auto;
-margin:6px 4px 0px 0px;
-border:1px solid #9CDD75;
-background-color:#F1FBEC;
-color:#336601;
-padding:6px 0px 0px 0px;
-cursor:hand;
-overflow-y:hidden;
-filter:Alpha(opacity=70);
--moz-opacity:0.7;
-}
-.menu2{
-width:75px;
-height:30px;
-margin:0px 4px 0px 0px;
-background-color:#F5F5F5;
-color:#999999;
-border:1px solid #EEE8DD;
-padding:6px 0px 0px 0px;
-overflow-y:hidden;
-cursor:hand;
-}
-</style>
 
 	<body>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -84,8 +26,7 @@ cursor:hand;
 											<div style="padding-left: 22px; padding-top: 43px">
 												<a href="index.jsp"><img
 														src="coursePage/images/logo.jpg" width="248" height="38"
-														border="0">
-												</a>
+														border="0"> </a>
 											</div>
 										</td>
 										<td>
@@ -117,134 +58,93 @@ cursor:hand;
 													</tr>
 												</table>
 											</div>
-<br>
 										</td>
 									</tr>
 								</table>
-<br>
 							</td>
 						</tr>
 						<tr>
-							<td align="center">	
-<div id="nav" style="top: 162px; left: 276px;"> 
-    <ul> 
-    <li class="menu2" onMouseOver="this.className='menu1'" onMouseOut="this.className='menu2'"><a
+							<td align="left" valign="top">
+								<table width="100%" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td background="coursePage/images/computers.jpg" width="101"
+											height="30" border="0" align="center">
+											<a
 												href="<s:url action="enterCourseAction"> 
                      			<s:param name="course"> 
                        			 	<s:property value="id"/> 
                     			</s:param>
                 					</s:url>">
-												首页
-											</a>     
-    </li> 
-    <li class="menu2" onMouseOver="this.className='menu1'" onMouseOut="this.className='menu2'">大纲信息  
-    <div class="list"> 
-        <a
-												href="<s:url action="findCourseInfoAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-                     			<s:param name="sort"> 
-                       			 	1 
-                    			</s:param>
-                					</s:url>">课程简介</a><br /> 
-       <a href="<s:url action="findCourseInfoAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-                     			<s:param name="sort"> 
-                       			 	2 
-                    			</s:param>
-                					</s:url>">教学大纲</a><br />
-    </div> 
-    </li> 
-    <li class="menu2" onMouseOver="this.className='menu1'" onMouseOut="this.className='menu2'"><a
-												href="<s:url action="findTeacherTeamAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-                					</s:url>">
-												师资队伍
-											</a>     
-    </li> 
-    <li class="menu2" onMouseOver="this.className='menu1'" onMouseOut="this.className='menu2'"><a
-												href="<s:url action="findAchievementAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-                					</s:url>">
-												成果展示
-											</a>   
-    </li> 
-<li class="menu2" onMouseOver="this.className='menu1'" onMouseOut="this.className='menu2'">文档中心
-    <div class="list"> 
-        <a
-												href="<s:url action="findChapterAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-                     			<s:param name="flag"> 
-                       			 	1 
-                    			</s:param>
-                					</s:url>">课程教案</a><br /> 
-       <a href="<s:url action="findChapterAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-                     			<s:param name="flag"> 
-                       			 	2 
-                    			</s:param>
-                					</s:url>">实验指导</a><br />
-       <a href="<s:url action="findChapterAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-                     			<s:param name="flag"> 
-                       			 	3 
-                    			</s:param>
-                					</s:url>">习题试卷</a><br />
-    </div> 
-    </li> 
-<li class="menu2" onMouseOver="this.className='menu1'" onMouseOut="this.className='menu2'"><a
-												href="<s:url action="findTeacherTeamAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-                					</s:url>">
-												教学录像
-											</a>     
-    </li> 
-<li class="menu2" onMouseOver="this.className='menu1'" onMouseOut="this.className='menu2'"><a
-												href="<s:url action="findTeacherTeamAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-                					</s:url>">
-												课程评价
-											</a>     
-    </li> 
-<li class="menu2" onMouseOver="this.className='menu1'" onMouseOut="this.className='menu2'"><a
+												<font color="green">首页</font> </a>
+										</td>
+										<td background="coursePage/images/com_1.jpg" width="101"
+											height="30" border="0" align="center">
+											<a
 												href="<s:url action="findApplicationFormAction"> 
                      			<s:param name="course"> 
                        			 	<s:property value="id"/> 
                     			</s:param>
                 					</s:url>">
-												申报表格
-											</a>     
-    </li> 
-<li class="menu2" onMouseOver="this.className='menu1'" onMouseOut="this.className='menu2'"><a
+												<font color="green">申报表格</font> </a>
+										</td>
+										<td background="coursePage/images/com_2.jpg" width="101"
+											height="30" border="0" align="center">
+											<a
+												href="<s:url action="findCourseInfoAction"> 
+                     			<s:param name="course"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param>
+                					</s:url>">
+												<font color="green">课程简介</font> </a>
+										</td>
+										<td background="coursePage/images/com_3.jpg" width="101"
+											height="30" border="0" align="center">
+											<a
 												href="<s:url action="findTeacherTeamAction"> 
                      			<s:param name="course"> 
                        			 	<s:property value="id"/> 
                     			</s:param>
                 					</s:url>">
-												留言板
-											</a>     
-    </li> 
-    </ul> 
-</div>
-
-<br>
+												<font color="green">师资队伍</font> </a>
+										</td>
+										<td background="coursePage/images/com_4.jpg" width="101"
+											height="30" border="0" align="center">
+											<a
+												href="<s:url action="findAchievementAction"> 
+                     			<s:param name="course"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param>
+                					</s:url>">
+												<font color="green">成果展示</font> </a>
+										</td>
+										<td background="coursePage/images/com_5.jpg" width="101"
+											height="30" border="0" align="center">
+											<a
+												href="<s:url action="findChapterAction"> 
+                     			<s:param name="course"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param>
+                					</s:url>">
+												<font color="green">课程教案</font> </a>
+										</td>
+										<td background="coursePage/images/com_6.jpg" width="101"
+											height="30" border="0" align="center">
+											<a href="#">实验习题</a>
+										</td>
+										<td background="coursePage/images/com_6.jpg" width="101"
+											height="30" border="0" align="center">
+											<a href="#">教学录像</a>
+										</td>
+										<td background="coursePage/images/com_6.jpg" width="101"
+											height="30" border="0" align="center">
+											<a href="#">课程评价</a>
+										</td>
+										<td background="coursePage/images/com_6.jpg" width="101"
+											height="30" border="0" align="center">
+											<a href="#">留言板</a>
+										</td>
+									</tr>
+								</table>
 							</td>
 						</tr>
 						<tr>
@@ -410,169 +310,69 @@ cursor:hand;
 												</tr>
 											</table>
 										</td>
-										<td width="346" height="100%">
-											<table width="340" height="100%" border="0" cellpadding="0"
+										<td width="450" height="100%">
+											<table width="450" height="100%" border="0" cellpadding="0"
 												cellspacing="0">
 												<tr>
-													<td height="140" align="left" valign="top">
-														<div style="padding-left: 12px; padding-top: 17px">
-															<a href="#"><img src="coursePage/images/banner_1.jpg"
-																	width="312" height="114" border="0">
-															</a>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td height="149" align="left" valign="top">
-														<a href="#"><img src="coursePage/images/banner_2.jpg"
-																width="340" height="149" border="0">
-														</a>
-													</td>
-												</tr>
-												<tr>
-													<td height="7" align="left" valign="top">
-														<img src="coursePage/images/spacer.gif" width="1"
-															height="7">
-													</td>
-												</tr>
-												<tr>
-													<td height="100%" align="left" valign="top">
-														<table width="340" height="100%" border="0"
-															cellpadding="0" cellspacing="0">
-															<tr>
-																<td height="24" align="left" valign="top"
-																	background="coursePage/images/ket_2.jpg">
-																	<div style="padding-left: 18px; padding-top: 5px">
-																		<span class="style2">教学视频</span>
-																	</div>
+													<td height="100%" align="center" valign="top">
+														<table class=editTable cellSpacing=1 cellPadding=0
+															width="100%" align=center border=0>
+															<tr class=position bgcolor="#ECF3FD">
+																<td>
+																	当前位置: 首页 -&gt; 课程教案列表
 																</td>
 															</tr>
 															<tr>
-																<td height="100%" align="left" valign="top"
-																	style="border-right: 1px solid #CBCBCB; border-left: 1px solid #CBCBCB">
-																	<div
-																		style="padding-left: 12px; padding-top: 8px; padding-bottom: 3px">
-																		<table width="310" border="0" cellspacing="0"
-																			cellpadding="0">
-																			<tr align="left" valign="top">
-																				<td width="158"
-																					style="border-right: 1px solid #CBCBCB">
-																					<div style="padding-left: 0px; padding-top: 5px">
-																						<table width="143" border="0" cellspacing="0"
-																							cellpadding="0">
-																							<tr>
-																								<td height="57" align="left" valign="top"
-																									style="border-bottom: 1px solid #CBCBCB">
-																									<div
-																										style="padding-left: 0px; padding-top: 0px;">
-																										<a href="#"><img
-																												src="coursePage/images/pic_1.jpg"
-																												width="143" height="47" border="0">
-																										</a>
-																									</div>
-																								</td>
-																							</tr>
-																							<tr>
-																								<td align="left" valign="top"
-																									style="border-bottom: 1px solid #CBCBCB">
-																									<div
-																										style="padding-left: 5px; padding-top: 5px; padding-bottom: 5px">
-																										<span class="style4">292Mhz 64MB 4GB,
-																											CD ROM, Floppy disk drive, Zip drive.</span>
-																									</div>
-																								</td>
-																							</tr>
-																							<tr>
-																								<td align="left" valign="top">
-																									<div
-																										style="padding-left: 5px; padding-top: 7px">
-																										<table width="136" height="9" border="0"
-																											cellpadding="0" cellspacing="0">
-																											<tr align="left" valign="middle">
-																												<td style="border-right: 1px solid #B80000">
-																													<a href="#"><img
-																															src="coursePage/images/or_1.jpg"
-																															width="55" height="7" border="0">
-																													</a>
-																												</td>
-																												<td align="right">
-																													<a href="#"><img
-																															src="coursePage/images/or_2.jpg"
-																															width="59" height="7" border="0">
-																													</a>
-																												</td>
-																											</tr>
-																										</table>
-																									</div>
-																								</td>
-																							</tr>
-																						</table>
-																					</div>
-																				</td>
-																				<td>
-																					<div style="padding-left: 14px; padding-top: 5px">
-																						<table width="143" border="0" cellspacing="0"
-																							cellpadding="0">
-																							<tr>
-																								<td height="57" align="left" valign="top"
-																									style="border-bottom: 1px solid #CBCBCB">
-																									<div
-																										style="padding-left: 0px; padding-top: 0px;">
-																										<a href="#"><img
-																												src="coursePage/images/pic_2.jpg"
-																												width="137" height="50" border="0">
-																										</a>
-																									</div>
-																								</td>
-																							</tr>
-																							<tr>
-																								<td align="left" valign="top"
-																									style="border-bottom: 1px solid #CBCBCB">
-																									<div
-																										style="padding-left: 5px; padding-top: 5px; padding-bottom: 5px">
-																										<span class="style4">292Mhz 64MB 4GB,
-																											CD ROM, Floppy disk drive, Zip drive.</span>
-																									</div>
-																								</td>
-																							</tr>
-																							<tr>
-																								<td align="left" valign="top">
-																									<div
-																										style="padding-left: 5px; padding-top: 7px">
-																										<table width="136" height="9" border="0"
-																											cellpadding="0" cellspacing="0">
-																											<tr align="left" valign="middle">
-																												<td style="border-right: 1px solid #B80000">
-																													<a href="#"><img
-																															src="coursePage/images/or_1.jpg"
-																															width="55" height="7" border="0">
-																													</a>
-																												</td>
-																												<td align="right">
-																													<a href="#"><img
-																															src="coursePage/images/or_2.jpg"
-																															width="59" height="7" border="0">
-																													</a>
-																												</td>
-																											</tr>
-																										</table>
-																									</div>
-																								</td>
-																							</tr>
-																						</table>
-																					</div>
-																				</td>
-																			</tr>
-																		</table>
-																	</div>
+																<td>
+																	&nbsp;
 																</td>
 															</tr>
 															<tr>
-																<td height="5" align="left" valign="top">
-																	<img src="coursePage/images/bot_2.jpg" width="340"
-																		height="5">
+																<td>
+																	&nbsp;
 																</td>
 															</tr>
+														</table>
+														<table class=editTable cellSpacing=1 cellPadding=0
+															width="450" align=center border=2>
+															<tr bgcolor="#ECF3FD" height="30">
+																<th>
+																	课件名
+																</th>
+																<th>
+																	作者
+																</th>
+																<th>
+																	时间
+																</th>
+																<th>
+																	链接
+																</th>
+															</tr>
+															<s:iterator value="coursewareList" status="courseware">
+																<tr bgcolor="#FFFDF0" height="30" align="center"
+																	valign="middle">
+																	<td>
+																		<s:property value="title" />
+																	</td>
+																	<td>
+																		<s:property value="author" />
+																	</td>
+																	<td>
+																		<s:date name="time" format="yyyy-MM-dd" />
+																	</td>
+																	<td align="center" valign="top">
+																		<a
+																			href="<s:url action="download"> 
+                     			<s:param name="fileName"> 
+                       			 	<s:property value="fileLink"/> 
+                    			</s:param> 
+                					</s:url>"
+																			onclick="JAVAscript:if(!confirm('确认下载附件？')) return false;return true;">
+																			<font color="red">点此下载</font> </a>
+																	</td>
+																</tr>
+															</s:iterator>
 														</table>
 													</td>
 												</tr>
@@ -748,18 +548,15 @@ cursor:hand;
 													<tr align="left" valign="middle">
 														<td width="82">
 															<a href="#"><img src="coursePage/images/pay_1.jpg"
-																	width="80" height="26" border="0">
-															</a>
+																	width="80" height="26" border="0"> </a>
 														</td>
 														<td width="41">
 															<a href="#"><img src="coursePage/images/pay_2.jpg"
-																	width="39" height="26" border="0">
-															</a>
+																	width="39" height="26" border="0"> </a>
 														</td>
 														<td>
 															<a href="#"><img src="coursePage/images/pay_3.jpg"
-																	width="39" height="26" border="0">
-															</a>
+																	width="39" height="26" border="0"> </a>
 														</td>
 													</tr>
 												</table>
@@ -768,26 +565,24 @@ cursor:hand;
 										<td>
 											<div style="padding-left: 0px; padding-top: 15px">
 												<span class="style6"><a href="#" class="style6">Computers</a>
-												<img src="coursePage/images/point_2.jpg" hspace="11"
+													<img src="coursePage/images/point_2.jpg" hspace="11"
 														vspace="2"><a href="#" class="style6">Peripherals</a>
-												<img src="coursePage/images/point_2.jpg" hspace="11"
+													<img src="coursePage/images/point_2.jpg" hspace="11"
 														vspace="2"><a href="#" class="style6">Networking</a>
-												<img src="coursePage/images/point_2.jpg" hspace="11"
-														vspace="2"><a href="#" class="style6">Software</a>
-												<img src="coursePage/images/point_2.jpg" hspace="11"
-														vspace="2"><a href="#" class="style6">Supplies</a>
-												<img src="coursePage/images/point_2.jpg" hspace="11"
-														vspace="2"><a href="#" class="style6">Services</a>
-												<img src="coursePage/images/point_2.jpg" hspace="11"
-														vspace="2"><a href="#" class="style6">Promotion</a>
-												</span>
+													<img src="coursePage/images/point_2.jpg" hspace="11"
+														vspace="2"><a href="#" class="style6">Software</a> <img
+														src="coursePage/images/point_2.jpg" hspace="11" vspace="2"><a
+													href="#" class="style6">Supplies</a> <img
+														src="coursePage/images/point_2.jpg" hspace="11" vspace="2"><a
+													href="#" class="style6">Services</a> <img
+														src="coursePage/images/point_2.jpg" hspace="11" vspace="2"><a
+													href="#" class="style6">Promotion</a> </span>
 											</div>
 											<div style="padding-left: 0px; padding-top: 3px">
 												<span class="style8">Copyright ?2005 Company name,
 													Inc. All Rights Reserved. <a href="index-2.html"
 													class="style8" style="text-decoration: none">Privacy
-														Policy</a>
-												</span>
+														Policy</a> </span>
 											</div>
 										</td>
 									</tr>
