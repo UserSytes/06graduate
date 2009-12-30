@@ -284,6 +284,10 @@
 			class="coursewareAction">
 			<result name="success">/teacher/coursemanage/editcourseware.jsp</result>
 		</action>
+		<action name="goAddCoursewareAction" method="goAddCourseware"
+			class="coursewareAction">
+			<result name="success">/teacher/coursemanage/addcourseware.jsp</result>
+		</action>
 		
 		<!-- 课程管理 (学院管理员)-->
 		<action name="noPassListAction" method="findNoPassCourse"

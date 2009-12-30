@@ -21,7 +21,7 @@ public class CoursewareAction extends BaseAction {
 	private IChapterService chapterService;
 	private ICoursewareService coursewareService;
 
-	public String getCoursewareByChapter() {
+	public String getCoursewareListByChapter() {
 		Course course = super.getCourse();
 		coursewareList = coursewareService.getAllCoursewares(course);
 		return SUCCESS;
@@ -39,6 +39,12 @@ public class CoursewareAction extends BaseAction {
 
 	public String goEditCourseware() {
 		courseware = coursewareService.getCoursewareById(coursewareId);
+		return SUCCESS;
+	}
+	
+	public String goAddCourseware() {
+		Course course = super.getCourse();
+		chapterList=chapterService.getAllChapter(course);
 		return SUCCESS;
 	}
 

@@ -49,7 +49,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:select name="chapterId" list="chapterList" listKey="id"
+						<s:select name="id" list="chapterList" listKey="id"
 							listValue="number" />
 					</td>
 				</tr>
