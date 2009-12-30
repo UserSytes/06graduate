@@ -8,6 +8,7 @@ import org.hibernate.LockMode;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import cn.edu.xmu.course.pojo.Chapter;
 import cn.edu.xmu.course.pojo.Experiment;
 
 /**
@@ -93,7 +94,9 @@ public class ExperimentDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-
+	public List findByChapter(Chapter chapter){
+		return findByProperty("chapter", chapter);
+	}
 	public List findByTitle(Object title) {
 		return findByProperty(TITLE, title);
 	}
