@@ -539,6 +539,13 @@
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		
+		<!-- 学生主页 -->
+		<action name="myCoursesAction" method="findMyCourses" class="studentInfoAction">
+			<result name="news">/student/courselist.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		
+		
 		<!-- 前台 -->
 		<action name="findCourseByDepartmentAction" method="findCourseByDepartment"
 			class="executeViewAction">
@@ -573,7 +580,7 @@
 			class="homePageAction">
 			<result name="teacher">/teacher/main.jsp</result>
 			<result name="error">/commons/error.jsp</result>
-			<result name="student">/homepage/test.jsp</result>
+			<result name="student">/student/studentinfo.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 <!-- 首页精品课程列表 -->
