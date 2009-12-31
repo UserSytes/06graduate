@@ -80,8 +80,7 @@ a.v1:visited {
 															<img src="images/1.gif" width="9" height="9" />
 															<span class="STYLE1"><A
 																href="getCurrentCourseAction.action" target=mainFrame
-																class="v1">申报表格</A>
-															</span>
+																class="v1">申报表格</A> </span>
 														</div>
 													</td>
 												</tr>
@@ -97,8 +96,7 @@ a.v1:visited {
 															<img src="images/2.gif" width="9" height="9" />
 															<span class="STYLE1"><A
 																href="findCurrentCourseInfoAction.action"
-																target=mainFrame class="v1">课程信息</A>
-															</span>
+																target=mainFrame class="v1">课程信息</A> </span>
 														</div>
 													</td>
 												</tr>
@@ -114,8 +112,7 @@ a.v1:visited {
 															<img src="images/3.gif" width="9" height="9" />
 															<span class="STYLE1"><A
 																href="getTeacherTeamByCourseAction.action"
-																target=mainFrame class="v1">教师队伍</A>
-															</span>
+																target=mainFrame class="v1">教师队伍</A> </span>
 														</div>
 													</td>
 												</tr>
@@ -131,14 +128,13 @@ a.v1:visited {
 															<img src="images/4.gif" width="9" height="9" />
 															<span class="STYLE1"><A
 																href="getChapterListByCourseAction.action"
-																target=mainFrame class="v1">章节目录</A>
-															</span>
+																target=mainFrame class="v1">章节目录</A> </span>
 														</div>
 													</td>
 												</tr>
 											</table>
 										</td>
-									<td width="87">
+										<td width="87">
 											<table width="85" border="0" align="center" cellpadding="0"
 												cellspacing="0">
 												<tr>
@@ -148,8 +144,7 @@ a.v1:visited {
 															<img src="images/5.gif" width="9" height="9" />
 															<span class="STYLE1"><A
 																href="getCoursewareListByChapterAction.action"
-																target=mainFrame class="v1">课件管理</A>
-															</span>
+																target=mainFrame class="v1">课件管理</A> </span>
 														</div>
 													</td>
 												</tr>
@@ -165,8 +160,7 @@ a.v1:visited {
 															<img src="images/6.gif" width="9" height="9" />
 															<span class="STYLE1"><A
 																href="getExerciseListByChapterAction.action"
-																target=mainFrame class="v1">习题管理</A>
-															</span>
+																target=mainFrame class="v1">习题管理</A> </span>
 														</div>
 													</td>
 												</tr>
@@ -187,7 +181,6 @@ a.v1:visited {
 					&nbsp;
 				</td>
 			</tr>
-
 		</table>
 	</body>
 </html>

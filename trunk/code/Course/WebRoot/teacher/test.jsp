@@ -60,9 +60,9 @@
 				</td>
 			</tr>
 		</table>
-	
+
 		<div id="courseListMain" align="center">
-		<s:property escape="false" value="test"  ></s:property>
+			<s:property escape="false" value="test"></s:property>
 
 
 		</div>

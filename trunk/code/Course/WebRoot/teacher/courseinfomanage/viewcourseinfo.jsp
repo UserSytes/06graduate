@@ -37,7 +37,6 @@
 				</td>
 			</tr>
 		</table>
-		&nbsp;&nbsp;
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=editHeaderTr>

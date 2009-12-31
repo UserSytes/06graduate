@@ -21,7 +21,7 @@ eval("submenu" + sid + ".style.display=\"none\";");
 }
 </SCRIPT>
 	<body>
-				<table width="156" height="100%" border="0" cellpadding="0"
+		<table width="156" height="100%" border="0" cellpadding="0"
 			cellspacing="0">
 			<tr>
 				<td height="33" background="images/main_21.gif">
@@ -38,7 +38,7 @@ eval("submenu" + sid + ".style.display=\"none\";");
 									<table width="100%" border="0" cellspacing="0" cellpadding="0">
 										<tr>
 											<td width="13%">
-											&nbsp;
+												&nbsp;
 											</td>
 											<TD width="20"></TD>
 											<TD class=STYLE1 style="CURSOR: hand" onclick=showsubmenu(1);
@@ -281,10 +281,10 @@ eval("submenu" + sid + ".style.display=\"none\";");
 									<span class="STYLE2"><IMG src="Images/closed.gif">版权所有：865171<br>
 										<IMG src="Images/closed.gif">设计制作：865171<br> <IMG
 											src="Images/closed.gif">技术支持：<a
-										href="http://www.865171.cn" target="_blank">865171</a>
-									<br> <IMG src="Images/closed.gif">帮助中心：<a
-										href="http://www.865171.cn" target="_blank">865171</a>
-									<br> <IMG src="Images/closed.gif">系统版本：1.0</span>
+										href="http://www.865171.cn" target="_blank">865171</a> <br>
+										<IMG src="Images/closed.gif">帮助中心：<a
+										href="http://www.865171.cn" target="_blank">865171</a> <br>
+										<IMG src="Images/closed.gif">系统版本：1.0</span>
 								</TD>
 							</TR>
 						</TBODY>

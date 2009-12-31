@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../commons/taglibs.jsp"%>
+<%@ include file="../../commons/taglibs.jsp"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
@@ -9,100 +9,101 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<title>修改密码</title>
+		<title>添加课件</title>
 		<SCRIPT language=javascript>
 			function check(form)
 			{
-				if (form.password.value == "")
+				if (form.chapterId.value == -1)
 				{
-					alert("原密码不能为空！");
+					alert("请先选择章节目录！");
 					return false;
 				}
-				if (form.newPassword.value == "")
+				if(form.title.value == "")
 				{
-					alert("新密码不能为空！");
+					alert("习题标题不能为空！");
 					return false;
 				}
-				if (form.confirmPassword.value == "")
+				if(form.author.value == "")
 				{
-					alert("确认密码不能为空！");
+					alert("习题作者不能为空！");
 					return false;
 				}
-				if (form.confirmPassword.value != form.newPassword.value)
+				if(form.upload.value == "")
 				{
-					alert("两次输入的新密码不一致，请重新输入！");
+					alert("上传习题不能为空！");
 					return false;
 				}
 			}
 		</SCRIPT>
-		<style type="text/css">
-<!--
-.STYLE1 {
-	color: #000000
-}
--->
-</style>
 	</head>
 
 	<body>
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
-			<tr class=position bgcolor="#ECF3FD">
+			<tr class=position bgcolor="#22cc77">
 				<td>
-					当前位置: 个人资料 -&gt; 修改密码
+					当前位置: 我的课程-&gt; 添加习题
 				</td>
 			</tr>
 		</table>
-		<s:form action="changePwdAction" method="post"
-			onsubmit="return check(this);">&nbsp;&nbsp; 
+
+		<s:form action="addExerciseAction" method="post"
+			enctype="multipart/form-data" onsubmit="return check(this);">
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						修改密码：
+						添加习题：
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							请输入原始密码：
+							章节目录：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:password name="password" cssClass="input" />
-						&nbsp;*
+						<s:select id="chapterId" name="chapterId" list="chapterList"
+							listKey="id" listValue="number+name" headerValue="请选择章节"
+							headerKey="-1" />
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							请输入新密码：
+							标题：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:password name="newPassword" cssClass="input" />
-						&nbsp;*
+						<s:textfield id="title" name="exercise.title" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							请确认新密码：
+							作者：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:password name="confirmPassword" cssClass="INPUT" />
-						&nbsp;*
-
-
-
+						<s:textfield id="author" name="exercise.author" cssClass="INPUT" />
 					</td>
 				</tr>
 				<tr>
-					<td width="30%">
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							上传课件：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<s:file id="upload" name="upload"></s:file>
+					</td>
+				</tr>
+				<tr class=editHeaderTr>
+					<td width="30%" class=editFooterTd>
 						&nbsp;
 					</td>
 					<td width="70%">

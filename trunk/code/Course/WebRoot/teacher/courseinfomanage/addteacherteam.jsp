@@ -33,12 +33,12 @@
 		</table>
 
 		<s:form action="addTeacherTeamAction" method="post"
-			onsubmit="return check(this);">&nbsp;&nbsp; 
+			onsubmit="return check(this);">
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
-				align=center border=0>				
+				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-					添加教师队伍：
+						添加教师队伍：
 					</td>
 				</tr>
 				<tr>

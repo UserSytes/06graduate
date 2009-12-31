@@ -36,7 +36,6 @@
 			onsubmit="return check(this);">
 			<s:hidden name="chapter.id"></s:hidden>
 			<s:hidden name="chapter.course.id"></s:hidden>
-&nbsp;&nbsp; 
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>

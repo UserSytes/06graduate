@@ -50,8 +50,7 @@
 		<s:form action="updateCoursewareAction" method="post"
 			onsubmit="return check(this);" enctype="multipart/form-data">
 			<s:hidden name="courseware.id"></s:hidden>
-			<s:hidden name="courseware.chapter.id"></s:hidden>			
-&nbsp;&nbsp; 
+			<s:hidden name="courseware.chapter.id"></s:hidden>
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>

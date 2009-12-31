@@ -21,7 +21,6 @@
 			}
 		</SCRIPT>
 	</head>
-
 	<body>
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
@@ -31,9 +30,8 @@
 				</td>
 			</tr>
 		</table>
-
 		<s:form action="addApplicationFormAction" method="post"
-			enctype="multipart/form-data" onsubmit="return check(this);">&nbsp;&nbsp; 
+			enctype="multipart/form-data" onsubmit="return check(this);">
 			<s:hidden name="applicationForm.id"></s:hidden>
 			<s:hidden name="applicationForm.filename"></s:hidden>
 			<s:hidden name="applicationForm.fileLink"></s:hidden>
@@ -173,8 +171,8 @@
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
-						<div align="center"> 
-							查看原来附件： 
+						<div align="center">
+							查看原来附件：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
@@ -188,7 +186,8 @@
                        			 	<s:property value="applicationForm.filename"/> 
                     			</s:param> 
                 					</s:url>">
-							<font color="red"><s:property value="applicationForm.filename"/> </font> </a>
+							<font color="red"><s:property
+									value="applicationForm.filename" /> </font> </a>
 					</td>
 				</tr>
 				<tr class=editHeaderTr>

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../../commons/taglibs.jsp"%>
 <table class="listTable">
-	
+
 	<tr class="listHeaderTr"
 		<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 		<th>
@@ -49,12 +49,12 @@
                     			</s:param> 
                 					</s:url>">
 					<font color="green">【管理】</font> </a>
-				<s:a href="javascript:deleteCourse(%{id})" value="id">   
-					<s:param name="courseId"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param> 
-                      <font color="red">【删除】</font> 
-                </s:a>
+				<s:a href="javascript:deleteCourse(%{id})" value="id">
+					<s:param name="courseId">
+						<s:property value="id" />
+					</s:param>
+					<font color="red">【删除】</font>
+				</s:a>
 			</td>
 		</tr>
 	</s:iterator>
