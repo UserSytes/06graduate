@@ -74,7 +74,7 @@
 						</div>
 					</td>
 					<td bgcolor="#FFFFFF">
-						<s:file></s:file>
+						<img src="../Images/i_attach.gif"><a href=""></a>
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">

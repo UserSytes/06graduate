@@ -48,4 +48,11 @@ public interface IStudentCourseService {
 	 * @return
 	 */
 	public boolean addStudentCourse(StudentCourse studentCourse);
+	
+	/**
+	 * 根据学生查找课程
+	 * @param student
+	 * @return
+	 */
+	public List<StudentCourse> findByStudent(Student student);
 }
