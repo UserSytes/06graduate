@@ -101,44 +101,43 @@
 													background="${ctx}/homepage/images/end-3.jpg"
 													style="background-repeat: no-repeat; background-position: center bottom;">
 
-													<tr>
-														<br>
-														<br>
+													<tr height="80">
+														<br><br><br>
 													</tr>
 													<tr>
 														<td width="389" valign="top" style="padding-left: 5px">
 															<br>
-															<table class="listing">
-																<tr <s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
+															<table class="listing" cellpadding="0" cellspacing="0">
+																<tr <s:if test="#st.odd"></s:if>>
 																	<th class="first">
-																		序号
+																		<font size="2" face="宋体">序号</font>
 																	</th>
 																	<th>
-																		课程名
+																		<font size="2" face="宋体">课程名</font>
 																	</th>
 																	<th>
-																		教师
+																		<font size="2" face="宋体">教师</font>
 																	</th>
 																	<th>
-																		简介
+																		<font size="2" face="宋体">简介</font>
 																	</th>
 																	<th class="last">
-																		操作
+																		<font size="2" face="宋体">操作</font>
 																	</th>
 																</tr>
 																<s:iterator value="courseList" status="course">
 																	<tr>
-																		<td width="7%" class="first style1">
-																			<s:property value="#course.count" />
+																		<td width="10%">
+																			<font size="2" face="宋体"><s:property value="#course.count" /></font>
 																		</td>
 																		<td width="25%">
-																			<s:property value="name" />
+																			<font size="2" face="宋体"><s:property value="name" /></font>
 																		</td>
 																		<td width="15%">
-																			<s:property value="teacher.userInfo.name" />
+																			<font size="2" face="宋体"><s:property value="teacher.userInfo.name" /></font>
 																		</td>
-																		<td width="38%">
-																			<s:property value="remark" />
+																		<td width="35%">
+																			<font size="2" face="宋体"><s:property value="remark" /></font>
 																		</td>
 																		<td width="15%" class="last">
 																			<a
@@ -147,7 +146,7 @@
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
-																				<font color="green">【查看】</font> </a>
+																				<font size="2" face="宋体" color="green">【查看】</font> </a>
 																		</td>
 																	</tr>
 																</s:iterator>
