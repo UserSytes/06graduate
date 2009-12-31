@@ -33,7 +33,7 @@
 		</table>
 
 		<s:form action="changeTeacherInfoAction" method="post"
-			onsubmit="return check(this);">&nbsp;&nbsp; 
+			onsubmit="return check(this);"> 
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<s:hidden name="teacher.id" />
