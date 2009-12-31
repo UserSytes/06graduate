@@ -541,7 +541,7 @@
 		
 		<!-- 学生主页 -->
 		<action name="myCoursesAction" method="findMyCourses" class="studentInfoAction">
-			<result name="news">/student/courselist.jsp</result>
+			<result name="success">/student/courselist.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		
