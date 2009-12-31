@@ -54,7 +54,7 @@
 			</tr>
 		</table>
 		<s:form action="changePwdAction" method="post"
-			onsubmit="return check(this);">&nbsp;&nbsp; 
+			onsubmit="return check(this);">
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
