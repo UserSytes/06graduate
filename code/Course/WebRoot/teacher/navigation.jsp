@@ -13,7 +13,7 @@
 	</head>
 
 	<body>
-				<s:action name="getCurrentCourseAction" executeResult="true"/>
+		<s:action name="getCurrentCourseAction" executeResult="true" />
 
 	</body>
 </html>

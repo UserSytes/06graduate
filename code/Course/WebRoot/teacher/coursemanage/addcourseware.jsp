@@ -48,7 +48,7 @@
 		</table>
 
 		<s:form action="addCoursewareAction" method="post"
-			enctype="multipart/form-data" onsubmit="return check(this);">&nbsp;&nbsp; 
+			enctype="multipart/form-data" onsubmit="return check(this);">
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>

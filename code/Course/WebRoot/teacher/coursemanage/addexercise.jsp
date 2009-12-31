@@ -48,7 +48,7 @@
 		</table>
 
 		<s:form action="addExerciseAction" method="post"
-			enctype="multipart/form-data" onsubmit="return check(this);">&nbsp;&nbsp; 
+			enctype="multipart/form-data" onsubmit="return check(this);">
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
@@ -78,17 +78,6 @@
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<s:textfield id="title" name="exercise.title" cssClass="input" />
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							作者：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="author" name="exercise.author" cssClass="INPUT" />
 					</td>
 				</tr>
 				<tr>

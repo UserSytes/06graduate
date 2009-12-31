@@ -42,9 +42,6 @@
 						标题
 					</th>
 					<th>
-						作者
-					</th>
-					<th>
 						时间
 					</th>
 					<th>
@@ -60,9 +57,6 @@
 						</td>
 						<td>
 							<s:property value="title" />
-						</td>
-						<td>
-							<s:property value="author" />
 						</td>
 						<td>
 							<s:date format="yyyy-MM-dd" name="time" />

@@ -30,12 +30,13 @@
 				</td>
 			</tr>
 		</table>
-<div align="right">
-				
-						<input type="button" onclick="goToAddteacherTeam()" value="添加教师队伍" />&nbsp;&nbsp;&nbsp;&nbsp;
-					</div>
+		<div align="right">
+
+			<input type="button" onclick="goToAddteacherTeam()" value="添加教师队伍" />
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		</div>
 		<div align="center">
-			<table class="listTable">				
+			<table class="listTable">
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>

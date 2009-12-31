@@ -9,33 +9,40 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<title>课程信息列表</title>
+		<title>习题列表</title>
+		<SCRIPT language=javascript>		
+			function goToAddExercise(){
+			 window.location.href="goAddExerciseAction.action";
+			}
+
+		</SCRIPT>
 	</head>
 	<body>
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 我的课程 -&gt; 课程信息列表
+					当前位置: 我的课程 -&gt; 课件列表
 				</td>
 			</tr>
 		</table>
+		<div align="right">
 
+			<input type="button" onclick="goToAddExercise()" value="添加习题" />
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		</div>
 		<div align="center">
 			<table class="listTable">
-				<tr>
-					<td>
-						<a href="coursemanage/addcourseinfo.jsp">点击这里添加新的课程信息<a>
-
-					</td>
-				</tr>
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
+					<th>
+						章节目录
+					</th>
 					<th>
 						标题
 					</th>
 					<th>
-						目录
+						作者
 					</th>
 					<th>
 						时间
@@ -44,32 +51,33 @@
 						操作
 					</th>
 				</tr>
-				<s:iterator value="courseInfoList" status="courseInfo">
+				<s:iterator value="exerciseList" status="exercise">
 					<tr class="listTr">
 						<td>
+							<s:property value="chapter.number" />
+							---
+							<s:property value="chapter.name" />
+						</td>
+						<td>
+							<s:property value="title" />
+						</td>
+						<td>
+							<s:property value="author" />
+						</td>
+						<td>
+							<s:date format="yyyy-MM-dd" name="time" />
+						</td>
+						<td>
 							<a
-								href="<s:url action="deleteAdminAction"> 
-                     			<s:param name="courseInfoId"> 
+								href="<s:url action="goEditExerciseAction"> 
+                     			<s:param name="exerciseId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
-								<s:property value="title" /> </a>
-						</td>
-						<td>
-							<s:set name="myflag" value="sort"/>
-							<s:if test="#myflag==1">课程简介</s:if>
-							<s:if test="#myflag==2">教学大纲</s:if>
-						</td>
-
-
-
-						<td>
-							<s:date name="time" format="yyyy-MM-dd hh:mm" />
-						</td>
-						<td>
+								<font color="green">【编辑】</font> </a>
 							<a
-								href="<s:url action="deleteCourseInfoAction"> 
-                     			<s:param name="courseInfoId"> 
+								href="<s:url action="deleteExerciseAction"> 
+                     			<s:param name="exerciseId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>"
@@ -78,7 +86,7 @@
 						</td>
 					</tr>
 				</s:iterator>
-		
+
 
 			</table>
 		</div>

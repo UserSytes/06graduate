@@ -40,7 +40,7 @@ a:visited {
 </style>
 	</head>
 	<body onload="getCourse(2)">
-	<script type="text/javascript" src="../js/prototype.js"></script>
+		<script type="text/javascript" src="../js/prototype.js"></script>
 		<script language=JavaScript>
 	function showsubmenu(sid) {
 		whichEl = eval("submenu" + sid);
@@ -222,7 +222,8 @@ a:visited {
 																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
 																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
 																	<span class="STYLE2">&nbsp;<a
-																		href="coursemanage/addnewcourse.jsp" target=I2>课程申请</a> </span>
+																		href="courseinfomanage/addnewcourse.jsp" target=I2>课程申请</a>
+																	</span>
 																</td>
 															</tr>
 														</table>
@@ -262,8 +263,7 @@ a:visited {
 																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
 																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
 																	<span class="STYLE2">&nbsp;<a
-																		href="addcourseinfo.jsp" target=I2>用户维护</a>
-																	</span>
+																		href="addcourseinfo.jsp" target=I2>用户维护</a> </span>
 																</td>
 															</tr>
 														</table>

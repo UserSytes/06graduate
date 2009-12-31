@@ -26,11 +26,15 @@
 				</td>
 			</tr>
 		</table>
-		<div align="right">
+<table class=listTable align="center">
+<tr>
 
-			<input type="button" onclick="goToAddChapter()" value="添加章节" />
-			&nbsp;&nbsp;&nbsp;&nbsp;
-		</div>
+<td >
+<div align="right">
+
+			<input type="button" onclick="goToAddChapter()" value="添加章节" /></div>			
+		</td>
+			</tr></table>
 		<div align="center">
 			<table class="listTable">
 				<tr class="listHeaderTr"
