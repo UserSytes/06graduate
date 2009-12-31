@@ -126,7 +126,7 @@ cursor:hand;
 						</tr>
 						<tr>
 							<td align="center">	
-<div id="nav" style="top: 162px; left: 276px;"> 
+<div id="nav"> 
     <ul> 
     <li class="menu2" onMouseOver="this.className='menu1'" onMouseOut="this.className='menu2'"><a
 												href="<s:url action="enterCourseAction"> 
