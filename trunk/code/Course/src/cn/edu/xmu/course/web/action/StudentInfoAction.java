@@ -33,6 +33,10 @@ public class StudentInfoAction extends BaseAction {
 	private Course course;
 	private int courseId;
 	
+	/**
+	 * 查找学生个人信息
+	 * @return
+	 */
 	public String findStudentInfo(){
 		student = (Student) ActionSession.getSession().get(STUDENT);
 		if(student == null){
@@ -44,6 +48,21 @@ public class StudentInfoAction extends BaseAction {
 		}
 	}
 	
+	/**
+	 * 修改学生信息
+	 * @return
+	 */
+	public String changeStudentInfo(){
+		boolean result = studentInfoService.updateStudent(student, userInfo);
+		if(result){
+			return SUCCESS;
+		}else
+			return ERROR;
+	}
+	
+	public String changePassword(){
+		return SUCCESS;
+	}
 	/**
 	 * 查找我的课程
 	 * @return
