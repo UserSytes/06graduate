@@ -65,7 +65,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:password cssClass="INPUT" id="mobile" name="oldPassword"
+						<s:password cssClass="INPUT" name="oldPassword"
 							label="原密码"></s:password>
 						&nbsp;*
 					</td>

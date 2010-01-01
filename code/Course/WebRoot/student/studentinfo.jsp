@@ -41,7 +41,7 @@
 											<td width="555" height="10"
 												background="${ctx}/homepage/images/up-3.jpg"
 												style="background-repeat: no-repeat; background-position: top">
-												<table width="555" height="534" border="0" cellspacing="0"
+												<table width="555" height="100%" border="0" cellspacing="0"
 													cellpadding="0"
 													background="${ctx}/homepage/images/end-3.jpg"
 													style="background-repeat: no-repeat; background-position: center bottom;">
@@ -58,11 +58,11 @@
 													<tr>
 														<td width="389" valign="top" style="padding-left: 5px">
 															<div class="table">
-																<img src="img/bg-th-left.gif" width="8" height="7"
+																<img src="${ctx}/student/img/bg-th-left.gif" width="8" height="7"
 																	alt="" class="left" />
-																<img src="img/bg-th-right.gif" width="7" height="7"
+																<img src="${ctx}/student/img/bg-th-right.gif" width="7" height="7"
 																	alt="" class="right" />
-																<s:form action="changeMyInfoAction" method="post">
+																<s:form action="goChangeMyInfoAction" method="post">
 																	<table class="listing form" cellpadding="0"
 																		cellspacing="0">
 																		<tr>
@@ -72,10 +72,10 @@
 																		</tr>
 																		<tr>
 																			<td class="first" width="100">
-																				<font size="2" face="宋体">姓名</font>
+																				姓名
 																			</td>
 																			<td class="last">
-																				<s:property value="userInfo.name" />
+																				<s:property value="student.userInfo.name" />
 																			</td>
 																		</tr>
 																		<tr class="bg">
@@ -91,7 +91,7 @@
 																				性别
 																			</td>
 																			<td class="last">
-																				<s:property value="userInfo.sex" />
+																				<s:property value="student.userInfo.sex" />
 																			</td>
 																		</tr>
 																		<tr class="bg">
@@ -100,7 +100,7 @@
 																			</td>
 																			<td class="last">
 																				<s:property
-																					value="userInfo.department.school.name+userInfo.department.name" />
+																					value="student.userInfo.department.school.name+student.userInfo.department.name" />
 																			</td>
 																		</tr>
 																		<tr>
@@ -117,7 +117,7 @@
 																				电话
 																			</td>
 																			<td class="last">
-																				<s:property value="userInfo.mobile" />
+																				<s:property value="student.userInfo.mobile" />
 																			</td>
 																		</tr>
 																		<tr>
@@ -125,7 +125,7 @@
 																				邮箱
 																			</td>
 																			<td class="last">
-																				<s:property value="userInfo.email" />
+																				<s:property value="student.userInfo.email" />
 																			</td>
 																		</tr>
 																		<tr>

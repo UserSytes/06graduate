@@ -22,9 +22,7 @@
 				</TR>
 				<TR>
 					<TD><IMG SRC="${ctx}/homepage/images/back-4.jpg" WIDTH=41 HEIGHT=33 ALT=""></TD>
-					<TD><a href="index.html"><IMG SRC="${ctx}/homepage/images/case-6.jpg" WIDTH=27 HEIGHT=33 ALT="" border="0"></a></TD>
-					<TD><a href="#"><IMG SRC="${ctx}/homepage/images/case-7.jpg" WIDTH=24 HEIGHT=33 ALT="" border="0"></a></TD>
-					<TD><a href="#"><IMG SRC="${ctx}/homepage/images/case-8.jpg" WIDTH=37 HEIGHT=33 ALT="" border="0"></a></TD>
+					<TD><a href="<s:url action="myInfoAsStudentAction"></s:url>"><IMG SRC="${ctx}/student/img/case-6.jpg" WIDTH=88 HEIGHT=33 ALT="" border="0"></a></TD>		
 				</TR>
 				<TR>
 					<TD COLSPAN=9><IMG SRC="${ctx}/homepage/images/back-2.jpg" WIDTH=556 HEIGHT=32 ALT=""></TD>
