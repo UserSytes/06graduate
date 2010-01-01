@@ -49,7 +49,8 @@
 													<tr>
 														<br>
 														<br>
-														<br><br>
+														<br>
+														<br>
 														<div style="padding-left: 5px" class="content1-pagetitle">
 															当前位置: 我的帐号 -&gt; 个人信息
 														</div>
@@ -57,75 +58,86 @@
 													<tr>
 														<td width="389" valign="top" style="padding-left: 5px">
 															<div class="table">
-															<img src="img/bg-th-left.gif" width="8" height="7" alt="" class="left" />
-															<img src="img/bg-th-right.gif" width="7" height="7" alt="" class="right" />
-																<table class="listing form" cellpadding="0"
-																	cellspacing="0">
-																	<tr>
-																		<th class="full" colspan="2">
-																			个人信息
-																		</th>
-																	</tr>
-																	<tr>
-																		<td class="first" width="100">
-																			<font size="2" face="宋体">姓名</font>
-																		</td>
-																		<td class="last">
-																			<s:property value="student.userInfo.name" />
-																		</td>
-																	</tr>
-																	<tr class="bg">
-																		<td class="first">
-																			学号
-																		</td>
-																		<td class="last">
-																			<s:property value="student.studentNo" />
-																		</td>
-																	</tr>
-																	<tr>
-																		<td class="first"">
-																			性别
-																		</td>
-																		<td class="last">
-																			<s:property value="student.userInfo.sex" />
-																		</td>
-																	</tr>
-																	<tr class="bg">
-																		<td class="first">
-																			院系
-																		</td>
-																		<td class="last">
-																			<s:property value="student.userInfo.department.school.name+student.userInfo.department.name" />
-																		</td>
-																	</tr>
-																	<tr>
-																		<td class="first"">
-																			年级
-																		</td>
-																		<td class="last">
-																			<s:property value="student.grade.name+student.grade.grade" />
-																		</td>
-																	</tr>
-																	<tr class="bg">
-																		<td class="first">
-																			电话
-																		</td>
-																		<td class="last">
-																			<s:property value="student.userInfo.mobile" />
-																		</td>
-																	</tr>
-																	<tr>
-																		<td class="first"">
-																			邮箱
-																		</td>
-																		<td class="last">
-																			<s:property value="student.userInfo.email" />
-																		</td>
-																	</tr>
-																</table> 
-</div><div class="top-bar">
-				<a href="#" class="button">修改信息 </a>				
-			</div>
+																<img src="img/bg-th-left.gif" width="8" height="7"
+																	alt="" class="left" />
+																<img src="img/bg-th-right.gif" width="7" height="7"
+																	alt="" class="right" />
+																<s:form action="changeMyInfoAction" method="post">
+																	<table class="listing form" cellpadding="0"
+																		cellspacing="0">
+																		<tr>
+																			<th class="full" colspan="2">
+																				个人信息
+																			</th>
+																		</tr>
+																		<tr>
+																			<td class="first" width="100">
+																				<font size="2" face="宋体">姓名</font>
+																			</td>
+																			<td class="last">
+																				<s:property value="userInfo.name" />
+																			</td>
+																		</tr>
+																		<tr class="bg">
+																			<td class="first">
+																				学号
+																			</td>
+																			<td class="last">
+																				<s:property value="student.studentNo" />
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="first"">
+																				性别
+																			</td>
+																			<td class="last">
+																				<s:property value="userInfo.sex" />
+																			</td>
+																		</tr>
+																		<tr class="bg">
+																			<td class="first">
+																				院系
+																			</td>
+																			<td class="last">
+																				<s:property
+																					value="userInfo.department.school.name+userInfo.department.name" />
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="first"">
+																				年级
+																			</td>
+																			<td class="last">
+																				<s:property
+																					value="student.grade.name+student.grade.grade" />
+																			</td>
+																		</tr>
+																		<tr class="bg">
+																			<td class="first">
+																				电话
+																			</td>
+																			<td class="last">
+																				<s:property value="userInfo.mobile" />
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="first"">
+																				邮箱
+																			</td>
+																			<td class="last">
+																				<s:property value="userInfo.email" />
+																			</td>
+																		</tr>
+																		<tr>
+																			<th class="full" colspan="2">
+																				<div align="right">
+																					<s:submit value="修改信息" />
+																				</div>
+																			</th>
+																		</tr>
+																	</table>
+																</s:form>
+															</div>
 														</td>
 													</tr>
 

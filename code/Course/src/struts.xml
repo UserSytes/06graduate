@@ -548,6 +548,18 @@
 			<result name="success">/student/studentinfo.jsp</result>
 			<result name="error">/student/prompt.jsp</result>
 		</action>
+		<action name="goChangeMyInfoAction" method="findStudentInfo" class="studentInfoAction">
+			<result name="success">/student/changeinfo.jsp</result>
+			<result name="error">/student/error.jsp</result>
+		</action>
+		<action name="changeMyInfoAction" method="changeStudentInfo" class="studentInfoAction">
+			<result name="success">/student/studentinfo.jsp</result>
+			<result name="error">/student/error.jsp</result>
+		</action>
+		<action name="changeStudentPwdAction" method="changePassword" class="studentInfoAction">
+			<result name="success">/student/prompt.jsp</result>
+			<result name="error">/student/error.jsp</result>
+		</action>
 		<action name="myCollectionAction" method="findMyCollection" class="studentInfoAction">
 			<result name="success">/student/collectionlist.jsp</result>
 			<result name="error">/student/prompt.jsp</result>

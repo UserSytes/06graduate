@@ -42,7 +42,7 @@
 															<font size="2" face="宋体"><a href="<s:url action="myInfoAsStudentAction"></s:url>">个人信息</a> </font>
 														</li>
 														<li class="last">
-															<font size="2" face="宋体"><a href="changepassword.jsp">修改密码</a> </font>
+															<font size="2" face="宋体"><a href="student/changepassword.jsp">修改密码</a> </font>
 														</li>
 													</ul>
 													<h3>
