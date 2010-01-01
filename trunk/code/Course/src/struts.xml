@@ -544,7 +544,10 @@
 			<result name="success">/student/courselist.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		
+		<action name="myInfoAsStudentAction" method="findStudentInfo" class="studentInfoAction">
+			<result name="success">/student/studentinfo.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		
 		<!-- 前台 -->
 		<action name="findCourseByDepartmentAction" method="findCourseByDepartment"
