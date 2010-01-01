@@ -3,6 +3,7 @@ package cn.edu.xmu.course.web.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Collection;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Student;
@@ -32,15 +33,18 @@ public class StudentInfoAction extends BaseAction {
 	private List<Course> courseList;
 	private Course course;
 	private int courseId;
+	private String oldPassword;
+	private String newPassword;
 	
 	/**
 	 * 查找学生个人信息
 	 * @return
 	 */
 	public String findStudentInfo(){
+		student = null;
 		student = (Student) ActionSession.getSession().get(STUDENT);
 		if(student == null){
-			addActionMessage("您还未登录，请先登录！");
+			addActionError("您还未登录，请先登录！");
 			return ERROR;
 		}else{
 			userInfo = student.getUserInfo();
@@ -55,13 +59,33 @@ public class StudentInfoAction extends BaseAction {
 	public String changeStudentInfo(){
 		boolean result = studentInfoService.updateStudent(student, userInfo);
 		if(result){
+			student = studentInfoService.findById(student.getId());
+			userInfo = student.getUserInfo();
 			return SUCCESS;
 		}else
 			return ERROR;
 	}
 	
+	/**
+	 * 修改密码
+	 * @return
+	 */
 	public String changePassword(){
-		return SUCCESS;
+		student = (Student) ActionSession.getSession().get(STUDENT);
+		if(student.getPassword().equals(oldPassword)){
+			student.setPassword(newPassword);
+			boolean result = studentInfoService.updateStudent(student, userInfo);
+			if(result){
+				addActionMessage("修改密码成功！");
+				return SUCCESS;
+			}
+			else
+				return ERROR;
+		}
+		else{
+			addActionError("原密码错误！");
+			return SUCCESS;
+		}
 	}
 	/**
 	 * 查找我的课程
@@ -110,6 +134,7 @@ public class StudentInfoAction extends BaseAction {
 		course = courseService.getCourseById(courseId);
 		boolean result = studentCourseService.deleteCollection(student, course);
 		if(result){
+			this.findMyCollection();
 			return SUCCESS;
 		}else
 			return ERROR;
@@ -178,6 +203,22 @@ public class StudentInfoAction extends BaseAction {
 
 	public void setCourse(Course course) {
 		this.course = course;
+	}
+
+	public String getOldPassword() {
+		return oldPassword;
+	}
+
+	public void setOldPassword(String oldPassword) {
+		this.oldPassword = oldPassword;
+	}
+
+	public String getNewPassword() {
+		return newPassword;
+	}
+
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
 	}
 	
 }

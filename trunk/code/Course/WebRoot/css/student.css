@@ -62,7 +62,13 @@ input.text,select,textarea {
 
 input.text {
 	padding: 1px 0 0 4px;
-	height: 14px;
+	height: 20px;
+	font-weight: normal;
+}
+
+input.password {
+	padding: 1px 0 0 4px;
+	height: 20px;
 	font-weight: normal;
 }
 

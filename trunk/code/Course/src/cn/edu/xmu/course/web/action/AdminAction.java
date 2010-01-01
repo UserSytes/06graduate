@@ -41,7 +41,7 @@ public class AdminAction extends BaseAction {
 	 * @return
 	 */
 	public String changeAdministratorInfo(){
-		System.out.print("≤‚ ‘1£∫"+admin.getMobile());
+		
 		boolean result = adminService.updateAdmin(admin);
 		if(result){
 			this.getAdministratorInfo();

@@ -39,7 +39,7 @@
 											<td width="555" height="10"
 												background="${ctx}/homepage/images/up-3.jpg"
 												style="background-repeat: no-repeat; background-position: top">
-												<table width="555" height="534" border="0" cellspacing="0"
+												<table width="555" height="100%" border="0" cellspacing="0"
 													cellpadding="0"
 													background="${ctx}/homepage/images/end-3.jpg"
 													style="background-repeat: no-repeat; background-position: center bottom;">
@@ -56,9 +56,9 @@
 													<tr>
 														<td width="389" valign="top" style="padding-left: 5px">
 															<div class="table">
-																<img src="img/bg-th-left.gif" width="8" height="7"
+																<img src="${ctx}/student/img/bg-th-left.gif" width="8" height="7"
 																	alt="" class="left" />
-																<img src="img/bg-th-right.gif" width="7" height="7"
+																<img src="${ctx}/student/img/bg-th-right.gif" width="7" height="7"
 																	alt="" class="right" />
 																<table class="listing" cellpadding="0" cellspacing="0">
 																	<tr <s:if test="#st.odd"></s:if>>
