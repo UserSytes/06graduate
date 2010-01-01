@@ -31,59 +31,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td width="210" height="10" valign="top">
-									<table width="214" height="543" border="0" cellspacing="0"
-										cellpadding="0">
-										<tr>
-											<td height="60">
-												<img src="${ctx}/homepage/images/up-1.jpg" width="214"
-													height="60">
-											</td>
-										</tr>
-										<tr>
-											<td width="210" height="100%" valign="top"
-												style="padding-left: 5px; padding-top: 4px; padding-bottom: 0px">
-												<div id="left-column">
-													<h3>
-														我的课程
-													</h3>
-													<ul class="nav">
-														<li>
-															<font size="2" face="宋体"><a
-																href="<s:url action="myCoursesAction"></s:url>">课程列表</a>
-															</font>
-														</li>
-														<li class="last">
-															<font size="2" face="宋体"><a href="#">收藏课程</a> </font>
-														</li>
-													</ul>
-													<h3>
-														我的帐号
-													</h3>
-													<ul class="nav">
-														<li>
-															<font size="2" face="宋体"><a href="#">个人信息</a> </font>
-														</li>
-														<li class="last">
-															<font size="2" face="宋体"><a href="#">修改密码</a> </font>
-														</li>
-													</ul>
-													<h3>
-														我的留言
-													</h3>
-													<ul class="nav">
-														<li>
-															<font size="2" face="宋体"><a href="#">最新留言</a> </font>
-														</li>
-														<li class="last">
-															<font size="2" face="宋体"><a href="#">历史留言</a> </font>
-														</li>
-													</ul>
-												</div>
-											</td>
-										</tr>
-									</table>
-								</td>
+								<s:include value="left.jsp"></s:include>
+
 								<td width="555" height="10" valign="top">
 									<table width="555" height="100%" border="0" cellspacing="0"
 										cellpadding="0"
@@ -100,15 +49,83 @@
 													<tr>
 														<br>
 														<br>
+														<br><br>
+														<div style="padding-left: 5px" class="content1-pagetitle">
+															当前位置: 我的帐号 -&gt; 个人信息
+														</div>
 													</tr>
 													<tr>
 														<td width="389" valign="top" style="padding-left: 5px">
-															<img src="${ctx}/homepage/images/text-19.jpg" width="114"
-																height="17" style="margin-bottom: 10px">
-															<br>
-															<font face="tahoma"
-																style="font-size: 16px; color: #828688"><strong>
-																	这里吗 </strong> </font>
+															<div class="table">
+															<img src="img/bg-th-left.gif" width="8" height="7" alt="" class="left" />
+															<img src="img/bg-th-right.gif" width="7" height="7" alt="" class="right" />
+																<table class="listing form" cellpadding="0"
+																	cellspacing="0">
+																	<tr>
+																		<th class="full" colspan="2">
+																			个人信息
+																		</th>
+																	</tr>
+																	<tr>
+																		<td class="first" width="100">
+																			<font size="2" face="宋体">姓名</font>
+																		</td>
+																		<td class="last">
+																			<s:property value="student.userInfo.name" />
+																		</td>
+																	</tr>
+																	<tr class="bg">
+																		<td class="first">
+																			学号
+																		</td>
+																		<td class="last">
+																			<s:property value="student.studentNo" />
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="first"">
+																			性别
+																		</td>
+																		<td class="last">
+																			<s:property value="student.userInfo.sex" />
+																		</td>
+																	</tr>
+																	<tr class="bg">
+																		<td class="first">
+																			院系
+																		</td>
+																		<td class="last">
+																			<s:property value="student.userInfo.department.school.name+student.userInfo.department.name" />
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="first"">
+																			年级
+																		</td>
+																		<td class="last">
+																			<s:property value="student.grade.name+student.grade.grade" />
+																		</td>
+																	</tr>
+																	<tr class="bg">
+																		<td class="first">
+																			电话
+																		</td>
+																		<td class="last">
+																			<s:property value="student.userInfo.mobile" />
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="first"">
+																			邮箱
+																		</td>
+																		<td class="last">
+																			<s:property value="student.userInfo.email" />
+																		</td>
+																	</tr>
+																</table> 
+</div><div class="top-bar">
+				<a href="#" class="button">修改信息 </a>				
+			</div>
 														</td>
 													</tr>
 

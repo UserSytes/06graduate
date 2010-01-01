@@ -50,7 +50,7 @@
 														<br>
 														<br>
 														<div style="padding-left: 5px" class="content1-pagetitle">
-															当前位置: 我的课程 -&gt; 课程列表
+															当前位置: 我的课程 -&gt; 收藏课程
 														</div>
 													</tr>
 													<tr>
@@ -69,10 +69,13 @@
 																			课程名
 																		</th>
 																		<th>
-																			<font size="2" face="宋体">教师</font>
+																			教师
+																		</th>
+																		<th>
+																			院系
 																		</th>
 																		<th class="last">
-																			所属系
+																			操作
 																		</th>
 																	</tr>
 																	<s:iterator value="courseList" status="course">
@@ -80,7 +83,7 @@
 																			<td width="10%">
 																				<s:property value="#course.count" />
 																			</td>
-																			<td width="50%">
+																			<td width="35%">
 																				<a
 																					href="<s:url action="enterCourseAction"> 
 																				<s:param name="courseId"> <s:property value="id"/> </s:param> </s:url>">
@@ -90,7 +93,18 @@
 																				<s:property value="teacher.userInfo.name" />
 																			</td>
 																			<td width="25%" class="last">
-																				<s:property value="department.name" />
+																				<s:property
+																					value="department.school.name+department.name" />
+																			</td>
+																			<td width="15%">
+																				<a
+																					href="<s:url action="deleteCollectionAction"> 
+                     			<s:param name="courseId"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param> 
+                					</s:url>"
+																					onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
+																					<font color="red">【删除】</font> </a>
 																			</td>
 																		</tr>
 																	</s:iterator>

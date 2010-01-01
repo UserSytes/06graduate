@@ -2,6 +2,7 @@ package cn.edu.xmu.course.service;
 
 import java.util.List;
 
+import cn.edu.xmu.course.pojo.Collection;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.StudentCourse;
@@ -55,4 +56,19 @@ public interface IStudentCourseService {
 	 * @return
 	 */
 	public List<StudentCourse> findByStudent(Student student);
+	
+	/**
+	 * 根据学生查找收藏课程
+	 * @param student
+	 * @return
+	 */
+	public List<Collection> findCollectionByStudent(Student student);
+	
+	/**
+	 * 删除某门课程收藏
+	 * @param student
+	 * @param course
+	 * @return
+	 */
+	public boolean deleteCollection(Student student, Course course);
 }
