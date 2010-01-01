@@ -8,6 +8,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import cn.edu.xmu.course.pojo.Collection;
+import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.Student;
 
 /**
  * A data access object (DAO) providing persistence and search support for
@@ -90,6 +92,23 @@ public class CollectionDAO extends HibernateDaoSupport {
 		}
 	}
 
+	/**
+	 * 根据学生、课程查找
+	 * @param course
+	 * @param student
+	 * @return
+	 */
+	public List findByStudentAndCourse(Course course, Student student) {
+		try {
+			String queryString = "from Collection as model where model.course.id ="
+					+ course.getId() + " and model.student= ?";
+			return getHibernateTemplate().find(queryString, student);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	
 	public List findByRemark(Object remark) {
 		return findByProperty(REMARK, remark);
 	}

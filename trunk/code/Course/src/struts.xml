@@ -542,11 +542,19 @@
 		<!-- 学生主页 -->
 		<action name="myCoursesAction" method="findMyCourses" class="studentInfoAction">
 			<result name="success">/student/courselist.jsp</result>
-			<result name="error">/commons/prompt.jsp</result>
+			<result name="error">/student/prompt.jsp</result>
 		</action>
 		<action name="myInfoAsStudentAction" method="findStudentInfo" class="studentInfoAction">
 			<result name="success">/student/studentinfo.jsp</result>
-			<result name="error">/commons/prompt.jsp</result>
+			<result name="error">/student/prompt.jsp</result>
+		</action>
+		<action name="myCollectionAction" method="findMyCollection" class="studentInfoAction">
+			<result name="success">/student/collectionlist.jsp</result>
+			<result name="error">/student/prompt.jsp</result>
+		</action>
+		<action name="deleteCollectionAction" method="deleteCollection" class="studentInfoAction">
+			<result name="success">/student/collectionlist.jsp</result>
+			<result name="error">/student/prompt.jsp</result>
 		</action>
 		
 		<!-- 前台 -->

@@ -47,6 +47,9 @@
 		<property name="studentCourseDAO">
 			<ref bean="StudentCourseDAO" />
 		</property>
+		<property name="collectionDAO">
+			<ref bean="CollectionDAO" />
+		</property>
 		<property name="studentDAO">
 			<ref bean="StudentDAO" />
 		</property>

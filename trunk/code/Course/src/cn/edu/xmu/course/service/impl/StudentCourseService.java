@@ -2,18 +2,44 @@ package cn.edu.xmu.course.service.impl;
 
 import java.util.List;
 
+import cn.edu.xmu.course.dao.CollectionDAO;
+import cn.edu.xmu.course.dao.CourseDAO;
 import cn.edu.xmu.course.dao.StudentCourseDAO;
 import cn.edu.xmu.course.dao.StudentDAO;
+import cn.edu.xmu.course.pojo.Collection;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.StudentCourse;
 import cn.edu.xmu.course.service.IStudentCourseService;
-
+/**
+ * 
+ * @author Sky
+ *
+ */
 public class StudentCourseService implements IStudentCourseService {
 
 	private StudentCourseDAO studentCourseDAO;
+	private CollectionDAO collectionDAO;
 	private StudentDAO studentDAO;
-
+	
+	public boolean deleteCollection(Student student, Course course){
+		Collection c = (Collection) collectionDAO.findByStudentAndCourse(course, student).get(0);
+		if(c != null){
+			try{
+				collectionDAO.delete(c);
+				return true;
+			}catch(Exception e){
+				return false;
+			}
+		}else{
+			return false;
+		}
+	}
+	
+	public List<Collection> findCollectionByStudent(Student student){
+		return collectionDAO.findByProperty("student", student);
+	}
+	
 	public List<StudentCourse> findByCourse(Course course) {
 		// TODO Auto-generated method stub
 		return studentCourseDAO.findByProperty("course", course);
@@ -69,6 +95,13 @@ public class StudentCourseService implements IStudentCourseService {
 	public void setStudentDAO(StudentDAO studentDAO) {
 		this.studentDAO = studentDAO;
 	}
-	
-	
+
+	public CollectionDAO getCollectionDAO() {
+		return collectionDAO;
+	}
+
+	public void setCollectionDAO(CollectionDAO collectionDAO) {
+		this.collectionDAO = collectionDAO;
+	}
+
 }

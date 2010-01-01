@@ -4,7 +4,11 @@ import java.util.Date;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.*;
-
+/**
+ * 
+ * @author Sky
+ *
+ */
 public interface ICourseService {
 
 	/**
