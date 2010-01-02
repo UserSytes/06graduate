@@ -14,6 +14,11 @@
 			function goToAddCourseware(){
 			 window.location.href="goAddCoursewareAction.action";
 			}
+			function chapterChange(chapterId) {
+		window.location.href = "getCoursewareListByChapterAction.action?chapterId="
+				+ chapterId;
+
+	}
 
 		</SCRIPT>
 	</head>
@@ -26,11 +31,22 @@
 				</td>
 			</tr>
 		</table>
-		<div align="right">
-
-			<input type="button" onclick="goToAddCourseware()" value="添加课件" />
-			&nbsp;&nbsp;&nbsp;&nbsp;
-		</div>
+		<table class=listTable align="center">
+			<tr>
+			<td>
+					筛选：&nbsp;&nbsp;&nbsp;
+					<s:select id="chapterId" name="chapterId" list="chapterList"
+							listKey="id" listValue="number+name" headerValue="所有"
+							headerKey="-1" onchange="chapterChange(this.value)"/>
+				</td>
+				<td>
+					<div align="right">
+						<input type="button" onclick="goToAddCourseware()" value="添加课件" />
+						&nbsp;&nbsp;&nbsp;&nbsp;
+					</div>
+				</td>
+			</tr>
+		</table>
 		<div align="center">
 			<table class="listTable">
 				<tr class="listHeaderTr"
@@ -46,6 +62,9 @@
 					</th>
 					<th>
 						时间
+					</th>
+					<th>
+						附件下载
 					</th>
 					<th>
 						操作
@@ -66,6 +85,18 @@
 						</td>
 						<td>
 							<s:date format="yyyy-MM-dd" name="time" />
+						</td>
+						<td>
+							<a
+								href="<s:url action="download"> 
+                     			<s:param name="fileName"> 
+                       			 	<s:property value="fileLink"/> 
+                    			</s:param> 
+								<s:param name="originalFileName"> 
+                       			 	<s:property value="filename"/> 
+                    			</s:param> 
+                					</s:url>">
+								<font color="blue"><s:property value="filename" /> </font> </a>
 						</td>
 						<td>
 							<a

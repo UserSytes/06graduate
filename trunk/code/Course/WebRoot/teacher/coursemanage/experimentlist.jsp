@@ -9,12 +9,15 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<title>习题列表</title>
+		<title>实验指导列表</title>
 		<SCRIPT language=javascript>		
-			function goToAddExercise(){
-			 window.location.href="goAddExerciseAction.action";
+			function goToAddExperiment(){
+			 window.location.href="goAddExperimentAction.action";
 			}
-
+			function chapterChange(chapterId) {
+			window.location.href = "getExperimentListByChapterAction.action?chapterId="
+				+ chapterId;
+			}
 		</SCRIPT>
 	</head>
 	<body>
@@ -22,15 +25,27 @@
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 我的课程 -&gt; 课件列表
+					当前位置: 我的课程 -&gt; 实验指导列表
 				</td>
 			</tr>
 		</table>
-		<div align="right">
+		<table class=listTable align="center">
+			<tr>
+				<td>
+					筛选：&nbsp;&nbsp;&nbsp;
+					<s:select id="chapterId" name="chapterId" list="chapterList"
+						listKey="id" listValue="number+name" headerValue="所有"
+						headerKey="-1" onchange="chapterChange(this.value)" />
+				</td>
+				<td>
+					<div align="right">
 
-			<input type="button" onclick="goToAddExercise()" value="添加习题" />
-			&nbsp;&nbsp;&nbsp;&nbsp;
-		</div>
+						<input type="button" onclick="goToAddExperiment()" value="添加实验指导" />
+						&nbsp;&nbsp;&nbsp;&nbsp;
+					</div>
+				</td>
+			</tr>
+		</table>
 		<div align="center">
 			<table class="listTable">
 				<tr class="listHeaderTr"
@@ -48,10 +63,13 @@
 						时间
 					</th>
 					<th>
+						附件下载
+					</th>
+					<th>
 						操作
 					</th>
 				</tr>
-				<s:iterator value="exerciseList" status="exercise">
+				<s:iterator value="experimentList" status="experiment">
 					<tr class="listTr">
 						<td>
 							<s:property value="chapter.number" />
@@ -69,15 +87,27 @@
 						</td>
 						<td>
 							<a
-								href="<s:url action="goEditExerciseAction"> 
-                     			<s:param name="exerciseId"> 
+								href="<s:url action="download"> 
+                     			<s:param name="fileName"> 
+                       			 	<s:property value="fileLink"/> 
+                    			</s:param> 
+								<s:param name="originalFileName"> 
+                       			 	<s:property value="filename"/> 
+                    			</s:param> 
+                					</s:url>">
+								<font color="blue"><s:property value="filename" /> </font> </a>
+						</td>
+						<td>
+							<a
+								href="<s:url action="goEditExperimentAction"> 
+                     			<s:param name="experimentId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
 								<font color="green">【编辑】</font> </a>
 							<a
-								href="<s:url action="deleteExerciseAction"> 
-                     			<s:param name="exerciseId"> 
+								href="<s:url action="deleteExperimentAction"> 
+                     			<s:param name="experimentId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>"

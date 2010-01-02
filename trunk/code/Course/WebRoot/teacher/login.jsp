@@ -79,8 +79,7 @@ body {
 													</td>
 													<td height="25">
 														<a href="loginAction.action"><img src="img/dl.gif"
-																width="37" height="19" border="0">
-														</a>
+																width="37" height="19" border="0"> </a>
 														<img src="img/qx.gif" width="37" height="19">
 													</td>
 												</tr>

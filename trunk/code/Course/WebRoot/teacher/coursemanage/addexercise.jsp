@@ -23,11 +23,6 @@
 					alert("习题标题不能为空！");
 					return false;
 				}
-				if(form.author.value == "")
-				{
-					alert("习题作者不能为空！");
-					return false;
-				}
 				if(form.upload.value == "")
 				{
 					alert("上传习题不能为空！");
