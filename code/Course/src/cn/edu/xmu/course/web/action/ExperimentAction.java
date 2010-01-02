@@ -6,95 +6,101 @@ import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.sun.org.apache.bcel.internal.generic.DLOAD;
+
 import cn.edu.xmu.course.pojo.Chapter;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Courseware;
+import cn.edu.xmu.course.pojo.Exercise;
+import cn.edu.xmu.course.pojo.Experiment;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.service.IChapterService;
 import cn.edu.xmu.course.service.ICoursewareService;
+import cn.edu.xmu.course.service.IExerciseService;
+import cn.edu.xmu.course.service.IExperimentService;
 
-public class CoursewareAction extends BaseAction {
+public class ExperimentAction extends BaseAction {
 
 	private List<Chapter> chapterList;
 	private Chapter chapter;
 	private Integer chapterId;
 
-	private List<Courseware> coursewareList;
-	private Courseware courseware;
-	private Integer coursewareId;
+	private List<Experiment> experimentList;
+	private Experiment experiment;
+	private Integer experimentId;
 
 	private File upload;
 	private String uploadContentType;
 	private String uploadFileName;
 
 	private IChapterService chapterService;
-	private ICoursewareService coursewareService;
+	private IExperimentService experimentService;
 
-	public String getCoursewareListByChapter() {
+	public String getExperimentListByChapter() {
 		Course course = super.getCourse();
 		chapterList = chapterService.getAllChapter(super.getCourse());
 		if(chapterId ==null ||chapterId== -1)
-			coursewareList = coursewareService.getAllCoursewares(course);
+		experimentList = experimentService.getAllExperiments(course);
 		else{
-			chapter=chapterService.getChapter(chapterId);
-			coursewareList = coursewareService.getCoursewaresByChapter(chapter);
+			chapter = chapterService.getChapterById(chapterId);
+			experimentList = experimentService.getExperimentsByChapter(chapter);
 		}
 		return SUCCESS;
 	}
 
-	public String addCourseware() {
-		if(upload.length()>=new Long(10485760L)){
-			addActionError("上传课件大小不能超过10M,请重新上传！");
+	public String addExperiment() {
+		if (upload.length() >= new Long(10485760L)) {
+			addActionError("上传习题大小不能超过10M,请重新上传！");
 			return ERROR;
 		}
 		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
-		courseware.setFilename(uploadFileName);
-		courseware.setFileLink(fileLink);
+		experiment.setFilename(uploadFileName);
+		experiment.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);
-		if (coursewareService.addCourseware(courseware, chapter, upload))
+		if (experimentService.addExperiment(experiment, chapter, upload))
 			return SUCCESS;
 		else {
-			addActionError("添加课件失败，请重新添加！");
+			addActionError("添加习题失败，请重新添加！");
 			return ERROR;
 		}
 	}
 
-	public String goEditCourseware() {
-		courseware = coursewareService.getCoursewareById(coursewareId);
+	public String goEditExperiment() {
+		experiment = experimentService.getExperimentById(experimentId);
 		chapterList = chapterService.getAllChapter(super.getCourse());
-		chapterId = courseware.getChapter().getId();
+		chapterId = experiment.getChapter().getId();
 		return SUCCESS;
 	}
 
-	public String goAddCourseware() {
+	public String goAddExperiment() {
 		chapterList = chapterService.getAllChapter(super.getCourse());
 		return SUCCESS;
 	}
 
-	public String updateCourseware() {
-		if(upload.length()>=new Long(10485760L)){
-			addActionError("上传课件大小不能超过10M,请重新上传！");
+	public String updateExperiment() {
+		if (upload.length() >= new Long(10485760L)) {
+			addActionError("上传习题大小不能超过10M,请重新上传！");
 			return ERROR;
 		}
 		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
-		courseware.setFilename(uploadFileName);
-		courseware.setFileLink(fileLink);
+		experiment.setFilename(uploadFileName);
+		experiment.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);
-		if (coursewareService.updateCourseware(courseware, chapter,upload))
+		if (experimentService.updateExperiment(experiment, chapter, upload))
 			return SUCCESS;
 		else {
-			addActionError("更新课件失败，请重新操作！");
+			addActionError("更新习题失败，请重新操作！");
 			return ERROR;
 		}
 	}
 
-	public String deleteCourseware() {
-		Courseware delCourseware = coursewareService
-				.getCoursewareById(coursewareId);
-		if (coursewareService.deleteCourseware(delCourseware))
+	public String deleteExperiment() {
+		Experiment delExperiment = experimentService
+				.getExperimentById(experimentId);
+		if (experimentService.deleteExperiment(delExperiment))
 			return SUCCESS;
 		else {
-			addActionError("删除课件失败，请重新操作！");
+			addActionError("删除习题失败，请重新操作！");
 			return ERROR;
 		}
 	}
@@ -123,44 +129,12 @@ public class CoursewareAction extends BaseAction {
 		this.chapterId = chapterId;
 	}
 
-	public List<Courseware> getCoursewareList() {
-		return coursewareList;
-	}
-
-	public void setCoursewareList(List<Courseware> coursewareList) {
-		this.coursewareList = coursewareList;
-	}
-
-	public Courseware getCourseware() {
-		return courseware;
-	}
-
-	public void setCourseware(Courseware courseware) {
-		this.courseware = courseware;
-	}
-
 	public IChapterService getChapterService() {
 		return chapterService;
 	}
 
 	public void setChapterService(IChapterService chapterService) {
 		this.chapterService = chapterService;
-	}
-
-	public ICoursewareService getCoursewareService() {
-		return coursewareService;
-	}
-
-	public void setCoursewareService(ICoursewareService coursewareService) {
-		this.coursewareService = coursewareService;
-	}
-
-	public void setCoursewareId(Integer coursewareId) {
-		this.coursewareId = coursewareId;
-	}
-
-	public Integer getCoursewareId() {
-		return coursewareId;
 	}
 
 	public File getUpload() {
@@ -185,6 +159,38 @@ public class CoursewareAction extends BaseAction {
 
 	public void setUploadFileName(String uploadFileName) {
 		this.uploadFileName = uploadFileName;
+	}
+
+	public List<Experiment> getExperimentList() {
+		return experimentList;
+	}
+
+	public void setExperimentList(List<Experiment> experimentList) {
+		this.experimentList = experimentList;
+	}
+
+	public Experiment getExperiment() {
+		return experiment;
+	}
+
+	public void setExperiment(Experiment experiment) {
+		this.experiment = experiment;
+	}
+
+	public Integer getExperimentId() {
+		return experimentId;
+	}
+
+	public void setExperimentId(Integer experimentId) {
+		this.experimentId = experimentId;
+	}
+
+	public IExperimentService getExperimentService() {
+		return experimentService;
+	}
+
+	public void setExperimentService(IExperimentService experimentService) {
+		this.experimentService = experimentService;
 	}
 
 }

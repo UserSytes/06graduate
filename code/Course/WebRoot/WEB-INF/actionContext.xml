@@ -168,4 +168,13 @@
 			<ref bean="exerciseService" />
 		</property>
 	</bean>
+	<bean id="experimentAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.ExperimentAction">
+		<property name="chapterService">
+			<ref bean="chapterService" />
+		</property>
+		<property name="experimentService">
+			<ref bean="experimentService" />
+		</property>
+	</bean>
 </beans>

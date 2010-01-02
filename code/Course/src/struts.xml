@@ -337,6 +337,41 @@
 			class="exerciseAction">
 			<result name="success">/teacher/coursemanage/addexercise.jsp</result>
 		</action>
+			
+		
+		<!-- 课程管理-实验管理部分 (教师)-->
+		<action name="getExperimentListByChapterAction" method="getExperimentListByChapter"
+			class="experimentAction">
+			<result name="success">/teacher/coursemanage/experimentlist.jsp
+			</result>
+		</action>
+		<action name="addExperimentAction" method="addExperiment"
+			class="experimentAction">
+			<result name="success" type="redirect-action">getExperimentListByChapterAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="updateExperimentAction" method="updateExperiment"
+			class="experimentAction">
+			<result name="success" type="redirect-action">getExperimentListByChapterAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteExperimentAction" method="deleteExperiment"
+			class="experimentAction">
+			<result name="success" type="redirect-action">getExperimentListByChapterAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="goEditExperimentAction" method="goEditExperiment"
+			class="experimentAction">
+			<result name="success">/teacher/coursemanage/editexperiment.jsp
+			</result>
+		</action>
+		<action name="goAddExperimentAction" method="goAddExperiment"
+			class="experimentAction">
+			<result name="success">/teacher/coursemanage/addexperiment.jsp</result>
+		</action>
 		
 		<!-- 课程管理 (学院管理员)-->
 		<action name="noPassListAction" method="findNoPassCourse"

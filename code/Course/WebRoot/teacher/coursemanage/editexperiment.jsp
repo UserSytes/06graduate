@@ -20,17 +20,17 @@
 				}
 				if(form.title.value == "")
 				{
-					alert("习题标题不能为空！");
+					alert("实验标题不能为空！");
 					return false;
 				}
 				if(form.author.value == "")
 				{
-					alert("习题作者不能为空！");
+					alert("实验指导作者不能为空！");
 					return false;
 				}
 				if(form.upload.value == "")
 				{
-					alert("上传习题不能为空！");
+					alert("上传附件不能为空！");
 					return false;
 				}
 			}
@@ -42,21 +42,21 @@
 			align=center border=0>
 			<tr class=position bgcolor="#22cc77">
 				<td>
-					当前位置: 我的课程-&gt; 编辑习题
+					当前位置: 我的课程-&gt; 编辑实验指导
 				</td>
 			</tr>
 		</table>
 
-		<s:form action="updateExerciseAction" method="post"
+		<s:form action="updateExperimentAction" method="post"
 			enctype="multipart/form-data" onsubmit="return check(this);">
 
-			<s:hidden name="exercise.id"></s:hidden>
-			<s:hidden name="exercise.chapter.id"></s:hidden>
+			<s:hidden name="experiment.id"></s:hidden>
+			<s:hidden name="experiment.chapter.id"></s:hidden>
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						编辑习题：
+						编辑实验指导：
 					</td>
 				</tr>
 				<tr>
@@ -79,7 +79,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="title" name="exercise.title" cssClass="input" />
+						<s:textfield id="title" name="experiment.title" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -90,7 +90,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="author" name="exercise.author" cssClass="INPUT" />
+						<s:textfield id="author" name="experiment.author" cssClass="INPUT" />
 					</td>
 				</tr>
 				<tr>
@@ -115,13 +115,13 @@
 						<a
 							href="<s:url action="download"> 
                      			<s:param name="fileName"> 
-                       			 	<s:property value="exercise.fileLink"/> 
+                       			 	<s:property value="experiment.fileLink"/> 
                     			</s:param> 
 								<s:param name="originalFileName"> 
-                       			 	<s:property value="exercise.filename"/> 
+                       			 	<s:property value="experiment.filename"/> 
                     			</s:param> 
                 					</s:url>">
-							<font color="red"><s:property value="exercise.filename" />
+							<font color="red"><s:property value="experiment.filename" />
 						</font> </a>
 					</td>
 				</tr>

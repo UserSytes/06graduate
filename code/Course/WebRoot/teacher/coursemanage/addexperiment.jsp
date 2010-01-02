@@ -20,19 +20,23 @@
 				}
 				if(form.title.value == "")
 				{
-					alert("习题标题不能为空！");
+					alert("实验标题不能为空！");
 					return false;
 				}
 				if(form.author.value == "")
 				{
-					alert("习题作者不能为空！");
+					alert("实验作者不能为空！");
 					return false;
 				}
 				if(form.upload.value == "")
 				{
-					alert("上传习题不能为空！");
+					alert("上传附件不能为空！");
 					return false;
 				}
+				var fso = new ActiveXObject("Scripting.FileSystemObject");      
+				alert("文件大小为："+fso.GetFile(form.upload.value).size);      
+				return false;
+				
 			}
 		</SCRIPT>
 	</head>
@@ -42,18 +46,18 @@
 			align=center border=0>
 			<tr class=position bgcolor="#22cc77">
 				<td>
-					当前位置: 我的课程-&gt; 添加习题
+					当前位置: 我的课程-&gt; 添加实验指导
 				</td>
 			</tr>
 		</table>
 
-		<s:form action="addExerciseAction" method="post"
+		<s:form action="addExperimentAction" method="post"
 			enctype="multipart/form-data" onsubmit="return check(this);">
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						添加习题：
+						添加实验指导：
 					</td>
 				</tr>
 				<tr>
@@ -77,7 +81,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="title" name="exercise.title" cssClass="input" />
+						<s:textfield id="title" name="experiment.title" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -88,7 +92,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="author" name="exercise.author" cssClass="INPUT" />
+						<s:textfield id="author" name="experiment.author" cssClass="INPUT" />
 					</td>
 				</tr>
 				<tr>

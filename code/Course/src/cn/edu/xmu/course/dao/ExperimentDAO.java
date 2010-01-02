@@ -112,6 +112,10 @@ public class ExperimentDAO extends HibernateDaoSupport {
 	public List findByFileLink(Object fileLink) {
 		return findByProperty(FILE_LINK, fileLink);
 	}
+	
+	public List findByCourse(Object courseId) {
+		return findByProperty("chapter.course.id", courseId);
+	}
 
 	public List findAll() {
 		log.debug("finding all Experiment instances");

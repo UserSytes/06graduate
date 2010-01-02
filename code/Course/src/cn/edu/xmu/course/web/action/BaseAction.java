@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.web.action;
 
+import java.util.Date;
 
 import cn.edu.xmu.course.pojo.*;
 
@@ -17,7 +18,7 @@ public class BaseAction extends ActionSupport {
 	public String ADMIN = "admin";
 	public String STUDENT = "student";
 	public String SUPERADMIN = "superAdmin";
-	public String COURSE="course";
+	public String COURSE = "course";
 
 	public BaseAction() {
 	}
@@ -26,25 +27,32 @@ public class BaseAction extends ActionSupport {
 		return (String) ActionSession.getSession().get("username");
 	}
 
-	public Teacher getTeacher(){
+	public Teacher getTeacher() {
 		return (Teacher) ActionSession.getSession().get(TEACHER);
 	}
-	
-	public Student getStudent(){
+
+	public Student getStudent() {
 		return (Student) ActionSession.getSession().get(STUDENT);
 	}
-	
-	public Administrator getAdmin(){
+
+	public Administrator getAdmin() {
 		return (Administrator) ActionSession.getSession().get(ADMIN);
 	}
-	
-	public SuperAdmin getSuperAdmin(){
+
+	public SuperAdmin getSuperAdmin() {
 		return (SuperAdmin) ActionSession.getSession().get(SUPERADMIN);
 	}
-	public Course getCourse(){
+
+	public Course getCourse() {
 		return (Course) ActionSession.getSession().get(COURSE);
 	}
-	
+
+	public String getPreFileNameByTeacher(){
+		String preFileName = this.getTeacher().getUserInfo().getName() + "/"
+		+ new Date().getTime()+"_"+this.getCourse().getName() + "_";
+		return preFileName;
+	}
+
 	public String logout() {
 		try {
 			ActionSession.getSession().clear();

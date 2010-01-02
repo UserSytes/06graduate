@@ -276,8 +276,7 @@ a.v1:visited {
 																				<div align="center">
 																					<span class="STYLE2"><A
 																						href="getTeacherInfoAction.action" class="v1"
-																						target=I2>个人信息</A>
-																					</span>
+																						target=I2>个人信息</A> </span>
 																				</div>
 																			</td>
 																		</tr>

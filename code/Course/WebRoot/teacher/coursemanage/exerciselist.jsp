@@ -14,6 +14,10 @@
 			function goToAddExercise(){
 			 window.location.href="goAddExerciseAction.action";
 			}
+			function chapterChange(chapterId) {
+		window.location.href = "getExerciseListByChapterAction.action?chapterId="
+				+ chapterId;
+				}
 
 		</SCRIPT>
 	</head>
@@ -22,15 +26,27 @@
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 我的课程 -&gt; 课件列表
+					当前位置: 我的课程 -&gt; 习题列表
 				</td>
 			</tr>
 		</table>
-		<div align="right">
+		<table class=listTable align="center">
+			<tr>
+				<td>
+					筛选：&nbsp;&nbsp;&nbsp;
+					<s:select id="chapterId" name="chapterId" list="chapterList"
+						listKey="id" listValue="number+name" headerValue="所有"
+						headerKey="-1" onchange="chapterChange(this.value)" />
+				</td>
+				<td>
+					<div align="right">
 
-			<input type="button" onclick="goToAddExercise()" value="添加习题" />
-			&nbsp;&nbsp;&nbsp;&nbsp;
-		</div>
+						<input type="button" onclick="goToAddExercise()" value="添加习题" />
+						&nbsp;&nbsp;&nbsp;&nbsp;
+					</div>
+				</td>
+			</tr>
+		</table>
 		<div align="center">
 			<table class="listTable">
 				<tr class="listHeaderTr"
@@ -43,6 +59,9 @@
 					</th>
 					<th>
 						时间
+					</th>
+					<th>
+						附件下载
 					</th>
 					<th>
 						操作
@@ -60,6 +79,18 @@
 						</td>
 						<td>
 							<s:date format="yyyy-MM-dd" name="time" />
+						</td>
+						<td>
+							<a
+								href="<s:url action="download"> 
+                     			<s:param name="fileName"> 
+                       			 	<s:property value="fileLink"/> 
+                    			</s:param> 
+								<s:param name="originalFileName"> 
+                       			 	<s:property value="filename"/> 
+                    			</s:param> 
+                					</s:url>">
+								<font color="blue"><s:property value="filename" /> </font> </a>
 						</td>
 						<td>
 							<a

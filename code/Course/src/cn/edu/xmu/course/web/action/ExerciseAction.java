@@ -36,7 +36,13 @@ public class ExerciseAction extends BaseAction {
 
 	public String getExerciseListByChapter() {
 		Course course = super.getCourse();
+		chapterList = chapterService.getAllChapter(super.getCourse());
+		if(chapterId ==null ||chapterId== -1)
 		exerciseList = exerciseService.getAllExercises(course);
+		else{
+			chapter=chapterService.getChapterById(chapterId);
+			exerciseList=exerciseService.getExercisesByChapter(chapter);
+		}
 		return SUCCESS;
 	}
 
@@ -45,8 +51,7 @@ public class ExerciseAction extends BaseAction {
 			addActionError("上传习题大小不能超过10M,请重新上传！");
 			return ERROR;
 		}
-		String fileLink = super.getTeacher().getUserInfo().getName() + "/"
-				+ super.getCourse().getName() + "_" + uploadFileName;
+		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
 		exercise.setFilename(uploadFileName);
 		exercise.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);
@@ -75,8 +80,7 @@ public class ExerciseAction extends BaseAction {
 			addActionError("上传习题大小不能超过10M,请重新上传！");
 			return ERROR;
 		}
-		String fileLink = super.getTeacher().getUserInfo().getName() + "/"
-				+ super.getCourse().getName() + "_" + uploadFileName;
+		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
 		exercise.setFilename(uploadFileName);
 		exercise.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);

@@ -144,7 +144,7 @@ a.v1:visited {
 															<img src="images/5.gif" width="9" height="9" />
 															<span class="STYLE1"><A
 																href="getCoursewareListByChapterAction.action"
-																target=mainFrame class="v1">课件管理</A> </span>
+																target=mainFrame class="v1">课件教案</A> </span>
 														</div>
 													</td>
 												</tr>
@@ -160,7 +160,23 @@ a.v1:visited {
 															<img src="images/6.gif" width="9" height="9" />
 															<span class="STYLE1"><A
 																href="getExerciseListByChapterAction.action"
-																target=mainFrame class="v1">习题管理</A> </span>
+																target=mainFrame class="v1">作业习题</A> </span>
+														</div>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td width="87">
+											<table width="85" border="0" align="center" cellpadding="0"
+												cellspacing="0">
+												<tr>
+													<td height="25"
+														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
+														<div align="center">
+															<img src="images/7.gif" width="9" height="9" />
+															<span class="STYLE1"><A
+																href="getExperimentListByChapterAction.action"
+																target=mainFrame class="v1">实验指导</A> </span>
 														</div>
 													</td>
 												</tr>

@@ -30,74 +30,81 @@
 				</td>
 			</tr>
 		</table>
-		<div align="right">
+		<table class=listTable align="center">
+			<tr>
 
-			<input type="button" onclick="goToAddteacherTeam()" value="添加教师队伍" />
-			&nbsp;&nbsp;&nbsp;&nbsp;
-		</div>
-		<div align="center">
-			<table class="listTable">
-				<tr class="listHeaderTr"
-					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
-					<th>
-						名字
-					</th>
-					<th>
-						职称
-					</th>
-					<th>
-						研究领域
-					</th>
-					<th>
-						链接
-					</th>
-					<th>
-						备注
-					</th>
-					<th>
-						操作
-					</th>
-				</tr>
-				<s:iterator value="teacherTeamList" status="teacherTeam">
-					<tr class="listTr">
-						<td>
-							<s:property value="name" />
-						</td>
-						<td>
-							<s:property value="position" />
-						</td>
-						<td>
-							<s:property value="field" />
-						</td>
-						<td>
-							<a href="javascript:popwin('${link}')"><s:property id="link"
-									value="link" /> </a>
-						</td>
-						<td>
-							<s:property value="remark" />
-						</td>
-						<td>
-							<a
-								href="<s:url action="goEidtTeacherTeamAction"> 
+				<td>
+					<div align="right">
+
+						<input type="button" onclick="goToAddteacherTeam()" value="添加教师队伍" />
+					</div>
+				</td>
+			</tr>
+		</table>
+<div align="center">
+		<table class="listTable">
+			<tr class="listHeaderTr"
+				<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
+				<th>
+					名字
+				</th>
+				<th>
+					职称
+				</th>
+				<th>
+					研究领域
+				</th>
+				<th>
+					链接
+				</th>
+				<th>
+					备注
+				</th>
+				<th>
+					操作
+				</th>
+			</tr>
+			<s:iterator value="teacherTeamList" status="teacherTeam">
+				<tr class="listTr">
+					<td>
+						<s:property value="name" />
+					</td>
+					<td>
+						<s:property value="position" />
+					</td>
+					<td>
+						<s:property value="field" />
+					</td>
+					<td>
+						<a href="javascript:popwin('${link}')"><s:property id="link"
+								value="link" /> </a>
+					</td>
+					<td>
+						<s:property value="remark" />
+					</td>
+					<td>
+						<a
+							href="<s:url action="goEidtTeacherTeamAction"> 
                      			<s:param name="teacherTeamId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
-								<font color="green">【编辑】</font> </a>
-							<a
-								href="<s:url action="deleteTeacherTeamAction"> 
+							<font color="green">【编辑】</font> </a>
+						<a
+							href="<s:url action="deleteTeacherTeamAction"> 
                      			<s:param name="teacherTeamId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>"
-								onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
-								<font color="red">【删除】</font> </a>
-						</td>
-					</tr>
-				</s:iterator>
+							onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
+							<font color="red">【删除】</font> </a>
+					</td>
+				</tr>
+			</s:iterator>
 
 
-			</table>
+		</table>
+
 		</div>
 	</body>
 </html>
