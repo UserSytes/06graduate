@@ -17,15 +17,12 @@
 <jsp:include page="top.jsp"></jsp:include>
 <div id="content">
   <div id="right">
-		<h2 align="center">课程教案列表</h2>
+		<h2 align="center">习题列表</h2>
 		<hr id="border-top" />
 <table class=editTable cellSpacing=1 cellPadding=0 align=center border=2>
 															<tr bgcolor="#ECF3FD" height="30">
 																<th>
-																	课件名
-																</th>
-																<th>
-																	作者
+																	习题名称
 																</th>
 																<th>
 																	时间
@@ -34,13 +31,10 @@
 																	链接
 																</th>
 															</tr>
-															<s:iterator value="coursewareList" status="courseware">
+															<s:iterator value="exerciseList" status="exercise">
 																<tr bgcolor="#73C5E5" height="30" align="center" valign="middle"  <s:if test="#courseware.even">style="background-color:#FBFDFD"</s:if>>
 																	<td>
 																		<s:property value="title" />
-																	</td>
-																	<td>
-																		<s:property value="author" />
 																	</td>
 																	<td>
 																		<s:date name="time" format="yyyy-MM-dd" />
