@@ -32,11 +32,7 @@
 				{
 					alert("上传附件不能为空！");
 					return false;
-				}
-				var fso = new ActiveXObject("Scripting.FileSystemObject");      
-				alert("文件大小为："+fso.GetFile(form.upload.value).size);      
-				return false;
-				
+				}				
 			}
 		</SCRIPT>
 	</head>
@@ -50,7 +46,7 @@
 				</td>
 			</tr>
 		</table>
-
+<s:fielderror />
 		<s:form action="addExperimentAction" method="post"
 			enctype="multipart/form-data" onsubmit="return check(this);">
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"

@@ -3,13 +3,7 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
 	"http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
-	<constant name="struts.devMode" value="false" />
-	<constant name="struts.i18n.encoding" value="UTF-8" />
-	<constant name="struts.ui.theme" value="simple" />
-	<constant name= "struts.multipart.maxSize" value="104857600" />
 	
-
 	<package name="struts" extends="struts-default">
 		<action name="download" class="cn.edu.xmu.course.web.action.DownloadAction">
 			 <!-- 设置文件名参数，由页面上传入 -->
@@ -347,6 +341,14 @@
 		</action>
 		<action name="addExperimentAction" method="addExperiment"
 			class="experimentAction">
+			<interceptor-ref name="fileUpload">
+				 <param name ="allowedTypes" >
+                    image/bmp,image/png,image/gif,image/jpeg
+                </param >
+				
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+			<result name ="input" >/commons/prompt.jsp</result >	
 			<result name="success" type="redirect-action">getExperimentListByChapterAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
