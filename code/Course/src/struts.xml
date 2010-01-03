@@ -707,6 +707,11 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		
+		<action name="downloadExerciseAction" method="downloadExercise"
+			class="viewDetailAction">
+			<result name="exercise">/coursePage/downloadexercise.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+			</action>
 	</package>
 </struts>
