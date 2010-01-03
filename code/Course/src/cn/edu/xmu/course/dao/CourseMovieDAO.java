@@ -29,6 +29,9 @@ public class CourseMovieDAO extends HibernateDaoSupport {
 	public static final String FILENAME = "filename";
 	public static final String AUTHOR = "author";
 	public static final String FILE_LINK = "fileLink";
+	public static final String POSITION = "position";
+	public static final String CONTENT = "content";
+	public static final String COURSE="course";
 
 	protected void initDao() {
 		// do nothing
@@ -108,6 +111,18 @@ public class CourseMovieDAO extends HibernateDaoSupport {
 
 	public List findByFileLink(Object fileLink) {
 		return findByProperty(FILE_LINK, fileLink);
+	}
+
+	public List findByPosition(Object position) {
+		return findByProperty(POSITION, position);
+	}
+
+	public List findByContent(Object content) {
+		return findByProperty(CONTENT, content);
+	}
+	
+	public List findByCourse(Object course) {
+		return findByProperty(COURSE, course);
 	}
 
 	public List findAll() {
