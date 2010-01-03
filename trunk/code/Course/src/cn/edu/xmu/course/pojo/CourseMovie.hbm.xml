@@ -28,5 +28,11 @@
         <property name="fileLink" type="java.lang.String">
             <column name="file_link" length="500" />
         </property>
+        <property name="position" type="java.lang.String">
+            <column name="position" length="50" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="content" />
+        </property>
     </class>
 </hibernate-mapping>

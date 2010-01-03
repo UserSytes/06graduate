@@ -17,6 +17,8 @@ public class CourseMovie implements java.io.Serializable {
 	private Date time;
 	private String author;
 	private String fileLink;
+	private String position;
+	private String content;
 
 	// Constructors
 
@@ -33,13 +35,15 @@ public class CourseMovie implements java.io.Serializable {
 
 	/** full constructor */
 	public CourseMovie(Course course, String title, String filename, Date time,
-			String author, String fileLink) {
+			String author, String fileLink, String position, String content) {
 		this.course = course;
 		this.title = title;
 		this.filename = filename;
 		this.time = time;
 		this.author = author;
 		this.fileLink = fileLink;
+		this.position = position;
+		this.content = content;
 	}
 
 	// Property accessors
@@ -98,6 +102,22 @@ public class CourseMovie implements java.io.Serializable {
 
 	public void setFileLink(String fileLink) {
 		this.fileLink = fileLink;
+	}
+
+	public String getPosition() {
+		return this.position;
+	}
+
+	public void setPosition(String position) {
+		this.position = position;
+	}
+
+	public String getContent() {
+		return this.content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 }
