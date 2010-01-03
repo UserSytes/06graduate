@@ -18,6 +18,7 @@
 }
 -->
 </style>
+<s:head/>
 	</head>
 
 	<body>
@@ -33,6 +34,9 @@
 				<td bgcolor="#FFFFFF">
 					<div align="left">
 						<br>
+<font size="3"><strong><s:fielderror />
+						</strong>
+						</font>
 						<font size="3"><strong><s:actionmessage />
 						</strong>
 						</font>
