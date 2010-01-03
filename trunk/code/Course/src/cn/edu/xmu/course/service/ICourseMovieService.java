@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.service;
 
+import java.io.File;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.*;
@@ -31,14 +32,14 @@ public interface ICourseMovieService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public boolean addCourseMovie(CourseMovie courseMovie, Course course);
+	public boolean addCourseMovie(CourseMovie courseMovie, Course course, File upload);
 	
 	/**
 	 * ¸üÐÂ¿Î³ÌÂ¼Ïñ
 	 * @param courseMovie
 	 * @return
 	 */
-	public boolean updateCourseMovie(CourseMovie courseMovie);
+	public boolean updateCourseMovie(CourseMovie courseMovie, File upload);
 	
 	/**
 	 * É¾³ý¿Î³ÌÂ¼Ïñ
