@@ -1,30 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ include file="../commons/taglibs.jsp"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-	<head>
-		<title>精品课程网站</title>
-		<meta http-equiv="Content-Style-Type" content="text/css">
-		<LINK HREF="style.css" TYPE="text/css" REL="stylesheet">
-	</head>
-<style type="text/css">
-body{
-font-family:Arial, Helvetica, sans-serif;
-}
-ul,li{
-margin:0px;
-padding:0px;
-}
-li{
-display:inline;
-list-style:none;
-list-style-position:outside;
-text-align:center;
-font-weight:bold;
-float:left;
-}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
+<<<<<<< .mine
+<head>
+<title>厦门大学精品课程</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link href="../${ctx}/coursePage/default.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="header">
+  <h1>XXX精品课程<br />
+	<span class="text1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Xiamen University</span></h1>
+=======
 #nav{
 width:750px;
 height:50px;
@@ -242,575 +232,54 @@ cursor:hand;
 											</a>     
     </li> 
     </ul> 
+>>>>>>> .r270
 </div>
+<jsp:include page="top.jsp"></jsp:include>
+<div id="content">
+	<div id="right">
+		<h2>欢迎来到精品课程网站</h2>
+		<p><img src="coursePage/images/img03.jpg" alt="" width="155" height="120" class="img1" />CORPORATE is a free template from <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> released under a <a href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 License</a>. You're free to use it for both commercial or personal use. I only ask that you link back to <a href="http://www.freecsstemplates.org/">my site</a> in some way. Enjoy :)</p>
+		<p>&nbsp;</p>
+		<p>Aliquam gravida	 massa eu arcu. Fusce mollis tristique sem. Sed eu eros imperdiet eros interdum blandit. Vivamus sagittis bibendum erat. Curabitur malesuada turpis nec ante. Suspendisse quis felis. Suspendisse potenti. Nullam et orci in erat viverra ornare. Nunc pellentesque. Sed vestibulum blandit nisl. Quisque elementum convallis purus.</p>
+		<hr id="border-top" />
+		<div id="colA">
+			<p><strong>Fusce mollis tristique sem</strong><br />
+			Nullam et orci in erat viverra ornare. Nunc pellentesque. Sed vestibulum blandit nisl. Quisque elementum convallis purus. Nunc pellentesque. Sed vestibulum blandit nisl. </p>
+			<ul>
+				<li><a href="#">Sagittis Bibendum Erat</a></li>
+				<li><a href="#">Malesuada Turpis</a></li>
+				<li><a href="#">Quis Gravida Massa</a></li>
+				<li><a href="#">Inerat Viverra Ornar</a></li>
+			</ul>
+		</div>
+		<div id="colB">
+			<p><strong>Fusce mollis tristique sem</strong><br />
+			Nullam et orci in erat viverra ornare. Nunc pellentesque. Sed vestibulum blandit nisl. Quisque elementum convallis purus. Nunc pellentesque. Sed vestibulum blandit nisl.</p>
+			<ul>
+				<li><a href="#">Sagittis Bibendum Erat</a></li>
+				<li><a href="#">Malesuada Turpis</a></li>
+				<li><a href="#">Quis Gravida Massa</a></li>
+				<li><a href="#">Inerat Viverra Ornar</a></li>
+			</ul>
+		</div>
+	</div>
 
-<br>
-							</td>
-						</tr>
-						<tr>
-							<td height="10" align="left" valign="top"
-								background="coursePage/images/rep_1.jpg"
-								style="background-repeat: repeat-x; background-position: top">
-								<img src="coursePage/images/spacer.gif" width="1" height="10">
-							</td>
-						</tr>
-						<tr>
-							<td align="left" valign="top">
-								<table width="100%" border="0" cellspacing="0" cellpadding="0">
-									<tr align="left" valign="top">
-										<td width="185" height="100%">
-											<table width="180" height="100%" border="0" cellpadding="0"
-												cellspacing="0">
-												<tr>
-													<td align="left" valign="top">
-														<table width="180" border="0" cellspacing="0"
-															cellpadding="0">
-															<tr>
-																<td height="24" align="left" valign="top"
-																	background="coursePage/images/ket_1.jpg">
-																	<div style="padding-left: 18px; padding-top: 5px">
-																		<span class="style2">系统登陆</span>
-																	</div>
-																</td>
-															</tr>
-															<tr>
-																<td height="81" align="left" valign="top"
-																	style="border-right: 1px solid #CBCBCB; border-left: 1px solid #CBCBCB">
-																	<div style="padding-left: 15px; padding-top: 18px">
-																		<table width="142" height="42" border="0"
-																			cellpadding="0" cellspacing="0">
-																			<form>
-																			<tr>
-																				<td align="left" valign="top">
-																					<input type="text" name="textfield"
-																						style="width: 142px; height: 18px; font-family: tahoma; font-size: 10px; background-color: #FFFFFF; color: #A6A6A6">
-																				</td>
-																			</tr>
-																			<tr>
-																				<td align="left" valign="bottom">
-																					<table width="100%" border="0" cellspacing="0"
-																						cellpadding="0">
-																						<tr align="left" valign="middle">
-																							<td>
-																								<select name="select"
-																									style="width: 114px; height: 18px; font-family: tahoma; font-size: 10px; background-color: #FFFFFF; color: #A6A6A6">
-																									<option>
-																										All products
-																									</option>
-																								</select>
-																							</td>
-																							<td align="right">
-																								<input name="image" type="image"
-																									src="coursePage/images/button_1.jpg" width="25"
-																									height="19">
-																							</td>
-																						</tr>
-																					</table>
-																				</td>
-																			</tr>
-																			</form>
-																		</table>
-																	</div>
-																	<div style="padding-left: 15px; padding-top: 2px">
-																		<a href="#" class="style3">管理员登陆</a>
-																	</div>
-																</td>
-															</tr>
-															<tr>
-																<td height="5" align="left" valign="top">
-																	<img src="coursePage/images/bot_1.jpg" width="180"
-																		height="5">
-																</td>
-															</tr>
-														</table>
-													</td>
-												</tr>
-												<tr>
-													<td height="7" align="left" valign="top">
-														<img src="coursePage/images/spacer.gif" width="1"
-															height="7">
-													</td>
-												</tr>
-												<tr>
-													<td height="100%" align="left" valign="top">
-														<table width="180" height="100%" border="0"
-															cellpadding="0" cellspacing="0">
-															<tr>
-																<td height="24" align="left" valign="top"
-																	background="coursePage/images/ket_1.jpg">
-																	<div style="padding-left: 18px; padding-top: 5px">
-																		<span class="style2">教学资源</span>
-																	</div>
-																</td>
-															</tr>
-															<tr>
-																<td height="100%" align="left" valign="top"
-																	style="border-right: 1px solid #CBCBCB; border-left: 1px solid #CBCBCB">
-																	<div
-																		style="padding-left: 17px; padding-top: 5px; padding-bottom: 3px">
-																		<table width="140" border="0" cellspacing="0"
-																			cellpadding="0">
-																			<tr align="left" valign="middle">
-																				<td width="9" height="21">
-																					<img src="coursePage/images/point_1.jpg" width="3"
-																						height="3">
-																				</td>
-																				<td height="21">
-																					<a href="#" class="style3">教学课件</a>
-																				</td>
-																			</tr>
-																			<tr align="left" valign="middle">
-																				<td height="21">
-																					<img src="coursePage/images/point_1.jpg" width="3"
-																						height="3">
-																				</td>
-																				<td height="21">
-																					<a href="#" class="style3">教学视频</a>
-																				</td>
-																			</tr>
-																			<tr align="left" valign="middle">
-																				<td height="21">
-																					<img src="coursePage/images/point_1.jpg" width="3"
-																						height="3">
-																				</td>
-																				<td height="21">
-																					<a href="#" class="style3">作业习题</a>
-																				</td>
-																			</tr>
-																			<tr align="left" valign="middle">
-																				<td height="21">
-																					<img src="coursePage/images/point_1.jpg" width="3"
-																						height="3">
-																				</td>
-																				<td height="21">
-																					<a href="#" class="style3">课程进度</a>
-																				</td>
-																			</tr>
-																			<tr align="left" valign="middle">
-																				<td height="21">
-																					<img src="coursePage/images/point_1.jpg" width="3"
-																						height="3">
-																				</td>
-																				<td height="21">
-																					<a href="#" class="style3">实验指导</a>
-																				</td>
-																			</tr>
-																		</table>
-																	</div>
-																</td>
-															</tr>
-															<tr>
-																<td height="5" align="left" valign="top">
-																	<img src="coursePage/images/bot_1.jpg" width="180"
-																		height="5">
-																</td>
-															</tr>
-														</table>
-													</td>
-												</tr>
-											</table>
-										</td>
-										<td width="346" height="100%">
-											<table width="340" height="100%" border="0" cellpadding="0"
-												cellspacing="0">
-												<tr>
-													<td height="140" align="left" valign="top">
-														<div style="padding-left: 12px; padding-top: 17px">
-															<a href="#"><img src="coursePage/images/banner_1.jpg"
-																	width="312" height="114" border="0">
-															</a>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td height="149" align="left" valign="top">
-														<a href="#"><img src="coursePage/images/banner_2.jpg"
-																width="340" height="149" border="0">
-														</a>
-													</td>
-												</tr>
-												<tr>
-													<td height="7" align="left" valign="top">
-														<img src="coursePage/images/spacer.gif" width="1"
-															height="7">
-													</td>
-												</tr>
-												<tr>
-													<td height="100%" align="left" valign="top">
-														<table width="340" height="100%" border="0"
-															cellpadding="0" cellspacing="0">
-															<tr>
-																<td height="24" align="left" valign="top"
-																	background="coursePage/images/ket_2.jpg">
-																	<div style="padding-left: 18px; padding-top: 5px">
-																		<span class="style2">教学视频</span>
-																	</div>
-																</td>
-															</tr>
-															<tr>
-																<td height="100%" align="left" valign="top"
-																	style="border-right: 1px solid #CBCBCB; border-left: 1px solid #CBCBCB">
-																	<div
-																		style="padding-left: 12px; padding-top: 8px; padding-bottom: 3px">
-																		<table width="310" border="0" cellspacing="0"
-																			cellpadding="0">
-																			<tr align="left" valign="top">
-																				<td width="158"
-																					style="border-right: 1px solid #CBCBCB">
-																					<div style="padding-left: 0px; padding-top: 5px">
-																						<table width="143" border="0" cellspacing="0"
-																							cellpadding="0">
-																							<tr>
-																								<td height="57" align="left" valign="top"
-																									style="border-bottom: 1px solid #CBCBCB">
-																									<div
-																										style="padding-left: 0px; padding-top: 0px;">
-																										<a href="#"><img
-																												src="coursePage/images/pic_1.jpg"
-																												width="143" height="47" border="0">
-																										</a>
-																									</div>
-																								</td>
-																							</tr>
-																							<tr>
-																								<td align="left" valign="top"
-																									style="border-bottom: 1px solid #CBCBCB">
-																									<div
-																										style="padding-left: 5px; padding-top: 5px; padding-bottom: 5px">
-																										<span class="style4">292Mhz 64MB 4GB,
-																											CD ROM, Floppy disk drive, Zip drive.</span>
-																									</div>
-																								</td>
-																							</tr>
-																							<tr>
-																								<td align="left" valign="top">
-																									<div
-																										style="padding-left: 5px; padding-top: 7px">
-																										<table width="136" height="9" border="0"
-																											cellpadding="0" cellspacing="0">
-																											<tr align="left" valign="middle">
-																												<td style="border-right: 1px solid #B80000">
-																													<a href="#"><img
-																															src="coursePage/images/or_1.jpg"
-																															width="55" height="7" border="0">
-																													</a>
-																												</td>
-																												<td align="right">
-																													<a href="#"><img
-																															src="coursePage/images/or_2.jpg"
-																															width="59" height="7" border="0">
-																													</a>
-																												</td>
-																											</tr>
-																										</table>
-																									</div>
-																								</td>
-																							</tr>
-																						</table>
-																					</div>
-																				</td>
-																				<td>
-																					<div style="padding-left: 14px; padding-top: 5px">
-																						<table width="143" border="0" cellspacing="0"
-																							cellpadding="0">
-																							<tr>
-																								<td height="57" align="left" valign="top"
-																									style="border-bottom: 1px solid #CBCBCB">
-																									<div
-																										style="padding-left: 0px; padding-top: 0px;">
-																										<a href="#"><img
-																												src="coursePage/images/pic_2.jpg"
-																												width="137" height="50" border="0">
-																										</a>
-																									</div>
-																								</td>
-																							</tr>
-																							<tr>
-																								<td align="left" valign="top"
-																									style="border-bottom: 1px solid #CBCBCB">
-																									<div
-																										style="padding-left: 5px; padding-top: 5px; padding-bottom: 5px">
-																										<span class="style4">292Mhz 64MB 4GB,
-																											CD ROM, Floppy disk drive, Zip drive.</span>
-																									</div>
-																								</td>
-																							</tr>
-																							<tr>
-																								<td align="left" valign="top">
-																									<div
-																										style="padding-left: 5px; padding-top: 7px">
-																										<table width="136" height="9" border="0"
-																											cellpadding="0" cellspacing="0">
-																											<tr align="left" valign="middle">
-																												<td style="border-right: 1px solid #B80000">
-																													<a href="#"><img
-																															src="coursePage/images/or_1.jpg"
-																															width="55" height="7" border="0">
-																													</a>
-																												</td>
-																												<td align="right">
-																													<a href="#"><img
-																															src="coursePage/images/or_2.jpg"
-																															width="59" height="7" border="0">
-																													</a>
-																												</td>
-																											</tr>
-																										</table>
-																									</div>
-																								</td>
-																							</tr>
-																						</table>
-																					</div>
-																				</td>
-																			</tr>
-																		</table>
-																	</div>
-																</td>
-															</tr>
-															<tr>
-																<td height="5" align="left" valign="top">
-																	<img src="coursePage/images/bot_2.jpg" width="340"
-																		height="5">
-																</td>
-															</tr>
-														</table>
-													</td>
-												</tr>
-											</table>
-										</td>
-										<td height="100%">
-											<table width="180" height="100%" border="0" cellpadding="0"
-												cellspacing="0">
-												<tr>
-													<td height="100%" align="left" valign="top">
-														<table width="180" height="100%" border="0"
-															cellpadding="0" cellspacing="0">
-															<tr>
-																<td height="24" align="left" valign="top"
-																	background="coursePage/images/ket_1.jpg">
-																	<div style="padding-left: 18px; padding-top: 5px">
-																		<span class="style2">课程简介</span>
-																	</div>
-																</td>
-															</tr>
-															<tr>
-																<td align="left" valign="top"
-																	background="coursePage/images/back_1.jpg"
-																	style="border-right: 1px solid #CBCBCB; border-left: 1px solid #CBCBCB; background-position: top right; background-repeat: no-repeat">
-																	<div style="padding-left: 16px; padding-top: 14px">
-																		<img src="coursePage/images/vesti.jpg" width="73"
-																			height="25">
-																	</div>
-																	<div class="style5"
-																		style="padding-left: 17px; padding-top: 11px; padding-right: 89px">
-																		课程简介
-																	</div>
-																	<div
-																		style="padding-left: 15px; padding-top: 5px; line-height: 10px; padding-bottom: 10px; font-size: 10px">
-																		<img src="coursePage/images/point_1.jpg" width="3"
-																			height="3" vspace="2">
-																		<a href="#" class="style3">Learn more</a>
-																	</div>
-																</td>
-															</tr>
-															<tr>
-																<td align="left" valign="top"
-																	background="coursePage/images/line_1.jpg"
-																	style="border-right: 1px solid #CBCBCB; border-left: 1px solid #CBCBCB; background-position: top left; background-repeat: no-repeat">
-																	<div style="padding-left: 15px; padding-top: 15px">
-																		<img src="coursePage/images/tellus.jpg" width="140"
-																			height="12">
-																	</div>
-																	<div class="style5"
-																		style="padding-left: 17px; padding-top: 11px; padding-right: 12px">
-																		Aliquam dapibus tincidunt metus praesent justo dolor,
-																		lobortis quis, lobortis dignissim.
-																	</div>
-																	<div
-																		style="padding-left: 15px; padding-top: 5px; line-height: 10px; padding-bottom: 10px; font-size: 10px">
-																		<img src="coursePage/images/point_1.jpg" width="3"
-																			height="3" vspace="2">
-																		<a href="#" class="style3">Learn more</a>
-																	</div>
-																</td>
-															</tr>
-															<tr>
-																<td height="100%" align="left" valign="top"
-																	background="coursePage/images/line_1.jpg"
-																	style="border-right: 1px solid #CBCBCB; border-left: 1px solid #CBCBCB; background-position: top left; background-repeat: no-repeat">
-																	<div
-																		style="padding-left: 15px; padding-top: 12px; padding-right: 11px">
-																		<img src="coursePage/images/back_2.jpg" width="60"
-																			height="78" align="right">
-																		<div style="padding-left: 0px; padding-top: 1px">
-																			<img src="coursePage/images/diam.jpg">
-																		</div>
-																		<div class="style5"
-																			style="padding-left: 2px; padding-top: 11px; padding-right: 0px">
-																			课程进度
-																		</div>
-																		<div
-																			style="padding-left: 0px; padding-top: 5px; line-height: 10px; padding-bottom: 10px; font-size: 10px">
-																			<img src="coursePage/images/point_1.jpg" width="3"
-																				height="3" vspace="2">
-																			<a href="#" class="style3">Learn more</a>
-																		</div>
-																	</div>
-																</td>
-															</tr>
-															<tr>
-																<td height="5" align="left" valign="top">
-																	<img src="coursePage/images/bot_1.jpg" width="180"
-																		height="5">
-																</td>
-															</tr>
-														</table>
-													</td>
-												</tr>
-												<tr>
-													<td height="7" align="left" valign="top">
-														<img src="coursePage/images/spacer.gif" width="1"
-															height="7">
-													</td>
-												</tr>
-												<tr>
-													<td align="left" valign="top">
-														<table width="180" height="100%" border="0"
-															cellpadding="0" cellspacing="0">
-															<tr>
-																<td height="24" align="left" valign="top"
-																	background="coursePage/images/ket_1.jpg">
-																	<div style="padding-left: 18px; padding-top: 5px">
-																		<span class="style2">给我留言</span>
-																	</div>
-																</td>
-															</tr>
-															<tr>
-																<td height="100" align="left" valign="top"
-																	style="border-right: 1px solid #CBCBCB; border-left: 1px solid #CBCBCB">
-																	<div class="style5"
-																		style="padding-left: 17px; padding-top: 11px; padding-right: 12px">
-																		同老师在线讨论课程，共同分享学习乐趣！
-																	</div>
-																	<div
-																		style="padding-left: 15px; padding-top: 7px; padding-bottom: 7px">
-																		<table width="142" height="44" border="0"
-																			cellpadding="0" cellspacing="0">
-																			<form>
-																			<tr>
-																				<td align="left" valign="top">
-																					<input name="textfield" type="text"
-																						style="width: 142px; height: 18px; font-family: tahoma; font-size: 10px; background-color: #FFFFFF; color: #A6A6A6"
-																						value="Enter your e-mail here">
-																				</td>
-																			</tr>
-																			<tr>
-																				<td align="left" valign="bottom">
-																					<input type="image"
-																						src="coursePage/images/subs.jpg" width="67"
-																						height="20">
-																				</td>
-																			</tr>
-																			</form>
-																		</table>
-																	</div>
-																</td>
-															</tr>
-															<tr>
-																<td height="5" align="left" valign="top">
-																	<img src="coursePage/images/bot_1.jpg" width="180"
-																		height="5">
-																</td>
-															</tr>
-														</table>
-													</td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-						<tr>
-							<td height="10" align="left" valign="top">
-								<img src="coursePage/images/spacer.gif" width="1" height="10">
-							</td>
-						</tr>
-						<tr>
-							<td align="left" valign="top"
-								style="border-top: 2px solid #BFBFBF">
-								<table width="650" border="0" cellspacing="0" cellpadding="0">
-									<tr align="left" valign="top">
-										<td width="188">
-											<div style="padding-left: 10px; padding-top: 16px">
-												<table width="162" border="0" cellspacing="0"
-													cellpadding="0">
-													<tr align="left" valign="middle">
-														<td width="82">
-															<a href="#"><img src="coursePage/images/pay_1.jpg"
-																	width="80" height="26" border="0">
-															</a>
-														</td>
-														<td width="41">
-															<a href="#"><img src="coursePage/images/pay_2.jpg"
-																	width="39" height="26" border="0">
-															</a>
-														</td>
-														<td>
-															<a href="#"><img src="coursePage/images/pay_3.jpg"
-																	width="39" height="26" border="0">
-															</a>
-														</td>
-													</tr>
-												</table>
-											</div>
-										</td>
-										<td>
-											<div style="padding-left: 0px; padding-top: 15px">
-												<span class="style6"><a href="#" class="style6">Computers</a>
-												<img src="coursePage/images/point_2.jpg" hspace="11"
-														vspace="2"><a href="#" class="style6">Peripherals</a>
-												<img src="coursePage/images/point_2.jpg" hspace="11"
-														vspace="2"><a href="#" class="style6">Networking</a>
-												<img src="coursePage/images/point_2.jpg" hspace="11"
-														vspace="2"><a href="#" class="style6">Software</a>
-												<img src="coursePage/images/point_2.jpg" hspace="11"
-														vspace="2"><a href="#" class="style6">Supplies</a>
-												<img src="coursePage/images/point_2.jpg" hspace="11"
-														vspace="2"><a href="#" class="style6">Services</a>
-												<img src="coursePage/images/point_2.jpg" hspace="11"
-														vspace="2"><a href="#" class="style6">Promotion</a>
-												</span>
-											</div>
-											<div style="padding-left: 0px; padding-top: 3px">
-												<span class="style8">Copyright ?2005 Company name,
-													Inc. All Rights Reserved. <a href="index-2.html"
-													class="style8" style="text-decoration: none">Privacy
-														Policy</a>
-												</span>
-											</div>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</td>
-				<td>
-					&nbsp;
-				</td>
-			</tr>
-			<tr>
-				<td>
-					&nbsp;
-				</td>
-				<td width="711" align="left" valign="top">
-					&nbsp;
-				</td>
-				<td>
-					&nbsp;
-				</td>
-			</tr>
-		</table>
-	</body>
+	<div id="left">
+		<h2>Recent Updates</h2>
+		<p><strong>[06/09/2006]</strong> Etiam odio mi, suscipit et, rhoncus ac, lacinia, nisl. Aliquam gravida massa eu arcu. <a href="#">More&#8230;</a></p>
+		<p><strong>[06/06/2006]</strong> Fusce mollis tristique sem. Sed eu eros imperdiet eros interdum blandit. Vivamus sagittis bibendum erat. Curabitur malesuada. <a href="#">More&#8230;</a></p>
+		<p><strong>[06/03/2006]</strong> Nunc pellentesque. Sed vestibulum blandit nisl. Quisque elementum convallis purus. Suspendisse potenti. Donec nulla est, laoreet quis, pellentesque in. <a href="#">More&#8230;</a></p>
+		<h2>Ipsum Dolorem</h2>
+		<ul>
+			<li><a href="#">Sagittis Bibendum Erat</a></li>
+			<li><a href="#">Malesuada Turpis</a></li>
+			<li><a href="#">Quis Gravida Massa</a></li>
+			<li><a href="#">Inerat Viverra Ornare</a></li>
+		</ul>
+	</div>
+</div>
+<div id="footer">
+	<p>Copyright &copy; 2006 Sitename.com. Designed by <a href="http://www.freecsstemplates.org" class="link1">Free CSS Templates</a></p>
+</div>
+</body>
 </html>
