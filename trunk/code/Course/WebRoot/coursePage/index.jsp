@@ -58,8 +58,6 @@
 		</ul>
 	</div>
 </div>
-<div id="footer">
-	<p>Copyright &copy; 2010 Xiamen University. Designed by Rossi Xu</p>
-</div>
+<jsp:include page="bottom.jsp"></jsp:include>
 </body>
 </html>

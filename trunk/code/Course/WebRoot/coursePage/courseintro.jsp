@@ -37,9 +37,6 @@
 		</ul>
 	</div>
 </div>
-<div id="footer">
-	<p>Copyright &copy; 2006 Sitename.com. Designed by <a href="http://www.freecsstemplates.org" class="link1">Free CSS Templates</a></p>
-</div>
+<jsp:include page="bottom.jsp"></jsp:include>
 </body>
 </html>
-<span style="display:none;"><a href="http://www.mobanwang.com" title="ҳģ">ҳģ</a></span><span style="display:none;"><a href="http://www.mobanwang.com" title="ҳģ">ҳģ</a></span>
