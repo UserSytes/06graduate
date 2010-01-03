@@ -8,6 +8,7 @@ import cn.edu.xmu.course.pojo.Chapter;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.CourseInfo;
 import cn.edu.xmu.course.pojo.Courseware;
+import cn.edu.xmu.course.pojo.Exercise;
 import cn.edu.xmu.course.pojo.Experiment;
 import cn.edu.xmu.course.pojo.TeacherTeam;
 import cn.edu.xmu.course.service.IAchievementService;
@@ -16,6 +17,7 @@ import cn.edu.xmu.course.service.IChapterService;
 import cn.edu.xmu.course.service.ICourseInfoService;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.ICoursewareService;
+import cn.edu.xmu.course.service.IExerciseService;
 import cn.edu.xmu.course.service.IExperimentService;
 import cn.edu.xmu.course.service.ITeacherTeamService;
 
@@ -32,6 +34,7 @@ public class ViewDetailAction extends BaseAction{
 	private List<Chapter> chapterList;
 	private List<Courseware> coursewareList;
 	private List<Experiment> experimentList;
+	private List<Exercise> exerciseList;
 	private int courseId;
 	private int chapterId;
 	private int flag;
@@ -43,6 +46,7 @@ public class ViewDetailAction extends BaseAction{
 	private IChapterService chapterService;
 	private ICoursewareService coursewareService;
 	private IExperimentService experimentService;
+	private IExerciseService exerciseService;
 	private ICourseService courseService;
 	public ApplicationForm getApplicationForm() {
 		return applicationForm;
@@ -144,7 +148,15 @@ public class ViewDetailAction extends BaseAction{
 		else
 			return "experiment";
 	}
-	
+	@SuppressWarnings("unchecked")
+	public String downloadExercise(){
+		Chapter currentChapter=chapterService.getChapter(chapterId);
+		exerciseList=exerciseService.getExercisesByChapter(currentChapter);
+		if(getExerciseList()==null)
+			return ERROR;
+		else
+			return "exercise";
+	}
 	public void setCourseId(int courseId) {
 		this.courseId = courseId;
 	}
@@ -287,6 +299,22 @@ public class ViewDetailAction extends BaseAction{
 
 	public ICourseService getCourseService() {
 		return courseService;
+	}
+
+	public void setExerciseList(List<Exercise> exerciseList) {
+		this.exerciseList = exerciseList;
+	}
+
+	public List<Exercise> getExerciseList() {
+		return exerciseList;
+	}
+
+	public void setExerciseService(IExerciseService exerciseService) {
+		this.exerciseService = exerciseService;
+	}
+
+	public IExerciseService getExerciseService() {
+		return exerciseService;
 	}
 
 
