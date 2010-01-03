@@ -21,8 +21,6 @@ public class CourseMovieAction extends BaseAction {
 	private CourseMovie courseMovie;
 	private Integer courseMovieId;
 	
-	private Course course;
-	
 	private File upload;
 	private String uploadContentType;
 	private String uploadFileName;
@@ -30,13 +28,14 @@ public class CourseMovieAction extends BaseAction {
 	private ICourseMovieService courseMovieService;
 
 	public String getCourseMovieListByCourse() {
-		course = super.getCourse();
-		courseMovieList = courseMovieService.getAllCourseMovies(course);
+	
+		courseMovieList = courseMovieService.getAllCourseMovies(super.getCourse());
 		return SUCCESS;
 	}
 
 	public String addCourseMovie() {
-		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
+		String fileLink = super.getTeacher().getUserInfo().getName() + "/"
+		+ new Date().getTime()+"_"+super.getCourse().getName() + "_" + uploadFileName;
 		courseMovie.setFilename(uploadFileName);
 		courseMovie.setFileLink(fileLink);
 		if (courseMovieService.addCourseMovie(courseMovie, super.getCourse(), upload))
@@ -121,14 +120,6 @@ public class CourseMovieAction extends BaseAction {
 
 	public void setCourseMovieId(Integer courseMovieId) {
 		this.courseMovieId = courseMovieId;
-	}
-
-	public Course getCourse() {
-		return course;
-	}
-
-	public void setCourse(Course course) {
-		this.course = course;
 	}
 
 	public void setCourseMovieService(ICourseMovieService courseMovieService) {

@@ -375,6 +375,36 @@
 			<result name="success">/teacher/coursemanage/addexperiment.jsp</result>
 		</action>
 		
+		<!-- 课程管理-课件管理部分 (教师)-->
+		<action name="getCourseMovieListByCourseAction" method="getCourseMovieListByCourse"
+			class="courseMovieAction">
+			<result name="success">/teacher/coursemanage/coursemovielist.jsp
+			</result>
+		</action>
+		<action name="addCourseMovieAction" method="addCourseMovie"
+			class="courseMovieAction">
+			<result name="success" type="redirect-action">getCourseMovieListByCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="updateCourseMovieAction" method="updateCourseMovie"
+			class="courseMovieAction">
+			<result name="success" type="redirect-action">getCourseMovieListByCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteCourseMovieAction" method="deleteCourseMovie"
+			class="courseMovieAction">
+			<result name="success" type="redirect-action">getCourseMovieListByCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="goEditCourseMovieAction" method="goEditCourseMovie"
+			class="courseMovieAction">
+			<result name="success">/teacher/coursemanage/editcoursemovie.jsp
+			</result>
+		</action>	
+		
 		<!-- 课程管理 (学院管理员)-->
 		<action name="noPassListAction" method="findNoPassCourse"
 			class="courseAction">
