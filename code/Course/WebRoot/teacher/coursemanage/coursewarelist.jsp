@@ -33,11 +33,11 @@
 		</table>
 		<table class=listTable align="center">
 			<tr>
-			<td>
+				<td>
 					筛选：&nbsp;&nbsp;&nbsp;
 					<s:select id="chapterId" name="chapterId" list="chapterList"
-							listKey="id" listValue="number+name" headerValue="所有"
-							headerKey="-1" onchange="chapterChange(this.value)"/>
+						listKey="id" listValue="number+name" headerValue="所有"
+						headerKey="-1" onchange="chapterChange(this.value)" />
 				</td>
 				<td>
 					<div align="right">

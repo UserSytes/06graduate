@@ -141,7 +141,7 @@
 			<ref bean="ExperimentDAO" />
 		</property>
 	</bean>
-	<bean id="courseMovieServiceTarget" class="cn.edu.xmu.course.service.impl.ExperimentService">
+	<bean id="courseMovieServiceTarget" class="cn.edu.xmu.course.service.impl.CourseMovieService">
 	<property name="courseMovieDAO">
 			<ref bean="CourseMovieDAO" />
 		</property>

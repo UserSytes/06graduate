@@ -18,22 +18,23 @@
 					alert("录像标题不能为空！");
 					return false;
 				}
-				if (form.author.value == -1)
+				if (form.author.value == "")
 				{
 					alert("主讲人不能为空！");
 					return false;
 				}
-				if (form.position.value == -1)
+				if (form.position.value == "")
 				{
 					alert("职称不能为空！");
 					return false;
 				}
-				if (form.content.value == -1)
+				if (form.content.value == "")
 				{
 					alert("内容不能为空！");
 					return false;
 				}
-				if (form.time.value == -1)
+				var time= dojo.widget.byId("time");
+				if (time.getValue() == "")
 				{
 					alert("录制时间不能为空！");
 					return false;
@@ -59,9 +60,15 @@
 		</table>
 
 		<s:form action="addCourseMovieAction" method="post"
-			enctype="multipart/form-data" onsubmit="return check(this);">			
+			enctype="multipart/form-data" onsubmit="return check(this);">
+
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
-				align=center border=0>				
+				align=center border=0>
+				<tr class=editHeaderTr>
+					<td class=editHeaderTd colSpan=7>
+						添加教学录像：
+					</td>
+				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
@@ -73,7 +80,7 @@
 						<s:textfield id="title" name="courseMovie.title" cssClass="input" />
 					</td>
 				</tr>
-<tr>
+				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
 							主讲人：
@@ -81,10 +88,11 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="author" name="courseMovie.author" cssClass="input" />
+						<s:textfield id="author" name="courseMovie.author"
+							cssClass="input" />
 					</td>
 				</tr>
-<tr>
+				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
 							职称：
@@ -92,10 +100,11 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="postion" name="courseMovie.position" cssClass="input" />
+						<s:textfield id="position" name="courseMovie.position"
+							cssClass="input" />
 					</td>
 				</tr>
-<tr>
+				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
 							内容：
@@ -103,10 +112,11 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textarea id="content" name="courseMovie.content" cssClass="textarea" />
+						<s:textarea id="content" name="courseMovie.content"
+							cssClass="textarea" />
 					</td>
 				</tr>
-<tr>
+				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
 							录制时间：
@@ -114,7 +124,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-							<s:head />
+						<s:head />
 						<s:datetimepicker id="time" displayFormat="yyyy-MM-dd"
 							name="courseMovie.time" />
 					</td>
@@ -129,13 +139,13 @@
 						&nbsp;&nbsp;&nbsp;
 						<s:file id="upload" name="upload"></s:file>
 					</td>
-				</tr>				
+				</tr>
 				<tr class=editHeaderTr>
 					<td width="30%" class=editFooterTd>
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit cssClass="label" value="修改" />
+						<s:submit cssClass="label" value="确定" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>

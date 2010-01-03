@@ -12,7 +12,7 @@
 		<title>章节列表</title>
 		<SCRIPT language=javascript>		
 			function goToAddChapter(){
-			 window.location.href="coursemanage/addchapter.jsp";
+			 window.location.href="${ctx}/teacher/coursemanage/addchapter.jsp";
 			}
 
 		</SCRIPT>

@@ -46,7 +46,7 @@
 				</td>
 			</tr>
 		</table>
-<s:fielderror />
+		<s:fielderror />
 		<s:form action="addExperimentAction" method="post"
 			enctype="multipart/form-data" onsubmit="return check(this);">
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"

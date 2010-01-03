@@ -12,7 +12,7 @@
 		<title>教学录像列表</title>
 		<SCRIPT language=javascript>		
 			function goToAddCourseMovie(){
-			 window.location.href="goAddCourseMovieAction.action";
+			 window.location.href="coursemanage/addcoursemovie.jsp";
 			}
 		</SCRIPT>
 	</head>
@@ -26,10 +26,10 @@
 			</tr>
 		</table>
 		<table class=listTable align="center">
-			<tr>				
+			<tr>
 				<td>
 					<div align="right">
-						<input type="button" onclick="goToAddCourseMovie()" value="添加教学录像" />						
+						<input type="button" onclick="goToAddCourseMovie()" value="添加教学录像" />
 					</div>
 				</td>
 			</tr>
@@ -62,10 +62,10 @@
 						<td>
 							<s:property value="title" />
 						</td>
-					<td>
+						<td>
 							<s:property value="author" />
 						</td>
-<td>
+						<td>
 							<s:property value="position" />
 						</td>
 						<td>

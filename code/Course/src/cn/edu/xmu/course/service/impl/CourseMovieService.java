@@ -23,6 +23,7 @@ public class CourseMovieService implements ICourseMovieService {
 				"/upload");
 		String fileName = path + "/" + courseMovie.getFileLink();
 		File file = new File(fileName);
+		courseMovie.setCourse(course);
 		try {
 			courseMovieDAO.save(courseMovie);
 			if (FileOperation.copy(upload, file))
