@@ -113,4 +113,9 @@
 			<ref bean="experimentServiceTarget" />
 		</property>
 	</bean>
+	<bean id="courseMovieService" parent="transactionBase">
+		<property name="target">
+			<ref bean="courseMovieServiceTarget" />
+		</property>
+	</bean>
 </beans>

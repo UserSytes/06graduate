@@ -177,4 +177,10 @@
 			<ref bean="experimentService" />
 		</property>
 	</bean>
+	<bean id="courseMovieAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.CourseMovieAction">
+		<property name="courseMovieService">
+			<ref bean="courseMovieService" />
+		</property>		
+	</bean>
 </beans>
