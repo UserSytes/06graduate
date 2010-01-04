@@ -7,7 +7,8 @@
 		<META http-equiv=Pragma content=no-cache>
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
-		<LINK href="../${ctx}/homepage/images/css1/admin.css" type=text/css rel=stylesheet>
+		<link href="../${ctx}/homepage/default.css" rel="stylesheet"
+			type="text/css" />
 		<title>精品课程搜索引擎->课程查询结果</title>
 		<style type="text/css">
 <!--
@@ -36,7 +37,11 @@
 							cellpadding="0">
 							<tr>
 								<td colspan="2" WIDTH=765 height="102">
-									<s:include value="include/header4.jsp"></s:include>
+									<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="765" height="102">
+                  <param name="movie" value="${ctx}/homepage/flash/delta46-2.swf">
+                  <param name="quality" value="high"> <param name="menu" value="false">
+                  <embed src="${ctx}/homepage/flash/delta46-2.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="765" height="102"></embed>
+			  </object>
 								</td>
 							</tr>
 							<tr>
@@ -78,10 +83,12 @@
 													cellpadding="0" background="${ctx}/homepage/images/end-3.jpg"
 													style="background-repeat: no-repeat; background-position: center bottom;">
 													
-<tr><br><br></tr>
-													<tr>
+<tr><br><br><br><br></tr>
+													<tr >
 														<td width="389" valign="top" style="padding-left: 5px">
-																	<table align="center">
+																	<table class=editTable cellSpacing=1 cellPadding=0 align=center
+					border=1>
+<tr><br></tr>
 				<tr <s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>
 						序号   
@@ -97,8 +104,8 @@
 					</th>
 				</tr>
 				<s:iterator value="courseList" status="course">
-					<tr>
-						<td>
+					<tr >
+						<td >
 							<s:property value="id" />
 						</td>
 						<td>
@@ -134,6 +141,7 @@
 			<s:url id="url_next" value="courses.action">
 				<s:param name="pageNow" value="pageNow+1"></s:param>
 			</s:url>
+<br><br><br>
 			<s:a href="%{url_pre}">上一页</s:a>
 
 			<s:iterator value="courses" status="status">
