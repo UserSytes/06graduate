@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<LINK href="${ctx}/css/student.css" type=text/css rel=stylesheet>
 		<title>厦门大学精品课程网站</title>
 	</head>
 	<BODY BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0
@@ -25,7 +26,11 @@
 							cellpadding="0">
 							<tr>
 								<td colspan="2" WIDTH=765 height="102">
-									<s:include value="include/header5.jsp"></s:include>
+									<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="765" height="102">
+                  <param name="movie" value="${ctx}/homepage/flash/delta46-2.swf">
+                  <param name="quality" value="high"> <param name="menu" value="false">
+                  <embed src="${ctx}/homepage/flash/delta46-2.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="765" height="102"></embed>
+			  </object>
 								</td>
 							</tr>
 							<tr>
@@ -66,18 +71,78 @@
 												<table width="555" height="534" border="0" cellspacing="0"
 													cellpadding="0" background="${ctx}/homepage/images/end-3.jpg"
 													style="background-repeat: no-repeat; background-position: center bottom;">
-												
 													<tr>
-														<td>
-															信息办 何申密 总负责
-															<br>
-															&ensp; &ensp;&ensp;&ensp;许子彦 日常维护
-															<br>
-															教务处 郑冰凌 申报相关事宜
-															<br>
-															&ensp; &ensp;&ensp;&ensp;赵海虹 咨询
+														<br>
+														<br>
+														<br>
+														<br>
+														<div style="padding-left: 5px" class="content1-pagetitle">
+															当前位置: 联系我们
+														</div>
+													</tr>
+													<tr>
+														<td width="389" valign="top" style="padding-left: 5px">
+															<div class="table">
+																<img src="${ctx}/student/img/bg-th-left.gif" width="8" height="7"
+																	alt="" class="left" />
+																<img src="${ctx}/student/img/bg-th-right.gif" width="7" height="7"
+																	alt="" class="right" />
+																<s:form action="goChangeMyInfoAction" method="post">
+																	<table class="listing form" cellpadding="0"
+																		cellspacing="0">
+																	
+																		<tr class="bg">
+																			<td class="first">
+																				信息办 
+																			</td>
+																			<td class="first">
+																				何申密 
+																			</td>
+<td class="first">
+																				 总负责
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="first">
+																				&ensp; &ensp;&ensp;&ensp;
+																			</td>
+																			<td class="first">
+																				许子彦 
+																			</td>
+<td class="first">
+																				 日常维护
+																			</td>
+																		</tr>
+																		<tr class="bg">
+																			<td class="first">
+																				教务处  
+																			</td>
+																			<td class="first">
+																				 郑冰凌 
+																			</td>
+<td class="first">
+																				申报相关事宜
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="first">
+																				&ensp; &ensp;&ensp;&ensp;
+																			</td>
+																			<td class="first">
+																				赵海虹 
+																			</td>
+<td class="first">
+																				 咨询
+																			</td>
+																		</tr>
+																	
+																		
+																	</table>
+																</s:form>
+															</div>
 														</td>
 													</tr>
+													
 												</table>
 											</td>
 										</tr>
