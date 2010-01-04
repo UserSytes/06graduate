@@ -42,6 +42,7 @@ public class HomePageAction extends BaseAction{
     @SuppressWarnings("unchecked")
 	public String newsDisplay(){
 		newsList=newsService.findAllNews();
+		System.out.println(newsList.get(0).getTitle());
 		if (newsList == null) {
 			return ERROR;
 		} else
@@ -88,6 +89,7 @@ public class HomePageAction extends BaseAction{
     public String courseDisplay(){
     	List findCourseListByTimeAndLevel = courseService.findCourseListByTimeAndLevel(time, level);
 		courseList=findCourseListByTimeAndLevel;
+		System.out.println("test1: "+courseList.size());
 		if (courseList == null) {
 			return ERROR;
 		} else
@@ -101,6 +103,16 @@ public class HomePageAction extends BaseAction{
 		} else
 			return "achievementList";
     }
+    
+    public String forwardToSearch(){
+			return "searchbyschool";
+    }
+    public String forwardToIndex(){
+		return "index";
+}
+    public String forwardToContact(){
+		return "contact";
+}
     
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
