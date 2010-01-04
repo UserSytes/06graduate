@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<LINK href="${ctx}/css/student.css" type=text/css rel=stylesheet>	
 		<title>厦门大学精品课程网站</title>
 	</head>
 	<BODY BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0
@@ -25,7 +26,11 @@
 							cellpadding="0">
 							<tr>
 								<td colspan="2" WIDTH=765 height="102">
-									<s:include value="include/header2.jsp"></s:include>
+									<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="765" height="102">
+                  <param name="movie" value="${ctx}/homepage/flash/delta46-2.swf">
+                  <param name="quality" value="high"> <param name="menu" value="false">
+                  <embed src=${ctx}/homepage/flash/delta46-2.swf quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="765" height="102"></embed>
+			  </object>
 								</td>
 							</tr>
 							<tr>
@@ -68,16 +73,34 @@
 													cellpadding="0" background="${ctx}/homepage/images/end-3.jpg"
 													style="background-repeat: no-repeat; background-position: center bottom;">
 													
-<tr><br><br></tr>
+<tr>
+														<br>
+														<br>
+														<br>
+														<br>
+														<div style="padding-left: 5px" class="content1-pagetitle">
+															当前位置: 新闻公告
+														</div>
+													</tr>
 													<tr>
 														<td width="389" valign="top" style="padding-left: 5px">
-															<img src="${ctx}/homepage/images/text-19.jpg" width="114" height="17"
-																style="margin-bottom: 10px">
-															<br>
-															<font face="tahoma"
-																style="font-size: 16px; color: #828688"><strong>
-
-																	<s:iterator value="newsList" status="new">
+															<div class="table">
+																<img src="${ctx}/student/img/bg-th-left.gif" width="8" height="7"
+																	alt="" class="left" />
+																<img src="${ctx}/student/img/bg-th-right.gif" width="7" height="7"
+																	alt="" class="right" />
+																<s:form action="goChangeMyInfoAction" method="post">
+																	<table class="listing form" cellpadding="0"
+																		cellspacing="0">
+																		<tr>
+																			<th class="full" colspan="2">
+																				新闻公告
+																			</th>
+																		</tr>
+																		
+																		<tr>
+																			<td class="first">
+																				<s:iterator value="newsList" status="new">
 																		<img src="${ctx}/homepage/images/but.jpg" width="4" height="7">&nbsp;
 																		<a
 																			href="<s:url action="enterNewsAction"> 
@@ -88,9 +111,14 @@
 																			<s:property value="title" />&nbsp;&nbsp; <s:property
 																				value="time" /> </a>
 																		<br>
-																	</s:iterator> </strong> </font>
+																	</s:iterator>
+																			</td>
+																		</tr>
+																		
+																	</table>
+																</s:form>
+															</div>
 														</td>
-
 													</tr>
 
 												</table>
