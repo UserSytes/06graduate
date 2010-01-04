@@ -74,7 +74,13 @@
 						</div>
 					</td>
 					<td bgcolor="#FFFFFF">
-						<img src="../Images/i_attach.gif"><a href=""></a>
+						<s:iterator value="attachmentList" status="attachment">
+							<tr><td><img src="../Images/i_attach.gif" />
+							<a
+								href='${pageContext.request.contextPath}/newsUpload/<s:property value ="fileLink" /> '>
+								<s:property value="fileName" />
+							</a></td><tr>
+						</s:iterator>
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">

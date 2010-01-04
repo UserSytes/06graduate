@@ -41,16 +41,15 @@ public class NewsService implements INewsService {
 		}
 	}
 	
-	public boolean addNews(News news, File[] myFile, String[] myFileContentType, String[] myFileFileName) {
-		// TODO Auto-generated method stub
-		Date nowDate = new Date();
-		news.setTime(nowDate);
-		try{
-			newsDAO.save(news);
-		}catch(Exception e){
-			return false;
-		}
-		
+	/**
+	 * 新建附件
+	 * @param news
+	 * @param myFile
+	 * @param myFileContentType
+	 * @param myFileFileName
+	 * @return
+	 */
+	public boolean createAttachments(News news, File[] myFile, String[] myFileContentType, String[] myFileFileName){
 		// 上传附件
 		InputStream in = null;
 		OutputStream ou = null;
@@ -105,6 +104,18 @@ public class NewsService implements INewsService {
 		return true;
 	}
 	
+	public boolean addNews(News news, File[] myFile, String[] myFileContentType, String[] myFileFileName) {
+		// TODO Auto-generated method stub
+		Date nowDate = new Date();
+		news.setTime(nowDate);
+		try{
+			newsDAO.save(news);
+		}catch(Exception e){
+			return false;
+		}
+		return this.createAttachments(news, myFile, myFileContentType, myFileFileName);
+	}
+	
 	public boolean saveAttachment(Attachment attachment){
 		try{
 			attachmentDAO.save(attachment);
@@ -114,9 +125,43 @@ public class NewsService implements INewsService {
 		}
 	}
 	
+	public boolean updateNews(News news, File[] myFile, String[] myFileContentType, String[] myFileFileName){
+		Date nowDate = new Date();
+		news.setLastEditTime(nowDate);
+		try{
+			this.deleteAttachment(news);
+			newsDAO.save(news);
+		}catch(Exception e){
+			return false;
+		}
+		return this.createAttachments(news, myFile, myFileContentType, myFileFileName);	
+	}
+	
+	/**
+	 * 删除某新闻的所有附加
+	 * @param news
+	 * @return
+	 */
+	public boolean deleteAttachment(News news){
+		List<Attachment> attachments = this.findAttachmentByNews(news);
+		for(Attachment a: attachments){
+			try{
+				attachmentDAO.delete(a);
+			}catch(Exception e){
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public List<Attachment> findAttachmentByNews(News news){
+		return attachmentDAO.findByProperty("news", news);
+	}
+	
 	public boolean deleteNews(News news) {
 		// TODO Auto-generated method stub
 		try {
+			this.deleteAttachment(news);
 			newsDAO.delete(news);
 			return true;
 		} catch (Exception e) {

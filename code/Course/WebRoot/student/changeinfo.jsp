@@ -72,10 +72,10 @@
 													style="background-repeat: no-repeat; background-position: center bottom;">
 
 													<tr>
-														<br>
-														<br>
-														<br>
-														<br>
+														<br />
+														<br />
+														<br />
+														<br />
 														<div style="padding-left: 5px" class="content1-pagetitle">
 															当前位置: 我的帐号 -&gt; 修改个人信息
 														</div>
