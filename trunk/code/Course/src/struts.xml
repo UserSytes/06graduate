@@ -687,6 +687,21 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+		<action name="forwardToSearchAction" method="forwardToSearch"
+			class="homePageAction">
+			<result name="searchbyschool">/homepage/searchbyschool.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="forwardToIndexAction" method="forwardToIndex"
+			class="homePageAction">
+			<result name="index">/homepage/index.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="forwardToContactAction" method="forwardToContact"
+			class="homePageAction">
+			<result name="contact">/homepage/contact.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
 		<action name="findCourseByTeacherAction" method="findCourseByTeacher"
 			class="executeViewAction">
 			<result name="courses">/homepage/courseList.jsp

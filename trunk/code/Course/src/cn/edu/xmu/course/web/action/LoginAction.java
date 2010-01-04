@@ -15,8 +15,8 @@ public class LoginAction extends BaseAction {
 
 	private ILoginService loginService;
 
-	private String userName;
-	private String password;
+	private String userName = "123456";
+	private String password = "123456";
 	private int flag;
 
 	public String login() {

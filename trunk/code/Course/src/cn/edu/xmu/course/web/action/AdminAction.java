@@ -30,6 +30,7 @@ public class AdminAction extends BaseAction {
 	 */
 	public String getAdministratorInfo(){
 		admin =  (Administrator) ActionSession.getSession().get(ADMIN);
+		admin = adminService.findAdminById(admin.getId());
 		if(admin == null){
 			return ERROR;
 		}else
