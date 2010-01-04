@@ -51,7 +51,7 @@ a:visited {
 		}
 	}
 	function getCourse(type) {
-		var url = "getMyCourseInLeft.action?type="+type;
+		var url = "getMyCourseInLeft.action?type=" + type;
 		new Ajax.Updater('courseMain', url, {
 			onLoading : function() {
 			},
@@ -252,6 +252,27 @@ a:visited {
 												<tr>
 													<td width="41" height="35">
 														<div align="center">
+															<img src="images/left_1.gif" width="31" height="31">
+														</div>
+													</td>
+													<td width="89" height="35">
+														<table width="100%" border="0" cellspacing="0"
+															cellpadding="0">
+															<tr>
+																<td height="23" style="cursor: hand"
+																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
+																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
+																	<span class="STYLE2">&nbsp;<a
+																		href="#" target=I2>学生管理</a>
+																	</span>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+												<tr>
+													<td width="41" height="35">
+														<div align="center">
 															<img src="images/left_3.gif" width="31" height="31">
 														</div>
 													</td>
@@ -263,32 +284,13 @@ a:visited {
 																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
 																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
 																	<span class="STYLE2">&nbsp;<a
-																		href="addcourseinfo.jsp" target=I2>用户维护</a> </span>
+																		href="addcourseinfo.jsp" target=I2>留言管理</a> </span>
 																</td>
 															</tr>
 														</table>
 													</td>
 												</tr>
-												<tr>
-													<td width="41" height="35">
-														<div align="center">
-															<img src="images/left_4.gif" width="31" height="31">
-														</div>
-													</td>
-													<td height="35">
-														<table width="100%" border="0" cellspacing="0"
-															cellpadding="0">
-															<tr>
-																<td height="23" style="cursor: hand"
-																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
-																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
-																	<span class="STYLE2">&nbsp;<a href="#">系统维护</a>
-																	</span>
-																</td>
-															</tr>
-														</table>
-													</td>
-												</tr>
+
 											</table>
 										</td>
 									</tr>
@@ -353,10 +355,9 @@ a:visited {
 																<img src="images/top_18.gif" width="16" height="16">
 															</div>
 														</td>
-														<td valign="middle" style="CURSOR: hand"
-															onclick="showsubmenu(4)">
+														<td valign="middle">
 															<div align="center" class="STYLE1">
-																诚信管理
+																系统信息
 															</div>
 														</td>
 													</tr>
@@ -379,32 +380,7 @@ a:visited {
 										<td>
 											<table width="130" border="0" align="center" cellpadding="0"
 												cellspacing="0">
-												<tr>
-													<td width="41" height="35">
-														<div align="center">
-															<img src="images/left_1.gif" width="31" height="31">
-														</div>
-													</td>
-													<td width="89" height="35">
-														<table width="100%" border="0" cellspacing="0"
-															cellpadding="0">
-															<tr>
-																<td height="23" style="cursor: hand"
-																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
-																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
-																	<span class="STYLE2">&nbsp;<a href="#">客户资料维护</a>
-																	</span>
-																</td>
-															</tr>
-														</table>
-													</td>
-												</tr>
-												<tr>
-													<td width="41" height="35">
-														<div align="center">
-															<img src="images/left_2.gif" width="31" height="31">
-														</div>
-													</td>
+												<tr>													
 													<td height="35">
 														<table width="100%" border="0" cellspacing="0"
 															cellpadding="0">
@@ -412,19 +388,14 @@ a:visited {
 																<td height="23" style="cursor: hand"
 																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
 																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
-																	<span class="STYLE2">&nbsp;<a href="#">系统信息公告</a>
+																	<span class="STYLE2">&nbsp;设计制作：软件学院
 																	</span>
 																</td>
 															</tr>
 														</table>
 													</td>
 												</tr>
-												<tr>
-													<td width="41" height="35">
-														<div align="center">
-															<img src="images/left_3.gif" width="31" height="31">
-														</div>
-													</td>
+												<tr>													
 													<td height="35">
 														<table width="100%" border="0" cellspacing="0"
 															cellpadding="0">
@@ -432,19 +403,14 @@ a:visited {
 																<td height="23" style="cursor: hand"
 																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
 																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
-																	<span class="STYLE2">&nbsp;<a href="#">用户维护</a>
+																	<span class="STYLE2">&nbsp;技术支持：软件学院
 																	</span>
 																</td>
 															</tr>
 														</table>
 													</td>
 												</tr>
-												<tr>
-													<td width="41" height="35">
-														<div align="center">
-															<img src="images/left_4.gif" width="31" height="31">
-														</div>
-													</td>
+												<tr>													
 													<td height="35">
 														<table width="100%" border="0" cellspacing="0"
 															cellpadding="0">
@@ -452,7 +418,22 @@ a:visited {
 																<td height="23" style="cursor: hand"
 																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
 																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
-																	<span class="STYLE2">&nbsp;<a href="#">系统维护</a>
+																	<span class="STYLE2">&nbsp;帮助中心：软件学院
+																	</span>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+												<tr>													
+													<td height="35">
+														<table width="100%" border="0" cellspacing="0"
+															cellpadding="0">
+															<tr>
+																<td height="23" style="cursor: hand"
+																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
+																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
+																	<span class="STYLE2">&nbsp;系统版本：1.0开发版
 																	</span>
 																</td>
 															</tr>
