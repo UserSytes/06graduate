@@ -3,6 +3,7 @@ package cn.edu.xmu.course.service;
 import java.io.File;
 import java.util.List;
 
+import cn.edu.xmu.course.pojo.Attachment;
 import cn.edu.xmu.course.pojo.News;
 
 /**
@@ -44,16 +45,26 @@ public interface INewsService {
 	public boolean deleteNews(News news); 
 	
 	/**
-	 * 更新新闻
-	 * @param news
-	 * @return
-	 */
-	public boolean updateNews(News news);
-	
-	/**
 	 * 根据id查找新闻
 	 * @param id
 	 * @return
 	 */
 	public News findNewsById(int id);
+	
+	/**
+	 * 查找某新闻的附件
+	 * @param news
+	 * @return
+	 */
+	public List<Attachment> findAttachmentByNews(News news);
+	
+	/**
+	 * 修改新闻
+	 * @param news
+	 * @param uploads
+	 * @param myFileContentType
+	 * @param myFileFileName
+	 * @return
+	 */
+	public boolean updateNews(News news, File[] uploads, String[] myFileContentType, String[] myFileFileName);
 }

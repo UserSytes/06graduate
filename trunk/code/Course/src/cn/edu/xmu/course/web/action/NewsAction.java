@@ -32,6 +32,7 @@ public class NewsAction extends BaseAction {
 	private News news;
 	private List<News> newsList;
 	private int newsId;
+	private List<Attachment> attachmentList;
 
 	private File[] myFile;// 得到文件
 	private String[] myFileContentType;
@@ -103,6 +104,7 @@ public class NewsAction extends BaseAction {
 	 */
 	public String viewNews() {
 		news = newsService.findNewsById(newsId);
+		attachmentList = newsService.findAttachmentByNews(news);
 		if (news != null) {
 			return SUCCESS;
 		} else
@@ -117,6 +119,7 @@ public class NewsAction extends BaseAction {
 	public String goEditNews() {
 		System.out.print("测试1：" + news.getId());
 		news = newsService.findNewsById(news.getId());
+		attachmentList = newsService.findAttachmentByNews(news);
 		return SUCCESS;
 	}
 
@@ -126,7 +129,7 @@ public class NewsAction extends BaseAction {
 	 * @return
 	 */
 	public String editNews() {
-		boolean result = newsService.updateNews(news);
+		boolean result = newsService.updateNews(news,myFile,myFileContentType, myFileFileName);
 		if (result) {
 			addActionMessage("更新新闻成功！");
 			return SUCCESS;
@@ -189,6 +192,14 @@ public class NewsAction extends BaseAction {
 
 	public void setMyFileFileName(String[] myFileFileName) {
 		this.myFileFileName = myFileFileName;
+	}
+
+	public List<Attachment> getAttachmentList() {
+		return attachmentList;
+	}
+
+	public void setAttachmentList(List<Attachment> attachmentList) {
+		this.attachmentList = attachmentList;
 	}
 
 }
