@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 	
-		
+	<link href="../${ctx}/homepage/default.css" rel="stylesheet"
+			type="text/css" />	
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>精品课程搜索引擎</title>
 	</head>
@@ -68,7 +69,11 @@
 							cellpadding="0">
 							<tr>
 								<td colspan="2" WIDTH=700 height="102">
-									<s:include value="include/header4.jsp"></s:include>
+									<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="765" height="102">
+                  <param name="movie" value="${ctx}/homepage/flash/delta46-2.swf">
+                  <param name="quality" value="high"> <param name="menu" value="false">
+                  <embed src="${ctx}/homepage/flash/delta46-2.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="765" height="102"></embed>
+			  </object>
 								</td>
 							</tr>
 							<tr>
@@ -109,8 +114,8 @@
 													cellpadding="0" background="${ctx}/homepage/images/end-3.jpg"
 													style="background-repeat: no-repeat; background-position: center bottom;">
 <tr><td>
-											<table class=editTable cellSpacing=1 cellPadding=0 width="535"
-			align=center border=0 height="25">
+											<table class=editTable cellSpacing=1 cellPadding=0 align=center
+					border=1>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
 					当前位置: 首页 -&gt; 搜索课程
@@ -120,10 +125,10 @@
 
 		<s:form action="findCourseByDepartmentAction" method="post"
 			onsubmit="">&nbsp;&nbsp; 
-			<table class=editTable cellSpacing=1 cellPadding=0 width="535"
-			align=center border=0 height="25">
-															<tr class=editHeaderTr>
-																<td class=editHeaderTd colSpan=7>
+			<table class=editTable cellSpacing=1 cellPadding=0 align=center
+					border=1>
+															<tr >
+																<td  colSpan=7>
 																	院系搜索
 																</td>
 															</tr>
@@ -160,10 +165,10 @@
 														</table>
 													</s:form>
 		<s:form action="findCourseByNameAction" method="post" onsubmit="">&nbsp;&nbsp;
-	<table class=editTable cellSpacing=1 cellPadding=0 width="527"
-				align=center border=0 height="113">
-				<tr class=editHeaderTr>
-					<td class=editHeaderTd colSpan=7>
+	<table class=editTable cellSpacing=1 cellPadding=0 align=center
+					border=1>
+				<tr>
+					<td colSpan=7>
 						课程搜索
 					</td>
 				</tr>
@@ -190,10 +195,10 @@
 			</table>
 		</s:form>
 <s:form action="findCourseByTeacherAction" method="post" onsubmit="">&nbsp;&nbsp;
-	<table class=editTable cellSpacing=1 cellPadding=0 width="529"
-				align=center border=0 height="113">
-				<tr class=editHeaderTr>
-					<td class=editHeaderTd colSpan=7>
+	<table class=editTable cellSpacing=1 cellPadding=0 align=center
+					border=1>
+				<tr >
+					<td colSpan=7>
 						教师搜索
 					</td>
 				</tr>
