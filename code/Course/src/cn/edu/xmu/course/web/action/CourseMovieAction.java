@@ -28,7 +28,7 @@ public class CourseMovieAction extends BaseAction {
 	private ICourseMovieService courseMovieService;
 
 	public String getCourseMovieListByCourse() {
-	
+		System.out.println(super.getCourse());
 		courseMovieList = courseMovieService.getAllCourseMovies(super.getCourse());
 		return SUCCESS;
 	}
@@ -73,7 +73,14 @@ public class CourseMovieAction extends BaseAction {
 		}
 	}
 
-
+	public String getCourseMovieById(){
+		courseMovie = courseMovieService.getCourseMovieById(courseMovieId);
+		if (getCourseMovie()==null)
+			return ERROR;
+		else {
+			return SUCCESS;
+		}
+	}
 	public File getUpload() {
 		return upload;
 	}
