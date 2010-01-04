@@ -62,9 +62,6 @@ public class ExecuteViewAction extends BaseAction {
 		Department dept = departmentService.getDepartmentById(Integer
 				.parseInt(departmentId));
 		setCourseList(searchCourseService.findCourseByDepartment(dept));
-		System.out.print("\n&&&&&&&&&&&&&&&&&&&&&&" + getCourseList().size()
-				+ getCourseList().get(0).getName()
-				+ getCourseList().get(0).getId());
 		if (getCourseList().size() == 0) {
 			return ERROR;
 		} else
@@ -82,8 +79,6 @@ public class ExecuteViewAction extends BaseAction {
 	 */
 	public String findCourseByName() {
 		courseList = searchCourseService.findCourseByName(courseName);
-		System.out.print("\n&&&&&&&&&&&&&&&&&&&&&&" + courseList.size()
-				+ courseList.get(0).getName() + courseList.get(0).getId());
 		if (courseList.size() == 0) {
 			return ERROR;
 		} else
@@ -95,8 +90,6 @@ public class ExecuteViewAction extends BaseAction {
 	 */
 	public String findCourseByTeacher(){
 		courseList = searchCourseService.findCourseByTeacher(teacherName);
-		System.out.print("\n&&&&&&&&&&&&&&&&&&&&&&" + courseList.size()
-				+ courseList.get(0).getName() + courseList.get(0).getId());
 		if (courseList.size() == 0) {
 			return ERROR;
 		} else
@@ -111,6 +104,7 @@ public class ExecuteViewAction extends BaseAction {
 		if (course == null) {
 			return ERROR;
 		} else
+			ActionSession.getSession().put(COURSE,course);
 			return "course";
 
 	}
