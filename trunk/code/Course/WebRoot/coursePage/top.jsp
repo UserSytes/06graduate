@@ -64,10 +64,7 @@
                        			 	3 
                     			</s:param>
                 					</s:url>">习题试卷</a></li>
-		<li><a href="<s:url action="findTeacherTeamAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
+		<li><a href="<s:url action="getCourseMovieListAction"> 
                 					</s:url>">
 												教学录像
 											</a></li>
