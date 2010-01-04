@@ -3,6 +3,7 @@
 <%@ include file="../commons/taglibs.jsp"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
+<LINK href="${ctx}/css/student.css" type=text/css rel=stylesheet>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>新闻公告-><s:property value="news.title"/></title>
 	</head>
@@ -26,7 +27,11 @@
 							cellpadding="0">
 							<tr>
 								<td colspan="2" WIDTH=765 height="102">
-									<s:include value="include/header3.jsp"></s:include>
+									<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="765" height="102">
+                  <param name="movie" value="${ctx}/homepage/flash/delta46-2.swf">
+                  <param name="quality" value="high"> <param name="menu" value="false">
+                  <embed src=${ctx}/homepage/flash/delta46-2.swf quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="765" height="102"></embed>
+			  </object>
 								</td>
 							</tr>
 							<tr>
@@ -70,14 +75,21 @@
 													cellpadding="0" background="homepage/images/end-3.jpg"
 													style="background-repeat: no-repeat; background-position: center bottom;">
 													<tr>
-<br><br><br><br>
-														<td width="389" height="18" valign="top" style="padding-left: 5px">
-															<img src="homepage/images/text-19.jpg" width="114"
-																height="17" style="margin-bottom: 10px">
-
-														</td>
+														<br>
+														<br>
+														<br>
+														<br>
+														<div style="padding-left: 5px" class="content1-pagetitle">
+															当前位置: 新闻公告
+														</div>
 													</tr>
 													<tr>
+														<td width="389" valign="top" style="padding-left: 5px">
+															<div class="table">
+																
+																	<table class="listing form" cellpadding="0"
+																		cellspacing="0">
+																		<tr>
 														<td colspan="3"
 															style="padding-left: 0px; padding-bottom: 8px"
 															valign="top">
@@ -97,6 +109,13 @@
 													</SPAN>
 														</td>
 													</tr>
+																		
+																	</table>
+															
+															</div>
+														</td>
+													</tr>
+													
 
 
 												</table>
