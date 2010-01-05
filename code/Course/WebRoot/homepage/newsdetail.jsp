@@ -103,8 +103,8 @@
 </span>
 	<P style="LINE-HEIGHT: 180%">
 													<SPAN style="FONT-SIZE: 10.5pt; LINE-HEIGHT: 150%"><FONT
-														face=宋体>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:property
-																value="news.content" />
+														face=宋体>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:text
+																name="">${news.content}</s:text>
 													</FONT>
 													</SPAN>
 														</td>
