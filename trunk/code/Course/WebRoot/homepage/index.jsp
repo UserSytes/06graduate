@@ -36,7 +36,7 @@
 							</tr>
 							<tr>
 								<td width="210" height="10" valign="top">
-									<table width="218" height="688" border="0" cellspacing="0"
+									<table width="218" height="100%" border="0" cellspacing="0"
 										cellpadding="0">
 										<tr>
 											<td height="60">
@@ -45,7 +45,7 @@
 										</tr>
 
 										<tr>
-											<td height="42">
+											<td height="42" bgcolor="#64A5CF">
 												<img src="${ctx}/homepage/images/but-1.jpg" width="218" height="42">
 											</td>
 										</tr>
@@ -80,8 +80,8 @@
 																	headerKey="-1" headerValue="请选择" />
 															</td>
 														</tr>
-														<tr>
-															<td colspan="2" align="center">
+														<tr bgcolor="#64A5CF">
+															<td colspan="2" align="center" bgcolor="#64A5CF">
 																<input type="submit" name="submit"
 																	style="background: url(${ctx}/homepage/images/login_5.gif) no-repeat"
 																	value=" 登  陆 ">
@@ -94,12 +94,12 @@
 												</s:form>
 											</td>
 										</tr>
-										<tr>
+										<tr bgcolor="#f1f1f1">
 											<td height="38">
 												<img src="${ctx}/homepage/images/but-2.jpg" width="218" height="38">
 											</td>
 										</tr>
-										<tr>
+										<tr bgcolor="#f1f1f1">
 											<td width="210" height="100%" valign="top"
 												background="${ctx}/homepage/images/back-but-2.jpg"
 												style="padding-left: 28px; padding-top: 4px; padding-bottom: 15px">
