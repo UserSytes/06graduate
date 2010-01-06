@@ -2,7 +2,6 @@
 body {
 	margin: 0;
 	padding: 0;
-	background: #FFFFF1;
 	color: #000;
 	font-family: tahoma, arial, sans-serif;
 	font-size: 70%;
@@ -135,56 +134,13 @@ ul.nav li.last {
 /* center column styles */
 .content1-pagetitle {
 	overflow: hidden;
-	width: 408px;
+	width: 500px;
 	margin: 0px 0px 5px 0px;
 	padding: 0px 0px 2px 0px;
 	border-bottom: solid 3px  #9097A9; );
 	color: #9097A9;
 	font-weight: bold;
 	font-size: 80%;
-}
-
-.top-bar {
-	float: left;
-	width: 603px;
-	border-left: 2px solid #f70;
-	padding: 0 0 0 9px;
-	margin: 0 0 4px 0;
-}
-
-/* text page header */
-.top-bar h1 {
-	font: 20px/ 21px verdana, sans-serif;
-	color: #43729F;
-	margin: 0 0 4px 0;
-}
-
-/* orange button */
-.top-bar a.button {
-	float: right;
-	display: block;
-	width: 75px;
-	height: 35px;
-	text-align: center;
-	color: #fff;
-	text-transform: uppercase;
-	font-weight: bold;
-	line-height: 27px;
-	background: url(../student/img/bg-orange-button.gif) no-repeat;
-}
-
-/* bar with select */
-.select-bar {
-	clear: both;
-	border-top: 2px solid #f70;
-	border-bottom: 2px solid #f70;
-	padding: 5px 0 3px 0;
-	margin: 0 0 17px 0;
-}
-
-.select-bar select {
-	width: 145px;
-	margin: 0 2px;
 }
 
 /* table container */
@@ -244,7 +200,7 @@ table.listing th {
 	background: #9097A9;
 	color: #fff;
 	padding: 5px;
-	font: 12px;
+	font: 13px;
 	font-family: "ËÎÌו"; 
 }
 
