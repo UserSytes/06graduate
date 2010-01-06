@@ -8,7 +8,7 @@
 		<META http-equiv=Pragma content=no-cache>
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
-		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
+		<LINK href="${ctx}/css/student.css" type=text/css rel=stylesheet>
 		<title>精品课程搜索引擎</title>
 	</head>
 
@@ -69,7 +69,7 @@
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						院系搜索
+						按院系搜索
 					</td>
 				</tr>
 				<tr>
@@ -109,7 +109,7 @@
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						课程搜索
+						按课程搜索
 					</td>
 				</tr>
 				<tr>
@@ -134,35 +134,37 @@
 				</tr>
 			</table>
 		</s:form>
-<s:form action="findCourseByTeacherAction" method="post" onsubmit="">&nbsp;&nbsp;
-	<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
-				align=center border=0>
-				<tr class=editHeaderTr>
-					<td class=editHeaderTd colSpan=7>
-						教师搜索
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							教师名称：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="teacherName" cssClass="input" />
-					</td>
-				</tr>
-				<tr bgcolor="#ECF3FD">
-					<td width="30%">
-						&nbsp;
-					</td>
-					<td width="70%">
-						<s:submit cssClass="label" value="确认" />
-						<s:reset cssClass="label" value="取消" />
-					</td>
-				</tr>
-			</table>
+<div class="table">
+		<s:form action="findCourseByTeacherAction" method="post" onsubmit="">&nbsp;&nbsp;
+				<table class="listing form" cellSpacing=1 cellPadding=0 width="100%"
+					align=center border=0>
+					<tr>
+						<th class="full" colspan="2">
+							按教师搜索
+						</th>
+
+					</tr>
+					<tr class="bg">
+						<td class="first">
+							<div align="center">
+								教师名称：
+							</div>
+						</td>
+						<td colspan="3" class="last">
+							&nbsp;&nbsp;&nbsp;
+							<s:textfield name="teacherName" cssClass="input" />
+						</td>
+					</tr>
+					<tr bgcolor="#ECF3FD">
+						<th class="full" colspan="2">
+							<div align="right">
+								<s:submit cssClass="label" value="确认" />
+								<s:reset cssClass="label" value="取消" />
+							</div>
+						</th>
+					</tr>
+				</table>
 		</s:form>
+</div>
 	</body>
 </html>
