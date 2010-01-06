@@ -73,7 +73,7 @@
 														</tr>
 														<tr>
 															<td height="30">
-																&nbsp;权限：
+																&nbsp;角色：
 															</td>
 															<td>
 																<s:select name="flag" list="# {'0':'老師','1':'學生'}"
@@ -185,7 +185,7 @@
 												<table width="555" height="100%" border="0" cellspacing="0"
 													cellpadding="0">
 													<tr>
-														<td width="281" height="267" valign="top"
+														<td width="281" height="100%" valign="top"
 															style="padding-left: 9px; padding-bottom: 15px">
 
 												
@@ -258,7 +258,7 @@
 																							height="7">
 																					</div> </font>
 														</td>
-														<td width="2" height="167"
+														<td width="2" height="100%"
 															background="${ctx}/homepage/images/back-line-up-1.jpg">
 															<table width="2" height="100%" border="0" cellspacing="0"
 																cellpadding="0">
@@ -279,12 +279,6 @@
 																	</td>
 																</tr>
 															</table>
-														</td>
-													</tr>
-
-													<tr>
-														<td colspan="3" bgcolor="#B2B2B2">
-															<img src="${ctx}/homepage/images/spacer.gif" width="1" height="1">
 														</td>
 													</tr>
 

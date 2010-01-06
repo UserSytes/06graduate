@@ -3,7 +3,7 @@
 <%@ include file="../commons/taglibs.jsp"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-<LINK href="${ctx}/css/student.css" type=text/css rel=stylesheet>
+		<LINK href="${ctx}/css/student.css" type=text/css rel=stylesheet>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>厦门大学精品课程网站</title>
 	</head>
@@ -31,10 +31,12 @@
 									<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
 										codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0"
 										width="765" height="102">
-										<param name="movie" value="${ctx}/homepage/flash/delta46-2.swf">
+										<param name="movie"
+											value="${ctx}/homepage/flash/delta46-2.swf">
 										<param name="quality" value="high">
 										<param name="menu" value="false">
-										<embed src="${ctx}/homepage/flash/delta46-2.swf" quality="high"
+										<embed src="${ctx}/homepage/flash/delta46-2.swf"
+											quality="high"
 											pluginspage="http://www.macromedia.com/go/getflashplayer"
 											type="application/x-shockwave-flash" width="765" height="102"></embed>
 									</object>
@@ -42,7 +44,7 @@
 							</tr>
 							<tr>
 								<td width="210" height="10" valign="top">
-									<table width="214" height="543" border="0" cellspacing="0"
+									<table width="214" height="100%" border="0" cellspacing="0"
 										cellpadding="0">
 										<tr>
 											<td height="60">
@@ -52,7 +54,7 @@
 										</tr>
 
 										<tr>
-											<td height="38">
+											<td height="38" bgcolor="#f1f1f1">
 												<img src="${ctx}/homepage/images/but-2-2.jpg" width="214"
 													height="38" style="">
 											</td>
@@ -103,17 +105,15 @@
 														<br>
 														<br>
 														<br>
-														<div style="padding-left: 5px" class="content1-pagetitle">
-															当前位置: 建设成果
-														</div>
+
 													</tr>
 													<tr>
 														<td width="389" valign="top" style="padding-left: 5px">
 															<div class="table">
-																<img src="${ctx}/student/img/bg-th-left.gif" width="8" height="7"
-																	alt="" class="left" />
-																<img src="${ctx}/student/img/bg-th-right.gif" width="7" height="7"
-																	alt="" class="right" />
+																<img src="${ctx}/student/img/bg-th-left.gif" width="8"
+																	height="7" alt="" class="left" />
+																<img src="${ctx}/student/img/bg-th-right.gif" width="7"
+																	height="7" alt="" class="right" />
 																<s:form action="goChangeMyInfoAction" method="post">
 																	<table class="listing form" cellpadding="0"
 																		cellspacing="0">
@@ -122,25 +122,26 @@
 																				建设成果
 																			</th>
 																		</tr>
-																		
-																		<tr>
+
+																		<tr class="bg">
 																			<td class="first">
 																				<s:iterator value="achievementList"
-																		status="achievement">
-																		<img src="${ctx}/homepage/images/but.jpg" width="4"
-																			height="7">&nbsp;
+																					status="achievement">
+																					<img src="${ctx}/homepage/images/but.jpg" width="4"
+																						height="7">&nbsp;
 																		<a
-																			href="<s:url action="enterCourseAction"> 
+																						href="<s:url action="enterCourseAction"> 
 	                     											<s:param name="courseId"> 
 	                       			 									<s:property value="id"/> 
 	                    											</s:param> 
 	                													</s:url>">
-																			<s:property value="name" /> </a>
-																		<br><br>
-																	</s:iterator>
+																						<s:property value="name" /> </a>
+																					<br>
+																					<br>
+																				</s:iterator>
 																			</td>
 																		</tr>
-																		
+
 																	</table>
 																</s:form>
 															</div>

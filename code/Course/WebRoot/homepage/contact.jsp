@@ -7,7 +7,7 @@
 <LINK href="${ctx}/css/student.css" type=text/css rel=stylesheet>
 		<title>厦门大学精品课程网站</title>
 	</head>
-	<BODY BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0
+		<BODY BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0
 		MARGINHEIGHT=0 rightmargin="0" bottommargin="0"
 		background="${ctx}/homepage/images/back-body.jpg" style="overflow-x: hidden">
 		<center>
@@ -35,7 +35,7 @@
 							</tr>
 							<tr>
 								<td width="210" height="10" valign="top">
-									<table width="214" height="543" border="0" cellspacing="0"
+									<table width="214" height="100%" border="0" cellspacing="0"
 										cellpadding="0">
 										<tr>
 											<td height="60">
@@ -44,7 +44,7 @@
 										</tr>
 
 										<tr>
-											<td height="38">
+											<td height="38" bgcolor="#f1f1f1">
 												<img src="${ctx}/homepage/images/but-2-4.jpg" width="214" height="38"
 													style="">
 											</td>
