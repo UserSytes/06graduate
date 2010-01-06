@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<td width="210" height="10" valign="top" color="#f1f1f1">
+<td width="210" height="10" valign="top" bgcolor="#f1f1f1">
 									<table width="214" height="543" border="0" cellspacing="0"
 										cellpadding="0">
 										<tr>
