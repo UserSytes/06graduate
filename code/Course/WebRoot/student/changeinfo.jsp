@@ -32,9 +32,9 @@
 	}
 </SCRIPT>
 	</head>
-	<BODY BGCOLOR=#FFFFF1 LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0
+	<BODY BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0
 		MARGINHEIGHT=0 rightmargin="0" bottommargin="0"
-		style="overflow-x: hidden">
+		background="${ctx}/homepage/images/back-body.jpg" style="overflow-x: hidden">
 		<center>
 
 			<table width="783" height="100%" border="0" cellspacing="0"
