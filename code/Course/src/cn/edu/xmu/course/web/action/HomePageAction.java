@@ -42,7 +42,6 @@ public class HomePageAction extends BaseAction{
     @SuppressWarnings("unchecked")
 	public String newsDisplay(){
 		newsList=newsService.findAllNews();
-		System.out.println(newsList.get(0).getTitle());
 		if (newsList == null) {
 			return ERROR;
 		} else
@@ -51,7 +50,6 @@ public class HomePageAction extends BaseAction{
 
     public String enterNews(){
     	news=newsService.findNewsById(newsId);
-    	System.out.println(news.getTitle());
 		if (news == null) {
 			return ERROR;
 		} else
