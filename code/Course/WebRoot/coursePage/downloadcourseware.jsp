@@ -51,6 +51,9 @@
                      			<s:param name="fileName"> 
                        			 	<s:property value="fileLink"/> 
                     			</s:param>  
+<s:param name="originalFileName"> 
+                       			 	<s:property value="filename"/> 
+                    			</s:param> 
                 					</s:url>"
 																			onclick="JAVAscript:if(!confirm('确认下载附件？')) return false;return true;">
 																			<font color="red">点此下载</font> </a>
