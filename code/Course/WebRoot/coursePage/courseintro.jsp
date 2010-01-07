@@ -11,31 +11,35 @@
 </head>
 <body>
 <div id="header">
-  <h1>精品课程<br />
-	<span class="text1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:property value="applicationForm.name"/></span></h1>
+  <h1><s:text name="">${course.name}</s:text>精品课程<br />
+	<span class="text1"><s:property value="applicationForm.name"/></span></h1>
 </div>
 <jsp:include page="top.jsp"></jsp:include>
 <div id="content">
   <div id="right">
-		<h2 align="center"><s:property value="courseInfo.title" /></h2>
+		<h2 align="center"><strong><s:property value="courseInfo.title" /></strong></h2>
 		<hr id="border-top" />
 <h5 align="right">发布日期：<s:date name="courseInfo.time" format="yyyy-MM-dd" /></h5>
 <p style="line-height: 150%"/>
 <s:text name="">${courseInfo.content}</s:text>
   </div>
 	<div id="left">
-		<h2>Recent Updates</h2>
-		<p><strong>[06/09/2006]</strong> Etiam odio mi, suscipit et, rhoncus ac, lacinia, nisl. Aliquam gravida massa eu arcu. <a href="#">More&#8230;</a></p>
-		<p><strong>[06/06/2006]</strong> Fusce mollis tristique sem. Sed eu eros imperdiet eros interdum blandit. Vivamus sagittis bibendum erat. Curabitur malesuada. <a href="#">More&#8230;</a></p>
-		<p><strong>[06/03/2006]</strong> Nunc pellentesque. Sed vestibulum blandit nisl. Quisque elementum convallis purus. Suspendisse potenti. Donec nulla est, laoreet quis, pellentesque in. <a href="#">More&#8230;</a></p>
-		<h2>Ipsum Dolorem</h2>
+		<h2><strong>最新更新</strong></h2>
+	  <p><strong>[06/09/2009]</strong>面向对象以及设计模式<a href="#"></a></p>
+		<p><strong>[06/06/2009]</strong>Java 语言的基本语句、语法、应用程序开发技巧</p>
+		<p><strong>[06/03/2009]</strong> 软件工程中的流程模型之瀑布模型</p>
+		<p><strong>[06/06/2009]</strong>Java 语言的基本语句、语法、应用程序开发技巧</p>
+		<p><strong>[06/03/2009]</strong> 软件工程中的流程模型之瀑布模型</p>
+		<p>&nbsp;</p>
+		<h2>在线学生</h2>
 		<ul>
-			<li><a href="#">Sagittis Bibendum Erat</a></li>
-			<li><a href="#">Malesuada Turpis</a></li>
-			<li><a href="#">Quis Gravida Massa</a></li>
-			<li><a href="#">Inerat Viverra Ornare</a></li>
-		</ul>
-	</div>
+          <li>访客用户</li>
+          <li>陈晓明</li>
+          <li>刘晓庆</li>
+          <li>潘粤明</li>
+    	</ul>
+		<p>&nbsp;</p>
+  </div>
 </div>
 <jsp:include page="bottom.jsp"></jsp:include>
 </body>

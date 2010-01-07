@@ -7,16 +7,15 @@
 	<head>
 		<title>厦门大学精品课程</title>
 		<meta http-equiv="Content-Style-Type" content="text/css">
-		<link href="../${ctx}/coursePage/default.css" rel="stylesheet"
+		<link href="${ctx}/coursePage/default.css" rel="stylesheet"
 			type="text/css" />
 	</head>
 	<body>
 		<div id="header">
 			<h1>
-				精品课程
+				<s:text name="">${course.name}</s:text>精品课程
 				<br />
-				<span class="text1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:property
-						value="applicationForm.name" />
+				<span class="text1"><s:property value="applicationForm.name" />
 				</span>
 			</h1>
 		</div>
@@ -24,12 +23,11 @@
 		<div id="content">
 			<div id="right">
 				<h2 align="center">
-					师资力量
+					<strong>师资力量</strong>
 				</h2>
 				<hr id="border-top" />
-				<table class=editTable cellSpacing=1 cellPadding=0 align=center
-					border=1>
-					<tr height="30">
+				<table class="listTable">
+					<tr class="listHeaderTr">
 						<th>
 							<div align="center">
 								教师姓名
@@ -52,55 +50,33 @@
 						</th>
 					</tr>
 					<s:iterator value="teacherTeamList" status="teacher">
-			<tr bgcolor="#73C5E5" height="30" align="center" valign="middle"  <s:if test="#teacher.even">style="background-color:#FBFDFD"</s:if>> 
-                <td width="50"><div align="center"><s:property value="name" /></div></td>
-                <td width="60"><div align="center"><s:property value="position" /></div></td>
-                <td width="290"><div align="center"><s:property value="field" /></div></td>
-                <td width="50"><div align="center"><a href="<s:property value="link" />" target="_blank">点击浏览</a></div></td>
+			<tr class="listTr" <s:if test="#teacher.even">style="background-color:#FBFDFD"</s:if>> 
+                <td width="20%"><div align="center"><s:property value="name" /></div></td>
+                <td width="25%"><div align="center"><s:property value="position" /></div></td>
+                <td width="35%"><div align="center"><s:property value="field" /></div></td>
+                <td width="20%"><div align="center"><a href="<s:property value="link" />" target="_blank">点击浏览</a></div></td>
               </tr>
 </s:iterator>
 				</table>
 			</div>
 
 			<div id="left">
-				<h2>
-					Recent Updates
-				</h2>
-				<p>
-					<strong>[06/09/2006]</strong> Etiam odio mi, suscipit et, rhoncus
-					ac, lacinia, nisl. Aliquam gravida massa eu arcu.
-					<a href="#">More&#8230;</a>
-				</p>
-				<p>
-					<strong>[06/06/2006]</strong> Fusce mollis tristique sem. Sed eu
-					eros imperdiet eros interdum blandit. Vivamus sagittis bibendum
-					erat. Curabitur malesuada.
-					<a href="#">More&#8230;</a>
-				</p>
-				<p>
-					<strong>[06/03/2006]</strong> Nunc pellentesque. Sed vestibulum
-					blandit nisl. Quisque elementum convallis purus. Suspendisse
-					potenti. Donec nulla est, laoreet quis, pellentesque in.
-					<a href="#">More&#8230;</a>
-				</p>
-				<h2>
-					Ipsum Dolorem
-				</h2>
-				<ul>
-					<li>
-						<a href="#">Sagittis Bibendum Erat</a>
-					</li>
-					<li>
-						<a href="#">Malesuada Turpis</a>
-					</li>
-					<li>
-						<a href="#">Quis Gravida Massa</a>
-					</li>
-					<li>
-						<a href="#">Inerat Viverra Ornare</a>
-					</li>
-				</ul>
-			</div>
+		<h2><strong>最新更新</strong></h2>
+	  <p><strong>[06/09/2009]</strong>面向对象以及设计模式<a href="#"></a></p>
+		<p><strong>[06/06/2009]</strong>Java 语言的基本语句、语法、应用程序开发技巧</p>
+		<p><strong>[06/03/2009]</strong> 软件工程中的流程模型之瀑布模型</p>
+		<p><strong>[06/06/2009]</strong>Java 语言的基本语句、语法、应用程序开发技巧</p>
+		<p><strong>[06/03/2009]</strong> 软件工程中的流程模型之瀑布模型</p>
+		<p>&nbsp;</p>
+		<h2>在线学生</h2>
+		<ul>
+          <li>访客用户</li>
+          <li>陈晓明</li>
+          <li>刘晓庆</li>
+          <li>潘粤明</li>
+    	</ul>
+		<p>&nbsp;</p>
+  </div>
 		</div>
 		<jsp:include page="bottom.jsp"></jsp:include>
 	</body>
