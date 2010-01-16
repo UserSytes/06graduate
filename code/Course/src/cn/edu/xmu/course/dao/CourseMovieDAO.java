@@ -32,6 +32,7 @@ public class CourseMovieDAO extends HibernateDaoSupport {
 	public static final String POSITION = "position";
 	public static final String CONTENT = "content";
 	public static final String COURSE="course";
+	public static final String STATE = "state";
 
 	protected void initDao() {
 		// do nothing
@@ -119,6 +120,10 @@ public class CourseMovieDAO extends HibernateDaoSupport {
 
 	public List findByContent(Object content) {
 		return findByProperty(CONTENT, content);
+	}
+	
+	public List findByState(Object state) {
+		return findByProperty(STATE, state);
 	}
 	
 	public List findByCourse(Object course) {

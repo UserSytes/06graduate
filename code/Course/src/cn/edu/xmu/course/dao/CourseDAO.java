@@ -31,6 +31,8 @@ public class CourseDAO extends HibernateDaoSupport {
 	public static final String STATUS = "status";
 	public static final String LEVEL = "level";
 	public static final String REFUSE_REASON = "refuseReason";
+	public static final String COUNT = "count";
+	public static final String VISIBLE = "visible";
 
 	protected void initDao() {
 		// do nothing
@@ -115,6 +117,15 @@ public class CourseDAO extends HibernateDaoSupport {
 	public List findByRefuseReason(Object refuseReason) {
 		return findByProperty(REFUSE_REASON, refuseReason);
 	}
+	
+	public List findByCount(Object count) {
+		return findByProperty(COUNT, count);
+	}
+
+	public List findByVisible(Object visible) {
+		return findByProperty(VISIBLE, visible);
+	}
+	
 	public List findByTeacherId(Object teacherId) {
 		return findByProperty("teacher.id", teacherId);
 	}
