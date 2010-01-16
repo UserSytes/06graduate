@@ -19,5 +19,8 @@
         <property name="status" type="java.lang.Integer">
             <column name="status" not-null="true" />
         </property>
+        <property name="score" type="java.lang.Float">
+            <column name="score" precision="12" scale="0" />
+        </property>
     </class>
 </hibernate-mapping>

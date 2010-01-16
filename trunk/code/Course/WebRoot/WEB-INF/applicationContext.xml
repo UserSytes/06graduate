@@ -168,4 +168,10 @@
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
+	</bean>
+	<bean id="EvaluationDAO"
+		class="cn.edu.xmu.course.dao.EvaluationDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
 	</bean></beans>

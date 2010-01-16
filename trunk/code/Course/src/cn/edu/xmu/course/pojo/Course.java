@@ -19,9 +19,12 @@ public class Course implements java.io.Serializable {
 	private Integer status;
 	private String level;
 	private String refuseReason;
+	private Integer count;
+	private Integer visible;
 	private Set courseMovies = new HashSet(0);
 	private Set collections = new HashSet(0);
 	private Set topics = new HashSet(0);
+	private Set evaluations = new HashSet(0);
 	private Set achievements = new HashSet(0);
 	private Set books = new HashSet(0);
 	private Set teacherTeams = new HashSet(0);
@@ -38,16 +41,19 @@ public class Course implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Course(String name) {
+	public Course(String name, Integer status, Integer visible) {
 		this.name = name;
+		this.status = status;
+		this.visible = visible;
 	}
 
 	/** full constructor */
 	public Course(Department department, Teacher teacher, String name,
 			String remark, Integer status, String level, String refuseReason,
-			Set courseMovies, Set collections, Set topics, Set achievements,
-			Set books, Set teacherTeams, Set applicationForms,
-			Set examinations, Set courseInfos, Set chapters, Set studentCourses) {
+			Integer count, Integer visible, Set courseMovies, Set collections,
+			Set topics, Set evaluations, Set achievements, Set books,
+			Set teacherTeams, Set applicationForms, Set examinations,
+			Set courseInfos, Set chapters, Set studentCourses) {
 		this.department = department;
 		this.teacher = teacher;
 		this.name = name;
@@ -55,9 +61,12 @@ public class Course implements java.io.Serializable {
 		this.status = status;
 		this.level = level;
 		this.refuseReason = refuseReason;
+		this.count = count;
+		this.visible = visible;
 		this.courseMovies = courseMovies;
 		this.collections = collections;
 		this.topics = topics;
+		this.evaluations = evaluations;
 		this.achievements = achievements;
 		this.books = books;
 		this.teacherTeams = teacherTeams;
@@ -134,6 +143,22 @@ public class Course implements java.io.Serializable {
 		this.refuseReason = refuseReason;
 	}
 
+	public Integer getCount() {
+		return this.count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+
+	public Integer getVisible() {
+		return this.visible;
+	}
+
+	public void setVisible(Integer visible) {
+		this.visible = visible;
+	}
+
 	public Set getCourseMovies() {
 		return this.courseMovies;
 	}
@@ -156,6 +181,14 @@ public class Course implements java.io.Serializable {
 
 	public void setTopics(Set topics) {
 		this.topics = topics;
+	}
+
+	public Set getEvaluations() {
+		return this.evaluations;
+	}
+
+	public void setEvaluations(Set evaluations) {
+		this.evaluations = evaluations;
 	}
 
 	public Set getAchievements() {

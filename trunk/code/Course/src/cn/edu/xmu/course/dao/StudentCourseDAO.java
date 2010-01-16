@@ -27,6 +27,7 @@ public class StudentCourseDAO extends HibernateDaoSupport {
 	private static final Log log = LogFactory.getLog(StudentCourseDAO.class);
 	// property constants
 	public static final String STATUS = "status";
+	public static final String SCORE = "score";
 
 	protected void initDao() {
 		// do nothing
@@ -112,6 +113,11 @@ public class StudentCourseDAO extends HibernateDaoSupport {
 	public List findByStatus(Object status) {
 		return findByProperty(STATUS, status);
 	}
+	
+	public List findByScore(Object score) {
+		return findByProperty(SCORE, score);
+	}
+
 
 	public List findAll() {
 		log.debug("finding all StudentCourse instances");
