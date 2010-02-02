@@ -63,6 +63,7 @@ public class ExecuteViewAction extends BaseAction {
 				.parseInt(departmentId));
 		setCourseList(searchCourseService.findCourseByDepartment(dept));
 		if (getCourseList().size() == 0) {
+			addActionError("未找到该课程，请返回重新搜索！");
 			return ERROR;
 		} else
 			return "courses";
@@ -79,7 +80,9 @@ public class ExecuteViewAction extends BaseAction {
 	 */
 	public String findCourseByName() {
 		courseList = searchCourseService.findCourseByName(courseName);
+		System.out.println("查找课程"+courseName);
 		if (courseList.size() == 0) {
+			addActionError("未找到该课程，请返回重新搜索！");
 			return ERROR;
 		} else
 			return "courses";
@@ -91,6 +94,7 @@ public class ExecuteViewAction extends BaseAction {
 	public String findCourseByTeacher(){
 		courseList = searchCourseService.findCourseByTeacher(teacherName);
 		if (courseList.size() == 0) {
+			addActionError("未找到该课程，请返回重新搜索！");
 			return ERROR;
 		} else
 			return "courses";
@@ -102,6 +106,7 @@ public class ExecuteViewAction extends BaseAction {
 	public String enterCourse() {
 		course = searchCourseService.findCourseById(courseId);
 		if (course == null) {
+			addActionError("未找到该课程！");
 			return ERROR;
 		} else
 			ActionSession.getSession().put(COURSE,course);

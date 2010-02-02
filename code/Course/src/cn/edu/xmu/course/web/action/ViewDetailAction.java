@@ -73,6 +73,7 @@ public class ViewDetailAction extends BaseAction{
 	public String findApplicationForm(){
 		applicationForm=applicationFormService.getApplicationForm(courseId);
 		if (getApplicationForm() == null) {
+			addActionError("申报表格信息不存在！");
 			return ERROR;
 		} else
 			return "applicationForm";
@@ -85,6 +86,7 @@ public class ViewDetailAction extends BaseAction{
 		courseInfo=courseInfoService.getCourseInfo(courseId, sort);
 		System.out.println("\naction"+courseInfo.getTitle());
 		if (getCourseInfo() == null) {
+			addActionError("课程信息不存在！");
 			return ERROR;
 		} else
 			return "courseInfo";
@@ -97,6 +99,7 @@ public class ViewDetailAction extends BaseAction{
 	public String findTeacherTeam(){
 		teacherTeamList=teacherTeamService.getTeacherTeamList(courseId);
 		if (getTeacherTeamList() == null) {
+			addActionError("教师队伍不存在！");
 			return ERROR;
 		} else
 			return "teachers";
@@ -108,6 +111,7 @@ public class ViewDetailAction extends BaseAction{
 	public String findAchievement(){
 		achievement=achievementService.getAchievement(courseId);
 		if (getAchievement() == null) {
+			addActionError("教学成果信息不存在！");
 			return ERROR;
 		} else
 			return "achievement";
@@ -120,6 +124,7 @@ public class ViewDetailAction extends BaseAction{
 	public String findChapter(){
 		chapterList=chapterService.getAllChapter(courseId);
 		if (getChapterList() == null) {
+			addActionError("课程章节信息不存在！");
 			return ERROR;
 		} else
 			{if(getFlag()==1)
@@ -135,7 +140,8 @@ public class ViewDetailAction extends BaseAction{
 		Chapter currentChapter=chapterService.getChapter(chapterId);
 		coursewareList=coursewareService.getCoursewaresByChapter(currentChapter);
 		if(getCoursewareList()==null)
-			return ERROR;
+			{addActionError("本章节无课件！");
+			return ERROR;}
 		else
 			return "courseware";
 	}
@@ -144,7 +150,10 @@ public class ViewDetailAction extends BaseAction{
 		Chapter currentChapter=chapterService.getChapter(chapterId);
 		experimentList=experimentService.getExperimentsByChapter(currentChapter);
 		if(getExperimentList()==null)
+		{	
+			addActionError("本章节无实验指导！");
 			return ERROR;
+			}
 		else
 			return "experiment";
 	}
@@ -153,7 +162,10 @@ public class ViewDetailAction extends BaseAction{
 		Chapter currentChapter=chapterService.getChapter(chapterId);
 		exerciseList=exerciseService.getExercisesByChapter(currentChapter);
 		if(getExerciseList()==null)
+			{addActionError("本章节无习题，请自觉复习！");
 			return ERROR;
+			
+			}
 		else
 			return "exercise";
 	}
