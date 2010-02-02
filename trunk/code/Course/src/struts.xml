@@ -647,12 +647,12 @@
 			class="executeViewAction">
 			<result name="courses">/homepage/courseList.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="enterCourseAction" method="enterCourse" class="executeViewAction">
-			<result name="course">/coursePage/index.jsp
+			<result name="course">/coursepage/index.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
 		</action>
 
 		
@@ -710,55 +710,55 @@
 		</action>
 		<action name="findApplicationFormAction" method="findApplicationForm"
 			class="viewDetailAction">
-			<result name="applicationForm">/coursePage/applicationform.jsp
+			<result name="applicationForm">/coursepage/applicationform.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/commons/prompt1.jsp</result>
 		</action>
 		<action name="findCourseInfoAction" method="findCourseInfo"
 			class="viewDetailAction">
-			<result name="courseInfo">/coursePage/courseintro.jsp
+			<result name="courseInfo">/coursepage/courseintro.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="findTeacherTeamAction" method="findTeacherTeam"
 			class="viewDetailAction">
-			<result name="teachers">/coursePage/teacherteam.jsp
+			<result name="teachers">/coursepage/teacherteam.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="findAchievementAction" method="findAchievement"
 			class="viewDetailAction">
-			<result name="achievement">/coursePage/achievement.jsp
+			<result name="achievement">/coursepage/achievement.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 				<action name="findChapterAction" method="findChapter"
 			class="viewDetailAction">
-			<result name="coursewares">/coursePage/coursewarelist.jsp
+			<result name="coursewares">/coursepage/coursewarelist.jsp
 			</result>
-			<result name="experiments">/coursePage/experimentlist.jsp
+			<result name="experiments">/coursepage/experimentlist.jsp
 			</result>
-			<result name="exercises">/coursePage/exerciselist.jsp
+			<result name="exercises">/coursepage/exerciselist.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
 		</action>
 			<action name="downloadCoursewareAction" method="downloadCourseware"
 			class="viewDetailAction">
-			<result name="courseware">/coursePage/downloadcourseware.jsp
+			<result name="courseware">/coursepage/downloadcourseware.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
 		</action>
 			<action name="downloadExperimentAction" method="downloadExperiment"
 			class="viewDetailAction">
-			<result name="experiment">/coursePage/downloadexperiment.jsp
+			<result name="experiment">/coursepage/downloadexperiment.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="downloadExerciseAction" method="downloadExercise"
 			class="viewDetailAction">
-			<result name="exercise">/coursePage/downloadexercise.jsp
+			<result name="exercise">/coursepage/downloadexercise.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
 			</action>
 	</package>
 </struts>
