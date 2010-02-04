@@ -135,6 +135,9 @@
 		<property name="courseService">
 			<ref bean="courseService" />
 		</property>
+		<property name="exerciseService">
+			<ref bean="exerciseService" />
+		</property>
 	</bean>
 	<bean id="teacherTeamAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.TeacherTeamAction">
@@ -183,4 +186,16 @@
 			<ref bean="courseMovieService" />
 		</property>		
 	</bean>
+	<!-- 留言板 -->
+		<bean id="messageAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.MessageAction">
+		<property name="topicService">
+			<ref bean="topicService" />
+		</property>
+		<property name="messageService">
+			<ref bean="messageService" />
+		</property>	
+			
+	</bean>
+	
 </beans>
