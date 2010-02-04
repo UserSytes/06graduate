@@ -99,7 +99,7 @@ public class ViewDetailAction extends BaseAction{
 	public String findTeacherTeam(){
 		teacherTeamList=teacherTeamService.getTeacherTeamList(courseId);
 		if (getTeacherTeamList() == null) {
-			addActionError("教师队伍不存在！");
+			addActionError("教师队伍信息不存在！");
 			return ERROR;
 		} else
 			return "teachers";
@@ -122,7 +122,8 @@ public class ViewDetailAction extends BaseAction{
 	 */
 	@SuppressWarnings("unchecked")
 	public String findChapter(){
-		chapterList=chapterService.getAllChapter(courseId);
+		course=super.getCourse();
+		chapterList=chapterService.getAllChapter(course);
 		if (getChapterList() == null) {
 			addActionError("课程章节信息不存在！");
 			return ERROR;
@@ -131,8 +132,9 @@ public class ViewDetailAction extends BaseAction{
 				return "coursewares";
 			else if(getFlag()==2)
 				return "experiments";
-			else
+			else if(getFlag()==3)
 				return "exercises";
+			else return null;
 			}
 	}
 	@SuppressWarnings("unchecked")
@@ -140,8 +142,11 @@ public class ViewDetailAction extends BaseAction{
 		Chapter currentChapter=chapterService.getChapter(chapterId);
 		coursewareList=coursewareService.getCoursewaresByChapter(currentChapter);
 		if(getCoursewareList()==null)
-			{addActionError("本章节无课件！");
-			return ERROR;}
+			{
+			System.out.println("本章节无课件！");
+			addActionError("本章节无课件！");
+			return ERROR;
+			}
 		else
 			return "courseware";
 	}
@@ -150,21 +155,23 @@ public class ViewDetailAction extends BaseAction{
 		Chapter currentChapter=chapterService.getChapter(chapterId);
 		experimentList=experimentService.getExperimentsByChapter(currentChapter);
 		if(getExperimentList()==null)
-		{	
-			addActionError("本章节无实验指导！");
-			return ERROR;
-			}
-		else
-			return "experiment";
+		{
+		System.out.println("本章节无实验！");
+		addActionError("本章节无实验！");
+		return ERROR;
+		}
+	else
+		return "experiment";
 	}
 	@SuppressWarnings("unchecked")
 	public String downloadExercise(){
 		Chapter currentChapter=chapterService.getChapter(chapterId);
 		exerciseList=exerciseService.getExercisesByChapter(currentChapter);
 		if(getExerciseList()==null)
-			{addActionError("本章节无习题，请自觉复习！");
+			{
+			System.out.println("本章节无习题！");
+			addActionError("本章节无习题！");
 			return ERROR;
-			
 			}
 		else
 			return "exercise";
