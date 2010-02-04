@@ -82,7 +82,7 @@
                 					</s:url>">
 												课程评价
 											</a>     </li>
-		<li><a href="<s:url action="findTeacherTeamAction"> 
+		<li><a href="<s:url action="showTopicsAction"> 
                      			<s:param name="course"> 
                        			 	<s:property value="id"/> 
                     			</s:param>
