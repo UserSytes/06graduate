@@ -118,4 +118,14 @@
 			<ref bean="courseMovieServiceTarget" />
 		</property>
 	</bean>
+	<bean id="topicService" parent="transactionBase">
+		<property name="target">
+			<ref bean="topicServiceTarget" />
+		</property>
+	</bean>
+		<bean id="messageService" parent="transactionBase">
+		<property name="target">
+			<ref bean="messageServiceTarget" />
+		</property>
+	</bean>
 </beans>

@@ -146,4 +146,15 @@
 			<ref bean="CourseMovieDAO" />
 		</property>
 	</bean>
+	<bean id="topicServiceTarget" class="cn.edu.xmu.course.service.impl.TopicService">
+	<property name="topicDAO">
+			<ref bean="TopicDAO" />
+		</property>
+	</bean>
+		<bean id="messageServiceTarget" class="cn.edu.xmu.course.service.impl.MessageService">
+	<property name="messageDAO">
+			<ref bean="MessageDAO" />
+		</property>
+	</bean>
+	
 </beans>
