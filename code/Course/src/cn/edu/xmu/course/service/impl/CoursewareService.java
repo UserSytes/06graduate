@@ -59,7 +59,11 @@ public class CoursewareService implements ICoursewareService {
 
 	public List getCoursewaresByChapter(Chapter chapter) {
 		// TODO Auto-generated method stub
-		return coursewareDAO.findByChapter(chapter);
+		List<Courseware> coursewareList=coursewareDAO.findByChapter(chapter);
+		if (coursewareList.size() > 0)
+			return coursewareList;
+		else
+			return null;
 	}
 
 	public boolean updateCourseware(Courseware courseware, Chapter chapter,
