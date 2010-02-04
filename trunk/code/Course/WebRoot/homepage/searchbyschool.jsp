@@ -10,7 +10,7 @@
 		<LINK href="${ctx}/css/student.css" type=text/css rel=stylesheet>
 		<title>精品课程搜索引擎</title>
 	</head>
-	<BODY BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0
+	<BODY onload="getSchool()" BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0
 		MARGINHEIGHT=0 rightmargin="0" bottommargin="0"
 		background="${ctx}/homepage/images/back-body.jpg" style="overflow-x: hidden">
 		<script type="text/javascript" src="/dwr/engine.js"></script>
@@ -104,7 +104,7 @@
 										</tr>
 										<tr>
 											<td width="210" height="100%" valign="top"
-												background="${ctx}/homepage/images/back-but-2.jpg"
+												background="${ctx}/homepage/images/jiannan1.JPG"
 												style="padding-left: 28px; padding-top: 4px; padding-bottom: 15px">
 												<br>
 												<div style="line-height: 15px; padding-bottom: 10px"></div>
