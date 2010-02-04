@@ -718,19 +718,19 @@
 			class="viewDetailAction">
 			<result name="courseInfo">/coursepage/courseintro.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/commons/prompt1.jsp</result>
 		</action>
 		<action name="findTeacherTeamAction" method="findTeacherTeam"
 			class="viewDetailAction">
 			<result name="teachers">/coursepage/teacherteam.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/commons/prompt1.jsp</result>
 		</action>
 		<action name="findAchievementAction" method="findAchievement"
 			class="viewDetailAction">
 			<result name="achievement">/coursepage/achievement.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/commons/prompt1.jsp</result>
 		</action>
 				<action name="findChapterAction" method="findChapter"
 			class="viewDetailAction">
@@ -740,25 +740,36 @@
 			</result>
 			<result name="exercises">/coursepage/exerciselist.jsp
 			</result>
-			<result name="error">/commons/prompt.jsp</result>
+			<result name="error">/commons/prompt1.jsp</result>
 		</action>
 			<action name="downloadCoursewareAction" method="downloadCourseware"
 			class="viewDetailAction">
 			<result name="courseware">/coursepage/downloadcourseware.jsp
 			</result>
-			<result name="error">/commons/prompt.jsp</result>
+			<result name="error">/commons/prompt1.jsp</result>
 		</action>
 			<action name="downloadExperimentAction" method="downloadExperiment"
 			class="viewDetailAction">
 			<result name="experiment">/coursepage/downloadexperiment.jsp
 			</result>
-			<result name="error">/commons/prompt.jsp</result>
+			<result name="error">/commons/prompt1.jsp</result>
 		</action>
 		<action name="downloadExerciseAction" method="downloadExercise"
 			class="viewDetailAction">
 			<result name="exercise">/coursepage/downloadexercise.jsp
 			</result>
-			<result name="error">/commons/prompt.jsp</result>
+			<result name="error">/commons/prompt1.jsp</result>
 			</action>
+		<action name="showTopicsAction" method="showTopics" class="messageAction">
+			<result name="topics">/coursepage/showtopics.jsp
+			</result>
+			<result name="error">/commons/prompt1.jsp</result>
+			</action>
+		<action name="showMessagesAction" method="showMessages" class="messageAction">
+			<result name="messages">/coursepage/showmessages.jsp
+			</result>
+			<result name="error">/commons/prompt1.jsp</result>
+			</action>
+			
 	</package>
 </struts>
