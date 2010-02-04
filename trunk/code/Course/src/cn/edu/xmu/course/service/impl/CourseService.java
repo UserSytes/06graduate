@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.struts2.components.Set;
 
+import cn.edu.xmu.course.dao.ApplicationFormDAO;
 import cn.edu.xmu.course.dao.CourseDAO;
 import cn.edu.xmu.course.pojo.ApplicationForm;
 import cn.edu.xmu.course.pojo.Course;
@@ -20,6 +21,7 @@ public class CourseService implements ICourseService {
 	private List<Course> courses;
 	private List<Course> tempList;
 	private ApplicationForm applicationForm;
+
 
 	public boolean addCourse(Course course, Department department,
 			Teacher teacher) {
@@ -86,6 +88,9 @@ public class CourseService implements ICourseService {
 		return tempList;
 	}
 
+	public List findCourseListByLevel(String level) {
+		return courseDAO.findByProperty("level", level);
+	}
 	private List<Course> getCourses() {
 		return courses;
 	}
@@ -148,4 +153,5 @@ public class CourseService implements ICourseService {
 		}
 	}
 
+	
 }
