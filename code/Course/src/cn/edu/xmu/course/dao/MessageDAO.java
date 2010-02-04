@@ -91,7 +91,9 @@ public class MessageDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-
+	public List findByTopic(Object topic) {
+		return findByProperty("topic", topic);
+	}
 	public List findByContent(Object content) {
 		return findByProperty(CONTENT, content);
 	}

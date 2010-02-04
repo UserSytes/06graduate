@@ -109,7 +109,6 @@ public class ExerciseDAO extends HibernateDaoSupport {
 	public List findByChapter(Object chapter) {
 		return findByProperty(CHAPTER, chapter);
 	}
-
 	public List findByCourse(Object courseId) {
 		return findByProperty("chapter.course.id", courseId);
 	}

@@ -30,7 +30,7 @@ public class TopicDAO extends HibernateDaoSupport {
 	public static final String AUTHOR_NAME = "authorName";
 	public static final String LAST_ANSWER = "lastAnswer";
 	public static final String COUNT_PERSON = "countPerson";
-
+	
 	protected void initDao() {
 		// do nothing
 	}
@@ -94,7 +94,9 @@ public class TopicDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-
+	public List findByCourse(Object course) {
+		return findByProperty("course", course);
+	}
 	public List findByName(Object name) {
 		return findByProperty(NAME, name);
 	}
