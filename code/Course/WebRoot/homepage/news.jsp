@@ -60,7 +60,7 @@
 										</tr>
 										<tr bgcolor="#f1f1f1">
 											<td bgcolor="#f1f1f1" width="210" height="100%" valign="top"
-												background="${ctx}/homepage/images/back-but-2.jpg"
+												background="${ctx}/homepage/images/jiannan1.JPG"
 												style="padding-left: 28px; padding-top: 4px; padding-bottom: 15px">
 												<br>
 												<div style="line-height: 15px; padding-bottom: 10px"></div>
