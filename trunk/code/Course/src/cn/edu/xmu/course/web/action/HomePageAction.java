@@ -1,6 +1,7 @@
 package cn.edu.xmu.course.web.action;
 
 
+import java.sql.Date;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.Administrator;
@@ -22,6 +23,15 @@ public class HomePageAction extends BaseAction{
 	 */
 	private static final long serialVersionUID = 1L;
 	private List<News> newsList;
+	private List<News> tempList;
+	private List<News> getTempList() {
+		return tempList;
+	}
+
+	private void setTempList(List<News> tempList) {
+		this.tempList = tempList;
+	}
+
 	private List<Course> courseList;
 	private IApplicationFormService applicationFormService;
 	private ICourseService courseService;
@@ -33,21 +43,41 @@ public class HomePageAction extends BaseAction{
 	private ILoginService loginService;
 	private int courseId;
 	private String level="country";
-	private String time;
+	private List<String> times=null;
+    private int country,province,school;
+	
 	private List<Course> achievementList;
 	/**
 	 * 新闻公布
 	 * @return
 	 */
     @SuppressWarnings("unchecked")
-	public String newsDisplay(){
-		newsList=newsService.findAllNews();
+	public String homepageDisplay(){
+    	newsList=newsService.findAllNews();
+		for(int i=6;i<newsList.size();i++)
+		{
+			newsList.remove(i);
+		}
+		courseList = courseService.findCourseListByLevel("country");
+    	country=courseList.size();
+    	System.out.println("test1: "+country);
+    	courseList = courseService.findCourseListByLevel("province");
+    	province=courseList.size();
+    	System.out.println("test1: "+province);
+    	courseList = courseService.findCourseListByLevel("school");
+    	school=courseList.size();
 		if (newsList == null) {
 			return ERROR;
 		} else
 			return "news";
 	}
-
+    public String newsDisplay(){
+    	newsList=newsService.findAllNews();
+		if (newsList == null) {
+			return ERROR;
+		} else
+			return "news";
+	}
     public String enterNews(){
     	news=newsService.findNewsById(newsId);
 		if (news == null) {
@@ -85,8 +115,8 @@ public class HomePageAction extends BaseAction{
 	}
     
     public String courseDisplay(){
-    	List findCourseListByTimeAndLevel = courseService.findCourseListByTimeAndLevel(time, level);
-		courseList=findCourseListByTimeAndLevel;
+    	courseList = courseService.findCourseListByLevel(level);
+		
 		System.out.println("test1: "+courseList.size());
 		if (courseList == null) {
 			return ERROR;
@@ -101,6 +131,7 @@ public class HomePageAction extends BaseAction{
 		} else
 			return "achievementList";
     }
+    
     
     public String forwardToSearch(){
 			return "searchbyschool";
@@ -229,12 +260,36 @@ public class HomePageAction extends BaseAction{
 		return achievementList;
 	}
 
-	public void setTime(String time) {
-		this.time = time;
+	private List<String> getTimes() {
+		return times;
 	}
 
-	public String getTime() {
-		return time;
+	private void setTimes(List<String> times) {
+		this.times = times;
 	}
+	private int getCountry() {
+		return country;
+	}
+
+	private void setCountry(int country) {
+		this.country = country;
+	}
+
+	private int getProvince() {
+		return province;
+	}
+
+	private void setProvince(int province) {
+		this.province = province;
+	}
+
+	private int getSchool() {
+		return school;
+	}
+
+	private void setSchool(int school) {
+		this.school = school;
+	}
+
 
 }
