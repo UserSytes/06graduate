@@ -154,11 +154,10 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="getMyCourseInLeft" method="findMyCoursesList"
+		<action name="getMyCourseInLeft" method="findMyCoursesListInLeft"
 			class="courseAction">
 			<result>/teacher/left_course_children.jsp
-			</result>
-			<result name="error">/commons/prompt.jsp</result>
+			</result>			
 		</action>
 		<!-- 课程信息管理 (教师)-->
 		<action name="addNewCourseInfoAction" method="addNewCourseInfo"
@@ -375,7 +374,7 @@
 			<result name="success">/teacher/coursemanage/addexperiment.jsp</result>
 		</action>
 		
-		<!-- 课程管理-课件管理部分 (教师)-->
+		<!-- 课程管理-教学录像部分 (教师)-->
 		<action name="getCourseMovieListByCourseAction" method="getCourseMovieListByCourse"
 			class="courseMovieAction">
 			<result name="success">/teacher/coursemanage/coursemovielist.jsp
@@ -405,6 +404,38 @@
 			</result>
 		</action>	
 		
+		
+		<!-- 课程管理-教学录像部分 (教师)-->
+		<action name="getExaminationListByCourseAction" method="getExaminationListByCourse"
+			class="examinationAction">
+			<result name="success">/teacher/coursemanage/coursemovielist.jsp
+			</result>
+		</action>
+		<action name="addExaminationAction" method="addExamination"
+			class="examinationAction">
+			<result name="success" type="redirect-action">getExaminationListByCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="updateExaminationAction" method="updateExamination"
+			class="examinationAction">
+			<result name="success" type="redirect-action">getExaminationListByCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteExaminationAction" method="deleteExamination"
+			class="examinationAction">
+			<result name="success" type="redirect-action">getExaminationListByCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="goEditExaminationAction" method="goEditExamination"
+			class="examinationAction">
+			<result name="success">/teacher/coursemanage/editcoursemovie.jsp
+			</result>
+		</action>	
+		
+		<!--  -->
 		<!-- 课程管理 (学院管理员)-->
 		<action name="noPassListAction" method="findNoPassCourse"
 			class="courseAction">
