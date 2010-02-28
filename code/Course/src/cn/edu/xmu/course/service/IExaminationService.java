@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.service;
 
+import java.io.File;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.*;
@@ -31,14 +32,14 @@ public interface IExaminationService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public boolean addExamination(Examination examination, Course course);
+	public boolean addExamination(Examination examination, Course course, File upload);
 	
 	/**
 	 * ¸üÐÂ¿Î³Ì¿¼¾í
 	 * @param examination
 	 * @return
 	 */
-	public boolean updateExamination(Examination examination);
+	public boolean updateExamination(Examination examination, File upload);
 	
 	/**
 	 * É¾³ý¿Î³Ì¿¼¾í

@@ -72,6 +72,20 @@ public class CourserAction extends BaseAction {
 		myCoursesList = courseService.findCoursesByTeacher(tea.getId(), type);
 		if (myCoursesList.size() == 0) {
 			addActionError("暂无任何课程！");
+			return ERROR;
+		} else
+			return SUCCESS;
+	}
+	
+	/**
+	 * 获取某教师的课程
+	 * 
+	 * @return
+	 */
+	public String findMyCoursesListInLeft() {
+		Teacher tea = teacherInfoService.getTeacher(userName);
+		myCoursesList = courseService.findCoursesByTeacher(tea.getId(), type);
+		if (myCoursesList.size() == 0) {
 			return null;
 		} else
 			return SUCCESS;

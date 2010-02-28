@@ -29,6 +29,8 @@ public class CourseService implements ICourseService {
 		course.setDepartment(department);
 		course.setStatus(0);
 		course.setTeacher(teacher);
+		course.setVisible(1);
+		course.setCount(0);
 		try {
 			courseDAO.save(course);
 			return true;
