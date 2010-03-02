@@ -207,7 +207,9 @@
 		<property name="messageService">
 			<ref bean="messageService" />
 		</property>	
-			
+		<property name="loginService">
+			<ref bean="loginService" />
+		</property>	
 	</bean>
 	
 </beans>
