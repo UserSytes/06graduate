@@ -29,7 +29,8 @@ public class AchievementDAO extends HibernateDaoSupport {
 	public static final String CONTENT = "content";
 	public static final String FILE_NAME = "fileName";
 	public static final String FILE_LINK = "fileLink";
-
+	public static final String COURSE="course";
+	
 	protected void initDao() {
 		// do nothing
 	}
@@ -93,9 +94,12 @@ public class AchievementDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-	public List findByCourse(int courseId){
-		
+	public List findByCourse(int courseId){		
 		return findByProperty("course.id", courseId);
+		
+	}
+	public List findByCourse(Object course){		
+		return findByProperty(COURSE, course);
 		
 	}
 	public List findByTitle(Object title) {
