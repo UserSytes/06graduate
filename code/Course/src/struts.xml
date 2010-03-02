@@ -408,7 +408,7 @@
 		<!-- 课程管理-教学录像部分 (教师)-->
 		<action name="getExaminationListByCourseAction" method="getExaminationListByCourse"
 			class="examinationAction">
-			<result name="success">/teacher/coursemanage/coursemovielist.jsp
+			<result name="success">/teacher/coursemanage/examinationlist.jsp
 			</result>
 		</action>
 		<action name="addExaminationAction" method="addExamination"
@@ -431,7 +431,7 @@
 		</action>
 		<action name="goEditExaminationAction" method="goEditExamination"
 			class="examinationAction">
-			<result name="success">/teacher/coursemanage/editcoursemovie.jsp
+			<result name="success">/teacher/coursemanage/editexamination.jsp
 			</result>
 		</action>	
 		

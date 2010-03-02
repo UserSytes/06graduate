@@ -18,7 +18,7 @@ import cn.edu.xmu.course.service.ITeacherInfoService;
  * @author ึฃฑ๙ม่
  * 
  */
-public class CourserAction extends BaseAction {
+public class CourseAction extends BaseAction {
 
 	/**
 	 * 
