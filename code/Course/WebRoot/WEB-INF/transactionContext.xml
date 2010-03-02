@@ -123,6 +123,11 @@
 			<ref bean="examinationServiceTarget" />
 		</property>
 	</bean>
+	<bean id="bookService" parent="transactionBase">
+		<property name="target">
+			<ref bean="bookServiceTarget" />
+		</property>
+	</bean>
 	<bean id="topicService" parent="transactionBase">
 		<property name="target">
 			<ref bean="topicServiceTarget" />

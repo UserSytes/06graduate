@@ -18,22 +18,23 @@
 					alert("录像标题不能为空！");
 					return false;
 				}
-				if (form.author.value == -1)
+				if (form.author.value =="")
 				{
 					alert("主讲人不能为空！");
 					return false;
 				}
-				if (form.position.value == -1)
+				if (form.position.value == "")
 				{
 					alert("职称不能为空！");
 					return false;
 				}
-				if (form.content.value == -1)
+				if (form.content.value == "")
 				{
 					alert("内容不能为空！");
 					return false;
 				}
-				if (form.time.value == -1)
+				var time= dojo.widget.byId("time");
+				if (time.getValue() == "")
 				{
 					alert("录制时间不能为空！");
 					return false;
@@ -96,7 +97,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="postion" name="courseMovie.position"
+						<s:textfield id="position" name="courseMovie.position"
 							cssClass="input" />
 					</td>
 				</tr>

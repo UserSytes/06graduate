@@ -192,6 +192,12 @@
 			<ref bean="examinationService" />
 		</property>		
 	</bean>
+	<bean id="bookAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.BookAction">
+		<property name="bookService">
+			<ref bean="bookService" />
+		</property>		
+	</bean>
 	<!-- 留言板 -->
 		<bean id="messageAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.MessageAction">
