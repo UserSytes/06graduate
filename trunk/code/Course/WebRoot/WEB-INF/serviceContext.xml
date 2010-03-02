@@ -70,6 +70,11 @@
 			<ref bean="ExerciseDAO"/>
 		</property>
 	</bean>
+	<bean id="examinationServiceTarget" class="cn.edu.xmu.course.service.impl.ExaminationService">
+	<property name="examinationDAO">
+			<ref bean="ExaminationDAO" />
+		</property>
+	</bean>
 	
 	<!-- 院系管理 -->
 	<bean id="departmentServiceTarget" class="cn.edu.xmu.course.service.impl.DepartmentService">
