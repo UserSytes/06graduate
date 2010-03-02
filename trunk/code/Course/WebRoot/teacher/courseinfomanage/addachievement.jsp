@@ -10,7 +10,7 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<title>修改密码</title>
+		<title>添加教学成果</title>
 		<SCRIPT language=javascript>
 			function check(form)
 			{

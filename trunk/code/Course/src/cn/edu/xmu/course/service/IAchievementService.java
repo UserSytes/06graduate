@@ -1,5 +1,8 @@
 package cn.edu.xmu.course.service;
 
+import java.io.File;
+import java.util.List;
+
 import cn.edu.xmu.course.pojo.*;
 
 /**
@@ -10,6 +13,15 @@ import cn.edu.xmu.course.pojo.*;
 public interface IAchievementService {
 
 	/**
+	 * 根据ID查找教学成果
+	 * @param teacherCourse
+	 * @return
+	 */
+	public Achievement getAchievementById(Integer id);
+	
+	
+	//修改的时候需要把该方法去掉
+	/**
 	 * 查找该课程的教学成果
 	 * @param teacherCourse
 	 * @return
@@ -17,16 +29,22 @@ public interface IAchievementService {
 	public Achievement getAchievement(int courseId);
 	
 	/**
-	 * 添加教学成果
+	 * 查找该课程所有的教学成果
 	 * @param teacherCourse
+	 * @return
+	 */
+	public List getAllAchievements(Course course);
+	
+	/**
+	 * 添加教学成果
+	 * @param course
 	 * @param achievement
 	 * @return
 	 */
-	public boolean addAchievement(Course course, Achievement achievement);
+	public boolean addAchievement(Course course, Achievement achievement,File upload);
 	
 	/**
 	 * 删除教学成果
-	 * @param teacherCourse
 	 * @param achievement
 	 * @return
 	 */
@@ -37,5 +55,5 @@ public interface IAchievementService {
 	 * @param achievement
 	 * @return
 	 */
-	public boolean updateAchievement(Achievement achievement);
+	public boolean updateAchievement(Achievement achievement,File upload);
 }
