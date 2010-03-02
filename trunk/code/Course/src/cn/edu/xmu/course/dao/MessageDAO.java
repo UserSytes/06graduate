@@ -1,13 +1,16 @@
 package cn.edu.xmu.course.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
+import org.hibernate.Query;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-
 import cn.edu.xmu.course.pojo.Message;
 
 /**
@@ -91,6 +94,27 @@ public class MessageDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
+	//·ÖÒ³²éÑ¯
+	  public List queryByPage (Object topic,int pageSize, int pageNow) {
+	  	List list = new ArrayList() ;
+	  	try {
+	  	  if (pageSize>0 && pageNow>0) {
+	  		String queryString = 
+	  			"select message from Message message where message.topic=? order by message.time";
+	  		Query queryObject = getSession().createQuery(queryString);
+	  		queryObject.setParameter(0, topic);
+	  		queryObject.setFirstResult((pageNow*pageSize-pageSize)); 
+	  		queryObject.setMaxResults(pageSize); 
+	  		list=queryObject.list();
+	  	  }
+	  	  
+	  	} catch(RuntimeException re) {
+	  		log.error("find Message by page failed", re);
+	  		re.printStackTrace() ;
+	  	}
+	  	return list ;
+	  }
+	  
 	public List findByTopic(Object topic) {
 		return findByProperty("topic", topic);
 	}
