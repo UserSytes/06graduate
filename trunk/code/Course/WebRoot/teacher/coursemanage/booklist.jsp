@@ -9,10 +9,10 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<title>教学录像列表</title>
+		<title>参考书籍列表</title>
 		<SCRIPT language=javascript>		
-			function goToAddCourseMovie(){
-			 window.location.href="${ctx}/teacher/coursemanage/addcoursemovie.jsp";
+			function goToAddBook(){
+			 window.location.href="${ctx}/teacher/coursemanage/addbook.jsp";
 			}
 		</SCRIPT>
 	</head>
@@ -21,7 +21,7 @@
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 我的课程 -&gt; 教学录像列表
+					当前位置: 我的课程 -&gt; 参考书籍列表
 				</td>
 			</tr>
 		</table>
@@ -29,7 +29,7 @@
 			<tr>
 				<td>
 					<div align="right">
-						<input type="button" onclick="goToAddCourseMovie()" value="添加教学录像" />
+						<input type="button" onclick="goToAddBook()" value="添加参考书籍" />
 					</div>
 				</td>
 			</tr>
@@ -39,16 +39,16 @@
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>
-						标题
+						书名
 					</th>
 					<th>
-						主讲人
+						作者
 					</th>
+<th>
+						出版社
+					</th>					
 					<th>
-						职称
-					</th>
-					<th>
-						时间
+						出版时间
 					</th>
 					<th>
 						下载
@@ -57,17 +57,17 @@
 						操作
 					</th>
 				</tr>
-				<s:iterator value="courseMovieList" status="courseMovie">
+				<s:iterator value="bookList" status="book">
 					<tr class="listTr">
 						<td>
-							<s:property value="title" />
+							<s:property value="name" />
 						</td>
 						<td>
 							<s:property value="author" />
-						</td>
-						<td>
-							<s:property value="position" />
-						</td>
+						</td>	
+<td>
+							<s:property value="publication" />
+						</td>					
 						<td>
 							<s:date format="yyyy-MM-dd" name="time" />
 						</td>
@@ -85,15 +85,15 @@
 						</td>
 						<td>
 							<a
-								href="<s:url action="goEditCourseMovieAction"> 
-                     			<s:param name="courseMovieId"> 
+								href="<s:url action="goEditBookAction"> 
+                     			<s:param name="bookId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
 								<font color="green">【编辑】</font> </a>
 							<a
-								href="<s:url action="deleteCourseMovieAction"> 
-                     			<s:param name="courseMovieId"> 
+								href="<s:url action="deleteBookAction"> 
+                     			<s:param name="bookId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>"

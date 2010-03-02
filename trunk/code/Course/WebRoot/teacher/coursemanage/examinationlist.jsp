@@ -12,7 +12,7 @@
 		<title>课程试卷列表</title>
 		<SCRIPT language=javascript>		
 			function goToAddExamination(){
-			 window.location.href="coursemanage/addexamination.jsp";
+			 window.location.href="${ctx}/teacher/coursemanage/addexamination.jsp";
 			}
 		</SCRIPT>
 	</head>

@@ -405,7 +405,7 @@
 		</action>	
 		
 		
-		<!-- 课程管理-教学录像部分 (教师)-->
+		<!-- 课程管理-课程试卷部分 (教师)-->
 		<action name="getExaminationListByCourseAction" method="getExaminationListByCourse"
 			class="examinationAction">
 			<result name="success">/teacher/coursemanage/examinationlist.jsp
@@ -434,6 +434,36 @@
 			<result name="success">/teacher/coursemanage/editexamination.jsp
 			</result>
 		</action>	
+		
+		<!-- 课程管理-参考书籍部分 (教师)-->
+		<action name="getBookListByCourseAction" method="getBookListByCourse"
+			class="bookAction">
+			<result name="success">/teacher/coursemanage/booklist.jsp
+			</result>
+		</action>
+		<action name="addBookAction" method="addBook"
+			class="bookAction">
+			<result name="success" type="redirect-action">getBookListByCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="updateBookAction" method="updateBook"
+			class="bookAction">
+			<result name="success" type="redirect-action">getBookListByCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteBookAction" method="deleteBook"
+			class="bookAction">
+			<result name="success" type="redirect-action">getBookListByCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="goEditBookAction" method="goEditBook"
+			class="bookAction">
+			<result name="success">/teacher/coursemanage/editbook.jsp
+			</result>
+		</action>
 		
 		<!--  -->
 		<!-- 课程管理 (学院管理员)-->

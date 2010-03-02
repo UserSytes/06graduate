@@ -12,12 +12,7 @@
 		<title>添加课程</title>
 		<SCRIPT language=javascript>
 			function check(form)
-			{
-				if (form.chapterId.value == -1)
-				{
-					alert("请先选择章节目录！");
-					return false;
-				}
+			{				
 				if(form.title.value == "")
 				{
 					alert("课件标题不能为空！");

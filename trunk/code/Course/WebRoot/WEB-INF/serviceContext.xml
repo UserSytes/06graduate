@@ -75,6 +75,11 @@
 			<ref bean="ExaminationDAO" />
 		</property>
 	</bean>
+	<bean id="bookServiceTarget" class="cn.edu.xmu.course.service.impl.BookService">
+	<property name="bookDAO">
+			<ref bean="BookDAO" />
+		</property>
+	</bean>
 	
 	<!-- 院系管理 -->
 	<bean id="departmentServiceTarget" class="cn.edu.xmu.course.service.impl.DepartmentService">

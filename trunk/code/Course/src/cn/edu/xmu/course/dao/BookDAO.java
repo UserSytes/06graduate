@@ -30,6 +30,7 @@ public class BookDAO extends HibernateDaoSupport {
 	public static final String AUTHOR = "author";
 	public static final String PUBLICATION = "publication";
 	public static final String FILE_LINK = "fileLink";
+	public static final String COURSE="course";
 
 	protected void initDao() {
 		// do nothing
@@ -113,6 +114,10 @@ public class BookDAO extends HibernateDaoSupport {
 
 	public List findByFileLink(Object fileLink) {
 		return findByProperty(FILE_LINK, fileLink);
+	}
+	
+	public List findByCourse(Object course){
+		return findByProperty(COURSE, course);
 	}
 
 	public List findAll() {

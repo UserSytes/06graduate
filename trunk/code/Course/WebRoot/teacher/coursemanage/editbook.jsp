@@ -9,29 +9,39 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<title>编辑教学录像</title>
+		<title>编辑参考书籍</title>
 		<SCRIPT language=javascript>
 			function check(form)
-			{				
-				if(form.title.value == "")
+			{		
+				if(form.name.value == "")
 				{
-					alert("标题不能为空！");
+					alert("书名不能为空！");
 					return false;
 				}
 				if (form.author.value == "")
 				{
 					alert("作者不能为空！");
 					return false;
+				}	
+				if (form.publication.value == "")
+				{
+					alert("出版社不能为空！");
+					return false;
 				}				
 				var time= dojo.widget.byId("time");
 				if (time.getValue() == "")
 				{
-					alert("时间不能为空！");
+					alert("出版时间不能为空！");
 					return false;
 				}
-				if(form.upload.value == "")
+				if(form.file.value == "")
 				{
-					alert("上传试卷不能为空！");
+					alert("上传书籍不能为空！");
+					return false;
+				}	
+				if(true)
+				{
+					alert("上传书籍不能为空！");
 					return false;
 				}
 				
@@ -44,27 +54,27 @@
 			align=center border=0>
 			<tr class=position bgcolor="#22cc77">
 				<td>
-					当前位置: 我的课程-&gt; 编辑课程试卷
+					当前位置: 我的课程-&gt; 编辑参考书籍
 				</td>
 			</tr>
 		</table>
 
-		<s:form action="updateExaminationAction" method="post"
+		<s:form action="updateBookAction" method="post"
 			enctype="multipart/form-data" onsubmit="return check(this);">
 
-			<s:hidden name="examination.id"></s:hidden>
-			<s:hidden name="examination.course.id"></s:hidden>
+			<s:hidden name="book.id"></s:hidden>
+			<s:hidden name="book.course.id"></s:hidden>
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							标题：
+							书名：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="title" name="examination.title" cssClass="input" />
+						<s:textfield id="name" name="book.name" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -75,38 +85,48 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="author" name="examination.author"
-							cssClass="input" />
+						<s:textfield id="author" name="book.author" cssClass="input" />
 					</td>
-				</tr>	
+				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							时间：
+							出版社：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<s:textfield id="publication" name="book.publication" cssClass="input" />
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							出版时间：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<s:head />
 						<s:datetimepicker id="time" displayFormat="yyyy-MM-dd"
-							name="examination.time" />
+							name="book.time" />
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							上传试卷：
+							上传书籍：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:file id="upload" name="upload"></s:file>
+						<s:file id="file" name="upload"></s:file>
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							查看原来试卷：
+							查看原来书籍：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
@@ -114,14 +134,13 @@
 						<a
 							href="<s:url action="download"> 
                      			<s:param name="fileName"> 
-                       			 	<s:property value="examination.fileLink"/> 
+                       			 	<s:property value="book.fileLink"/> 
                     			</s:param> 
 								<s:param name="originalFileName"> 
-                       			 	<s:property value="examination.filename"/> 
+                       			 	<s:property value="book.filename"/> 
                     			</s:param> 
                 					</s:url>">
-							<font color="red"><s:property value="examination.filename" />
-						</font> </a>
+							<font color="red"><s:property value="book.filename" /> </font> </a>
 					</td>
 				</tr>
 				<tr class=editHeaderTr>
