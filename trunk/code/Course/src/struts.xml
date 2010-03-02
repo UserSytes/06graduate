@@ -825,12 +825,26 @@
 			<result name="topics">/coursepage/showtopics.jsp
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
+			<result name="login">/coursepage/login.jsp</result>
 			</action>
 		<action name="showMessagesAction" method="showMessages" class="messageAction">
 			<result name="messages">/coursepage/showmessages.jsp
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
 			</action>
-			
+		<action name="loginFromMessageBoardAction" method="loginFromMessageBoard" class="messageAction">
+			<result name="teacher">/coursepage/loginsuccess.jsp</result>
+			<result name="student">/coursepage/loginsuccess.jsp</result>
+			<result name="error">/commons/prompt1.jsp</result>
+			</action>
+		<action name="logoutFromMessageBoardAction" method="loginFromMessageBoard" class="messageAction">
+			<result name="success">/coursepage/logoutsuccess.jsp</result>
+			<result name="error">/common/prompt1.jsp</result>
+			</action>
+		<action name="enterPersionalSpaceAction" method="enterPersionalSpace" class="messageAction">
+			<result name="teacher">/teacher/main.jsp</result>
+			<result name="student">/student/studentinfo.jsp</result>
+			<result name="error">/commons/prompt1.jsp</result>
+			</action>
 	</package>
 </struts>
