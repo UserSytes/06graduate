@@ -7,6 +7,7 @@ import cn.edu.xmu.course.pojo.Topic;
 
 public interface IMessageService {
 	public List getAllMessages(Topic topic);
+	public List getAllMessages(Topic topic,int pageSize, int pageNow);
 	public Message getMessageById(Integer id);
 	public boolean addMessage(Topic topic,Message message);
 	public boolean updateMessage(Message Message);
