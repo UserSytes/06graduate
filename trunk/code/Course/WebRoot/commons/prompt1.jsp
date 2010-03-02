@@ -11,6 +11,9 @@
 		<META http-equiv=Expires content=-1000>
 <link href="../${ctx}/coursepage/default.css" rel="stylesheet" type="text/css" />
 <title>信息提示</title>
+<script language="JavaScript"> 
+window.setTimeout("location='javascript:history.back(-1)'", 3000); 
+</script>
 </head>
 <body>
 <jsp:include page="../coursepage/header.jsp"></jsp:include>
@@ -27,6 +30,7 @@
 						<font size="3"><strong><s:actionerror />
 						</strong>
 						</font>
+3秒后自动返回上一页，如果浏览器没有相应，请点击>>
 <a href="javascript:history.back(-1)">返回上一页</a>
   </div>
 	<jsp:include page="../coursepage/left.jsp"></jsp:include>
