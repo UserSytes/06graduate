@@ -16,13 +16,7 @@
 		<div id="content">
 			<div style="width: 770px">
 				<div align="right">
-					欢迎你，<s:property value="userInfo.name"/>&nbsp;&nbsp;&nbsp;<a href="<s:url action="enterPersionalSpaceAction"> 
-                					</s:url>">
-												个人空间
-											</a>&nbsp;&nbsp;&nbsp;<a href="<s:url action="logoutFromMessageBoardAction"> 
-                					</s:url>">
-												退出
-											</a>
+					<a href="#">登陆</a>
 				</div>
 				<div>
 					<p>
@@ -39,7 +33,7 @@
 								<div style=" background-image:url(${ctx}/coursepage/images/header_bg2.gif); background-repeat:repeat-x; font-size:15px; font-weight:bold">	
 标题：${topic.name}
 </div>
-<s:iterator value="MessageInfoList" status="messageInfo">
+<s:iterator value="showMessageList" status="messageInfo">
 								<table frame="below" ellspacing="0" cellpadding="4" width="100%"
 									align="center" style="border-bottom:thin solid #3399FF;">
 									<tr style="height: 100%">
@@ -110,7 +104,6 @@
 				</s:url>
 			</s:iterator>
 			<s:a href="%{url_next}">下一页</s:a>
-&nbsp;当前页<s:property value="pageNow"/>
 							</td>
 						</tr>
 					</table>

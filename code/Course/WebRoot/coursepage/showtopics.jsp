@@ -13,8 +13,18 @@
 <jsp:include page="top.jsp"></jsp:include>
 <div id="content">
   <div style="width:770px">
+<div align="right">
+					欢迎你，<s:property value="userInfo.name"/>&nbsp;&nbsp;&nbsp;<a href="<s:url action="enterPersionalSpaceAction"> 
+                					</s:url>">
+												个人空间
+											</a>&nbsp;&nbsp;&nbsp;<a href="<s:url action="logoutFromMessageBoardAction"> 
+                					</s:url>">
+												退出
+											</a>
 		<div>
-		    <p><img src="${ctx}/coursepage/images/newtopic.gif" alt="新帖" longdesc="http://baidu.com"/><div align=right><img src="${ctx}/coursepage/images/header_bg1.gif" alt="分割线" width="770" height="4"/></p>
+		    <p><img src="${ctx}/coursepage/images/newtopic.gif" alt="新帖" longdesc="http://baidu.com"/>
+<div align=right></p>
+
 <table width="100%">
 <tr style="background-repeat:repeat-x; background-image: url(${ctx}/coursepage/images/cbg.gif)" >
 	<th width="4%">&nbsp;</th>
@@ -50,6 +60,7 @@
     </div>
 		
   </div>
+</div>
 </div>
 <jsp:include page="bottom.jsp"></jsp:include>
 </body>
