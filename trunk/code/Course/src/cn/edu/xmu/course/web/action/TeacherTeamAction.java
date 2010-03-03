@@ -19,7 +19,20 @@ public class TeacherTeamAction extends BaseAction{
 		teacherTeamList = teacherTeamService.getTeacherTeamList(course.getId());
 		return SUCCESS;
 	}
-	
+	/**
+	 * 查找师资队伍
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public String findTeacherTeam(){
+		Course course = super.getCourse();
+		teacherTeamList=teacherTeamService.getTeacherTeamList(course.getId());
+		if (getTeacherTeamList() == null) {
+			addActionError("教师队伍信息不存在！");
+			return ERROR;
+		} else
+			return "teachers";
+	}
 	public String addTeacherTeam(){
 		Course course=super.getCourse();
 		if(teacherTeamService.addTeacherTeam(teacherTeam, course))

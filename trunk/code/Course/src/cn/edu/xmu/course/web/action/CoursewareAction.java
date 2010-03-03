@@ -41,7 +41,20 @@ public class CoursewareAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
-
+	
+	@SuppressWarnings("unchecked")
+	public String downloadCourseware(){
+		Chapter currentChapter=chapterService.getChapter(chapterId);
+		coursewareList=coursewareService.getCoursewaresByChapter(currentChapter);
+		if(getCoursewareList()==null)
+			{
+			System.out.println("本章节无课件！");
+			addActionError("本章节无课件！");
+			return ERROR;
+			}
+		else
+			return "courseware";
+	}
 	public String addCourseware() {
 		if(upload.length()>=new Long(10485760L)){
 			addActionError("上传课件大小不能超过10M,请重新上传！");

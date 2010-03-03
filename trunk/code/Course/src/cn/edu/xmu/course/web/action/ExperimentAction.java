@@ -47,7 +47,19 @@ public class ExperimentAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
-
+	@SuppressWarnings("unchecked")
+	public String downloadExperiment(){
+		Chapter currentChapter=chapterService.getChapter(chapterId);
+		experimentList=experimentService.getExperimentsByChapter(currentChapter);
+		if(getExperimentList()==null)
+		{
+		System.out.println("本章节无实验！");
+		addActionError("本章节无实验！");
+		return ERROR;
+		}
+	else
+		return "experiment";
+	}
 	public String addExperiment() {
 		if (upload.length() >= new Long(10485760L)) {
 			addActionError("上传习题大小不能超过10M,请重新上传！");

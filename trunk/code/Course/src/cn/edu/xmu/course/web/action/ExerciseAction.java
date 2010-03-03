@@ -45,7 +45,19 @@ public class ExerciseAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
-
+	@SuppressWarnings("unchecked")
+	public String downloadExercise(){
+		Chapter currentChapter=chapterService.getChapter(chapterId);
+		exerciseList=exerciseService.getExercisesByChapter(currentChapter);
+		if(getExerciseList()==null)
+			{
+			System.out.println("本章节无习题！");
+			addActionError("本章节无习题！");
+			return ERROR;
+			}
+		else
+			return "exercise";
+	}
 	public String addExercise() {
 		if(upload.length()>=new Long(10485760L)){
 			addActionError("上传习题大小不能超过10M,请重新上传！");

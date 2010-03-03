@@ -32,7 +32,17 @@ public class CourseMovieAction extends BaseAction {
 		courseMovieList = courseMovieService.getAllCourseMovies(super.getCourse());
 		return SUCCESS;
 	}
-
+	public String getCourseMovieListByCourse2() {
+		System.out.println(super.getCourse());
+		courseMovieList = courseMovieService.getAllCourseMovies(super.getCourse());
+		if(getCourseMovieList()==null)
+			{
+			addActionError("暂无教学视频！");
+			return ERROR;
+			}
+		else
+			return "movies";
+	}
 	public String addCourseMovie() {
 		String fileLink = super.getTeacher().getUserInfo().getName() + "/"
 		+ new Date().getTime()+"_"+super.getCourse().getName() + "_" + uploadFileName;
@@ -79,6 +89,17 @@ public class CourseMovieAction extends BaseAction {
 			return ERROR;
 		else {
 			return SUCCESS;
+		}
+	}
+	public String getCourseMovieById2(){
+		courseMovie = courseMovieService.getCourseMovieById(courseMovieId);
+		if (getCourseMovie()==null)
+		{
+			addActionError("视频文件载入失败！");
+			return ERROR;
+		}
+		else {
+			return "movie";
 		}
 	}
 	public File getUpload() {
