@@ -3,8 +3,6 @@ package cn.edu.xmu.course.web.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
 import cn.edu.xmu.course.commons.MessageInfo;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Message;

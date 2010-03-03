@@ -26,7 +26,8 @@ public class AchievementAction extends BaseAction {
 	private List<Achievement> achievementList;
 	private Achievement achievement;
 	private Integer achievementId;
-	
+	private Course course;
+	private int courseId;
 	private File upload;
 	private String uploadContentType;
 	private String uploadFileName;
@@ -38,7 +39,20 @@ public class AchievementAction extends BaseAction {
 		achievementList = achievementService.getAllAchievements(super.getCourse());
 		return SUCCESS;
 	}
-
+	
+	/**
+	 * 查找成果展示
+	 * @return
+	 */
+	public String findAchievement(){
+		course=super.getCourse();
+		achievement=achievementService.getAchievement(course.getId());
+		if (getAchievement() == null) {
+			addActionError("教学成果信息不存在！");
+			return ERROR;
+		} else
+			return "achievement";
+	}
 	public String addAchievement() {
 		String fileLink = super.getTeacher().getUserInfo().getName() + "/"
 		+ new Date().getTime()+"_"+super.getCourse().getName() + "_" + uploadFileName;
@@ -141,6 +155,18 @@ public class AchievementAction extends BaseAction {
 
 	public void setAchievementService(IAchievementService achievementService) {
 		this.achievementService = achievementService;
+	}
+	public void setCourseId(int courseId) {
+		this.courseId = courseId;
+	}
+	public int getCourseId() {
+		return courseId;
+	}
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+	public Course getCourse() {
+		return course;
 	}
 
 	
