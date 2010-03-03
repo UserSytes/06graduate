@@ -17,6 +17,18 @@
 			<ref bean="superAdminService" />
 		</property>
 	</bean>
+	<bean id="applicationFormAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.ApplicationFormAction">
+		<property name="applicationFormService">
+			<ref bean="applicationFormService" />
+		</property>
+	</bean>
+	<bean id="achievementAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.AchievementAction">
+		<property name="achievementService">
+			<ref bean="achievementService" />
+		</property>
+	</bean>
 	<bean id="studentAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.StudentAction">
 		<property name="studentInfoService">
@@ -111,32 +123,11 @@
 	</bean>
 	<bean id="viewDetailAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.ViewDetailAction">
-		<property name="applicationFormService">
-			<ref bean="applicationFormService" />
-		</property>
-		<property name="courseInfoService">
-			<ref bean="courseInfoService" />
-		</property>
-		<property name="teacherTeamService">
-			<ref bean="teacherTeamService" />
-		</property>
 		<property name="achievementService">
 			<ref bean="achievementService" />
 		</property>
-		<property name="chapterService">
-			<ref bean="chapterService" />
-		</property>
-		<property name="coursewareService">
-			<ref bean="coursewareService" />
-		</property>
-		<property name="experimentService">
-			<ref bean="experimentService" />
-		</property>
 		<property name="courseService">
 			<ref bean="courseService" />
-		</property>
-		<property name="exerciseService">
-			<ref bean="exerciseService" />
 		</property>
 	</bean>
 	<bean id="teacherTeamAction" scope="prototype"
