@@ -715,6 +715,16 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
+		<action name="getCourseMovieListAction" method="getCourseMovieListByCourse2" class="courseMovieAction">
+			<result name="movies">/coursepage/coursemovielist.jsp
+			</result>
+			<result name="error">/commons/prompt1.jsp</result>
+		</action>
+		<action name="watchMovieAction" method="getCourseMovieById2" class="courseMovieAction">
+			<result name="movie">/coursepage/watchmovie.jsp
+			</result>
+			<result name="error">/commons/prompt1.jsp</result>
+		</action>
 
 		
 		<!-- 首页 -->
@@ -770,31 +780,31 @@
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="findApplicationFormAction" method="findApplicationForm"
-			class="viewDetailAction">
+			class="applicationFormAction">
 			<result name="applicationForm">/coursepage/applicationform.jsp
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
 		</action>
-		<action name="findCourseInfoAction" method="findCourseInfo"
-			class="viewDetailAction">
+		<action name="findCourseInfoAction" method="findCourseInfo2"
+			class="courseInfoAction">
 			<result name="courseInfo">/coursepage/courseintro.jsp
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
 		</action>
 		<action name="findTeacherTeamAction" method="findTeacherTeam"
-			class="viewDetailAction">
+			class="teacherTeamAction">
 			<result name="teachers">/coursepage/teacherteam.jsp
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
 		</action>
 		<action name="findAchievementAction" method="findAchievement"
-			class="viewDetailAction">
+			class="achievementAction">
 			<result name="achievement">/coursepage/achievement.jsp
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
 		</action>
 				<action name="findChapterAction" method="findChapter"
-			class="viewDetailAction">
+			class="courseChapterAction">
 			<result name="coursewares">/coursepage/coursewarelist.jsp
 			</result>
 			<result name="experiments">/coursepage/experimentlist.jsp
@@ -804,19 +814,19 @@
 			<result name="error">/commons/prompt1.jsp</result>
 		</action>
 			<action name="downloadCoursewareAction" method="downloadCourseware"
-			class="viewDetailAction">
+			class="coursewareAction">
 			<result name="courseware">/coursepage/downloadcourseware.jsp
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
 		</action>
 			<action name="downloadExperimentAction" method="downloadExperiment"
-			class="viewDetailAction">
+			class="experimentAction">
 			<result name="experiment">/coursepage/downloadexperiment.jsp
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
 		</action>
 		<action name="downloadExerciseAction" method="downloadExercise"
-			class="viewDetailAction">
+			class="exerciseAction">
 			<result name="exercise">/coursepage/downloadexercise.jsp
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
