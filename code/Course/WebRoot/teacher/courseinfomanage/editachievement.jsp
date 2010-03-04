@@ -10,7 +10,7 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<title>添加教学成果</title>
+		<title>编辑教学成果</title>
 		<SCRIPT language=javascript>
 			function check(form)
 			{
@@ -41,12 +41,14 @@
 			align=center border=0>
 			<tr class=position>
 				<td>
-					当前位置: 我的课程 -&gt; 添加教学成果
+					当前位置: 我的课程 -&gt; 编辑教学成果
 				</td>
 			</tr>
 		</table>
-		<s:form action="addAchievementAction" method="post"
+		<s:form action="updateAchievementAction" method="post"
 			onsubmit="return check(this);">
+			<s:hidden name="achievement.id"></s:hidden>
+			<s:hidden name="achievement.course.id"></s:hidden>
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
@@ -89,8 +91,9 @@
 					<td colspan="3">
 						<FCK:editor instanceName="achievement.content" width="100%"
 							height="405" toolbarSet="Default">
-							<jsp:attribute name="value">				
-                </jsp:attribute>
+							<jsp:attribute name="value">
+								<s:property escape="false" value="achievement.content" />
+              				  </jsp:attribute>
 						</FCK:editor>
 					</td>
 				</tr>

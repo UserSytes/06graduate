@@ -18,17 +18,20 @@ public class AchievementService implements IAchievementService {
 	public boolean addAchievement(Course course, Achievement achievement,
 			File upload) {
 		// TODO Auto-generated method stub
-		String path = ServletActionContext.getServletContext().getRealPath(
-				"/upload");
-		String fileName = path + "/" + achievement.getFileLink();
-		File file = new File(fileName);
 		achievement.setCourse(course);
 		try {
 			achievementDAO.save(achievement);
-			if (FileOperation.copy(upload, file))
-				return true;
-			else
-				return false;
+			if (upload != null) {
+				String path = ServletActionContext.getServletContext()
+						.getRealPath("/upload");
+				String fileName = path + "/" + achievement.getFileLink();
+				File file = new File(fileName);
+				if (FileOperation.copy(upload, file))
+					return true;
+				else
+					return false;
+			}
+			return true;
 		} catch (Exception e) {
 			return false;
 		}
@@ -67,16 +70,20 @@ public class AchievementService implements IAchievementService {
 
 	public boolean updateAchievement(Achievement achievement, File upload) {
 		// TODO Auto-generated method stub
-		String path = ServletActionContext.getServletContext().getRealPath(
-				"/upload");
-		String fileName = path + "/" + achievement.getFileLink();
-		File file = new File(fileName);
+
 		try {
 			achievementDAO.merge(achievement);
-			if (FileOperation.copy(upload, file))
-				return true;
-			else
-				return false;
+			if (upload != null) {
+				String path = ServletActionContext.getServletContext()
+						.getRealPath("/upload");
+				String fileName = path + "/" + achievement.getFileLink();
+				File file = new File(fileName);
+				if (FileOperation.copy(upload, file))
+					return true;
+				else
+					return false;
+			}
+			return true;
 		} catch (Exception e) {
 			return false;
 		}

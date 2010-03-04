@@ -232,6 +232,37 @@
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		
+		<!-- 课程管理-教学成果部分 (教师)-->
+		<action name="getAchievementListByCourseAction" method="getAchievementListByCourse"
+			class="achievementAction">
+			<result name="success">/teacher/courseinfomanage/achievementlist.jsp
+			</result>
+		</action>
+		<action name="addAchievementAction" method="addAchievement"
+			class="achievementAction">
+			<result name="success" type="redirect-action">getAchievementListByCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="updateAchievementAction" method="updateAchievement"
+			class="achievementAction">
+			<result name="success" type="redirect-action">getAchievementListByCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteAchievementAction" method="deleteAchievement"
+			class="achievementAction">
+			<result name="success" type="redirect-action">getAchievementListByCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="goEditAchievementAction" method="goEditAchievement"
+			class="achievementAction">
+			<result name="success">/teacher/courseinfomanage/editachievement.jsp
+			</result>
+		</action>	
+		
+		
 		<!-- 课程管理-章节目录部分 (教师)-->
 		<action name="getChapterListByCourseAction" method="getChapterListByCourse"
 			class="courseChapterAction">
