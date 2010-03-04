@@ -759,15 +759,24 @@
 
 		
 		<!-- 首页 -->
+		
+		<!-- 首页显示新闻公告 -->
+		<action name="homepageNewsAction" method="homepageDisplay" class="homePageAction">
+			<result name="news">/homepage/index.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<!-- 点击新闻公告 -->
 		<action name="newsAction" method="newsDisplay" class="homePageAction">
 			<result name="news">/homepage/news.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+		<!-- 显示新闻内容 -->
 		<action name="enterNewsAction" method="enterNews" class="homePageAction">
 			<result name="newsdetail">/homepage/newsdetail.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+		<!-- 从首页登录 -->
 		<action name="loginFromHomePageAction" method="loginFromHomePage"
 			class="homePageAction">
 			<result name="teacher">/teacher/main.jsp</result>
@@ -775,20 +784,22 @@
 			<result name="student">/student/studentinfo.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-<!-- 首页精品课程列表 -->
+        <!-- 首页精品课程列表 -->
 		<action name="courseDisplayAction" method="courseDisplay"
 			class="homePageAction">
 			<result name="courseList">/homepage/courseList.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-<!-- 首页建设成果 -->
+          <!-- 首页建设成果 -->
 		<action name="achievementAction" method="achievementDisplay"
 			class="homePageAction">
 			<result name="achievementList">/homepage/searchbyachievement.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+      
+<!-- 跳转 -->	
 		<action name="forwardToSearchAction" method="forwardToSearch"
 			class="homePageAction">
 			<result name="searchbyschool">/homepage/searchbyschool.jsp</result>
@@ -804,12 +815,53 @@
 			<result name="contact">/homepage/contact.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+			
 		<action name="findCourseByTeacherAction" method="findCourseByTeacher"
 			class="executeViewAction">
 			<result name="courses">/homepage/courseList.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+<!-- 课程评价 -->	
+<action name="evaluateAction" method="evaluate"
+			class="evaluationAction">
+			<result name="success">/coursepage/evaluate.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>	
+<action name="studentEvaluateResultAction" method="studentEvaluateResult"
+			class="evaluationAction">
+			<result name="success">/coursepage/stuevaluateresult.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>	
+<action name="expertEvaluateResultAction" method="expertEvaluateResult"
+			class="evaluationAction">
+			<result name="success">/coursepage/expevaluateresult.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>	
+<action name="enterEvaluationAction" method="enterEvaluation"
+			class="evaluationAction">
+			<result name="success">/coursepage/enterexpevaluation.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>	
+<action name="studentEvaluateAction" method="studentEvaluate"
+			class="evaluationAction">
+			<result name="success">/coursepage/evaluatesuccess.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+<action name="expertEvaluateAction" method="expertEvaluate"
+			class="evaluationAction">
+			<result name="success">/coursepage/expertevaluatesuccess.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		
+		
+		
 		<action name="findApplicationFormAction" method="findApplicationForm"
 			class="applicationFormAction">
 			<result name="applicationForm">/coursepage/applicationform.jsp
