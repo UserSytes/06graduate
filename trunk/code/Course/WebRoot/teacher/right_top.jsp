@@ -76,7 +76,7 @@ a.v1:visited {
 												<tr>
 													<td height="25"
 														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
-														<div align="center">															
+														<div align="center">
 															<span class="STYLE1"><A
 																href="getCurrentCourseAction.action" target=mainFrame
 																class="v1">申报表格</A> </span>
@@ -92,7 +92,7 @@ a.v1:visited {
 													<td height="25"
 														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
 														<div align="center">
-															
+
 															<span class="STYLE1"><A
 																href="findCurrentCourseInfoAction.action"
 																target=mainFrame class="v1">课程信息</A> </span>
@@ -107,7 +107,7 @@ a.v1:visited {
 												<tr>
 													<td height="25"
 														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
-														<div align="center">															
+														<div align="center">
 															<span class="STYLE1"><A
 																href="getTeacherTeamByCourseAction.action"
 																target=mainFrame class="v1">教师队伍</A> </span>
@@ -123,7 +123,7 @@ a.v1:visited {
 													<td height="25"
 														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
 														<div align="center">
-															
+
 															<span class="STYLE1"><A
 																href="getChapterListByCourseAction.action"
 																target=mainFrame class="v1">章节目录</A> </span>
@@ -139,7 +139,7 @@ a.v1:visited {
 													<td height="25"
 														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
 														<div align="center">
-															
+
 															<span class="STYLE1"><A
 																href="getCoursewareListByChapterAction.action"
 																target=mainFrame class="v1">课件教案</A> </span>
@@ -155,7 +155,7 @@ a.v1:visited {
 													<td height="25"
 														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
 														<div align="center">
-															
+
 															<span class="STYLE1"><A
 																href="getExerciseListByChapterAction.action"
 																target=mainFrame class="v1">作业习题</A> </span>
@@ -171,7 +171,7 @@ a.v1:visited {
 													<td height="25"
 														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
 														<div align="center">
-															
+
 															<span class="STYLE1"><A
 																href="getExperimentListByChapterAction.action"
 																target=mainFrame class="v1">实验指导</A> </span>
@@ -187,7 +187,7 @@ a.v1:visited {
 													<td height="25"
 														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
 														<div align="center">
-															
+
 															<span class="STYLE1"><A
 																href="getCourseMovieListByCourseAction.action"
 																target=mainFrame class="v1">教学录像</A> </span>
@@ -203,10 +203,26 @@ a.v1:visited {
 													<td height="25"
 														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
 														<div align="center">
-															
+
 															<span class="STYLE1"><A
 																href="getExaminationListByCourseAction.action"
 																target=mainFrame class="v1">课程试卷</A> </span>
+														</div>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td width="75">
+											<table width="73" border="0" align="center" cellpadding="0"
+												cellspacing="0">
+												<tr>
+													<td height="25"
+														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
+														<div align="center">
+
+															<span class="STYLE1"><A
+																href="getBookListByCourseAction.action" target=mainFrame
+																class="v1">参考书籍</A> </span>
 														</div>
 													</td>
 												</tr>
@@ -221,8 +237,8 @@ a.v1:visited {
 														<div align="center">
 															
 															<span class="STYLE1"><A
-																href="getBookListByCourseAction.action"
-																target=mainFrame class="v1">参考书籍</A> </span>
+																href="getAchievementListByCourseAction.action"
+																target=mainFrame class="v1">教学成果</A> </span>
 														</div>
 													</td>
 												</tr>

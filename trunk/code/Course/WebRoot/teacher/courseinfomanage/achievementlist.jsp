@@ -9,16 +9,11 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<title>教师队伍列表</title>
-		<SCRIPT language=javascript>
-			function popwin(url)
-			{
-			window.open(url);
+		<title>教学成果列表</title>
+		<SCRIPT language=javascript>		
+			function goToAddAchievement(){
+			 window.location.href="${ctx}/teacher/courseinfomanage/addachievement.jsp";
 			}
-			function goToAddteacherTeam(){
-			 window.location.href="courseinfomanage/addteacherteam.jsp";
-			}
-
 		</SCRIPT>
 	</head>
 	<body>
@@ -26,17 +21,15 @@
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 我的课程 -&gt; 教师队伍列表
+					当前位置: 我的课程 -&gt; 教学成果列表
 				</td>
 			</tr>
 		</table>
 		<table class=listTable align="center">
 			<tr>
-
 				<td>
 					<div align="right">
-
-						<input type="button" onclick="goToAddteacherTeam()" value="添加教师队伍" />
+						<input type="button" onclick="goToAddAchievement()" value="添加教学成果" />
 					</div>
 				</td>
 			</tr>
@@ -46,53 +39,49 @@
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>
-						名字
+						标题
+					</th>	
+					<th>
+						时间
 					</th>
 					<th>
-						职称
-					</th>
-					<th>
-						研究领域
-					</th>
-					<th>
-						链接
-					</th>
-					<th>
-						备注
+						下载
 					</th>
 					<th>
 						操作
 					</th>
 				</tr>
-				<s:iterator value="teacherTeamList" status="teacherTeam">
+				<s:iterator value="achievementList" status="achievement">
 					<tr class="listTr">
 						<td>
-							<s:property value="name" />
-						</td>
+							<s:property value="title" />
+						</td>										
 						<td>
-							<s:property value="position" />
-						</td>
-						<td>
-							<s:property value="field" />
-						</td>
-						<td>
-							<a href="javascript:popwin('${link}')"><s:property id="link"
-									value="link" /> </a>
-						</td>
-						<td>
-							<s:property value="remark" />
+							<s:date format="yyyy-MM-dd" name="time" />
 						</td>
 						<td>
 							<a
-								href="<s:url action="goEidtTeacherTeamAction"> 
-                     			<s:param name="teacherTeamId"> 
+								href="<s:url action="download"> 
+                     			<s:param name="fileName"> 
+                       			 	<s:property value="fileLink"/> 
+                    			</s:param> 
+								<s:param name="originalFileName"> 
+                       			 	<s:property value="filename"/> 
+                    			</s:param> 
+                					</s:url>">
+								<font color="blue"><s:property value="filename" /> </font> </a>
+						</td>
+						<td>
+							<a
+								href="<s:url action="goEditAchievementAction"> 
+                     			<s:param name="achievementId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
 								<font color="green">【编辑】</font> </a>
 							<a
-								href="<s:url action="deleteTeacherTeamAction"> 
-                     			<s:param name="teacherTeamId"> 
+								href="<s:url action="deleteAchievementAction"> 
+                     			<s:param name="achievementId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>"
@@ -104,7 +93,6 @@
 
 
 			</table>
-
 		</div>
 	</body>
 </html>

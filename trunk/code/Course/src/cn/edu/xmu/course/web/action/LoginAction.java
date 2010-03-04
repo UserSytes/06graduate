@@ -36,6 +36,7 @@ public class LoginAction extends BaseAction {
 	public String adminLogin() {
 		userName = "123456";
 		password = "123456";
+		System.out.println(flag);
 		if (flag == 0) {
 			Administrator admin = loginService.adminLogin(userName, password);
 			if (null == admin)
@@ -45,6 +46,7 @@ public class LoginAction extends BaseAction {
 				return "admin";
 			}
 		} else if(flag == 1){
+			System.out.println(userName);
 			SuperAdmin superAdmin = loginService.superAdminLogin(userName,
 					password);
 			if (null == superAdmin)
@@ -53,7 +55,9 @@ public class LoginAction extends BaseAction {
 				ActionSession.getSession().put(SUPERADMIN, superAdmin);
 				return "superAdmin";
 			}
-		}else
+		}
+	
+		else
 			return ERROR;
 	}
 
