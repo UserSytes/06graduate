@@ -138,4 +138,10 @@
 			<ref bean="messageServiceTarget" />
 		</property>
 	</bean>
+	
+	<bean id="evaluateService" parent="transactionBase">
+		<property name="target">
+			<ref bean="evaluateServiceTarget" />
+		</property>
+	</bean>
 </beans>
