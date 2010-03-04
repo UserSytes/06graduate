@@ -5,11 +5,25 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>厦门大学精品课程网站</title>
+		<script type="text/javascript" src="/dwr/engine.js"></script>
+		<script type="text/javascript" src="/dwr/util.js"></script>
+		<script type="text/javascript" src="/dwr/interface/NewsService.js"></script>
+		<SCRIPT language=javascript>
+
+	function getNews() {
+		newsList=newsService.findAllNews();
+	}
+	function callBack(data){
+		if(data != null)
+			DWRUtil.setValue('result',data.name);
+		else
+			DWRUtil.setValue('result',"该学生不存在");
+	}
+</SCRIPT>
 	</head>
-	<BODY BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0
+	<BODY  BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0
 		MARGINHEIGHT=0 rightmargin="0" bottommargin="0"
 		background="${ctx}/homepage/images/back-body.jpg" style="overflow-x: hidden">
 		<center>
@@ -29,15 +43,15 @@
 							<tr>
 								<td colspan="2" WIDTH=765 height="102">
 									<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="765" height="102">
-                  <param name="movie" value="${ctx}/homepage/flash/delta46test.swf">
+                  <param name="movie" value="flash/delta46test.swf">
                   <param name="quality" value="high"> <param name="menu" value="false">
-                  <embed src="${ctx}/homepage/flash/delta46test.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="765" height="102"></embed>
+                  <embed src="flash/delta46test.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="765" height="102"></embed>
 			  </object>
 								</td>
 							</tr>
 							<tr>
 								<td width="210" height="10" valign="top">
-									<table width="218" height="100%" border="0" cellspacing="0"
+									<table width="218" height="688" border="0" cellspacing="0"
 										cellpadding="0">
 										<tr>
 											<td height="60">
@@ -46,12 +60,12 @@
 										</tr>
 
 										<tr>
-											<td height="42" bgcolor="#11bbff">
+											<td height="42">
 												<img src="${ctx}/homepage/images/but-1.jpg" width="218" height="42">
 											</td>
 										</tr>
 										<tr>
-											<td width="210" height="10" bgcolor="#11bbff">
+											<td width="210" height="10" bgcolor="#64A5CF">
 												<s:form action="loginFromHomePageAction" method="post"
 													onsubmit="">
 													<table width="100%" height="100%" border="0"
@@ -74,15 +88,15 @@
 														</tr>
 														<tr>
 															<td height="30">
-																&nbsp;角色：
+																&nbsp;权限：
 															</td>
 															<td>
 																<s:select name="flag" list="# {'0':'老師','1':'學生'}"
 																	headerKey="-1" headerValue="请选择" />
 															</td>
 														</tr>
-														<tr bgcolor="#11bbff">
-															<td colspan="2" align="center" bgcolor="#11bbff">
+														<tr>
+															<td colspan="2" align="center">
 																<input type="submit" name="submit"
 																	style="background: url(${ctx}/homepage/images/login_5.gif) no-repeat"
 																	value=" 登  陆 ">
@@ -95,16 +109,15 @@
 												</s:form>
 											</td>
 										</tr>
-										<tr bgcolor="#f1f1f1">
+										<tr>
 											<td height="38">
 												<img src="${ctx}/homepage/images/but-2.jpg" width="218" height="38">
 											</td>
 										</tr>
-										<tr bgcolor="#f1f1f1">
+										<tr>
 											<td width="210" height="100%" valign="top"
-												background="${ctx}/homepage/images/jiannan2.JPG"
+												background="${ctx}/homepage/images/back-but-2.jpg"
 												style="padding-left: 28px; padding-top: 4px; padding-bottom: 15px">
-
 												<br>
 												<div style="line-height: 15px; padding-bottom: 10px"></div>
 												<a href="http://www.moe.edu.cn/" class="style3">中华人民共和国教育部</a>
@@ -145,10 +158,10 @@
 														<td width="389" valign="top" style="padding-left: 5px">
 															<img src="${ctx}/homepage/images/text-19.jpg" width="114" height="17"
 																style="margin-bottom: 10px">
-														
+															<br>
 															<font face="tahoma"
-																style="font-size: 14px; color: #828688"><strong>
- <br>
+																style="font-size: 10px; color: #828688"><strong>
+
 																	<s:iterator value="newsList" status="new">
 																		<img src="${ctx}/homepage/images/but.jpg" width="4" height="7">&nbsp;
 																		<a
@@ -157,11 +170,10 @@
 	                       			 									<s:property value="id"/> 
 	                    											</s:param> 
 	                													</s:url>">
-																			<s:property value="title" />&nbsp;&nbsp; <s:property
+																			<s:property value="title" />&nbsp;&nbsp; ${new.title}<s:property
 																				value="time" /> </a>
 																		<br>
-																	</s:iterator>
- </strong> </font>
+																	</s:iterator> </strong> </font>
 														</td>
 
 													</tr>
@@ -188,35 +200,80 @@
 												<table width="555" height="100%" border="0" cellspacing="0"
 													cellpadding="0">
 													<tr>
-
-														<td width="281" height="100%" valign="top"
+														<td width="281" height="267" valign="top"
 															style="padding-left: 9px; padding-bottom: 15px">
 
-												 <font face="tahoma" style="font-size: 13px"><br><img src="${ctx}/homepage/images/but.jpg" width="4" height="7"> <a
+												
+															<font face="tahoma" style="font-size: 13px"> <br>
+																<img src="${ctx}/homepage/images/but.jpg" width="4" height="7"> <a
 																href="<s:url action="courseDisplayAction"> 
                                                                     <s:param name="level"> 
                                                                    country
 	                    											</s:param>
-                             
-	                													</s:url>">国家级精品课程</a>
+                                      <s:param name="time"> 
+                                                                   2009
+	                    											</s:param>
+	                													</s:url>">09年国家级精品课程名单</a>
 																<br> <font face="tahoma" style="font-size: 13px">
 																	<br> <img src="${ctx}/homepage/images/but.jpg" width="4"
 																		height="7"> <a href="<s:url action="courseDisplayAction"> 
                                                                     <s:param name="level"> 
                                                                    province
 	                    											</s:param>
-                                      
-	                													</s:url>">省级精品课程</a> <br>
+                                      <s:param name="time"> 
+                                                                   2009
+	                    											</s:param>
+	                													</s:url>">09年福建省精品课程名单</a> <br>
 																	<font face="tahoma" style="font-size: 13px"> <br>
 																		<img src="${ctx}/homepage/images/but.jpg" width="4" height="7">
 																		<a href="<s:url action="courseDisplayAction"> 
                                                                     <s:param name="level"> 
                                                                    school
 	                    											</s:param>
-                                 
-	                													</s:url>">校级精品课程</a> <br>  <br> <br>
+                                      <s:param name="time"> 
+                                                                   2009
+	                    											</s:param>
+	                													</s:url>">09年校级精品课程名单</a> <br> <font
+																		face="tahoma" style="font-size: 13px"> <br>
+																			<img src="${ctx}/homepage/images/but.jpg" width="4" height="7">
+																			<a href="<s:url action="courseDisplayAction"> 
+                                                                    <s:param name="level"> 
+                                                                   country
+	                    											</s:param>
+                                      <s:param name="time"> 
+                                                                   2008
+	                    											</s:param>
+	                													</s:url>">08年国家级精品课程名单</a> <br> <font
+																			face="tahoma" style="font-size: 13px"> <br>
+																				<img src="${ctx}/homepage/images/but.jpg" width="4" height="7">
+																				<a href="<s:url action="courseDisplayAction"> 
+                                                                    <s:param name="level"> 
+                                                                   province
+	                    											</s:param>
+                                      <s:param name="time"> 
+                                                                   2008
+	                    											</s:param>
+	                													</s:url>">08年福建省精品课程名单</a> <br> <font
+																				face="tahoma" style="font-size: 13px"> <br>
+																					<img src="${ctx}/homepage/images/but.jpg" width="4" height="7">
+																					<a href="<s:url action="courseDisplayAction"> 
+                                                                    <s:param name="level"> 
+                                                                  school
+	                    											</s:param>
+                                      <s:param name="time"> 
+                                                                   2008
+	                    											</s:param>
+	                													</s:url>">08校级精品课程名单</a> <br>
+																					<div style="padding-top: 4px">
+																						<br>
+																						<a href="#"
+																							style="color: #0CA4FF; text-decoration: none"><strong>learn
+																								more</strong> </a>
+																						<img src="${ctx}/homepage/images/but-blue.jpg" width="15"
+																							height="7">
+																					</div> </font>
 														</td>
-														<td width="2" height="100%"
+														<td width="2" height="167"
 															background="${ctx}/homepage/images/back-line-up-1.jpg">
 															<table width="2" height="100%" border="0" cellspacing="0"
 																cellpadding="0">
@@ -241,6 +298,12 @@
 													</tr>
 
 													<tr>
+														<td colspan="3" bgcolor="#B2B2B2">
+															<img src="${ctx}/homepage/images/spacer.gif" width="1" height="1">
+														</td>
+													</tr>
+
+													<tr>
 														<td width="553" height="33"
 															background="${ctx}/homepage/images/back-but-4.jpg">
 															<img src="${ctx}/homepage/images/but-5.jpg" width="139" height="33">
@@ -251,24 +314,22 @@
 
 														<td width="281" height="100%" valign="top"
 															style="padding-left: 9px; padding-bottom: 10px; padding-top: 10px">
-
 															<br>
 															<img src="${ctx}/homepage/images/pic-5.jpg" width="123" height="71"
 																align="left" style="margin-right: 10px">
-
 															<font face="tahoma"
-																style="font-size: 13px; line-height: 11px">
-																国家级：<s:property value="country"/>&nbsp;门  </font> 
-															<br>
-															<br>
-															<font face="tahoma"
-																style="font-size: 13px; line-height: 11px"> 
-																省级： <s:property value="province"/>&nbsp;门 </font>
+																style="font-size: 13px; color: #828688; line-height: 11px">
+																国家级：10门 </font>
 															<br>
 															<br>
 															<font face="tahoma"
-																style="font-size: 13px; line-height: 11px">
-																校级：<s:text name="">${school}</s:text> &nbsp;门 </font>
+																style="font-size: 13px; color: #828688; line-height: 11px">
+																省级：15门 </font>
+															<br>
+															<br>
+															<font face="tahoma"
+																style="font-size: 13px; color: #828688; line-height: 11px">
+																校级：20门 </font>
 														</td>
 
 														<td width="2" height="100%"
