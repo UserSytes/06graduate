@@ -98,7 +98,11 @@ public class EvaluationDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-
+	
+    public List findByCourse(int courseId){
+		return findByProperty("course.id", courseId);
+		
+	} 
 	public List findByUsername(Object username) {
 		return findByProperty(USERNAME, username);
 	}
