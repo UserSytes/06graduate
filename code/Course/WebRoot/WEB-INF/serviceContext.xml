@@ -166,5 +166,13 @@
 			<ref bean="MessageDAO" />
 		</property>
 	</bean>
+	<bean id="evaluateServiceTarget" class="cn.edu.xmu.course.service.impl.EvaluateService">
+	<property name="studentCourseDAO">
+			<ref bean="StudentCourseDAO" />
+		</property>
+			<property name="evaluationDAO">
+			<ref bean="EvaluationDAO" />
+		</property>
+	</bean>
 	
 </beans>

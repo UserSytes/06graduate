@@ -202,5 +202,13 @@
 			<ref bean="loginService" />
 		</property>	
 	</bean>
+	<!--课程评价 -->
+		<bean id="evaluationAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.EvaluationAction">
+		<property name="evaluateService">
+			<ref bean="evaluateService" />
+		</property>
+		
+	</bean>
 	
 </beans>
