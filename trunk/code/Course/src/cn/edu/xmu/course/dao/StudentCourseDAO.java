@@ -110,6 +110,12 @@ public class StudentCourseDAO extends HibernateDaoSupport {
 		}
 	}
 	
+    public List findByCourse(int courseId){
+		
+		return findByProperty("course.id", courseId);
+		
+	}
+	
 	public List findByStatus(Object status) {
 		return findByProperty(STATUS, status);
 	}
