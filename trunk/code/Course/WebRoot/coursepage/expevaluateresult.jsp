@@ -6,13 +6,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<head>
-<META http-equiv=Pragma content=no-cache>
+		<META http-equiv=Pragma content=no-cache>
 		<META http-equiv=Cache-Control content=no-cache>
-<META http-equiv=Expires content=-1000>
+		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/student.css" type=text/css rel=stylesheet>
 		<title>厦门大学精品课程</title>
 		<meta http-equiv="Content-Style-Type" content="text/css">
-		<link href="${ctx}/coursePage/default.css" rel="stylesheet"
+		<link href="${ctx}/coursepage/default.css" rel="stylesheet"
 			type="text/css" />
 	</head>
 	<body>
@@ -29,34 +29,38 @@
 		<div id="content">
 			<div id="right">
 				<h2 align="center">
-					<strong>课程评价</strong>
+					<strong>专家对课程《<s:text name="">${course.name}</s:text>》的评价</strong>
 				</h2>
 				<hr id="border-top" />
-				
-			<table class="listing form" cellpadding="0" cellspacing="0">
-				<tr class="bg">
-							<td class="first">
-								<a href="<s:url action="studentEvaluateResultAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="course"/> 
-                    			</s:param>
-                					</s:url>">学生对课程的评价</a>
 
-							</td>
-						</tr>
-<br>
+				<table class="listing form" cellpadding="0" cellspacing="0">
+
+					<s:iterator value="evaluationList" status="evaluation">
 						<tr class="bg">
 							<td class="first">
-								<a href="<s:url action="expertEvaluateResultAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-                					</s:url>">专家对课程的评价</a>
+
+								<img src="${ctx}/homepage/images/but.jpg" width="4" height="7">
+									&nbsp; 
+								<a
+									href="<s:url action="enterEvaluationAction"> 
+	                     											<s:param name="evaluationId"> 
+	                       			 									<s:property value="id"/> 
+	                    											</s:param> 
+	                													</s:url>">
+									专家评价：<s:property value="name" />&nbsp;&nbsp; 教授</a>
+								<br>
 							</td>
 						</tr>
+					</s:iterator>
+					<tr class="bg">
+						<td class="first" align="center">
+							<br>
+							<a href="${ctx}/coursepage/expertevaluate.jsp">
+							我要评价</a>
 
-					</table>
-				
+						</td>
+					</tr>
+				</table>
 			</div>
 
 			<div id="left">
