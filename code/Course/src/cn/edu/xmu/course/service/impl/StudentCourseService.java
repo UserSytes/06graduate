@@ -6,6 +6,7 @@ import cn.edu.xmu.course.dao.CollectionDAO;
 import cn.edu.xmu.course.dao.CourseDAO;
 import cn.edu.xmu.course.dao.StudentCourseDAO;
 import cn.edu.xmu.course.dao.StudentDAO;
+import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Collection;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Student;
@@ -70,6 +71,16 @@ public class StudentCourseService implements IStudentCourseService {
 	public boolean addStudentCourse(StudentCourse studentCourse){
 		try{
 			studentCourseDAO.save(studentCourse);
+			return true;
+		}catch(Exception e){
+			return false;
+		}
+	}
+	
+	public boolean updateStudentCourse(StudentCourse studentCourse) {
+		// TODO Auto-generated method stub
+		try{
+			studentCourseDAO.merge(studentCourse);
 			return true;
 		}catch(Exception e){
 			return false;
