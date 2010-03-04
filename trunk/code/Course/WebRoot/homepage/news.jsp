@@ -93,7 +93,7 @@
 														<br>
 														<br>
 														<br>
-														
+
 													</tr>
 													<tr>
 														<td width="389" valign="top" style="padding-left: 5px">
@@ -110,13 +110,14 @@
 																				新闻公告
 																			</th>
 																		</tr>
-<s:iterator value="newsList" status="new">
-																		<tr class="bg">
-																			<td class="first">
-																				
+																		<s:iterator value="newsList" status="new">
+																			<tr class="bg">
+																				<td class="first">
+
 																					<img src="${ctx}/homepage/images/but.jpg" width="4"
-																						height="7">&nbsp;
-																		<a
+																						height="7">
+																					&nbsp;
+																					<a
 																						href="<s:url action="enterNewsAction"> 
 	                     											<s:param name="newsId"> 
 	                       			 									<s:property value="id"/> 
@@ -125,10 +126,10 @@
 																						<s:property value="title" />&nbsp;&nbsp; <s:property
 																							value="time" /> </a>
 																					<br>
-																				
-																			</td>
-																		</tr>
-</s:iterator>
+
+																				</td>
+																			</tr>
+																		</s:iterator>
 																	</table>
 																</s:form>
 															</div>
