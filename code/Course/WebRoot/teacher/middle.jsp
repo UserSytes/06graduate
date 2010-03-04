@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../commons/taglibs.jsp"%>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+		<META http-equiv=Pragma content=no-cache>
+		<META http-equiv=Cache-Control content=no-cache>
+		<META http-equiv=Expires content=-1000>
 		<title>无标题文档</title>
 		<style type="text/css">
 <!--
@@ -23,49 +26,21 @@ body {
 	FONT-SIZE: 9pt
 }
 </style>
-		<script>
-function switchSysBar(){ 
-var locate=location.href.replace('middel.jsp','');
-var ssrc=document.all("img1").src.replace(locate,'');
-if (ssrc=="images/main_30.gif")
-{ 
-document.all("img1").src="images/main_30_1.gif";
-document.all("frmTitle").style.display="none" 
-} 
-else
-{ 
-document.all("img1").src="images/main_30.gif";
-document.all("frmTitle").style.display="" 
-} 
-} 
-</script>
-
 	</head>
+	<frameset rows="*" cols="156,6,*" id="frame" style="width:500;height:500;overflow:auto;" >
+		<frame src="left.jsp" name="I1" noresize="noresize" scrolling="No"
+			marginwidth="0" marginheight="0" frameborder="0" />
+		<frame src="leftmiddle.jsp" name="I3" noresize="noresize"
+			scrolling="No" marginwidth="0" marginheight="0" frameborder="0" />
 
-	<body style="overflow: hidden">
-		<table width="100%" height="100%" border="0" cellpadding="0"
-			cellspacing="0">
-			<tr>
-				<td width="156" id=frmTitle noWrap name="fmTitle" align="center"
-					valign="top">
-					<iframe name="I1" height="100%" width="156" src="left.jsp"
-						border="0" frameborder="0" scrolling="no">
-						浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。
-					</iframe>
-				</td>
-				<td width="4" valign="middle" background="images/main_27.gif"
-					onclick=switchSysBar()>
-					<SPAN class=navPoint id=switchPoint title=关闭/打开左栏><img
-							src="images/main_30.gif" name="img1" width=4 height=47 id=img1>
-					</SPAN>
-				</td>
-				<td align="center" valign="top">
-					<iframe name="I2" height="100%" width="100%" border="0"
-						frameborder="0" src="">
-						浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。
-					</iframe>
-				</td>
-			</tr>
-		</table>
-	</body>
+			<frame src="" name="I2" marginwidth="0" marginheight="0"
+				frameborder="0" />
+	</frameset>
+
+	<noframes>
+		<body>
+			&nbsp;
+		</body>
+	</noframes>
+
 </html>
