@@ -832,13 +832,13 @@
 			<result name="error">/commons/prompt1.jsp</result>
 			</action>
 		<action name="showTopicsAction" method="showTopics" class="messageAction">
-			<result name="topics">/coursepage/showtopics.jsp
+			<result name="topics">/coursepage/messagemanage/showtopics.jsp
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
 			<result name="login">/coursepage/login.jsp</result>
 			</action>
 		<action name="showMessagesAction" method="showMessages" class="messageAction">
-			<result name="messages">/coursepage/showmessages.jsp
+			<result name="messages">/coursepage/messagemanage/showmessages.jsp
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
 			</action>
