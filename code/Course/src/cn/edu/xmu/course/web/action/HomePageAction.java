@@ -44,7 +44,9 @@ public class HomePageAction extends BaseAction{
 	private int courseId;
 	private String level="country";
 	private List<String> times=null;
-    private int country,province,school;
+	private int country;
+	private int province;
+	private int school;
 	
 	private List<Course> achievementList;
 	/**
@@ -60,12 +62,13 @@ public class HomePageAction extends BaseAction{
 		}
 		courseList = courseService.findCourseListByLevel("country");
     	country=courseList.size();
-    	System.out.println("test1: "+country);
+    	System.out.println("test_country: "+country);
     	courseList = courseService.findCourseListByLevel("province");
     	province=courseList.size();
-    	System.out.println("test1: "+province);
+    	System.out.println("test_province: "+province);
     	courseList = courseService.findCourseListByLevel("school");
     	school=courseList.size();
+    	System.out.println("test_school: "+school);
 		if (newsList == null) {
 			return ERROR;
 		} else
@@ -260,36 +263,38 @@ public class HomePageAction extends BaseAction{
 		return achievementList;
 	}
 
-	private List<String> getTimes() {
+	public List<String> getTimes() {
 		return times;
 	}
 
-	private void setTimes(List<String> times) {
+	public void setTimes(List<String> times) {
 		this.times = times;
 	}
-	private int getCountry() {
+
+	public int getCountry() {
 		return country;
 	}
 
-	private void setCountry(int country) {
+	public void setCountry(int country) {
 		this.country = country;
 	}
 
-	private int getProvince() {
+	public int getProvince() {
 		return province;
 	}
 
-	private void setProvince(int province) {
+	public void setProvince(int province) {
 		this.province = province;
 	}
 
-	private int getSchool() {
+	public int getSchool() {
 		return school;
 	}
 
-	private void setSchool(int school) {
+	public void setSchool(int school) {
 		this.school = school;
 	}
+
 
 
 }
