@@ -6,13 +6,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<head>
-<META http-equiv=Pragma content=no-cache>
+		<META http-equiv=Pragma content=no-cache>
 		<META http-equiv=Cache-Control content=no-cache>
-<META http-equiv=Expires content=-1000>
+		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/student.css" type=text/css rel=stylesheet>
 		<title>厦门大学精品课程</title>
 		<meta http-equiv="Content-Style-Type" content="text/css">
-		<link href="${ctx}/coursePage/default.css" rel="stylesheet"
+		<link href="${ctx}/coursepage/default.css" rel="stylesheet"
 			type="text/css" />
 	</head>
 	<body>
@@ -29,34 +29,24 @@
 		<div id="content">
 			<div id="right">
 				<h2 align="center">
-					<strong>课程评价</strong>
+					<strong>学生对课程的评价</strong>
 				</h2>
 				<hr id="border-top" />
-				
-			<table class="listing form" cellpadding="0" cellspacing="0">
-				<tr class="bg">
-							<td class="first">
-								<a href="<s:url action="studentEvaluateResultAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="course"/> 
-                    			</s:param>
-                					</s:url>">学生对课程的评价</a>
+
+				<table class="listing form" cellpadding="0" cellspacing="0">
+					<tr class="bg">
+						<td>
+							《<s:text name="">${course.name}</s:text>》课程学生的评价结果：&nbsp; 
+							<s:property value="scorestring" />
+						</td>
+					</tr>
+					<tr class="bg">
+							<td class="first" align="center"><br>
+								<a href="${ctx}/coursepage/studentevaluate.jsp">我要评价</a>
 
 							</td>
 						</tr>
-<br>
-						<tr class="bg">
-							<td class="first">
-								<a href="<s:url action="expertEvaluateResultAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-                					</s:url>">专家对课程的评价</a>
-							</td>
-						</tr>
-
-					</table>
-				
+				</table>
 			</div>
 
 			<div id="left">

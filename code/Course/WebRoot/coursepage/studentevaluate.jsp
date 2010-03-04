@@ -32,31 +32,79 @@
 					<strong>课程评价</strong>
 				</h2>
 				<hr id="border-top" />
-				
+				<s:form action="studentEvaluateAction" method="post" onsubmit="return check(this);">
+&nbsp;&nbsp; 
 			<table class="listing form" cellpadding="0" cellspacing="0">
-				<tr class="bg">
-							<td class="first">
-								<a href="<s:url action="studentEvaluateResultAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="course"/> 
-                    			</s:param>
-                					</s:url>">学生对课程的评价</a>
-
-							</td>
-						</tr>
-<br>
 						<tr class="bg">
 							<td class="first">
-								<a href="<s:url action="expertEvaluateResultAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-                					</s:url>">专家对课程的评价</a>
+								请认真填写评价分数
+							</td>
+						</tr>
+						<tr>
+							<td class="first">
+								&nbsp;&nbsp;&nbsp;
+								<select id="School" name="score">
+									<option value="1">
+										&nbsp;1&nbsp;
+									</option>
+									<option value="2">
+										&nbsp;2&nbsp;
+									</option>
+									<option value="3">
+										&nbsp;3&nbsp;
+									</option>
+									<option value="4">
+										&nbsp;4&nbsp;
+									</option>
+									<option value="5">
+									&nbsp;	5&nbsp;
+									</option>
+								</select>
+
 							</td>
 						</tr>
 
+						<tr bgcolor="#ECF3FD">
+
+							<td class="first">
+								评价标准：
+								<br>
+								1分：上课不认真。
+								<br>
+								2分：课程内容准备不充分。
+								<br>
+								3分：上课认真。
+								<br>
+								4分：上课认真，课程内容准备充分。
+								<br>
+								5分：上课认真，关心同学。
+							</td>
+						</tr>
+						<tr class="bg">
+							<td bgcolor="#FFFDF0">
+								<div align="center">
+									对课程或老师更多的评价，请写在下面：
+								</div>
+							</td>
+						</tr>
+						<tr class="bg">
+							<td colspan="4" bgcolor="#FFFFFF">
+								<FCK:editor instanceName="content" width="100%"
+									height="405" toolbarSet="Default" >
+									<jsp:attribute name="value">
+                            </jsp:attribute>
+								</FCK:editor>
+							</td>
+						</tr>
+						<tr class="bg">
+
+							<td class="first">
+								<s:submit cssClass="label" value="确认" />
+								<s:reset cssClass="label" value="取消" />
+							</td>
+						</tr>
 					</table>
-				
+				</s:form>
 			</div>
 
 			<div id="left">
