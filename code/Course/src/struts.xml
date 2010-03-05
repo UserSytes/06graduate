@@ -859,8 +859,18 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		
-		
+<action name="eDetailEvaluateAction" method="eDetailEvaluate"
+			class="evaluationAction">
+			<result name="success">/coursepage/expertevaluate.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>		
+<action name="sDetailEvaluateAction" method="sDetailEvaluate"
+			class="evaluationAction">
+			<result name="success">/coursepage/studentevaluate.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>		
 		
 		<action name="findApplicationFormAction" method="findApplicationForm"
 			class="applicationFormAction">
