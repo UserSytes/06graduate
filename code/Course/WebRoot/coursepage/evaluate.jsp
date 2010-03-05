@@ -38,7 +38,7 @@
 							<td class="first">
 								<a href="<s:url action="studentEvaluateResultAction"> 
                      			<s:param name="course"> 
-                       			 	<s:property value="course"/> 
+                       			 	<s:property value="id"/> 
                     			</s:param>
                 					</s:url>">学生对课程的评价</a>
 

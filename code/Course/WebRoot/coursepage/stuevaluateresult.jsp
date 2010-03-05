@@ -42,7 +42,11 @@
 					</tr>
 					<tr class="bg">
 							<td class="first" align="center"><br>
-								<a href="${ctx}/coursepage/studentevaluate.jsp">我要评价</a>
+								<a href="<s:url action="sDetailEvaluateAction"> 
+	                     											<s:param name="courseId"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param>
+	                													</s:url>">我要评价</a>
 
 							</td>
 						</tr>

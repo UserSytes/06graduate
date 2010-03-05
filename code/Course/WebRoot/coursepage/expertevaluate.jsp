@@ -39,6 +39,8 @@
 				</table>
 				<s:form action="expertEvaluateAction" method="post"
 					onsubmit="return check(this);">
+<s:hidden name="evaluatation.id"></s:hidden>
+<s:hidden name="evaluatation.course.id"></s:hidden>
 					<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 						align=center border=0>
 						<tr class=editHeaderTr>
@@ -55,7 +57,7 @@
 							<td colspan="3" bgcolor="#FFFFFF">
 								&nbsp;&nbsp;&nbsp;
 								<s:textfield cssClass="INPUT" id="expertName"
-									name="name" label="姓名"></s:textfield>
+									name="evaluatation.name" label="姓名"></s:textfield>
 								&nbsp;*
 							</td>
 						</tr>
@@ -68,7 +70,7 @@
 							<td colspan="3" bgcolor="#FFFFFF">
 								&nbsp;&nbsp;&nbsp;
 								<s:textfield cssClass="INPUT" id="expertCompany"
-									name="company" label="单位"></s:textfield>
+									name="evaluatation.company" label="单位"></s:textfield>
 								&nbsp;*
 							</td>
 						</tr>
@@ -81,7 +83,7 @@
 							<td colspan="3" bgcolor="#FFFFFF">
 								&nbsp;&nbsp;&nbsp;
 								<s:textfield cssClass="INPUT" id="expertPosition"
-									name="position" label="职位"></s:textfield>
+									name="evaluatation.position" label="职位"></s:textfield>
 								&nbsp;*
 							</td>
 						</tr>
@@ -94,7 +96,7 @@
 							<td colspan="3" bgcolor="#FFFFFF">
 								&nbsp;&nbsp;&nbsp;
 								<s:textfield cssClass="INPUT" id="expertPhone"
-									name="phone" label="电话"></s:textfield>
+									name="evaluatation.phone" label="电话"></s:textfield>
 
 							</td>
 						</tr>
@@ -107,7 +109,7 @@
 							<td colspan="3" bgcolor="#FFFFFF">
 								&nbsp;&nbsp;&nbsp;
 								<s:textfield cssClass="INPUT" id="expertEmail"
-									name="email" label="邮箱"></s:textfield>
+									name="evaluatation.email" label="邮箱"></s:textfield>
 
 							</td>
 
@@ -120,7 +122,7 @@
 						<tr>
 							<td class="first">
 								&nbsp;&nbsp;&nbsp;
-								<select id="School" name="score">
+								<select id="School" name="evaluatation.score">
 									<option value="1">
 										&nbsp;1&nbsp;
 									</option>
@@ -142,7 +144,7 @@
 						</tr>
 						<tr class="bg">
 							<td colspan="4" bgcolor="#FFFFFF">
-								<FCK:editor instanceName="content" width="100%"
+								<FCK:editor instanceName="evaluatation.content" width="100%"
 									height="405" toolbarSet="Default">
 									<jsp:attribute name="value">
                             </jsp:attribute>

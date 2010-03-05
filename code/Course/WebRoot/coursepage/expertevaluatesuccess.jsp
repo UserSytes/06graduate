@@ -37,7 +37,7 @@
 					<tr class="bg">
 						<td>
 							评价成功，您的评分是&nbsp;
-							<s:property value="score" />
+							<s:property value="evaluatation.score" />
 						</td>
 					</tr>
 					<tr>
