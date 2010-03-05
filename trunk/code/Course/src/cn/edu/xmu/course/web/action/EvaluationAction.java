@@ -104,18 +104,19 @@ public class EvaluationAction extends BaseAction{
 	}
 	
 	public String expertEvaluate(){
-		course=evaluateService.findCourseById(courseId);
-		System.out.println("test_1: "+course.getName());
-		content=content.substring(3, content.length()-4);
-		evaluation.setCompany(company);
-		evaluation.setContent(content);
-		evaluation.setEmail(email);
-		evaluation.setName(name);
-		evaluation.setPhone(phone);
-		evaluation.setPosition(position);
-		evaluation.setScore(score);
-		evaluation.setCourse(course);
-		System.out.println("test_2: "+evaluation.getName());
+		
+//		course=evaluateService.findCourseById(courseId);
+//		System.out.println("test_1: "+course.getName());
+//		content=content.substring(3, content.length()-4);
+//		evaluation.setCompany(company);
+//		evaluation.setContent(content);
+//		evaluation.setEmail(email);
+//		evaluation.setName(name);
+//		evaluation.setPhone(phone);
+//		evaluation.setPosition(position);
+//		evaluation.setScore(score);
+//		evaluation.setCourse(course);
+//		System.out.println("test_2: "+evaluation.getName());
 		boolean result = evaluateService.updateEvaluation(evaluation);
 		System.out.println("test_3: "+result);
 		if(result){
@@ -123,6 +124,16 @@ public class EvaluationAction extends BaseAction{
 		}else
 			return ERROR;
 	}
+	
+	public String eDetailEvaluate(){
+		evaluation=evaluateService.findById(1);
+		return SUCCESS;
+}
+	
+	public String sDetailEvaluate(){
+		return SUCCESS;
+}
+	
 	public void setEvaluateService(IEvaluateService evaluateService) {
 		this.evaluateService = evaluateService;
 	}
