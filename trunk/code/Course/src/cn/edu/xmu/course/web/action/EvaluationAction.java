@@ -117,6 +117,7 @@ public class EvaluationAction extends BaseAction{
 //		evaluation.setScore(score);
 //		evaluation.setCourse(course);
 //		System.out.println("test_2: "+evaluation.getName());
+		System.out.println(evaluation.getEmail());
 		boolean result = evaluateService.updateEvaluation(evaluation);
 		System.out.println("test_3: "+result);
 		if(result){

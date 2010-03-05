@@ -1,17 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.fckeditor.net" prefix="FCK"%>
 <%@ include file="../commons/taglibs.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
 
 	<head>
+		<META http-equiv=Content-Type content="text/html; charset=UTF-8">
 		<META http-equiv=Pragma content=no-cache>
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/student.css" type=text/css rel=stylesheet>
 		<title>厦门大学精品课程</title>
-		<meta http-equiv="Content-Style-Type" content="text/css">
 		<link href="${ctx}/coursepage/default.css" rel="stylesheet"
 			type="text/css" />
 	</head>
@@ -55,13 +55,7 @@
 					<tr class="bg">
 						<td class="first" align="center">
 							<br>
-							<a href="<s:url action="eDetailEvaluateAction"> 
-	                     											<s:param name="courseId"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-	                					<s:param name="evaluation"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>								</s:url>">
+							<a href="eDetailEvaluateAction.action">
 							我要评价</a>
 
 						</td>
