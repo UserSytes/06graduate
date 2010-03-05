@@ -13,6 +13,14 @@ public interface IEvaluateService {
 	public boolean updateEvaluation(Evaluation evaluation); 
 	public Evaluation findById(Integer id); 
 	public Float calculatStudent(int courseId);
-	public Course findCourseById(int courseId);
+
 	public List<Evaluation>  findEvaluationByCourseId(int courseId);
+	
+	/**
+	 * ÑûÇë×¨¼ÒÆÀ¼Û
+	 * @param evaluation
+	 * @param course
+	 * @return
+	 */
+	public boolean addEvaluation(Evaluation evaluation, Course course);
 }
