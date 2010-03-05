@@ -244,6 +244,22 @@ a.v1:visited {
 												</tr>
 											</table>
 										</td>
+<td width="75">
+											<table width="73" border="0" align="center" cellpadding="0"
+												cellspacing="0">
+												<tr>
+													<td height="25"
+														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
+														<div align="center">
+															
+															<span class="STYLE1"><A
+																href="getEvaluationByCourseAction.action"
+																target=mainFrame class="v1">课程评价</A> </span>
+														</div>
+													</td>
+												</tr>
+											</table>
+										</td>
 										<td>
 											&nbsp;
 										</td>

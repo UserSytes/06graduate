@@ -61,7 +61,6 @@
 
 		<s:form action="updateBookAction" method="post"
 			enctype="multipart/form-data" onsubmit="return check(this);">
-
 			<s:hidden name="book.id"></s:hidden>
 			<s:hidden name="book.course.id"></s:hidden>
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
