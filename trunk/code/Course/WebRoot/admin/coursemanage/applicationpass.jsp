@@ -15,7 +15,7 @@
 			{
 				if (form.refuseReason.value == "")
 				{
-					alert("退回原因不能为空！");
+					alert("反馈信息不能为空！");
 					return false;
 				}
 				return true;
@@ -39,19 +39,24 @@
 				</td>
 			</tr>
 		</table>
-		<s:form action="courseNoPassAction" onsubmit="return check(this);">
+		<s:form action="coursePassAction" onsubmit="return check(this);">
 			<s:hidden name="course.id" />
+			<s:hidden name="course.name" />
+			<s:hidden name="course.remark" />
+			<s:hidden name="course.department.id" />
+			<s:hidden name="course.teacher.id" />
+			<s:hidden name="course.level" />
+			<s:hidden name="course.status" />
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
-					<td class=editHeaderTd colSpan=7>
-						请填写退回原因
-					</td>
+					<td class=editHeaderTd colSpan=7> 申报课程详细信息
+				<br></td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
-						<div align="center">
-							课程名称：
+						<div align="center"> 
+							课程名称： 
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
@@ -106,12 +111,12 @@
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							退回原因：
+							反馈信息：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" id="refuseReason" name="refuseReason" label="退回原因"></s:textfield>&nbsp;*
+						<s:textfield cssClass="INPUT" id="refuseReason" name="refuseReason" value="该课程通过审核，可以上传教学资料!" label="发聩信息"></s:textfield>&nbsp;*
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">
@@ -119,7 +124,7 @@
 						&nbsp;
 					</td>
 					<td width="80%">						
-						<s:submit onclick="return check(this);JAVAscript:if(!confirm('确认退回？')) return false;return true;" cssClass="label" value="退回"></s:submit>
+						<s:submit cssClass="label" value="审核通过"></s:submit>
 					</td>
 				</tr>
 			</table>

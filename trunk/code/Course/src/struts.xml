@@ -93,6 +93,7 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
+		
 		<action name="addStudentAction" method="addStudent" class="studentAction">
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
@@ -515,13 +516,18 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
+		<action name="passInfoAction" method="courseDetail" class="courseAction">
+			<result name="success">/admin/coursemanage/applicationpass.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		<action name="refuseReasonAction" method="courseDetail" class="courseAction">
 			<result name="success">/admin/coursemanage/applicationdetail.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="coursePassAction" method="coursePass" class="courseAction">
-			<result name="success">/admin/coursemanage/applicationlist.jsp
+			<result name="success">/admin/coursemanage/courselist.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>

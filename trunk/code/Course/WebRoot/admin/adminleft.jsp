@@ -124,9 +124,8 @@ border=0>
                 <tr>
                   <td><img src="Images/closed.gif" /></td>
                   <td height="23"><a href="<s:url action='goAddStudentAction'> </s:url>"
-														target="main">添加学生</a>┆<a 
-            href="Article/SetArticle.asp" 
-            target="main">批量添加</a></td>
+														target="main">添加学生</a>┆<a href="<s:url action='goAddMoreStudentAction'> </s:url>"
+														target="main">批量添加</a></td>
                 </tr>		
               </TBODY>
           </TABLE></TD>
