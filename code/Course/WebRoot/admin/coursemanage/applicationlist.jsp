@@ -63,11 +63,11 @@
 						</td>
 						<td width="20%">
 							<a
-								href="<s:url action="coursePassAction">
+								href="<s:url action="passInfoAction">
                      			<s:param name="courseId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
-                					</s:url>"  onclick="JAVAscript:if(!confirm('确认通过？')) return false;return true;">
+                					</s:url>">
 								<font color="green">【通过】</font>
 							</a>
 							<a

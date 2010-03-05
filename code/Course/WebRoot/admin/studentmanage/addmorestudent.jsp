@@ -9,13 +9,33 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
-		<title>省报课程详细</title>
+		<title>添加学生</title>
 		<SCRIPT language=javascript>
 			function check(form)
 			{
-				if (form.refuseReason.value == "")
+				if (form.name.value == "")
 				{
-					alert("退回原因不能为空！");
+					alert("姓名不能为空！");
+					return false;
+				}
+				if (form.sex.value == -1)
+				{
+					alert("性别不能为空！");
+					return false;
+				}
+				if (form.departmentId.value == -1)
+				{
+					alert("所属系不能为空！");
+					return false;
+				}
+				if (form.gradeId.value == -1)
+				{
+					alert("年级不能为空！");
+					return false;
+				}
+				if (form.studentNo.value == "")
+				{
+					alert("账号不能为空！");
 					return false;
 				}
 				return true;
@@ -35,39 +55,17 @@
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 课程管理 -&gt; 申报课程列表 -&gt; <s:text name="">${course.name}</s:text>
+					当前位置: 学生管理 -&gt; 添加学生
 				</td>
 			</tr>
 		</table>
-		<s:form action="courseNoPassAction" onsubmit="return check(this);">
-			<s:hidden name="course.id" />
+		<s:form action="addMoreStudentAction" method="post"
+			onsubmit="return check(this);">
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						请填写退回原因
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							课程名称：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-						<s:text name="">${course.name}</s:text>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							授课教师：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-						<s:text name="">${course.teacher.userInfo.name}</s:text>
+						请选择新学生信息
 					</td>
 				</tr>
 				<tr>
@@ -78,48 +76,56 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:text name="">${course.department.name}</s:text>
+						<s:select name="departmentId"
+							list="departmentList" headerKey="-1" headerValue="请选择"
+							listKey="id" listValue="name" />
+						&nbsp;*
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							级别：
+							年级：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:text name="">${course.level}</s:text>
+						<s:select name="gradeId"
+							list="gradeList" headerKey="-1" headerValue="请选择"
+							listKey="id" listValue="name+grade" />
+						&nbsp;*
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							简介：
+							账号：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:text name="">${course.remark}</s:text>
+						<input type="File" NAME="studentFile">
+						&nbsp;*
 					</td>
 				</tr>
+
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							退回原因：
+							登陆密码：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" id="refuseReason" name="refuseReason" label="退回原因"></s:textfield>&nbsp;*
+						<font color="#808080">初始密码为与账号相同 </font>&nbsp;
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">
 					<td width="20%">
 						&nbsp;
 					</td>
-					<td width="80%">						
-						<s:submit onclick="return check(this);JAVAscript:if(!confirm('确认退回？')) return false;return true;" cssClass="label" value="退回"></s:submit>
+					<td width="80%">
+						<s:submit cssClass="label" value="确定添加"></s:submit>
 					</td>
 				</tr>
 			</table>

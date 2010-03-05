@@ -192,11 +192,12 @@ public class CourseAction extends BaseAction {
 	 * @return
 	 */
 	public String coursePass() {
-		course = courseService.getCourseById(courseId);
+		course = courseService.getCourseById(course.getId());
 		course.setStatus(1);
+		course.setRefuseReason(refuseReason);
 		boolean result = courseService.updateCourse(course);
 		if (result) {
-			this.findApplicationCourse();
+			this.findCourse();
 			addActionError(course.getName()+"¿Î³ÌÍ¨¹ýÉóºË£¡");
 			return SUCCESS;
 		} else

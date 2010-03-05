@@ -1,6 +1,11 @@
 package cn.edu.xmu.course.web.action;
 
+import java.io.File;
 import java.util.List;
+
+import jxl.Cell;
+import jxl.Sheet;
+import jxl.Workbook;
 
 import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Department;
@@ -11,8 +16,18 @@ import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.IStudentInfoService;
 import cn.edu.xmu.course.service.ISuperAdminService;
 
+/**
+ * 学生查找、添加、删除
+ * 
+ * @author Sky
+ * 
+ */
 public class StudentAction extends BaseAction {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private IStudentInfoService studentInfoService;
 	private ISuperAdminService superAdminService;
 
@@ -29,6 +44,10 @@ public class StudentAction extends BaseAction {
 	private int departmentId;
 	private int gradeId;
 	private int studentId;
+
+	private File studentFile;
+	private String studentFileContentType;
+	private String studentFileName;
 
 	/**
 	 * 获取某学院的所有系
@@ -93,6 +112,33 @@ public class StudentAction extends BaseAction {
 	}
 
 	/**
+	 * 批量添加学生
+	 * 
+	 * @return
+	 */
+	public String addMoreStudent() {
+		Grade grade = superAdminService.findGradeById(gradeId);
+		Department department = superAdminService
+				.findDepartmentById(departmentId);
+		// studentFile.
+		try {
+			Workbook book = Workbook.getWorkbook(studentFile);
+			// 获得第一个工作表对象
+			Sheet sheet = book.getSheet(0);
+			// 得到第一列第一行的单元格
+			Cell cell1 = sheet.getCell(0, 1);
+
+			String result = cell1.getContents();
+			System.out.println(result);
+			book.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return SUCCESS;
+	}
+
+	/**
 	 * 查找所有的年级
 	 * 
 	 * @return
@@ -118,7 +164,7 @@ public class StudentAction extends BaseAction {
 			department = superAdminService.findDepartmentById(departmentId);
 			studentList = studentInfoService.findByDepartment(department);
 			if (studentList.size() == 0) {
-				addActionMessage(department.getName()+"尚未添加学生！");
+				addActionMessage(department.getName() + "尚未添加学生！");
 				return ERROR;
 			} else {
 				this.goAddStudent();
@@ -128,7 +174,8 @@ public class StudentAction extends BaseAction {
 			grade = superAdminService.findGradeById(gradeId);
 			studentList = studentInfoService.findByGrade(grade);
 			if (studentList.size() == 0) {
-				addActionMessage(grade.getName()+grade.getGrade()+"级 尚未添加学生！");
+				addActionMessage(grade.getName() + grade.getGrade()
+						+ "级 尚未添加学生！");
 				return ERROR;
 			} else {
 				this.goAddStudent();
@@ -137,9 +184,11 @@ public class StudentAction extends BaseAction {
 		} else {
 			department = superAdminService.findDepartmentById(departmentId);
 			grade = superAdminService.findGradeById(gradeId);
-			studentList = studentInfoService.findByDepartmentAndGrade(department, grade);
+			studentList = studentInfoService.findByDepartmentAndGrade(
+					department, grade);
 			if (studentList.size() == 0) {
-				addActionMessage(grade.getName()+grade.getGrade()+"级"+department.getName()+"尚未添加学生！");
+				addActionMessage(grade.getName() + grade.getGrade() + "级"
+						+ department.getName() + "尚未添加学生！");
 				return ERROR;
 			} else {
 				this.goAddStudent();
@@ -178,23 +227,23 @@ public class StudentAction extends BaseAction {
 		this.findAllGrade();
 		student = studentInfoService.findById(studentId);
 		userInfo = student.getUserInfo();
-		if(null == student){
+		if (null == student) {
 			return ERROR;
-		}
-		else
+		} else
 			return SUCCESS;
 	}
-	
+
 	/**
 	 * 编辑学生信息
+	 * 
 	 * @return
 	 */
-	public String editStudent(){
+	public String editStudent() {
 		boolean result = studentInfoService.updateStudent(student, userInfo);
-		if(result){
+		if (result) {
 			addActionMessage("修改学生信息成功！");
 			return SUCCESS;
-		}else
+		} else
 			return ERROR;
 	}
 
@@ -215,17 +264,19 @@ public class StudentAction extends BaseAction {
 
 	/**
 	 * 批量删除学生
+	 * 
 	 * @return
 	 */
-	public String deleteStudentList(){
-		System.out.println("测试1： "+studentList.size());
-		for(Student s: studentList){
-			System.out.println("测试中： "+s.getStudentNo());
+	public String deleteStudentList() {
+		System.out.println("测试1： " + studentList.size());
+		for (Student s : studentList) {
+			System.out.println("测试中： " + s.getStudentNo());
 			studentInfoService.deleteStudent(s);
 		}
 		System.out.println("测试2： ");
 		return SUCCESS;
 	}
+
 	public IStudentInfoService getStudentInfoService() {
 		return studentInfoService;
 	}
@@ -328,6 +379,30 @@ public class StudentAction extends BaseAction {
 
 	public void setDepartment(Department department) {
 		this.department = department;
+	}
+
+	public File getStudentFile() {
+		return studentFile;
+	}
+
+	public void setStudentFile(File studentFile) {
+		this.studentFile = studentFile;
+	}
+
+	public String getStudentFileContentType() {
+		return studentFileContentType;
+	}
+
+	public void setStudentFileContentType(String studentFileContentType) {
+		this.studentFileContentType = studentFileContentType;
+	}
+
+	public String getStudentFileName() {
+		return studentFileName;
+	}
+
+	public void setStudentFileName(String studentFileName) {
+		this.studentFileName = studentFileName;
 	}
 
 }
