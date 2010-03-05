@@ -1,14 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.fckeditor.net" prefix="FCK"%>
 <%@ include file="../commons/taglibs.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
 
 	<head>
-		<LINK href="${ctx}/css/student.css" type=text/css rel=stylesheet>
+		<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+		<META http-equiv=Pragma content=no-cache>
+		<META http-equiv=Cache-Control content=no-cache>
+		<META http-equiv=Expires content=-1000>
 		<title>厦门大学精品课程</title>
-		<meta http-equiv="Content-Style-Type" content="text/css">
 		<link href="${ctx}/coursePage/default.css" rel="stylesheet"
 			type="text/css" />
 	</head>
@@ -39,8 +41,8 @@
 				</table>
 				<s:form action="expertEvaluateAction" method="post"
 					onsubmit="return check(this);">
-<s:hidden name="evaluatation.id"></s:hidden>
-<s:hidden name="evaluatation.course.id"></s:hidden>
+<s:hidden name="evaluation.id"></s:hidden>
+<s:hidden name="evaluation.course.id"></s:hidden>
 					<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 						align=center border=0>
 						<tr class=editHeaderTr>
@@ -57,7 +59,7 @@
 							<td colspan="3" bgcolor="#FFFFFF">
 								&nbsp;&nbsp;&nbsp;
 								<s:textfield cssClass="INPUT" id="expertName"
-									name="evaluatation.name" label="姓名"></s:textfield>
+									name="evaluation.name" label="姓名"></s:textfield>
 								&nbsp;*
 							</td>
 						</tr>
@@ -70,7 +72,7 @@
 							<td colspan="3" bgcolor="#FFFFFF">
 								&nbsp;&nbsp;&nbsp;
 								<s:textfield cssClass="INPUT" id="expertCompany"
-									name="evaluatation.company" label="单位"></s:textfield>
+									name="evaluation.company" label="单位"></s:textfield>
 								&nbsp;*
 							</td>
 						</tr>
@@ -83,7 +85,7 @@
 							<td colspan="3" bgcolor="#FFFFFF">
 								&nbsp;&nbsp;&nbsp;
 								<s:textfield cssClass="INPUT" id="expertPosition"
-									name="evaluatation.position" label="职位"></s:textfield>
+									name="evaluation.position" label="职位"></s:textfield>
 								&nbsp;*
 							</td>
 						</tr>
@@ -96,7 +98,7 @@
 							<td colspan="3" bgcolor="#FFFFFF">
 								&nbsp;&nbsp;&nbsp;
 								<s:textfield cssClass="INPUT" id="expertPhone"
-									name="evaluatation.phone" label="电话"></s:textfield>
+									name="evaluation.phone" label="电话"></s:textfield>
 
 							</td>
 						</tr>
@@ -109,7 +111,7 @@
 							<td colspan="3" bgcolor="#FFFFFF">
 								&nbsp;&nbsp;&nbsp;
 								<s:textfield cssClass="INPUT" id="expertEmail"
-									name="evaluatation.email" label="邮箱"></s:textfield>
+									name="evaluation.email" label="邮箱"></s:textfield>
 
 							</td>
 
@@ -144,9 +146,10 @@
 						</tr>
 						<tr class="bg">
 							<td colspan="4" bgcolor="#FFFFFF">
-								<FCK:editor instanceName="evaluatation.content" width="100%"
+								<FCK:editor instanceName="evaluation.content" width="100%"
 									height="405" toolbarSet="Default">
 									<jsp:attribute name="value">
+<s:property value="evaluation.content" escape="false"/>
                             </jsp:attribute>
 								</FCK:editor>
 							</td>
