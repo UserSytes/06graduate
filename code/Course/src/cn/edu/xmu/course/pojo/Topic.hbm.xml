@@ -10,7 +10,7 @@
             <column name="id" />
             <generator class="increment" />
         </id>
-        <many-to-one name="course" class="cn.edu.xmu.course.pojo.Course" lazy="false" fetch="select">
+        <many-to-one name="course" class="cn.edu.xmu.course.pojo.Course" fetch="select">
             <column name="course_id" />
         </many-to-one>
         <property name="name" type="java.lang.String">
@@ -27,6 +27,12 @@
         </property>
         <property name="countPerson" type="java.lang.Integer">
             <column name="count_person" />
+        </property>
+        <property name="lastUpdate" type="java.util.Date">
+            <column name="last_update" length="19" />
+        </property>
+        <property name="countReply" type="java.lang.Integer">
+            <column name="count_reply" />
         </property>
         <set name="messages" inverse="true">
             <key>
