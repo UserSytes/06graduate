@@ -274,6 +274,11 @@
 			<result name="success">/teacher/courseinfomanage/evaluationlist.jsp
 			</result>
 		</action>
+		<action name="getEvaluationDetailAction" method="getEvaluationDetail"
+			class="evaluationAction">
+			<result name="success">/teacher/courseinfomanage/viewevaluation.jsp
+			</result>
+		</action>
 		<action name="addEvaluationAction" method="addEvaluation"
 			class="evaluationAction">
 			<result name="success" type="redirect-action">getEvaluationListByCourseAction

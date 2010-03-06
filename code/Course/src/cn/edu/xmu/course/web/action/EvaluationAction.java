@@ -3,6 +3,8 @@ package cn.edu.xmu.course.web.action;
 import java.util.List;
 import java.util.ListIterator;
 
+import org.apache.struts2.components.ActionError;
+
 import cn.edu.xmu.course.dao.EvaluationDAO;
 import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Course;
@@ -71,25 +73,7 @@ public class EvaluationAction extends BaseAction {
 			return ERROR;
 		} else
 			return SUCCESS;
-	}
-
-	/**
-	 * 获取课程评价结果（教师）
-	 * 
-	 * @return
-	 */
-	public String getEvaluationResult(){
-		
-		Object[] evaluationResult = evaluateService.getEvaluationCalculateResult(super.getCourse().getId());
-		Object[] scResult = evaluateService.getStudentCourseCalculateResult(super.getCourse().getId());
-		stuCount = scResult[0];
-		expertCount = evaluationResult[0];
-		if(scResult[1]!=null)
-			stuAvgScore = scResult[1];
-		if(evaluationResult[1]!=null)
-			expertAvgScore = evaluationResult[1];
-		return SUCCESS;
-	}
+	}	
 
 	/**
 	 * 专家课程评价内容
@@ -154,9 +138,55 @@ public class EvaluationAction extends BaseAction {
 	public String eDetailEvaluate() {
 		evaluation = evaluateService.findById(1);
 		return SUCCESS;
+	
+	
+	}
+	public String sDetailEvaluate() {
+		return SUCCESS;
+	}
+	
+	/**
+	 * 获得该课程评价列表（教师）
+	 * @return
+	 */
+	public String getEvaluationListByCourse() {
+		evaluationList = evaluateService.findEvaluationByCourseId(super.getCourse().getId());
+		return SUCCESS;
+	}
+	
+	/**
+	 * 获取课程评价结果（教师）
+	 * 
+	 * @return
+	 */
+	public String getEvaluationResult(){
+		
+		Object[] evaluationResult = evaluateService.getEvaluationCalculateResult(super.getCourse().getId());
+		Object[] scResult = evaluateService.getStudentCourseCalculateResult(super.getCourse().getId());
+		stuCount = scResult[0];
+		expertCount = evaluationResult[0];
+		if(scResult[1]!=null)
+			stuAvgScore = scResult[1];
+		if(evaluationResult[1]!=null)
+			expertAvgScore = evaluationResult[1];
+		return SUCCESS;
+	}
+	
+	/**
+	 * 邀请新的专家进行评价（教师)
+	 * @return
+	 */
+	public String addEvaluation(){
+		if(evaluateService.addEvaluation(evaluation, super.getCourse()))
+			return SUCCESS;
+		else {
+			addActionError("邀请专家时发生错误，请重新操作！");
+			return ERROR;
+		}		
 	}
 
-	public String sDetailEvaluate() {
+	public String getEvaluationDetail(){
+		evaluation = evaluateService.findById(evaluationId);
 		return SUCCESS;
 	}
 
