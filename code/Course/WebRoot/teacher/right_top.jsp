@@ -253,7 +253,7 @@ a.v1:visited {
 														<div align="center">
 															
 															<span class="STYLE1"><A
-																href="getEvaluationByCourseAction.action"
+																href="getEvaluationResultByCourseAction.action"
 																target=mainFrame class="v1">课程评价</A> </span>
 														</div>
 													</td>

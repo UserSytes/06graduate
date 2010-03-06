@@ -80,6 +80,19 @@ public class StudentCourseDAO extends HibernateDaoSupport {
 		}
 	}
 
+	public List findCountAndScoreAvg(int courseId) {
+		log.debug("finding Evaluation instance with property: course"
+				+ ", value: " + courseId);
+		try {
+			String queryString = "select count(*),avg(score) from StudentCourse as model where model.course.id"
+					+"= "+courseId;
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	
 	public List findByProperty(String propertyName, Object value) {
 		log.debug("finding StudentCourse instance with property: "
 				+ propertyName + ", value: " + value);
