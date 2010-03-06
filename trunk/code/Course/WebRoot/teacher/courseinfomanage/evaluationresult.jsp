@@ -50,7 +50,6 @@
 			<tr>
 				<td bgcolor="#FFFDF0">
 					<div align="left">
-						<br>
 						<font size="3">&nbsp;&nbsp;&nbsp;平均得分: <s:property value="stuAvgScore"/><br> </font>
 						<font size="3">&nbsp;&nbsp;&nbsp;评价人数: <s:property value="stuCount"/><br> </font>
 					</div>
@@ -68,7 +67,6 @@
 			<tr>
 				<td bgcolor="#FFFDF0">
 					<div align="left">
-						<br>
 						<font size="3">&nbsp;&nbsp;&nbsp;平均得分: <s:property value="expertAvgScore"/> <a
 							href="getEvaluationListByCourseAction.action">
 								<font color="green">【查看详情】</font> </a>

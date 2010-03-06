@@ -228,17 +228,33 @@ a.v1:visited {
 												</tr>
 											</table>
 										</td>
-<td width="75">
+										<td width="75">
 											<table width="73" border="0" align="center" cellpadding="0"
 												cellspacing="0">
 												<tr>
 													<td height="25"
 														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
 														<div align="center">
-															
+
 															<span class="STYLE1"><A
 																href="getAchievementListByCourseAction.action"
 																target=mainFrame class="v1">教学成果</A> </span>
+														</div>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td width="75">
+											<table width="73" border="0" align="center" cellpadding="0"
+												cellspacing="0">
+												<tr>
+													<td height="25"
+														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
+														<div align="center">
+
+															<span class="STYLE1"><A
+																href="getEvaluationResultByCourseAction.action"
+																target=mainFrame class="v1">课程评价</A> </span>
 														</div>
 													</td>
 												</tr>
@@ -251,10 +267,10 @@ a.v1:visited {
 													<td height="25"
 														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
 														<div align="center">
-															
+
 															<span class="STYLE1"><A
 																href="getEvaluationResultByCourseAction.action"
-																target=mainFrame class="v1">课程评价</A> </span>
+																target=mainFrame class="v1">师生留言</A> </span>
 														</div>
 													</td>
 												</tr>
@@ -269,6 +285,7 @@ a.v1:visited {
 						</tr>
 					</table>
 				</td>
+
 			</tr>
 			<tr>
 				<td background="images/right_09.gif" style="line-height: 5px;">
