@@ -79,7 +79,7 @@ public class NewsService implements INewsService {
 //				}
 				String path = ServletActionContext.getServletContext().getRealPath(
 				"/upload");
-				String fileName = path + "/newsUpload/" + myFileFileName[i];
+				String fileName = path + "/newsUpload/" +new Date().getTime()+"_"+ myFileFileName[i];
 				File file = new File(fileName);
 
 				if (!FileOperation.copy(myFile[i], file))

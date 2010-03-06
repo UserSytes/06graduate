@@ -17,6 +17,15 @@
 			<ref bean="superAdminService" />
 		</property>
 	</bean>
+	<bean id="topicManageAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.TopicManageAction">
+		<property name="topicService">
+			<ref bean="topicService" />
+		</property>
+		<property name="messageService">
+			<ref bean="messageService" />
+		</property>
+	</bean>
 	<bean id="applicationFormAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.ApplicationFormAction">
 		<property name="applicationFormService">

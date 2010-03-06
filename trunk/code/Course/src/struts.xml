@@ -630,6 +630,24 @@
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		
+		<!--学院留言管理模块-->
+		<action name="goSchoolTopicAction" method="getTopicBySchool" class="topicManageAction">
+			<result name="success">/admin/messagemanage/topiclist.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="searchTopicByKeyAction" method="searchTopic" class="topicManageAction">
+			<result name="success">/admin/messagemanage/topiclist.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="viewTopicAction" method="getMessageByTopic" class="topicManageAction">
+			<result name="success">/admin/messagemanage/messagelist.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteTopicAction" method="deleteTopic" class="topicManageAction">
+			<result name="success">/admin/messagemanage/topiclist.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		
 		<!--1、学院管理模块-->
 		<action name="addSchoolAction" method="addSchool" class="schoolManageAction">
 			<result name="success">/commons/prompt.jsp</result>
