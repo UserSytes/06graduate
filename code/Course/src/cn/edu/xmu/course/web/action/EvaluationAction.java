@@ -1,20 +1,16 @@
 package cn.edu.xmu.course.web.action;
 
 import java.util.List;
-import java.util.ListIterator;
 
-import org.apache.struts2.components.ActionError;
-
-import cn.edu.xmu.course.dao.EvaluationDAO;
-import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Evaluation;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.StudentCourse;
 import cn.edu.xmu.course.service.IEvaluateService;
 
-@SuppressWarnings("unchecked")
+
 public class EvaluationAction extends BaseAction {
+
 	private IEvaluateService evaluateService;
 	private StudentCourse studentCourse;
 	private Float score;
@@ -25,8 +21,8 @@ public class EvaluationAction extends BaseAction {
 	private Course course;
 	private int courseId;
 	private int evaluationId;
-	private Object stuAvgScore;
-	private Object expertAvgScore;
+	private Object stuAvgScore=0;
+	private Object expertAvgScore=0;
 	private Object stuCount;
 	private Object expertCount;
 	private List<Evaluation> evaluationList;
@@ -93,7 +89,6 @@ public class EvaluationAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String studentEvaluate() {
 		// student = (Student) ActionSession.getSession().get(STUDENT);
 		// System.out.println("test_1: "+student.getId());
