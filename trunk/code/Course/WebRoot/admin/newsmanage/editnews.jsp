@@ -27,7 +27,61 @@
 				return true;
 				
 			}
-		</SCRIPT>
+</SCRIPT>
+		<script type="text/javascript">
+function cancelFile(){
+document.getElementById("attachmentDiv").style.display="block";
+document.getElementById("conditionTable").style.display="none";
+		 document.getElementById("continue").style.display="none";		
+		 document.getElementById("cancel").style.display="none";
+		 document.getElementById("replay").style.display="block";
+var t=doucument.getElementById(conditionTable); 
+  t.parent.remove(t); 
+}
+		var jj=0;
+		<!--动态增加上传附件-->
+		function readdFile1(){
+		 document.getElementById("replay").style.display="none";
+		 document.getElementById("attachmentDiv").style.display="none";
+		 document.getElementById("conditionTable").style.display="block";
+		 document.getElementById("continue").style.display="block";		
+		 document.getElementById("cancel").style.display="block";		 
+	 currRow=conditionTable.insertRow();
+     cellc=currRow.insertCell();
+     cellcContext= "<input type='File' NAME='myFile'>&nbsp;&nbsp;<button onclick='removeFile();'>删除</button><br>";
+     cellc.innerHTML=cellcContext;
+     
+     //alert(cellcContext);
+	    
+	}
+	function addFile11(){
+	 currRow=conditionTable.insertRow();
+     cellc=currRow.insertCell();
+     cellcContext= "<input type='File' NAME='myFile'>&nbsp;&nbsp;<button onclick='removeFile();'>删除</button><br>";
+     cellc.innerHTML=cellcContext;
+     
+     //alert(cellcContext);
+	    
+	}
+	<!--在表的td中增加-->
+	function findTD(o){
+if (o.nodeName=="TR"||o.nodeName=="TABLE") return;
+if(o.nodeName=="TD")
+return (o);
+else
+return (o.parentElement);
+}
+
+<!--删除一个附件-->
+function removeFile(){
+  o = findTD(event.srcElement);
+  //alert(o.parentElement.rowIndex*1);
+conditionTable.deleteRow(o.parentElement.rowIndex*1);
+
+
+}
+</script>
+
 		<style type="text/css">
 <!--
 .STYLE1 {
@@ -64,7 +118,9 @@
 						</div>
 					</td>
 					<td colspan="4" bgcolor="#FFFFFF">
-						<s:textfield cssClass="INPUT" id="title" name="news.title" label="标题"></s:textfield>&nbsp;*
+						<s:textfield cssClass="INPUT" id="title" name="news.title"
+							label="标题"></s:textfield>
+						&nbsp;*
 					</td>
 				</tr>
 				<tr>
@@ -74,7 +130,9 @@
 						</div>
 					</td>
 					<td colspan="4" bgcolor="#FFFFFF">
-						<s:textfield cssClass="INPUT" id="author" name="news.author" label="作者"></s:textfield>&nbsp;*
+						<s:textfield cssClass="INPUT" id="author" name="news.author"
+							label="作者"></s:textfield>
+						&nbsp;*
 					</td>
 				</tr>
 				<tr>
@@ -87,6 +145,7 @@
 						<FCK:editor instanceName="news.content" width="100%" height="405"
 							toolbarSet="Default">
 							<jsp:attribute name="value">
+							<s:property escape="false" value="news.content" />
                             </jsp:attribute>
 						</FCK:editor>
 					</td>
@@ -98,7 +157,29 @@
 						</div>
 					</td>
 					<td bgcolor="#FFFFFF">
-						<s:file></s:file>
+						<div id=attachmentDiv>
+							<s:iterator value="attachmentList" status="attachment">
+								<img src="${ctx}/admin/Images/i_attach.gif" />
+								<a
+									href="<s:url action="download"> 
+                     			<s:param name="fileName"> 
+                       			 	<s:property value="fileLink"/> 
+                    			</s:param> 
+								<s:param name="originalFileName"> 
+                       			 	<s:property value="filename"/> 
+                    			</s:param> 
+                					</s:url>">
+									<font color="blue"><s:property value="filename" /> </font> </a>
+							</s:iterator>
+						</div>
+						<table id=conditionTable border=0>
+						</table>
+						<a href="javascript:readdFile1();" id="replay">重新上传</a>
+						<a href="javascript:addFile11();" id="continue"
+							style="display: none">继续上传</a>
+						<a href="javascript:cancelFile();" id="cancel"
+							style="display: none">
+							取消上传</a>
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">
