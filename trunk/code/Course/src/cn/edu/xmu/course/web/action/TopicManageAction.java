@@ -51,6 +51,7 @@ public class TopicManageAction extends BaseAction{
 		topic = topicService.getTopicById(topicId);
 		boolean result = topicService.deleteTopic(topic);
 		if(result){
+			this.getTopicBySchool();
 			return SUCCESS;
 		}else{
 			return ERROR;
@@ -63,7 +64,8 @@ public class TopicManageAction extends BaseAction{
 	 */
 	public String getMessageByTopic(){
 		topic = topicService.getTopicById(topicId);
-		messageList = messageService.getAllMessages(topic);
+		messageList = messageService.getMessageByTopic(topic);
+		//System.out.println(messageList.get(0).getUserInfo().getName());
 		if(messageList.size()==0){
 			addActionMessage("本主题目前还无回复！");
 			return ERROR;
@@ -73,13 +75,15 @@ public class TopicManageAction extends BaseAction{
 	}
 	
 	/**
-	 * 删除留言主题
+	 * 删除留言
 	 * @return
 	 */
 	public String deleteMessage(){
 		message = messageService.getMessageById(messageId);
+		topic = message.getTopic();
 		boolean result = messageService.deleteMessage(message);
 		if(result){
+			messageList = messageService.getMessageByTopic(topic);
 			return SUCCESS;
 		}else{
 			return ERROR;

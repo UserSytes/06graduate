@@ -647,6 +647,10 @@
 			<result name="success">/admin/messagemanage/topiclist.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
+		<action name="deleteMessageAction" method="deleteMessage" class="topicManageAction">
+			<result name="success">/admin/messagemanage/messagelist.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		
 		<!--1、学院管理模块-->
 		<action name="addSchoolAction" method="addSchool" class="schoolManageAction">
