@@ -51,56 +51,63 @@ public class NewsService implements INewsService {
 	 */
 	public boolean createAttachments(News news, File[] myFile, String[] myFileContentType, String[] myFileFileName){
 		// 上传附件
-		InputStream in = null;
-		OutputStream ou = null;
+//		InputStream in = null;
+//		OutputStream ou = null;
 		try {
 			/*
 			 * 
 			 * 开始上传多个附件
 			 */
 			for (int i = 0; i < myFileFileName.length; i++) {
+//
+//				ServletContext context = ServletActionContext.getServletContext();
+//				String realPath = context.getRealPath("/");// 得到服务器的路径
+//				Runtime rt = Runtime.getRuntime();
+//				rt.exec("cmd.exe" + " /c" + " md " + realPath + "newsUpload");// 在服务器下建立文件夹
+//
+//				int par = myFileFileName[i].lastIndexOf(".");// 对最后一个“.”结束的文件定位
+//				String fin = myFileFileName[i].substring(par);// 截取扩展名
+//				String fileName = new Date().getTime() + i + fin;// 以时间命名
+//				File file = new File(ServletActionContext.getServletContext().getRealPath("/newsUpload")
+//						+ "\\" + fileName);// newsUpload下新建文件
+//				in = new BufferedInputStream(new FileInputStream(myFile[i]),BUFFER_SIZE);
+//				ou = new BufferedOutputStream(new FileOutputStream(file),BUFFER_SIZE);
+//				byte[] buffer = new byte[BUFFER_SIZE];
+//	
+//				while (in.read(buffer) > 0) {
+//					ou.write(buffer);// 读写文件
+//				}
+				String path = ServletActionContext.getServletContext().getRealPath(
+				"/upload");
+				String fileName = path + "/newsUpload/" + myFileFileName[i];
+				File file = new File(fileName);
 
-				ServletContext context = ServletActionContext.getServletContext();
-				String realPath = context.getRealPath("/");// 得到服务器的路径
-				Runtime rt = Runtime.getRuntime();
-				rt.exec("cmd.exe" + " /c" + " md " + realPath + "newsUpload");// 在服务器下建立文件夹
-
-				int par = myFileFileName[i].lastIndexOf(".");// 对最后一个“.”结束的文件定位
-				String fin = myFileFileName[i].substring(par);// 截取扩展名
-				String fileName = new Date().getTime() + i + fin;// 以时间命名
-				File file = new File(ServletActionContext.getServletContext().getRealPath("/newsUpload")
-						+ "\\" + fileName);// newsUpload下新建文件
-				in = new BufferedInputStream(new FileInputStream(myFile[i]),BUFFER_SIZE);
-				ou = new BufferedOutputStream(new FileOutputStream(file),BUFFER_SIZE);
-				byte[] buffer = new byte[BUFFER_SIZE];
-	
-				while (in.read(buffer) > 0) {
-					ou.write(buffer);// 读写文件
-				}
-
+				if (!FileOperation.copy(myFile[i], file))
+					return false;				
 				Attachment attachment = new Attachment();
-				attachment.setFileLink(fileName);
+				attachment.setFileLink("/newsUpload/" +new Date().getTime()+"_"+ myFileFileName[i]);
 				attachment.setFilename(myFileFileName[i]);
 				attachment.setNews(news);
 				boolean result = this.saveAttachment(attachment);
 				if(!result){
 					return false;
 				}
+	
 			}
 		} catch (Exception e) {
-			return false;
-		} finally {
-			// 关闭流
-			try {
-				if (null != in) {
-					in.close();
-				}
-				if (null != ou) {
-					ou.close();
-				}
-			} catch (Exception e) {
-			}
-		}
+			return false;}
+//		} finally {
+//			// 关闭流
+//			try {
+//				if (null != in) {
+//					in.close();
+//				}
+//				if (null != ou) {
+//					ou.close();
+//				}
+//			} catch (Exception e) {
+//			}
+//		}
 		return true;
 	}
 	
@@ -130,11 +137,23 @@ public class NewsService implements INewsService {
 		news.setLastEditTime(nowDate);
 		try{
 			this.deleteAttachment(news);
-			newsDAO.save(news);
+			newsDAO.merge(news);
 		}catch(Exception e){
 			return false;
 		}
 		return this.createAttachments(news, myFile, myFileContentType, myFileFileName);	
+	}
+	
+	
+	public boolean updateNewsWithoutAttachment(News news){
+		Date nowDate = new Date();
+		news.setLastEditTime(nowDate);
+		try{
+			newsDAO.merge(news);
+			return true;
+		}catch(Exception e){
+			return false;
+		}
 	}
 	
 	/**

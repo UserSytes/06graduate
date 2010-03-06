@@ -59,7 +59,7 @@ public interface INewsService {
 	public List<Attachment> findAttachmentByNews(News news);
 	
 	/**
-	 * 修改新闻
+	 * 修改新闻、修改附件
 	 * @param news
 	 * @param uploads
 	 * @param myFileContentType
@@ -67,4 +67,11 @@ public interface INewsService {
 	 * @return
 	 */
 	public boolean updateNews(News news, File[] uploads, String[] myFileContentType, String[] myFileFileName);
+	
+	/**
+	 * 修改新闻，不修改附件
+	 * @param news
+	 * @return
+	 */
+	public boolean updateNewsWithoutAttachment(News news);
 }

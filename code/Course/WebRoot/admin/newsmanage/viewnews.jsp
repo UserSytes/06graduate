@@ -75,13 +75,20 @@
 					</td>
 					<td bgcolor="#FFFFFF">
 						<s:iterator value="attachmentList" status="attachment">
-							<tr><td><img src="../Images/i_attach.gif" />
+							<img src="${ctx}/admin/Images/i_attach.gif" />
 							<a
-								href='${pageContext.request.contextPath}/newsUpload/<s:property value ="fileLink" /> '>
-								<s:property value="fileName" />
-							</a></td><tr>
+								href="<s:url action="download"> 
+                     			<s:param name="fileName"> 
+                       			 	<s:property value="fileLink"/> 
+                    			</s:param> 
+								<s:param name="originalFileName"> 
+                       			 	<s:property value="filename"/> 
+                    			</s:param> 
+                					</s:url>">
+								<font color="blue"><s:property value="filename" /> </font> </a>
+							
 						</s:iterator>
-					</td>
+						</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">
 					<td width="15%">
