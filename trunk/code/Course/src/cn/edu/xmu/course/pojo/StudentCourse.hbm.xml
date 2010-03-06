@@ -13,7 +13,7 @@
         <many-to-one name="student" class="cn.edu.xmu.course.pojo.Student" lazy="false" fetch="select">
             <column name="student_id" not-null="true" />
         </many-to-one>
-        <many-to-one name="course" class="cn.edu.xmu.course.pojo.Course" lazy="false" fetch="select">
+        <many-to-one name="course" class="cn.edu.xmu.course.pojo.Course" lazy="false" fetch="select" >
             <column name="course_id" />
         </many-to-one>
         <property name="status" type="java.lang.Integer">
@@ -21,9 +21,6 @@
         </property>
         <property name="score" type="java.lang.Float">
             <column name="score" precision="12" scale="0" />
-        </property>
-         <property name="content" type="java.lang.String">
-            <column name="content" length="65535" />
         </property>
     </class>
 </hibernate-mapping>

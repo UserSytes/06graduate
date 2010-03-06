@@ -22,19 +22,19 @@
         <property name="remark" type="java.lang.String">
             <column name="remark" />
         </property>
-        <set name="exercises" inverse="true">
+        <set name="exercises" inverse="true" cascade="delete">
             <key>
                 <column name="part_id" />
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.Exercise" />
         </set>
-        <set name="experiments" inverse="true">
+        <set name="experiments" inverse="true" cascade="delete">
             <key>
                 <column name="part_id" />
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.Experiment" />
         </set>
-        <set name="coursewares" inverse="true">
+        <set name="coursewares" inverse="true" cascade="delete">
             <key>
                 <column name="part_id" />
             </key>
