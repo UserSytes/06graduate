@@ -7,6 +7,7 @@ import org.hibernate.LockMode;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Evaluation;
 
 /**
@@ -82,6 +83,19 @@ public class EvaluationDAO extends HibernateDaoSupport {
 			return results;
 		} catch (RuntimeException re) {
 			log.error("find by example failed", re);
+			throw re;
+		}
+	}
+	
+	public List findCountAndScoreAvg(int courseId) {
+		log.debug("finding Evaluation instance with property: course"
+				+ ", value: " + courseId);
+		try {
+			String queryString = "select count(*),avg(score) from Evaluation as model where model.course.id"
+					+"= "+courseId;
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
 			throw re;
 		}
 	}

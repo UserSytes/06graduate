@@ -14,6 +14,8 @@ public interface IEvaluateService {
 	public Evaluation findById(Integer id); 
 	public Float calculatStudent(int courseId);
 
+	public Object[] getEvaluationCalculateResult(int courseId);
+	public Object[] getStudentCourseCalculateResult(int courseId);
 	public List<Evaluation>  findEvaluationByCourseId(int courseId);
 	
 	/**

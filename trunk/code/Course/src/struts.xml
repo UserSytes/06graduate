@@ -263,6 +263,24 @@
 			</result>
 		</action>	
 		
+		<!-- 课程管理-课程评价部分 (教师)-->
+		<action name="getEvaluationResultByCourseAction" method="getEvaluationResult"
+			class="evaluationAction">
+			<result name="success">/teacher/courseinfomanage/evaluationresult.jsp
+			</result>
+		</action>
+		<action name="getEvaluationListByCourseAction" method="getEvaluationListByCourse"
+			class="evaluationAction">
+			<result name="success">/teacher/courseinfomanage/evaluationlist.jsp
+			</result>
+		</action>
+		<action name="addEvaluationAction" method="addEvaluation"
+			class="evaluationAction">
+			<result name="success" type="redirect-action">getEvaluationListByCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>					
+		
 		
 		<!-- 课程管理-章节目录部分 (教师)-->
 		<action name="getChapterListByCourseAction" method="getChapterListByCourse"

@@ -51,8 +51,8 @@
 				<td bgcolor="#FFFDF0">
 					<div align="left">
 						<br>
-						<font size="3">&nbsp;&nbsp;&nbsp;平均得分: 5<br> </font>
-						<font size="3">&nbsp;&nbsp;&nbsp;评价人数: 5<br> </font>
+						<font size="3">&nbsp;&nbsp;&nbsp;平均得分: <s:property value="stuAvgScore"/><br> </font>
+						<font size="3">&nbsp;&nbsp;&nbsp;评价人数: <s:property value="stuCount"/><br> </font>
 					</div>
 				</td>
 			</tr>
@@ -69,7 +69,7 @@
 				<td bgcolor="#FFFDF0">
 					<div align="left">
 						<br>
-						<font size="3">&nbsp;&nbsp;&nbsp;平均得分: 5 <a
+						<font size="3">&nbsp;&nbsp;&nbsp;平均得分: <s:property value="expertAvgScore"/> <a
 							href="<s:url action="updateCourseInfoAction"> 
                      			<s:param name="courseInfoId"> 
                        			 	<s:property value="courseInfo.id"/> 
@@ -77,7 +77,7 @@
                 					</s:url>">
 								<font color="green">【查看详情】</font> </a>
 						<br> </font>
-						<font size="3">&nbsp;&nbsp;&nbsp;评价人数: 5<br> </font>
+						<font size="3">&nbsp;&nbsp;&nbsp;评价人数: <s:property value="expertAvgScore"/><br> </font>
 <font size="3">&nbsp;&nbsp;&nbsp;点击<a
 							href="<s:url action="updateCourseInfoAction"> 
                      			<s:param name="courseInfoId"> 
