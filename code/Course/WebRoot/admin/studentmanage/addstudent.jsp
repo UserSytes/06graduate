@@ -10,9 +10,31 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
 		<title>添加学生</title>
+<script type="text/javascript" src="/dwr/engine.js"></script>
+		<script type="text/javascript" src="/dwr/util.js"></script>
+		<script type="text/javascript" src="/dwr/interface/StudentInfoService.js"></script>
 		<SCRIPT language=javascript>
+		function getStudentName(stuNo) {
+		if (stuNo == "")
+				{
+					DWRUtil.setValue('result',"账号不能为空！");
+					return false;
+				}
+		StudentInfoService.findUserInfoByStudentNo(stuNo,callBack);
+	}
+	function callBack(data){
+		if(data != null)
+			DWRUtil.setValue('result',"该学生帐号已被注册，请另选帐号！");
+		else
+			DWRUtil.setValue('result',"该学生帐号可用！");
+	}
 			function check(form)
 			{
+			if (form.studentNo.value == "")
+				{
+					alert("账号不能为空！");
+					return false;
+				}
 				if (form.name.value == "")
 				{
 					alert("姓名不能为空！");
@@ -33,14 +55,10 @@
 					alert("年级不能为空！");
 					return false;
 				}
-				if (form.studentNo.value == "")
-				{
-					alert("账号不能为空！");
-					return false;
-				}
 				return true;
 			}
 		</SCRIPT>
+
 		<style type="text/css">
 <!--
 .STYLE1 {
@@ -66,6 +84,31 @@
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
 						请输入新学生账号信息
+					</td>
+				</tr>
+<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							账号：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<s:textfield cssClass="INPUT" id="studentNo"
+							name="student.studentNo" label="账号" onblur="getStudentName(this.value)"></s:textfield>
+						&nbsp;*<span id="result">
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							登陆密码：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<font color="#808080">初始密码为与账号相同 </font>&nbsp;
 					</td>
 				</tr>
 				<tr>
@@ -120,30 +163,6 @@
 							list="gradeList" headerKey="-1" headerValue="请选择"
 							listKey="id" listValue="name+grade" />
 						&nbsp;*
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							账号：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" id="studentNo"
-							name="student.studentNo" label="账号"></s:textfield>
-						&nbsp;*
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							登陆密码：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-						<font color="#808080">初始密码为与账号相同 </font>&nbsp;
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">

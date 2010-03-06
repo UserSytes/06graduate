@@ -3,10 +3,6 @@ package cn.edu.xmu.course.web.action;
 import java.io.File;
 import java.util.List;
 
-import jxl.Cell;
-import jxl.Sheet;
-import jxl.Workbook;
-
 import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.Grade;
@@ -122,15 +118,15 @@ public class StudentAction extends BaseAction {
 				.findDepartmentById(departmentId);
 		// studentFile.
 		try {
-			Workbook book = Workbook.getWorkbook(studentFile);
-			// 获得第一个工作表对象
-			Sheet sheet = book.getSheet(0);
-			// 得到第一列第一行的单元格
-			Cell cell1 = sheet.getCell(0, 1);
-
-			String result = cell1.getContents();
-			System.out.println(result);
-			book.close();
+//			Workbook book = Workbook.getWorkbook(studentFile);
+//			// 获得第一个工作表对象
+//			Sheet sheet = book.getSheet(0);
+//			// 得到第一列第一行的单元格
+//			Cell cell1 = sheet.getCell(0, 1);
+//
+//			String result = cell1.getContents();
+//			System.out.println(result);
+//			book.close();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
