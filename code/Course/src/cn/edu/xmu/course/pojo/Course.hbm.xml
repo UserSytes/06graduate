@@ -37,73 +37,73 @@
         <property name="visible" type="java.lang.Integer">
             <column name="visible" not-null="true" />
         </property>
-        <set name="courseMovies" inverse="true">
+        <set name="courseMovies" inverse="true" cascade="delete" >
             <key>
                 <column name="course_id" />
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.CourseMovie" />
         </set>
-        <set name="collections" inverse="true">
+        <set name="collections" inverse="true" cascade="delete" >
             <key>
                 <column name="course_id" />
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.Collection" />
         </set>
-        <set name="topics" inverse="true">
+        <set name="topics" inverse="true" cascade="delete" >
             <key>
                 <column name="course_id" />
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.Topic" />
         </set>
-        <set name="evaluations" inverse="true">
+        <set name="evaluations" inverse="true" cascade="delete" >
             <key>
                 <column name="course_id" />
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.Evaluation" />
         </set>
-        <set name="achievements" inverse="true">
+        <set name="achievements" inverse="true" cascade="delete" >
             <key>
                 <column name="course_id" />
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.Achievement" />
         </set>
-        <set name="books" inverse="true">
+        <set name="books" inverse="true" cascade="delete">
             <key>
                 <column name="course_id" />
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.Book" />
         </set>
-        <set name="teacherTeams" inverse="true">
+        <set name="teacherTeams" inverse="true" cascade="delete">
             <key>
                 <column name="course_id" />
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.TeacherTeam" />
         </set>
-        <set name="applicationForms" inverse="true">
+        <set name="applicationForms" inverse="true" cascade="delete">
             <key>
                 <column name="course_id" />
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.ApplicationForm" />
         </set>
-        <set name="examinations" inverse="true">
+        <set name="examinations" inverse="true" cascade="delete">
             <key>
                 <column name="course_id" />
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.Examination" />
         </set>
-        <set name="courseInfos" inverse="true">
+        <set name="courseInfos" inverse="true" cascade="delete">
             <key>
                 <column name="course_id" />
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.CourseInfo" />
         </set>
-        <set name="chapters" inverse="true">
+        <set name="chapters" inverse="true" cascade="delete">
             <key>
                 <column name="course_id" />
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.Chapter" />
         </set>
-        <set name="studentCourses" inverse="true">
+        <set name="studentCourses" inverse="true" cascade="all-delete-orphan">
             <key>
                 <column name="course_id" />
             </key>
