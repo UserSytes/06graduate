@@ -194,10 +194,6 @@ border=0>
                   <TD height=23><a href="<s:url action='goSchoolTopicAction'> </s:url>"
 														target="main">留言列表</A> </TD>
              </TR>
-                <TR>
-                  <TD><IMG src="Images/closed.gif"></TD>
-                  <TD height=23><A   href="Label_Admin.asp?Type=2"  target=main>留言历史</A></TD>
-                </TR>
               </TBODY>
           </TABLE></TD>
         </TR>

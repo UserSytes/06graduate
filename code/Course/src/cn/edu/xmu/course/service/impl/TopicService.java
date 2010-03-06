@@ -4,6 +4,7 @@ import java.util.List;
 
 import cn.edu.xmu.course.dao.TopicDAO;
 import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Topic;
 import cn.edu.xmu.course.service.ITopicService;
 
@@ -48,6 +49,14 @@ public class TopicService implements ITopicService{
 		}
 	}
 
+	public List<Topic> getTopicByShcool(School school){
+		return topicDAO.getTopicByShcool(school);
+	}
+	
+	public List<Topic> searchTopicByKey(String key, School school){
+		return topicDAO.searchTopicByKey(key, school);
+	}
+	
 	public void setTopicDAO(TopicDAO topicDAO) {
 		this.topicDAO = topicDAO;
 	}

@@ -9,6 +9,7 @@ import org.hibernate.LockMode;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Topic;
 
 /**
@@ -94,6 +95,37 @@ public class TopicDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
+	
+	/**
+	 * 根据学院查找留言
+	 * @param school
+	 * @return
+	 */
+	public List getTopicByShcool(School school){
+		try {
+			String queryString = "from Topic as model where model.course.department.school = ?";
+			return getHibernateTemplate().find(queryString, school);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	
+	/**
+	 * 根据主题关键字以及学院模糊查找
+	 * @param key
+	 * @return
+	 */
+	public List<Topic> searchTopicByKey(String key, School school){
+		try {
+			String queryString = "from Topic as model where model.course.department.school.id = "+school.getId()+" and model.name like %?%";
+			return getHibernateTemplate().find(queryString, key);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	
 	public List findByCourse(Object course) {
 		return findByProperty("course", course);
 	}
