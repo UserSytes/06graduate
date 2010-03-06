@@ -9,7 +9,7 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
-		<title>留言列表</title>
+		<title><s:text name="">${topic.name}</s:text></title>
 		<style type="text/css">
 <!--
 .STYLE1 {
@@ -23,102 +23,42 @@
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 留言管理 -&gt; 留言列表 
+					当前位置: 留言管理 -&gt; 浏览留言贴 
 				</td>
 			</tr>
 		</table>
 
-<div align="center">
-			<s:form action="searchTopicByKeyAction" method="post">
-				<table class="listTable">
-					<tr>
-						<td bgcolor="#FFFDF0">
-							<div align="center">
-								请输入主题关键字：
-							</div>
-						</td>
-						<td colspan="3" bgcolor="#FFFFFF">
-							&nbsp;&nbsp;&nbsp;
-							<s:textfield cssClass="INPUT" id="topicKey"
-							name="topicKey" label="关键字"></s:textfield>
-						</td>
-					</tr>
-					<tr bgcolor="#ECF3FD">
-						<td width="20%">
-							&nbsp;
-						</td>
-						<td width="80%">
-							<s:submit cssClass="label" value="关键字查找"></s:submit>
-						</td>
-					</tr>
-				</table>
-			</s:form>
-		</div>
-
 		<div align="center">
 			<table class="listTable">
-				<tr class="listHeaderTr"
-					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
-					<th>
-						点击数
-					</th>
-					<th>
-						回复
-					</th>
-					<th>
-						课程
-					</th>
-					<th>
-						标题
-					</th>
-					<th>
-						作者
-					</th>
-					<th>
-						最后回复
-					</th>
-                    <th>
-						操作
-					</th>
+				<tr class="listHeaderTr">
+					<td class=editHeaderTd colSpan=10>
+							<s:text name="">${topic.name}</s:text>
+					</td>
 				</tr>
-				<s:iterator value="topicList" status="topic">
+				<s:iterator value="messageList" status="message">
 					<tr class="listTr">
-						<td width="8%">
-							<s:property value="countPerson" />
-						</td>
-						<td width="5%">
-							<s:property value="countReply" />
-						</td>
-						<td width="15%">
-							<s:property value="course.name" />
-						</td>
-                        <td width="25%">
-							<s:property value="name" />
-						</td>
-						<td width="12%">
-							<s:property value="authorName" />
-						</td>
-						<td width="15%">
-							<s:property value="lastUpdate+lastAnswer" />
-						</td>
 						<td width="20%">
-							<a
-								href="<s:url action="viewTopicAction"> 
-                     			<s:param name="topicId"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param> 
-                					</s:url>">
-								<font color="green">【查看】</font>
-							</a>
-							<a
-								href="<s:url action="deleteTopicAction"> 
-                     			<s:param name="topicId"> 
+							<table><tr>
+							<td align="left"><s:property value="grade" />楼</td>
+							</tr>
+							<tr>
+							<td align="center"><s:property value="userinfo.name" /></td>
+							</tr></table>
+						</td>
+						<td width="60%">
+							<table><tr><td><s:property value="content" /></td></tr>
+                            <tr><td>
+								<s:property value="time" />
+								<a
+								href="<s:url action="deleteMessageAction"> 
+                     			<s:param name="messageId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>"  onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
 								<font color="red">【删除】</font>
-							</a>
-						</td>
+							</a></td></tr></table>
+						</td>						
+						
 					</tr>
 				</s:iterator>
 				<tr class="listFooterTr">
