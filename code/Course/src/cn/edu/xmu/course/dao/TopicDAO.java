@@ -115,11 +115,12 @@ public class TopicDAO extends HibernateDaoSupport {
 	 * 根据主题关键字以及学院模糊查找
 	 * @param key
 	 * @return
+	 * @auther 郑冰凌
 	 */
 	public List<Topic> searchTopicByKey(String key, School school){
 		try {
-			String queryString = "from Topic as model where model.course.department.school.id = "+school.getId()+" and model.name like %?%";
-			return getHibernateTemplate().find(queryString, key);
+			String queryString = "from Topic as model where model.name like '%"+key+"%' and model.course.department.school = ?";
+			return getHibernateTemplate().find(queryString, school);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
 			throw re;

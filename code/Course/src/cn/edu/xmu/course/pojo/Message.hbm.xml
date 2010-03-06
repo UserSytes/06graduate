@@ -13,7 +13,7 @@
         <many-to-one name="userInfo" class="cn.edu.xmu.course.pojo.UserInfo" fetch="select" lazy="false">
             <column name="userinfo_id" />
         </many-to-one>
-        <many-to-one name="topic" class="cn.edu.xmu.course.pojo.Topic" fetch="select">
+        <many-to-one name="topic" class="cn.edu.xmu.course.pojo.Topic" fetch="select" lazy="false">
             <column name="topic_id" />
         </many-to-one>
         <property name="time" type="java.util.Date">

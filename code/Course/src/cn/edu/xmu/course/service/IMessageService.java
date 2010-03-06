@@ -12,4 +12,6 @@ public interface IMessageService {
 	public boolean addMessage(Topic topic,Message message);
 	public boolean updateMessage(Message Message);
 	public boolean deleteMessage(Message Message);
+	
+	public List getMessageByTopic(Topic topic);
 }

@@ -123,6 +123,9 @@ public class MessageService implements IMessageService {
 		}
 	}
 
+	public List getMessageByTopic(Topic topic){
+		return messageDAO.findByTopicByOrder(topic);
+	}
 	public void setMessageDAO(MessageDAO messageDAO) {
 		this.messageDAO = messageDAO;
 	}

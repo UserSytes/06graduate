@@ -115,6 +115,22 @@ public class MessageDAO extends HibernateDaoSupport {
 	  	return list ;
 	  }
 	  
+	  /**
+	   * 获得某一主题的所有message，并按grade升序排序
+	   * @param topic
+	   * @return
+	   * @author 郑冰凌
+	   */
+      public List findByTopicByOrder(Object topic) {
+    	  try {
+  			String queryString = "from Message as model where model.topic = ? order by model.grade";
+  			return getHibernateTemplate().find(queryString, topic);
+  		} catch (RuntimeException re) {
+  			log.error("find by property name failed", re);
+  			throw re;
+  		}
+		}
+      
 	public List findByTopic(Object topic) {
 		return findByProperty("topic", topic);
 	}
