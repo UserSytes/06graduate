@@ -116,7 +116,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" id="refuseReason" name="refuseReason" value="该课程通过审核，可以上传教学资料!" label="发聩信息"></s:textfield>&nbsp;*
+						<s:textarea cssClass="INPUT" id="refuseReason" name="refuseReason" value="该课程通过审核，可以上传教学资料!" label="发聩信息"></s:textarea>&nbsp;*
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">
