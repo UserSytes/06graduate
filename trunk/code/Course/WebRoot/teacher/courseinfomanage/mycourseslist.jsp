@@ -31,6 +31,7 @@
 		});
 	}
 	function deleteCourse(courseId) {
+		if(!confirm('确认删除？')) return false;
 		var url = "deleteCourseAction.action?courseId=" + courseId;
 		new Ajax.Updater('courseListMain', url, {
 			onLoading : function() {

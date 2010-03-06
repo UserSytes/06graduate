@@ -49,8 +49,12 @@ public class CourseService implements ICourseService {
 
 	public boolean deleteCourse(Course course) {
 		// TODO Auto-generated method stub
+		try {
 			courseDAO.delete(course);
+			return true;
+		} catch (Exception e) {
 			return false;
+		}
 
 	}
 
