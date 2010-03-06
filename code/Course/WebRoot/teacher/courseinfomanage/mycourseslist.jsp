@@ -12,7 +12,7 @@
 		<title>我的课程</title>
 	</head>
 
-	<body onload="getCourseByType(2)">
+	<body onload="getCourseByType(3)">
 		<script type="text/javascript" src="../js/prototype.js"></script>
 		<script language="javascript">
 	function getCourseByState() {
@@ -55,7 +55,7 @@
 			<tr>
 				<td>
 					请选择查询条件：&nbsp;&nbsp;&nbsp;
-					<s:select name="type" list="#{2:'全部',1:'己审核',0:'未审核'}"
+					<s:select name="type" list="#{3:'全部课程',2:'审核未通过',1:'己审核',0:'未审核'}"
 						listKey="key" listValue="value"
 						onchange="javascript:getCourseByType(this.value)" />
 

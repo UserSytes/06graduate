@@ -160,6 +160,17 @@
 			<result>/teacher/left_course_children.jsp
 			</result>			
 		</action>
+		<action name="goEidtCourseAction" method="goEidtCourse"
+			class="courseAction">
+			<result>/teacher/courseinfomanage/editcourse.jsp
+			</result>			
+		</action>
+		<action name="updateCourseAction" method="updateCourseVisible"
+			class="courseAction">
+			<result name="success" type="redirect-action">getMyCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>		
+		</action>
 		<!-- 课程信息管理 (教师)-->
 		<action name="addNewCourseInfoAction" method="addNewCourseInfo"
 			class="courseInfoAction">
