@@ -29,6 +29,7 @@
 		var jj=0;
 		<!--动态增加上传附件-->
 		function addFile11(){
+		document.getElementById("conditionTable").style.display="block";
 	 currRow=conditionTable.insertRow();
      cellc=currRow.insertCell();
      cellcContext= "<input type='File' NAME='myFile'>&nbsp;&nbsp;<button onclick='removeFile();'>删除</button><br>";
@@ -128,7 +129,7 @@ conditionTable.deleteRow(o.parentElement.rowIndex*1);
 						</div>
 					</td>
 					<td bgcolor="#FFFFFF">
-						<table id=conditionTable border=0>
+						<table id=conditionTable border=0  style="display: none">
 						</table>
 						<a href="javascript:addFile11();">添加附件</a>
 					</td>

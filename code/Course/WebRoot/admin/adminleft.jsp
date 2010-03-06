@@ -191,7 +191,8 @@ border=0>
               <TBODY>
                 <TR>
                   <TD width="2%"><IMG src="Images/closed.gif"></TD>
-                  <TD height=23><A href="Label_Admin.asp?Type=1" target=main>最新留言</A> </TD>
+                  <TD height=23><a href="<s:url action='goSchoolTopicAction'> </s:url>"
+														target="main">留言列表</A> </TD>
              </TR>
                 <TR>
                   <TD><IMG src="Images/closed.gif"></TD>
