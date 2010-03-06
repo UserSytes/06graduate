@@ -63,6 +63,30 @@
 						请输入新教师信息
 					</td>
 				</tr>
+<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							账号：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<s:textfield cssClass="INPUT" id="teacherNo"
+							name="teacher.teacherNo" label="账号"></s:textfield>
+						&nbsp;*
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							登陆密码：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<font color="#808080">初始密码为与账号相同 </font>&nbsp;
+					</td>
+				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
@@ -114,30 +138,6 @@
 						<s:textfield cssClass="INPUT" id="position"
 							name="teacher.position" label="职位"></s:textfield>
 
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							账号：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" id="teacherNo"
-							name="teacher.teacherNo" label="账号"></s:textfield>
-						&nbsp;*
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							登陆密码：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-						<font color="#808080">初始密码为与账号相同 </font>&nbsp;
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">
