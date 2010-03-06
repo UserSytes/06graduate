@@ -70,20 +70,12 @@
 					<div align="left">
 						<br>
 						<font size="3">&nbsp;&nbsp;&nbsp;平均得分: <s:property value="expertAvgScore"/> <a
-							href="<s:url action="updateCourseInfoAction"> 
-                     			<s:param name="courseInfoId"> 
-                       			 	<s:property value="courseInfo.id"/> 
-                    			</s:param> 
-                					</s:url>">
+							href="getEvaluationListByCourseAction.action">
 								<font color="green">【查看详情】</font> </a>
 						<br> </font>
 						<font size="3">&nbsp;&nbsp;&nbsp;评价人数: <s:property value="expertAvgScore"/><br> </font>
 <font size="3">&nbsp;&nbsp;&nbsp;点击<a
-							href="<s:url action="updateCourseInfoAction"> 
-                     			<s:param name="courseInfoId"> 
-                       			 	<s:property value="courseInfo.id"/> 
-                    			</s:param> 
-                					</s:url>">这里</a>邀请专家新的专家进行课程评价<br> </font>
+							href="${ctx}/teacher/courseinfomanage/addevaluation.jsp">这里</a>邀请专家新的专家进行课程评价<br> </font>
 					</div>
 				</td>
 			</tr>
