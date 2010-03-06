@@ -39,7 +39,7 @@ a:visited {
 -->
 </style>
 	</head>
-	<body onload="getCourse(2)">
+	<body onload="getCourse(3)">
 		<script type="text/javascript" src="../js/prototype.js"></script>
 		<script language=JavaScript>
 	function showsubmenu(sid) {

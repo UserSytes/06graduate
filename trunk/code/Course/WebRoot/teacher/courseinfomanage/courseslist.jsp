@@ -41,7 +41,14 @@
 			<td>
 				<s:property value="department.name" />
 			</td>
-			<td>				
+			<td>	
+						<a
+								href="<s:url action="goEidtCourseAction"> 
+                     			<s:param name="courseId"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param> 
+                					</s:url>">
+								<font color="green">【详情】</font> </a>
 				<s:a href="javascript:deleteCourse(%{id})" value="id">
 					<s:param name="courseId">
 						<s:property value="id" />

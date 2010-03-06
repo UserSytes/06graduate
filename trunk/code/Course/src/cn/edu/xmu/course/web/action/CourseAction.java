@@ -30,7 +30,7 @@ public class CourseAction extends BaseAction {
 	private Teacher teacher;
 	private Course course;
 	private List<Course> myCoursesList;
-	private int type = 2;
+	private int type = 3;
 
 	private ITeacherInfoService teacherInfoService;
 	private IStudentCourseService studentCourseService;
@@ -43,7 +43,7 @@ public class CourseAction extends BaseAction {
 	private int studentId;
 	private String studentNo;
 	private String refuseReason;
-	
+
 	private final String userName = "123";
 
 	/**
@@ -70,13 +70,32 @@ public class CourseAction extends BaseAction {
 	public String findMyCoursesList() {
 		Teacher tea = teacherInfoService.getTeacher(userName);
 		myCoursesList = courseService.findCoursesByTeacher(tea.getId(), type);
-		if (myCoursesList.size() == 0) {
-			addActionError("暂无任何课程！");
-			return ERROR;
-		} else
-			return SUCCESS;
+		System.out.println(type);
+		return SUCCESS;
 	}
 	
+	/**
+	 * 查看课程详细信息
+	 * @return
+	 */
+	public String goEidtCourse(){
+		course = courseService.getCourseById(courseId);
+		return SUCCESS;
+	}
+	
+	/**
+	 * 更新课程
+	 * @return
+	 */
+	public String updateCourseVisible(){
+		int visible = course.getVisible();
+		course=courseService.getCourseById(course.getId());
+		course.setVisible(visible);
+		if(courseService.updateCourse(course))
+			return SUCCESS;
+		else return ERROR;
+	}
+
 	/**
 	 * 获取某教师的课程
 	 * 
@@ -124,45 +143,47 @@ public class CourseAction extends BaseAction {
 
 	/**
 	 * 获取某课程的所有学生
+	 * 
 	 * @return
 	 */
-	public String getStudentByCourse(){
+	public String getStudentByCourse() {
 		course = courseService.getCourseById(courseId);
 		List<StudentCourse> scList = new ArrayList<StudentCourse>();
 		scList = studentCourseService.findByCourse(course);
-		if(scList.size()==0){
+		if (scList.size() == 0) {
 			addActionError("此课程暂未添加学生！");
 			return ERROR;
 		}
 		studentList = new ArrayList<Student>();
-		for(StudentCourse sc: scList){
+		for (StudentCourse sc : scList) {
 			studentList.add(sc.getStudent());
-		}	
+		}
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * 删除course的某位学生关系
+	 * 
 	 * @return
 	 */
-	public String deleteStudent(){
+	public String deleteStudent() {
 		student = studentCourseService.findStudentById(studentId);
-		System.out.println("测试1： "+courseId);
+		System.out.println("测试1： " + courseId);
 		course = courseService.getCourseById(courseId);
 		boolean result = studentCourseService.delete(course, student);
-		if(result){
+		if (result) {
 			this.getStudentByCourse();
 			return SUCCESS;
-		}
-		else
+		} else
 			return ERROR;
 	}
-	
+
 	/**
 	 * 为course添加学生
+	 * 
 	 * @return
 	 */
-	public String addStudentCourse(){
+	public String addStudentCourse() {
 		StudentCourse studentCourse = new StudentCourse();
 		course = courseService.getCourseById(course.getId());
 		student = studentCourseService.findStudentByStudentNo(studentNo);
@@ -170,22 +191,21 @@ public class CourseAction extends BaseAction {
 		studentCourse.setStudent(student);
 		studentCourse.setStatus(0);
 		boolean result = studentCourseService.addStudentCourse(studentCourse);
-		if(result){
+		if (result) {
 			addActionError("添加学生成功！");
 			return SUCCESS;
-		}else
+		} else
 			return ERROR;
 	}
-	
-	public String courseDetail(){
+
+	public String courseDetail() {
 		course = courseService.getCourseById(courseId);
-		if(course == null){
+		if (course == null) {
 			return ERROR;
-		}
-		else
+		} else
 			return SUCCESS;
 	}
-	
+
 	/**
 	 * 审核课程通过
 	 * 
@@ -198,7 +218,7 @@ public class CourseAction extends BaseAction {
 		boolean result = courseService.updateCourse(course);
 		if (result) {
 			this.findCourse();
-			addActionError(course.getName()+"课程通过审核！");
+			addActionError(course.getName() + "课程通过审核！");
 			return SUCCESS;
 		} else
 			return ERROR;
@@ -215,8 +235,8 @@ public class CourseAction extends BaseAction {
 		course.setRefuseReason(refuseReason);
 		boolean result = courseService.updateCourse(course);
 		if (result) {
-			addActionError(course.getName()+"课程审核后退回！");
-			//this.findApplicationCourse();
+			addActionError(course.getName() + "课程审核后退回！");
+			// this.findApplicationCourse();
 			return SUCCESS;
 		} else
 			return ERROR;
@@ -260,13 +280,14 @@ public class CourseAction extends BaseAction {
 
 	public String saveCurrentCourse() {
 		Course currentCourse = courseService.getCourseById(courseId);
-		try {
+		if (currentCourse.getStatus() == 1) {
 			ActionSession.getSession().put(COURSE, currentCourse);
 			return SUCCESS;
-		} catch (Exception e) {
+		}
+		else{
+			addActionError("该课程未通过审核，请联系教学秘书做相关处理！");
 			return ERROR;
 		}
-
 	}
 
 	public Teacher getTeacher() {
@@ -373,7 +394,8 @@ public class CourseAction extends BaseAction {
 		return studentCourseService;
 	}
 
-	public void setStudentCourseService(IStudentCourseService studentCourseService) {
+	public void setStudentCourseService(
+			IStudentCourseService studentCourseService) {
 		this.studentCourseService = studentCourseService;
 	}
 

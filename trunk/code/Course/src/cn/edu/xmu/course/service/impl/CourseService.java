@@ -41,7 +41,7 @@ public class CourseService implements ICourseService {
 
 	public List findCoursesByTeacher(Integer teacherId, int type) {
 		// TODO Auto-generated method stub
-		if (type == 2)
+		if (type == 3)
 			return courseDAO.findByTeacherId(teacherId);
 		else
 			return courseDAO.findByTeacherAndType(teacherId, type);
