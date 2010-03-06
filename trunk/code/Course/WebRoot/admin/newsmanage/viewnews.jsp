@@ -60,6 +60,26 @@
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
+							发布时间：
+						</div>
+					</td>
+					<td colspan="4" bgcolor="#FFFFFF">
+						<s:property value="news.time"></s:property>
+					</td>
+				</tr>
+ 				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							最后修改时间：
+						</div>
+					</td>
+					<td colspan="4" bgcolor="#FFFFFF">
+						<s:property value="news.lastEditTime"></s:property>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
 							内容：
 						</div>
 					</td>
