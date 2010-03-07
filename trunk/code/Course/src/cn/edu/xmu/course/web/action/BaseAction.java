@@ -19,7 +19,7 @@ public class BaseAction extends ActionSupport {
 	public String STUDENT = "student";
 	public String SUPERADMIN = "superAdmin";
 	public String COURSE = "course";
-
+	public String USERINFO= "userInfo";
 	public BaseAction() {
 	}
 
@@ -46,7 +46,9 @@ public class BaseAction extends ActionSupport {
 	public Course getCourse() {
 		return (Course) ActionSession.getSession().get(COURSE);
 	}
-
+	public UserInfo getUserInfo(){
+		return (UserInfo) ActionSession.getSession().get(USERINFO);
+	}
 	public String getPreFileNameByTeacher(){
 		String preFileName = this.getTeacher().getUserInfo().getName() + "/"
 		+ new Date().getTime()+"_"+this.getCourse().getName() + "_";
