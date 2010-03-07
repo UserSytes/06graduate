@@ -9,13 +9,35 @@
 		<meta http-equiv="Content-Style-Type" content="text/css">
 		<link href="${ctx}/coursepage/default.css" rel="stylesheet"
 			type="text/css" />
+<SCRIPT language=javascript>
+	function check(form) {
+		if (form.title.value == "") {
+			alert("标题不能为空！");
+			return false;
+		}
+		if (form.messagecontent.value == "") {
+			alert("内容不能为空！");
+			return false;
+		}
+		return true;
+
+	}
+</SCRIPT>
 	</head>
 	<body>
 		<jsp:include page="../header.jsp"></jsp:include>
 		<jsp:include page="../top.jsp"></jsp:include>
 		<div id="content">
 			<div style="width: 770px">
-				<div align="right">
+				<div>
+<a href="${ctx}/coursepage/messagemanage/newmessage.jsp" align="left"><img src="${ctx}/coursepage/images/newtopic.gif" alt="新帖" border="0"/></a>
+<a href="<s:url action="goReplyAction">
+                     			<s:param name="topicId"> 
+                       			 	<s:property value="topic.id"/> 
+                    			</s:param>
+                					</s:url>">
+												<img src="${ctx}/coursepage/images/reply.gif" alt="回复" border="0"/>
+											</a>
 					欢迎你，<s:property value="userInfo.name"/>&nbsp;&nbsp;&nbsp;<a href="<s:url action="enterPersionalSpaceAction"> 
                 					</s:url>">
 												个人空间
@@ -23,43 +45,35 @@
                 					</s:url>">
 												退出
 											</a>
-				</div>
-				<div>
-					<p>
-<div align="right">
-						<img src="${ctx}/coursepage/images/newtopic.gif" alt="新帖"
-							longdesc="http://baidu.com" />
-						<img src="${ctx}/coursepage/images/reply.gif" alt="回复"
-							longdesc="http://baidu.com" />
-</div>	
-					</p>
+				
+<div align="left">					
 					<table bordercolor="#3399FF" border="1" width="100%">
 						<tr>
 							<td>
-								<div style=" background-image:url(${ctx}/coursepage/images/header_bg2.gif); background-repeat:repeat-x; font-size:15px; font-weight:bold">	
+								<div align="left" style=" background-image:url(${ctx}/coursepage/images/header_bg2.gif); background-repeat:repeat-x; font-size:15px;font-weight:bold;">	
 标题：${topic.name}
 </div>
-<s:iterator value="MessageInfoList" status="messageInfo">
+<s:iterator value="messageList" status="message">
 								<table frame="below" ellspacing="0" cellpadding="4" width="100%"
 									align="center" style="border-bottom:thin solid #3399FF;">
 									<tr style="height: 100%">
 										<td width="24%" valign="top" style="border-right: thin dotted #60B7DE;" >
-											<font style="font-weight:bold; font-size:14px"><s:property value="userName"/></font>
+											<font style="font-weight:bold; font-size:14px"><s:property value="userInfo.name"/></font>
 											<br />
 											<div>
 												个人信息：
 												<br />
-													ID：<s:property value="id"/>
+													ID：<s:property value="userInfo.id"/>
 												<br />
-													系别：<s:property value="department"/>
+													系别：<s:property value="userInfo.department.name"/>
 												<br />
-													学院：<s:property value="school"/>
+													学院：<s:property value="userInfo.department.school.name"/>
 												<br />
-													性别：<s:property value="sex"/>
+													性别：<s:property value="userInfo.sex"/>
 												<br />
-													邮箱：<s:property value="email"/>
+													邮箱：<s:property value="userInfo.email"/>
 												<br />
-													联系方式：<s:property value="mobile"/>
+													联系方式：<s:property value="userInfo.mobile"/>
 											</div>
 										</td>
 										<td width="76%" valign="top" style="padding: 0px"
@@ -69,7 +83,7 @@
 												<tr>
 													<td>
 														<div style="padding-top: 4px; border-bottom:thin inset #60B7DE;">
-															第<s:property value="#messageInfo.count"/>楼&nbsp;&nbsp;&nbsp;发表于<s:date name="time" format="yyyy-MM-dd hh:mm:ss" />&nbsp;
+															第<s:property value="grade"/>楼&nbsp;&nbsp;&nbsp;发表于<s:date name="time" format="yyyy-MM-dd hh:mm:ss" />&nbsp;
 															<a href="" target="_blank">个人资料</a>&nbsp;
 														</div>
 													</td>
@@ -119,7 +133,28 @@
 
 			</div>
 		</div>
+<s:form action="addReplyAction" method="post"
+			onsubmit="return check(this);">
+<s:hidden name="topicId"></s:hidden>
+<table cellspacing="0" cellpadding="4" width="100%" align="center">
+<tr>
+<td colspan="4" style="font-size:16px; font-weight:bold">快速回复主题</td>
+</tr>
+<tr>
+<td width="24%" align="center" valign="top"><span class="bold" style="font-size:16px">内容</span></td>
+<td width="76%" valign="top">
+<div style="width: 97%" align="right">
+<s:textarea rows="7" cols="20" id="messagecontent" name="message.content">&nbsp;*</s:textarea>
+<br><br>
+<div class="left">
+<s:submit cssClass="label" value="发表回复"></s:submit>
 
+</div>
+</div>
+</td>
+</tr></table>
+</s:form>
+</div>
 		<jsp:include page="../bottom.jsp"></jsp:include>
 	</body>
 </html>
