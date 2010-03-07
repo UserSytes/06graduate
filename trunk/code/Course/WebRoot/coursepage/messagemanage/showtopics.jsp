@@ -7,13 +7,21 @@
 <head>
 <title>厦门大学精品课程</title>
 <meta http-equiv="Content-Style-Type" content="text/css">
-<link href="${ctx}/coursepage/default.css" rel="stylesheet" type="text/css" /></head>
+<link href="${ctx}/coursepage/default.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+a:img{
+text-decoration:none;
+boder:none;
+}
+</style>
+</head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
 <jsp:include page="../top.jsp"></jsp:include>
 <div id="content">
   <div style="width:770px">
-<div align="right">
+<div>
+<a href="${ctx}/coursepage/messagemanage/newmessage.jsp" align="left"><img src="${ctx}/coursepage/images/newtopic.gif" alt="新帖" border="0"/></a>
 					欢迎你，<s:property value="userInfo.name"/>&nbsp;&nbsp;&nbsp;<a href="<s:url action="enterPersionalSpaceAction"> 
                 					</s:url>">
 												个人空间
@@ -21,9 +29,9 @@
                 					</s:url>">
 												退出
 											</a>
-		<div>
-		    <p><img src="${ctx}/coursepage/images/newtopic.gif" alt="新帖" longdesc="http://baidu.com"/>
-<div align=right></p>
+		
+		    
+<div align=right style="height:500">
 
 <table width="100%">
 <tr style="background-repeat:repeat-x; background-image: url(${ctx}/coursepage/images/cbg.gif)" >
@@ -40,7 +48,7 @@
 	</tr>
 <s:iterator value="topicList" status="topic">
 	<tr>
-		<td align="center"><img src="${ctx}/coursepage/images/folder_new.gif" alt="新帖" /></td>
+		<td align="center"><img src="${ctx}/coursepage/images/folder_new.gif" border="0" alt="新帖" /></td>
 		<td></td>
 		<td align="left">
 <a href="<s:url action="showMessagesAction"> 
@@ -52,8 +60,8 @@
 		
 </td>
 		<td align="center"><s:property value="authorName"/><br><s:date name="time" format="yyyy-MM-dd" /></td>
-		<td align="center">回/<s:property value="countPerson"/></td>
-		<td align="center">时间<br>by <s:property value="lastAnswer"/></td>
+		<td align="center"><s:property value="countReply"/>/<s:property value="countPerson"/></td>
+		<td align="center"><s:date name="lastUpdate" format="yyyy-MM-dd" /><br>by <s:property value="lastAnswer"/></td>
 	</tr>
 </s:iterator>
 </table>
@@ -61,7 +69,6 @@
 		
   </div>
 </div>
-</div>
-<jsp:include page="../bottom.jsp"></jsp:include>
+</div><jsp:include page="../bottom.jsp"></jsp:include>
 </body>
 </html>

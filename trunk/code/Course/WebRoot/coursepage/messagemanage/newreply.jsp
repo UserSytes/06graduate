@@ -11,18 +11,18 @@
 		<link href="${ctx}/coursepage/default.css" rel="stylesheet"
 			type="text/css" />
 <SCRIPT language=javascript>
-	function check(form) {
-		if (form.title.value == "") {
-			alert("标题不能为空！");
-			return false;
-		}
-		if (form.messagecontent.value == "") {
-			alert("内容不能为空！");
-			return false;
-		}
-		return true;
-
-	}
+	function checkAll()   
+   {   
+        var oEditor = FCKeditorAPI.GetInstance('content');   
+        var checkContent = oEditor.GetXHTML();   
+       if(checkContent == "")   
+       {   
+           	alert("回复内容不能为空！");   
+			oEditor.SetHTML("");
+           	oEditor.Focus();   
+            return false;   
+       }   
+   }  
 </SCRIPT>
 
 		<style type="text/css">
@@ -38,25 +38,14 @@
 		<jsp:include page="../top.jsp"></jsp:include>
 		<div id="content">
 			<div style="width: 770px">
-<s:form action="addNewMessageAction" method="post" id="myform" name="myform"
-			namespace="/upLoadFile" target="_self" enctype="multipart/form-data" onsubmit="return check(this);">
-			<table class=editTable cellSpacing=1 cellPadding=0 width="70%"
+<s:form action="addReplyAction" method="post" id="myform" name="myform"
+			namespace="/upLoadFile" target="_self" enctype="multipart/form-data" onsubmit="return checkAll();">
+			<s:hidden name="topic.id" ></s:hidden>
+<table class=editTable cellSpacing=1 cellPadding=0 width="80%"
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						请编辑帖子内容
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							标题：
-						</div>
-					</td>
-					<td colspan="4" bgcolor="#FFFFFF">
-						<s:textfield cssClass="LONGINPUT" id="title" name="topic.name"
-							label="标题"></s:textfield>
-						&nbsp;*
+						请编辑回复内容
 					</td>
 				</tr>
 				<tr>
