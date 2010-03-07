@@ -31,7 +31,8 @@
 		});
 	}
 	function deleteCourse(courseId) {
-		if(!confirm('确认删除？')) return false;
+		if (!confirm('确认删除？'))
+			return false;
 		var url = "deleteCourseAction.action?courseId=" + courseId;
 		new Ajax.Updater('courseListMain', url, {
 			onLoading : function() {
@@ -66,29 +67,32 @@
 		<div id="courseListMain" align="center">
 			<s:include value="courseslist.jsp"></s:include>
 		</div>
-<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
-		<div style="border: 1px solid #ccc;">
+			<div style="border: 1px solid #ccc;">
 				<img src="${ctx}/teacher/images/icon_1.png" width="16" height="16" />
 				<strong><font color="red" size="3"> 提示</font> </strong>
-			<div id="content_note">
-				<ul>
-					<li>
-						申请新的课程后需要等待教学秘书审核通过才能进行上传课件等操作。
-					</li>
-					<li>
-						己审核的课程可以通过选择左边导航菜单中"我的课程"进行相关操作。
-					</li>
-					<li>
-						如果您的课程长时间未审核通过，请向教学秘书反映相关情况。
-					</li>
-					<li>
-						删除某课程会把与该课程所有有关的信息全部删除，请谨慎选择。
-					</li>					
-				</ul>
+				<div id="content_note">
+					<ul>
+						<li>
+							申请新的课程后需要等待教学秘书审核通过才能进行上传课件等操作。
+						</li>
+						<li>
+							己审核的课程可以通过选择左边导航菜单中"我的课程"进行相关操作。
+						</li>
+						<li>
+							如果您的课程长时间未审核通过，请向教学秘书反映相关情况。
+						</li>
+						<li>
+							删除某课程会把与该课程所有有关的信息全部删除，请谨慎选择。
+						</li>
+						<li>
+							如果您希望课程不被公开访问，请点击课程详情，选择公开访问为否。
+						</li>
+					</ul>
 
+				</div>
 			</div>
-		</div>
-</table>
+		</table>
 	</body>
 </html>
