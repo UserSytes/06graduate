@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import cn.edu.xmu.course.dao.TopicDAO;
@@ -12,6 +13,8 @@ public class TopicService implements ITopicService{
 	private TopicDAO topicDAO;
 	public boolean addTopic(Course course,Topic topic) {
 		topic.setCourse(course);
+		topic.setTime(new Date());
+		topic.setCountPerson(0);
 		try {
 			topicDAO.save(topic);
 			return true;

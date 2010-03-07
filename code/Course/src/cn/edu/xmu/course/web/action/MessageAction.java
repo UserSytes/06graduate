@@ -198,6 +198,7 @@ public class MessageAction extends BaseAction {
 //		System.out.println("ACTION正在加入帖子为："+topicId+"的留言1");
 //		topic = topicService.getTopicById(topicId);
 		System.out.println("ACTION正在加入帖子为："+topic.getId()+"的留言2");
+		topic = topicService.getTopicById(topic.getId());
 		message.setGrade(topic.getCountReply()+2);
 		result=messageService.addMessage(topic, message);
 		if (result) {
