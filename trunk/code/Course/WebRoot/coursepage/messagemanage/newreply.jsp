@@ -41,7 +41,7 @@
 <s:form action="addReplyAction" method="post" id="myform" name="myform"
 			namespace="/upLoadFile" target="_self" enctype="multipart/form-data" onsubmit="return checkAll();">
 			<s:hidden name="topic.id" ></s:hidden>
-<table class=editTable cellSpacing=1 cellPadding=0 width="80%"
+			<table class=editTable cellSpacing=1 cellPadding=0 width="80%"
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>

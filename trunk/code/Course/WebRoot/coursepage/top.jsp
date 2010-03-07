@@ -11,11 +11,7 @@
 <body>
 <div id="menu">
 	<ul>
-		<li><a href="<s:url action="enterCourseAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-                					</s:url>">
+		<li><a href="goCourseIndexAction.action">
 												首页
 											</a></li>
 		<li><a href="<s:url action="findCourseInfoAction"> 

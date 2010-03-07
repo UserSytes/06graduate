@@ -113,6 +113,21 @@ public class ExecuteViewAction extends BaseAction {
 			return "course";
 
 	}
+	
+	/**
+	 * 进入课程首页
+	 * @return
+	 */
+	public String goCourseIndex() {
+		course = super.getCourse();
+		if (course == null) {
+			addActionError("未找到该课程！");
+			return ERROR;
+		} else
+			return SUCCESS;
+
+	}
+	
 	public List<Course> getCourseList() {
 		return courseList;
 	}

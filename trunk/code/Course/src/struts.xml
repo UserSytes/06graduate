@@ -808,6 +808,11 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
+		<action name="goCourseIndexAction" method="goCourseIndex" class="executeViewAction">
+			<result name="success">/coursepage/index.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		<action name="getCourseMovieListAction" method="getCourseMovieListByCourse2" class="courseMovieAction">
 			<result name="movies">/coursepage/coursemovielist.jsp
 			</result>
