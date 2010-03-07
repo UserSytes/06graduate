@@ -30,6 +30,7 @@
 </SCRIPT>
 		<script type="text/javascript">
 function cancelFile(){
+document.forms["newsForm"].reset();
 document.getElementById("attachmentDiv").style.display="block";
 document.getElementById("conditionTable").style.display="none";
 		 document.getElementById("continue").style.display="none";		
@@ -100,8 +101,8 @@ conditionTable.deleteRow(o.parentElement.rowIndex*1);
 				</td>
 			</tr>
 		</table>
-		<s:form action="editNewsAction" method="post"
-			onsubmit="return check(this);">
+		<s:form id="newsForm" action="editNewsAction" method="post"
+			onsubmit="return check(this);" enctype="multipart/form-data">
 			<s:hidden name="news.id"></s:hidden>
 			<s:hidden name="news.time"></s:hidden>
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
