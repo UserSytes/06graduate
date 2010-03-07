@@ -100,7 +100,7 @@ public class MessageDAO extends HibernateDaoSupport {
 	  	try {
 	  	  if (pageSize>0 && pageNow>0) {
 	  		String queryString = 
-	  			"select message from Message message where message.topic=? order by message.time";
+	  			"select message from Message message where message.topic=? order by message.grade";
 	  		Query queryObject = getSession().createQuery(queryString);
 	  		queryObject.setParameter(0, topic);
 	  		queryObject.setFirstResult((pageNow*pageSize-pageSize)); 
