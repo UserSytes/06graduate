@@ -986,6 +986,12 @@
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
 			</action>
+			<!-- 留言板 -->
+		<action name="addNewMessageAction" method="addNewMessage" class="messageAction">
+			<result name="success">/commons/prompt1.jsp
+			</result>
+			<result name="error">/commons/prompt1.jsp</result>
+			</action>
 		<action name="showTopicsAction" method="showTopics" class="messageAction">
 			<result name="topics">/coursepage/messagemanage/showtopics.jsp
 			</result>
@@ -997,6 +1003,17 @@
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
 			</action>
+		<action name="goReplyAction" method="goReply" class="messageAction">
+			<result name="success">/coursepage/messagemanage/newreply.jsp
+			</result>
+			<result name="error">/commons/prompt1.jsp</result>
+			</action>
+		<action name="addReplyAction" method="addReply" class="messageAction">
+			<result name="success">/commons/prompt1.jsp
+			</result>
+			<result name="error">/commons/prompt1.jsp</result>
+			</action>
+			
 		<action name="loginFromMessageBoardAction" method="loginFromMessageBoard" class="messageAction">
 			<result name="teacher">/coursepage/loginsuccess.jsp</result>
 			<result name="student">/coursepage/loginsuccess.jsp</result>
