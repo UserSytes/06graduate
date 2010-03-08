@@ -31,7 +31,7 @@ public class TopicManageAction extends BaseAction{
 	 * @return
 	 */
 	public String getTopicBySchool(){
-		Administrator admin = (Administrator) ActionSession.getSession().get(
+		Administrator admin = (Administrator) super.getSession().get(
 				ADMIN);
 		School school = admin.getSchool();
 		topicList = topicService.getTopicByShcool(school);
@@ -95,7 +95,7 @@ public class TopicManageAction extends BaseAction{
 	 * @return
 	 */
 	public String searchTopic(){
-		Administrator admin = (Administrator) ActionSession.getSession().get(
+		Administrator admin = (Administrator) super.getSession().get(
 				ADMIN);
 		School school = admin.getSchool();
 		topicList = topicService.searchTopicByKey(topicKey, school);

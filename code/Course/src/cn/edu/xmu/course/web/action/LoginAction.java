@@ -28,7 +28,7 @@ public class LoginAction extends BaseAction {
 			return ERROR;
 		else {
 			System.out.println(teacher.getPassword());
-			ActionSession.getSession().put(TEACHER, teacher);
+			super.getSession().put(TEACHER, teacher);
 			return SUCCESS;
 		}
 	}
@@ -42,7 +42,7 @@ public class LoginAction extends BaseAction {
 			if (null == admin)
 				return ERROR;
 			else {
-				ActionSession.getSession().put(ADMIN, admin);
+				super.getSession().put(ADMIN, admin);
 				return "admin";
 			}
 		} else if(flag == 1){
@@ -52,7 +52,7 @@ public class LoginAction extends BaseAction {
 			if (null == superAdmin)
 				return ERROR;
 			else {
-				ActionSession.getSession().put(SUPERADMIN, superAdmin);
+				super.getSession().put(SUPERADMIN, superAdmin);
 				return "superAdmin";
 			}
 		}

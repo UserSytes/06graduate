@@ -42,7 +42,7 @@ public class StudentInfoAction extends BaseAction {
 	 */
 	public String findStudentInfo(){
 		student = null;
-		student = (Student) ActionSession.getSession().get(STUDENT);
+		student = (Student) super.getSession().get(STUDENT);
 		if(student == null){
 			addActionError("Äú»¹Î´µÇÂ¼£¬ÇëÏÈµÇÂ¼£¡");
 			return ERROR;
@@ -71,7 +71,7 @@ public class StudentInfoAction extends BaseAction {
 	 * @return
 	 */
 	public String changePassword(){
-		student = (Student) ActionSession.getSession().get(STUDENT);
+		student = (Student) super.getSession().get(STUDENT);
 		if(student.getPassword().equals(oldPassword)){
 			student.setPassword(newPassword);
 			boolean result = studentInfoService.updateStudent(student, userInfo);
@@ -92,7 +92,7 @@ public class StudentInfoAction extends BaseAction {
 	 * @return
 	 */
 	public String findMyCourses(){
-		student = (Student) ActionSession.getSession().get(STUDENT);
+		student = (Student) super.getSession().get(STUDENT);
 		List<StudentCourse> studentCourses = new ArrayList<StudentCourse>();
 		studentCourses = studentCourseService.findByStudent(student);
 		if(studentCourses.size()==0){
@@ -111,7 +111,7 @@ public class StudentInfoAction extends BaseAction {
 	 * @return
 	 */
 	public String findMyCollection(){
-		student = (Student) ActionSession.getSession().get(STUDENT);
+		student = (Student) super.getSession().get(STUDENT);
 		List<Collection> collections = new ArrayList<Collection>();
 		collections = studentCourseService.findCollectionByStudent(student);
 		if(collections.size()==0){
@@ -130,7 +130,7 @@ public class StudentInfoAction extends BaseAction {
 	 * @return
 	 */
 	public String deleteCollection(){
-		student = (Student) ActionSession.getSession().get(STUDENT);
+		student = (Student) super.getSession().get(STUDENT);
 		course = courseService.getCourseById(courseId);
 		boolean result = studentCourseService.deleteCollection(student, course);
 		if(result){
