@@ -129,7 +129,7 @@ public class CourseAction extends BaseAction {
 	 * @return
 	 */
 	public String findApplicationCourse() {
-		Administrator admin = (Administrator) ActionSession.getSession().get(
+		Administrator admin = (Administrator) super.getSession().get(
 				ADMIN);
 		School school = admin.getSchool();
 		applicationCourseList = courseService.findApplicationCourse(school);
@@ -248,7 +248,7 @@ public class CourseAction extends BaseAction {
 	 * @return
 	 */
 	public String findCourse() {
-		Administrator admin = (Administrator) ActionSession.getSession().get(
+		Administrator admin = (Administrator) super.getSession().get(
 				ADMIN);
 		School school = admin.getSchool();
 		applicationCourseList = courseService.findBySchool(school);
@@ -266,7 +266,7 @@ public class CourseAction extends BaseAction {
 	 * @return
 	 */
 	public String findNoPassCourse() {
-		Administrator admin = (Administrator) ActionSession.getSession().get(
+		Administrator admin = (Administrator) super.getSession().get(
 				ADMIN);
 		School school = admin.getSchool();
 		applicationCourseList = courseService.findNoPassCourse(school);
@@ -281,7 +281,7 @@ public class CourseAction extends BaseAction {
 	public String saveCurrentCourse() {
 		Course currentCourse = courseService.getCourseById(courseId);
 		if (currentCourse.getStatus() == 1) {
-			ActionSession.getSession().put(COURSE, currentCourse);
+			super.getSession().put(COURSE, currentCourse);
 			return SUCCESS;
 		}
 		else{

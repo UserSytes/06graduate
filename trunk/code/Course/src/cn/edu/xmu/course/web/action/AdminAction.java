@@ -29,7 +29,7 @@ public class AdminAction extends BaseAction {
 	 * @return
 	 */
 	public String getAdministratorInfo(){
-		admin =  (Administrator) ActionSession.getSession().get(ADMIN);
+		admin = super.getAdmin();
 		admin = adminService.findAdminById(admin.getId());
 		if(admin == null){
 			return ERROR;
@@ -56,7 +56,7 @@ public class AdminAction extends BaseAction {
 	 * @return
 	 */
 	public String changeAdministratorPassword(){
-		admin = (Administrator) ActionSession.getSession().get(ADMIN);
+		admin = super.getAdmin();
 		if(admin.getPassword().equals(oldPassword)){
 			admin.setPassword(newPassword);
 			boolean result = adminService.updateAdmin(admin);
@@ -79,7 +79,7 @@ public class AdminAction extends BaseAction {
 	 * @return
 	 */
 	public String changeSuperAdminPassword(){
-		superAdmin = (SuperAdmin) ActionSession.getSession().get(SUPERADMIN);
+		superAdmin = super.getSuperAdmin();
 		if(superAdmin.getPassword().equals(oldPassword)){
 			superAdmin.setPassword(newPassword);
 			boolean result = adminService.updateSuperAdmin(superAdmin);

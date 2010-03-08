@@ -109,7 +109,7 @@ public class ExecuteViewAction extends BaseAction {
 			addActionError("Î´ÕÒµ½¸Ã¿Î³Ì£¡");
 			return ERROR;
 		} else
-			ActionSession.getSession().put(COURSE,course);
+			super.getSession().put(COURSE,course);
 			return "course";
 
 	}

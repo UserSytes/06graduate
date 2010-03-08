@@ -51,7 +51,7 @@ public class StudentAction extends BaseAction {
 	 * @return
 	 */
 	public String getDepartmentBySchool() {
-		Administrator admin = (Administrator) ActionSession.getSession().get(
+		Administrator admin = (Administrator) super.getSession().get(
 				ADMIN);
 		School school = admin.getSchool();
 		departmentList = superAdminService.findDepartmentBySchool(school);
@@ -74,7 +74,7 @@ public class StudentAction extends BaseAction {
 			addActionMessage("学校未添加学生年级，请先向校方申请添加！");
 			return ERROR;
 		}
-		Administrator admin = (Administrator) ActionSession.getSession().get(
+		Administrator admin = (Administrator) super.getSession().get(
 				ADMIN);
 		School school = admin.getSchool();
 		departmentList = superAdminService.findDepartmentBySchool(school);
@@ -200,7 +200,7 @@ public class StudentAction extends BaseAction {
 	 */
 	public String findStudentBySchool() {
 		this.goAddStudent();
-		Administrator admin = (Administrator) ActionSession.getSession().get(
+		Administrator admin = (Administrator) super.getSession().get(
 				ADMIN);
 		School school = admin.getSchool();
 		studentList = studentInfoService.findBySchool(school);

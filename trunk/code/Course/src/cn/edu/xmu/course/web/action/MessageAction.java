@@ -53,8 +53,8 @@ public class MessageAction extends BaseAction {
 				System.out.println("正在登陆的是"+teacher.getTeacherNo());
 				addActionMessage("亲爱的" + getUserInfo().getName() + "，欢迎你！");
 				System.out.println(teacher.getPassword());
-				ActionSession.getSession().put(TEACHER, teacher);
-				ActionSession.getSession().put(USERINFO, teacher.getUserInfo());
+				super.getSession().put(TEACHER, teacher);
+				super.getSession().put(USERINFO, teacher.getUserInfo());
 				return "teacher";
 			}
 		} else {
@@ -69,26 +69,26 @@ public class MessageAction extends BaseAction {
 				System.out.println("正在登陆的是"+student.getStudentNo());
 				addActionMessage("亲爱的" + getUserInfo().getName() + "，欢迎你！");
 				System.out.println("test1: " + student.getPassword());
-				ActionSession.getSession().put(STUDENT, student);
-				ActionSession.getSession().put(USERINFO, student.getUserInfo());
+				super.getSession().put(STUDENT, student);
+				super.getSession().put(USERINFO, student.getUserInfo());
 				return "student";
 			}
 		}
 	}
 
 	public String logoutFromMessageBoard() {
-		student = (Student) ActionSession.getSession().get(STUDENT);
-		teacher = (Teacher) ActionSession.getSession().get(TEACHER);
+		student = (Student) super.getSession().get(STUDENT);
+		teacher = (Teacher) super.getSession().get(TEACHER);
 		if (null != student)
 		{
 			System.out.println("正在登出的是"+student.getStudentNo());
-			ActionSession.getSession().remove(STUDENT);
+			super.getSession().remove(STUDENT);
 			return SUCCESS;
 		}
 		else if(null!=teacher)
 		{
 			System.out.println("正在登出的是"+teacher.getTeacherNo());
-			ActionSession.getSession().remove(TEACHER);
+			super.getSession().remove(TEACHER);
 			return SUCCESS;
 			}
 		else
@@ -97,8 +97,8 @@ public class MessageAction extends BaseAction {
 	}
 
 	public String enterPersionalSpace() {
-		student = (Student) ActionSession.getSession().get(STUDENT);
-		teacher = (Teacher) ActionSession.getSession().get(TEACHER);
+		student = (Student) super.getSession().get(STUDENT);
+		teacher = (Teacher) super.getSession().get(TEACHER);
 		if (null != student)
 		{
 			System.out.println("正在进入空间的是"+student.getStudentNo());
@@ -115,7 +115,7 @@ public class MessageAction extends BaseAction {
 	}
 	public String addNewMessage(){
 		boolean result;
-		userInfo=(UserInfo) ActionSession.getSession().get(USERINFO);
+		userInfo=(UserInfo) super.getSession().get(USERINFO);
 		System.out.println("******"+userInfo.getName()+"********");
 		topic.setAuthorName(userInfo.getName());
 		topicService.addTopic(super.getCourse(), topic);
@@ -134,7 +134,7 @@ public class MessageAction extends BaseAction {
 	public String goReply(){
 		topic =topicService.getTopicById(topicId);
 		System.out.println("进入ID为："+topic.getId()+"的回复页面");
-		userInfo=(UserInfo) ActionSession.getSession().get(USERINFO);
+		userInfo=(UserInfo) super.getSession().get(USERINFO);
 		if(getTopic()==null){
 			addActionError("该贴已经不存在！");
 			return ERROR;
@@ -152,8 +152,8 @@ public class MessageAction extends BaseAction {
 	 */
 	@SuppressWarnings("unchecked")
 	public String showTopics() {
-		student = (Student) ActionSession.getSession().get(STUDENT);
-		teacher = (Teacher) ActionSession.getSession().get(TEACHER);
+		student = (Student) super.getSession().get(STUDENT);
+		teacher = (Teacher) super.getSession().get(TEACHER);
 		if (null==student && null==teacher) {
 			addActionError("您还未登录，请先登录！");
 			return "login";

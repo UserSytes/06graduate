@@ -101,7 +101,7 @@ public class HomePageAction extends BaseAction{
 				return ERROR;
 			else {
 				System.out.println(teacher.getPassword());
-				ActionSession.getSession().put(TEACHER, teacher);
+				super.getSession().put(TEACHER, teacher);
 				return "teacher";
 			}
 		} else {
@@ -111,7 +111,7 @@ public class HomePageAction extends BaseAction{
 				return ERROR;
 			else {
 				System.out.println("test1: "+student.getPassword());
-				ActionSession.getSession().put(STUDENT, student);
+				super.getSession().put(STUDENT, student);
 				return "student";
 			}
 		}

@@ -1,9 +1,13 @@
 package cn.edu.xmu.course.web.action;
 
 import java.util.Date;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import cn.edu.xmu.course.pojo.*;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BaseAction extends ActionSupport {
@@ -20,35 +24,47 @@ public class BaseAction extends ActionSupport {
 	public String SUPERADMIN = "superAdmin";
 	public String COURSE = "course";
 	public String USERINFO= "userInfo";
+	
+	private ActionContext ctx ;
+	Map session ;
+	
 	public BaseAction() {
+		
 	}
 
 	public String getUserName() {
-		return (String) ActionSession.getSession().get("username");
+		return (String) this.getSession().get("username");
 	}
 
 	public Teacher getTeacher() {
-		return (Teacher) ActionSession.getSession().get(TEACHER);
+		return (Teacher) this.getSession().get(TEACHER);
 	}
 
 	public Student getStudent() {
-		return (Student) ActionSession.getSession().get(STUDENT);
+		return (Student) this.getSession().get(STUDENT);
 	}
 
 	public Administrator getAdmin() {
-		return (Administrator) ActionSession.getSession().get(ADMIN);
+		return (Administrator) this.getSession().get(ADMIN);
 	}
 
 	public SuperAdmin getSuperAdmin() {
-		return (SuperAdmin) ActionSession.getSession().get(SUPERADMIN);
+		return (SuperAdmin) this.getSession().get(SUPERADMIN);
 	}
 
 	public Course getCourse() {
-		return (Course) ActionSession.getSession().get(COURSE);
+		return (Course) this.getSession().get(COURSE);
 	}
 	public UserInfo getUserInfo(){
-		return (UserInfo) ActionSession.getSession().get(USERINFO);
+		return (UserInfo) this.getSession().get(USERINFO);
 	}
+	
+	public Map getSession() {
+		ctx = ActionContext.getContext();
+		session = ctx.getSession(); 
+		return session;
+	}
+	
 	public String getPreFileNameByTeacher(){
 		String preFileName = this.getTeacher().getUserInfo().getName() + "/"
 		+ new Date().getTime()+"_"+this.getCourse().getName() + "_";
@@ -57,11 +73,26 @@ public class BaseAction extends ActionSupport {
 
 	public String logout() {
 		try {
-			ActionSession.getSession().clear();
+			session.clear();
 			return SUCCESS;
 		} catch (Exception e) {
 			return ERROR;
 		}
 	}
+
+	public ActionContext getCtx() {
+		return ctx;
+	}
+
+	public void setCtx(ActionContext ctx) {
+		this.ctx = ctx;
+	}
+
+
+
+	public void setSession(Map session) {
+		this.session = session;
+	}
+
 
 }

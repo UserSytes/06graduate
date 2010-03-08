@@ -57,7 +57,7 @@ public class TeacherInfoAction extends BaseAction{
 	 * @return
 	 */
 	public String findTeacherBySchool(){
-		Administrator admin = (Administrator) ActionSession.getSession().get(ADMIN);
+		Administrator admin = (Administrator) super.getSession().get(ADMIN);
 		School school = admin.getSchool();
 		teacherList = teacherInfoService.findTeachersBySchool(school);
 		if (teacherList.size() == 0) {
@@ -72,7 +72,7 @@ public class TeacherInfoAction extends BaseAction{
 	 * @return
 	 */
 	public String getDepartmentBySchool(){
-		Administrator admin = (Administrator) ActionSession.getSession().get(ADMIN);
+		Administrator admin = (Administrator) super.getSession().get(ADMIN);
 		School school = admin.getSchool();
 		departmentList = superAdminService.findDepartmentBySchool(school);
 		if (departmentList.size() == 0) {
