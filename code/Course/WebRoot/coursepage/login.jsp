@@ -17,10 +17,10 @@
 			<div style="width: 770px">
 <s:form action="loginFromMessageBoardAction" method="post"
 													onsubmit="">
-													<table width="100%" height="100%" border="0"
-														cellspacing="0" cellpadding="0">
+													<table width="60%" height="100%" border="0"
+														cellspacing="0" cellpadding="0" align="center">
 														<tr>
-															<td width="70" height="30" align="left">
+															<td height="30" align="center">
 																&nbsp;账号：
 															</td>
 															<td>
@@ -28,7 +28,7 @@
 															</td>
 														</tr>
 														<tr>
-															<td height="30" width="70" align="left">
+															<td height="30" align="center">
 																&nbsp;密码：
 															</td>
 															<td>
@@ -36,7 +36,7 @@
 															</td>
 														</tr>
 														<tr>
-															<td height="30">
+															<td height="30" align="center">
 																&nbsp;角色：
 															</td>
 															<td>
@@ -44,8 +44,8 @@
 																	headerKey="-1" headerValue="请选择" />
 															</td>
 														</tr>
-														<tr bgcolor="#64A5CF">
-															<td colspan="2" align="center" bgcolor="#64A5CF">
+														<tr>
+															<td colspan="2" align="center">
 																<input type="submit" name="submit"
 																	style="background: url(${ctx}/homepage/images/login_5.gif) no-repeat"
 																	value=" 登  陆 ">
