@@ -15,6 +15,8 @@ public class TopicService implements ITopicService{
 		topic.setCourse(course);
 		topic.setTime(new Date());
 		topic.setCountPerson(0);
+		topic.setCountReply(0);
+		topic.setLastAnswer("нч");
 		try {
 			topicDAO.save(topic);
 			return true;
