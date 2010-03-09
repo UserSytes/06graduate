@@ -1,6 +1,7 @@
 package cn.edu.xmu.course.web.action;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.opensymphony.xwork2.Action;
@@ -199,6 +200,11 @@ public class MessageAction extends BaseAction {
 //		topic = topicService.getTopicById(topicId);
 		System.out.println("ACTION正在加入帖子为："+topic.getId()+"的留言2");
 		topic = topicService.getTopicById(topic.getId());
+		topic.setCountReply(topic.getCountReply()+1);
+		topic.setLastUpdate(new Date());
+		topic.setLastAnswer(super.getUserInfo().getName());
+		topicService.updateTopic(topic);
+		System.out.println(message.getContent());
 		message.setGrade(topic.getCountReply()+2);
 		result=messageService.addMessage(topic, message);
 		if (result) {
