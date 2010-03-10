@@ -119,7 +119,6 @@ public class NewsAction extends BaseAction {
 	 * @return
 	 */
 	public String goEditNews() {
-		System.out.print("测试1：" + news.getId());
 		news = newsService.findNewsById(news.getId());
 		attachmentList = newsService.findAttachmentByNews(news);
 		return SUCCESS;
@@ -136,10 +135,8 @@ public class NewsAction extends BaseAction {
 		if(myFile == null){
 			result = newsService.updateNewsWithoutAttachment(news);
 		}else{
-			System.out.println("测试新闻1："+ myFile.length);
 		    result = newsService.updateNews(news,myFile,myFileContentType, myFileFileName);
 		}
-		System.out.println("测试新闻2："+result);
 		if (result) {
 			addActionMessage("更新新闻成功！");
 			return SUCCESS;

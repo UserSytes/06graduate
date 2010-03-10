@@ -137,6 +137,19 @@ public class MessageService implements IMessageService {
 	public List getMessageByTopic(Topic topic){
 		return messageDAO.findByTopicByOrder(topic);
 	}
+	
+	/**
+	 * 根据用户查找主题（grade为1的message）
+	 * @param userInfo
+	 * @return
+	 */
+	public List getMessageByUserInfo(UserInfo userInfo){
+		return messageDAO.findTopicByUserInfo(userInfo);
+	}
+	
+	public List getReplyMessageByUserInfo(UserInfo userInfo){
+		return messageDAO.findReplyMessageByUserInfo(userInfo);
+	}
 	public void setMessageDAO(MessageDAO messageDAO) {
 		this.messageDAO = messageDAO;
 	}

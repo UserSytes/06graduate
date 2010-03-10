@@ -6,12 +6,16 @@ import java.util.List;
 import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Collection;
 import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.Message;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.StudentCourse;
+import cn.edu.xmu.course.pojo.Topic;
 import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.ICourseService;
+import cn.edu.xmu.course.service.IMessageService;
 import cn.edu.xmu.course.service.IStudentCourseService;
 import cn.edu.xmu.course.service.IStudentInfoService;
+import cn.edu.xmu.course.service.ITopicService;
 
 /**
  * 学生主页
@@ -35,6 +39,42 @@ public class StudentInfoAction extends BaseAction {
 	private int courseId;
 	private String oldPassword;
 	private String newPassword;
+	
+	
+	private ITopicService topicService;
+	private IMessageService messageService;
+	
+	private List<Topic> topicList;
+	private List<Message> messageList;
+	
+	private Topic topic;
+	private int topicId;
+	
+	public String myTopics(){
+		student = (Student) super.getSession().get(STUDENT);
+		userInfo = student.getUserInfo();
+		messageList = messageService.getMessageByUserInfo(userInfo);
+		if(messageList.size()==0){
+			addActionMessage("您目前还未发表帖子留言！");
+			return ERROR;
+		}else{
+			return SUCCESS;
+		}
+	}
+	
+	public String myReplyTopics(){
+		student = (Student) super.getSession().get(STUDENT);
+		userInfo = student.getUserInfo();
+		messageList = messageService.getReplyMessageByUserInfo(userInfo);
+		System.out.println("我的帖子："+messageList.get(0).getGrade());
+		System.out.println("我的帖子2："+messageList.get(0).getTopic().getName());
+		if(messageList.size()==0){
+			addActionMessage("您目前还未有任何留言回复！");
+			return ERROR;
+		}else{
+			return SUCCESS;
+		}
+	}
 	
 	/**
 	 * 查找学生个人信息
@@ -219,6 +259,58 @@ public class StudentInfoAction extends BaseAction {
 
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
+	}
+
+	public ITopicService getTopicService() {
+		return topicService;
+	}
+
+	public void setTopicService(ITopicService topicService) {
+		this.topicService = topicService;
+	}
+
+	public IMessageService getMessageService() {
+		return messageService;
+	}
+
+	public void setMessageService(IMessageService messageService) {
+		this.messageService = messageService;
+	}
+
+	public List<Topic> getTopicList() {
+		return topicList;
+	}
+
+	public void setTopicList(List<Topic> topicList) {
+		this.topicList = topicList;
+	}
+
+	public List<Message> getMessageList() {
+		return messageList;
+	}
+
+	public void setMessageList(List<Message> messageList) {
+		this.messageList = messageList;
+	}
+
+	public Topic getTopic() {
+		return topic;
+	}
+
+	public void setTopic(Topic topic) {
+		this.topic = topic;
+	}
+
+	public int getTopicId() {
+		return topicId;
+	}
+
+	public void setTopicId(int topicId) {
+		this.topicId = topicId;
+	}
+
+	public static long getSerialVersionUID() {
+		return serialVersionUID;
 	}
 	
 }

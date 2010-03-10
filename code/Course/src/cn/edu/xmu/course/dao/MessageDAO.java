@@ -12,6 +12,7 @@ import org.hibernate.Query;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import cn.edu.xmu.course.pojo.Message;
+import cn.edu.xmu.course.pojo.UserInfo;
 
 /**
  * A data access object (DAO) providing persistence and search support for
@@ -121,16 +122,36 @@ public class MessageDAO extends HibernateDaoSupport {
 	   * @return
 	   * @author ึฃฑ๙ม่
 	   */
-      public List findByTopicByOrder(Object topic) {
-    	  try {
+    public List findByTopicByOrder(Object topic) {
+    	try {
   			String queryString = "from Message as model where model.topic = ? order by model.grade";
   			return getHibernateTemplate().find(queryString, topic);
   		} catch (RuntimeException re) {
   			log.error("find by property name failed", re);
   			throw re;
   		}
-		}
+	}
       
+    public List findTopicByUserInfo(UserInfo userInfo){
+    	try {
+   			String queryString = "from Message as model where model.grade = 1 and model.userInfo = ?";
+   			return getHibernateTemplate().find(queryString, userInfo);
+   		} catch (RuntimeException re) {
+   			log.error("find by property name failed", re);
+   			throw re;
+   		}  
+    }
+    
+    public List findReplyMessageByUserInfo(UserInfo userInfo){
+    	try {
+   			String queryString = "from Message as model where model.grade != 1 and model.userInfo = ?";
+   			return getHibernateTemplate().find(queryString, userInfo);
+   		} catch (RuntimeException re) {
+   			log.error("find by property name failed", re);
+   			throw re;
+   		}  
+    }
+    
 	public List findByTopic(Object topic) {
 		return findByProperty("topic", topic);
 	}

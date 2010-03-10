@@ -50,10 +50,10 @@
 													</h3>
 													<ul class="nav">
 														<li>
-															<font size="2" face="宋体"><a href="#">最新留言</a> </font>
+															<font size="2" face="宋体"><a href="<s:url action="myTopicAction"></s:url>">我的帖子</a> </font>
 														</li>
 														<li class="last">
-															<font size="2" face="宋体"><a href="#">历史留言</a> </font>
+															<font size="2" face="宋体"><a href="<s:url action="myReplyTopicAction"></s:url>">我的回复</a> </font>
 														</li>
 													</ul>
 												</div>
