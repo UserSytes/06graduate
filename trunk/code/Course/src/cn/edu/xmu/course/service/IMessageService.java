@@ -4,6 +4,7 @@ import java.util.List;
 
 import cn.edu.xmu.course.pojo.Message;
 import cn.edu.xmu.course.pojo.Topic;
+import cn.edu.xmu.course.pojo.UserInfo;
 
 public interface IMessageService {
 	public List getAllMessages(Topic topic);
@@ -14,4 +15,6 @@ public interface IMessageService {
 	public boolean deleteMessage(Message Message);
 	
 	public List getMessageByTopic(Topic topic);
+	public List getMessageByUserInfo(UserInfo userInfo);
+	public List getReplyMessageByUserInfo(UserInfo userInfo);
 }

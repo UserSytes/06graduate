@@ -58,6 +58,12 @@
 		<property name="courseService">
 			<ref bean="courseService" />
 		</property>
+		<property name="topicService">
+			<ref bean="topicService" />
+		</property>
+		<property name="messageService">
+			<ref bean="messageService" />
+		</property>
 	</bean>
 	<bean id="courseAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.CourseAction">

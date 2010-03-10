@@ -789,6 +789,14 @@
 			<result name="success">/student/collectionlist.jsp</result>
 			<result name="error">/student/prompt.jsp</result>
 		</action>
+		<action name="myTopicAction" method="myTopics" class="studentInfoAction">
+			<result name="success">/student/topiclist.jsp</result>
+			<result name="error">/student/prompt.jsp</result>
+		</action>
+		<action name="myReplyTopicAction" method="myReplyTopics" class="studentInfoAction">
+			<result name="success">/student/replytopiclist.jsp</result>
+			<result name="error">/student/prompt.jsp</result>
+		</action>
 		
 		<!-- 前台 -->
 		<action name="findCourseByDepartmentAction" method="findCourseByDepartment"
