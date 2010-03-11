@@ -222,10 +222,10 @@ border=0>
           </TR>
         <TR>
           <TD 
-      height=105><span class="STYLE2"><IMG src="Images/closed.gif">版权所有：865171<br>
-              <IMG src="Images/closed.gif">设计制作：865171<br>
-              <IMG src="Images/closed.gif">技术支持：<a href="http://www.865171.cn" target="_blank">865171</a><br>
-              <IMG src="Images/closed.gif">帮助中心：<a href="http://www.865171.cn" target="_blank">865171</a><br>
+      height=105><span class="STYLE2"><IMG src="Images/closed.gif">版权所有：厦门大学<br>
+              <IMG src="Images/closed.gif">设计制作：软件学院<br>
+              <IMG src="Images/closed.gif">技术支持：<a href="#" target="_blank">865171</a><br>
+              <IMG src="Images/closed.gif">帮助中心：<a href="#" target="_blank">865171</a><br>
             <IMG src="Images/closed.gif">系统版本：1.0</span></TD>
         </TR>
       </TBODY>
