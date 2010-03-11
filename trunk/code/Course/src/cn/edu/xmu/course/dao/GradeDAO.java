@@ -92,6 +92,21 @@ public class GradeDAO extends HibernateDaoSupport {
 		}
 	}
 
+	/**
+	 * ¸ù¾Ýgrade²éÕÒ
+	 * @param grade
+	 * @return
+	 */
+	public List findByGrade(Grade grade) {
+		try {
+			String queryString = "from Grade as model where model.grade = "+grade.getGrade()+" and model.name = ?";
+			return getHibernateTemplate().find(queryString, grade.getName());
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	
 	public List findByGrade(Object grade) {
 		return findByProperty(GRADE, grade);
 	}

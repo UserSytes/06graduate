@@ -10,7 +10,27 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
 		<title>添加学院</title>
+		<script type="text/javascript" src="/dwr/engine.js"></script>
+		<script type="text/javascript" src="/dwr/util.js"></script>
+		<script type="text/javascript" src="/dwr/interface/SuperAdminService.js"></script>
 		<SCRIPT language=javascript>
+		function checkSchool(name) {
+			if (name == "") {
+				DWRUtil.setValue('result', "学院名称不能为空！");
+				return false;
+			}
+			SuperAdminService.checkSchool(name, callBack);
+		}
+		function callBack(data) {
+			if (data != null){
+				DWRUtil.setValue('result', "该学院已经存在，请更换帐号！");
+				document.getElementById("button").disabled = true;
+			}
+			else{
+				DWRUtil.setValue('result', "该学院名称可用！");
+				document.getElementById("button").disabled = false;
+				}
+		}
 			function check(form)
 			{
 				if (form.schoolName.value == "")
@@ -21,6 +41,8 @@
 					return true;
 				}
 			}
+			
+			
 		</SCRIPT>
 		<style type="text/css">
 <!--
@@ -57,8 +79,8 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" id="schoolName" name="school.Name" label="学院名称"></s:textfield>
-						&nbsp;*
+						<s:textfield cssClass="INPUT" id="schoolName" name="school.Name" label="学院名称" onblur="checkSchool(this.value)"></s:textfield>
+						&nbsp;*<span style="color: green;" id="result">点击验证 </span>
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">
@@ -66,7 +88,7 @@
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit cssClass="label" value="确定添加"></s:submit>
+						<s:submit id="button" cssClass="label" value="确定添加"></s:submit>
 					</td>
 				</tr>
 			</table>

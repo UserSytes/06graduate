@@ -17,6 +17,14 @@ public class SuperAdminService implements ISuperAdminService {
 	private DepartmentDAO departmentDAO;
 	private GradeDAO gradeDAO;
 
+	public School checkSchool(String name){
+		List<School> schools = schoolDAO.findByName(name);
+		if(schools.size()==0){
+			return null;
+		}else
+			return schools.get(0);
+	}
+	
 	public boolean addDepartment(School school, Department department) {
 		// TODO Auto-generated method stub
 		//department.setSchool(school);
@@ -30,6 +38,10 @@ public class SuperAdminService implements ISuperAdminService {
 
 	public boolean addGrade(Grade grade) {
 		// TODO Auto-generated method stub
+		List<Grade> gradeList = gradeDAO.findByGrade(grade);
+		if(gradeList.size()!=0){
+			return false;
+		}
 		try {
 			gradeDAO.save(grade);
 			return true;

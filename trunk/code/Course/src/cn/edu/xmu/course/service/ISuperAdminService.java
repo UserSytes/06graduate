@@ -24,6 +24,8 @@ public interface ISuperAdminService {
 	
 	public boolean deleteDepartment(Department department);
 	
+	public School checkSchool(String name);
+	
 	public List findAllSchool();
 	
 	public School findSchoolById(int id);
