@@ -22,13 +22,22 @@
 		return true;
 	}
 	function getStudentName(stuNo) {
+		if (stuNo == "")
+				{
+					DWRUtil.setValue('result',"账号不能为空！");
+					return false;
+				}
 		StudentInfoService.findUserInfoByStudentNo(stuNo,callBack);
 	}
 	function callBack(data){
-		if(data != null)
+		if(data != null){
 			DWRUtil.setValue('result',data.name);
-		else
+			document.getElementById("button").disabled = false;
+			}
+		else{
 			DWRUtil.setValue('result',"该学生不存在");
+			document.getElementById("button").disabled = true;
+			}
 	}
 </SCRIPT>
 		<style type="text/css">
@@ -93,7 +102,7 @@
 						&nbsp;
 					</td>
 					<td width="80%">
-						<s:submit cssClass="label" value="确定添加"></s:submit>
+						<s:submit id="button" cssClass="label" value="确定添加"></s:submit>
 					</td>
 				</tr>
 			</table>

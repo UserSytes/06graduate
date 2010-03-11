@@ -14,7 +14,7 @@
 		<SCRIPT language=javascript>
 	function check(form) {
 		if (form.title.value == "") {
-			alert("学院名不能为空！");
+			alert("新闻标题不能为空！");
 			return false;
 		}
 		if (form.anthor.value == "") {

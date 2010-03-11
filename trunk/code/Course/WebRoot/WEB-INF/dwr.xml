@@ -33,12 +33,34 @@
 			<param name="include" value="id,name" />
 		</convert>
 		
-			<create creator="spring" javascript="NewsService" >
+		<create creator="spring" javascript="NewsService" >
 			<param name="beanName" value="newsService" />
 		</create>
 		<convert converter="bean" match="cn.edu.xmu.course.pojo.News">
 			<param name="include" value="id,title,time" />
 		</convert>
+		
+		<create creator="spring" javascript="TeacherInfoService" >
+			<param name="beanName" value="teacherInfoService" />
+		</create>
+		<convert converter="bean" match="cn.edu.xmu.course.pojo.Teacher">
+			<param name="include" value="id,teacherNo" />
+		</convert>
+
+		<create creator="spring" javascript="AdminService" >
+			<param name="beanName" value="adminService" />
+		</create>
+		<convert converter="bean" match="cn.edu.xmu.course.pojo.Administrator">
+			<param name="include" value="id,name" />
+		</convert>
+		
+		<create creator="spring" javascript="DepartmentService" >
+			<param name="beanName" value="departmentService" />
+		</create>
+		<convert converter="bean" match="cn.edu.xmu.course.pojo.Department">
+			<param name="include" value="id,name" />
+		</convert>
+		
 		
 	</allow>
 </dwr>

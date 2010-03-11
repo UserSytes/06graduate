@@ -23,6 +23,14 @@ public class StudentCourseService implements IStudentCourseService {
 	private CollectionDAO collectionDAO;
 	private StudentDAO studentDAO;
 	
+	public boolean checkStudent(Course course, Student student){
+		List<StudentCourse> studentCourses = studentCourseDAO.findByStudentAndCourse(course, student);
+		if(studentCourses.size()==0){
+			return true;//该学生未加入该课程，可执行加入
+		}else
+			return false;//该生已经加入该课程
+	}
+	
 	public boolean deleteCollection(Student student, Course course){
 		Collection c = (Collection) collectionDAO.findByStudentAndCourse(course, student).get(0);
 		if(c != null){
