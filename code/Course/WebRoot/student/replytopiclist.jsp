@@ -50,7 +50,7 @@
 														<br>
 														<br>
 														<div style="padding-left: 5px" class="content1-pagetitle">
-															当前位置: 我的留言 -&gt; 我的帖子
+															当前位置: 我的留言 -&gt; 我的回复
 														</div>
 													</tr>
 													<tr>

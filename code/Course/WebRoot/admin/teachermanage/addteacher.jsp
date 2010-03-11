@@ -10,6 +10,9 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
 		<title>添加教师</title>
+ 		<script type="text/javascript" src="/dwr/engine.js"></script>
+		<script type="text/javascript" src="/dwr/util.js"></script>
+		<script type="text/javascript" src="/dwr/interface/TeacherInfoService.js"></script>
 		<SCRIPT language=javascript>
 			function check(form)
 			{
@@ -35,6 +38,25 @@
 				}
 				return true;
 			}
+			
+			function getTeacher(teacherNo) {
+		if (teacherNo == "")
+				{
+					DWRUtil.setValue('result',"账号不能为空！");
+					return false;
+				}
+		TeacherInfoService.findTeacherByTeacherNo(teacherNo,callBack);
+	}
+	function callBack(data){
+		if(data != null){
+			DWRUtil.setValue('result',"该教师帐号已被注册，请另选帐号！");
+			document.getElementById("button").disabled = true;
+			}
+		else{
+			DWRUtil.setValue('result',"该教师帐号可用！");
+			document.getElementById("button").disabled = false;
+			}
+	}
 		</SCRIPT>
 		<style type="text/css">
 <!--
@@ -72,8 +94,9 @@
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<s:textfield cssClass="INPUT" id="teacherNo"
-							name="teacher.teacherNo" label="账号"></s:textfield>
-						&nbsp;*
+							name="teacher.teacherNo" label="账号" onblur="getTeacher(this.value)"></s:textfield>
+						&nbsp;*<span id="result" style="color: green;" >
+						</span>
 					</td>
 				</tr>
 				<tr>
@@ -145,7 +168,7 @@
 						&nbsp;
 					</td>
 					<td width="80%">
-						<s:submit cssClass="label" value="确定添加"></s:submit>
+						<s:submit id="button" cssClass="label" value="确定添加"></s:submit>
 					</td>
 				</tr>
 			</table>

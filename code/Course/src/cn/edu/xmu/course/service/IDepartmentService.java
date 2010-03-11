@@ -1,7 +1,11 @@
 package cn.edu.xmu.course.service;
 
 import cn.edu.xmu.course.pojo.Department;
-
+/**
+ * 
+ * @author Sky
+ *
+ */
 public interface IDepartmentService {
 
 	/**
@@ -10,4 +14,11 @@ public interface IDepartmentService {
 	 * @return
 	 */
 	public Department getDepartmentById(Integer departmentId);
+	
+	/**
+	 * 根据名称查找系
+	 * @param name
+	 * @return
+	 */
+	public Department getDepartmentByName(String name);
 }

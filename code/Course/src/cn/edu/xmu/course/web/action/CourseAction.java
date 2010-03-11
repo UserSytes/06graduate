@@ -187,6 +187,11 @@ public class CourseAction extends BaseAction {
 		StudentCourse studentCourse = new StudentCourse();
 		course = courseService.getCourseById(course.getId());
 		student = studentCourseService.findStudentByStudentNo(studentNo);
+		boolean check = studentCourseService.checkStudent(course, student);
+		if (!check) {
+			addActionError("学生"+student.getUserInfo().getName()+"("+studentNo+") 已经加入该课程！不能重复加入。");
+			return SUCCESS;
+		}
 		studentCourse.setCourse(course);
 		studentCourse.setStudent(student);
 		studentCourse.setStatus(0);

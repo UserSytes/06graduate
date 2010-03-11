@@ -9,6 +9,7 @@ import cn.edu.xmu.course.dao.TeacherDAO;
 import cn.edu.xmu.course.dao.UserInfoDAO;
 import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.School;
+import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.ITeacherInfoService;
@@ -115,6 +116,18 @@ public class TeacherInfoService implements ITeacherInfoService {
 		return teacherDAO.findBySchool(school);
 		
 	}
+	
+	public Teacher findTeacherByTeacherNo(String teacherNo) {
+		// TODO Auto-generated method stub
+		List<Teacher> teachers = teacherDAO.findByTeacherNo(teacherNo);
+		if(teachers.size()==0){
+			return null;
+		}else{
+			return teachers.get(0);
+		}
+	}
+
+	
 	public void setTeacherDAO(TeacherDAO teacherDAO) {
 		this.teacherDAO = teacherDAO;
 	}

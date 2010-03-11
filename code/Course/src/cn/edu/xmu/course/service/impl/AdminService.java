@@ -21,6 +21,13 @@ public class AdminService implements IAdminService {
 	
 	final String password = "123456";
 	
+	public Administrator getAdminByAccount(String account){
+		List<Administrator> admins = administratorDAO.findByAccount(account);
+		if(admins.size()==0){
+			return null;
+		}else
+			return admins.get(0);
+	}
 	/*
 	 * 添加学院管理员(non-Javadoc)
 	 * @see cn.edu.xmu.course.service.IAdminService#addAdmin(cn.edu.xmu.course.pojo.Administrator, cn.edu.xmu.course.pojo.School)

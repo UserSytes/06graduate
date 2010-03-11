@@ -10,27 +10,45 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
 		<title>添加学院管理员</title>
+		<script type="text/javascript" src="/dwr/engine.js"></script>
+		<script type="text/javascript" src="/dwr/util.js"></script>
+		<script type="text/javascript" src="/dwr/interface/AdminService.js"></script>
 		<SCRIPT language=javascript>
-			function check(form)
-			{
-				if (form.adminName.value == "")
-				{
-					alert("姓名不能为空！");
-					return false;
-				}
-				if (form.adminSchoolId.value == -1)
-				{
-					alert("所属学院不能为空！");
-					return false;
-				}
-				if (form.adminAccount.value == "")
-				{
-					alert("账号不能为空！");
-					return false;
-				}
-				return true;
+	function check(form) {
+		if (form.account.value == "") {
+			alert("账号不能为空！");
+			return false;
+		}
+		if (form.adminName.value == "") {
+			alert("姓名不能为空！");
+			return false;
+		}
+		if (form.adminSchoolId.value == -1) {
+			alert("所属学院不能为空！");
+			return false;
+		}
+
+		return true;
+	}
+
+	function checkAdmin(account) {
+		if (account == "") {
+			DWRUtil.setValue('result', "账号不能为空！");
+			return false;
+		}
+		AdminService.getAdminByAccount(account, callBack);
+	}
+	function callBack(data) {
+		if (data != null){
+			DWRUtil.setValue('result', "该管理员帐号已经存在，请更换帐号！");
+			document.getElementById("button").disabled = true;
+		}
+		else{
+			DWRUtil.setValue('result', "该管理员帐号可用！");
+			document.getElementById("button").disabled = false;
 			}
-		</SCRIPT>
+	}
+</SCRIPT>
 		<style type="text/css">
 <!--
 .STYLE1 {
@@ -61,12 +79,38 @@
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
+							登陆账号：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<s:textfield cssClass="INPUT" id="account"
+							name="admin.account" label="登陆账号" onblur="checkAdmin(this.value)"></s:textfield>
+						&nbsp;*
+						<span style="color: green;" id="result"> </span>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							登陆密码：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<font color="#808080">初始密码为&quot;123456&quot; </font>&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
 							姓名：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" id="adminName" name="admin.name" label="姓名"></s:textfield>
+						<s:textfield cssClass="INPUT" id="adminName" name="admin.name"
+							label="姓名"></s:textfield>
 						&nbsp;*
 					</td>
 				</tr>
@@ -78,40 +122,18 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:select name="adminSchoolId" list="allSchoolList" headerKey="-1" headerValue="请选择" listKey="id" listValue="name"/> 
+						<s:select name="adminSchoolId" list="allSchoolList" headerKey="-1"
+							headerValue="请选择" listKey="id" listValue="name" />
 						&nbsp;*
 					</td>
 				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							登陆账号：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" id="adminAccount" name="admin.account" label="登陆账号"></s:textfield>
-						&nbsp;*
-					</td>
-				</tr>
-<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							登陆密码：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-						<font color="#808080">初始密码为&quot;123456&quot;
-						</font>&nbsp;
-					</td>
-				</tr>
+
 				<tr bgcolor="#ECF3FD">
 					<td width="30%">
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit cssClass="label" value="确定添加"></s:submit>
+						<s:submit id="button" cssClass="label" value="确定添加"></s:submit>
 					</td>
 				</tr>
 			</table>

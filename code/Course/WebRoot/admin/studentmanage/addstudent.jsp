@@ -10,7 +10,7 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
 		<title>添加学生</title>
-<script type="text/javascript" src="/dwr/engine.js"></script>
+        <script type="text/javascript" src="/dwr/engine.js"></script>
 		<script type="text/javascript" src="/dwr/util.js"></script>
 		<script type="text/javascript" src="/dwr/interface/StudentInfoService.js"></script>
 		<SCRIPT language=javascript>
@@ -23,10 +23,14 @@
 		StudentInfoService.findUserInfoByStudentNo(stuNo,callBack);
 	}
 	function callBack(data){
-		if(data != null)
+		if(data != null){
 			DWRUtil.setValue('result',"该学生帐号已被注册，请另选帐号！");
-		else
+			document.getElementById("button").disabled = true;
+			}
+		else{
 			DWRUtil.setValue('result',"该学生帐号可用！");
+			document.getElementById("button").disabled = false;
+			}
 	}
 			function check(form)
 			{
@@ -96,7 +100,7 @@
 						&nbsp;&nbsp;&nbsp;
 						<s:textfield cssClass="INPUT" id="studentNo"
 							name="student.studentNo" label="账号" onblur="getStudentName(this.value)"></s:textfield>
-						&nbsp;*<span id="result">
+						&nbsp;*<span style="color: green;" id="result">
 						</span>
 					</td>
 				</tr>
@@ -170,7 +174,7 @@
 						&nbsp;
 					</td>
 					<td width="80%">
-						<s:submit cssClass="label" value="确定添加"></s:submit>
+						<s:submit id="button" cssClass="label" value="确定添加"></s:submit>
 					</td>
 				</tr>
 			</table>

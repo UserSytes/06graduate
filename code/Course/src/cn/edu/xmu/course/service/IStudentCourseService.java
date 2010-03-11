@@ -71,4 +71,12 @@ public interface IStudentCourseService {
 	 * @return
 	 */
 	public boolean deleteCollection(Student student, Course course);
+	
+	/**
+	 * 查找某学生帐号是否可以加入某课程
+	 * @param course
+	 * @param studentNo
+	 * @return
+	 */
+	public boolean checkStudent(Course course, Student student);
 }

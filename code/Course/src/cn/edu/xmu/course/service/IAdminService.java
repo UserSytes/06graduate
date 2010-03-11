@@ -14,6 +14,13 @@ import cn.edu.xmu.course.pojo.SuperAdmin;
 public interface IAdminService {
 
 	/**
+	 * 根据帐号查找学院管理员
+	 * @param account
+	 * @return
+	 */
+	public Administrator getAdminByAccount(String account);
+	
+	/**
 	 * 添加学院管理员
 	 * @param admin
 	 * @param school
