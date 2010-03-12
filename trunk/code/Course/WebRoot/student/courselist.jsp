@@ -66,7 +66,7 @@
 																			序号
 																		</th>
 																		<th>
-																			课程名
+																			<font size="2" face="宋体">课程名</font>
 																		</th>
 																		<th>
 																			<font size="2" face="宋体">教师</font>
@@ -84,7 +84,7 @@
 																				<a
 																					href="<s:url action="enterCourseAction"> 
 																				<s:param name="courseId"> <s:property value="id"/> </s:param> </s:url>">
-																					<s:property value="name" /> </a>
+																					<font color="purple"><s:property value="name" /></font> </a>
 																			</td>
 																			<td width="15%">
 																				<s:property value="teacher.userInfo.name" />

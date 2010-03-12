@@ -117,7 +117,7 @@
 																				电话
 																			</td>
 																			<td class="last">
-																				<s:property value="student.userInfo.mobile" />
+																				<s:property value="userInfo.mobile" />
 																			</td>
 																		</tr>
 																		<tr>
@@ -125,7 +125,7 @@
 																				邮箱
 																			</td>
 																			<td class="last">
-																				<s:property value="student.userInfo.email" />
+																				<s:property value="userInfo.email" />
 																			</td>
 																		</tr>
 																		<tr>

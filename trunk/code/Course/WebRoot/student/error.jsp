@@ -6,6 +6,51 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<LINK href="${ctx}/css/student.css" type=text/css rel=stylesheet>
 		<title>厦门大学精品课程网站</title>
+<script type="text/javascript">
+	function redirect(URLStr) {
+		location = URLStr;
+	}
+	var i = 10;
+	function timer() {
+		if (i > 1) {
+			i = i - 1;
+			document.getElementById("sec").innerHTML = i;
+		} else {
+			stop();
+			redirect("javascript:history.back()");
+		}
+	}
+	var tid = null;
+	function start() {
+		if (tid == null) {
+			tid = setInterval("timer()", 500);
+		}
+	}
+	function stop() {
+		if (tid != null) {
+			clearInterval(tid);
+			tid = null;
+		}
+	}
+</script>
+<!-- Force MSIE without  javascript actived to take the default theme. not conforms to the standards but functional -->
+
+		<!-- path favicon -->
+		<link rel="shortcut icon" type="image/ico"
+			href="http://xoops.org.cn/icons/favicon.ico">
+		<link rel="icon" type="image/png"
+			href="http://xoops.org.cn/icons/favicon.png">
+
+		<!-- include xoops.js and others via header.php -->
+
+
+		<!-- Xoops style sheet -->
+		<link rel="stylesheet" type="text/css" media="screen"
+			href="${ctx}/error/xoops.css">
+
+		<!-- Theme style sheets -->
+		<link rel="stylesheet" type="text/css" media="screen" title="Color"
+			href="${ctx}/error/style.css">
 	</head>
 	<BODY BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0
 		MARGINHEIGHT=0 rightmargin="0" bottommargin="0"
@@ -19,6 +64,8 @@
 						background="${ctx}/homepage/images/back-left.jpg">
 						<img src="${ctx}/homepage/images/spacer.gif" width="9" height="1">
 					</td>
+
+
 					<td width="765" height="100%" valign="top"
 						background="${ctx}/homepage/images/back-end.jpg">
 						<table width="100%" height="100%" border="0" cellspacing="0"
@@ -50,71 +97,40 @@
 														<br>
 														<br>
 														<div style="padding-left: 5px" class="content1-pagetitle">
-															当前位置: 我的课程 -&gt; 收藏课程
+															当前位置: 操作信息提示
 														</div>
 													</tr>
 													<tr>
 														<td width="389" valign="top" style="padding-left: 5px">
 															<div class="table">
-																<img src="${ctx}/student/img/bg-th-left.gif" width="8" height="7"
-																	alt="" class="left" />
-																<img src="${ctx}/student/img/bg-th-right.gif" width="7" height="7"
-																	alt="" class="right" />
-																<table class="listing" cellpadding="0" cellspacing="0">
-																	<tr <s:if test="#st.odd"></s:if>>
-																		<th class="first">
-																			序号
-																		</th>
-																		<th>
-																			课程名
-																		</th>
-																		<th>
-																			教师
-																		</th>
-																		<th>
-																			院系
-																		</th>
-																		<th class="last">
-																			操作
-																		</th>
-																	</tr>
-																	<s:iterator value="courseList" status="course">
-																		<tr>
-																			<td width="10%">
-																				<s:property value="#course.count" />
-																			</td>
-																			<td width="35%">
-																				<a
-																					href="<s:url action="enterCourseAction"> 
-																				<s:param name="courseId"> <s:property value="id"/> </s:param> </s:url>">
-																					<font color="purple"><s:property value="name" /></font> </a>
-																			</td>
-																			<td width="15%">
-																				<s:property value="teacher.userInfo.name" />
-																			</td>
-																			<td width="25%" class="last">
-																				<s:property
-																					value="department.school.name+department.name" />
-																			</td>
-																			<td width="15%">
-																				<a
-																					href="<s:url action="deleteCollectionAction"> 
-                     			<s:param name="courseId"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param> 
-                					</s:url>"
-																					onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
-																					<font color="red">【删除】</font> </a>
-																			</td>
-																		</tr>
-																	</s:iterator>
-																	<tr class="listFooterTr">
-
-																	</tr>
-																</table>
+																<img src="${ctx}/student/img/bg-th-left.gif" width="8"
+																	height="7" alt="" class="left" />
+																<img src="${ctx}/student/img/bg-th-right.gif" width="7"
+																	height="7" alt="" class="right" />
+																<div id="con-wrapper" class="con-center">
+			<div id="ctr">
+			</div>
+			<div id="cbl">
+				<img src="${ctx}/error/blue_bl.gif">
+			</div>
+			<div id="cbr">
+				<img src="${ctx}/error/blue_br.gif">
+			</div>
+			<div id="xo-redirect">
+				<div class="message">
+					<br>
+					系统正忙，操作超时！
+					<br>
+					<img src="${ctx}/error/ajax_indicator_01.gif" alt="&lt;br&gt;登录错误">
+				</div>
+				<div class="notreload">
+					如果页面没有自动跳转回上一页，请
+					<a href="javascript:history.back()"><strong><font color="#ffff00">点击此处</font></strong></a>继续
+				</div>
+			</div>
+		</div>
 															</div>
 														</td>
-
 													</tr>
 
 												</table>

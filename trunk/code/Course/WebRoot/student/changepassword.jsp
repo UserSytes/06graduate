@@ -4,6 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<META http-equiv=Pragma content=no-cache>
+		<META http-equiv=Cache-Control content=no-cache>
+		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/student.css" type=text/css rel=stylesheet>
 	<title>厦门大学精品课程网站</title>
 	<SCRIPT language=javascript>
@@ -26,6 +29,13 @@
 		}
 		return true;
 	</SCRIPT>
+<style type="text/css">
+<!--
+.STYLE1 {
+	color: #000000
+}
+-->
+</style>
 </head>
 <BODY BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0
 		MARGINHEIGHT=0 rightmargin="0" bottommargin="0"
