@@ -132,6 +132,13 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+		<action name="goAddMoreStudentAction" method="goAddMoreStudent" class="studentAction">
+			<result name="success">/admin/studentmanage/addmorestudent.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="addMoreStudentAction" method="addMoreStudent" class="studentAction">
+			<result name="success">/commons/prompt.jsp</result>
+		</action>
 		
 		<!-- 课程申报管理 -->
 		<action name="addNewCourseAction" method="addNewCourse" class="courseAction">

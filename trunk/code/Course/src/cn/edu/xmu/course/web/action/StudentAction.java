@@ -1,7 +1,17 @@
 package cn.edu.xmu.course.web.action;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
+import java.util.regex.Pattern;
+
+import jxl.Cell;
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
 
 import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Department;
@@ -51,8 +61,7 @@ public class StudentAction extends BaseAction {
 	 * @return
 	 */
 	public String getDepartmentBySchool() {
-		Administrator admin = (Administrator) super.getSession().get(
-				ADMIN);
+		Administrator admin = (Administrator) super.getSession().get(ADMIN);
 		School school = admin.getSchool();
 		departmentList = superAdminService.findDepartmentBySchool(school);
 
@@ -74,8 +83,7 @@ public class StudentAction extends BaseAction {
 			addActionMessage("学校未添加学生年级，请先向校方申请添加！");
 			return ERROR;
 		}
-		Administrator admin = (Administrator) super.getSession().get(
-				ADMIN);
+		Administrator admin = (Administrator) super.getSession().get(ADMIN);
 		School school = admin.getSchool();
 		departmentList = superAdminService.findDepartmentBySchool(school);
 		if (departmentList.size() == 0) {
@@ -107,6 +115,22 @@ public class StudentAction extends BaseAction {
 			return ERROR;
 	}
 
+	public String goAddMoreStudent() {
+		gradeList = superAdminService.findAllGrade();
+		if (gradeList.size() == 0) {
+			addActionMessage("学校未添加学生年级，请先向校方申请添加！");
+			return ERROR;
+		}
+		Administrator admin = (Administrator) super.getSession().get(ADMIN);
+		departmentList = superAdminService.findDepartmentBySchool(admin
+				.getSchool());
+		if (departmentList.size() == 0) {
+			addActionMessage("本学院还没有系，请先向 校方管理员申请开设系！");
+			return ERROR;
+		} else
+			return SUCCESS;
+	}
+
 	/**
 	 * 批量添加学生
 	 * 
@@ -116,23 +140,13 @@ public class StudentAction extends BaseAction {
 		Grade grade = superAdminService.findGradeById(gradeId);
 		Department department = superAdminService
 				.findDepartmentById(departmentId);
-		// studentFile.
-		try {
-//			Workbook book = Workbook.getWorkbook(studentFile);
-//			// 获得第一个工作表对象
-//			Sheet sheet = book.getSheet(0);
-//			// 得到第一列第一行的单元格
-//			Cell cell1 = sheet.getCell(0, 1);
-//
-//			String result = cell1.getContents();
-//			System.out.println(result);
-//			book.close();
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-
+		String result =studentInfoService.addMoreStudent(student, grade, department, studentFile);
+		addActionError(result);	
 		return SUCCESS;
+
 	}
+
+	
 
 	/**
 	 * 查找所有的年级
@@ -200,8 +214,7 @@ public class StudentAction extends BaseAction {
 	 */
 	public String findStudentBySchool() {
 		this.goAddStudent();
-		Administrator admin = (Administrator) super.getSession().get(
-				ADMIN);
+		Administrator admin = (Administrator) super.getSession().get(ADMIN);
 		School school = admin.getSchool();
 		studentList = studentInfoService.findBySchool(school);
 		// System.out.println("测试1： "+studentList.size());

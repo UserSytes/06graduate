@@ -38,7 +38,34 @@
 					alert("账号不能为空！");
 					return false;
 				}
-				return true;
+			}
+			
+			function ajax()
+			{
+				var xhr = false;
+				function ajax() {//创建对象
+				if (window.ActiveXObject) {//IE浏览器
+ 				  xhr = new ActiveXObject("Microsoft.XMLHTTP");
+				} else {
+  				if (window.XMLHttpRequest) {//fireFOX浏览
+    			xhr = new XMLHttpRequest();
+   					}
+				}
+				if (!xhr) {
+  				alert("浏览器不支持，请换成其他浏览器再进行操作！");
+  				return false;
+				}
+				//发送请求
+				xhr.open("post", "/addMoreStudentAction.action?studentFileName=" + document.getElementById("fileName").value , "true");
+				xhr.send(null);
+				xhr.onreadystatechange = ok;
+			}
+			function ok() {//成功后调用此方法
+				if (xhr.readyState == 4 && xhr.status == 200) {
+   				alert("成功了");
+				}
+				return false;
+			}
 			}
 		</SCRIPT>
 		<style type="text/css">
@@ -59,7 +86,7 @@
 				</td>
 			</tr>
 		</table>
-		<s:form action="addMoreStudentAction" method="post"
+		<s:form action="addMoreStudentAction" method="post" enctype="multipart/form-data" 
 			onsubmit="return check(this);">
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
@@ -76,9 +103,8 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:select name="departmentId"
-							list="departmentList" headerKey="-1" headerValue="请选择"
-							listKey="id" listValue="name" />
+						<s:select name="departmentId" list="departmentList" headerKey="-1"
+							headerValue="请选择" listKey="id" listValue="name" />
 						&nbsp;*
 					</td>
 				</tr>
@@ -90,9 +116,8 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:select name="gradeId"
-							list="gradeList" headerKey="-1" headerValue="请选择"
-							listKey="id" listValue="name+grade" />
+						<s:select name="gradeId" list="gradeList" headerKey="-1"
+							headerValue="请选择" listKey="id" listValue="name+grade" />
 						&nbsp;*
 					</td>
 				</tr>
@@ -104,7 +129,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<input type="File" NAME="studentFile">
+						<s:file name="studentFile" label="导入Excel表" id="fileName"></s:file>
 						&nbsp;*
 					</td>
 				</tr>
