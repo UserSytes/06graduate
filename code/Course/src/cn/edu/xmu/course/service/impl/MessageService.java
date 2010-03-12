@@ -147,9 +147,6 @@ public class MessageService implements IMessageService {
 		return messageDAO.findTopicByUserInfo(userInfo);
 	}
 	
-	public List getReplyMessageByUserInfo(UserInfo userInfo){
-		return messageDAO.findReplyMessageByUserInfo(userInfo);
-	}
 	public void setMessageDAO(MessageDAO messageDAO) {
 		this.messageDAO = messageDAO;
 	}

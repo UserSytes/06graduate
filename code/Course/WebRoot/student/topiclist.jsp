@@ -81,10 +81,9 @@
 																					<s:property value="topic.course.name" /> 																				
 																			</td>
 																			<td width="40%">
-<a
-																					href="<s:url action="showMessagesAction"> 
+																			<a href="<s:url action="showMessagesAction"> 
 																				<s:param name="topicId"> <s:property value="topic.id"/> </s:param> </s:url>">
-																				<s:property value="topic.name" /></a>
+																				<font color="purple"> <s:property value="topic.name" /></font></a>
 																			</td>
 																			<td width="10%">
 																				<s:property value="topic.countPerson" />

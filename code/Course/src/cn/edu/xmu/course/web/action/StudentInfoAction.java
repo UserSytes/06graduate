@@ -62,19 +62,19 @@ public class StudentInfoAction extends BaseAction {
 		}
 	}
 	
-	public String myReplyTopics(){
-		student = (Student) super.getSession().get(STUDENT);
-		userInfo = student.getUserInfo();
-		messageList = messageService.getReplyMessageByUserInfo(userInfo);
-		System.out.println("我的帖子："+messageList.get(0).getGrade());
-		System.out.println("我的帖子2："+messageList.get(0).getTopic().getName());
-		if(messageList.size()==0){
-			addActionMessage("您目前还未有任何留言回复！");
-			return ERROR;
-		}else{
-			return SUCCESS;
-		}
-	}
+//	public String myReplyTopics(){
+//		student = (Student) super.getSession().get(STUDENT);
+//		userInfo = student.getUserInfo();
+//		messageList = messageService.getReplyMessageByUserInfo(userInfo);
+//		System.out.println("我的帖子："+messageList.get(0).getGrade());
+//		System.out.println("我的帖子2："+messageList.get(0).getTopic().getName());
+//		if(messageList.size()==0){
+//			addActionMessage("您目前还未有任何留言回复！");
+//			return ERROR;
+//		}else{
+//			return SUCCESS;
+//		}
+//	}
 	
 	/**
 	 * 查找学生个人信息

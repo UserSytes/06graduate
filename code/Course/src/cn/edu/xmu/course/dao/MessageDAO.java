@@ -142,15 +142,15 @@ public class MessageDAO extends HibernateDaoSupport {
    		}  
     }
     
-    public List findReplyMessageByUserInfo(UserInfo userInfo){
-    	try {
-   			String queryString = "from Message as model where model.grade != 1 and model.userInfo = ?";
-   			return getHibernateTemplate().find(queryString, userInfo);
-   		} catch (RuntimeException re) {
-   			log.error("find by property name failed", re);
-   			throw re;
-   		}  
-    }
+//    public List findReplyMessageByUserInfo(UserInfo userInfo){
+//    	try {
+//   			String queryString = "from Message as model where model.grade != 1 and model.userInfo = ?";
+//   			return getHibernateTemplate().find(queryString, userInfo);
+//   		} catch (RuntimeException re) {
+//   			log.error("find by property name failed", re);
+//   			throw re;
+//   		}  
+//    }
     
 	public List findByTopic(Object topic) {
 		return findByProperty("topic", topic);
