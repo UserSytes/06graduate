@@ -10,6 +10,7 @@ import cn.edu.xmu.course.pojo.News;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.SuperAdmin;
 import cn.edu.xmu.course.pojo.Teacher;
+import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.IApplicationFormService;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.ILoginService;
@@ -31,7 +32,7 @@ public class HomePageAction extends BaseAction{
 	private void setTempList(List<News> tempList) {
 		this.tempList = tempList;
 	}
-
+    private UserInfo userInfo;
 	private List<Course> courseList;
 	private IApplicationFormService applicationFormService;
 	private ICourseService courseService;
@@ -112,6 +113,7 @@ public class HomePageAction extends BaseAction{
 			else {
 				System.out.println("test1: "+student.getPassword());
 				super.getSession().put(STUDENT, student);
+				userInfo = student.getUserInfo();
 				return "student";
 			}
 		}
@@ -293,6 +295,14 @@ public class HomePageAction extends BaseAction{
 
 	public void setSchool(int school) {
 		this.school = school;
+	}
+
+	public UserInfo getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
 	}
 
 
