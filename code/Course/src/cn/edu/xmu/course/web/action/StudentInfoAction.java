@@ -83,6 +83,7 @@ public class StudentInfoAction extends BaseAction {
 	public String findStudentInfo(){
 		student = null;
 		student = (Student) super.getSession().get(STUDENT);
+		student = studentInfoService.findById(student.getId());
 		if(student == null){
 			addActionError("Äú»¹Î´µÇÂ¼£¬ÇëÏÈµÇÂ¼£¡");
 			return ERROR;
@@ -114,7 +115,7 @@ public class StudentInfoAction extends BaseAction {
 		student = (Student) super.getSession().get(STUDENT);
 		if(student.getPassword().equals(oldPassword)){
 			student.setPassword(newPassword);
-			boolean result = studentInfoService.updateStudent(student, userInfo);
+			boolean result = studentInfoService.updatePassword(student);
 			if(result){
 				addActionMessage("ÐÞ¸ÄÃÜÂë³É¹¦£¡");
 				return SUCCESS;

@@ -72,7 +72,16 @@ public class StudentInfoService implements IStudentInfoService {
 			return students.get(0);
 		}
 	}
-
+	
+	public boolean updatePassword(Student student){
+		try {
+			studentDAO.merge(student);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
 	public boolean updateStudent(Student student, UserInfo userInfo) {
 		// TODO Auto-generated method stub
 		try {
