@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.service;
 
+import java.io.File;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.Course;
@@ -17,6 +18,8 @@ import cn.edu.xmu.course.pojo.UserInfo;
 public interface IStudentInfoService {
 
 	public boolean addStudent(Student student, UserInfo userInfo);
+	
+	public String addMoreStudent(Student student,Grade grade, Department department, File file);
 	
 	public boolean deleteStudent(Student student);
 	
