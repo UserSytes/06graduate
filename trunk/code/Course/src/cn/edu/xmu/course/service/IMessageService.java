@@ -16,5 +16,4 @@ public interface IMessageService {
 	
 	public List getMessageByTopic(Topic topic);
 	public List getMessageByUserInfo(UserInfo userInfo);
-	public List getReplyMessageByUserInfo(UserInfo userInfo);
 }
