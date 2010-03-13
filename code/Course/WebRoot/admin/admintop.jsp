@@ -27,23 +27,20 @@
     <table height="26" border="0" align="left" cellpadding="0" cellspacing="0" class="subbg" NAME=t1>
       <tbody>
         <tr align="middle">
-          <td width="71" height="26" align="center" valign="middle" background="Images/top_tt_bg.gif"><a
-            href="right.asp" 
-          target="main" class="STYLE2">管理首页</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
           <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a 
             href="System_Admin.asp" 
             target="main" class="STYLE2">课程申报</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
-          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif" ><a   href="Article/Article_Manage.asp" target="main">课程管理</a></td>
+          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif" ><a href="<s:url action='courseBySchoolAction'> </s:url>" target="main" class="STYLE3">课程管理</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
-          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif" ><a  href="Label_Admin.asp?Type=1" target="main" class="STYLE3">留言板管理</a></td>
+          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif" ><a href="<s:url action='goSchoolTopicAction'> </s:url>" target="main" class="STYLE3">留言板管理</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
-          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a  href="Class_Templet.asp?ChannelID=1&Type=2"  target="main" class="STYLE2">个人信息</a></td>
+          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><A href="<s:url action='adminInfoAction'> </s:url>"target="main" class="STYLE3">个人信息</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
-          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a href="http://help.865171.cn"   target="main" class="STYLE2">帮助中心</a></td>
+          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a href="help.jsp" target="main" class="STYLE2">帮助中心</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
-          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a  href="Login.asp?Action=LoginOut" target="_top" class="STYLE2">退出登录</a></td>
+          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a href="<s:url action='superAdminLogoutAction'> </s:url>" target="_top" onclick="JAVAscript:if(!confirm('确认退出系统？')) return false;return true;" class="STYLE3">退出登录</a></td>
         </tr>
       </tbody>
     </table></td>

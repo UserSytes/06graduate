@@ -68,7 +68,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:select id="gradeName" name="grade.name" list="{'本科生','硕士','博士','博士后','硕博'}" headerKey="-1" headerValue="请选择" />
+						<s:select id="gradeName" name="grade.name" list="{'本科生','硕士','博士','其他'}" headerKey="-1" headerValue="请选择" />
 						&nbsp;*
 					</td>
 				</tr>
@@ -80,7 +80,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="gradeNum" cssClass="INPUT" name="grade.grade" label="年级"></s:textfield>
+						<s:textfield id="gradeNum" cssClass="INPUT" name="grade.grade" label="年级"></s:textfield>&nbsp;级
 						&nbsp;*
 					</td>
 				</tr>
