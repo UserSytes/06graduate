@@ -605,6 +605,9 @@
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+		<action name="addMoreCourseStudentAction" method="addMoreStudentCourse" class="courseAction">
+			<result name="success">/commons/prompt.jsp</result>
+		</action>
 		
 		<!--校管理员修改密码-->
 		<action name="changeSuperAdminPwdAction" method="changeSuperAdminPassword"

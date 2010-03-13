@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.web.action;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +45,10 @@ public class CourseAction extends BaseAction {
 	private String studentNo;
 	private String refuseReason;
 
+	private File studentFile;
+	private String studentFileContentType;
+	private String studentFileName;
+	
 	private final String userName = "123";
 
 	/**
@@ -203,6 +208,18 @@ public class CourseAction extends BaseAction {
 			return ERROR;
 	}
 
+	/**
+	 * 为course批量添加学生
+	 * 
+	 * @return
+	 */
+	public String addMoreStudentCourse() {
+		course = courseService.getCourseById(course.getId());
+		String result = studentCourseService.addMoreStudentCourse(course, studentFile);
+		addActionError(result);
+		return SUCCESS;
+	}
+	
 	public String courseDetail() {
 		course = courseService.getCourseById(courseId);
 		if (course == null) {
@@ -434,6 +451,30 @@ public class CourseAction extends BaseAction {
 
 	public void setStudentNo(String studentNo) {
 		this.studentNo = studentNo;
+	}
+
+	public File getStudentFile() {
+		return studentFile;
+	}
+
+	public void setStudentFile(File studentFile) {
+		this.studentFile = studentFile;
+	}
+
+	public String getStudentFileContentType() {
+		return studentFileContentType;
+	}
+
+	public void setStudentFileContentType(String studentFileContentType) {
+		this.studentFileContentType = studentFileContentType;
+	}
+
+	public String getStudentFileName() {
+		return studentFileName;
+	}
+
+	public void setStudentFileName(String studentFileName) {
+		this.studentFileName = studentFileName;
 	}
 
 }

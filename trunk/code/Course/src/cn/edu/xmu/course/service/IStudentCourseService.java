@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.service;
 
+import java.io.File;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.Collection;
@@ -49,6 +50,14 @@ public interface IStudentCourseService {
 	 * @return
 	 */
 	public boolean addStudentCourse(StudentCourse studentCourse);
+	
+	/**
+	 * 批量添加学生课程关系
+	 * @param course
+	 * @param studentFile
+	 * @return
+	 */
+	public String addMoreStudentCourse(Course course, File studentFile);
 	
 	/**
 	 * 根据学生查找课程

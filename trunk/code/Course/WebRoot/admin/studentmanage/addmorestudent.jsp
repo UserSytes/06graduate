@@ -13,16 +13,7 @@
 		<SCRIPT language=javascript>
 			function check(form)
 			{
-				if (form.name.value == "")
-				{
-					alert("姓名不能为空！");
-					return false;
-				}
-				if (form.sex.value == -1)
-				{
-					alert("性别不能为空！");
-					return false;
-				}
+				
 				if (form.departmentId.value == -1)
 				{
 					alert("所属系不能为空！");
@@ -65,7 +56,7 @@
    				alert("成功了");
 				}
 				return false;
-			}
+			 }
 			}
 		</SCRIPT>
 		<style type="text/css">
