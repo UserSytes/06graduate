@@ -5,7 +5,11 @@ import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.SuperAdmin;
 import cn.edu.xmu.course.pojo.Teacher;
-
+/**
+ * 
+ * @author Sky
+ *
+ */
 public class LoginAction extends BaseAction {
 
 	/**
@@ -19,6 +23,10 @@ public class LoginAction extends BaseAction {
 	private String password = "123456";
 	private int flag;
 
+	/**
+	 * 教师登录
+	 * @return
+	 */
 	public String login() {
 		userName = "123";
 		password = "123456";
@@ -33,6 +41,10 @@ public class LoginAction extends BaseAction {
 		}
 	}
 
+	/**
+	 * 管理员登录
+	 * @return
+	 */
 	public String adminLogin() {
 		userName = "123456";
 		password = "123456";
@@ -61,6 +73,24 @@ public class LoginAction extends BaseAction {
 			return ERROR;
 	}
 
+	/**
+	 * 学院管理员退出
+	 * @return
+	 */
+	public String adminLogout(){
+		super.getSession().remove(ADMIN);
+		return SUCCESS;
+	}
+	
+	/**
+	 * 校管理员登录
+	 * @return
+	 */
+	public String superAdminLogout(){
+		super.getSession().remove(SUPERADMIN);
+		return SUCCESS;
+	}
+	
 	public ILoginService getLoginService() {
 		return loginService;
 	}

@@ -11,7 +11,7 @@
 		<frameset rows="*" cols="195,*" id="frame">
 			<frame src="superadminleft.jsp" name="leftFrame" noresize="noresize"
 				marginwidth="0" marginheight="0" frameborder="0" scrolling="auto" />
-			<frame src="right.html" name="main" marginwidth="0" marginheight="0"
+			<frame src="help.jsp" name="main" marginwidth="0" marginheight="0"
 				frameborder="0" scrolling="yes" />
 		</frameset>
 

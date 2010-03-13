@@ -28,9 +28,6 @@
     <table height="26" border="0" align="left" cellpadding="0" cellspacing="0" class="subbg" NAME=t1>
       <tbody>
         <tr align="middle">
-          <td width="71" height="26" align="center" valign="middle" background="Images/top_tt_bg.gif"><a
-            href="right.asp" 
-          target="main" class="STYLE2">管理首页</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
           <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a href="<s:url action='newsListAction'> </s:url>"
 														target="main">新闻政策</a></td>
@@ -44,9 +41,9 @@
           <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a href="admininfo/changepwd.jsp"
 														target="main">修改密码</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
-          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a href="http://help.865171.cn"   target="main" class="STYLE2">帮助中心</a></td>
+          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a href="help.jsp"   target="main" class="STYLE2">帮助中心</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
-          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a  href="Login.asp?Action=LoginOut" target="_top" class="STYLE2">退出登录</a></td>
+          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a href="<s:url action='adminLogoutAction'> </s:url>" onclick="javascript:if(!confirm('确认退出系统？')) return false;return true;"  target="_top" >退出登录</a></td>
         </tr>
       </tbody>
     </table></td>
