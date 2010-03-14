@@ -16,9 +16,9 @@
         <tr>
           <td width="30" align="left">
           <img src="Images/on-of.gif" onClick="switchBar(this)" height="15" alt="关闭左边管理菜单" width="15" border="0" /></td>
-          <td width="320" align="left"></td>
-          <td width="80" align="right" nowrap="nowrap" class="topbar">官方公告：</td>
-          <td class="topbar"><a href="" 
+          <td width="300" align="left"></td>
+          <td width="100" align="right" nowrap="nowrap" class="topbar">精品课程主页：</td>
+          <td class="topbar"><a href="../homepage/index.jsp" 
             target="_blank"><img title="返回首页" height="23" 
             src="Images/home.gif" width="33" 
         border="0" /></a>&nbsp;</td>

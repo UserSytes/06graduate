@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="../commons/taglibs.jsp"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -15,9 +16,9 @@
         <tr>
           <td width="30" align="left">
           <img src="Images/on-of.gif" onClick="switchBar(this)" height="15" alt="关闭左边管理菜单" width="15" border="0" /></td>
-          <td width="320" align="left"></td>
-          <td width="80" align="right" nowrap="nowrap" class="topbar">官方公告：</td>
-          <td class="topbar"><a href="" 
+          <td width="300" align="left"></td>
+          <td width="100" align="right" nowrap="nowrap" class="topbar">精品课程主页：</td>
+          <td class="topbar"><a href="../homepage/index.jsp" 
             target="_blank"><img title="返回首页" height="23" 
             src="Images/home.gif" width="33" 
         border="0" /></a>&nbsp;</td>
@@ -27,10 +28,6 @@
     <table height="26" border="0" align="left" cellpadding="0" cellspacing="0" class="subbg" NAME=t1>
       <tbody>
         <tr align="middle">
-          <td align="center" class="topbar"><span class="STYLE2"> </span></td>
-          <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif"><a 
-            href="System_Admin.asp" 
-            target="main" class="STYLE2">课程申报</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
           <td width="71" align="center" valign="middle" background="Images/top_tt_bg.gif" ><a href="<s:url action='courseBySchoolAction'> </s:url>" target="main" class="STYLE3">课程管理</a></td>
           <td align="center" class="topbar"><span class="STYLE2"> </span></td>
