@@ -8,7 +8,7 @@
 		<META http-equiv=Pragma content=no-cache>
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
-		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
+		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
 		<title>添加学生</title>
 		<SCRIPT language=javascript>
 	function check(form) {
@@ -17,8 +17,7 @@
 			return false;
 		}
 		return true;
-	}
-		
+	}		
 </SCRIPT>
 		<style type="text/css">
 <!--

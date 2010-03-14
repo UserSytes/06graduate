@@ -173,14 +173,13 @@ public class CourseAction extends BaseAction {
 	 */
 	public String deleteStudent() {
 		student = studentCourseService.findStudentById(studentId);
-		System.out.println("测试1： " + courseId);
 		course = courseService.getCourseById(courseId);
 		boolean result = studentCourseService.delete(course, student);
 		if (result) {
-			this.getStudentByCourse();
 			return SUCCESS;
-		} else
-			return ERROR;
+		} else{
+			addActionError("删除学生失败，请重新操作！");
+			return ERROR;}
 	}
 
 	/**
@@ -204,8 +203,10 @@ public class CourseAction extends BaseAction {
 		if (result) {
 			addActionError("添加学生成功！");
 			return SUCCESS;
-		} else
+		} else{
+			addActionError("添加学生失败，请重新操作！");
 			return ERROR;
+		}
 	}
 
 	/**
@@ -223,6 +224,7 @@ public class CourseAction extends BaseAction {
 	public String courseDetail() {
 		course = courseService.getCourseById(courseId);
 		if (course == null) {
+			addActionError("该课程不存在，请重新操作！");
 			return ERROR;
 		} else
 			return SUCCESS;
