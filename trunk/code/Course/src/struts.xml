@@ -148,6 +148,38 @@
 			<result name="success">/commons/prompt.jsp</result>
 		</action>
 		
+		<!-- 课程管理（教师） -->
+		<action name="viewCourseStudentByTeaAction" method="getStudentByCourse"
+			class="courseAction">
+			<result name="success">/teacher/mycourse/studentlist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteStudentFromCourseByTeaAction" method="deleteStudent"
+			class="courseAction">
+			<result name="success" type="redirect-action">viewCourseStudentByTeaAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="goAddCourseStudentByTeaAction" method="courseDetail"
+			class="courseAction">
+			<result name="success">/teacher/mycourse/addstudent.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="goAddCourseStudentBatchByTeaAction" method="courseDetail"
+			class="courseAction">
+			<result name="success">/teacher/mycourse/addstudentbatch.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="coursePassByTeaAction" method="findMyCoursesList" class="courseAction">
+			<result name="success">/teacher/mycourse/courselist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+
+		
 		<!-- 课程申报管理 -->
 		<action name="addNewCourseAction" method="addNewCourse" class="courseAction">
 			<result name="success">/commons/prompt.jsp</result>
@@ -592,7 +624,7 @@
 		</action>
 		<action name="deleteStudentFromCourseAction" method="deleteStudent"
 			class="courseAction">
-			<result name="success">/admin/coursemanage/studentlist.jsp
+			<result name="success" type="redirect-action">viewCourseStudentByTeaAction
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>

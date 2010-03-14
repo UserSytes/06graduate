@@ -263,7 +263,7 @@ a:visited {
 																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
 																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
 																	<span class="STYLE2">&nbsp;<a
-																		href="addcourseinfo.jsp" target=I2>学生管理</a>
+																		href="coursePassByTeaAction.action?type=1" target=I2>学生管理</a>
 																	</span>
 																</td>
 															</tr>
