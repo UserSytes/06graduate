@@ -10,6 +10,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import cn.edu.xmu.course.pojo.School;
+import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.pojo.Topic;
 
 /**
@@ -31,7 +32,7 @@ public class TopicDAO extends HibernateDaoSupport {
 	public static final String AUTHOR_NAME = "authorName";
 	public static final String LAST_ANSWER = "lastAnswer";
 	public static final String COUNT_PERSON = "countPerson";
-	
+
 	protected void initDao() {
 		// do nothing
 	}
@@ -95,13 +96,14 @@ public class TopicDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-	
+
 	/**
 	 * 根据学院查找留言
+	 * 
 	 * @param school
 	 * @return
 	 */
-	public List getTopicByShcool(School school){
+	public List getTopicByShcool(School school) {
 		try {
 			String queryString = "from Topic as model where model.course.department.school = ?";
 			return getHibernateTemplate().find(queryString, school);
@@ -110,26 +112,56 @@ public class TopicDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-	
+
 	/**
-	 * 根据主题关键字以及学院模糊查找
-	 * @param key
+	 * 根据老师查找留言
+	 * 
+	 * @param teacher
 	 * @return
-	 * @auther 郑冰凌
 	 */
-	public List<Topic> searchTopicByKey(String key, School school){
+	public List getTopicByTeacher(Teacher teacher) {
 		try {
-			String queryString = "from Topic as model where model.name like '%"+key+"%' and model.course.department.school = ?";
-			return getHibernateTemplate().find(queryString, school);
+			String queryString = "from Topic as model where model.course.teacher = ?";
+			return getHibernateTemplate().find(queryString, teacher);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
 			throw re;
 		}
 	}
 	
+
+	public List getTopicByDate(Teacher teacher,String date) {
+		try {
+			String queryString = "from Topic as model where model.lastUpdate > "+date+" and model.course.teacher.id ="+teacher.getId();
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+
+	/**
+	 * 根据主题关键字以及学院模糊查找
+	 * 
+	 * @param key
+	 * @return
+	 * @auther 郑冰凌
+	 */
+	public List<Topic> searchTopicByKey(String key, School school) {
+		try {
+			String queryString = "from Topic as model where model.name like '%"
+					+ key + "%' and model.course.department.school = ?";
+			return getHibernateTemplate().find(queryString, school);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+
 	public List findByCourse(Object course) {
 		return findByProperty("course", course);
 	}
+
 	public List findByName(Object name) {
 		return findByProperty(NAME, name);
 	}

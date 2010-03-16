@@ -1,11 +1,14 @@
 package cn.edu.xmu.course.service.impl;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import cn.edu.xmu.course.commons.CalculateDate;
 import cn.edu.xmu.course.dao.TopicDAO;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.School;
+import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.pojo.Topic;
 import cn.edu.xmu.course.service.ITopicService;
 
@@ -53,6 +56,16 @@ public class TopicService implements ITopicService{
 			return false;
 		}
 	}
+	
+	public List getTopicsByTeacher(Teacher teacher,int day) {
+		// TODO Auto-generated method stub
+		if(day == 0)
+			return topicDAO.getTopicByTeacher(teacher);
+		else{
+			Calendar date=CalculateDate.addDate(Calendar.getInstance(), (0-day));
+			return topicDAO.getTopicByDate(teacher,CalculateDate.toDate(date.getTime()));
+		}
+	}
 
 	public List<Topic> getTopicByShcool(School school){
 		return topicDAO.getTopicByShcool(school);
@@ -69,5 +82,7 @@ public class TopicService implements ITopicService{
 	public TopicDAO getTopicDAO() {
 		return topicDAO;
 	}
+
+
 
 }
