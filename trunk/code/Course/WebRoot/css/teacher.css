@@ -65,6 +65,10 @@ TD.position {
 TABLE.listTable {
 	WIDTH: 97%; BACKGROUND-COLOR: #87ceeb; TEXT-ALIGN: center
 }
+
+TABLE.listTable2 {
+	WIDTH: 97%; TEXT-ALIGN: center
+}
 TR.listHeaderTr {
 	FONT-WEIGHT: bold; HEIGHT: 25px; BACKGROUND-COLOR: #b0e0e6; TEXT-ALIGN: center
 }

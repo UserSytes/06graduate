@@ -39,6 +39,7 @@ public class MessageAction extends BaseAction {
 	private Teacher teacher;
 	private int flag;
 	private String userName, password;
+	private int time=0;
 
 	public String loginFromMessageBoard() {
 
@@ -176,6 +177,8 @@ public class MessageAction extends BaseAction {
 		}
 
 	}
+	
+	
 	public String showMessages() {
 	topic = topicService.getTopicById(topicId);
 	messageList = messageService.getAllMessages(topic, pageSize,
@@ -279,6 +282,11 @@ public class MessageAction extends BaseAction {
 //		// return ERROR;
 //		// }
 //	}
+	
+	public String showTopicsByTeacher() {		 
+		topicList = getTopicService().getTopicsByTeacher(super.getTeacher(),getTime());
+		return SUCCESS;
+	}
 
 	public void setCourse(Course course) {
 		this.course = course;
@@ -438,5 +446,13 @@ public class MessageAction extends BaseAction {
 
 	public Message getMessage() {
 		return message;
+	}
+
+	public void setTime(int time) {
+		this.time = time;
+	}
+
+	public int getTime() {
+		return time;
 	}
 }

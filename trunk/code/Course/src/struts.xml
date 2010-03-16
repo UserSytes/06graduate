@@ -291,6 +291,12 @@
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		
+		<!-- 留言板（教师） -->
+		<action name="showTopicsByTeacherAction" method="showTopicsByTeacher" class="messageAction">
+			<result name="success">/teacher/mycourse/showtopics.jsp
+			</result>
+		</action>
+		
 		<!-- 课程管理-教学成果部分 (教师)-->
 		<action name="getAchievementListByCourseAction" method="getAchievementListByCourse"
 			class="achievementAction">
