@@ -103,6 +103,7 @@ public class HomePageAction extends BaseAction{
 			else {
 				System.out.println(teacher.getPassword());
 				super.getSession().put(TEACHER, teacher);
+				super.getSession().put("user", teacher.getUserInfo().getName()+"老师");
 				return "teacher";
 			}
 		} else {
@@ -113,6 +114,7 @@ public class HomePageAction extends BaseAction{
 			else {
 				System.out.println("test1: "+student.getPassword());
 				super.getSession().put(STUDENT, student);
+				super.getSession().put("user", student.getUserInfo().getName()+"同学");
 				userInfo = student.getUserInfo();
 				return "student";
 			}

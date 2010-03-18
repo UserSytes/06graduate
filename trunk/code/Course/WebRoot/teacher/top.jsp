@@ -127,7 +127,7 @@ a.v1:visited {
 																						</td>
 																						<td width="35">
 																							<div align="center" class="STYLE1">
-																								<a href="#">首页</a>
+																								<a href="${ctx}/homepage/index.jsp" target="_top">首页</a>
 																							</div>
 																						</td>
 																					</tr>

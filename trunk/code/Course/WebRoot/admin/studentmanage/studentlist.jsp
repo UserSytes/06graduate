@@ -70,8 +70,7 @@
 				</table>
 			</s:form>
 		</div>
-		<div align="center">
-			<s:form action="deleteStudentListAction" method="post">
+		<div align="center">		
 				<s:hidden name="studentList" />
 				<table class="listTable">
 					<tr class="listHeaderTr"
@@ -138,12 +137,6 @@
 						</tr>
 					</s:iterator>
 				</table>
-				<div align="right">
-					<s:submit cssClass="label"
-						onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;"
-						value="删除列表中所有学生"></s:submit>
-				</div>
-			</s:form>
 		</div>
 	</body>
 </html>
