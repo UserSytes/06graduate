@@ -46,7 +46,7 @@
 			</tr>
 		</table>
 		<s:form action="addAchievementAction" method="post"
-			onsubmit="return check(this);">
+			onsubmit="return check(this);"  enctype="multipart/form-data">
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>

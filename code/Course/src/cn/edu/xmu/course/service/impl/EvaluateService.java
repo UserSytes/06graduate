@@ -16,7 +16,7 @@ public class EvaluateService implements IEvaluateService {
 	private StudentCourseDAO studentCourseDAO;
 	private EvaluationDAO evaluationDAO;
 	private List<StudentCourse> studentCourseList;
-	private Float score = 0.0f;
+	private Object score ;
 
 	public boolean updateStudentCourse(StudentCourse studentCourse) {
 		try {
@@ -45,8 +45,7 @@ public class EvaluateService implements IEvaluateService {
 	}
 
 	// 算课程评价得分
-	public Float calculatStudent(int courseId) {
-		score = 0.0f;
+	public Object calculatStudent(int courseId) {
 //		studentCourseList = studentCourseDAO.findByCourse(courseId);
 //		System.out.println("test_1: " + studentCourseList.size());
 //		if (studentCourseList.size() == 0) {
@@ -59,7 +58,7 @@ public class EvaluateService implements IEvaluateService {
 //			score = score / studentCourseList.size();
 //		}	
 		Object result = getStudentCourseCalculateResult(courseId)[1];
-		return Float.parseFloat(result.toString());
+		return result;
 	}
 	
 	public Object[] getEvaluationCalculateResult(int courseId){
@@ -118,11 +117,11 @@ public class EvaluateService implements IEvaluateService {
 		this.studentCourseList = studentCourse;
 	}
 
-	public Float getScore() {
+	public Object getScore() {
 		return score;
 	}
 
-	public void setScore(Float score) {
+	public void setScore(Object score) {
 		this.score = score;
 	}
 

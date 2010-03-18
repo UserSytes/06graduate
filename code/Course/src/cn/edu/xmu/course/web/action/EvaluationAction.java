@@ -14,6 +14,7 @@ public class EvaluationAction extends BaseAction {
 	private IEvaluateService evaluateService;
 	private StudentCourse studentCourse;
 	private Float score;
+	private Object viewScore;
 	private String scorestring;
 	private Student student;
 	private Evaluation evaluation;
@@ -43,15 +44,15 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String studentEvaluateResult() {
-		score = evaluateService.calculatStudent(courseId);
-		System.out.println("test_3: " + score.compareTo(-1.0f));
-		scorestring = score.toString() + "分";
+		viewScore = evaluateService.calculatStudent(courseId);
+		//System.out.println("test_3: " + viewScore.compareTo(-1.0f));		
 		System.out.println("test_4: " + scorestring);
-		if (score.compareTo(-1.0f) == 0) {
+		if (viewScore == null) {
 			scorestring = "该课程还没有学生评价";
 		}
 		System.out.println("test_4: " + scorestring);
 		if (scorestring != null) {
+			scorestring = viewScore.toString() + "分";
 			return SUCCESS;
 		} else
 			return ERROR;
@@ -303,6 +304,14 @@ public class EvaluationAction extends BaseAction {
 
 	public void setExpertCount(Object expertCount) {
 		this.expertCount = expertCount;
+	}
+
+	public void setViewScore(Object viewScore) {
+		this.viewScore = viewScore;
+	}
+
+	public Object getViewScore() {
+		return viewScore;
 	}
 
 }

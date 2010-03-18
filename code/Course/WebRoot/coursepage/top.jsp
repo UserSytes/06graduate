@@ -64,7 +64,7 @@
                 					</s:url>">
 												教学录像
 											</a></li>
-		<li><a href="<s:url action="findTeacherTeamAction"> 
+		<li><a href="<s:url action="findApplicationFormAction"> 
                      			<s:param name="course"> 
                        			 	<s:property value="id"/> 
                     			</s:param>
