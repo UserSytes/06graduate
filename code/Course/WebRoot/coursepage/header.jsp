@@ -9,9 +9,11 @@
 <link href="../${ctx}/coursepage/default.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id="header">
+<div id="header" >
   <h1>《<s:text name="">${course.name}</s:text>》精品课程<br />
 	<span class="text1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——厦门大学精品系列</span></h1>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <div align="right"> <a href="<s:url action="myPageAction"> </s:url>">我的首页</a>  </div>
 </div>
 </body>
 </html>

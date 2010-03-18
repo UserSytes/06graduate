@@ -1,17 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ include file="../commons/taglibs.jsp"%>
-
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>厦门大学精品课程网站</title>
+		<script language="javascript">
+	function checkPopedom(){
+		var user = <%=(String) session.getAttribute("user")%>;
+		//var teacher = <%=(String) session.getAttribute("TEACHER")%>;
+		
+		if(user == null){	
+			document.getElementById("login").style.display="block";
+			document.getElementById("user").style.display="none";
+		}else{	
+			document.getElementById("login").style.display="none";
+			document.getElementById("user").style.display="block";
+		}	
+  	}
+  	</script>
 	</head>
 	<BODY BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0
 		MARGINHEIGHT=0 rightmargin="0" bottommargin="0"
-		background="${ctx}/homepage/images/back-body.jpg" style="overflow-x: hidden">
+		background="${ctx}/homepage/images/back-body.jpg" style="overflow-x: hidden" onLoad="checkPopedom();">
 		<center>
 
 			<table width="783" height="100%" border="0" cellspacing="0"
@@ -50,12 +62,12 @@
 												<img src="${ctx}/homepage/images/but-1.jpg" width="218" height="42">
 											</td>
 										</tr>
-										<tr>
+										<tr  >
 											<td width="210" height="10" bgcolor="#11bbff">
 												<s:form action="loginFromHomePageAction" method="post"
 													onsubmit="">
-													<table width="100%" height="100%" border="0"
-														cellspacing="0" cellpadding="0">
+												  	<table width="100%" height="100%" border="0"
+														cellspacing="0" cellpadding="0" id="login">
 														<tr>
 															<td width="70" height="30" align="left">
 																&nbsp;账号：
@@ -92,9 +104,34 @@
 															</td>
 														<tr>
 													</table>
+	                                                <table width="100%" height="100%" border="0"
+														cellspacing="0" cellpadding="0"  id="user">
+														<tr>
+															<td width="70" height="30" align="left">
+																欢迎您！
+															</td>
+															<td>
+																<%=(String) session.getAttribute("user")%>
+															</td>
+														</tr>
+														<tr>
+															<td height="30" width="70" align="left">
+																<a href="<s:url action="myPageAction"> </s:url>"> <font color="green">我的首页</font> </a>
+															</td>
+														</tr>
+														<tr>
+															<td height="30">
+																现在是：
+															</td>
+															<td>
+																2010-3-18 15：40
+															</td>
+														</tr>
+													</table>
 												</s:form>
 											</td>
 										</tr>
+									
 										<tr bgcolor="#f1f1f1">
 											<td height="38">
 												<img src="${ctx}/homepage/images/but-2.jpg" width="218" height="38">

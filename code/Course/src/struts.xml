@@ -43,6 +43,12 @@
 			class="cn.edu.xmu.course.web.action.LoginAction">
 			<result name="success">/admin/login.jsp</result>
 		</action>
+		<action name="myPageAction" method="myPage"
+			class="cn.edu.xmu.course.web.action.LoginAction">
+			<result name="teacher">/teacher/main.jsp</result>
+			<result name="student">/student/studentinfo.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		
 		<!--教师子系统-->
 		<!-- 个人信息管理 -->
@@ -913,7 +919,6 @@
 			<result name="teacher">/teacher/main.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 			<result name="student">/student/studentinfo.jsp</result>
-			<result name="error">/commons/error.jsp</result>
 		</action>
         <!-- 首页精品课程列表 -->
 		<action name="courseDisplayAction" method="courseDisplay"

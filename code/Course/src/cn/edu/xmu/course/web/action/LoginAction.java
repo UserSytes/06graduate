@@ -3,8 +3,10 @@ package cn.edu.xmu.course.web.action;
 import cn.edu.xmu.course.service.ILoginService;
 import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.School;
+import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.SuperAdmin;
 import cn.edu.xmu.course.pojo.Teacher;
+import cn.edu.xmu.course.pojo.UserInfo;
 /**
  * 
  * @author Sky
@@ -22,6 +24,9 @@ public class LoginAction extends BaseAction {
 	private String userName = "123456";
 	private String password = "123456";
 	private int flag;
+	private Student student;
+	private Teacher teacher;
+	private UserInfo userInfo;
 
 	/**
 	 * 教师登录
@@ -73,6 +78,29 @@ public class LoginAction extends BaseAction {
 			return ERROR;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	public String myPage(){
+		student = (Student) super.getSession().get(STUDENT);
+		teacher = (Teacher) super.getSession().get(TEACHER);
+		if(student == null && teacher == null){
+			addActionMessage("您还未登录，请先登录！");
+			return ERROR;
+		}else if(student != null){
+			userInfo = student.getUserInfo();
+			return "student";
+		}else if(teacher != null){
+			userInfo = teacher.getUserInfo();
+			return "teacher";
+		}else{
+			addActionMessage("您还未登录，请先登录！");
+			return ERROR;
+		}
+		
+	}
+	
 	/**
 	 * 学院管理员退出
 	 * @return
