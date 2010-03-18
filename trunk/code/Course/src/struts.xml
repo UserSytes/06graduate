@@ -1009,11 +1009,10 @@
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
 		</action>
-		<action name="findCourseInfoAction" method="findCourseInfo2"
+		<action name="findCourseInfoAction" method="findCourseInfo"
 			class="courseInfoAction">
-			<result name="courseInfo">/coursepage/courseintro.jsp
+			<result name="success">/coursepage/courseintro.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
 		</action>
 		<action name="findTeacherTeamAction" method="findTeacherTeam"
 			class="teacherTeamAction">
@@ -1021,11 +1020,10 @@
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
 		</action>
-		<action name="findAchievementAction" method="findAchievement"
+		<action name="findAchievementAction" method="getAchievementListByCourse"
 			class="achievementAction">
-			<result name="achievement">/coursepage/achievement.jsp
+			<result name="success">/coursepage/achievement.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
 		</action>
 				<action name="findChapterAction" method="findChapter"
 			class="courseChapterAction">
