@@ -127,20 +127,7 @@ public class CourseInfoAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
-	/**
-	 * 查找课程简介
-	 * @return
-	 */
-	public String findCourseInfo2(){
-		Course currentCourse = super.getCourse();
-		courseInfo=courseInfoService.getCourseInfo(currentCourse.getId(), sort);
-		System.out.println("\naction"+courseInfo.getTitle());
-		if (getCourseInfo() == null) {
-			addActionError("课程信息不存在！");
-			return ERROR;
-		} else
-			return "courseInfo";
-	}
+	
 	/**
 	 * 对上传文件进行重命名
 	 * 
