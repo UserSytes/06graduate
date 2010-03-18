@@ -40,19 +40,19 @@ public class AchievementAction extends BaseAction {
 		return SUCCESS;
 	}
 	
-	/**
-	 * 查找成果展示
-	 * @return
-	 */
-	public String findAchievement(){
-		course=super.getCourse();
-		achievement=achievementService.getAchievement(course.getId());
-		if (getAchievement() == null) {
-			addActionError("教学成果信息不存在！");
-			return ERROR;
-		} else
-			return "achievement";
-	}
+//	/**
+//	 * 查找成果展示
+//	 * @return
+//	 */
+//	public String findAchievement(){
+//		course=super.getCourse();
+//		achievementList=achievementService.getAllAchievements(course);
+//		if (getAchievementList() == null) {
+//			addActionError("教学成果信息不存在！");
+//			return ERROR;
+//		} else
+//			return "achievement";
+//	}
 	public String addAchievement() {
 		String fileLink = super.getTeacher().getUserInfo().getName() + "/"
 		+ new Date().getTime()+"_"+super.getCourse().getName() + "_" + uploadFileName;
