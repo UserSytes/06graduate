@@ -12,7 +12,7 @@ public interface IEvaluateService {
 	public StudentCourse findStudentCourseByStudentId(Integer id );
 	public boolean updateEvaluation(Evaluation evaluation); 
 	public Evaluation findById(Integer id); 
-	public Float calculatStudent(int courseId);
+	public Object calculatStudent(int courseId);
 
 	public Object[] getEvaluationCalculateResult(int courseId);
 	public Object[] getStudentCourseCalculateResult(int courseId);
