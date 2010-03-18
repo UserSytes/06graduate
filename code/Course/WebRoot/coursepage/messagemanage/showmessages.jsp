@@ -135,7 +135,7 @@
 		</div>
 <s:form action="addReplyAction" method="post"
 			onsubmit="return check(this);">
-<s:hidden name="topicId"></s:hidden>
+<s:hidden name="topic.id" ></s:hidden>
 <table cellspacing="0" cellpadding="4" width="100%" align="center">
 <tr>
 <td colspan="4" style="font-size:16px; font-weight:bold">快速回复主题</td>
@@ -143,7 +143,7 @@
 <tr>
 <td width="24%" align="center" valign="top"><span class="bold" style="font-size:16px">内容</span></td>
 <td width="76%" valign="top">
-<div style="width: 97%" align="right">
+<div style="width: 97%" align="left">
 <s:textarea rows="7" cols="20" id="messagecontent" name="message.content">&nbsp;*</s:textarea>
 <br><br>
 <div class="left">

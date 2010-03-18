@@ -13,19 +13,22 @@
 <jsp:include page="top.jsp"></jsp:include>
 <div id="content">
   <div id="right">
-		<h2 align="center"><s:property value="achievement.title" /></h2>
+<h2 align="center"><s:property value="course.name" />课程成果展示</h2>
+<s:iterator value="achievementList" status="achievement">
+<h3 align="center"><s:property value="title" /></h2>
 		<hr id="border-top" />
-<h5 align="right">发布日期：<s:date name="achievement.time" format="yyyy-MM-dd" /></h5>
+<h5 align="right">发布日期：<s:date name="time" format="yyyy-MM-dd" /></h5>
 <p style="line-height: 150%"/>
-<s:text name="">${achievement.content}</s:text>
+<s:text name="">${content}</s:text>
 <br />
 附件下载：<a href="<s:url action="download"> 
                      			<s:param name="fileName"> 
-                       			 	<s:property value="achievement.fileLink"/> 
+                       			 	<s:property value="fileLink"/> 
                     			</s:param> 
                 					</s:url>"
 						onclick="JAVAscript:if(!confirm('确认下载附件？')) return false;return true;">
 						<font color="red">点此下载</font> </a>
+</s:iterator>
   </div>
 		<jsp:include page="left.jsp"></jsp:include>
 </div>
