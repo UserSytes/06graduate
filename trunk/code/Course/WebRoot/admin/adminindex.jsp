@@ -6,12 +6,12 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>厦门大学精品课程-学院管理中心</title>
 	<frameset rows="59,*" frameborder="no" border="0" framespacing="0">
-		<frame src="admintop.jsp" noresize="noresize" frameborder="0"
+		<frame src="${ctx}/admin/admintop.jsp" noresize="noresize" frameborder="0"
 			name="topFrame" marginwidth="0" marginheight="0" scrolling="no" />
 		<frameset rows="*" cols="195,*" id="frame">
-			<frame src="adminleft.jsp" name="leftFrame" noresize="noresize"
+			<frame src="${ctx}/admin/adminleft.jsp" name="leftFrame" noresize="noresize"
 				marginwidth="0" marginheight="0" frameborder="0" scrolling="auto" />
-			<frame src="help.jsp" name="main" marginwidth="0" marginheight="0"
+			<frame src="${ctx}/admin/help.jsp" name="main" marginwidth="0" marginheight="0"
 				frameborder="0" scrolling="yes" />
 		</frameset>
 
