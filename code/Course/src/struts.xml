@@ -153,6 +153,14 @@
 		<action name="addMoreStudentAction" method="addMoreStudent" class="studentAction">
 			<result name="success">/commons/prompt.jsp</result>
 		</action>
+		<action name="goDeleteMoreStudentAction" method="goAddMoreStudent" class="studentAction">
+			<result name="success">/admin/studentmanage/deletestudent.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteMoreStudentAction" method="deleteMoreStudent" class="studentAction">
+			<result name="success">/commons/prompt.jsp</result>
+		</action>
+		
 		
 		<!-- 课程管理（教师） -->
 		<action name="viewCourseStudentByTeaAction" method="getStudentByCourse"

@@ -115,6 +115,10 @@ public class StudentAction extends BaseAction {
 			return ERROR;
 	}
 
+	/**
+	 * 跳转到批量添加学生
+	 * @return
+	 */
 	public String goAddMoreStudent() {
 		gradeList = superAdminService.findAllGrade();
 		if (gradeList.size() == 0) {
@@ -146,7 +150,29 @@ public class StudentAction extends BaseAction {
 
 	}
 
-	
+	/**
+	 * 批量删除学生
+	 * @return
+	 */
+	public String deleteMoreStudent(){
+		Grade grade = superAdminService.findGradeById(gradeId);
+		Department department = superAdminService
+				.findDepartmentById(departmentId);
+		List<Student> students = studentInfoService.findByDepartmentAndGrade(department, grade);
+		if(students.size()==0){
+			addActionMessage(department.getName()+grade.getName()+grade.getGrade()+"级目前没有学生，无法执行删除操作！");
+			return SUCCESS;
+		}
+		int result = studentInfoService.deleteMoreStudent(grade, department);
+		int temp = students.size() - result;
+		if (temp == students.size()) {
+			addActionMessage("批量删除学生失败，请重新删除！");
+		} if(temp == 0){
+			addActionMessage("批量删除学生成功，总共删除"+result+"个学生！");
+		}else
+			addActionMessage("批量删除学生失败，删除"+result+"个学生！还有"+temp+"个学生未删除，请继续删除学生！");
+			return SUCCESS;
+	}
 
 	/**
 	 * 查找所有的年级
@@ -248,6 +274,7 @@ public class StudentAction extends BaseAction {
 	 * @return
 	 */
 	public String editStudent() {
+		System.out.print("测试修改学生信息："+userInfo.getName());
 		boolean result = studentInfoService.updateStudent(student, userInfo);
 		if (result) {
 			addActionMessage("修改学生信息成功！");
