@@ -48,6 +48,22 @@ public class StudentInfoService implements IStudentInfoService {
 		}
 	}
 
+	public int deleteMoreStudent(Grade grade, Department department) {
+		List<Student> studentList = studentDAO.findByDepartmentAndGrade(
+				department, grade);
+		int i = 0;
+		for (Student s : studentList) {
+			try {
+				userInfoDAO.delete(s.getUserInfo());
+				studentDAO.delete(s);
+				i++;
+			} catch (Exception e) {
+				break;
+			}
+		}
+		return i;
+	}
+
 	public List<Student> findByGrade(Grade grade) {
 		// TODO Auto-generated method stub
 		return studentDAO.findByProperty("grade", grade);
@@ -72,8 +88,8 @@ public class StudentInfoService implements IStudentInfoService {
 			return students.get(0);
 		}
 	}
-	
-	public boolean updatePassword(Student student){
+
+	public boolean updatePassword(Student student) {
 		try {
 			studentDAO.merge(student);
 			return true;
@@ -81,13 +97,17 @@ public class StudentInfoService implements IStudentInfoService {
 			return false;
 		}
 	}
-	
+
 	public boolean updateStudent(Student student, UserInfo userInfo) {
 		// TODO Auto-generated method stub
 		try {
-			userInfoDAO.merge(userInfo);
-			studentDAO.merge(student);
-			return true;
+			student.setUserInfo(userInfo);
+			Student s = studentDAO.merge(student);
+			UserInfo u = userInfoDAO.merge(userInfo);
+			if (s == null || u == null)
+				return false;
+			else
+				return true;
 		} catch (Exception e) {
 			return false;
 		}

@@ -21,6 +21,8 @@ public interface IStudentInfoService {
 	
 	public boolean deleteStudent(Student student);
 	
+	public int deleteMoreStudent(Grade grade, Department department );
+	
 	public List findBySchool(School school);
 	
 	public Student findById(int id);

@@ -5,7 +5,11 @@ import java.util.List;
 import cn.edu.xmu.course.pojo.*;
 import cn.edu.xmu.course.service.ISuperAdminService;
 import cn.edu.xmu.course.service.ITeacherInfoService;
-
+/**
+ * 
+ * @author Sky
+ *
+ */
 public class TeacherInfoAction extends BaseAction{
 
 	/**
