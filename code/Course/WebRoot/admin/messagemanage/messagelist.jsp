@@ -8,7 +8,7 @@
 		<META http-equiv=Pragma content=no-cache>
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
-		<LINK href="${ctx}/coursepage/default.css" type=text/css rel=stylesheet>
+		<LINK href="${ctx}/css/message.css" type=text/css rel=stylesheet>
 		<title><s:text name="">${topic.name}</s:text></title>
 		<style type="text/css">
 <!--
@@ -19,7 +19,7 @@
 </style>
 	</head>
 	<body><br>
-		<table cellSpacing=1 cellPadding=0 width="100%"
+		<table class=editTable  cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
@@ -29,7 +29,7 @@
 		</table>
 <br>
 		<div align="left">
-			<table bordercolor="#3399FF" border="0" width="98%">
+			<table bordercolor="#3399FF" border="1" width="98%">
 				<tr>
 					<td>
 						<div align="left"

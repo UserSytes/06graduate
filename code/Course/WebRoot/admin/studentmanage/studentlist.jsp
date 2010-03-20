@@ -10,6 +10,17 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
 		<title>学生列表</title>
+<script language="javascript">
+	function getStudent(type) {
+	    if(type == 1){
+			document.getElementById("search1").style.display="block";
+			document.getElementById("search2").style.display="none";	
+		}else{
+			document.getElementById("search1").style.display="none";
+			document.getElementById("search2").style.display="block";	
+		}	
+	}
+</script>
 		<style type="text/css">
 <!--
 .STYLE1 {
@@ -27,12 +38,54 @@
 				</td>
 			</tr>
 		</table>
-		<div align="center">
+
+      <table class=listTable align="center">
+			<tr>
+				<td>
+					请选择查询条件：&nbsp;&nbsp;&nbsp;
+					<s:select name="type" list="#{1:'帐号',0:'年级专业'}"
+						listKey="key" listValue="value"
+						onchange="javascript:getStudent(this.value)" />
+
+				</td>
+			</tr>
+		</table>
+
+		<div align="center"  id="search1">
+			<s:form action="findStudentByNoAction" method="post">
+				<table class="listTable">
+					<tr class=editHeaderTr>
+						<td class=editHeaderTd colSpan=7>查找学生 
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#FFFDF0">
+							<div align="center">
+								请输入学生帐号：
+							</div>
+						</td>
+						<td colspan="3" bgcolor="#FFFFFF">
+							&nbsp;&nbsp;&nbsp;
+							<s:textfield cssClass="INPUT" id="studentNo"
+							name="studentNo" label="账号" ></s:textfield>
+						</td>
+					</tr>
+					<tr bgcolor="#ECF3FD">
+						<td width="20%">
+							&nbsp;
+						</td>
+						<td width="80%">
+							<s:submit cssClass="label" value="查找"></s:submit>
+						</td>
+					</tr>
+				</table>
+			</s:form>
+		</div>
+		<div align="center" id="search2" style="display: none;">
 			<s:form action="findStudentByGradeAction" method="post">
 				<table class="listTable">
 					<tr class=editHeaderTr>
-						<td class=editHeaderTd colSpan=7>
-							请输入新学生账号信息
+						<td class=editHeaderTd colSpan=7>查找学生 
 						</td>
 					</tr>
 					<tr>

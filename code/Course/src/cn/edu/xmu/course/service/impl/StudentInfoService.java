@@ -88,6 +88,14 @@ public class StudentInfoService implements IStudentInfoService {
 			return students.get(0);
 		}
 	}
+	
+	public List findByStudentNoFuzzy(String studentNo , School school) {
+		// TODO Auto-generated method stub
+		List<Student> students = studentDAO.findByStudentNoFuzzy(studentNo, school);
+		System.out.println("≤‚ ‘≤È’“—ß…˙2£∫"+students.size());
+		return students;
+	
+	}
 
 	public boolean updatePassword(Student student) {
 		try {
