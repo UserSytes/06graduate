@@ -10,7 +10,7 @@
             <column name="id" />
             <generator class="increment" />
         </id>
-        <many-to-one name="department" class="cn.edu.xmu.course.pojo.Department" lazy="false" fetch="select">
+        <many-to-one name="department" class="cn.edu.xmu.course.pojo.Department" lazy="false"  fetch="select">
             <column name="department_id" />
         </many-to-one>
         <property name="name" type="java.lang.String">
@@ -25,7 +25,19 @@
         <property name="mobile" type="java.lang.Long">
             <column name="mobile" precision="20" scale="0" />
         </property>
-        <set name="messages" inverse="true">
+        <set name="mailsForReceiverId" inverse="true" cascade="delete">
+            <key>
+                <column name="receiver_id" />
+            </key>
+            <one-to-many class="cn.edu.xmu.course.pojo.Mail" />
+        </set>
+        <set name="mailsForSenderId" inverse="true" cascade="delete">
+            <key>
+                <column name="sender_id" />
+            </key>
+            <one-to-many class="cn.edu.xmu.course.pojo.Mail" />
+        </set>
+        <set name="messages" inverse="true"  cascade="delete">
             <key>
                 <column name="userinfo_id" />
             </key>

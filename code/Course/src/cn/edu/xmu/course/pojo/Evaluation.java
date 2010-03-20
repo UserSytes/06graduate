@@ -20,6 +20,7 @@ public class Evaluation implements java.io.Serializable {
 	private String email;
 	private String content;
 	private Float score;
+	private Integer sort;
 
 	// Constructors
 
@@ -30,7 +31,7 @@ public class Evaluation implements java.io.Serializable {
 	/** full constructor */
 	public Evaluation(Course course, String username, String password,
 			Integer status, String name, String company, String position,
-			Long phone, String email, String content, Float score) {
+			Long phone, String email, String content, Float score,Integer sort) {
 		this.course = course;
 		this.username = username;
 		this.password = password;
@@ -42,6 +43,7 @@ public class Evaluation implements java.io.Serializable {
 		this.email = email;
 		this.content = content;
 		this.score = score;
+		this.sort = sort;
 	}
 
 	// Property accessors
@@ -140,6 +142,14 @@ public class Evaluation implements java.io.Serializable {
 
 	public void setScore(Float score) {
 		this.score = score;
+	}
+
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+
+	public Integer getSort() {
+		return sort;
 	}
 
 }

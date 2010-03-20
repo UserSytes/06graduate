@@ -17,6 +17,8 @@ public class UserInfo implements java.io.Serializable {
 	private String sex;
 	private String email;
 	private Long mobile;
+	private Set mailsForReceiverId = new HashSet(0);
+	private Set mailsForSenderId = new HashSet(0);
 	private Set messages = new HashSet(0);
 	private Set teachers = new HashSet(0);
 	private Set students = new HashSet(0);
@@ -29,12 +31,15 @@ public class UserInfo implements java.io.Serializable {
 
 	/** full constructor */
 	public UserInfo(Department department, String name, String sex,
-			String email, Long mobile, Set messages, Set teachers, Set students) {
+			String email, Long mobile, Set mailsForReceiverId,
+			Set mailsForSenderId, Set messages, Set teachers, Set students) {
 		this.department = department;
 		this.name = name;
 		this.sex = sex;
 		this.email = email;
 		this.mobile = mobile;
+		this.mailsForReceiverId = mailsForReceiverId;
+		this.mailsForSenderId = mailsForSenderId;
 		this.messages = messages;
 		this.teachers = teachers;
 		this.students = students;
@@ -88,6 +93,22 @@ public class UserInfo implements java.io.Serializable {
 
 	public void setMobile(Long mobile) {
 		this.mobile = mobile;
+	}
+
+	public Set getMailsForReceiverId() {
+		return this.mailsForReceiverId;
+	}
+
+	public void setMailsForReceiverId(Set mailsForReceiverId) {
+		this.mailsForReceiverId = mailsForReceiverId;
+	}
+
+	public Set getMailsForSenderId() {
+		return this.mailsForSenderId;
+	}
+
+	public void setMailsForSenderId(Set mailsForSenderId) {
+		this.mailsForSenderId = mailsForSenderId;
 	}
 
 	public Set getMessages() {

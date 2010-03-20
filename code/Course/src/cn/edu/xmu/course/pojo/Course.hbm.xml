@@ -37,6 +37,9 @@
         <property name="visible" type="java.lang.Integer">
             <column name="visible" not-null="true" />
         </property>
+        <property name="style" type="java.lang.String">
+            <column name="style"/>
+        </property>
         <set name="courseMovies" inverse="true" cascade="delete" >
             <key>
                 <column name="course_id" />
@@ -90,6 +93,12 @@
                 <column name="course_id" />
             </key>
             <one-to-many class="cn.edu.xmu.course.pojo.Examination" />
+        </set>
+        <set name="notices" inverse="true" cascade="delete">
+            <key>
+                <column name="course_id" />
+            </key>
+            <one-to-many class="cn.edu.xmu.course.pojo.Notice" />
         </set>
         <set name="courseInfos" inverse="true" cascade="delete">
             <key>
