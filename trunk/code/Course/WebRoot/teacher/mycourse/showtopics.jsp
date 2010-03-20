@@ -77,7 +77,7 @@
 									<td></td>
 									<td align="left">
 										<a
-											href="<s:url action="showMessagesAction"> 
+											href="<s:url action="showMessagesByTeaAction"> 
 		<s:param name="topicId"> 
 		<s:property value="id"/> 
 		</s:param>
