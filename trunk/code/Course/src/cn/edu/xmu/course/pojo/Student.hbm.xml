@@ -13,7 +13,7 @@
         <many-to-one name="userInfo" class="cn.edu.xmu.course.pojo.UserInfo" cascade="all" lazy="false" fetch="select">
             <column name="userinfo_id" />
         </many-to-one>
-        <many-to-one name="grade" class="cn.edu.xmu.course.pojo.Grade" lazy="false"  fetch="select">
+        <many-to-one name="grade" class="cn.edu.xmu.course.pojo.Grade" lazy="false" fetch="select">
             <column name="gradeId" />
         </many-to-one>
         <property name="studentNo" type="java.lang.String">
@@ -21,6 +21,9 @@
         </property>
         <property name="password" type="java.lang.String">
             <column name="password" not-null="true" />
+        </property>
+        <property name="photo" type="java.lang.String">
+            <column name="photo" />
         </property>
         <set name="collections" inverse="true" cascade="delete">
             <key>

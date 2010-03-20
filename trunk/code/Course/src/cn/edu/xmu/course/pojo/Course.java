@@ -21,17 +21,19 @@ public class Course implements java.io.Serializable {
 	private String refuseReason;
 	private Integer count;
 	private Integer visible;
+	private String style;
 	private Set courseMovies = new HashSet(0);
 	private Set collections = new HashSet(0);
-	private Set topics = new HashSet(0);
 	private Set evaluations = new HashSet(0);
-	private Set achievements = new HashSet(0);
+	private Set topics = new HashSet(0);
 	private Set books = new HashSet(0);
-	private Set teacherTeams = new HashSet(0);
 	private Set applicationForms = new HashSet(0);
 	private Set examinations = new HashSet(0);
-	private Set courseInfos = new HashSet(0);
 	private Set chapters = new HashSet(0);
+	private Set achievements = new HashSet(0);
+	private Set notices = new HashSet(0);
+	private Set teacherTeams = new HashSet(0);
+	private Set courseInfos = new HashSet(0);
 	private Set studentCourses = new HashSet(0);
 
 	// Constructors
@@ -50,10 +52,11 @@ public class Course implements java.io.Serializable {
 	/** full constructor */
 	public Course(Department department, Teacher teacher, String name,
 			String remark, Integer status, String level, String refuseReason,
-			Integer count, Integer visible, Set courseMovies, Set collections,
-			Set topics, Set evaluations, Set achievements, Set books,
-			Set teacherTeams, Set applicationForms, Set examinations,
-			Set courseInfos, Set chapters, Set studentCourses) {
+			Integer count, Integer visible, String style, Set courseMovies,
+			Set collections, Set evaluations, Set topics, Set books,
+			Set applicationForms, Set examinations, Set chapters,
+			Set achievements, Set notices, Set teacherTeams, Set courseInfos,
+			Set studentCourses) {
 		this.department = department;
 		this.teacher = teacher;
 		this.name = name;
@@ -63,17 +66,19 @@ public class Course implements java.io.Serializable {
 		this.refuseReason = refuseReason;
 		this.count = count;
 		this.visible = visible;
+		this.style = style;
 		this.courseMovies = courseMovies;
 		this.collections = collections;
-		this.topics = topics;
 		this.evaluations = evaluations;
-		this.achievements = achievements;
+		this.topics = topics;
 		this.books = books;
-		this.teacherTeams = teacherTeams;
 		this.applicationForms = applicationForms;
 		this.examinations = examinations;
-		this.courseInfos = courseInfos;
 		this.chapters = chapters;
+		this.achievements = achievements;
+		this.notices = notices;
+		this.teacherTeams = teacherTeams;
+		this.courseInfos = courseInfos;
 		this.studentCourses = studentCourses;
 	}
 
@@ -159,6 +164,14 @@ public class Course implements java.io.Serializable {
 		this.visible = visible;
 	}
 
+	public String getStyle() {
+		return this.style;
+	}
+
+	public void setStyle(String style) {
+		this.style = style;
+	}
+
 	public Set getCourseMovies() {
 		return this.courseMovies;
 	}
@@ -175,14 +188,6 @@ public class Course implements java.io.Serializable {
 		this.collections = collections;
 	}
 
-	public Set getTopics() {
-		return this.topics;
-	}
-
-	public void setTopics(Set topics) {
-		this.topics = topics;
-	}
-
 	public Set getEvaluations() {
 		return this.evaluations;
 	}
@@ -191,12 +196,12 @@ public class Course implements java.io.Serializable {
 		this.evaluations = evaluations;
 	}
 
-	public Set getAchievements() {
-		return this.achievements;
+	public Set getTopics() {
+		return this.topics;
 	}
 
-	public void setAchievements(Set achievements) {
-		this.achievements = achievements;
+	public void setTopics(Set topics) {
+		this.topics = topics;
 	}
 
 	public Set getBooks() {
@@ -205,14 +210,6 @@ public class Course implements java.io.Serializable {
 
 	public void setBooks(Set books) {
 		this.books = books;
-	}
-
-	public Set getTeacherTeams() {
-		return this.teacherTeams;
-	}
-
-	public void setTeacherTeams(Set teacherTeams) {
-		this.teacherTeams = teacherTeams;
 	}
 
 	public Set getApplicationForms() {
@@ -231,20 +228,44 @@ public class Course implements java.io.Serializable {
 		this.examinations = examinations;
 	}
 
-	public Set getCourseInfos() {
-		return this.courseInfos;
-	}
-
-	public void setCourseInfos(Set courseInfos) {
-		this.courseInfos = courseInfos;
-	}
-
 	public Set getChapters() {
 		return this.chapters;
 	}
 
 	public void setChapters(Set chapters) {
 		this.chapters = chapters;
+	}
+
+	public Set getAchievements() {
+		return this.achievements;
+	}
+
+	public void setAchievements(Set achievements) {
+		this.achievements = achievements;
+	}
+
+	public Set getNotices() {
+		return this.notices;
+	}
+
+	public void setNotices(Set notices) {
+		this.notices = notices;
+	}
+
+	public Set getTeacherTeams() {
+		return this.teacherTeams;
+	}
+
+	public void setTeacherTeams(Set teacherTeams) {
+		this.teacherTeams = teacherTeams;
+	}
+
+	public Set getCourseInfos() {
+		return this.courseInfos;
+	}
+
+	public void setCourseInfos(Set courseInfos) {
+		this.courseInfos = courseInfos;
 	}
 
 	public Set getStudentCourses() {
