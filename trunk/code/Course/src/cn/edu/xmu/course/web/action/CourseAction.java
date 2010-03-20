@@ -165,6 +165,18 @@ public class CourseAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
+	
+//	public String searchStudentByCourse(){
+//		course = courseService.getCourseById(course.getId());
+//		List<StudentCourse> scList = new ArrayList<StudentCourse>();
+//		scList = studentCourseService.findByCourse(course);
+//		studentList = new ArrayList<Student>();
+//		for (StudentCourse sc : scList) {
+//			student = sc.getStudent();
+//			if(student.getStudentNo().)
+//			studentList.add(student);
+//		}
+//	}
 
 	/**
 	 * 删除course的某位学生关系

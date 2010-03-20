@@ -107,7 +107,11 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		
+		<action name="findStudentByNoAction" method="findStudentByNo" class="studentAction">
+			<result name="success">/admin/studentmanage/studentlist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		<action name="addStudentAction" method="addStudent" class="studentAction">
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
@@ -642,6 +646,7 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
+		
 		<action name="deleteStudentFromCourseAction" method="deleteStudent"
 			class="courseAction">
 			<result name="success" type="redirect-action">viewCourseStudentByTeaAction

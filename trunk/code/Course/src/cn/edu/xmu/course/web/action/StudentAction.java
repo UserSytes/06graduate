@@ -54,6 +54,8 @@ public class StudentAction extends BaseAction {
 	private File studentFile;
 	private String studentFileContentType;
 	private String studentFileName;
+	
+	private String studentNo;
 
 	/**
 	 * 获取某学院的所有系
@@ -234,6 +236,24 @@ public class StudentAction extends BaseAction {
 	}
 
 	/**
+	 * 根据学号查找学生
+	 * @return
+	 */
+	public String findStudentByNo(){
+		Administrator admin = (Administrator) super.getSession().get(ADMIN);
+		school = admin.getSchool();
+		System.out.println("测试查找学生："+studentNo+ school.getName());
+		studentList = studentInfoService.findByStudentNoFuzzy(studentNo, school);
+		if(studentList.size() == 0){
+			addActionMessage("没有帐号和"+studentNo+"有关的学生。");
+			return ERROR;
+		}else{
+			this.goAddStudent();
+			return SUCCESS;
+		}
+	}
+	
+	/**
 	 * 根据学院查找学生
 	 * 
 	 * @return
@@ -243,7 +263,6 @@ public class StudentAction extends BaseAction {
 		Administrator admin = (Administrator) super.getSession().get(ADMIN);
 		School school = admin.getSchool();
 		studentList = studentInfoService.findBySchool(school);
-		// System.out.println("测试1： "+studentList.size());
 		if (studentList.size() == 0) {
 			addActionMessage("本学院尚未添加学生！");
 			return ERROR;
@@ -274,7 +293,6 @@ public class StudentAction extends BaseAction {
 	 * @return
 	 */
 	public String editStudent() {
-		System.out.print("测试修改学生信息："+userInfo.getName());
 		boolean result = studentInfoService.updateStudent(student, userInfo);
 		if (result) {
 			addActionMessage("修改学生信息成功！");
@@ -298,20 +316,6 @@ public class StudentAction extends BaseAction {
 			return ERROR;
 	}
 
-	/**
-	 * 批量删除学生
-	 * 
-	 * @return
-	 */
-	public String deleteStudentList() {
-		System.out.println("测试1： " + studentList.size());
-		for (Student s : studentList) {
-			System.out.println("测试中： " + s.getStudentNo());
-			studentInfoService.deleteStudent(s);
-		}
-		System.out.println("测试2： ");
-		return SUCCESS;
-	}
 
 	public IStudentInfoService getStudentInfoService() {
 		return studentInfoService;
@@ -439,6 +443,14 @@ public class StudentAction extends BaseAction {
 
 	public void setStudentFileName(String studentFileName) {
 		this.studentFileName = studentFileName;
+	}
+
+	public void setStudentNo(String studentNo) {
+		this.studentNo = studentNo;
+	}
+
+	public String getStudentNo() {
+		return studentNo;
 	}
 
 }

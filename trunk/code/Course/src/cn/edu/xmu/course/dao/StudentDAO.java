@@ -128,6 +128,16 @@ public class StudentDAO extends HibernateDaoSupport {
 		}
 	}
 
+	public List findByStudentNoFuzzy(String studentNo , School school) {
+		try {
+			String queryString = "from Student as model where model.studentNo like '%"+ studentNo +"%' and model.userInfo.department.school.id = "+school.getId();
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	
 	public List findByStudentNo(Object studentNo) {
 		return findByProperty(STUDENT_NO, studentNo);
 	}

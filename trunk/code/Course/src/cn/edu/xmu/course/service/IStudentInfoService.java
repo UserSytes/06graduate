@@ -31,6 +31,8 @@ public interface IStudentInfoService {
 	
 	public Student findByStudentNo(String studentNo);
 	
+	public List findByStudentNoFuzzy(String studentNo , School school);
+	
 	/**
 	 * DWR用到的查找
 	 * @param studentNo
