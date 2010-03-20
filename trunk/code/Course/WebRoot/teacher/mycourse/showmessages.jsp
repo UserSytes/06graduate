@@ -7,7 +7,7 @@
 	<head>
 		<title>厦门大学精品课程</title>
 		<meta http-equiv="Content-Style-Type" content="text/css">
-		<link href="${ctx}/css/default.css" rel="stylesheet" type="text/css" />
+		<link href="${ctx}/css/teachermsg.css" rel="stylesheet" type="text/css" />
 		<SCRIPT language=javascript>
 	function check(form) {
 		if (form.title.value == "") {
