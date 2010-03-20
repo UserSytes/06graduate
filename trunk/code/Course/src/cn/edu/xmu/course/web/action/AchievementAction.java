@@ -61,7 +61,7 @@ public class AchievementAction extends BaseAction {
 		if (achievementService.addAchievement( super.getCourse(),achievement, upload))
 			return SUCCESS;
 		else {
-			addActionError("添加参考书籍失败，请重新添加！");
+			addActionError("添加教学成果失败，请重新添加！");
 			return ERROR;
 		}
 	}
@@ -78,7 +78,7 @@ public class AchievementAction extends BaseAction {
 		if (achievementService.updateAchievement(achievement,upload))
 			return SUCCESS;
 		else {
-			addActionError("更新参考书籍失败，请重新操作！");
+			addActionError("更新教学成果失败，请重新操作！");
 			return ERROR;
 		}
 	}
@@ -88,7 +88,7 @@ public class AchievementAction extends BaseAction {
 		if (achievementService.deleteAchievement(delAchievement))
 			return SUCCESS;
 		else {
-			addActionError("删除参考书籍失败，请重新操作！");
+			addActionError("删除教学成果失败，请重新操作！");
 			return ERROR;
 		}
 	}
