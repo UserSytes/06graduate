@@ -937,7 +937,7 @@
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="enterCourseAction" method="enterCourse" class="executeViewAction">
-			<result name="course">/coursepage/index.jsp
+			<result name="course">/coursepage/redirect.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
@@ -1086,6 +1086,12 @@
 			<result name="error">/commons/error.jsp</result>
 		</action>		
 		
+		<action name="getcourseintroAction" method="getCourseintroFromIndex"
+			class="courseInfoAction">
+			<result name="success">/coursepage/index.jsp
+			</result>
+			<result name="error">/commons/prompt1.jsp</result>
+		</action>
 		<action name="findApplicationFormAction" method="findApplicationForm"
 			class="applicationFormAction">
 			<result name="applicationForm">/coursepage/applicationform.jsp
@@ -1094,6 +1100,7 @@
 		</action>
 		<action name="findCourseInfoAction" method="findCourseInfo"
 			class="courseInfoAction">
+			<param name=""></param>
 			<result name="success">/coursepage/courseintro.jsp
 			</result>
 		</action>
@@ -1108,21 +1115,31 @@
 			<result name="success">/coursepage/achievement.jsp
 			</result>
 		</action>
-				<action name="findChapterAction" method="findChapter"
-			class="courseChapterAction">
-			<result name="coursewares">/coursepage/coursewarelist.jsp
-			</result>
-			<result name="experiments">/coursepage/experimentlist.jsp
-			</result>
-			<result name="exercises">/coursepage/exerciselist.jsp
-			</result>
-			<result name="error">/commons/prompt1.jsp</result>
-		</action>
-			<action name="downloadCoursewareAction" method="downloadCourseware"
+		
+		<action name="getAllCoursewareAction" method="getAllCourseware"
 			class="coursewareAction">
-			<result name="courseware">/coursepage/downloadcourseware.jsp
+			<result name="success">/coursepage/downloadcourseware.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
+		</action>
+		<action name="getAllExperimentAction" method="getAllExperiment"
+			class="experimentAction">
+			<result name="success">/coursepage/downloadexperiment.jsp
+			</result>
+		</action>
+		<action name="getAllExerciseAction" method="getAllExercise"
+			class="exerciseAction">
+			<result name="success">/coursepage/downloadexercise.jsp
+			</result>
+		</action>
+		<action name="getAllExaminationAction" method="getAllExamination"
+			class="examinationAction">
+			<result name="success">/coursepage/downloadexam.jsp
+			</result>
+		</action>
+		<action name="getAllBookAction" method="getBookListByCourse"
+			class="bookAction">
+			<result name="success">/coursepage/book.jsp
+			</result>
 		</action>
 			<action name="downloadExperimentAction" method="downloadExperiment"
 			class="experimentAction">
