@@ -309,6 +309,41 @@
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		
+		<!-- 课程通知公告（教师） -->
+		<action name="getNoticeListByTeacherAction" method="getNoticeListByTeacher" class="noticeAction">
+			<result name="success">/teacher/mycourse/noticelist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="getNoticeListByCourseAction" method="getNoticeListByCourse" class="noticeAction">
+			<result name="success">/teacher/mycourse/noticelist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="addNoticeAction" method="addNewNotice" class="noticeAction">
+			<result name="success">/commons/prompt.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="updateNoticeAction" method="updateNotice" class="noticeAction">
+			<result name="success">/commons/prompt.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteNoticeAction" method="deleteNotice" class="noticeAction">
+			<result name="success">/commons/prompt.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="goAddNoticeAction" method="goAddNotice" class="noticeAction">
+			<result name="success">/teacher/mycourse/addnotice.jsp
+			</result>			
+		</action>
+		<action name="goEditNoticeAction" method="goEditNotice" class="noticeAction">
+			<result name="success">/teacher/mycourse/editnotice.jsp
+			</result>			
+		</action>
+		
 		<!-- 留言板（教师） -->
 		<action name="showTopicsByTeacherAction" method="showTopicsByTeacher" class="messageAction">
 			<result name="success">/teacher/mycourse/showtopics.jsp

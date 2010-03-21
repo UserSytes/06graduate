@@ -177,5 +177,9 @@
 			<ref bean="EvaluationDAO" />
 		</property>
 	</bean>
-	
+	<bean id="noticeServiceTarget" class="cn.edu.xmu.course.service.impl.NoticeService">
+	<property name="noticeDAO">
+			<ref bean="NoticeDAO" />
+		</property>
+	</bean>
 </beans>
