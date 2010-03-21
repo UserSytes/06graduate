@@ -3,32 +3,71 @@
 <%@ include file="../../commons/taglibs.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<TABLE WIDTH=765 height="102" BORDER=0 CELLPADDING=0 CELLSPACING=0>
-				<TR>
-					<TD ROWSPAN=3><IMG SRC="${ctx}/homepage/images/back-1.jpg" WIDTH=209 HEIGHT=102 ALT=""></TD>
-					<TD ROWSPAN=2><a href="${ctx}/homepage/index.jsp"><IMG SRC="${ctx}/homepage/images/case-1.jpg" WIDTH=85 HEIGHT=70 ALT="" border="0"></a></TD>
-					<TD ROWSPAN=2><a href="<s:url action="newsAction"> 
-                					</s:url>"><IMG SRC="${ctx}/homepage/images/case-2.jpg" WIDTH=86 HEIGHT=70 ALT="" border="0"></a></TD>
-					<TD ROWSPAN=2><a href="<s:url action="achievementAction"> 
-                					</s:url>"><IMG SRC="${ctx}/homepage/images/case-3.jpg" WIDTH=85 HEIGHT=70 ALT="" border="0"></a></TD>
-					<TD ROWSPAN=2><a href="${ctx}/homepage/searchbyschool.jsp"><IMG SRC="${ctx}/homepage/images/case-4.jpg" WIDTH=86 HEIGHT=70 ALT="" border="0"></a></TD>
-					<TD ROWSPAN=2><a href="${ctx}/homepage/contact.jsp"><IMG SRC="${ctx}/homepage/images/case-5.jpg" WIDTH=85 HEIGHT=70 ALT="" border="0"></a></TD>
-					<TD COLSPAN=4><IMG SRC="${ctx}/homepage/images/back-3.jpg" WIDTH=129 HEIGHT=37 ALT=""></TD>
-				</TR>
-				<TR>
-					<TD><IMG SRC="${ctx}/homepage/images/back-4.jpg" WIDTH=41 HEIGHT=33 ALT=""></TD>
-					<TD><a href="index.html"><IMG SRC="${ctx}/homepage/images/case-6.jpg" WIDTH=27 HEIGHT=33 ALT="" border="0"></a></TD>
-					<TD><a href="#"><IMG SRC="${ctx}/homepage/images/case-7.jpg" WIDTH=24 HEIGHT=33 ALT="" border="0"></a></TD>
-					<TD><a href="#"><IMG SRC="${ctx}/homepage/images/case-8.jpg" WIDTH=37 HEIGHT=33 ALT="" border="0"></a></TD>
-				</TR>
-				<TR>
-					<TD COLSPAN=9><IMG SRC="${ctx}/homepage/images/back-2.jpg" WIDTH=556 HEIGHT=32 ALT=""></TD>
-				</TR>
-			</TABLE>
-</body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+
+		<table border="0" cellpadding="0" cellspacing="0" width="950"
+			height="100" align="center">
+			<tr height="28">
+				<td></td>
+			</tr>
+			<tr>
+				<td width="880" valign="top">
+					&nbsp;
+					<a href="index.htm"><img src="${ctx}/homepage/image/logo.gif" border="0">
+					</a>
+				</td>
+				<td>
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td colspan="3" align="right">
+								<table border="0" cellpadding="0" cellspacing="0">
+									<tr>
+										<td width="50">
+											<a href="#">Home </a>&nbsp;
+										</td>
+										<td width="50">
+											<a href="#">Exit</a> &nbsp;
+										</td>
+										<td width="50">
+											<a href="#">Join us</a>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+									codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0"
+									width="753" height="55">
+									<param name="movie" value="${ctx}/homepage/flash/menu_v7.swf?button=1" />
+									<param name="quality" value="high" />
+									<param name="menu" value="false" />
+									<param name="wmode" value="transparent" />
+									<!--[if !IE]> <-->
+									<object data="flash/menu_v7.swf?button=1" width="753"
+										height="55" type="application/x-shockwave-flash">
+										<param name="quality" value="high" />
+										<param name="menu" value="false" />
+										<param name="wmode" value="transparent" />
+										<param name="pluginurl"
+											value="http://www.macromedia.com/go/getflashplayer" />
+										FAIL (the browser should render some flash content, not this).
+									</object>
+									<!--> <![endif]-->
+								</object>
+							</td>
+						</tr>
+						<tr>
+							<td height="20"></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
 </html>

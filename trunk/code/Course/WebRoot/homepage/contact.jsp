@@ -4,164 +4,172 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<LINK href="${ctx}/css/student.css" type=text/css rel=stylesheet>
-		<title>厦门大学精品课程网站</title>
-	</head>
-		<BODY BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0
-		MARGINHEIGHT=0 rightmargin="0" bottommargin="0"
-		background="${ctx}/homepage/images/back-body.jpg" style="overflow-x: hidden">
-		<center>
+		<title>厦门大学精品课程网站——联系我们</title>
+		<link rel="stylesheet" href="${ctx}/homepage/link.css">
+	<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0"
+		width="100%" height="100%"
+		background="${ctx}/homepage/image/back_img.gif"
+		style="background-repeat: repeat-x">
 
-			<table width="783" height="100%" border="0" cellspacing="0"
-				cellpadding="0">
-				<tr>
-					<td width="9" height="100%" background="${ctx}/homepage/images/back-left.jpg">
-						<img src="${ctx}/homepage/images/spacer.gif" width="9" height="1">
-					</td>
+		<s:include value="include/header.jsp"></s:include>
+		<!-- left -->
+		<table border="0" cellpadding="0" cellspacing="0" width="950"
+			align="center">
+			<tr height="100%">
+				<td width="200" align="center" valign="top">
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td valign="top">
+								<table border="0" cellpadding="0" cellspacing="0">
+									<tr>
+										<td>
+											<img src="${ctx}/homepage/image/left_menu_title.gif"
+												border="0">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<table border="0" cellpadding="0" cellspacing="0">
+												<tr>
+													<td width="11" background=""></td>
+													<td width="172" align="center">
+														<a href="#"><img
+																src="${ctx}/homepage/image/left_menu_01.gif" border="0">
+														</a>
+													</td>
+													<td width="11" background=""></td>
+												</tr>
+												<tr>
+													<td width="11" background=""></td>
+													<td width="172" align="center">
+														<a href="#"><img
+																src="${ctx}/homepage/image/left_menu_02.gif" border="0">
+														</a>
+													</td>
+													<td width="11" background=""></td>
+												</tr>
+												<tr>
+													<td width="11" background=""></td>
+													<td width="172" align="center">
+														<a href="#"><img
+																src="${ctx}/homepage/image/left_menu_03.gif" border="0">
+														</a>
+													</td>
+													<td width="11" background=""></td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="${ctx}/homepage/image/jiannan2.jpg" border="0">
+										</td>
+									</tr>
+								</table>
+
+							</td>
+						</tr>
+					</table>
+					<!--/left -->
+				</td>
+				<td width="750" valign="top" align="right">
+					<!-- main -->
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<!-- main2 主题图 -->
+							<td valign="top">
+								<img src="${ctx}/homepage/image/main_img2.jpg" border="0">
+							</td>
+							<!--/main2 主题图 -->
+						</tr>
+						<tr height="11">
+							<td></td>
+						</tr>
+						<tr height="27">
+							<!-- 主题 -->
+							<td valign="top">
+								<table border="0" cellpadding="0" cellspacing="0">
+									<tr>
+										<td width="11"></td>
+										<td>
+											<img src="${ctx}/homepage/image/title_new.gif" border="0"
+												alt="">
+										</td>
+									</tr>
+									<tr height="3">
+										<td width="11"></td>
+										<td bgcolor="#d7d7d7" width="738"></td>
+									</tr>
+								</table>
+							</td>
+							<!--/ 主题 -->
+						</tr>
+						<tr height="11">
+							<td></td>
+						</tr>
+						<tr>
+							<td valign="top" align="center">
+								<!-- 内容 -->
+								<table class="listing form" cellpadding="0" cellspacing="0">
+
+									<tr class="bg">
+										<td class="first">
+											信息办
+										</td>
+										<td class="first">
+											何申密
+										</td>
+										<td class="first">
+											总负责
+										</td>
+									</tr>
+									<tr>
+										<td class="first">
+											&ensp; &ensp;&ensp;&ensp;
+										</td>
+										<td class="first">
+											许子彦
+										</td>
+										<td class="first">
+											日常维护
+										</td>
+									</tr>
+									<tr class="bg">
+										<td class="first">
+											教务处
+										</td>
+										<td class="first">
+											郑冰凌
+										</td>
+										<td class="first">
+											申报相关事宜
+										</td>
+									</tr>
+									<tr>
+										<td class="first">
+											&ensp; &ensp;&ensp;&ensp;
+										</td>
+										<td class="first">
+											赵海虹
+										</td>
+										<td class="first">
+											咨询
+										</td>
+									</tr>
 
 
-					<td width="765" height="100%" valign="top"
-						background="${ctx}/homepage/images/back-end.jpg">
-						<table width="100%" height="100%" border="0" cellspacing="0"
-							cellpadding="0">
-							<tr>
-								<td colspan="2" WIDTH=765 height="102">
-									<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="765" height="102">
-                  <param name="movie" value="${ctx}/homepage/flash/delta46-2.swf">
-                  <param name="quality" value="high"> <param name="menu" value="false">
-                  <embed src="${ctx}/homepage/flash/delta46-2.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="765" height="102"></embed>
-			  </object>
-								</td>
-							</tr>
-							<tr>
-								<td width="210" height="10" valign="top">
-									<table width="214" height="100%" border="0" cellspacing="0"
-										cellpadding="0">
-										<tr>
-											<td height="60">
-												<img src="${ctx}/homepage/images/up-1.jpg" width="214" height="60">
-											</td>
-										</tr>
+								</table>
 
-										<tr>
-											<td height="38" bgcolor="#f1f1f1">
-												<img src="${ctx}/homepage/images/but-2-4.jpg" width="214" height="38"
-													style="">
-											</td>
-										</tr>
-										<tr>
-											<td width="210" height="100%" valign="top"
-												background="${ctx}/homepage/images/jiannan1.JPG"
-												style="padding-left: 28px; padding-top: 4px; padding-bottom: 15px">
-												<br>
-												<div style="line-height: 15px; padding-bottom: 10px"></div>
-												<a href="contact.jsp">联系我们</a>
-												<div style="line-height: 15px; padding-bottom: 10px">
-												</div>
-											</td>
-										</tr>
-									</table>
-								</td>
-								<td width="555" height="10" valign="top">
-									<table width="555" height="100%" border="0" cellspacing="0"
-										cellpadding="0" background="${ctx}/homepage/images/back-up-3.jpg">
-										<tr>
-											<td width="555" height="10" background="${ctx}/homepage/images/up-3.jpg"
-												style="background-repeat: no-repeat; background-position: top">
-												<table width="555" height="534" border="0" cellspacing="0"
-													cellpadding="0" background="${ctx}/homepage/images/end-3.jpg"
-													style="background-repeat: no-repeat; background-position: center bottom;">
-													<tr>
-														<br>
-														<br>
-														<br>
-														<br>
-														<div style="padding-left: 5px" class="content1-pagetitle">
-															当前位置: 联系我们
-														</div>
-													</tr>
-													<tr>
-														<td width="389" valign="top" style="padding-left: 5px">
-															<div class="table">
-																<img src="${ctx}/student/img/bg-th-left.gif" width="8" height="7"
-																	alt="" class="left" />
-																<img src="${ctx}/student/img/bg-th-right.gif" width="7" height="7"
-																	alt="" class="right" />
-																<s:form action="goChangeMyInfoAction" method="post">
-																	<table class="listing form" cellpadding="0"
-																		cellspacing="0">
-																	
-																		<tr class="bg">
-																			<td class="first">
-																				信息办 
-																			</td>
-																			<td class="first">
-																				何申密 
-																			</td>
-<td class="first">
-																				 总负责
-																			</td>
-																		</tr>
-																		<tr>
-																			<td class="first">
-																				&ensp; &ensp;&ensp;&ensp;
-																			</td>
-																			<td class="first">
-																				许子彦 
-																			</td>
-<td class="first">
-																				 日常维护
-																			</td>
-																		</tr>
-																		<tr class="bg">
-																			<td class="first">
-																				教务处  
-																			</td>
-																			<td class="first">
-																				 郑冰凌 
-																			</td>
-<td class="first">
-																				申报相关事宜
-																			</td>
-																		</tr>
-																		<tr>
-																			<td class="first">
-																				&ensp; &ensp;&ensp;&ensp;
-																			</td>
-																			<td class="first">
-																				赵海虹 
-																			</td>
-<td class="first">
-																				 咨询
-																			</td>
-																		</tr>
-																	
-																		
-																	</table>
-																</s:form>
-															</div>
-														</td>
-													</tr>
-													
-												</table>
-											</td>
-										</tr>
-									</table>
-								</td>
-							</tr>
-							<s:include value="include/bottom.jsp"></s:include>
-							<tr>
-								<td colspan="2" height="100%">
-									<img src="${ctx}/homepage/images/spacer.gif" width="1" height="1">
-								</td>
-							</tr>
-						</table>
-					</td>
-					<td width="9" height="100%" background="${ctx}/homepage/images/back-right.jpg">
-						<img src="${ctx}/homepage/images/spacer.gif" width="9" height="1">
-					</td>
-				</tr>
-			</table>
-		</center>
-	</BODY>
+								<!-- /内容 -->
+							</td>
+						</tr>
+					</table>
+					<!--/ 오른쪽부분 -->
+				</td>
+			</tr>
+		</table>
+
+		<!-- 底部 -->
+		<s:include value="include/bottom.jsp"></s:include>
+	</body>
 </html>

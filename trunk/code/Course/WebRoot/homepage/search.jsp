@@ -4,8 +4,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>厦门大学精品课程网站——建设成果</title>
+		<title>厦门大学精品课程网站——搜索课程</title>
 		<link rel="stylesheet" href="${ctx}/homepage/link.css">
+<SCRIPT language=javascript>
+	function check(form) {
+		if (form.flag.value == -1) {
+			alert("请选择关键字类型！");
+			return false;
+		}
+		if (form.keyword.value == "") {
+			alert("关键字不能为空！");
+			return false;
+		}
+		return true;
+	}
+</script>
 	<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0"
 		width="100%" height="100%"
 		background="${ctx}/homepage/image/back_img.gif"
@@ -23,7 +36,7 @@
 								<table border="0" cellpadding="0" cellspacing="0">
 									<tr>
 										<td>
-											<img src="${ctx}/homepage/image/left_menu_title1.gif"
+											<img src="${ctx}/homepage/image/left_menu_title3.gif"
 												border="0">
 										</td>
 									</tr>
@@ -33,8 +46,8 @@
 												<tr>
 													<td width="11" background=""></td>
 													<td width="172" align="center">
-														<a href="<s:url action="achievementAction"><s:param name="level">country</s:param></s:url>">
-															<img src="${ctx}/homepage/image/left_menu_01.gif" border="0">
+														<a href="<s:url action="forwardToSearchAction"></s:url>">
+															<img src="${ctx}/homepage/image/left_menu_04.gif" border="0">
 														</a>
 													</td>
 													<td width="11" background=""></td>
@@ -42,23 +55,13 @@
 												<tr>
 													<td width="11" background=""></td>
 													<td width="172" align="center">
-														<a href="<s:url action="achievementAction"><s:param name="level">province</s:param></s:url>">
-															<img
-																src="${ctx}/homepage/image/left_menu_02.gif" border="0">
+														<a href="<s:url action="forwardToSuperSearchAction"></s:url>">
+															<img src="${ctx}/homepage/image/left_menu_05.gif" border="0">
 														</a>
 													</td>
 													<td width="11" background=""></td>
 												</tr>
-												<tr>
-													<td width="11" background=""></td>
-													<td width="172" align="center">
-														<a href="<s:url action="achievementAction"><s:param name="level">school</s:param></s:url>">
-															<img
-																src="${ctx}/homepage/image/left_menu_03.gif" border="0">
-														</a>
-													</td>
-													<td width="11" background=""></td>
-												</tr>
+
 											</table>
 										</td>
 									</tr>
@@ -93,15 +96,14 @@
 								<table border="0" cellpadding="0" cellspacing="0">
 									<tr>
 										<td width="11"></td>
-										<td width="80">
-											<img src="${ctx}/homepage/image/con_level.gif" border="0"></td>
-										<td width="550"> <FONT color="black" style="font-weight: bolder;font-family: '黑体'; font-size:13px;"> -> <s:property
-													value="levelNow" /> </FONT>
+										<td>
+											<img src="${ctx}/homepage/image/title_search1.gif" border="0"
+												alt="">
 										</td>
 									</tr>
 									<tr height="3">
 										<td width="11"></td>
-										<td bgcolor="#d7d7d7" colspan="2" width="738"></td>
+										<td bgcolor="#d7d7d7" width="738"></td>
 									</tr>
 								</table>
 							</td>
@@ -113,8 +115,28 @@
 						<tr>
 							<td valign="top" align="center">
 								<!-- 内容 -->
+								<s:form action="searchCourseByKeywordAction" onsubmit="return check(this);" method="post" enctype="multipart/form-data">
+									<table border="0" cellpadding="0" cellspacing="0">
+										<tr>
+											<td width="420" align="right">
+												<s:select name="flag" list="# {'0':'课程名称','1':'教师姓名'}" headerKey="-1" headerValue="请选择" />
+											</td>
+											<td width="194" width="192" align="center">
+												<s:textfield name="keyword" cssClass="text" />
+											</td>
+											<td width="84">
+												<input type="submit" name="submit" value="关键字搜索 ">
+											</td>
+										</tr>
+									</table>
+								</s:form>
 
-								<table width="95%" cellpadding="0" cellspacing="0">
+                             <table width="90%" border="0" cellpadding="0" cellspacing="0">
+										<tr>
+											<td width="90%" align="left"><s:actionmessage /></td>
+										</tr>
+							</table>
+							<table width="95%" cellpadding="0" cellspacing="0">
 									<tr height="40">
 							<td colspan="5" background="${ctx}/homepage/image/bbs_bg.gif">		
 								<table border="0" cellpadding="0" cellspacing="0" style="height: 23px;" width="100%" >
@@ -130,10 +152,10 @@
 							</td>
 						</tr>                  
 									
-									<s:iterator value="achievementList" status="achievement">
+									<s:iterator value="courseList" status="course">
 										<tr>
 											<td width="50" align="center">
-												<s:property value="#achievement.count" />
+												<s:property value="#course.count" />
 											</td>
 											<td width="355" align="center">
 												<a
@@ -158,14 +180,15 @@
 									</s:iterator>
 								</table>
 
-								<!-- /内容 -->
 							</td>
 						</tr>
 					</table>
-					<!--/ 오른쪽부분 -->
+
+					<!-- /内容 -->
 				</td>
 			</tr>
 		</table>
+	
 
 		<!-- 底部 -->
 		<s:include value="include/bottom.jsp"></s:include>
