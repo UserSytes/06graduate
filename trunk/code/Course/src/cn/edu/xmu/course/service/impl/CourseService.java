@@ -59,7 +59,7 @@ public class CourseService implements ICourseService {
 	}
 
 	public List findCourseListLevel(String level) {
-		courses=courseDAO.findByProperty("level", level);
+		courses=courseDAO.findByLevel(level);
 		return courses;		
 	}
 	
@@ -91,7 +91,8 @@ public class CourseService implements ICourseService {
 	}
 
 	public List findCourseListByLevel(String level) {
-		return courseDAO.findByProperty("level", level);
+		courses=courseDAO.findByLevel(level);
+		return courses;	
 	}
 	private List<Course> getCourses() {
 		return courses;

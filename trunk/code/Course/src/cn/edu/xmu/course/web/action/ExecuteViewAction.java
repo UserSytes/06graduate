@@ -28,6 +28,9 @@ public class ExecuteViewAction extends BaseAction {
 	private String teacherName;
 	private ISearchCourseService searchCourseService;
 	private IDepartmentService departmentService;
+	private int flag;
+	private String keyword;
+	
 	public int getCourseId() {
 		return courseId;
 	}
@@ -87,6 +90,24 @@ public class ExecuteViewAction extends BaseAction {
 		} else
 			return "courses";
 	}
+	
+	/**
+	 * 根据课程名称或者教师姓名的关键字查找
+	 * @return
+	 */
+	public String searchCourseByKeyword(){
+		if(flag == 0){
+			courseList = searchCourseService.findCourseByName(keyword);
+		}else{
+			courseList = searchCourseService.findCourseByTeacher(keyword);
+		}
+		if(courseList == null){
+			addActionMessage("一共找到 0 个相关课程！");
+		}else
+			addActionMessage("一共找到 "+courseList.size()+" 个相关课程！");
+		return SUCCESS;
+	}
+	
 	/**
 	 * 通过教师查找
 	 * @return
@@ -177,6 +198,22 @@ public class ExecuteViewAction extends BaseAction {
 
 	public String getTeacherName() {
 		return teacherName;
+	}
+
+	public void setFlag(int flag) {
+		this.flag = flag;
+	}
+
+	public int getFlag() {
+		return flag;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
+	public String getKeyword() {
+		return keyword;
 	}
 
 
