@@ -13,7 +13,7 @@ public class StudentCourse implements java.io.Serializable {
 	private Course course;
 	private Integer status;
 	private Float score;
-	private String content;
+	
 
 	// Constructors
 
@@ -36,7 +36,7 @@ public class StudentCourse implements java.io.Serializable {
 		this.course = course;
 		this.status = status;
 		this.score = score;
-		this.content = content;
+	
 	}
 
 	// Property accessors
@@ -81,11 +81,5 @@ public class StudentCourse implements java.io.Serializable {
 		this.score = score;
 	}
 
-	public String getContent() {
-		return content;
-	}
 
-	public void setContent(String content) {
-		this.content = content;
-	}
 }
