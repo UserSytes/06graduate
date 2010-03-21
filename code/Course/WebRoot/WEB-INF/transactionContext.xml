@@ -144,4 +144,10 @@
 			<ref bean="evaluateServiceTarget" />
 		</property>
 	</bean>
+	
+	<bean id="noticeService" parent="transactionBase">
+		<property name="target">
+			<ref bean="noticeServiceTarget" />
+		</property>
+	</bean>
 </beans>

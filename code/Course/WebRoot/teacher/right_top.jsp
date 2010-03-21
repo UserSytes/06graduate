@@ -260,7 +260,7 @@ a.v1:visited {
 												</tr>
 											</table>
 										</td>
-<td width="75">
+										<td width="75">
 											<table width="73" border="0" align="center" cellpadding="0"
 												cellspacing="0">
 												<tr>
@@ -269,13 +269,14 @@ a.v1:visited {
 														<div align="center">
 
 															<span class="STYLE1"><A
-																href="getEvaluationResultByCourseAction.action"
+																href="showTopicsByTeacherAction.action?time=0"
 																target=mainFrame class="v1">师生留言</A> </span>
 														</div>
 													</td>
 												</tr>
 											</table>
 										</td>
+
 										<td>
 											&nbsp;
 										</td>

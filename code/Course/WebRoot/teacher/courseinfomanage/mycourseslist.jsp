@@ -60,7 +60,6 @@
 					<s:select name="type" list="#{3:'全部课程',2:'审核未通过',1:'己审核',0:'未审核'}"
 						listKey="key" listValue="value"
 						onchange="javascript:getCourseByType(this.value)" />
-
 				</td>
 			</tr>
 		</table>

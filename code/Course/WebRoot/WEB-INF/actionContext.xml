@@ -226,4 +226,15 @@
 		
 	</bean>
 	
+	<!-- 课程通知 -->
+	<bean id="noticeAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.NoticeAction">
+		<property name="noticeService">
+			<ref bean="noticeService" />
+		</property>
+		<property name="courseService">
+			<ref bean="courseService" />
+		</property>
+	</bean>
+	
 </beans>
