@@ -120,7 +120,7 @@
 						<tr>
 							<td class="first">
 								&nbsp;&nbsp;&nbsp;
-								<select id="School" name="evaluatation.score">
+								<select id="School" name="score">
 									<option value="1">
 										&nbsp;1&nbsp;
 									</option>

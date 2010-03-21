@@ -49,7 +49,11 @@
 					<tr class="bg">
 						<td class="first" align="center">
 							<br>
-							<a href="eDetailEvaluateAction.action">
+							<a href="<s:url action="eDetailEvaluateAction"> 
+                     			<s:param name="course"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param>
+                					</s:url>">
 							我要评价</a>
 
 						</td>

@@ -37,13 +37,17 @@
 					<tr class="bg">
 						<td>
 							评价成功，您的评分是&nbsp;
-							<s:property value="evaluatation.score" />
+							<s:property value="score" />
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<a href="${ctx}/coursepage/expertevaluate.jsp" />
-							<img src="images/4-reEvaluate.jpg" WIDTH=70
+							<a href="<s:url action="eDetailEvaluateAction"> 
+                     			<s:param name="course"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param>
+                					</s:url>" />
+							<img src="${ctx}/coursepage/images/4-reEvaluate.jpg" WIDTH=70
  HEIGHT=40 ALT="" border="0">
 							</a>
 						</td>

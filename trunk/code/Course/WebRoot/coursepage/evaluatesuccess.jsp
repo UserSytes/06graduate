@@ -4,10 +4,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-<meta http-equiv="Content-Style-Type" content="text/css">
-<link href="${ctx}/coursepage/default.css" rel="stylesheet" type="text/css" /></head>
-		<title>厦门大学精品课程</title>
-		
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<link href="${ctx}/coursepage/default.css" rel="stylesheet"
+			type="text/css" />
+	</head>
+	<title>厦门大学精品课程</title>
+
 	</head>
 	<body>
 		<div id="header">
@@ -36,13 +38,17 @@
 					</tr>
 					<tr>
 						<td>
-							<a href="${ctx}/coursepage/studentevaluate.jsp" />
-							<img src="images/4-reEvaluate.jpg" WIDTH=70
- HEIGHT=40 ALT="" border="0">
-							</a>
+							<a
+								href="<s:url action="sDetailEvaluateAction"> 
+	                     											<s:param name="course"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param>
+	                													</s:url>" />
+								<img src="${ctx}/coursepage/images/4-reEvaluate.jpg" WIDTH=70
+									HEIGHT=40 ALT="" border="0"> </a>
 						</td>
 					</tr>
-					
+
 				</table>
 			</div>
 
