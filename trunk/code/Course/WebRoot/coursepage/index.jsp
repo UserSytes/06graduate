@@ -5,9 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 <meta http-equiv="Content-Style-Type" content="text/css">
-<link href="${ctx}/coursepage/default.css" rel="stylesheet" type="text/css" /></head>
-		<title>厦门大学精品课程</title>
-		
+<link href="${ctx}/coursepage/default.css" rel="stylesheet" type="text/css" />
+		<title>厦门大学精品课程</title>	
 	</head>
 	<body>
 		<jsp:include page="header.jsp"></jsp:include>
@@ -49,12 +48,13 @@
 				<hr id="border-top" />
 				<div>
 					<p>
-						<strong>课程简介</strong>
+						<strong><a href="<s:url action="findCourseInfoAction"> 
+                     			<s:param name="sort"> 
+                       			 	1 
+                    			</s:param>
+                					</s:url>">课程简介</a></strong>
 						<br />
-						作为国家示范性软件学院之一，厦门大学软件学院要面向IT企业、面向社会培养掌握现代软件技术的应用型、工程型软件开发与管理人才。因此，学院始终把《软件工程》这门课程列为软件工程专业的核心课程，每年开课一次，每学期选课人数约300人，重培养学生掌握软件工程理论与技术，按工程规范开发和生产软件。
-						本课程要能反映软件领域的基本原理、方法、工具、技术和管理。通过该课程的教学，使学生系统地掌握软件工程的基本概念、基本原理；系统地掌握软件的分析、设计、测试的方法和技术；掌握开发软件项目的工程化方法以及在软件开发过程中应遵循的流程、准则、标准和规范等。了解和掌握软件项目管理的基本原理、方法、标准和规范；提高人际交流能力和团队协作精神，使学生今后能按软件工程的理论、方法和技术从事软件项目开发和管理工作。
-
-					
+						<s:text name="courseintrotext">${courseInfo.content}</s:text>
 				</div>
 			</div>
 			<jsp:include page="left.jsp"></jsp:include>
