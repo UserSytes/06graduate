@@ -325,7 +325,7 @@
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="addReplyByTeacherAction" method="addReply" class="messageAction">
-			<result name="success">/commons/prompt.jsp
+			<result name="success" type="redirect-action">showTopicsByTeacherAction
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
 		</action>
