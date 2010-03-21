@@ -76,22 +76,7 @@
 								5分：上课认真，关心同学。
 							</td>
 						</tr>
-						<tr class="bg">
-							<td bgcolor="#FFFDF0">
-								<div align="center">
-									对课程或老师更多的评价，请写在下面：
-								</div>
-							</td>
-						</tr>
-						<tr class="bg">
-							<td colspan="4" bgcolor="#FFFFFF">
-								<FCK:editor instanceName="content" width="100%"
-									height="405" toolbarSet="Default" >
-									<jsp:attribute name="value">
-                            </jsp:attribute>
-								</FCK:editor>
-							</td>
-						</tr>
+						
 						<tr class="bg">
 
 							<td class="first">
