@@ -47,6 +47,11 @@ public class ExperimentAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
+	public String getAllExperiment(){
+		Course course = super.getCourse();
+		experimentList = experimentService.getAllExperiments(course);
+		return SUCCESS;
+	}
 	@SuppressWarnings("unchecked")
 	public String downloadExperiment(){
 		Chapter currentChapter=chapterService.getChapter(chapterId);

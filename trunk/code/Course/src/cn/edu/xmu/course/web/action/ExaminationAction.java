@@ -34,7 +34,11 @@ public class ExaminationAction extends BaseAction {
 		examinationList = examinationService.getAllExaminations(super.getCourse());
 		return SUCCESS;
 	}
-
+	public String getAllExamination(){
+		Course course = super.getCourse();
+		examinationList = examinationService.getAllExaminations(course);
+		return SUCCESS;
+	}
 	public String addExamination() {
 		String fileLink = super.getTeacher().getUserInfo().getName() + "/"
 		+ new Date().getTime()+"_"+super.getCourse().getName() + "_" + uploadFileName;
