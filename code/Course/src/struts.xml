@@ -319,6 +319,16 @@
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
 		</action>
+		<action name="goReplyByTeacherAction" method="goReply" class="messageAction">
+			<result name="success">/teacher/mycourse/newreply.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="addReplyByTeacherAction" method="addReply" class="messageAction">
+			<result name="success">/commons/prompt.jsp
+			</result>
+			<result name="error">/commons/prompt1.jsp</result>
+		</action>
 		
 		<!-- 课程管理-教学成果部分 (教师)-->
 		<action name="getAchievementListByCourseAction" method="getAchievementListByCourse"
@@ -1097,12 +1107,12 @@
 			<result name="success">/coursepage/messagemanage/newreply.jsp
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
-			</action>
+		</action>
 		<action name="addReplyAction" method="addReply" class="messageAction">
 			<result name="success">/coursepage/messagemanage/success.jsp
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
-			</action>
+		</action>
 			
 		<action name="loginFromMessageBoardAction" method="loginFromMessageBoard" class="messageAction">
 			<result name="teacher">/coursepage/loginsuccess.jsp</result>

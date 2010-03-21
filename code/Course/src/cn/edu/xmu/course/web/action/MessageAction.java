@@ -116,14 +116,13 @@ public class MessageAction extends BaseAction {
 
 	}
 	public String addNewMessage(){
-		boolean result;
-		userInfo=(UserInfo) super.getSession().get(USERINFO);
-		System.out.println("******"+userInfo.getName()+"********");
-		topic.setAuthorName(userInfo.getName());
-		topicService.addTopic(super.getCourse(), topic);
-		message.setGrade(1);
-		message.setUserInfo(userInfo);
-		result=messageService.addMessage(topic, message);
+//		userInfo=(UserInfo) super.getSession().get(USERINFO);
+//		System.out.println("******"+userInfo.getName()+"********");
+//		topic.setAuthorName(userInfo.getName());
+//		topicService.addTopic(super.getCourse(), topic);
+//		message.setGrade(1);
+//		message.setUserInfo(userInfo);
+		boolean	result=messageService.addMessage(super.getCourse(),topic, message,super.getUserInfo());
 		if (result) {
 			addActionMessage("添加帖子成功！");
 			return SUCCESS;
@@ -197,19 +196,18 @@ public class MessageAction extends BaseAction {
 	}
 }
 	
-	public String addReply(){
-		boolean result;
+	public String addReply(){		
 //		System.out.println("ACTION正在加入帖子为："+topicId+"的留言1");
 //		topic = topicService.getTopicById(topicId);
 		System.out.println("ACTION正在加入帖子为："+topic.getId()+"的留言2");
 		topic = topicService.getTopicById(topic.getId());
-		topic.setCountReply(topic.getCountReply()+1);
-		topic.setLastUpdate(new Date());
-		topic.setLastAnswer(super.getUserInfo().getName());
-		topicService.updateTopic(topic);
-		System.out.println(message.getContent());
-		message.setGrade(topic.getCountReply()+2);
-		result=messageService.addMessage(topic, message);
+//		topic.setCountReply(topic.getCountReply()+1);
+//		topic.setLastUpdate(new Date());
+//		topic.setLastAnswer(super.getUserInfo().getName());
+//		topicService.updateTopic(topic);
+//		System.out.println(message.getContent());
+//		message.setGrade(topic.getCountReply()+2);
+		boolean result=messageService.addReplyMessage(topic, message,super.getUserInfo());
 		if (result) {
 			addActionMessage("添加帖子成功！");
 			return SUCCESS;
@@ -285,6 +283,7 @@ public class MessageAction extends BaseAction {
 	
 	public String showTopicsByTeacher() {		 
 		topicList = getTopicService().getTopicsByTeacher(super.getTeacher(),getTime());
+		super.getSession().put(USERINFO, super.getTeacher().getUserInfo());
 		return SUCCESS;
 	}
 

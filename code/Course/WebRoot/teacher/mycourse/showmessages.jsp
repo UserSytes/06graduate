@@ -10,10 +10,6 @@
 		<link href="${ctx}/css/teachermsg.css" rel="stylesheet" type="text/css" />
 		<SCRIPT language=javascript>
 	function check(form) {
-		if (form.title.value == "") {
-			alert("标题不能为空！");
-			return false;
-		}
 		if (form.messagecontent.value == "") {
 			alert("内容不能为空！");
 			return false;
@@ -38,7 +34,7 @@
 
 					<div align="right">
 						<a
-							href="<s:url action="goReplyAction">
+							href="<s:url action="goReplyByTeacherAction">
                      			<s:param name="topicId"> 
                        			 	<s:property value="topic.id"/> 
                     			</s:param>
@@ -156,7 +152,7 @@
 
 				</div>
 			</div>
-			<s:form action="addReplyAction" method="post"
+			<s:form action="addReplyByTeacherAction" method="post"
 				onsubmit="return check(this);">
 				<s:hidden name="topic.id"></s:hidden>
 				<table bgcolor="#EBEBEB" cellspacing="0" cellpadding="4"
