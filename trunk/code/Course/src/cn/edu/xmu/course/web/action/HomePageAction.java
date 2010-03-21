@@ -119,6 +119,7 @@ public class HomePageAction extends BaseAction{
 				return ERROR;
 			else {
 				System.out.println(teacher.getPassword());
+				userInfo = teacher.getUserInfo();
 				super.getSession().put(TEACHER, teacher);
 				super.getSession().put("user", teacher.getUserInfo().getName()+"¿œ ¶");
 				return "teacher";
