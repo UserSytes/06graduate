@@ -38,7 +38,7 @@
 					<tr class="bg">
 							<td class="first" align="center"><br>
 								<a href="<s:url action="sDetailEvaluateAction"> 
-	                     											<s:param name="courseId"> 
+	                     											<s:param name="course"> 
                        			 	<s:property value="id"/> 
                     			</s:param>
 	                													</s:url>">我要评价</a>
