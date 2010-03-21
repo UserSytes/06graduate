@@ -98,8 +98,6 @@ public class EvaluationAction extends BaseAction {
 		studentCourse = evaluateService.findStudentCourseByStudentId(1);
 		System.out.println("test_2: " + studentCourse.getId());
 		studentCourse.setScore(score);
-		content = content.substring(3, content.length() - 4);
-		studentCourse.setContent(content);
 		boolean result = evaluateService.updateStudentCourse(studentCourse);
 		System.out.println("test_3: " + result);
 		if (result) {
@@ -112,14 +110,14 @@ public class EvaluationAction extends BaseAction {
 
 		// course=evaluateService.findCourseById(courseId);
 		// System.out.println("test_1: "+course.getName());
-		// content=content.substring(3, content.length()-4);
+		//content=content.substring(3, content.length()-4);
 		// evaluation.setCompany(company);
 		// evaluation.setContent(content);
 		// evaluation.setEmail(email);
 		// evaluation.setName(name);
 		// evaluation.setPhone(phone);
 		// evaluation.setPosition(position);
-		// evaluation.setScore(score);
+		 evaluation.setScore(score);
 		// evaluation.setCourse(course);
 		// System.out.println("test_2: "+evaluation.getName());
 		System.out.println(evaluation.getEmail());
