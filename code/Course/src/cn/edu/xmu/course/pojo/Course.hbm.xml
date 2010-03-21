@@ -40,6 +40,9 @@
         <property name="style" type="java.lang.String">
             <column name="style"/>
         </property>
+        <property name="time" type="java.util.Date">
+            <column name="time" length="19"/>
+        </property>
         <set name="courseMovies" inverse="true" cascade="delete" >
             <key>
                 <column name="course_id" />

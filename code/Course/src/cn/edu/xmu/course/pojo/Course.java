@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.pojo;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,6 +23,7 @@ public class Course implements java.io.Serializable {
 	private Integer count;
 	private Integer visible;
 	private String style;
+	private Date time;
 	private Set courseMovies = new HashSet(0);
 	private Set collections = new HashSet(0);
 	private Set evaluations = new HashSet(0);
@@ -52,7 +54,7 @@ public class Course implements java.io.Serializable {
 	/** full constructor */
 	public Course(Department department, Teacher teacher, String name,
 			String remark, Integer status, String level, String refuseReason,
-			Integer count, Integer visible, String style, Set courseMovies,
+			Integer count, Integer visible, String style,Date time, Set courseMovies,
 			Set collections, Set evaluations, Set topics, Set books,
 			Set applicationForms, Set examinations, Set chapters,
 			Set achievements, Set notices, Set teacherTeams, Set courseInfos,
@@ -67,6 +69,7 @@ public class Course implements java.io.Serializable {
 		this.count = count;
 		this.visible = visible;
 		this.style = style;
+		this.setTime(time);
 		this.courseMovies = courseMovies;
 		this.collections = collections;
 		this.evaluations = evaluations;
@@ -274,6 +277,14 @@ public class Course implements java.io.Serializable {
 
 	public void setStudentCourses(Set studentCourses) {
 		this.studentCourses = studentCourses;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
+	}
+
+	public Date getTime() {
+		return time;
 	}
 
 }
