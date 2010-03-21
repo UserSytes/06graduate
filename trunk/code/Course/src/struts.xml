@@ -917,7 +917,7 @@
 		
 		<!-- 首页显示新闻公告 -->
 		<action name="homepageNewsAction" method="homepageDisplay" class="homePageAction">
-			<result name="news">/homepage/index.jsp</result>
+			<result name="success">/homepage/homepage.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<!-- 点击新闻公告 -->
@@ -948,7 +948,7 @@
           <!-- 首页建设成果 -->
 		<action name="achievementAction" method="achievementDisplay"
 			class="homePageAction">
-			<result name="achievementList">/homepage/searchbyachievement.jsp
+			<result name="success">/homepage/searchbyachievement.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
