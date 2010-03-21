@@ -1,382 +1,521 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ include file="../commons/taglibs.jsp"%>
-
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-<% if(request.getAttribute("T_flag")==null) { response.sendRedirect("homepageNewsAction.action");    }  %> 
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>厦门大学精品课程网站</title>
-		<script type="text/javascript" src="/dwr/engine.js"></script>
-		<script type="text/javascript" src="/dwr/util.js"></script>
-		<script type="text/javascript" src="/dwr/interface/NewsService.js"></script>
-		<SCRIPT language=javascript>
-	function getNews() {
-		NewsService.findAllNews(callBack);
-	}
-	function callBack(data){
-		if(data != null)
-			DWRUtil.setValue('result',data.title);
-		else
-			DWRUtil.setValue('result',"该学生不存在");
-	}
-</SCRIPT>
+		<title>厦门大学精品课程网站——首页</title>
+		<link rel="stylesheet" href="${ctx}/homepage/link.css">
+		<script language="javascript">
+	function checkPopedom(){
+		var user = <%=(String) session.getAttribute("user")%>;
+		//var teacher = <%=(String) session.getAttribute("TEACHER")%>;
+		
+		if(user == null){	
+			document.getElementById("login").style.display="block";
+			document.getElementById("user").style.display="none";
+		}else{	
+			document.getElementById("login").style.display="none";
+			document.getElementById("user").style.display="block";
+		}	
+  	}
+  	</script>
 	</head>
-	<BODY onload="" BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0
-		MARGINHEIGHT=0 rightmargin="0" bottommargin="0"
-		background="${ctx}/homepage/images/back-body.jpg" style="overflow-x: hidden">
-		<center>
+<body  topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" width="100%" height="100%" background="${ctx}/homepage/image/back_img.gif" style="background-repeat:repeat-x">
 
-			<table width="783" height="100%" border="0" cellspacing="0"
-				cellpadding="0">
+<s:include value="include/header.jsp"></s:include>
+
+<table border="0" cellpadding="0" cellspacing="0" width="950" align="center">
+<tr height="100%">
+	<td width="200" align="center" valign="top">
+	<!-- 왼쪽부분 -->
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tr>
+			<td valign="top">
+			<!-- 로그인부분 -->
+				<table border="0" cellpadding="0" cellspacing="0" align="center">
 				<tr>
-					<td width="9" height="100%" background="${ctx}/homepage/images/back-left.jpg">
-						<img src="${ctx}/homepage/images/spacer.gif" width="9" height="1">
-					</td>
-
-
-					<td width="765" height="100%" valign="top"
-						background="${ctx}/homepage/images/back-end.jpg">
-						<table width="100%" height="100%" border="0" cellspacing="0"
-							cellpadding="0">
-							<tr>
-								<td colspan="2" WIDTH=765 height="102">
-									<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="765" height="102">
-                  <param name="movie" value="flash/delta46test.swf">
-                  <param name="quality" value="high"> <param name="menu" value="false">
-                  <embed src="flash/delta46test.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="765" height="102"></embed>
-			  </object>
-								</td>
-							</tr>
-							<tr>
-								<td width="210" height="10" valign="top">
-									<table width="218" height="688" border="0" cellspacing="0"
-										cellpadding="0">
-										<tr>
-											<td height="60">
-												<img src="${ctx}/homepage/images/up-1.jpg" width="218" height="60">
-											</td>
-										</tr>
-
-										<tr>
-											<td height="42">
-												<img src="${ctx}/homepage/images/but-1.jpg" width="218" height="42">
-											</td>
-										</tr>
-										<tr>
-											<td width="210" height="10" bgcolor="#64A5CF">
-												<s:form action="loginFromHomePageAction" method="post"
-													onsubmit="">
-													<table width="100%" height="100%" border="0"
-														cellspacing="0" cellpadding="0">
-														<tr>
-															<td width="70" height="30" align="left">
-																&nbsp;账号：
-															</td>
-															<td>
-																<s:textfield name="userName"></s:textfield>
-															</td>
-														</tr>
-														<tr>
-															<td height="30" width="70" align="left">
-																&nbsp;密码：
-															</td>
-															<td>
-																<s:password name="password"></s:password>
-															</td>
-														</tr>
-														<tr>
-															<td height="30">
-																&nbsp;权限：
-															</td>
-															<td>
-																<s:select name="flag" list="# {'0':'老師','1':'學生'}"
-																	headerKey="-1" headerValue="请选择" />
-															</td>
-														</tr>
-														<tr>
-															<td colspan="2" align="center">
-																<input type="submit" name="submit"
-																	style="background: url(${ctx}/homepage/images/login_5.gif) no-repeat"
-																	value=" 登  陆 ">
-																<input type="reset" name="Submit"
-																	style="background: url(${ctx}/homepage/images/login_5.gif) no-repeat"
-																	value=" 取  消 ">
-															</td>
-														<tr>
-													</table>
-												</s:form>
-											</td>
-										</tr>
-										<tr>
-											<td height="38">
-												<img src="${ctx}/homepage/images/but-2.jpg" width="218" height="38">
-											</td>
-										</tr>
-										<tr>
-											<td width="210" height="100%" valign="top"
-												background="${ctx}/homepage/images/back-but-2.jpg"
-												style="padding-left: 28px; padding-top: 4px; padding-bottom: 15px">
-												<br>
-												<div style="line-height: 15px; padding-bottom: 10px"></div>
-												<a href="http://www.moe.edu.cn/" class="style3">中华人民共和国教育部</a>
-												<div style="line-height: 15px; padding-bottom: 10px">
-												</div>
-												<a href="http://www.jpk.pku.edu.cn/pkujpk/" class="style3">北京大学精品课程</a>
-												<div style="line-height: 15px; padding-bottom: 10px">
-												</div>
-												<a href="http://jpkc.fudan.edu.cn/" class="style3">复旦大学精品课程</a>
-											</td>
-										</tr>
-									</table>
-								</td>
-
-
-
-								<td width="555" height="10" valign="top">
-									<table width="555" height="100%" border="0" cellspacing="0"
-										cellpadding="0" background="${ctx}/homepage/images/back-up-3.jpg">
-										<tr>
-											<td width="555" height="10" background="${ctx}/homepage/images/up-3.jpg"
-												style="background-repeat: no-repeat; background-position: top">
-												<table width="100%" height="10" border="0" cellspacing="0"
-													cellpadding="0" background="${ctx}/homepage/images/end-3.jpg"
-													style="background-repeat: no-repeat; background-position: bottom">
-													<tr>
-														<td colspan="5"
-															style="padding-left: 110px; padding-bottom: 8px"
-															valign="top">
-															<img src="${ctx}/homepage/images/but-10.jpg" width="248" height="38">
-														</td>
-													</tr>
-													<tr>
-														<td width="166" height="100%" valign="top">
-															<img src="${ctx}/homepage/images/pic-10.jpg" width="154" height="156"
-																style="width: 154px; height: 156px;">
-														</td>
-														<td width="389" valign="top" style="padding-left: 5px">
-															<img src="${ctx}/homepage/images/text-19.jpg" width="114" height="17"
-																style="margin-bottom: 10px">
-															<br>
-															<font face="tahoma"
-																style="font-size: 10px; color: #828688"><strong>
-
-																	<s:iterator value="newsList" status="new">
-																		<img src="${ctx}/homepage/images/but.jpg" width="4" height="7">&nbsp;
-																		<a
-																			href="<s:url action="enterNewsAction"> 
-	                     											<s:param name="newsId"> 
-	                       			 									<s:property value="id"/> 
-	                    											</s:param> 
-	                													</s:url>">
-																			<s:property value="title" />&nbsp;&nbsp; <s:property
-																				value="time" /> </a>
-																		<br>
-																	</s:iterator> </strong> </font>
-														</td>
-
-													</tr>
-												</table>
-											</td>
-										</tr>
-										<td width="555" height="33" align="left"
-											background="${ctx}/homepage/images/back-tab.jpg">
-											<table width="554" height="33" border="0" cellspacing="0"
-												cellpadding="0">
-												<tr>
-													<td width="553" height="33"
-														background="${ctx}/homepage/images/back-but-4.jpg">
-														<img src="${ctx}/homepage/images/but-4.jpg" width="160" height="33">
-														<img src="${ctx}/homepage/images/spacer.gif" width="108" height="1">
-													</td>
-												</tr>
-											</table>
-										</td>
-										</tr>
-										<tr>
-											<td width="555" height="100%"
-												background="${ctx}/homepage/images/back-tab.jpg">
-												<table width="555" height="100%" border="0" cellspacing="0"
-													cellpadding="0">
-													<tr>
-														<td width="281" height="267" valign="top"
-															style="padding-left: 9px; padding-bottom: 15px">
-
-												
-															<font face="tahoma" style="font-size: 13px"> <br>
-																<img src="${ctx}/homepage/images/but.jpg" width="4" height="7"> <a
-																href="<s:url action="courseDisplayAction"> 
-                                                                    <s:param name="level"> 
-                                                                   country
-	                    											</s:param>
-                                      <s:param name="time"> 
-                                                                   2009
-	                    											</s:param>
-	                													</s:url>">09年国家级精品课程名单</a>
-																<br> <font face="tahoma" style="font-size: 13px">
-																	<br> <img src="${ctx}/homepage/images/but.jpg" width="4"
-																		height="7"> <a href="<s:url action="courseDisplayAction"> 
-                                                                    <s:param name="level"> 
-                                                                   province
-	                    											</s:param>
-                                      <s:param name="time"> 
-                                                                   2009
-	                    											</s:param>
-	                													</s:url>">09年福建省精品课程名单</a> <br>
-																	<font face="tahoma" style="font-size: 13px"> <br>
-																		<img src="${ctx}/homepage/images/but.jpg" width="4" height="7">
-																		<a href="<s:url action="courseDisplayAction"> 
-                                                                    <s:param name="level"> 
-                                                                   school
-	                    											</s:param>
-                                      <s:param name="time"> 
-                                                                   2009
-	                    											</s:param>
-	                													</s:url>">09年校级精品课程名单</a> <br> <font
-																		face="tahoma" style="font-size: 13px"> <br>
-																			<img src="${ctx}/homepage/images/but.jpg" width="4" height="7">
-																			<a href="<s:url action="courseDisplayAction"> 
-                                                                    <s:param name="level"> 
-                                                                   country
-	                    											</s:param>
-                                      <s:param name="time"> 
-                                                                   2008
-	                    											</s:param>
-	                													</s:url>">08年国家级精品课程名单</a> <br> <font
-																			face="tahoma" style="font-size: 13px"> <br>
-																				<img src="${ctx}/homepage/images/but.jpg" width="4" height="7">
-																				<a href="<s:url action="courseDisplayAction"> 
-                                                                    <s:param name="level"> 
-                                                                   province
-	                    											</s:param>
-                                      <s:param name="time"> 
-                                                                   2008
-	                    											</s:param>
-	                													</s:url>">08年福建省精品课程名单</a> <br> <font
-																				face="tahoma" style="font-size: 13px"> <br>
-																					<img src="${ctx}/homepage/images/but.jpg" width="4" height="7">
-																					<a href="<s:url action="courseDisplayAction"> 
-                                                                    <s:param name="level"> 
-                                                                  school
-	                    											</s:param>
-                                      <s:param name="time"> 
-                                                                   2008
-	                    											</s:param>
-	                													</s:url>">08校级精品课程名单</a> <br>
-																					<div style="padding-top: 4px">
-																						<br>
-																						<a href="#"
-																							style="color: #0CA4FF; text-decoration: none"><strong>learn
-																								more</strong> </a>
-																						<img src="${ctx}/homepage/images/but-blue.jpg" width="15"
-																							height="7">
-																					</div> </font>
-														</td>
-														<td width="2" height="167"
-															background="${ctx}/homepage/images/back-line-up-1.jpg">
-															<table width="2" height="100%" border="0" cellspacing="0"
-																cellpadding="0">
-																<tr>
-																	<td>
-																		<img src="${ctx}/homepage/images/line-up-1.jpg" width="2" height="50">
-																	</td>
-																</tr>
-																<tr>
-																	<td height="100%">
-																		<img src="${ctx}/homepage/images/spacer.gif" width="2" height="1">
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<img src="${ctx}/homepage/images/end-line-up-1.jpg" width="2"
-																			height="47">
-																	</td>
-																</tr>
-															</table>
-														</td>
-													</tr>
-
-													<tr>
-														<td colspan="3" bgcolor="#B2B2B2">
-															<img src="${ctx}/homepage/images/spacer.gif" width="1" height="1">
-														</td>
-													</tr>
-
-													<tr>
-														<td width="553" height="33"
-															background="${ctx}/homepage/images/back-but-4.jpg">
-															<img src="${ctx}/homepage/images/but-5.jpg" width="139" height="33">
-															<img src="${ctx}/homepage/images/spacer.gif" width="108" height="1">
-														</td>
-													</tr>
-													<tr>
-
-														<td width="281" height="100%" valign="top"
-															style="padding-left: 9px; padding-bottom: 10px; padding-top: 10px">
-															<br>
-															<img src="${ctx}/homepage/images/pic-5.jpg" width="123" height="71"
-																align="left" style="margin-right: 10px">
-															<font face="tahoma"
-																style="font-size: 13px; color: #828688; line-height: 11px">
-																国家级：10门 </font>
-															<br>
-															<br>
-															<font face="tahoma"
-																style="font-size: 13px; color: #828688; line-height: 11px">
-																省级：15门 </font>
-															<br>
-															<br>
-															<font face="tahoma"
-																style="font-size: 13px; color: #828688; line-height: 11px">
-																校级：20门 </font>
-														</td>
-
-														<td width="2" height="100%"
-															background="${ctx}/homepage/images/back-line-up-1.jpg">
-															<table width="2" height="100%" border="0" cellspacing="0"
-																cellpadding="0">
-																<tr>
-																	<td>
-																		<img src="${ctx}/homepage/images/line-up-1.jpg" width="2" height="50">
-																	</td>
-																</tr>
-																<tr>
-																	<td height="100%">
-																		<img src="${ctx}/homepage/images/spacer.gif" width="2" height="1">
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<img src="${ctx}/homepage/images/end-line-up-1.jpg" width="2"
-																			height="47">
-																	</td>
-																</tr>
-															</table>
-														</td>
-													</tr>
-												</table>
-											</td>
-										</tr>
-									</table>
-								</td>
-							</tr>
-							<s:include value="include/bottom.jsp"></s:include>
-							<tr>
-								<td colspan="2" height="100%">
-									<img src="${ctx}/homepage/images/spacer.gif" width="1" height="1">
-								</td>
-							</tr>
+					<td><img src="${ctx}/homepage/image/login_title.gif" border="0" alt=""></td></tr>
+				<tr height="11">
+					<td>
+					<!-- 로그인 웃부분 여백 -->
+						<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+						<tr>
+							<td width="2" bgcolor="#e7e7e7"></td>
+							<td width="190"></td>
+							<td width="2" bgcolor="#e7e7e7"></td>
+						</tr>
 						</table>
-					</td>
-
-
-
-					<td width="9" height="100%" background="${ctx}/homepage/images/back-right.jpg">
-						<img src="${ctx}/homepage/images/spacer.gif" width="9" height="1">
+					<!--/ 로그인 웃부분 여백 -->
 					</td>
 				</tr>
-			</table>
-		</center>
-	</BODY>
+				<tr>
+					<td width="194">
+					<!-- 登录 -->
+					<s:form action="loginFromHomePageAction" method="post">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tr height="29">
+							<td width="2" bgcolor="#e7e7e7" valign="top"></td>
+							<td width="16" valign="top"></td>
+							<td valign="top" width="20">帐号</td>
+							<td width="4" valign="top"></td>
+							<td valign="top" width="120"><s:textfield name="userName"></s:textfield></td>
+							<td width="7" valign="top"></td>
+							<td width="9" valign="top"></td>
+							<td width="2" bgcolor="#e7e7e7" valign="top"></td>
+						</tr>
+						<tr>
+							<td width="2" bgcolor="#e7e7e7"></td>
+							<td width="16"></td>
+							<td width="20">密码</td>
+							<td width="4"></td>
+							<td width="120"><s:password name="password"></s:password></td>
+							<td width="7"></td>
+							<td width="9"></td>
+							<td width="2" bgcolor="#e7e7e7"></td>
+						</tr>
+						<tr>
+							<td width="2" bgcolor="#e7e7e7"></td>
+							<td width="16"></td>
+							<td width="20">角色</td>
+							<td width="4"></td>
+							<td width="120"><s:select name="flag" list="# {'0':'老師','1':'學生'}"
+																	headerKey="-1" headerValue="请选择" /></td>
+							<td width="7"></td>
+							<td width="9"></td>
+							<td width="2" bgcolor="#e7e7e7"></td>
+						</tr>
+						<tr >
+							<td width="2" bgcolor="#e7e7e7"></td>
+							<td colspan="5" align="center" >
+							<input type="submit" name="submit" style="background: url(${ctx}/homepage/images/login_5.gif) no-repeat" value=" 登  陆 ">
+							<input type="reset" name="Submit" style="background: url(${ctx}/homepage/images/login_5.gif) no-repeat" value=" 取  消 ">
+							</td>
+							<td width="2" bgcolor="#e7e7e7"></td>
+						<tr>
+						</table>
+</s:form>
+					<!--/ 登录 -->
+					</td>
+				</tr>
+				<tr height="16">
+					<td>
+					<!-- 로그인 아래부분 여백 -->
+						<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+						<tr>
+							<td width="2" bgcolor="#e7e7e7"></td>
+							<td width="190"></td>
+							<td width="2" bgcolor="#e7e7e7"></td>
+						</tr>
+						</table>
+					<!--/ 로그인 아래부분 여백 -->
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<!-- 회원가입 및 id/pw찾기 -->
+						<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="2" bgcolor="#e7e7e7"></td>
+							<td width="13"></td>
+							
+							<td width="2" bgcolor="#e7e7e7"></td>
+						</tr>
+						</table>
+					<!--/ 회원가입 및 id/pw찾기 -->
+					</td>
+				</tr>
+				<tr><td><img src="${ctx}/homepage/image/login_bottom.gif" border="0" alt=""></td></tr>
+				</table>
+			
+							
+			<!-- 리스트 -->
+			</td>
+		</tr>
+		<tr><td height="7"></td></td></tr>
+		<tr>
+			<td valign="top" width="194">
+			<!-- 精品课程展示 -->
+				
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td><img src="${ctx}/homepage/image/left_menu_title.gif" border="0" alt=""></td>
+				</tr>		
+				<tr>
+					<td>
+						<table border="0" cellpadding="0" cellspacing="0">
+						<tr  height="28">
+							<td width="11" ></td>
+							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">1、软件工程[林坤辉]</a></td>
+							<td width="11" ></td>
+						</tr>
+						<tr height="2"><td width="11" ></td>
+							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
+							<td width="11" ></td>
+						</tr>
+						<tr  height="28">
+							<td width="11" ></td>
+							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">2、软件工程[林坤辉]</a></td>
+							<td width="11" ></td>
+						</tr>
+						<tr height="2"><td width="11" ></td>
+							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
+							<td width="11" ></td>
+						</tr>
+						<tr  height="28">
+							<td width="11" ></td>
+							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">3、软件工程[林坤辉]</a></td>
+							<td width="11" ></td>
+						</tr>
+						<tr height="2"><td width="11" ></td>
+							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
+							<td width="11" ></td>
+						</tr>
+						<tr height="28">
+							<td width="11" ></td>
+							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">4、软件工程[林坤辉]</a></td>
+							<td width="11" ></td>
+						</tr>
+						<tr height="2"><td width="11" ></td>
+							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
+							<td width="11" ></td>
+						</tr>
+						<tr height="28" >
+							<td width="11" ></td>
+							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">5、软件工程[林坤辉]</a></td>
+							<td width="11" ></td>
+						</tr>
+						<tr height="2"><td width="11" ></td>
+							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
+							<td width="11" ></td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				<br>
+				<tr>
+					<td><img src="${ctx}/homepage/image/left_menu_bottom.gif" border="0" alt=""></td>
+				</tr>		
+				<tr height="6"><td></td></tr>
+			  </table>				
+			</td>
+		</tr>
+		<tr><td height="4"></td></td></tr>
+		
+		<tr>
+			<td valign="top" width="194">
+		<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td><img src="${ctx}/homepage/image/left_menu_title2.gif" border="0" alt=""></td>
+				</tr>		
+				<tr>
+					<td>
+						<table border="0" cellpadding="0" cellspacing="0">
+						<tr  height="28">
+							<td width="11" ></td>
+							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">1、软件工程[林坤辉]</a></td>
+							<td width="11" ></td>
+						</tr>
+						<tr height="2"><td width="11" ></td>
+							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
+							<td width="11" ></td>
+						</tr>
+						<tr  height="28">
+							<td width="11" ></td>
+							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">2、软件工程[林坤辉]</a></td>
+							<td width="11" ></td>
+						</tr>
+						<tr height="2"><td width="11" ></td>
+							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
+							<td width="11" ></td>
+						</tr>
+						<tr  height="28">
+							<td width="11" ></td>
+							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">3、软件工程[林坤辉]</a></td>
+							<td width="11" ></td>
+						</tr>
+						<tr height="2"><td width="11" ></td>
+							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
+							<td width="11" ></td>
+						</tr>
+						<tr height="28">
+							<td width="11" ></td>
+							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">4、软件工程[林坤辉]</a></td>
+							<td width="11" ></td>
+						</tr>
+						<tr height="2"><td width="11" ></td>
+							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
+							<td width="11" ></td>
+						</tr>
+						<tr height="28" >
+							<td width="11" ></td>
+							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">5、软件工程[林坤辉]</a></td>
+							<td width="11" ></td>
+						</tr>
+						<tr height="2"><td width="11" ></td>
+							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
+							<td width="11" ></td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td><img src="${ctx}/homepage/image/left_menu_bottom2.gif" border="0" alt=""></td>
+				</tr>		
+				<tr height="6"><td></td></tr>
+				</table>
+		</td>
+				</tr>
+		
+		<tr><td height="4"></td></td></tr>
+		<tr>
+			<td valign="top" width="194">
+			<!-- 주민자치쎈터 1 --><!--/ 주민자치쎈터 1 -->				
+			<br></td>
+		</tr>
+		<tr><td height="4"></td></td></tr>
+		<tr>
+			<td valign="top" width="194">
+			
+			<!--/ 주민자치쎈터 2 -->				
+			</td>
+		</tr>
+		<tr><td height="7"></td></td></tr>
+		
+		<tr><td height="3"></td></td></tr>
+		
+		
+		
+		</table>
+	<!-- 왼쪽부분 -->
+	</td>
+	<td width="754" valign="top">
+	<!-- 오른쪽부분 -->
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tr>
+			<td valign="top">
+			<!-- main -->
+				<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top">
+					<!-- main -->
+						<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td align="center"><img src="${ctx}/homepage/image/main_img.jpg" border="0" alt=""></td>
+							<td width="5"></td>
+							<td valign="top" width="358">
+							<!-- 내용부분-->
+								<table border="0" cellpadding="0" cellspacing="0">
+								<tr>
+									<td valign="top">
+									<!-- 게시판 -->
+									
+										<table border="0" cellpadding="0" cellspacing="0">
+										<tr>
+											<td><img src="${ctx}/homepage/image/tab01.gif" border="0" alt=""></td>											
+											<td><a href="<s:url action="newsAction"> </s:url>"><img src="${ctx}/homepage/image/tab06.gif" border="0"></a></td>
+										</tr>
+										<tr><td  colspan="6" height="9"></td></tr>
+										<tr>
+											<td width="358" align="center" colspan="6">
+											<!-- news -->
+											<div id="demo" style="overflow:hidden;height:232px;width:358px; border:0px solid #dde5bc;">
+	<div id="demo1"> 
+												<table border="0" cellpadding="0" cellspacing="0">
+												<s:iterator value="newsList" status="new">			
+												<tr height="25">
+													<td width="266">&nbsp;&nbsp;<img src="${ctx}/homepage/image/but.jpg" border="0" alt="">&nbsp;&nbsp;
+													<a href="<s:url action="enterNewsAction"> <s:param name="newsId"> 
+	                       			 									<s:property value="id"/> </s:param> </s:url>">
+																			<s:property value="title" /></a>
+													&nbsp;&nbsp;</td>
+													<td width="65">[<s:date name="time" format="yy.MM.dd" /> ]</td>
+												</tr>
+												<tr height="1">
+													<td width="331" colspan="2" background="${ctx}/homepage/image/main_line.gif"></td>
+												</tr>
+												</s:iterator>
+												</table>
+											  </div>
+	<div id="demo2"></div>
+</div>
+<script>
+var speed=40
+var demo=document.getElementById("demo");
+var demo2=document.getElementById("demo2");
+var demo1=document.getElementById("demo1");
+demo2.innerHTML=demo1.innerHTML
+function Marquee(){
+	if(demo2.offsetTop-demo.scrollTop<=0)
+		demo.scrollTop-=demo1.offsetHeight
+	else{
+		demo.scrollTop++
+	}
+}
+var MyMar=setInterval(Marquee,speed)
+demo.onmouseover=function() {clearInterval(MyMar)}
+demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
+</script>
+											<!--/new -->
+											</td>
+										</tr>
+										</table>
+									<!--/精品课程展示 -->
+									</td>
+								</tr>
+								<tr><td height="8"></td></tr>
+								<tr>
+									<td align="center">
+										<table border="0" cellpadding="0" cellspacing="0" bgcolor="#f7f7f0">
+										<tr>
+											<td colspan="3">&nbsp;</td>
+										</tr>
+										<tr>
+											<td width="1" bgcolor="#e4e3de"></td>
+											<td><img src="${ctx}/homepage/image/issue_title.gif" border="0" alt=""></td>
+											<td width="1" bgcolor="#e4e3de"></td>
+										</tr>
+										<tr height="13">
+											<td width="1" bgcolor="#e4e3de"></td>
+											<td width="346"></td>
+											<td width="1" bgcolor="#e4e3de"></td>
+										</tr>
+										<tr>
+											<td width="1" bgcolor="#e4e3de"></td>
+											<td width="346">
+												<table border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tr>
+													<td width="23"></td>
+													<td width="135"><img src="${ctx}/homepage/image/issue_cont.gif" alt="" height="84" border="0"></td>
+													<td width="185">厦门大学优秀课程</td>
+												</tr>
+												</table>
+											</td>
+											<td width="1" bgcolor="#e4e3de"></td>
+										</tr>
+										<tr height="18">
+											<td width="1" bgcolor="#e4e3de"></td>
+											<td width="346"></td>
+											<td width="1" bgcolor="#e4e3de"></td>
+										</tr>
+										<tr>
+											<td width="1" bgcolor="#e4e3de"></td>
+											<td width="346" align="center">
+											<!-- 国家级精品课程-->
+												<table border="0" cellpadding="0" cellspacing="0">
+												<tr height="25">
+													<td width="23"></td>
+													<td width="224">&nbsp;&nbsp;<a href="<s:url action="achievementAction">  <s:param name="level"> 
+                                                                   country</s:param></s:url>">国家级精品课程</a></td>
+													<td width="78">[<s:property value="country"/>&nbsp;门  ]</td>
+													<td width="31"></td>
+												</tr>
+												<tr><td width="23"></td>
+													<td width="346" colspan="2" background="${ctx}/homepage/image/main_line.gif" align="center"></td>
+												</tr>
+												<tr height="25">
+													<td width="23"></td>
+													<td width="224">&nbsp;&nbsp;<a href="<s:url action="achievementAction">  <s:param name="level"> 
+                                                                   country</s:param></s:url>">省级精品课程</a></td>
+													<td width="78">[<s:property value="province"/>&nbsp;门  ]</td>
+													<td width="31"></td>
+												</tr>
+												<tr><td width="23"></td>
+													<td width="346" colspan="2" background="${ctx}/homepage/image/main_line.gif" align="center"></td>
+												</tr>
+												</tr>
+												<tr height="25">
+													<td width="23"></td>
+													<td width="224">&nbsp;&nbsp;<a href="<s:url action="achievementAction">  <s:param name="level"> 
+                                                                   country</s:param></s:url>">校级精品课程</a></td>
+													<td width="78">[<s:property value="school"/>&nbsp;门  ]</td>
+													<td width="31"></td>
+												</tr>
+												
+												</table>
+											<!--/ 리스트 -->
+											</td>
+											<td width="1" bgcolor="#e4e3de"></td>
+										</tr>
+										<tr>
+											<td colspan="3">&nbsp;</td>
+										</tr>
+										</table>
+									<!--/ 오늘의 발행물 -->
+									</td>
+								</tr>
+								<tr><td height="11"></td></tr>
+								<tr>
+									<td>
+									
+									<!--/ 포커스 및 지도검색 -->
+									</td>
+								</tr>
+								</table>
+							<!--/ 내용부분 -->
+							</td>
+						</tr>
+						</table>
+					<!--/ 이미지 및 게시판 -->
+					</td>					
+				</tr>
+
+				<tr><td height="10"></td></tr>
+				<tr>
+					<td align="center" width="750">
+					
+						
+					<!--/ 链接-->
+					</td>
+				</tr>
+				<tr><td height="9"></td></tr>
+				<tr>
+					<td colspan="2" valign="top" width="800">
+					<!-- 소개부분 -->
+						<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="484">
+							<!-- 분야별 프로그램 -->
+								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<td><img src="${ctx}/homepage/image/utility_title.gif" border="0" alt=""></td>
+								</tr>
+								<tr>
+									<td>
+									<!-- 분야별 프로그램 -->
+										<table border="0" cellpadding="0" cellspacing="0">
+										<tr>
+											<td width="96" align="right"><img src="${ctx}/homepage/image/utility_cont1.gif" alt=""></td>
+											<td width="97" align="right"><img src="${ctx}/homepage/image/utility_cont2.gif" alt=""></td>
+											<td width="97" align="right"><img src="${ctx}/homepage/image/utility_cont3.gif" alt=""></td>
+											<td width="97" align="right"><img src="${ctx}/homepage/image/utility_cont4.gif" alt=""></td>
+											<td width="97" align="right"><img src="${ctx}/homepage/image/utility_cont5.gif" alt=""></td>
+										</tr>
+										</table>
+									<!--/ 분야별 프로그램 -->
+									</td>
+								</tr>
+								</table>
+								<!--/ 분야별 프로그램 -->
+							</td>
+							<td width="19"></td>
+							<td><img src="${ctx}/homepage/image/open_yard.gif" border="0" alt=""></td>
+						</tr>
+						</table>
+					<!--/ 소개부분 -->
+					</td>
+				</tr>
+				</table>
+			<!--/ 메인부분 -->
+			</td>
+		</tr>
+		</table>
+	<!--/ 오른쪽부분 -->
+	</td>
+</tr>
+</table>
+
+<!-- 底部 -->
+<s:include value="include/bottom.jsp"></s:include>
+</body>
 </html>

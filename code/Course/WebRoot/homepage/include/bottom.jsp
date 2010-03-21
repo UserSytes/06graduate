@@ -8,20 +8,50 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!-- 底部 -->
+
+<table border="0" cellpadding="0" cellspacing="0" width="950" height="71" align="center">
 <tr>
-			<td width="765" height="79" colspan="2" background="${ctx}/homepage/images/end.jpg" style="background-repeat:no-repeat;background-position:top;padding-top:18px" align="center" valign="top">
-				<font face="tahoma" style="font-size:10px;color:#FFFFFF"><strong>
-					<a href="index.html" style="color:#FFFFFF;text-decoration:none">HOME</a>   &nbsp;&nbsp;::&nbsp;&nbsp;   
-					<a href="index-1.html" style="color:#FFFFFF;text-decoration:none">SERVICES</a>    &nbsp;&nbsp;::&nbsp;&nbsp;   
-					<a href="index-2.html" style="color:#FFFFFF;text-decoration:none">SUPPORT</a>     &nbsp;&nbsp;::&nbsp;&nbsp;  
-					<a href="index-3.html" style="color:#FFFFFF;text-decoration:none">PRODUCTS</a>     &nbsp;&nbsp;::&nbsp;&nbsp;
-					<a href="index-4.html" style="color:#FFFFFF;text-decoration:none">CONTACTS</a>     &nbsp;&nbsp;::&nbsp;&nbsp;   
-					<a href="#" style="color:#FFFFFF;text-decoration:none">HELP</a>    &nbsp;&nbsp;::&nbsp;&nbsp;   
-					<a href="#" style="color:#FFFFFF;text-decoration:none">FAQ</a>
-				</strong>
-				<div style=" padding-top:24px;color:#858484">Copyright &copy; 2004 Applied Medicine.com</div>
-				</font>
-			</td>
+	<td valign="top">
+		<table border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td valign="top"><a href="index.htm"><img src="${ctx}/homepage/image/bottom_logo.gif" border="0" alt="로고"></a></td>
 		</tr>
+		</table>
+	</td>
+	<td width="567" valign="top">
+		<table border="0" cellpadding="0" cellspacing="0" bgcolor="#e6e6e6" width="100%">
+		<tr height="10" bgcolor="#e6e6e6"><td></td></tr>
+		<tr>
+			<td>©Copyright Software School of Xiamen University 2009</td>
+		</tr>
+		<tr height="42" bgcolor="#e6e6e6">
+			<td>办公电话：2580566 &nbsp; &nbsp; 邮箱：software@xmu.edu.cn</td>
+		</tr>
+		</table>
+	</td>
+	<td valign="top" width="180">
+		<table border="0" cellpadding="0" cellspacing="0" bgcolor="#e6e6e6" width="100%">
+		<tr height="15"><td></td></tr>
+		<tr>
+			<td width="179" valign="top">&nbsp;</td>
+		</tr>
+		<tr height="5"><td></td></tr>
+		<tr>
+			<td width="179">&nbsp;</td>
+		</tr>
+		<tr height="14"><td></td></tr>
+		</table>
+	</td>
+	<td valign="top">
+		<table border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td valign="top">&nbsp;</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
 </body>
 </html>
