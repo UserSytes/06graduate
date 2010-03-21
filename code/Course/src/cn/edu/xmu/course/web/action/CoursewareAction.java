@@ -41,7 +41,11 @@ public class CoursewareAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
-	
+	public String getAllCourseware(){
+		Course course = super.getCourse();
+		coursewareList = coursewareService.getAllCoursewares(course);
+		return SUCCESS;
+	}
 	@SuppressWarnings("unchecked")
 	public String downloadCourseware(){
 		Chapter currentChapter=chapterService.getChapter(chapterId);

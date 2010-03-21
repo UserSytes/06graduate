@@ -45,6 +45,11 @@ public class ExerciseAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
+	public String getAllExercise(){
+		Course course = super.getCourse();
+		exerciseList = exerciseService.getAllExercises(course);
+		return SUCCESS;
+	}
 	@SuppressWarnings("unchecked")
 	public String downloadExercise(){
 		Chapter currentChapter=chapterService.getChapter(chapterId);

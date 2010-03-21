@@ -17,7 +17,6 @@ public class CourseChapterAction extends BaseAction{
 	private List<Chapter> chapterList;
 	private Chapter chapter;
 	private Integer chapterId;
-	private int flag;
 	private List<Courseware> coursewareList;
 	private Courseware courseware;
 	
@@ -49,27 +48,6 @@ public class CourseChapterAction extends BaseAction{
 		course = super.getCourse();
 		chapterList = chapterService.getAllChapter(course);
 		return SUCCESS;
-	}
-	/**
-	 * 查找章节
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public String findChapter(){
-		course=super.getCourse();
-		chapterList=chapterService.getAllChapter(course);
-		if (getChapterList() == null) {
-			addActionError("课程章节信息不存在！");
-			return ERROR;
-		} else
-			{if(getFlag()==1)
-				return "coursewares";
-			else if(getFlag()==2)
-				return "experiments";
-			else if(getFlag()==3)
-				return "exercises";
-			else return null;
-			}
 	}
 	public String deleteChapter(){
 		Chapter delChapter = chapterService.getChapterById(chapterId);
@@ -183,13 +161,7 @@ public class CourseChapterAction extends BaseAction{
 		return chapterId;
 	}
 
-	public void setFlag(int flag) {
-		this.flag = flag;
-	}
 
-	public int getFlag() {
-		return flag;
-	}
 	
 	
 
