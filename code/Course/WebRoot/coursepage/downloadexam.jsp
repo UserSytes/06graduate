@@ -14,7 +14,7 @@
 <jsp:include page="top.jsp"></jsp:include>
 <div id="content">
   <div id="right">
-		<h2 align="center">课程教案列表</h2>
+		<h2 align="center">课程试卷列表</h2>
 		<hr id="border-top" />
 <table class=editTable cellSpacing=1 cellPadding=0 align=center border=2>
 															<tr bgcolor="#ECF3FD" height="30">
@@ -22,10 +22,7 @@
 																	
 																</th>
 																<th>
-																	课件名
-																</th>
-<th>
-																	章节
+																	试卷名称
 																</th>
 																<th>
 																	作者
@@ -37,16 +34,13 @@
 																	链接
 																</th>
 															</tr>
-															<s:iterator value="coursewareList" status="courseware">
+															<s:iterator value="examinationList" status="examination">
 																<tr bgcolor="#73C5E5" height="30" align="center" valign="middle"  <s:if test="#courseware.even">style="background-color:#FBFDFD"</s:if>>
 																<td>
-																		<s:property value="#courseware.count" />
+																		<s:property value="#examination.count" />
 																	</td>	
 <td>
 																		<s:property value="title" />
-																	</td>
-<td>
-																		<s:property value="chapter.name" />
 																	</td>
 																	<td>
 																		<s:property value="author" />

@@ -14,12 +14,16 @@
 <jsp:include page="top.jsp"></jsp:include>
 <div id="content">
   <div id="right">
-		<h2 align="center">习题列表</h2>
+		<h2 align="center">作业习题列表</h2>
 		<hr id="border-top" />
 <table class=editTable cellSpacing=1 cellPadding=0 align=center border=2>
 															<tr bgcolor="#ECF3FD" height="30">
-																<th>
+						<th>
+						</th>
+						<th>
 																	习题名称
+																</th>
+<th>章节		
 																</th>
 																<th>
 																	时间
@@ -31,12 +35,18 @@
 															<s:iterator value="exerciseList" status="exercise">
 																<tr bgcolor="#73C5E5" height="30" align="center" valign="middle"  <s:if test="#courseware.even">style="background-color:#FBFDFD"</s:if>>
 																	<td>
+																		<s:property value="#exercise.count" />
+																	</td>
+<td>
 																		<s:property value="title" />
+																	</td>
+<td>
+																		<s:property value="chapter.name" />
 																	</td>
 																	<td>
 																		<s:date name="time" format="yyyy-MM-dd" />
 																	</td>
-																	<td align="center" valign="top">
+																	<td align="center" valign="center">
 																		<a
 																			href="<s:url action="download"> 
                      			<s:param name="fileName"> 
