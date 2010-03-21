@@ -964,9 +964,25 @@
 		</action>
       
 <!-- 跳转 -->	
+
+		<action name="schoolCourseAction" method="forwardToSchoolSearch"
+			class="homePageAction">
+			<result name="success">/homepage/searchbyschool.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="lastCourseAction" method="forwardToLastCourse"
+			class="homePageAction">
+			<result name="success">/homepage/lastcourse.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
 		<action name="forwardToSearchAction" method="forwardToSearch"
 			class="homePageAction">
-			<result name="searchbyschool">/homepage/searchbyschool.jsp</result>
+			<result name="searchbyschool">/homepage/search.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="forwardToSuperSearchAction" method="forwardToSuperSearch"
+			class="homePageAction">
+			<result name="success">/homepage/supersearch.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="forwardToIndexAction" method="forwardToIndex"
@@ -976,15 +992,14 @@
 		</action>
 		<action name="forwardToContactAction" method="forwardToContact"
 			class="homePageAction">
-			<result name="contact">/homepage/contact.jsp</result>
+			<result name="contact">/homepage/search.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 			
-		<action name="findCourseByTeacherAction" method="findCourseByTeacher"
+		<action name="searchCourseByKeywordAction" method="searchCourseByKeyword"
 			class="executeViewAction">
-			<result name="courses">/homepage/courseList.jsp
+			<result name="success">/homepage/search.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
 		</action>
 <!-- 课程评价 -->	
 <action name="evaluateAction" method="evaluate"

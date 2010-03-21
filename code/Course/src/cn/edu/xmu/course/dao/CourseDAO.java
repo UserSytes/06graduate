@@ -98,8 +98,14 @@ public class CourseDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByName(Object name) {
-		return findByProperty(NAME, name);
+	public List findByName(Object key) {
+		try {
+			String queryString = "from Course as model where model.name like '%"+key+"%'";
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
 	}
 
 	public List findByRemark(Object remark) {
@@ -110,8 +116,19 @@ public class CourseDAO extends HibernateDaoSupport {
 		return findByProperty(STATUS, status);
 	}
 
-	public List findByLevel(Object level) {
-		return findByProperty(LEVEL, level);
+	public List findByLevel(String level) {
+    	if(level.equals("country")){
+    		return findByProperty(LEVEL, "国家级");
+    	}
+    	else if(level.equals("province")){
+    		return findByProperty(LEVEL, "省级");
+    	}
+    	else if(level.equals("school")){
+    		return findByProperty(LEVEL, "校级");
+    	}else{
+    		return null;
+    	}
+		
 	}
 
 	public List findByRefuseReason(Object refuseReason) {
@@ -135,7 +152,13 @@ public class CourseDAO extends HibernateDaoSupport {
 	}
 	public List findByTeacher(String teacherName)
 	{
-		return findByProperty("teacher.userInfo.name", teacherName);
+		try {
+			String queryString = "from Course as model where model.teacher.userInfo.name like '%"+teacherName+"%'";
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
 	}
 	
 	public List findByTeacherAndType(Integer teacherId, int status) {

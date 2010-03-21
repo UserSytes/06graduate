@@ -48,33 +48,43 @@ public class HomePageAction extends BaseAction{
 	private int country;
 	private int province;
 	private int school;
+	private String levelNow;
 	
 	private List<Course> achievementList;
 	/**
-	 * 新闻公布
+	 * 首页数据载入
 	 * @return
 	 */
     @SuppressWarnings("unchecked")
 	public String homepageDisplay(){
     	newsList=newsService.findAllNews();
-		for(int i=6;i<newsList.size();i++)
+		for(int i=10;i<newsList.size();i++)
 		{
 			newsList.remove(i);
 		}
-		courseList = courseService.findCourseListByLevel("country");
-    	country=courseList.size();
-    	System.out.println("test_country: "+country);
-    	courseList = courseService.findCourseListByLevel("province");
-    	province=courseList.size();
-    	System.out.println("test_province: "+province);
-    	courseList = courseService.findCourseListByLevel("school");
-    	school=courseList.size();
-    	System.out.println("test_school: "+school);
+		this.countCourseByLevel();
 		if (newsList == null) {
 			return ERROR;
 		} else
-			return "news";
+			return SUCCESS;
 	}
+    
+    /**
+     * 计算级别课程数
+     */
+    public void countCourseByLevel(){
+    	courseList = courseService.findCourseListLevel("country");
+    	country=courseList.size();
+    	courseList = courseService.findCourseListLevel("province");
+    	province=courseList.size();
+    	courseList = courseService.findCourseListLevel("school");
+    	school=courseList.size();
+    }
+    
+    /**
+     * 查找所有课程
+     * @return
+     */
     public String newsDisplay(){
     	newsList=newsService.findAllNews();
 		if (newsList == null) {
@@ -82,6 +92,11 @@ public class HomePageAction extends BaseAction{
 		} else
 			return "news";
 	}
+    
+    /**
+     * 查看选定课程
+     * @return
+     */
     public String enterNews(){
     	news=newsService.findNewsById(newsId);
 		if (news == null) {
@@ -91,8 +106,10 @@ public class HomePageAction extends BaseAction{
     }
     
 
-    
-
+    /**
+     * 首页登录
+     * @return
+     */
 	public String loginFromHomePage() {
 		
 		if (getFlag() == 0) {
@@ -121,28 +138,55 @@ public class HomePageAction extends BaseAction{
 		}
 	}
     
+	/**
+	 * 根据级别查找课程
+	 * @return
+	 */
     public String courseDisplay(){
     	courseList = courseService.findCourseListByLevel(level);
-		
-		System.out.println("test1: "+courseList.size());
 		if (courseList == null) {
 			return ERROR;
 		} else
 			return "courseList";
     }
+    
+    /**
+	 * 根据级别查找课程
+	 * @return
+	 */
     public String achievementDisplay(){
     	achievementList=courseService.findCourseListLevel(level);
-    	System.out.println("test1: "+achievementList.size());
+    	if(level.equals("country")){
+    		levelNow = "国家级";
+    	}else if(level.equals("province")){
+    		levelNow = "省级";
+    	}else{
+    		levelNow = "校级";
+    	}
 		if (achievementList == null) {
 			return ERROR;
-		} else
-			return "achievementList";
+		} else{
+			return SUCCESS;
+		}
     }
     
     
     public String forwardToSearch(){
 			return "searchbyschool";
     }
+    
+    public String forwardToSuperSearch(){
+    	return SUCCESS;
+    }
+    
+    public String forwardToSchoolSearch(){
+    	return SUCCESS;
+    }
+    
+    public String forwardToLastCourse(){
+    	return SUCCESS;
+    }
+    
     public String forwardToIndex(){
 		return "index";
 }
@@ -305,6 +349,14 @@ public class HomePageAction extends BaseAction{
 
 	public void setUserInfo(UserInfo userInfo) {
 		this.userInfo = userInfo;
+	}
+
+	public String getLevelNow() {
+		return levelNow;
+	}
+
+	public void setLevelNow(String levelNow) {
+		this.levelNow = levelNow;
 	}
 
 
