@@ -11,8 +11,8 @@
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 <jsp:include page="top.jsp"></jsp:include>
-<div id="content">
-  <div id="right">
+<div id="content" align="center">
+  <div style="width:770px">
 		<h2 align="center"><s:property value="applicationForm.name"/>申报表格</h2>
 		<hr id="border-top" />
 
@@ -160,7 +160,7 @@
 									</tr>
 												</table>
   </div>
-	<jsp:include page="left.jsp"></jsp:include>
+	
 </div>
 <jsp:include page="bottom.jsp"></jsp:include>
 </body>
