@@ -6,19 +6,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>厦门大学精品课程网站——搜索课程</title>
 		<link rel="stylesheet" href="${ctx}/homepage/link.css">
-<SCRIPT language=javascript>
-	function check(form) {
-		if (form.flag.value == -1) {
-			alert("请选择关键字类型！");
-			return false;
-		}
-		if (form.keyword.value == "") {
-			alert("关键字不能为空！");
-			return false;
-		}
-		return true;
-	}
-</script>
 	<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0"
 		width="100%" height="100%"
 		background="${ctx}/homepage/image/back_img.gif"
@@ -46,7 +33,7 @@
 												<tr>
 													<td width="11" background=""></td>
 													<td width="172" align="center">
-														<a href="<s:url action="forwardToSearchAction"></s:url>">
+														<a href="<s:url action="lastCourseAction"></s:url>">
 															<img src="${ctx}/homepage/image/left_menu_06.gif" border="0">
 														</a>
 													</td>
@@ -55,7 +42,7 @@
 												<tr>
 													<td width="11" background=""></td>
 													<td width="172" align="center">
-														<a href="<s:url action="forwardToSuperSearchAction"></s:url>">
+														<a href="<s:url action="lastWeekCourseAction"></s:url>">
 															<img src="${ctx}/homepage/image/left_menu_07.gif" border="0">
 														</a>
 													</td>
@@ -64,7 +51,7 @@
 												<tr>
 													<td width="11" background=""></td>
 													<td width="172" align="center">
-														<a href="<s:url action="forwardToSuperSearchAction"></s:url>">
+														<a href="<s:url action="lastMonthCourseAction"></s:url>">
 															<img src="${ctx}/homepage/image/left_menu_08.gif" border="0">
 														</a>
 													</td>
@@ -105,7 +92,7 @@
 									<tr>
 										<td width="11"></td>
 										<td>
-											<img src="${ctx}/homepage/image/title_last1.gif" border="0"
+											<img src="${ctx}/homepage/image/title_last<s:property value="imageNum" />.gif" border="0"
 												alt="">
 										</td>
 									</tr>
@@ -123,22 +110,6 @@
 						<tr>
 							<td valign="top" align="center">
 								<!-- 内容 -->
-								<s:form action="searchCourseByKeywordAction" onsubmit="return check(this);" method="post" enctype="multipart/form-data">
-									<table border="0" cellpadding="0" cellspacing="0">
-										<tr>
-											<td width="420" align="right">
-												<s:select name="flag" list="# {'0':'课程名称','1':'教师姓名'}" headerKey="-1" headerValue="请选择" />
-											</td>
-											<td width="194" width="192" align="center">
-												<s:textfield name="keyword" cssClass="text" />
-											</td>
-											<td width="84">
-												<input type="submit" name="submit" value="关键字搜索 ">
-											</td>
-										</tr>
-									</table>
-								</s:form>
-
                              <table width="90%" border="0" cellpadding="0" cellspacing="0">
 										<tr>
 											<td width="90%" align="left"><s:actionmessage /></td>
