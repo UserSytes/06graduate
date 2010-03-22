@@ -25,7 +25,8 @@ public class ApplicationFormAction extends BaseAction {
 	 * @return
 	 */
 	public String findApplicationForm(){
-		applicationForm=applicationFormService.getApplicationForm(getCourseId());
+		Course course=super.getCourse();
+		applicationForm=applicationFormService.getApplicationForm(course.getId());
 		if (getApplicationForm() == null) {
 			addActionError("申报表格信息不存在！");
 			return ERROR;
