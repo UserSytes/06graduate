@@ -64,7 +64,7 @@
 									</tr>
 									<tr>
 										<td>
-											<img src="${ctx}/homepage/image/jiannan2.jpg" border="0">
+											<img src="${ctx}/homepage/image/jiannan.jpg" border="0">
 										</td>
 									</tr>
 								</table>
@@ -114,45 +114,65 @@
 							<td valign="top" align="center">
 								<!-- 内容 -->
 
-								<table width="95%" cellpadding="0" cellspacing="0">
+								<table width="96%" cellpadding="0" cellspacing="0">
 									<tr height="40">
-							<td colspan="5" background="${ctx}/homepage/image/bbs_bg.gif">		
-								<table border="0" cellpadding="0" cellspacing="0" style="height: 23px;" width="100%" >
-								<tr height="1"><td bgcolor="#d7d7d7" colspan="5" width="100%"></td></tr>
-								<tr>
-									<td width="50" align="center">序号</td>
-									<td width="355" align="center">课程名</td>
-									<td width="64" align="center">教师</td>
-									<td width="145" align="center">所属系</td>
-									<td width="50" align="center">点击</td>
-								</tr>
-								</table>
-							</td>
-						</tr>                  
-									
-									<s:iterator value="achievementList" status="achievement">
+										<td colspan="6" background="${ctx}/homepage/image/bbs_bg.gif">
+											<table border="0" cellpadding="0" cellspacing="0"
+												style="height: 23px;" width="100%">
+												<tr height="1">
+													<td bgcolor="#d7d7d7" colspan="6" width="100%"></td>
+												</tr>
+												<tr>
+													<td width="40" align="center">
+														序号
+													</td>
+													<td width="350" align="center">
+														课程名
+													</td>
+													<td width="60" align="center">
+														教师
+													</td>
+													<td width="120" align="center">
+														所属系
+													</td>
+													<td width="80" align="center">
+														级别
+													</td>
+													<td width="40" align="center">
+														点击
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+
+									<s:iterator value="achievementList" status="course">
 										<tr>
-											<td width="50" align="center">
-												<s:property value="#achievement.count" />
+											<td width="40" align="center">
+												<s:property value="#course.count" />
 											</td>
-											<td width="355" align="center">
+											<td width="350" align="center">
 												<a
 													href="<s:url action="enterCourseAction"> 
 																				<s:param name="courseId"> <s:property value="id"/> </s:param> </s:url>">
-													<s:property value="name" /></a>
+													<s:property value="name" />
+												</a>
 											</td>
-											<td width="64" align="center">
+											<td width="60" align="center">
 												<s:property value="teacher.userInfo.name" />
 											</td>
-											<td width="145" align="center">
+											<td width="120" align="center">
 												<s:property value="department.name" />
 											</td>
-											<td width="50" align="center">
+											<td width="80" align="center">
+												<s:property value="level" />
+											</td>
+											<td width="40" align="center">
 												<s:property value="count" />
 											</td>
 										</tr>
 										<tr height="3">
-											<td colspan="5"
+											<td colspan="6"
 												background="${ctx}/homepage/image/table_line.gif"></td>
 										</tr>
 									</s:iterator>

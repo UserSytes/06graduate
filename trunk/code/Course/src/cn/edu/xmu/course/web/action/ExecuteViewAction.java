@@ -110,7 +110,8 @@ public class ExecuteViewAction extends BaseAction {
 	}
 	
 	public String superSearchCourse(){
-		if( departmentId.equals("") ){
+		
+		if( departmentId.equals("-1") ){
 			if( courseName.equals(""))
 				//按教师姓名搜索
 				courseList = searchCourseService.findCourseByTeacher(teacherName);
@@ -123,18 +124,18 @@ public class ExecuteViewAction extends BaseAction {
 					courseList = searchCourseService.findCourseByNameAndTeacher(courseName, teacherName);
 			}
 		}else{
-			Department dept = departmentService.getDepartmentById(Integer
+			Department dept= departmentService.getDepartmentById(Integer
 					.parseInt(departmentId));
 			if( courseName.equals("")){
 				if(teacherName.equals("")) //按系搜索
-					courseList = searchCourseService.findCourseByDepartment(department);
+					courseList = searchCourseService.findCourseByDepartment(dept);
 				else //按教师和系搜索
-					courseList = searchCourseService.findCourseByDepartmentAndTeacher(teacherName, department);
+					courseList = searchCourseService.findCourseByDepartmentAndTeacher(teacherName, dept);
 			}else{
 				if(teacherName.equals("")) //按课程名称和系搜索
-					courseList = searchCourseService.findCourseByNameAndDepartment(courseName, department);
+					courseList = searchCourseService.findCourseByNameAndDepartment(courseName, dept);
 				else //按课程名、系、教师搜索
-					courseList = searchCourseService.findCourseByNameAndDepartmentAndTeacher(courseName, department, teacherName);
+					courseList = searchCourseService.findCourseByNameAndDepartmentAndTeacher(courseName, dept, teacherName);
 			}
 		}
 		

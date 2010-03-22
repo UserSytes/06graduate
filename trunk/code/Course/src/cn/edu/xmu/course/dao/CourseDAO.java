@@ -179,11 +179,10 @@ public class CourseDAO extends HibernateDaoSupport {
 	public List<Course> findCourseByDepartmentAndTeacher(String teacherName,
 			Department department){
 		try {
-			String queryString = "from Course as model where model.department = "
-					+ department
+			String queryString = "from Course as model where model.department = ?"
 					+ " and model.teacher.userInfo.name like '%"
 					+ teacherName + "%'";
-			return getHibernateTemplate().find(queryString);
+			return getHibernateTemplate().find(queryString, department);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
 			throw re;
@@ -193,11 +192,10 @@ public class CourseDAO extends HibernateDaoSupport {
 	public List<Course> findCourseByNameAndDepartment(String courseName,
 			Department department){
 		try {
-			String queryString = "from Course as model where model.department = "
-					+ department
+			String queryString = "from Course as model where model.department = ?"
 					+ " and model.name like '%"
 					+ courseName + "%'";
-			return getHibernateTemplate().find(queryString);
+			return getHibernateTemplate().find(queryString, department);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
 			throw re;
@@ -207,13 +205,12 @@ public class CourseDAO extends HibernateDaoSupport {
 	public List<Course> findCourseByNameAndDepartmentAndTeacher(
 			String courseName, Department department, String teacherName){
 		try {
-			String queryString = "from Course as model where model.department = "
-					+ department
+			String queryString = "from Course as model where model.department = ?"
 					+ " and model.name like '%"
 					+ courseName + "%'"
 					+ " and model.teacher.userInfo.name like '%"
 					+ teacherName + "%'";
-			return getHibernateTemplate().find(queryString);
+			return getHibernateTemplate().find(queryString, department);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
 			throw re;

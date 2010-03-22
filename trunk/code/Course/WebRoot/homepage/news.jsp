@@ -42,7 +42,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td><img src="${ctx}/homepage/image/jiannan2.jpg" border="0" ></td>
+					<td><img src="${ctx}/homepage/image/jiannan.jpg" border="0" ></td>
 				</tr>		
 				</table>
 				
