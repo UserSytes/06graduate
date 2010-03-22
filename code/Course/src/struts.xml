@@ -1003,22 +1003,14 @@
 		<action name="schoolCourseAction" method="forwardToSchoolSearch"
 			class="homePageAction">
 			<result name="success">/homepage/searchbyschool.jsp</result>
-			<result name="error">/commons/error.jsp</result>
-		</action>
-		<action name="lastCourseAction" method="forwardToLastCourse"
-			class="homePageAction">
-			<result name="success">/homepage/lastcourse.jsp</result>
-			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="forwardToSearchAction" method="forwardToSearch"
 			class="homePageAction">
 			<result name="searchbyschool">/homepage/search.jsp</result>
-			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="forwardToSuperSearchAction" method="forwardToSuperSearch"
 			class="homePageAction">
 			<result name="success">/homepage/supersearch.jsp</result>
-			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="forwardToIndexAction" method="forwardToIndex"
 			class="homePageAction">
@@ -1030,7 +1022,23 @@
 			<result name="contact">/homepage/search.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-			
+		<action name="lastCourseAction" method="lastThreeDaysCourse"
+			class="executeViewAction">
+			<result name="success">/homepage/lastcourse.jsp</result>
+		</action>
+		<action name="lastWeekCourseAction" method="lastWeekCourse"
+			class="executeViewAction">
+			<result name="success">/homepage/lastcourse.jsp</result>
+		</action>
+		<action name="lastMonthCourseAction" method="lastMonthCourse"
+			class="executeViewAction">
+			<result name="success">/homepage/lastcourse.jsp</result>
+		</action>	
+		<action name="superSearchCourseAction" method="superSearchCourse"
+			class="executeViewAction">
+			<result name="success">/homepage/supersearch.jsp
+			</result>
+		</action>
 		<action name="searchCourseByKeywordAction" method="searchCourseByKeyword"
 			class="executeViewAction">
 			<result name="success">/homepage/search.jsp
