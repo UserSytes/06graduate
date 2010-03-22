@@ -5,12 +5,30 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>厦门大学精品课程网站——搜索课程</title>
-		<link rel="stylesheet" href="${ctx}/homepage/link.css">
-		<script type="text/javascript" src="/dwr/engine.js"></script>
-		<script type="text/javascript" src="/dwr/util.js"></script>
-		<script type="text/javascript" src="/dwr/interface/DepartmentDAO.js"></script>
-		<script type="text/javascript" src="/dwr/interface/SchoolDAO.js"></script>
+		<link type=text/css rel=stylesheet href="${ctx}/homepage/link.css">
+		<script type="text/javascript" src="${ctx}/dwr/engine.js"></script>
+		<script type="text/javascript" src="${ctx}/dwr/util.js"></script>
+		<script type="text/javascript" src="${ctx}/dwr/interface/DepartmentDAO.js"></script>
+		<script type="text/javascript" src="${ctx}/dwr/interface/SchoolDAO.js"></script>
 		<script language="javascript">
+	function getSchool() {
+		SchoolDAO.findAll(callbackorg);
+	}
+
+	function callbackorg(data) {
+		DWRUtil.addOptions("School", data, "id", "name");
+	}
+	function getDepartment(prvid) {
+		if (prvid == -1) {
+		} else {
+			DepartmentDAO.findBySchool(prvid, callbackorg2);
+		}
+	}
+	function callbackorg2(data) { //显示出二级类别
+		DWRUtil.removeAllOptions("Department");
+		DWRUtil.addOptions("Department", data, "id", "name");
+	}
+	
 	function check(form) {
 		if (form.departmentId.value == -1 && form.courseName.value == "" && form.teacherName.value=="") {
 			alert("搜索条件不能全为空，请重新搜索！");
@@ -18,32 +36,8 @@
 		}
 		return true;
 	}
-
-	//获得学校列表
-	function getSchool() {
-		SchoolDAO.findAll(callbackorg);
-	}
-	//显示学校级别
-	function callbackorg(data) {
-		DWRUtil.addOptions("School", data, "id", "name");
-	}
-	//显示院系级别
-	function callbackorg2(data) {
-		DWRUtil.removeAllOptions("Department");
-		DWRUtil.addOptions("Department", data, "id", "name");
-	}
-	//获得院系列表
-	function getDepartment(prvid) {
-		if (prvid == -1) {
-		} else {
-			DepartmentDAO.findBySchool(prvid, callbackorg2);
-
-		}
-	}
 </script>
-	<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0"
-		width="100%" height="100%"
-		background="${ctx}/homepage/image/back_img.gif"
+	<body onload="getSchool()" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0"	background="${ctx}/homepage/image/back_img.gif"
 		style="background-repeat: repeat-x">
 
 		<s:include value="include/header.jsp"></s:include>
@@ -90,7 +84,7 @@
 									</tr>
 									<tr>
 										<td>
-											<img src="${ctx}/homepage/image/jiannan2.jpg" border="0">
+											<img src="${ctx}/homepage/image/jiannan.jpg" border="0">
 										</td>
 									</tr>
 								</table>
@@ -141,13 +135,13 @@
 								<s:form action="superSearchCourseAction"
 									onsubmit="return check(this);" method="post"
 									enctype="multipart/form-data">
-									<table width="90%" border="0" cellpadding="0" cellspacing="0">
+									<table width="95%" border="0" cellpadding="0" cellspacing="0">
 										<tr>
-											<td width="20%" align="center">
+											<td width="12%" align="center">
 												院系：
 											</td>
-											<td width="80%">
-												<select id="School" name="school"
+											<td width="88%">
+												<select id="School" name="School"
 													onchange="getDepartment(this.value)">
 													<option value="-1">
 														--请选择院--
@@ -160,24 +154,24 @@
 											</td>
 										</tr>
 										<tr>
-											<td width="20%" align="center">
+											<td width="12%" align="center">
 												课程：
 											</td>
-											<td width="80%">
+											<td width="88%">
 												<s:textfield name="courseName" cssClass="text" />
 											</td>
 										</tr>
 										<tr>
-											<td width="20%" align="center">
+											<td width="12%" align="center">
 												教师：
 											</td>
-											<td width="80%">
+											<td width="88%">
 												<s:textfield name="teacherName" cssClass="text" />
 											</td>
 										</tr>
 										<tr>
 											<td></td>
-											<td width="84">
+											<td width="88%">
 												<input type="submit" name="submit"
 													style="background: url(${ctx}/homepage/images/search_btn.gif) no-repeat"
 													value="搜索 ">
@@ -193,28 +187,31 @@
 										</td>
 									</tr>
 								</table>
-								<table width="95%" cellpadding="0" cellspacing="0">
+								<table width="96%" cellpadding="0" cellspacing="0">
 									<tr height="40">
-										<td colspan="5" background="${ctx}/homepage/image/bbs_bg.gif">
+										<td colspan="6" background="${ctx}/homepage/image/bbs_bg.gif">
 											<table border="0" cellpadding="0" cellspacing="0"
 												style="height: 23px;" width="100%">
 												<tr height="1">
-													<td bgcolor="#d7d7d7" colspan="5" width="100%"></td>
+													<td bgcolor="#d7d7d7" colspan="6" width="100%"></td>
 												</tr>
 												<tr>
-													<td width="50" align="center">
+													<td width="40" align="center">
 														序号
 													</td>
-													<td width="355" align="center">
+													<td width="350" align="center">
 														课程名
 													</td>
-													<td width="64" align="center">
+													<td width="60" align="center">
 														教师
 													</td>
-													<td width="145" align="center">
+													<td width="120" align="center">
 														所属系
 													</td>
-													<td width="50" align="center">
+													<td width="80" align="center">
+														级别
+													</td>
+													<td width="40" align="center">
 														点击
 													</td>
 												</tr>
@@ -224,28 +221,31 @@
 
 									<s:iterator value="courseList" status="course">
 										<tr>
-											<td width="50" align="center">
+											<td width="40" align="center">
 												<s:property value="#course.count" />
 											</td>
-											<td width="355" align="center">
+											<td width="350" align="center">
 												<a
 													href="<s:url action="enterCourseAction"> 
 																				<s:param name="courseId"> <s:property value="id"/> </s:param> </s:url>">
 													<s:property value="name" />
 												</a>
 											</td>
-											<td width="64" align="center">
+											<td width="60" align="center">
 												<s:property value="teacher.userInfo.name" />
 											</td>
-											<td width="145" align="center">
+											<td width="120" align="center">
 												<s:property value="department.name" />
 											</td>
-											<td width="50" align="center">
+											<td width="80" align="center">
+												<s:property value="level" />
+											</td>
+											<td width="40" align="center">
 												<s:property value="count" />
 											</td>
 										</tr>
 										<tr height="3">
-											<td colspan="5"
+											<td colspan="6"
 												background="${ctx}/homepage/image/table_line.gif"></td>
 										</tr>
 									</s:iterator>

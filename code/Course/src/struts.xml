@@ -995,7 +995,6 @@
 			class="homePageAction">
 			<result name="success">/homepage/searchbyachievement.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
 		</action>
       
 <!-- 跳转 -->	
