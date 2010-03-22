@@ -184,10 +184,6 @@ public class HomePageAction extends BaseAction{
     	return SUCCESS;
     }
     
-    public String forwardToLastCourse(){
-    	return SUCCESS;
-    }
-    
     public String forwardToIndex(){
 		return "index";
 }
@@ -359,7 +355,5 @@ public class HomePageAction extends BaseAction{
 	public void setLevelNow(String levelNow) {
 		this.levelNow = levelNow;
 	}
-
-
 
 }

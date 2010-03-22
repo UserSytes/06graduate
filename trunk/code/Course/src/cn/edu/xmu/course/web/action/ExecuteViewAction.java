@@ -30,6 +30,7 @@ public class ExecuteViewAction extends BaseAction {
 	private IDepartmentService departmentService;
 	private int flag;
 	private String keyword;
+	private int imageNum = 1;
 	
 	public int getCourseId() {
 		return courseId;
@@ -102,9 +103,45 @@ public class ExecuteViewAction extends BaseAction {
 			courseList = searchCourseService.findCourseByTeacher(keyword);
 		}
 		if(courseList == null){
-			addActionMessage("一共找到 0 个相关课程！");
+			addActionMessage("一共找到 0 门相关课程！");
 		}else
-			addActionMessage("一共找到 "+courseList.size()+" 个相关课程！");
+			addActionMessage("一共找到 "+courseList.size()+" 门相关课程！");
+		return SUCCESS;
+	}
+	
+	public String superSearchCourse(){
+		if( departmentId.equals("") ){
+			if( courseName.equals(""))
+				//按教师姓名搜索
+				courseList = searchCourseService.findCourseByTeacher(teacherName);
+			else{
+				if(teacherName.equals(""))
+					//按课程名称搜索
+					courseList = searchCourseService.findCourseByName(courseName);
+				else
+					//按课程名和教师名搜索
+					courseList = searchCourseService.findCourseByNameAndTeacher(courseName, teacherName);
+			}
+		}else{
+			Department dept = departmentService.getDepartmentById(Integer
+					.parseInt(departmentId));
+			if( courseName.equals("")){
+				if(teacherName.equals("")) //按系搜索
+					courseList = searchCourseService.findCourseByDepartment(department);
+				else //按教师和系搜索
+					courseList = searchCourseService.findCourseByDepartmentAndTeacher(teacherName, department);
+			}else{
+				if(teacherName.equals("")) //按课程名称和系搜索
+					courseList = searchCourseService.findCourseByNameAndDepartment(courseName, department);
+				else //按课程名、系、教师搜索
+					courseList = searchCourseService.findCourseByNameAndDepartmentAndTeacher(courseName, department, teacherName);
+			}
+		}
+		
+		if(courseList == null){
+			addActionMessage("一共找到 0 门相关课程！");
+		}else
+			addActionMessage("一共找到 "+courseList.size()+" 门相关课程！");
 		return SUCCESS;
 	}
 	
@@ -151,6 +188,49 @@ public class ExecuteViewAction extends BaseAction {
 
 	}
 	
+	/**
+	 * 查找最新三天课程
+	 * @return
+	 */
+    public String lastThreeDaysCourse(){
+    	courseList = searchCourseService.findCourseByDate(3);
+    	imageNum = 1;
+    	if(courseList == null){
+			addActionMessage("最近三天未发布新课程！");
+		}else
+			addActionMessage("最近三天一共发布 "+courseList.size()+" 门课程！");
+		return SUCCESS;
+    }
+    
+    /**
+	 * 查找最新一周课程
+	 * @return
+	 */
+    public String lastWeekCourse(){
+    	courseList = searchCourseService.findCourseByDate(7);
+    	imageNum = 2;
+    	if(courseList == null){
+			addActionMessage("最近一周未发布新课程！");
+		}else
+			addActionMessage("最近一周一共发布 "+courseList.size()+" 门课程！");
+		return SUCCESS;
+    }
+    
+    /**
+	 * 查找最近一个月课程
+	 * @return
+	 */
+    public String lastMonthCourse(){
+    	courseList = searchCourseService.findCourseByDate(30);
+    	imageNum = 3;
+    	if(courseList == null){
+			addActionMessage("最近一个月未发布新课程！");
+		}else
+			addActionMessage("最近一个月一共发布 "+courseList.size()+" 门课程！");
+		return SUCCESS;
+    }
+    
+    
 	public List<Course> getCourseList() {
 		return courseList;
 	}
@@ -214,6 +294,14 @@ public class ExecuteViewAction extends BaseAction {
 
 	public String getKeyword() {
 		return keyword;
+	}
+
+	public void setImageNum(int imageNum) {
+		this.imageNum = imageNum;
+	}
+
+	public int getImageNum() {
+		return imageNum;
 	}
 
 

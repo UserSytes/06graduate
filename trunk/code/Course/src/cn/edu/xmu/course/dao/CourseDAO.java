@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.School;
 
 /**
@@ -100,7 +101,8 @@ public class CourseDAO extends HibernateDaoSupport {
 
 	public List findByName(Object key) {
 		try {
-			String queryString = "from Course as model where model.name like '%"+key+"%'";
+			String queryString = "from Course as model where model.name like '%"
+					+ key + "%'";
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
@@ -117,24 +119,22 @@ public class CourseDAO extends HibernateDaoSupport {
 	}
 
 	public List findByLevel(String level) {
-    	if(level.equals("country")){
-    		return findByProperty(LEVEL, "国家级");
-    	}
-    	else if(level.equals("province")){
-    		return findByProperty(LEVEL, "省级");
-    	}
-    	else if(level.equals("school")){
-    		return findByProperty(LEVEL, "校级");
-    	}else{
-    		return null;
-    	}
-		
+		if (level.equals("country")) {
+			return findByProperty(LEVEL, "国家级");
+		} else if (level.equals("province")) {
+			return findByProperty(LEVEL, "省级");
+		} else if (level.equals("school")) {
+			return findByProperty(LEVEL, "校级");
+		} else {
+			return null;
+		}
+
 	}
 
 	public List findByRefuseReason(Object refuseReason) {
 		return findByProperty(REFUSE_REASON, refuseReason);
 	}
-	
+
 	public List findByCount(Object count) {
 		return findByProperty(COUNT, count);
 	}
@@ -142,18 +142,77 @@ public class CourseDAO extends HibernateDaoSupport {
 	public List findByVisible(Object visible) {
 		return findByProperty(VISIBLE, visible);
 	}
-	
+
 	public List findByTeacherId(Object teacherId) {
 		return findByProperty("teacher.id", teacherId);
 	}
-	
+
 	public List findByDepartment(Object department) {
 		return findByProperty("department", department);
 	}
-	public List findByTeacher(String teacherName)
-	{
+
+	public List findByTeacher(String teacherName) {
 		try {
-			String queryString = "from Course as model where model.teacher.userInfo.name like '%"+teacherName+"%'";
+			String queryString = "from Course as model where model.teacher.userInfo.name like '%"
+					+ teacherName + "%'";
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+
+	public List<Course> findCourseByNameAndTeacher(String courseName,
+			String teacherName) {
+		try {
+			String queryString = "from Course as model where model.name like '%"
+					+ courseName
+					+ "%' and model.teacher.userInfo.name like '%"
+					+ teacherName + "%'";
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+
+	public List<Course> findCourseByDepartmentAndTeacher(String teacherName,
+			Department department){
+		try {
+			String queryString = "from Course as model where model.department = "
+					+ department
+					+ " and model.teacher.userInfo.name like '%"
+					+ teacherName + "%'";
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+
+	public List<Course> findCourseByNameAndDepartment(String courseName,
+			Department department){
+		try {
+			String queryString = "from Course as model where model.department = "
+					+ department
+					+ " and model.name like '%"
+					+ courseName + "%'";
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+
+	public List<Course> findCourseByNameAndDepartmentAndTeacher(
+			String courseName, Department department, String teacherName){
+		try {
+			String queryString = "from Course as model where model.department = "
+					+ department
+					+ " and model.name like '%"
+					+ courseName + "%'"
+					+ " and model.teacher.userInfo.name like '%"
+					+ teacherName + "%'";
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
@@ -161,12 +220,22 @@ public class CourseDAO extends HibernateDaoSupport {
 		}
 	}
 	
+	public List findCourseByDate(String date){
+		try {
+			String queryString = "from Course as model where model.time >"+date;
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+
 	public List findByTeacherAndType(Integer teacherId, int status) {
-		log.debug("finding Course instance with property: teacher,status" +
-				", value: " + teacherId+" and "+status);
+		log.debug("finding Course instance with property: teacher,status"
+				+ ", value: " + teacherId + " and " + status);
 		try {
 			String queryString = "from Course as model where model.teacher.id="
-					+ teacherId + "and model.status= "+status;
+					+ teacherId + "and model.status= " + status;
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
@@ -175,9 +244,10 @@ public class CourseDAO extends HibernateDaoSupport {
 	}
 
 
-	
 	public List findApplicationBySchool(School school) {
-		log.debug("finding Course instance with status = 0 and department.school, value: " + school);
+		log
+				.debug("finding Course instance with status = 0 and department.school, value: "
+						+ school);
 		try {
 			String queryString = "from Course as model where model.status = 0 and model.department.school = ?";
 			return getHibernateTemplate().find(queryString, school);
@@ -186,9 +256,11 @@ public class CourseDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-	
+
 	public List findBySchool(School school) {
-		log.debug("finding Course instance with status = 1 and department.school, value: " + school);
+		log
+				.debug("finding Course instance with status = 1 and department.school, value: "
+						+ school);
 		try {
 			String queryString = "from Course as model where model.status = 1 and model.department.school = ?";
 			return getHibernateTemplate().find(queryString, school);
@@ -197,9 +269,11 @@ public class CourseDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-	
+
 	public List findNotPassBySchool(School school) {
-		log.debug("finding Course instance with status = 2 and department.school, value: " + school);
+		log
+				.debug("finding Course instance with status = 2 and department.school, value: "
+						+ school);
 		try {
 			String queryString = "from Course as model where model.status = 2 and model.department.school = ?";
 			return getHibernateTemplate().find(queryString, school);
