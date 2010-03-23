@@ -53,7 +53,7 @@
 						<tr>
 							<td width="2" bgcolor="#e7e7e7"></td>
 							<td width="16"></td>
-							<td>密码：<br></td>
+							<td>密码：</td>
 							<td width="4"></td>
 							<td><s:password name="password"></s:password></td>
 							<td width="7"></td>
@@ -63,7 +63,7 @@
 						<tr>
 							<td width="2" bgcolor="#e7e7e7"></td>
 							<td width="16"></td>
-							<td>角色：<br></td>
+							<td>角色：</td>
 							<td width="4"></td>
 							<td><s:select name="flag" list="# {'0':'老師','1':'學生'}"
 																	headerKey="-1" headerValue="请选择" /></td>

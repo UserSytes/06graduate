@@ -56,10 +56,9 @@ public class StudentInfoAction extends BaseAction {
 		messageList = messageService.getMessageByUserInfo(userInfo);
 		if(messageList.size()==0){
 			addActionMessage("您目前还未发表帖子留言！");
-			return ERROR;
-		}else{
-			return SUCCESS;
 		}
+		return SUCCESS;
+		
 	}
 	
 //	public String myReplyTopics(){
@@ -121,7 +120,7 @@ public class StudentInfoAction extends BaseAction {
 				return SUCCESS;
 			}
 			else
-				return ERROR;
+				return SUCCESS;
 		}
 		else{
 			addActionError("原密码错误！");
@@ -138,7 +137,7 @@ public class StudentInfoAction extends BaseAction {
 		studentCourses = studentCourseService.findByStudent(student);
 		if(studentCourses.size()==0){
 			addActionError("您暂无课程！");
-			return ERROR;
+			return SUCCESS;
 		}
 		courseList =  new ArrayList<Course>();
 		for(StudentCourse sc: studentCourses){
@@ -157,7 +156,7 @@ public class StudentInfoAction extends BaseAction {
 		collections = studentCourseService.findCollectionByStudent(student);
 		if(collections.size()==0){
 			addActionError("您暂未收藏任何课程！");
-			return ERROR;
+			return SUCCESS;
 		}
 		courseList =  new ArrayList<Course>();
 		for(Collection c: collections){
