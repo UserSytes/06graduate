@@ -34,14 +34,14 @@ public class NoticeAction extends BaseAction {
 	public String addNewNotice() {
 		course = courseService.getCourseById(courseId);
 		if (noticeService.addNotice(notice, course)) {
-			addActionMessage("添加课程成功！");
+			addActionMessage("添加课程通知成功！");
 			return SUCCESS;
 		} else {
 			addActionError("添加课程通知失败，请重新添加！");
 			return ERROR;
 		}
-	}
-
+	}	
+	
 	/**
 	 * 删除课程通知
 	 * 
@@ -94,7 +94,8 @@ public class NoticeAction extends BaseAction {
 	 * @return
 	 */
 	public String updateNotice() {
-		if (noticeService.updateNotice(notice)) {
+		course = courseService.getCourseById(courseId);
+		if (noticeService.updateNotice(notice,course)) {
 			addActionMessage("更新课程通知成功！");
 			return SUCCESS;
 		} else {
@@ -120,6 +121,8 @@ public class NoticeAction extends BaseAction {
 	public String goEditNotice(){
 		courseList = courseService.findCoursesByTeacher(super.getTeacher()
 				.getId(), 1);
+		notice = noticeService.getNoticeById(noticeId);
+		courseId= notice.getCourse().getId();
 		return SUCCESS;
 	}
 

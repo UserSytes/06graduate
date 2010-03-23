@@ -50,8 +50,10 @@ public class NoticeService implements INoticeService {
 		return noticeDAO.findById(id);
 	}
 
-	public boolean updateNotice(Notice notice) {
+	public boolean updateNotice(Notice notice, Course course) {
 		// TODO Auto-generated method stub
+		notice.setCourse(course);
+		notice.setTime(new Date());
 		try {
 			noticeDAO.merge(notice);
 			return true;
