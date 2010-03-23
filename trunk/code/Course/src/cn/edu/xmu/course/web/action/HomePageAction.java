@@ -16,6 +16,7 @@ import cn.edu.xmu.course.service.IApplicationFormService;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.ILoginService;
 import cn.edu.xmu.course.service.INewsService;
+import cn.edu.xmu.course.service.ISearchCourseService;
 import cn.edu.xmu.course.service.impl.LoginService;
 import cn.edu.xmu.course.service.impl.NewsService;
 
@@ -38,6 +39,8 @@ public class HomePageAction extends BaseAction{
 	private IApplicationFormService applicationFormService;
 	private ICourseService courseService;
 	private INewsService newsService;
+	private ISearchCourseService searchCourseService;
+	
 	private int newsId;
 	private News news;
 	private int flag;
@@ -67,11 +70,23 @@ public class HomePageAction extends BaseAction{
 			newsList.remove(i);
 		}
 		this.countCourseByLevel();
+
+		courseList = searchCourseService.findCourseByDate(3);
+    	if(courseList == null){
+			addActionMessage("最近三天未发布新课程！");
+		}else{
+			for(int i=5;i<courseList.size();i++)
+			{
+				courseList.remove(i);
+			}
+		}
+    	
 		if (newsList == null) {
 			return ERROR;
 		} else
 			return SUCCESS;
 	}
+
     
     /**
      * 计算级别课程数
@@ -383,6 +398,14 @@ public class HomePageAction extends BaseAction{
 
 	public String getIfAttachment() {
 		return ifAttachment;
+	}
+
+	public void setSearchCourseService(ISearchCourseService searchCourseService) {
+		this.searchCourseService = searchCourseService;
+	}
+
+	public ISearchCourseService getSearchCourseService() {
+		return searchCourseService;
 	}
 
 }

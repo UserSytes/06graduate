@@ -135,7 +135,7 @@
 		<tr><td height="7"></td></td></tr>
 		<tr>
 			<td valign="top" width="194">
-			<!-- 展示 -->
+			<!-- 最新课程 -->
 				
 			<table border="0" cellpadding="0" cellspacing="0">
 				<tr>
@@ -144,51 +144,23 @@
 				<tr>
 					<td>
 						<table border="0" cellpadding="0" cellspacing="0">
-						<tr  height="28">
-							<td width="11" ></td>
-							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">1、软件工程[林坤辉]</a></td>
-							<td width="11" ></td>
-						</tr>
-						<tr height="2"><td width="11" ></td>
-							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
-							<td width="11" ></td>
-						</tr>
-						<tr  height="28">
-							<td width="11" ></td>
-							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">2、软件工程[林坤辉]</a></td>
-							<td width="11" ></td>
-						</tr>
-						<tr height="2"><td width="11" ></td>
-							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
-							<td width="11" ></td>
-						</tr>
-						<tr  height="28">
-							<td width="11" ></td>
-							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">3、软件工程[林坤辉]</a></td>
-							<td width="11" ></td>
-						</tr>
-						<tr height="2"><td width="11" ></td>
-							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
-							<td width="11" ></td>
-						</tr>
 						<tr height="28">
+							<td colspan="3" align="left"><s:actionmessage/></td>
+						</tr>
+						<s:iterator value="courseList" status="course">	
+						<tr  height="28">
 							<td width="11" ></td>
-							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">4、软件工程[林坤辉]</a></td>
+							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" >
+							<a href="<s:url action="enterCourseAction"> <s:param name="courseId"> <s:property value="id"/> </s:param> </s:url>">
+													<s:property value="name" />[<s:property value="teacher.userInfo.name" />]
+												</a></td>
 							<td width="11" ></td>
 						</tr>
 						<tr height="2"><td width="11" ></td>
 							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
 							<td width="11" ></td>
-						</tr>
-						<tr height="28" >
-							<td width="11" ></td>
-							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">5、软件工程[林坤辉]</a></td>
-							<td width="11" ></td>
-						</tr>
-						<tr height="2"><td width="11" ></td>
-							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
-							<td width="11" ></td>
-						</tr>
+						</tr>	
+						</s:iterator>
 						</table>
 					</td>
 				</tr>
@@ -220,42 +192,7 @@
 							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
 							<td width="11" ></td>
 						</tr>
-						<tr  height="28">
-							<td width="11" ></td>
-							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">2、软件工程[林坤辉]</a></td>
-							<td width="11" ></td>
-						</tr>
-						<tr height="2"><td width="11" ></td>
-							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
-							<td width="11" ></td>
-						</tr>
-						<tr  height="28">
-							<td width="11" ></td>
-							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">3、软件工程[林坤辉]</a></td>
-							<td width="11" ></td>
-						</tr>
-						<tr height="2"><td width="11" ></td>
-							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
-							<td width="11" ></td>
-						</tr>
-						<tr height="28">
-							<td width="11" ></td>
-							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">4、软件工程[林坤辉]</a></td>
-							<td width="11" ></td>
-						</tr>
-						<tr height="2"><td width="11" ></td>
-							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
-							<td width="11" ></td>
-						</tr>
-						<tr height="28" >
-							<td width="11" ></td>
-							<td width="162" align="center"><img src="${ctx}/homepage/image/left_bg1.gif" border="0" ><a href="#">5、软件工程[林坤辉]</a></td>
-							<td width="11" ></td>
-						</tr>
-						<tr height="2"><td width="11" ></td>
-							<td width="135"  background="${ctx}/homepage/image/left_bg2.gif"></td>
-							<td width="11" ></td>
-						</tr>
+						
 						</table>
 					</td>
 				</tr>
