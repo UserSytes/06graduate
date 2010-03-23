@@ -12,7 +12,11 @@ import cn.edu.xmu.course.service.IApplicationFormService;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.IDepartmentService;
 import cn.edu.xmu.course.service.ISearchCourseService;
-
+/**
+ * ≤È’“øŒ≥Ã
+ * @author 
+ *
+ */
 public class ExecuteViewAction extends BaseAction {
 
 	/**
