@@ -21,7 +21,7 @@ public interface INoticeService {
 	 * @param notice
 	 * @return
 	 */
-	public boolean updateNotice(Notice notice);
+	public boolean updateNotice(Notice notice, Course course);
 	
 	/**
 	 * 删除课程通知公告
