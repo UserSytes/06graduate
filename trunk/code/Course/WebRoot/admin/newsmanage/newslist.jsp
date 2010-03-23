@@ -56,7 +56,7 @@
 							<s:property value="title" />
 						</td>
 						<td width="25%">
-							<s:property value="time" />
+							<s:date name="time" format="yyyy-MM-dd hh:mm:ss" />
 						</td>
 						<td width="15%">
 							<s:property value="author" />

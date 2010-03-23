@@ -18,29 +18,9 @@
 			<td valign="top">
 				<table border="0" cellpadding="0" cellspacing="0">
 				<tr>
-					<td><img src="${ctx}/homepage/image/left_menu_title.gif" border="0" ></td>
+					<td><img src="${ctx}/homepage/image/left_menu_title6.gif" border="0" ></td>
 				</tr>		
-				<tr>
-					<td>
-						<table border="0" cellpadding="0" cellspacing="0">
-						<tr>
-							<td width="11" background=""></td>
-							<td width="172" align="center"><a href="#"><img src="${ctx}/homepage/image/left_menu_01.gif" border="0"></a></td>
-							<td width="11" background=""></td>
-						</tr>
-						<tr>
-							<td width="11" background=""></td>
-							<td width="172" align="center"><a href="#"><img src="${ctx}/homepage/image/left_menu_02.gif" border="0" ></a></td>
-							<td width="11" background=""></td>
-						</tr>
-						<tr>
-							<td width="11" background=""></td>
-							<td width="172" align="center"><a href="#"><img src="${ctx}/homepage/image/left_menu_03.gif" border="0"></a></td>
-							<td width="11" background=""></td>
-						</tr>		
-						</table>
-					</td>
-				</tr>
+			
 				<tr>
 					<td><img src="${ctx}/homepage/image/jiannan.jpg" border="0" ></td>
 				</tr>		
@@ -86,6 +66,26 @@
 						<tr height="30"><td align="left">此信息发布于：<s:date name="news.time" format="yyyy-MM-dd hh:mm:ss" /></td>
 							<td align="right">浏览次数：<s:property value="news.count" /></td></tr>	
 						<tr height="1" ><td bgcolor="#d7d7d7" colspan="2" width="650"></td></tr>
+						<tr><td colspan="2">
+						<table width="95%" border="0" cellpadding="0" cellspacing="0">
+						<TR><TD><strong><s:property value="ifAttachment"/></strong></TD></TR>
+						<s:iterator value="attachmentList" status="attachment">		
+							<TR><TD><img src="${ctx}/admin/Images/i_attach.gif" />
+							<a
+								href="<s:url action="download"> 
+                     			<s:param name="fileName"> 
+                       			 	<s:property value="fileLink"/> 
+                    			</s:param> 
+								<s:param name="originalFileName"> 
+                       			 	<s:property value="filename"/> 
+                    			</s:param> 
+                					</s:url>">
+								<font color="blue"><s:property value="filename" /> </font> </a>
+							</TD></TR>
+						</s:iterator>
+						<TR height="20"><TD></TD></TR>
+						</table>
+						</td></tr>
 						<tr>
 							<td colspan="2">
 								<s:text name="">${news.content}</s:text>

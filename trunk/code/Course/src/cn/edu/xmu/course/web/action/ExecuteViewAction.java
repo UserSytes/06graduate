@@ -26,6 +26,8 @@ public class ExecuteViewAction extends BaseAction {
 	private List<Course> courseList;
 	private Course course;
 	private String teacherName;
+	
+	private ICourseService courseService;
 	private ISearchCourseService searchCourseService;
 	private IDepartmentService departmentService;
 	private int flag;
@@ -169,6 +171,8 @@ public class ExecuteViewAction extends BaseAction {
 			return ERROR;
 		} else
 		{
+			course.setCount( course.getCount()+1);
+			courseService.updateCourse(course);
 			super.getSession().put(COURSE,course);
 			return "course";
 		}
@@ -303,6 +307,14 @@ public class ExecuteViewAction extends BaseAction {
 
 	public int getImageNum() {
 		return imageNum;
+	}
+
+	public ICourseService getCourseService() {
+		return courseService;
+	}
+
+	public void setCourseService(ICourseService courseService) {
+		this.courseService = courseService;
 	}
 
 

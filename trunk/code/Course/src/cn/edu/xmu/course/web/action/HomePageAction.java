@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.Administrator;
+import cn.edu.xmu.course.pojo.Attachment;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.News;
 import cn.edu.xmu.course.pojo.Student;
@@ -50,7 +51,10 @@ public class HomePageAction extends BaseAction{
 	private int school;
 	private String levelNow;
 	
+	private List<Attachment> attachmentList;
 	private List<Course> achievementList;
+	private String ifAttachment;
+	
 	/**
 	 * 首页数据载入
 	 * @return
@@ -101,8 +105,17 @@ public class HomePageAction extends BaseAction{
     	news=newsService.findNewsById(newsId);
 		if (news == null) {
 			return ERROR;
-		} else
+		} else{
+			news.setCount( news.getCount() +1 );
+			newsService.updateNewsWithoutAttachment(news);
+			attachmentList = newsService.findAttachmentByNews(news);
+			if(attachmentList.size()!=0){
+				ifAttachment = "附件下载：";
+			}else{
+				ifAttachment = "";
+			}
 			return "newsdetail";
+		}
     }
     
 
@@ -354,6 +367,22 @@ public class HomePageAction extends BaseAction{
 
 	public void setLevelNow(String levelNow) {
 		this.levelNow = levelNow;
+	}
+
+	public void setAttachmentList(List<Attachment> attachmentList) {
+		this.attachmentList = attachmentList;
+	}
+
+	public List<Attachment> getAttachmentList() {
+		return attachmentList;
+	}
+
+	public void setIfAttachment(String ifAttachment) {
+		this.ifAttachment = ifAttachment;
+	}
+
+	public String getIfAttachment() {
+		return ifAttachment;
 	}
 
 }

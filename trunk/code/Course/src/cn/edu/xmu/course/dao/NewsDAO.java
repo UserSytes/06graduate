@@ -114,7 +114,7 @@ public class NewsDAO extends HibernateDaoSupport {
 	public List findAll() {
 		log.debug("finding all News instances");
 		try {
-			String queryString = "from News";
+			String queryString = "from News as model order by model.time desc";
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find all failed", re);
