@@ -24,14 +24,16 @@ public class BaseAction extends ActionSupport {
 	public String SUPERADMIN = "superAdmin";
 	public String COURSE = "course";
 	public String USERINFO= "userInfo";
-	
+	public String EVALUATION="evaluation";
 	private ActionContext ctx ;
 	Map session ;
 	
 	public BaseAction() {
 		
 	}
-
+	public String getEvaluation() {
+		return (String) this.getSession().get("evaluation");
+	}
 	public String getUserName() {
 		return (String) this.getSession().get("username");
 	}
