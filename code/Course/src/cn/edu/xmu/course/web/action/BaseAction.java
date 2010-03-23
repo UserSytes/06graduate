@@ -31,8 +31,8 @@ public class BaseAction extends ActionSupport {
 	public BaseAction() {
 		
 	}
-	public String getEvaluation() {
-		return (String) this.getSession().get("evaluation");
+	public Evaluation getEvaluation() {
+		return (Evaluation) this.getSession().get(EVALUATION);
 	}
 	public String getUserName() {
 		return (String) this.getSession().get("username");
