@@ -57,13 +57,24 @@ public class HomePageAction extends BaseAction{
 	private List<Attachment> attachmentList;
 	private List<Course> achievementList;
 	private String ifAttachment;
-	
+	private String idLogin;
+	private String afterLogin;
+	private String user;
 	/**
 	 * 首页数据载入
 	 * @return
 	 */
     @SuppressWarnings("unchecked")
 	public String homepageDisplay(){
+    	user = (String) super.getSession().get("user");
+    	if( user == null){
+    		this.setIdLogin("block");
+    		this.setAfterLogin("none");
+    	}else{
+    		this.setIdLogin("none");
+    		this.setAfterLogin("block");
+    	}
+    	
     	newsList=newsService.findAllNews();
 		for(int i=10;i<newsList.size();i++)
 		{
@@ -71,9 +82,9 @@ public class HomePageAction extends BaseAction{
 		}
 		this.countCourseByLevel();
 
-		courseList = searchCourseService.findCourseByDate(3);
+		courseList = searchCourseService.findCourseByDate(30);
     	if(courseList == null){
-			addActionMessage("最近三天未发布新课程！");
+			addActionMessage("最近一个月未发布新课程！");
 		}else{
 			for(int i=5;i<courseList.size();i++)
 			{
@@ -406,6 +417,30 @@ public class HomePageAction extends BaseAction{
 
 	public ISearchCourseService getSearchCourseService() {
 		return searchCourseService;
+	}
+
+	public void setIdLogin(String idLogin) {
+		this.idLogin = idLogin;
+	}
+
+	public String getIdLogin() {
+		return idLogin;
+	}
+
+	public void setAfterLogin(String afterLogin) {
+		this.afterLogin = afterLogin;
+	}
+
+	public String getAfterLogin() {
+		return afterLogin;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	public String getUser() {
+		return user;
 	}
 
 }

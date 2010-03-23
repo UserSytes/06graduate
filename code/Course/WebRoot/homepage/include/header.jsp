@@ -6,8 +6,19 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Insert title here</title>
+<script language="javascript">
+	function checkPopedom(){
+		var user = <%=(String) session.getAttribute("user")%>;
+		
+		if(user == null){	
+			document.getElementById("myHome").style.display="none";
+		}else{	
+			document.getElementById("myHome").style.display="block";
+		}	
+  	}
+  	</script>
 	</head>
-	<body>
+	<body onload="checkPopedom()">
 
 		<table border="0" cellpadding="0" cellspacing="0" width="950"
 			height="100" align="center">
@@ -23,17 +34,14 @@
 				<td>
 					<table border="0" cellpadding="0" cellspacing="0">
 						<tr>
-							<td colspan="3" align="right">
-								<table border="0" cellpadding="0" cellspacing="0">
+							<td colspan="2" align="right">
+								<table border="0" cellpadding="0" cellspacing="0" id="myHome">
 									<tr>
-										<td width="50">
-											<a href="#">Home </a>&nbsp;
+										<td width="80">
+											<a href="<s:url action="myPageAction"></s:url>">我的主页</a>&nbsp;
 										</td>
-										<td width="50">
-											<a href="#">Exit</a> &nbsp;
-										</td>
-										<td width="50">
-											<a href="#">Join us</a>
+										<td width="80">
+											<a href="<s:url action="logoutAction"></s:url>">退出系统</a> &nbsp;
 										</td>
 									</tr>
 								</table>

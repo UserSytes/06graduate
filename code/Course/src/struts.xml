@@ -49,6 +49,10 @@
 			<result name="student">/student/studentinfo.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
+		<action name="logoutAction" method="logout"
+			class="cn.edu.xmu.course.web.action.LoginAction">
+			<result name="success">/homepage/index.jsp</result>
+		</action>
 		
 		<!--教师子系统-->
 		<!-- 个人信息管理 -->

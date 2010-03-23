@@ -101,6 +101,20 @@ public class LoginAction extends BaseAction {
 		
 	}
 	
+	public String logout(){
+		student = (Student) super.getSession().get(STUDENT);
+		teacher = (Teacher) super.getSession().get(TEACHER);
+
+		if(student != null){
+			super.getSession().remove(STUDENT);
+			super.getSession().remove("user");
+		}else if(teacher != null){
+			super.getSession().remove(TEACHER);
+			super.getSession().remove("user");
+		}
+		return SUCCESS;
+	}
+	
 	/**
 	 * 学院管理员退出
 	 * @return

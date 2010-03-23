@@ -6,22 +6,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>厦门大学精品课程网站——首页</title>
 		<link rel="stylesheet" href="${ctx}/homepage/link.css">
-		<script language="javascript">
-	function checkPopedom(){
-		var user = <%=(String) session.getAttribute("user")%>;
-		//var teacher = <%=(String) session.getAttribute("TEACHER")%>;
-		
-		if(user == null){	
-			document.getElementById("login").style.display="block";
-			document.getElementById("user").style.display="none";
-		}else{	
-			document.getElementById("login").style.display="none";
-			document.getElementById("user").style.display="block";
-		}	
-  	}
-  	</script>
 	</head>
-<body  topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" width="100%" height="100%" background="${ctx}/homepage/image/back_img.gif" style="background-repeat:repeat-x">
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" width="100%" height="100%" background="${ctx}/homepage/image/back_img.gif" style="background-repeat:repeat-x">
 
 <s:include value="include/header.jsp"></s:include>
 
@@ -32,8 +18,8 @@
 		<table border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tr>
 			<td valign="top">
-			<!-- 로그인부분 -->
-				<table border="0" cellpadding="0" cellspacing="0" align="center">
+			<!-- 登录 -->
+				<table border="0" cellpadding="0" cellspacing="0" align="center" id="login" style="display:<s:property value="idLogin" />">
 				<tr>
 					<td><img src="${ctx}/homepage/image/login_title.gif" border="0" alt=""></td></tr>
 				<tr height="11">
@@ -94,7 +80,7 @@
 							<td width="2" bgcolor="#e7e7e7"></td>
 						<tr>
 						</table>
-</s:form>
+					</s:form>
 					<!--/ 登录 -->
 					</td>
 				</tr>
@@ -126,13 +112,81 @@
 					</td>
 				</tr>
 				<tr><td><img src="${ctx}/homepage/image/login_bottom.gif" border="0" alt=""></td></tr>
-				</table>
-			
+				</table>			
+					
+<!-- 登录后 -->
+				<table border="0" cellpadding="0" cellspacing="0" align="center" id="afterLogin" style="display:<s:property value="afterLogin" />">
+				<tr>
+					<td><img src="${ctx}/homepage/image/login_title.gif" border="0" alt=""></td></tr>
+				<tr height="11">
+					<td>
+					<!-- 로그인 웃부분 여백 -->
+						<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+						<tr>
+							<td width="2" bgcolor="#e7e7e7"></td>
+							<td width="190"></td>
+							<td width="2" bgcolor="#e7e7e7"></td>
+						</tr>
+						</table>
+					<!--/ 로그인 웃부분 여백 -->
+					</td>
+				</tr>
+				<tr>
+					<td width="194">
+					<!-- 登录后 -->
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tr height="29">
+							<td width="2" bgcolor="#e7e7e7" valign="top"></td>
+							<td width="10" valign="top"></td>
+							<td valign="top" width="170">欢迎您, <s:property value="user" /></td>
+							<td width="10" valign="top"></td>
+							<td width="2" bgcolor="#e7e7e7" valign="top"></td>
+						</tr>
+						<tr>
+							<td width="2" bgcolor="#e7e7e7"></td>
+							<td width="10"></td>
+							<td width="170">现在是</td>
+							<td width="10"></td>
+							<td width="2" bgcolor="#e7e7e7"></td>
+						</tr>
+
+						</table>
+					<!--/ 登录 -->
+					</td>
+				</tr>
+				<tr height="16">
+					<td>
+					<!-- 로그인 아래부분 여백 -->
+						<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+						<tr>
+							<td width="2" bgcolor="#e7e7e7"></td>
+							<td width="190"></td>
+							<td width="2" bgcolor="#e7e7e7"></td>
+						</tr>
+						</table>
+					<!--/ 로그인 아래부분 여백 -->
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<!-- 회원가입 및 id/pw찾기 -->
+						<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="2" bgcolor="#e7e7e7"></td>
+							<td width="13"></td>
 							
+							<td width="2" bgcolor="#e7e7e7"></td>
+						</tr>
+						</table>
+					<!--/ 회원가입 및 id/pw찾기 -->
+					</td>
+				</tr>
+				<tr><td><img src="${ctx}/homepage/image/login_bottom.gif" border="0" alt=""></td></tr>
+				</table>		
 			<!-- 리스트 -->
 			</td>
 		</tr>
-		<tr><td height="7"></td></td></tr>
+		<tr><td height="7"></td></tr>
 		<tr>
 			<td valign="top" width="194">
 			<!-- 最新课程 -->
@@ -144,7 +198,7 @@
 				<tr>
 					<td>
 						<table border="0" cellpadding="0" cellspacing="0">
-						<tr height="28">
+						<tr>
 							<td colspan="3" align="left"><s:actionmessage/></td>
 						</tr>
 						<s:iterator value="courseList" status="course">	
