@@ -6,7 +6,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>新闻公告——厦门大学精品课程网站</title>
 	<link rel="stylesheet" href="${ctx}/homepage/link.css">
-<body  topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" width="100%" height="100%" background="${ctx}/homepage/image/back_img.gif" style="background-repeat:repeat-x">
+<body  topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" background="${ctx}/homepage/image/back_img.gif" style="background-repeat:repeat-x">
 
 <s:include value="include/header.jsp"></s:include>
 <!-- left -->
