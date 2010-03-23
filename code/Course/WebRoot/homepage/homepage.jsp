@@ -135,7 +135,7 @@
 		<tr><td height="7"></td></td></tr>
 		<tr>
 			<td valign="top" width="194">
-			<!-- 精品课程展示 -->
+			<!-- 展示 -->
 				
 			<table border="0" cellpadding="0" cellspacing="0">
 				<tr>
