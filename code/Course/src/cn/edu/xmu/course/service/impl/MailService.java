@@ -73,6 +73,12 @@ public class MailService implements IMailService {
 		// TODO Auto-generated method stub
 		return mailDAO.findById(id);
 	}
+	
+	public String getMailDetail(Integer id) {
+		// TODO Auto-generated method stub
+		System.out.println("here");
+		return mailDAO.findById(id).getContent();
+	}
 
 	public List getMailsByReceiver(UserInfo receiver) {
 		// TODO Auto-generated method stub
