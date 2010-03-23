@@ -14,6 +14,8 @@ public interface IMailService {
 	public boolean addAndSaveMail(Mail mail, UserInfo sender, UserInfo receiver);
 	
 	public boolean deleteMail(Mail mail);
+	
+	public String getMailDetail(Integer id);
 
 	public Mail getMailById(Integer id);
 

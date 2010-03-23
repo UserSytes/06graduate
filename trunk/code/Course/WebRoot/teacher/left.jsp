@@ -172,7 +172,7 @@ a:visited {
 																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
 																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
 																	<span class="STYLE2">&nbsp;<a
-																		href="mycourse/right.jsp"
+																		href="getReceiveMailByTeaAction.action"
 																		target=I2>消息管理</a> </span>
 																</td>
 															</tr>

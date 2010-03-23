@@ -15,7 +15,7 @@ public class MailAction extends BaseAction{
 	private static final long serialVersionUID = -7887886471455615261L;
 	
 	private IMailService mailService;
-	private IStudentInfoService studentService;
+	private IStudentInfoService studentInfoService;
 	private Mail mail;
 	private List<Mail> mailList;
 	private Integer mailId;
@@ -28,7 +28,7 @@ public class MailAction extends BaseAction{
 	 * @return
 	 */
 	public String addNewMailByTeacher(){
-		Student student = studentService.findByStudentNo(studentNo);
+		Student student = getStudentInfoService().findByStudentNo(studentNo);
 		
 		if(mailService.addNewMail(mail, super.getTeacher().getUserInfo(), student.getUserInfo())){
 			addActionMessage("发送消息成功！");
@@ -44,7 +44,7 @@ public class MailAction extends BaseAction{
 	 * @return
 	 */
 	public String addDraftByTeacher(){
-		Student student = studentService.findByStudentNo(studentNo);		
+		Student student = getStudentInfoService().findByStudentNo(studentNo);		
 		if(mailService.addDraft(mail, super.getTeacher().getUserInfo(), student.getUserInfo())){
 			addActionMessage("已将消息保存在草稿箱！");
 			return SUCCESS;
@@ -86,6 +86,11 @@ public class MailAction extends BaseAction{
 		return SUCCESS;
 	}
 	
+	public String getMailDetail(){
+		mail=mailService.getMailById(mailId);
+		return null;
+	}
+	
 	public IMailService getMailService() {
 		return mailService;
 	}
@@ -119,13 +124,6 @@ public class MailAction extends BaseAction{
 		return studentNo;
 	}
 
-	public void setStudentService(IStudentInfoService studentService) {
-		this.studentService = studentService;
-	}
-
-	public IStudentInfoService getStudentService() {
-		return studentService;
-	}
 
 	public void setSort(int sort) {
 		this.sort = sort;
@@ -141,6 +139,14 @@ public class MailAction extends BaseAction{
 
 	public int getStatus() {
 		return status;
+	}
+
+	public void setStudentInfoService(IStudentInfoService studentInfoService) {
+		this.studentInfoService = studentInfoService;
+	}
+
+	public IStudentInfoService getStudentInfoService() {
+		return studentInfoService;
 	}
 	
 	
