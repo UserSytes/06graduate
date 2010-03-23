@@ -243,4 +243,14 @@
 		</property>
 	</bean>
 	
+	<bean id="mailAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.MailAction">
+		<property name="mailService">
+			<ref bean="mailService" />
+		</property>
+				<property name="studentInfoService">
+			<ref bean="studentInfoService" />
+		</property>
+	</bean>
+	
 </beans>
