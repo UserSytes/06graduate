@@ -182,4 +182,9 @@
 			<ref bean="NoticeDAO" />
 		</property>
 	</bean>
+	<bean id="mailServiceTarget" class="cn.edu.xmu.course.service.impl.MailService">
+	<property name="mailDAO">
+			<ref bean="MailDAO" />
+		</property>
+	</bean>
 </beans>

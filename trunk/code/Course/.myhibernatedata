@@ -1,5 +1,5 @@
 #
-#Sat Mar 20 19:51:28 CST 2010
+#Tue Mar 23 14:52:16 CST 2010
 genBasicCompId=false
 sessionFactoryName=cn.edu.xmu.course.factory.HibernateSessionFactory
 profile=

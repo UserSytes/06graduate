@@ -150,4 +150,10 @@
 			<ref bean="noticeServiceTarget" />
 		</property>
 	</bean>
+	
+	<bean id="mailService" parent="transactionBase">
+		<property name="target">
+			<ref bean="mailServiceTarget" />
+		</property>
+	</bean>
 </beans>

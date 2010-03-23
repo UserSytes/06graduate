@@ -9,11 +9,12 @@ public class Mail implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private UserInfo userInfoBySenderId;
-	private UserInfo userInfoByReceiverId;
+	private UserInfo sender;
+	private UserInfo receiver;
 	private String title;
 	private String content;
 	private Integer status;
+	private Integer sort;
 
 	// Constructors
 
@@ -23,12 +24,13 @@ public class Mail implements java.io.Serializable {
 
 	/** full constructor */
 	public Mail(UserInfo userInfoBySenderId, UserInfo userInfoByReceiverId,
-			String title, String content, Integer status) {
-		this.userInfoBySenderId = userInfoBySenderId;
-		this.userInfoByReceiverId = userInfoByReceiverId;
+			String title, String content, Integer status, Integer sort) {
+		this.sender = sender;
+		this.receiver = receiver;
 		this.title = title;
 		this.content = content;
 		this.status = status;
+		this.sort = sort;
 	}
 
 	// Property accessors
@@ -39,22 +41,6 @@ public class Mail implements java.io.Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public UserInfo getUserInfoBySenderId() {
-		return this.userInfoBySenderId;
-	}
-
-	public void setUserInfoBySenderId(UserInfo userInfoBySenderId) {
-		this.userInfoBySenderId = userInfoBySenderId;
-	}
-
-	public UserInfo getUserInfoByReceiverId() {
-		return this.userInfoByReceiverId;
-	}
-
-	public void setUserInfoByReceiverId(UserInfo userInfoByReceiverId) {
-		this.userInfoByReceiverId = userInfoByReceiverId;
 	}
 
 	public String getTitle() {
@@ -79,6 +65,30 @@ public class Mail implements java.io.Serializable {
 
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	public Integer getSort() {
+		return this.sort;
+	}
+
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+
+	public void setReceiver(UserInfo receiver) {
+		this.receiver = receiver;
+	}
+
+	public UserInfo getReceiver() {
+		return receiver;
+	}
+
+	public void setSender(UserInfo sender) {
+		this.sender = sender;
+	}
+
+	public UserInfo getSender() {
+		return sender;
 	}
 
 }

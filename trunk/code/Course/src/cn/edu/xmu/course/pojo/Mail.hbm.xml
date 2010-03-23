@@ -10,10 +10,10 @@
             <column name="id" />
             <generator class="increment" />
         </id>
-        <many-to-one name="userInfoBySenderId" class="cn.edu.xmu.course.pojo.UserInfo" fetch="select">
+        <many-to-one name="sender" class="cn.edu.xmu.course.pojo.UserInfo" fetch="select">
             <column name="sender_id" />
         </many-to-one>
-        <many-to-one name="userInfoByReceiverId" class="cn.edu.xmu.course.pojo.UserInfo" fetch="select">
+        <many-to-one name="receiver" class="cn.edu.xmu.course.pojo.UserInfo" fetch="select">
             <column name="receiver_id" />
         </many-to-one>
         <property name="title" type="java.lang.String">
@@ -24,6 +24,9 @@
         </property>
         <property name="status" type="java.lang.Integer">
             <column name="status" />
+        </property>
+         <property name="sort" type="java.lang.Integer">
+            <column name="sort" />
         </property>
     </class>
 </hibernate-mapping>
