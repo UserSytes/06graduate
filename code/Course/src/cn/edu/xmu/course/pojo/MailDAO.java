@@ -1,4 +1,4 @@
-package cn.edu.xmu.course.dao;
+package cn.edu.xmu.course.pojo;
 
 import java.util.List;
 import org.apache.commons.logging.Log;
@@ -6,9 +6,6 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-
-import cn.edu.xmu.course.pojo.Mail;
-import cn.edu.xmu.course.pojo.UserInfo;
 
 /**
  * A data access object (DAO) providing persistence and search support for Mail
@@ -28,8 +25,7 @@ public class MailDAO extends HibernateDaoSupport {
 	public static final String TITLE = "title";
 	public static final String CONTENT = "content";
 	public static final String STATUS = "status";
-	public static final String SENDER = "sender";
-	public static final String RECEIVER = "receiver";
+	public static final String SORT = "sort";
 
 	protected void initDao() {
 		// do nothing
@@ -103,32 +99,12 @@ public class MailDAO extends HibernateDaoSupport {
 		return findByProperty(CONTENT, content);
 	}
 
-	public List findByReceiver(Object receiver) {
-		log.debug("finding Mail instance with property: sender, value: " + receiver);
-		try {
-			String queryString = "from Mail as model where model.sort = 1 and model.receiver"
-					+ "= ?";
-			return getHibernateTemplate().find(queryString, receiver);
-		} catch (RuntimeException re) {
-			log.error("find by property name failed", re);
-			throw re;
-		}
-	}
-	
 	public List findByStatus(Object status) {
 		return findByProperty(STATUS, status);
 	}
 
-	public List findBySender(UserInfo sender, int status) {
-		log.debug("finding Mail instance with property: sender, value: " + sender);
-		try {
-			String queryString = "from Mail as model where model.sort = 2 and model.status ="+status+" and model.sender"
-					+ "= ?";
-			return getHibernateTemplate().find(queryString, sender);
-		} catch (RuntimeException re) {
-			log.error("find by property name failed", re);
-			throw re;
-		}
+	public List findBySort(Object sort) {
+		return findByProperty(SORT, sort);
 	}
 
 	public List findAll() {

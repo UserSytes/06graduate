@@ -158,7 +158,48 @@ a:visited {
 														</table>
 													</td>
 												</tr>
-
+<tr>
+													<td width="41" height="35">
+														<div align="center">
+															<img src="images/left_3.gif" width="31" height="31">
+														</div>
+													</td>
+													<td height="35">
+														<table width="100%" border="0" cellspacing="0"
+															cellpadding="0">
+															<tr>
+																<td height="23" style="cursor: hand"
+																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
+																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
+																	<span class="STYLE2">&nbsp;<a
+																		href="mycourse/right.jsp"
+																		target=I2>消息管理</a> </span>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+<tr>
+													<td width="41" height="35">
+														<div align="center">
+															<img src="images/left_3.gif" width="31" height="31">
+														</div>
+													</td>
+													<td height="35">
+														<table width="100%" border="0" cellspacing="0"
+															cellpadding="0">
+															<tr>
+																<td height="23" style="cursor: hand"
+																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
+																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
+																	<span class="STYLE2">&nbsp;<a
+																		href="showTopicsByTeacherAction.action?time=0"
+																		target=I2>留言管理</a> </span>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
 											</table>
 										</td>
 									</tr>
