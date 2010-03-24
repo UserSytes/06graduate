@@ -21,37 +21,38 @@ public class ApplicationFormAction extends BaseAction {
 	private IApplicationFormService applicationFormService;
 
 	/**
-	 * 查找申请表格
+	 * 获取当前课程，首次点击课程时加载的方法
+	 * 
 	 * @return
 	 */
-	public String findApplicationForm(){
-		Course course=super.getCourse();
-		applicationForm=applicationFormService.getApplicationForm(course.getId());
+	public String getCurrentCourse() {
+		Course course = super.getCourse();
+		if (null == applicationFormService.getApplicationForm(course.getId())) {
+			applicationForm = new ApplicationForm();
+		} else {
+
+			applicationForm = applicationFormService.getApplicationForm(course
+					.getId());
+		}
+		return SUCCESS;
+	}
+
+	/**
+	 * 查找申请表格
+	 * 
+	 * @return
+	 */
+	public String findApplicationForm() {
+		Course course = super.getCourse();
+		applicationForm = applicationFormService.getApplicationForm(course
+				.getId());
 		if (getApplicationForm() == null) {
 			addActionError("申报表格信息不存在！");
 			return ERROR;
 		} else
 			return "applicationForm";
 	}
-	/**
-	 * 添加新的申报表格
-	 * 
-	 * @return
-	 */
-	public String addApplicationForm() {
-		if (getUpload() != null) {
-			if (getUpload().length() >= new Long(10485760L)) {
-				addActionError("上传课件大小不能超过10M,请重新上传！");
-				return ERROR;
-			}
-			applicationForm.setFileLink(this.refactorFileLink());
-			applicationForm.setFilename(getUploadFileName());
-		}
-		if (applicationForm.getId() == null)
-			return addNewApplicationForm();
-		else
-			return updateApplicationForm();
-	}
+
 	/**
 	 * 对上传文件进行重命名
 	 * 
@@ -63,6 +64,21 @@ public class ApplicationFormAction extends BaseAction {
 				+ super.getCourse().getName() + "_" + "申报表格_" + uploadFileName;
 		return fileLink;
 	}
+
+	/**
+	 * 添加新的申报表格
+	 * 
+	 * @return
+	 */
+	public String addApplicationForm() {
+		applicationForm.setFileLink(this.refactorFileLink());
+		applicationForm.setFilename(uploadFileName);
+		if (applicationForm.getId() == null)
+			return addNewApplicationForm();
+		else
+			return updateApplicationForm();
+	}
+
 	/**
 	 * 添加申报表格
 	 * 
@@ -73,7 +89,7 @@ public class ApplicationFormAction extends BaseAction {
 		Course course = super.getCourse();
 		try {
 			if (applicationFormService.addApplicationForm(applicationForm,
-					course, getUpload())) {
+					course, upload)) {
 				addActionMessage("添加课程申报表格成功！!");
 				return SUCCESS;
 			} else {
@@ -95,7 +111,7 @@ public class ApplicationFormAction extends BaseAction {
 	public String updateApplicationForm() {
 		try {
 			if (applicationFormService.updateApplicationForm(applicationForm,
-					getUpload())) {
+					upload)) {
 				addActionMessage("更改课程申报表格成功!");
 				return SUCCESS;
 			} else {
@@ -108,7 +124,8 @@ public class ApplicationFormAction extends BaseAction {
 		}
 	}
 
-	public void setApplicationFormService(IApplicationFormService applicationFormService) {
+	public void setApplicationFormService(
+			IApplicationFormService applicationFormService) {
 		this.applicationFormService = applicationFormService;
 	}
 
@@ -131,27 +148,35 @@ public class ApplicationFormAction extends BaseAction {
 	public int getCourseId() {
 		return courseId;
 	}
+
 	public void setSort(Integer sort) {
 		this.sort = sort;
 	}
+
 	public Integer getSort() {
 		return sort;
 	}
+
 	public void setUpload(File upload) {
 		this.upload = upload;
 	}
+
 	public File getUpload() {
 		return upload;
 	}
+
 	public void setUploadContentType(String uploadContentType) {
 		this.uploadContentType = uploadContentType;
 	}
+
 	public String getUploadContentType() {
 		return uploadContentType;
 	}
+
 	public void setUploadFileName(String uploadFileName) {
 		this.uploadFileName = uploadFileName;
 	}
+
 	public String getUploadFileName() {
 		return uploadFileName;
 	}

@@ -34,7 +34,6 @@ public class CourseInfoAction extends BaseAction {
 	private String uploadFileName;
 
 	private ICourseInfoService courseInfoService;
-	private IApplicationFormService applicationFormService;
 
 	/**
 	 * 添加课程信息
@@ -95,22 +94,7 @@ public class CourseInfoAction extends BaseAction {
 		return SUCCESS;
 	}
 
-	/**
-	 * 获取当前课程，首次点击课程时加载的方法
-	 * 
-	 * @return
-	 */
-	public String getCurrentCourse() {
-		Course course = super.getCourse();
-		if (null == applicationFormService.getApplicationForm(course.getId())) {
-			applicationForm = new ApplicationForm();
-		} else {
 
-			applicationForm = applicationFormService.getApplicationForm(course
-					.getId());
-		}
-		return SUCCESS;
-	}
 
 	/**
 	 * 获取当前课程信息
@@ -143,82 +127,7 @@ public class CourseInfoAction extends BaseAction {
 		return SUCCESS;
 	}
 	
-	/**
-	 * 对上传文件进行重命名
-	 * 
-	 * @return
-	 */
-	private String refactorFileLink() {
-		Teacher teacher = super.getTeacher();
-		String fileLink = teacher.getUserInfo().getName() + "/"
-				+ super.getCourse().getName() + "_" + "申报表格_" + uploadFileName;
-		return fileLink;
-	}
-
-	/**
-	 * 添加新的申报表格
-	 * 
-	 * @return
-	 */
-	public String addApplicationForm() {
-		if (upload != null) {
-			if (upload.length() >= new Long(10485760L)) {
-				addActionError("上传课件大小不能超过10M,请重新上传！");
-				return ERROR;
-			}
-			applicationForm.setFileLink(this.refactorFileLink());
-			applicationForm.setFilename(uploadFileName);
-		}
-		if (applicationForm.getId() == null)
-			return addNewApplicationForm();
-		else
-			return updateApplicationForm();
-	}
-
-	/**
-	 * 添加申报表格
-	 * 
-	 * @param file
-	 * @return
-	 */
-	public String addNewApplicationForm() {
-		Course course = super.getCourse();
-		try {
-			if (applicationFormService.addApplicationForm(applicationForm,
-					course, upload)) {
-				addActionMessage("添加课程申报表格成功！!");
-				return SUCCESS;
-			} else {
-				addActionError("添加课程申报表格失败，请重新操作！");
-				return ERROR;
-			}
-		} catch (Exception e) {
-			addActionError("操作错误，请重新操作！");
-			return ERROR;
-		}
-	}
-
-	/**
-	 * 更新申报表格
-	 * 
-	 * @param file
-	 * @return
-	 */
-	public String updateApplicationForm() {
-		try {
-			if (applicationFormService.updateApplicationForm(applicationForm,
-					upload)) {
-				addActionMessage("更改课程申报表格成功!");
-				return SUCCESS;
-			} else {
-				addActionError("更改课程申报表格失败，请重新操作！");
-				return ERROR;
-			}
-		} catch (Exception e) {
-			addActionError("操作错误，请重新操作！");
-			return ERROR;
-		}
-	}
+	
 
 	public void setCourseInfo(CourseInfo courseInfo) {
 		this.courseInfo = courseInfo;
@@ -234,15 +143,6 @@ public class CourseInfoAction extends BaseAction {
 
 	public ICourseInfoService getCourseInfoService() {
 		return courseInfoService;
-	}
-
-	public void setApplicationFormService(
-			IApplicationFormService applicationFormService) {
-		this.applicationFormService = applicationFormService;
-	}
-
-	public IApplicationFormService getApplicationFormService() {
-		return applicationFormService;
 	}
 
 	public void setApplicationForm(ApplicationForm applicationForm) {

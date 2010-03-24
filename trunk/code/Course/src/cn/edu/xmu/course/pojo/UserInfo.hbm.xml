@@ -25,6 +25,9 @@
         <property name="mobile" type="java.lang.Long">
             <column name="mobile" precision="20" scale="0" />
         </property>
+        <property name="photo" type="java.lang.String">
+            <column name="photo" />
+        </property>
         <set name="mailsForReceiverId" inverse="true" cascade="delete">
             <key>
                 <column name="receiver_id" />

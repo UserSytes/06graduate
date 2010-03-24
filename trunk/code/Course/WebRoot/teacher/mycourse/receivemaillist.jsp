@@ -13,17 +13,7 @@
 
 		<title>课程列表</title>
 		<style type="text/css">
-.delete_msg {
-	width: 200px;
-}
-
 .delete_msg a {
-	display: block;
-	margin-right: 10px;
-	margin-left: 150px;
-	margin-top: 10px;
-	width: 18px;
-	height: 19px;
 	background: url(${ctx}/teacher/images/del.gif) no-repeat;
 }
 
@@ -45,8 +35,8 @@ itemtitle ul a:hover span {
 		-23px;
 	color: #FFF;
 }
-
 </style>
+		<script type="text/javascript" src="${ctx}/js/mail.js"></script>
 		<script type="text/javascript" src="/dwr/engine.js"></script>
 		<script type="text/javascript" src="/dwr/util.js"></script>
 		<script type="text/javascript" src="/dwr/interface/MailService.js"></script>
@@ -56,8 +46,7 @@ itemtitle ul a:hover span {
 	var table1;
 	var row1;
 	var currpmdiv;
-	function getMailDetail(mailId,e,obj) {
-	
+	function getMailDetail(mailId,e,obj) {	
 		currpmdiv = mailId+ '_div';	
 		if (!$(currpmdiv)) {
 		table1 = document.getElementById("table");
@@ -82,40 +71,6 @@ itemtitle ul a:hover span {
 		}
 				doane(e);
 	}
-	function callBack(data){
-
-
-		row1.id = currpmdiv;
-		row1.className = 'row';
-		var cell1 = row1.insertCell(0);
-		cell1.innerHTML = '&nbsp;';
-		cell1.className = 'altbg1';
-		cell1.colSpan = '2';
-		var cell2 = row1.insertCell(1);
-		cell2.colSpan = '3';
-		cell2.innerHTML=data;
-		cell2.className = 'altbg1';
-		
-	}
-
-	
-	function changestatus(obj) {
-		if (obj.innerHTML.substr(0, 3).toLowerCase() == '<b>') {
-			obj.innerHTML = obj.innerHTML.substr(3, obj.innerHTML.length - 7);
-			if (folder == 'inbox' && obj.href.indexOf('folder=announce') == -1)
-				$('pm_unread').innerHTML = parseInt($('pm_unread').innerHTML) - 1;
-		}
-	}
-	function doane(event) {
-	e = event ? event : window.event ;
-	if(is_ie) {
-		e.returnValue = false;
-		e.cancelBubble = true;
-	} else {
-		e.stopPropagation();
-		e.preventDefault();
-	}
-}
 	
 </script>
 
@@ -125,7 +80,7 @@ itemtitle ul a:hover span {
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 课程管理 -&gt; 课程列表
+					当前位置: 教师信息 -&gt; 消息管理 
 				</td>
 			</tr>
 		</table>
@@ -135,14 +90,13 @@ itemtitle ul a:hover span {
 				<div class="cm_header itemtitle s_clear">
 					<ul>
 
-						<a style="color: #09C; float: right; font-weight: 700"
-							href="usercppostpm.aspx">+ 写新消息</a>
-						<li>
-							<a href="#" ><span>收件箱</span>
-							</a>
+						<a style="color: #09C; float: right;font-weight: 700" href="##">+
+							写新消息</a>
+						<li  class="current">
+							<a href="#"><span>收件箱</span> </a>
 						</li>
-						<li class="current">
-							<a href="#" ><span>发件箱</span> </a>
+						<li>
+							<a href="#"><span>发件箱</span> </a>
 						</li>
 						<li>
 							<a href="#"><span>草稿箱</span> </a>
@@ -160,7 +114,6 @@ itemtitle ul a:hover span {
 							<img width="48"
 								onerror="this.onerror=null;this.src='${ctx}/teacher/images/noavatar_small.gif'"
 								src="${ctx}/teacher/images/noavatar_small.gif" />
-
 						</td>
 						<td class="name_and_date">
 							<span class="name"><a href="###"> <s:property
@@ -178,7 +131,7 @@ itemtitle ul a:hover span {
 											value="title" /> </a>
 								</p>
 								<div class="snippet_wrap grayfont">
-									<s:property value="content" escape="false"/>
+									<s:property value="content" escape="false" />
 								</div>
 							</div>
 
