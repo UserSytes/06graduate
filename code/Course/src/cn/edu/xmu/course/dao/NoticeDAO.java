@@ -1,10 +1,12 @@
 package cn.edu.xmu.course.dao;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
+import org.hibernate.Query;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -93,7 +95,42 @@ public class NoticeDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
+	public List findLastestFiveNews (Object course) {
+	  	List list = new ArrayList() ;
+	  	try {
+	  	  
+	  		String queryString = 
+	  			"select notice from Notice notice where notice.course=? and sort=? order by notice.time DESC";
+	  		Query queryObject = getSession().createQuery(queryString);
+	  		queryObject.setParameter(0, course);
+	  		queryObject.setParameter(1, 0);
+	  		queryObject.setFirstResult(0); 
+	  		queryObject.setMaxResults(5); 
+	  		list=queryObject.list();
 
+	  	  
+	  	} catch(RuntimeException re) {
+	  		log.error("find Message by page failed", re);
+	  		re.printStackTrace() ;
+	  	}
+	  	return list ;
+	  }
+	public List findByCourseAndSort(Object courseId,Object sort){
+		log.debug("finding Notice instance by course and sort");
+		try {
+
+			Query q = getSession().createQuery(
+					"select notice from Notice notice where notice.course.id='" + courseId
+							+ "' and sort='" + sort + "' order by notice.time DESC");
+			List results = q.list();
+			log.debug("find by course and sort successful, result size: "
+							+ results.size());
+			return results;
+		} catch (RuntimeException re) {
+			log.error("find by course and sort failed", re);
+			throw re;
+		}
+	}
 	public List findByTitle(Object title) {
 		return findByProperty(TITLE, title);
 	}
