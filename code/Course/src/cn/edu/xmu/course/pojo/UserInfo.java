@@ -16,6 +16,7 @@ public class UserInfo implements java.io.Serializable {
 	private String name;
 	private String sex;
 	private String email;
+	private String photo;
 	private Long mobile;
 	private Set mailsForReceiverId = new HashSet(0);
 	private Set mailsForSenderId = new HashSet(0);
@@ -31,13 +32,14 @@ public class UserInfo implements java.io.Serializable {
 
 	/** full constructor */
 	public UserInfo(Department department, String name, String sex,
-			String email, Long mobile, Set mailsForReceiverId,
+			String email, Long mobile,String photo, Set mailsForReceiverId,
 			Set mailsForSenderId, Set messages, Set teachers, Set students) {
 		this.department = department;
 		this.name = name;
 		this.sex = sex;
 		this.email = email;
 		this.mobile = mobile;
+		this.setPhoto(photo);
 		this.mailsForReceiverId = mailsForReceiverId;
 		this.mailsForSenderId = mailsForSenderId;
 		this.messages = messages;
@@ -133,6 +135,14 @@ public class UserInfo implements java.io.Serializable {
 
 	public void setStudents(Set students) {
 		this.students = students;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public String getPhoto() {
+		return photo;
 	}
 
 }
