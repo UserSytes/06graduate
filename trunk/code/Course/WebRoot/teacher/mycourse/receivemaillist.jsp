@@ -13,28 +13,19 @@
 
 		<title>课程列表</title>
 		<style type="text/css">
+		
+.delete_msg {
+	width: 20px;	
+}
 .delete_msg a {
 	display: block;
-	margin-right: 10px;
-	margin-left: 150px;
+	margin-right: 3px;
+	margin-left: 3px;
 	margin-top: 10px;
-	width: 18px;
-	height: 19px;
-	background: url(${ctx}/teacher/images/del.gif) no-repeat;
+	width: 16px;
+	height: 16px;	
 }
 
-.yulan_msg a {
-	display: block;
-	margin-right: 10px;
-	margin-left: 10px;
-	margin-top: 10px;
-	width: 18px;
-	height: 19px;
-}
-
-.delete_msg a:hover {
-	background: #3B5998 url(${ctx}/teacher/images/del.gif) no-repeat;
-}
 
 itemtitle ul a:hover span {
 	background: url(${ctx}/teacher/images/btn_block.gif) no-repeat 100%
@@ -70,7 +61,7 @@ itemtitle ul a:hover span {
 		currpmdiv = mailId+ '_div';	
 		if (!$(currpmdiv)) {
 		table1 = document.getElementById("table");
-		row1 = table1.insertRow(obj.parentNode.parentNode.parentNode.parentNode.rowIndex + 1);
+		row1 = table1.insertRow(obj.parentNode.parentNode.rowIndex + 1);
 		MailService.getMailDetail(mailId, callBack);	   
 					$(prepmdiv).style.display = 'none';
 				changestatus(obj);
@@ -195,14 +186,19 @@ itemtitle ul a:hover span {
 								</div>
 
 							</td>
-							<td class="yulan_msg">
+							<td class="delete_msg">
+								<a href="#" onclick="getMailDetail(${id},event,this)"
+									style="background-image: url('${ctx}/teacher/images/down.gif');">
+								</a>
+							</td>
+							<td class="delete_msg">
 								<a href="#"
-									style="background-image: url('${ctx}/teacher/images/del.gif')">
+									style="background-image: url('${ctx}/teacher/images/reply.gif');">
 								</a>
 							</td>
 							<td class="delete_msg">
 								<a
-									style="background-image: url('${ctx}/teacher/images/del.gif')"
+									style="background-image: url('${ctx}/teacher/images/del.gif');"
 									href="<s:url action="goAddCourseStudentBatchByTeaAction"> 
                      			<s:param name="courseId"> 
                        			 	<s:property value="id"/> 
