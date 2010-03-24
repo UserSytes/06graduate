@@ -1,5 +1,7 @@
 package cn.edu.xmu.course.pojo;
 
+import java.util.Date;
+
 /**
  * Mail entity. @author MyEclipse Persistence Tools
  */
@@ -15,6 +17,7 @@ public class Mail implements java.io.Serializable {
 	private String content;
 	private Integer status;
 	private Integer sort;
+	private Date time;
 
 	// Constructors
 
@@ -24,13 +27,14 @@ public class Mail implements java.io.Serializable {
 
 	/** full constructor */
 	public Mail(UserInfo userInfoBySenderId, UserInfo userInfoByReceiverId,
-			String title, String content, Integer status, Integer sort) {
+			String title, String content, Integer status, Integer sort,Date time) {
 		this.sender = sender;
 		this.receiver = receiver;
 		this.title = title;
 		this.content = content;
 		this.status = status;
 		this.sort = sort;
+		this.time = time;
 	}
 
 	// Property accessors
@@ -89,6 +93,14 @@ public class Mail implements java.io.Serializable {
 
 	public UserInfo getSender() {
 		return sender;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
+	}
+
+	public Date getTime() {
+		return time;
 	}
 
 }

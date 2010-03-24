@@ -144,6 +144,10 @@ a.v1:visited {
 	text-decoration: none;
 }
 
+.name_and_date {
+	width: 150px;
+}
+
 .name_and_date .name {
 	display: block;
 	width: 150px;
@@ -187,9 +191,25 @@ a.v1:visited {
 	color: #666;
 }
 .delete_msg {
-	width: 200px;
+	width: 20px;
+}
+.delete_msg a {
+	display: block;
+	margin-right: 10px;
+	margin-left: 150px;
+	margin-top: 10px;
+	width: 18px;
+	height: 19px;	
 }
 
+.yulan_msg a {
+	display: block;
+	margin-right: 10px;
+	margin-left: 10px;
+	margin-top: 10px;
+	width: 18px;
+	height: 19px;
+}
 
 
 .grayfont {
