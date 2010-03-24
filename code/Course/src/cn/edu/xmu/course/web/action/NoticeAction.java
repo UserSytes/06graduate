@@ -17,7 +17,7 @@ public class NoticeAction extends BaseAction {
 
 	private INoticeService noticeService;
 	private ICourseService courseService;
-
+	private Integer sort;
 	private Notice notice;
 	private Course course;
 	private Integer courseId;
@@ -89,6 +89,31 @@ public class NoticeAction extends BaseAction {
 	}
 
 	/**
+	 * 根据类别查找课程通知
+	 * 
+	 * @return
+	 */
+	public String getNoticeBySort() {
+		Course course = super.getCourse();
+		noticeList = noticeService.getNoticeBySort(course, getSort());
+		return SUCCESS;
+	}
+
+	public String findNoticeById() {
+		notice=noticeService.getNoticeById(noticeId);
+		if (getNotice() == null) {
+			addActionError("新闻或通告已不存在！");
+			return ERROR;
+		} else
+			return SUCCESS;
+		
+	}
+	public String findLastestNotice(){
+		Course course=super.getCourse();
+		notice=noticeService.findLastestNotice(course);
+		return SUCCESS;
+	}
+	/**
 	 * 更新课程通知
 	 * 
 	 * @return
@@ -103,22 +128,24 @@ public class NoticeAction extends BaseAction {
 			return ERROR;
 		}
 	}
-	
+
 	/**
 	 * 跳到添加课程通知
+	 * 
 	 * @return
 	 */
-	public String goAddNotice(){
+	public String goAddNotice() {
 		courseList = courseService.findCoursesByTeacher(super.getTeacher()
 				.getId(), 1);
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * 跳到更新课程通知
+	 * 
 	 * @return
 	 */
-	public String goEditNotice(){
+	public String goEditNotice() {
 		courseList = courseService.findCoursesByTeacher(super.getTeacher()
 				.getId(), 1);
 		notice = noticeService.getNoticeById(noticeId);
@@ -196,6 +223,14 @@ public class NoticeAction extends BaseAction {
 
 	public List<Course> getCourseList() {
 		return courseList;
+	}
+
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+
+	public Integer getSort() {
+		return sort;
 	}
 
 }
