@@ -8,7 +8,6 @@ import cn.edu.xmu.course.pojo.Topic;
 import cn.edu.xmu.course.pojo.UserInfo;
 
 public interface IMessageService {
-	public List getAllMessages(Topic topic);
 	public List getAllMessages(Topic topic,int pageSize, int pageNow);
 	public Message getMessageById(Integer id);
 	/**
