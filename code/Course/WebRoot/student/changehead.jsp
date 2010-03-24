@@ -6,6 +6,16 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>个人信息-厦门大学精品课程网站</title>
 		<link type=text/css rel=stylesheet href="${ctx}/homepage/link.css">
+	<SCRIPT language=javascript>
+	function check(form) {
+		if (form.upload.value == "") {
+			alert("照片不能为空！");
+			return false;
+		}
+
+		return true;
+	}
+	</script>
 	</head>
 	<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0"
 		background="${ctx}/homepage/image/back_img.gif"
@@ -57,7 +67,7 @@
 						<tr>
 							<td valign="top" align="center">
 								<!-- 内容 -->
-								<s:form action="changeHeadAction" method="post" enctype="multipart/form-data">
+								<s:form action="changeHeadAction" onsubmit="return check(this);" method="post" enctype="multipart/form-data">
 									<table width="95%" border="3" cellpadding="0" cellspacing="0"
 										bordercolor="#e7e7d7">
 
