@@ -1112,7 +1112,28 @@
 			<result name="success">/coursepage/studentevaluate.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
-		</action>		
+		</action>
+		<!-- 课程首页公告 -->		
+		<action name="getNoticeBySortAction" method="getNoticeBySort"
+			class="noticeAction">
+			<result name="success">/coursepage/noticelist.jsp
+			</result>
+		</action>
+		<action name="viewNoticeAction" method="findNoticeById"
+			class="noticeAction">
+			<result name="success">/coursepage/viewnotice.jsp
+			</result>
+		</action>
+		<action name="findLastestNoticeAction" method="findLastestNotice"
+			class="noticeAction">
+			<result name="success">/coursepage/viewnotice.jsp
+			</result>
+		</action>
+		<action name="goIndexQueryAction" method="goIndexQuery"
+			class="enterCourseAction">
+			<result name="success">/coursepage/index.jsp
+			</result>
+		</action>
 		
 		<action name="getcourseintroAction" method="getCourseintroFromIndex"
 			class="courseInfoAction">
