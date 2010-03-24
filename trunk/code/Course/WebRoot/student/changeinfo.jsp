@@ -93,6 +93,7 @@
 																	<s:hidden name="student.studentNo" />
 																	<s:hidden name="student.password" />
 																	<s:hidden name="student.grade.id" />
+																	<s:hidden name="userInfo.photo"/>
 									<table width="95%" border="3" cellpadding="0" cellspacing="0" bordercolor="#e7e7d7">
 									
 										<tr height="30">

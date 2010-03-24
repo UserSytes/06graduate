@@ -75,7 +75,7 @@ public class BaseAction extends ActionSupport {
 
 	public String logout() {
 		try {
-			session.clear();
+			this.getSession().clear();
 			return SUCCESS;
 		} catch (Exception e) {
 			return ERROR;

@@ -1013,7 +1013,7 @@
 		<action name="loginFromHomePageAction" method="loginFromHomePage"
 			class="homePageAction">
 			<result name="teacher">/teacher/main.jsp</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/homepage/homepage.jsp</result>
 			<result name="student">/student/studentinfo.jsp</result>
 		</action>
         <!-- 首页精品课程列表 -->

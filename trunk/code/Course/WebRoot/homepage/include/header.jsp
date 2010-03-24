@@ -9,7 +9,6 @@
 <script language="javascript">
 	function checkPopedom(){
 		var user = <%=(String) session.getAttribute("user")%>;
-		
 		if(user == null){	
 			document.getElementById("myHome").style.display="none";
 		}else{	

@@ -129,6 +129,7 @@ public class StudentInfoAction extends BaseAction {
 		if(result){
 			student = studentInfoService.findById(student.getId());
 			userInfo = student.getUserInfo();
+			super.getSession().put(STUDENT, student);
 			return SUCCESS;
 		}else
 			return ERROR;

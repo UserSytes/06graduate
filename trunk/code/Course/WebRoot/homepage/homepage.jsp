@@ -4,8 +4,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>厦门大学精品课程网站——首页</title>
+		<title>厦门大学课程中心</title>
 		<link rel="stylesheet" href="${ctx}/homepage/link.css">
+<SCRIPT language=javascript>
+	function check(form) {
+		if (form.userName.value == "") {
+			alert("账号不能为空！");
+			return false;
+		}
+		if (form.password.value == "") {
+			alert("密码不能为空！");
+			return false;
+		}
+		if (form.flag.value == -1) {
+			alert("请选择权限！");
+			return false;
+		}
+		return true;
+	}
+</SCRIPT>
 	</head>
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" width="100%" height="100%" background="${ctx}/homepage/image/back_img.gif" style="background-repeat:repeat-x">
 
@@ -38,7 +55,7 @@
 				<tr>
 					<td width="194">
 					<!-- 登录 -->
-					<s:form action="loginFromHomePageAction" method="post">
+					<s:form action="loginFromHomePageAction" method="post" onsubmit="return check(this);">
 						<table border="0" cellpadding="0" cellspacing="0" width="100%">
 						<tr height="29">
 							<td width="2" bgcolor="#e7e7e7" valign="top"></td>
@@ -79,7 +96,7 @@
 						</tr>
 						<tr >
 							<td width="2" bgcolor="#e7e7e7"></td>
-							<td colspan="6" align="center" ><s:actionmessage/>
+							<td colspan="6" align="center" ><font color="red"><s:actionerror/></font>
 							</td>
 							<td width="2" bgcolor="#e7e7e7"></td>
 						</tr>

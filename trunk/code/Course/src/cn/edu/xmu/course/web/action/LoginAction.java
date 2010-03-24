@@ -8,8 +8,8 @@ import cn.edu.xmu.course.pojo.SuperAdmin;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.pojo.UserInfo;
 /**
- * 
- * @author Sky
+ * 此类负责 用户的登录、退出、及权限分配
+ * @author 郑冰凌
  *
  */
 public class LoginAction extends BaseAction {
@@ -21,8 +21,8 @@ public class LoginAction extends BaseAction {
 
 	private ILoginService loginService;
 
-	private String userName = "123456";
-	private String password = "123456";
+	private String userName;
+	private String password;
 	private int flag;
 	private Student student;
 	private Teacher teacher;
@@ -33,14 +33,10 @@ public class LoginAction extends BaseAction {
 	 * @return
 	 */
 	public String login() {
-		userName = "123";
-		password = "123456";
 		Teacher teacher = loginService.teacherLogin(userName, password);
-		System.out.println(teacher.getTeacherNo());
 		if (null == teacher)
 			return ERROR;
 		else {
-			System.out.println(teacher.getPassword());
 			super.getSession().put(TEACHER, teacher);
 			return SUCCESS;
 		}
@@ -51,23 +47,23 @@ public class LoginAction extends BaseAction {
 	 * @return
 	 */
 	public String adminLogin() {
-		userName = "123456";
-		password = "123456";
-		System.out.println(flag);
 		if (flag == 0) {
 			Administrator admin = loginService.adminLogin(userName, password);
-			if (null == admin)
+			if (null == admin){
+				addActionError("帐号或者密码错误，请重新登录！");
 				return ERROR;
+			}
 			else {
 				super.getSession().put(ADMIN, admin);
 				return "admin";
 			}
 		} else if(flag == 1){
-			System.out.println(userName);
 			SuperAdmin superAdmin = loginService.superAdminLogin(userName,
 					password);
-			if (null == superAdmin)
+			if (null == superAdmin){
+				addActionError("帐号或者密码错误，请重新登录！");
 				return ERROR;
+			}
 			else {
 				super.getSession().put(SUPERADMIN, superAdmin);
 				return "superAdmin";
@@ -79,7 +75,7 @@ public class LoginAction extends BaseAction {
 	}
 
 	/**
-	 * 
+	 * 跳转的个人主页（教师和学生）
 	 * @return
 	 */
 	public String myPage(){
@@ -101,6 +97,9 @@ public class LoginAction extends BaseAction {
 		
 	}
 	
+	/**
+	 * 教师、学生退出系统
+	 */
 	public String logout(){
 		student = (Student) super.getSession().get(STUDENT);
 		teacher = (Teacher) super.getSession().get(TEACHER);
@@ -116,7 +115,7 @@ public class LoginAction extends BaseAction {
 	}
 	
 	/**
-	 * 学院管理员退出
+	 * 学院管理员退出系统
 	 * @return
 	 */
 	public String adminLogout(){
@@ -125,7 +124,7 @@ public class LoginAction extends BaseAction {
 	}
 	
 	/**
-	 * 校管理员登录
+	 * 校管理员退出系统
 	 * @return
 	 */
 	public String superAdminLogout(){
@@ -163,6 +162,30 @@ public class LoginAction extends BaseAction {
 
 	public void setFlag(int flag) {
 		this.flag = flag;
+	}
+
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+
+	public Teacher getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+
+	public UserInfo getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
 	}
 
 }

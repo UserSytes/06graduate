@@ -87,6 +87,11 @@ border="0">
                   <td><img src="Images/closed.gif" /></td>
                   <td height="23"><a href="<s:url action='courseBySchoolAction'> </s:url>"
 														target="main">课程列表</a></td>
+                </tr>
+				<tr>
+                  <td><img src="Images/closed.gif" /></td>
+                  <td height="23"><a href="<s:url action='courseBySchoolAction'> </s:url>"
+														target="main">课程评价</a></td>
                 </tr>					
               </tbody>
           </table></td>
