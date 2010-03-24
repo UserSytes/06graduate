@@ -66,7 +66,7 @@
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<s:password cssClass="INPUT" name="oldPassword"
-							label="原密码"></s:password>
+							label="原密码"  size="30"></s:password>
 						&nbsp;*
 					</td>
 				</tr>
@@ -79,7 +79,7 @@
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<s:password cssClass="INPUT" name="newPassword"
-							label="新密码"></s:password>
+							label="新密码"  size="30"></s:password>
 						&nbsp;*
 					</td>
 				</tr>
@@ -92,7 +92,7 @@
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<s:password cssClass="INPUT" name="newPasswordAgain"
-							label="新密码2"></s:password>
+							label="新密码2" size="30"></s:password>
 						&nbsp;*
 					</td>
 				</tr>

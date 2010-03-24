@@ -97,7 +97,7 @@
 											</td>
 											<td >
 												&nbsp;&nbsp;<s:password cssClass="password" id="oldPassword" name="oldPassword"
-																				label="原密码"></s:password>
+																				 size="30" label="原密码"></s:password>
 																			&nbsp;*
 											</td>
 										</tr>
@@ -107,7 +107,7 @@
 											</td>
 											<td>
 												&nbsp;&nbsp;<s:password cssClass="password" id="newPassword" name="newPassword"
-																				label="新密码"></s:password>
+																				 size="30" label="新密码"></s:password>
 																			&nbsp;*
 											</td>
 										</tr>
@@ -117,7 +117,7 @@
 											</td>
 											<td>
 												&nbsp;&nbsp;<s:password cssClass="password" id="newPasswordAgain" name="newPasswordAgain"
-																				label="新密码2"></s:password>
+																				 size="30" label="新密码2"></s:password>
 																			&nbsp;*
 											</td>
 										</tr>									

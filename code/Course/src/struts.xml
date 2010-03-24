@@ -710,7 +710,16 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		
+		<action name="goDeleteMoreStudentCourseAction" method="goDeleteMoreStudentCourse"
+			class="courseAction">
+			<result name="success">/admin/coursemanage/deletestudent.jsp
+			</result>
+		</action>
+		<action name="deleteMoreStudentCourseAction" method="deleteMoreStudent"
+			class="courseAction">
+			<result name="success">/commons/prompt.jsp
+			</result>
+		</action>
 		<action name="deleteStudentFromCourseAction" method="deleteStudent"
 			class="courseAction">
 			<result name="success" type="redirect-action">viewCourseStudentByTeaAction
@@ -900,6 +909,9 @@
 		</action>
 		
 		<!-- 学生主页 -->
+		<action name="goChangeStudentPwdAction" method="findStudentInfo" class="studentInfoAction">
+			<result name="success">/student/changepassword.jsp</result>
+		</action>
 		<action name="goChangeHeadAction" method="findStudentInfo" class="studentInfoAction">
 			<result name="success">/student/changehead.jsp</result>
 		</action>

@@ -31,31 +31,12 @@
 		</table>
 
 		<div align="center"  id="search1">
-			<s:form action="findStudentByNoAction" method="post">
+			<s:form action="goDeleteMoreStudentCourseAction" method="post">
 				<s:hidden name="course.id" />
 				<table class="listTable">
-					<tr class=editHeaderTr>
-						<td class=editHeaderTd colSpan=7>查找学生 
-						</td>
-					</tr>
-					<tr>
-						<td bgcolor="#FFFDF0">
-							<div align="center">
-								请输入学生帐号：
-							</div>
-						</td>
-						<td colspan="3" bgcolor="#FFFFFF">
-							&nbsp;&nbsp;&nbsp;
-							<s:textfield cssClass="INPUT" id="studentNo"
-							name="studentNo" label="账号" ></s:textfield>
-						</td>
-					</tr>
 					<tr bgcolor="#ECF3FD">
-						<td width="20%">
-							&nbsp;
-						</td>
-						<td width="80%">
-							<s:submit cssClass="label" value="查找"></s:submit>
+						<td width="100%" align="right">
+							<s:submit cssClass="label" value="批量删除学生"></s:submit>
 						</td>
 					</tr>
 				</table>

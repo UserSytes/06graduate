@@ -120,7 +120,7 @@ conditionTable.deleteRow(o.parentElement.rowIndex*1);
 					</td>
 					<td colspan="4" bgcolor="#FFFFFF">
 						<s:textfield cssClass="INPUT" id="title" name="news.title"
-							label="标题"></s:textfield>
+							label="标题"  size="80"></s:textfield>
 						&nbsp;*
 					</td>
 				</tr>
@@ -132,7 +132,7 @@ conditionTable.deleteRow(o.parentElement.rowIndex*1);
 					</td>
 					<td colspan="4" bgcolor="#FFFFFF">
 						<s:textfield cssClass="INPUT" id="author" name="news.author"
-							label="作者"></s:textfield>
+							label="作者"  size="30"></s:textfield>
 						&nbsp;*
 					</td>
 				</tr>

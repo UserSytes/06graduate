@@ -94,8 +94,7 @@ public class StudentInfoAction extends BaseAction {
 		String fileLink = "photo/"+new Date().getTime()+"_" + uploadFileName;
 		student.getUserInfo().setPhoto(fileLink);
 		if (studentInfoService.addStudentPhoto(student.getUserInfo(), upload)){
-			photoPath = ServletActionContext.getServletContext().getRealPath("/upload") + "/" + student.getUserInfo().getPhoto();
-			super.getSession().put("photoPath", photoPath);
+			userInfo = student.getUserInfo();
 			return SUCCESS;
 		}
 		else {
@@ -117,7 +116,6 @@ public class StudentInfoAction extends BaseAction {
 			return ERROR;
 		}else{
 			userInfo = student.getUserInfo();
-			super.getSession().put("photoPath", ServletActionContext.getServletContext().getRealPath("/upload") + "/" + student.getUserInfo().getPhoto());
 			return SUCCESS;
 		}
 	}

@@ -66,7 +66,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" id="name"
+						<s:textfield cssClass="INPUT" id="name"  size="30"
 							name="userInfo.name" label="姓名"></s:textfield>
 						&nbsp;*
 					</td>

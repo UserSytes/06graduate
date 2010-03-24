@@ -75,7 +75,7 @@
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<s:textfield cssClass="INPUT" id="mobile" name="admin.mobile"
-							label="电话"></s:textfield>
+							label="电话"  size="30"></s:textfield>
 						&nbsp;*
 					</td>
 				</tr>
@@ -88,7 +88,7 @@
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<s:textfield cssClass="INPUT" id="email" name="admin.email"
-							label="邮箱"></s:textfield>
+							label="邮箱"  size="30"></s:textfield>
 						&nbsp;*
 					</td>
 				</tr>

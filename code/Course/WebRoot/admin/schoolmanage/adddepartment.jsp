@@ -73,14 +73,14 @@
 					</td>
 				</tr>
 				<tr>
-					<td bgcolor="#FFFDF0">
+					<td width="20%" bgcolor="#FFFDF0">
 						<div align="center">
 							系名称：
 						</div>
 					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
+					<td bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" id="name"
+						<s:textfield cssClass="INPUT" id="name"  size="50"
 							name="department.name" label="学院名称" onblur="checkDepartment(this.value)"></s:textfield>
 						&nbsp;*<span style="color: green;" id="result"> </span>
 					</td>
@@ -91,17 +91,17 @@
 							所属学院：
 						</div>
 					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
+					<td bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<s:text name="">${school.name}</s:text>
 					</td>
 				</tr>
 				
 				<tr bgcolor="#ECF3FD">
-					<td width="30%">
+					<td width="20%">
 						&nbsp;
 					</td>
-					<td width="70%">
+					<td width="80%">
 						<s:submit id="button" cssClass="label" value="确定添加"></s:submit>
 					</td>
 				</tr>

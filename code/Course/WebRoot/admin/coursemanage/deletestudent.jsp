@@ -9,28 +9,54 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
-		<title>添加学院管理员</title>
+		<title>添加学生</title>
 		<SCRIPT language=javascript>
 			function check(form)
 			{
-				if (form.gradeName.value == -1)
+				
+				if (form.departmentId.value == -1)
 				{
-					alert("学籍类型不能为空！");
+					alert("所属系不能为空！");
 					return false;
 				}
-				if (form.gradeNum.value == "")
+				if (form.gradeId.value == -1)
 				{
 					alert("年级不能为空！");
 					return false;
 				}
-				
-				var re2 = /^[0-9]*$/;
-				var gradeNum = form.gradeNum.value;
-				if (!re2.test(gradeNum)) {
-					alert("年级格式不正确，请输入数字！");
+				if (form.studentNo.value == "")
+				{
+					alert("账号不能为空！");
 					return false;
 				}
-				return true;
+			}
+			
+			function ajax()
+			{
+				var xhr = false;
+				function ajax() {//创建对象
+				if (window.ActiveXObject) {//IE浏览器
+ 				  xhr = new ActiveXObject("Microsoft.XMLHTTP");
+				} else {
+  				if (window.XMLHttpRequest) {//fireFOX浏览
+    			xhr = new XMLHttpRequest();
+   					}
+				}
+				if (!xhr) {
+  				alert("浏览器不支持，请换成其他浏览器再进行操作！");
+  				return false;
+				}
+				//发送请求
+				xhr.open("post", "/addMoreStudentAction.action?studentFileName=" + document.getElementById("fileName").value , "true");
+				xhr.send(null);
+				xhr.onreadystatechange = ok;
+			}
+			function ok() {//成功后调用此方法
+				if (xhr.readyState == 4 && xhr.status == 200) {
+   				alert("成功了");
+				}
+				return false;
+			 }
 			}
 		</SCRIPT>
 		<style type="text/css">
@@ -47,28 +73,30 @@
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 年级管理 -&gt; 添加年级
+					当前位置: 课程管理 -&gt; <s:property value="course.name"/> -&gt; 删除学生
 				</td>
 			</tr>
 		</table>
-		<s:form action="addGradeAction" method="post"
+		<s:form action="deleteMoreStudentCourseAction" method="post" enctype="multipart/form-data" 
 			onsubmit="return check(this);">
+			<s:hidden name="course.id" />
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						请输入新年级信息
+						请选择从  <s:property value="course.name"/> 课程中删除的学生信息
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							学籍类型：
+							所属系：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:select id="gradeName" name="grade.name" list="{'本科生','硕士','博士','其他'}" headerKey="-1" headerValue="请选择" />
+						<s:select name="departmentId" list="departmentList" headerKey="-1"
+							headerValue="请选择" listKey="id" listValue="name" />
 						&nbsp;*
 					</td>
 				</tr>
@@ -80,16 +108,18 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="gradeNum" cssClass="INPUT" name="grade.grade" label="年级"></s:textfield>&nbsp;级
+						<s:select name="gradeId" list="gradeList" headerKey="-1"
+							headerValue="请选择" listKey="id" listValue="name+grade" />
 						&nbsp;*
 					</td>
 				</tr>
+				
 				<tr bgcolor="#ECF3FD">
 					<td width="20%">
 						&nbsp;
 					</td>
 					<td width="80%">
-						<s:submit cssClass="label" value="确定添加"></s:submit>
+						<s:submit cssClass="label" onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;" value="删除学生"></s:submit>
 					</td>
 				</tr>
 			</table>

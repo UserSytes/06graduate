@@ -53,7 +53,7 @@
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							请输入学号：
+							请选择学生信息文件：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">

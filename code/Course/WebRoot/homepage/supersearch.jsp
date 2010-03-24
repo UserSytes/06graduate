@@ -78,7 +78,6 @@
 													</td>
 													<td width="11" background=""></td>
 												</tr>
-
 											</table>
 										</td>
 									</tr>
@@ -132,11 +131,14 @@
 						<tr>
 							<td valign="top" align="center">
 								<!-- 内容 -->
+								<table width="95%"  border="1" cellpadding="0" cellspacing="0"
+										bordercolor="#e7e7d7"><tr>
+										<td>
 								<s:form action="superSearchCourseAction"
 									onsubmit="return check(this);" method="post"
 									enctype="multipart/form-data">
 									<table width="95%" border="0" cellpadding="0" cellspacing="0">
-										<tr>
+										<tr height="30">
 											<td width="12%" align="center">
 												院系：
 											</td>
@@ -153,32 +155,30 @@
 													</option>
 											</td>
 										</tr>
-										<tr>
+										<tr height="30">
 											<td width="12%" align="center">
 												课程：
 											</td>
 											<td width="88%">
-												<s:textfield name="courseName" cssClass="text" />
+												<s:textfield name="courseName" size="30" cssClass="text" />
 											</td>
 										</tr>
-										<tr>
+										<tr height="30">
 											<td width="12%" align="center">
 												教师：
 											</td>
 											<td width="88%">
-												<s:textfield name="teacherName" cssClass="text" />
+												<s:textfield name="teacherName" size="30" cssClass="text" />
 											</td>
 										</tr>
-										<tr>
+										<tr height="30">
 											<td></td>
 											<td width="88%">
-												<input type="submit" name="submit"
-													style="background: url(${ctx}/homepage/images/search_btn.gif) no-repeat"
-													value="搜索 ">
+												<input type="submit" name="submit" value="搜索 ">
 											</td>
 										</tr>
 									</table>
-								</s:form>
+								</s:form></td></tr></table>
 
 								<table border="0" cellpadding="0" cellspacing="0">
 									<tr>

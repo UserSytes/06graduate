@@ -11,6 +11,7 @@ import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.IDepartmentService;
 import cn.edu.xmu.course.service.IStudentCourseService;
 import cn.edu.xmu.course.service.IStudentInfoService;
+import cn.edu.xmu.course.service.ISuperAdminService;
 import cn.edu.xmu.course.service.ITeacherInfoService;
 
 /**
@@ -33,6 +34,7 @@ public class CourseAction extends BaseAction {
 	private List<Course> myCoursesList;
 	private int type = 3;
 
+	private ISuperAdminService superAdminService;
 	private ITeacherInfoService teacherInfoService;
 	private IStudentCourseService studentCourseService;
 	private ICourseService courseService;
@@ -44,12 +46,16 @@ public class CourseAction extends BaseAction {
 	private int studentId;
 	private String studentNo;
 	private String refuseReason;
+	private String gradeId;
+	private List<Grade> gradeList;
+	private List<Department> departmentList;
 
 	private File studentFile;
 	private String studentFileContentType;
 	private String studentFileName;
 	
 	private final String userName = "123";
+	
 
 	/**
 	 * 申报课程
@@ -194,6 +200,35 @@ public class CourseAction extends BaseAction {
 			return ERROR;}
 	}
 
+	/**
+	 * 跳转到批量删除学生课程
+	 * @return
+	 */
+	public String goDeleteMoreStudentCourse(){
+		course = courseService.getCourseById(course.getId());
+		Administrator admin = (Administrator) super.getSession().get(
+				ADMIN);
+		School school = admin.getSchool();
+		gradeList = superAdminService.findAllGrade();
+		departmentList = superAdminService.findDepartmentBySchool(school);
+		return SUCCESS;
+	}
+	
+	/**
+	 * 批量删除学生课程
+	 * @return
+	 */
+	public String deleteMoreStudent(){
+		course = courseService.getCourseById(course.getId());
+		boolean result = studentCourseService.deleteMoreSudentCourse(course, departmentId, gradeId);
+		if(result){
+			addActionMessage("成功从"+course.getName()+"课程中删除选定学生！");
+		}else{
+			addActionError("从"+course.getName()+"课程中删除学生失败，请重新删除！");
+		}
+		return SUCCESS;
+	}
+	
 	/**
 	 * 为course添加学生
 	 * 
@@ -489,6 +524,38 @@ public class CourseAction extends BaseAction {
 
 	public void setStudentFileName(String studentFileName) {
 		this.studentFileName = studentFileName;
+	}
+
+	public ISuperAdminService getSuperAdminService() {
+		return superAdminService;
+	}
+
+	public void setSuperAdminService(ISuperAdminService superAdminService) {
+		this.superAdminService = superAdminService;
+	}
+
+	public String getGradeId() {
+		return gradeId;
+	}
+
+	public void setGradeId(String gradeId) {
+		this.gradeId = gradeId;
+	}
+
+	public List<Grade> getGradeList() {
+		return gradeList;
+	}
+
+	public void setGradeList(List<Grade> gradeList) {
+		this.gradeList = gradeList;
+	}
+
+	public List<Department> getDepartmentList() {
+		return departmentList;
+	}
+
+	public void setDepartmentList(List<Department> departmentList) {
+		this.departmentList = departmentList;
 	}
 
 }

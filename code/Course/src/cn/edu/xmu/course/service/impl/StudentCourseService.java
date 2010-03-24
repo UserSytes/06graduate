@@ -81,6 +81,21 @@ public class StudentCourseService implements IStudentCourseService {
 			return false;
 		}
 	}
+	
+	public boolean deleteMoreSudentCourse(Course course, String departmentId, String gradeId){
+		List<StudentCourse> scList = studentCourseDAO.fingByCourseAndDepartmentAndGrade(course, departmentId, gradeId);
+		if(scList.size()==0){
+			return true;
+		}
+		for(StudentCourse sc: scList){
+			try{
+				studentCourseDAO.delete(sc);
+			}catch(Exception e){
+				return false;
+			}
+		}
+		return true;
+	}
 
 	public boolean addStudentCourse(StudentCourse studentCourse){
 		try{

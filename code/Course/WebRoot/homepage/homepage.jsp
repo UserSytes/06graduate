@@ -43,27 +43,27 @@
 						<tr height="29">
 							<td width="2" bgcolor="#e7e7e7" valign="top"></td>
 							<td width="16" valign="top"></td>
-							<td valign="top" width="20">帐号</td>
+							<td valign="top" width="30"><img src="${ctx}/homepage/image/account.gif" border="0" alt=""></td>
 							<td width="4" valign="top"></td>
-							<td valign="top" width="120"><s:textfield name="userName"></s:textfield></td>
+							<td valign="top" width="120"><s:textfield name="userName"  size="14"></s:textfield></td>
 							<td width="7" valign="top"></td>
 							<td width="9" valign="top"></td>
 							<td width="2" bgcolor="#e7e7e7" valign="top"></td>
 						</tr>
-						<tr>
+						<tr height="30">
 							<td width="2" bgcolor="#e7e7e7"></td>
 							<td width="16"></td>
-							<td width="20">密码</td>
+							<td width="30"><img src="${ctx}/homepage/image/password.gif" border="0" alt=""></td>
 							<td width="4"></td>
-							<td width="120"><s:password name="password"></s:password></td>
+							<td width="120"><s:password name="password" size="16"></s:password></td>
 							<td width="7"></td>
 							<td width="9"></td>
 							<td width="2" bgcolor="#e7e7e7"></td>
 						</tr>
-						<tr>
+						<tr height="30">
 							<td width="2" bgcolor="#e7e7e7"></td>
 							<td width="16"></td>
-							<td width="20">角色</td>
+							<td width="30"><img src="${ctx}/homepage/image/peopedom.gif" border="0" alt=""></td>
 							<td width="4"></td>
 							<td width="120"><s:select name="flag" list="# {'0':'老師','1':'學生'}"
 																	headerKey="-1" headerValue="请选择" /></td>
@@ -71,11 +71,23 @@
 							<td width="9"></td>
 							<td width="2" bgcolor="#e7e7e7"></td>
 						</tr>
+						<tr height="10">
+							<td width="2" bgcolor="#e7e7e7"></td>
+							<td colspan="6" align="center" >
+							</td>
+							<td width="2" bgcolor="#e7e7e7"></td>
+						</tr>
 						<tr >
 							<td width="2" bgcolor="#e7e7e7"></td>
-							<td colspan="5" align="center" >
-							<input type="submit" name="submit" style="background: url(${ctx}/homepage/images/login_5.gif) no-repeat" value=" 登  陆 ">
-							<input type="reset" name="Submit" style="background: url(${ctx}/homepage/images/login_5.gif) no-repeat" value=" 取  消 ">
+							<td colspan="6" align="center" ><s:actionmessage/>
+							</td>
+							<td width="2" bgcolor="#e7e7e7"></td>
+						</tr>
+						<tr >
+							<td width="2" bgcolor="#e7e7e7"></td>
+							<td colspan="6" align="center" >
+							<input type="submit" name="submit" value=" 登  陆 ">
+							<input type="reset" name="Submit" value=" 取  消 ">
 							</td>
 							<td width="2" bgcolor="#e7e7e7"></td>
 						<tr>

@@ -76,7 +76,7 @@
 												<table>
 													<tr height="30"><td align="left" width="200"><strong>&nbsp;&nbsp;&nbsp;&nbsp;当前头像</strong></td></tr>
 													<tr height="2" ><td align="center"  bgcolor="#d7d7d7"  width="200"></td></tr>
-													<tr><td align="center" ><strong><img width="180" src="<%=(String) session.getAttribute("photoPath")%>" />
+													<tr><td align="center" ><strong><img width="180" src="${ctx}/upload/<s:property value="userInfo.photo"/>" />
 </strong></td></tr>
 												</table>
 											</td>

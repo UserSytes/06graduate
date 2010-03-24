@@ -81,7 +81,7 @@
 						&nbsp;&nbsp;&nbsp;
 						<s:textfield cssClass="INPUT" id="studentNo"
 							name="studentNo" label="学号"
-							onblur="getStudentName(this.value)"></s:textfield>
+							onblur="getStudentName(this.value)"  size="30"></s:textfield>
 
 						&nbsp;*
 					</td>

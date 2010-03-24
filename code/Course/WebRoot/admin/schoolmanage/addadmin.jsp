@@ -84,7 +84,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" id="account"
+						<s:textfield cssClass="INPUT" id="account"  size="30"
 							name="admin.account" label="登陆账号" onblur="checkAdmin(this.value)"></s:textfield>
 						&nbsp;*
 						<span style="color: green;" id="result"> </span>
@@ -109,7 +109,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" id="adminName" name="admin.name"
+						<s:textfield  size="30" cssClass="INPUT" id="adminName" name="admin.name"
 							label="姓名"></s:textfield>
 						&nbsp;*
 					</td>
