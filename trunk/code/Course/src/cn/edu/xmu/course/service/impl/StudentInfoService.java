@@ -1,11 +1,15 @@
 package cn.edu.xmu.course.service.impl;
 
 import java.io.File;
+import java.util.Calendar;
 import java.util.List;
+
+import org.apache.struts2.ServletActionContext;
 
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
+import cn.edu.xmu.course.commons.FileOperation;
 import cn.edu.xmu.course.dao.StudentDAO;
 import cn.edu.xmu.course.dao.UserInfoDAO;
 import cn.edu.xmu.course.pojo.Department;
@@ -19,6 +23,23 @@ public class StudentInfoService implements IStudentInfoService {
 
 	private StudentDAO studentDAO;
 	private UserInfoDAO userInfoDAO;
+
+	public boolean addStudentPhoto(UserInfo userInfo, File photo) {
+		String path = ServletActionContext.getServletContext().getRealPath(
+				"/upload");
+		String fileName = path + "/" + userInfo.getPhoto();
+		File file = new File(fileName);
+		
+		try {
+			userInfoDAO.merge(userInfo);
+			if (FileOperation.copy(photo, file))
+				return true;
+			else
+				return false;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 
 	public boolean addStudent(Student student, UserInfo userInfo) {
 		// TODO Auto-generated method stub
@@ -88,13 +109,14 @@ public class StudentInfoService implements IStudentInfoService {
 			return students.get(0);
 		}
 	}
-	
-	public List findByStudentNoFuzzy(String studentNo , School school) {
+
+	public List findByStudentNoFuzzy(String studentNo, School school) {
 		// TODO Auto-generated method stub
-		List<Student> students = studentDAO.findByStudentNoFuzzy(studentNo, school);
-		System.out.println("测试查找学生2："+students.size());
+		List<Student> students = studentDAO.findByStudentNoFuzzy(studentNo,
+				school);
+		System.out.println("测试查找学生2：" + students.size());
 		return students;
-	
+
 	}
 
 	public boolean updatePassword(Student student) {

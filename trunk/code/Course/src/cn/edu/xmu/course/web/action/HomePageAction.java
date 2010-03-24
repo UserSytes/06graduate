@@ -4,6 +4,8 @@ package cn.edu.xmu.course.web.action;
 import java.sql.Date;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
+
 import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Attachment;
 import cn.edu.xmu.course.pojo.Course;
@@ -172,6 +174,7 @@ public class HomePageAction extends BaseAction{
 				System.out.println("test1: "+student.getPassword());
 				super.getSession().put(STUDENT, student);
 				super.getSession().put("user", student.getUserInfo().getName()+"ͬѧ");
+				super.getSession().put("photoPath", ServletActionContext.getServletContext().getRealPath("/upload") + "/" + student.getUserInfo().getPhoto());
 				userInfo = student.getUserInfo();
 				return "student";
 			}

@@ -900,6 +900,13 @@
 		</action>
 		
 		<!-- 学生主页 -->
+		<action name="goChangeHeadAction" method="findStudentInfo" class="studentInfoAction">
+			<result name="success">/student/changehead.jsp</result>
+		</action>
+		<action name="changeHeadAction" method="changeHead" class="studentInfoAction">
+			<result name="success">/student/changehead.jsp</result>
+			<result name="error">/student/prompt.jsp</result>
+		</action>
 		<action name="myCoursesAction" method="findMyCourses" class="studentInfoAction">
 			<result name="success">/student/courselist.jsp</result>
 			<result name="error">/student/prompt.jsp</result>

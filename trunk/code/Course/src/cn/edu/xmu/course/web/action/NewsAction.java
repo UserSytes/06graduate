@@ -56,6 +56,7 @@ public class NewsAction extends BaseAction {
 	 */
 	public String addNews() {
 		boolean result;
+		news.setCount(0);
 		if(myFile == null){
 			result = newsService.addNewsWithoutAttachment(news);
 		}else{
