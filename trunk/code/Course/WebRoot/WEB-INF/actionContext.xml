@@ -228,6 +228,19 @@
 		</property>
 		
 	</bean>
+	<!-- 进入课程查询 -->
+	<bean id="enterCourseAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.EnterCourseAction">
+		<property name="noticeService">
+			<ref bean="noticeService" />
+		</property>
+		<property name="courseInfoService">
+			<ref bean="courseInfoService" />
+		</property>
+		<property name="courseService">
+			<ref bean="courseService" />
+		</property>
+	</bean>
 	
 	<!-- 课程通知 -->
 	<bean id="noticeAction" scope="prototype"
