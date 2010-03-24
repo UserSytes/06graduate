@@ -56,6 +56,8 @@ public class HomePageAction extends BaseAction{
 	private int school;
 	private String levelNow;
 	
+	private Student student;
+	
 	private List<Attachment> attachmentList;
 	private List<Course> achievementList;
 	private String ifAttachment;
@@ -68,7 +70,9 @@ public class HomePageAction extends BaseAction{
 	 */
     @SuppressWarnings("unchecked")
 	public String homepageDisplay(){
+    	System.out.println("测试首页1："+super.getSession());
     	user = (String) super.getSession().get("user");
+    	System.out.println("测试首页："+user);
     	if( user == null){
     		this.setIdLogin("block");
     		this.setAfterLogin("none");
@@ -77,11 +81,7 @@ public class HomePageAction extends BaseAction{
     		this.setAfterLogin("block");
     	}
     	
-    	newsList=newsService.findAllNews();
-		for(int i=10;i<newsList.size();i++)
-		{
-			newsList.remove(i);
-		}
+    	this.getAllNews();
 		this.countCourseByLevel();
 
 		courseList = searchCourseService.findCourseByDate(30);
@@ -100,6 +100,13 @@ public class HomePageAction extends BaseAction{
 			return SUCCESS;
 	}
 
+    public void getAllNews(){
+    	newsList=newsService.findAllNews();
+		for(int i=10;i<newsList.size();i++)
+		{
+			newsList.remove(i);
+		}
+    }
     
     /**
      * 计算级别课程数
@@ -155,23 +162,25 @@ public class HomePageAction extends BaseAction{
 		
 		if (getFlag() == 0) {
 			Teacher teacher = getLoginService().teacherLogin(userName, getPassword());
-			System.out.println(userName);
-			if (null == teacher)
+			if (null == teacher){
+				addActionError("帐号或者密码错误，请重新登录！");
+				this.homepageDisplay();
 				return ERROR;
+			}
 			else {
-				System.out.println(teacher.getPassword());
 				userInfo = teacher.getUserInfo();
 				super.getSession().put(TEACHER, teacher);
 				super.getSession().put("user", teacher.getUserInfo().getName()+"老师");
 				return "teacher";
 			}
 		} else {
-			Student student = getLoginService().studentLogin(userName, getPassword());
-			System.out.println(userName);
-			if (null == student)
+			student = getLoginService().studentLogin(userName, getPassword());
+			if (null == student){
+				addActionError("帐号或者密码错误，请重新登录！");
+				this.homepageDisplay();
 				return ERROR;
+			}
 			else {
-				System.out.println("test1: "+student.getPassword());
 				super.getSession().put(STUDENT, student);
 				super.getSession().put("user", student.getUserInfo().getName()+"同学");
 				userInfo = student.getUserInfo();
@@ -443,6 +452,14 @@ public class HomePageAction extends BaseAction{
 
 	public String getUser() {
 		return user;
+	}
+
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 
 }
