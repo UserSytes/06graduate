@@ -42,7 +42,7 @@
 											<td width="2" bgcolor="#e7e7e7" valign="top"></td>
 											<td width="10" valign="top"></td>
 											<td valign="top" width="170">
-												<img src="${ctx}/homepage/image/myhead.gif" border="0"> 
+												<img width="170" src="<%=(String) session.getAttribute("photoPath")%>" /> 
 											</td>
 											<td width="10" valign="top"></td>
 											<td width="2" bgcolor="#e7e7e7" valign="top"></td>
@@ -83,7 +83,7 @@
 										<td width="2" bgcolor="#e7e7e7"></td>
 										<td width="13"></td>
 										<td>
-											<a href="#"><img
+											<a href="<s:url action="goChangeHeadAction"></s:url>"><img
 													src="${ctx}/homepage/image/change_head.gif" border="0"
 													alt="修改头像"> </a>
 										</td>

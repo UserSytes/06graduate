@@ -1,7 +1,11 @@
 package cn.edu.xmu.course.web.action;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import org.apache.struts2.ServletActionContext;
 
 import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Collection;
@@ -50,6 +54,12 @@ public class StudentInfoAction extends BaseAction {
 	private Topic topic;
 	private int topicId;
 	
+	private File upload;
+	private String uploadContentType;
+	private String uploadFileName;
+	
+	private String photoPath;
+	
 	public String myTopics(){
 		student = (Student) super.getSession().get(STUDENT);
 		userInfo = student.getUserInfo();
@@ -75,6 +85,25 @@ public class StudentInfoAction extends BaseAction {
 //		}
 //	}
 	
+	public String changeHead(){
+		student = (Student) super.getSession().get(STUDENT);
+		if(upload.length()>=new Long(1048576L)){
+			addActionError("上传图片大小不能超过1M,请重新上传！");
+			return ERROR;
+		}
+		String fileLink = "photo/"+new Date().getTime()+"_" + uploadFileName;
+		student.getUserInfo().setPhoto(fileLink);
+		if (studentInfoService.addStudentPhoto(student.getUserInfo(), upload)){
+			photoPath = ServletActionContext.getServletContext().getRealPath("/upload") + "/" + student.getUserInfo().getPhoto();
+			super.getSession().put("photoPath", photoPath);
+			return SUCCESS;
+		}
+		else {
+			addActionError("上传头像失败，请重新上传！");
+			return ERROR;
+		}
+	}
+	
 	/**
 	 * 查找学生个人信息
 	 * @return
@@ -88,6 +117,7 @@ public class StudentInfoAction extends BaseAction {
 			return ERROR;
 		}else{
 			userInfo = student.getUserInfo();
+			super.getSession().put("photoPath", ServletActionContext.getServletContext().getRealPath("/upload") + "/" + student.getUserInfo().getPhoto());
 			return SUCCESS;
 		}
 	}
@@ -311,6 +341,38 @@ public class StudentInfoAction extends BaseAction {
 
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
+	}
+
+	public File getUpload() {
+		return upload;
+	}
+
+	public void setUpload(File upload) {
+		this.upload = upload;
+	}
+
+	public String getUploadContentType() {
+		return uploadContentType;
+	}
+
+	public void setUploadContentType(String uploadContentType) {
+		this.uploadContentType = uploadContentType;
+	}
+
+	public String getUploadFileName() {
+		return uploadFileName;
+	}
+
+	public void setUploadFileName(String uploadFileName) {
+		this.uploadFileName = uploadFileName;
+	}
+
+	public void setPhotoPath(String photoPath) {
+		this.photoPath = photoPath;
+	}
+
+	public String getPhotoPath() {
+		return photoPath;
 	}
 	
 }

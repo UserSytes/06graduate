@@ -28,17 +28,13 @@
 							<td width="172" align="center"><a href="#"><img src="${ctx}/homepage/image/left_menu_04.gif" border="0"></a></td>
 							<td width="11" background=""></td>
 						</tr>
-						<tr>
-							<td width="11" background=""></td>
-							<td width="172" align="center"><a href="#"><img src="${ctx}/homepage/image/left_menu_05.gif" border="0" ></a></td>
-							<td width="11" background=""></td>
-						</tr>
+					
 								
 						</table>
 					</td>
 				</tr>
 				<tr>
-					<td><img src="${ctx}/homepage/image/jiannan2.jpg" border="0" ></td>
+					<td><img src="${ctx}/homepage/image/left_menu_bottom.gif" border="0" ></td>
 				</tr>		
 				</table>
 				
@@ -76,33 +72,74 @@
 		<tr>
 			<td valign="top" align="center">
 			<!-- 内容 -->
-			<s:form action="searchCourseByKeywordAction" method="post">
-				<table border="0" cellpadding="0" cellspacing="0">
-				<tr>
-					<td width="420" align="right"><s:select name="flag" list="# {'0':'课程名称','1':'教师姓名'}"
-																	headerKey="-1" headerValue="请选择" /></td>
-					<td width="194" width="192" align="center"><s:textfield name="keyword" cssClass="text" /></td>
-					<td width="84"><input type="submit" name="submit" style="background: url(${ctx}/homepage/images/search_btn.gif) no-repeat" value="关键字搜索 "></td>
-				</tr>
-				</table>
-			</s:form>
-				<table width="98%" border="0" cellpadding="0" cellspacing="0">				
-						<s:iterator value="newsList" status="new">			
-												<tr height="25">
-													<td width="70%">&nbsp;&nbsp;<img src="${ctx}/homepage/image/but.jpg" border="0" alt="">&nbsp;&nbsp;
-													<a href="<s:url action="enterNewsAction"> <s:param name="newsId"> 
-	                       			 									<s:property value="id"/> </s:param> </s:url>">
-																			<s:property value="title" /></a>
-													&nbsp;&nbsp;</td>
-													<td width="30%"><s:date name="time" format="yyyy-MM-dd hh:mm:ss" />&nbsp;&nbsp;[<s:property value="count" /> ]</td>
-												</tr>
+				 <table width="90%" border="0" cellpadding="0" cellspacing="0">
+										<tr>
+											<td width="90%" align="left"><s:actionmessage /></td>
+										</tr>
+							</table>
+							<table width="96%" cellpadding="0" cellspacing="0">
+									<tr height="40">
+										<td colspan="6" background="${ctx}/homepage/image/bbs_bg.gif">
+											<table border="0" cellpadding="0" cellspacing="0"
+												style="height: 23px;" width="100%">
 												<tr height="1">
-													<td colspan="2" background="${ctx}/homepage/image/main_line.gif"></td>
+													<td bgcolor="#d7d7d7" colspan="6" width="100%"></td>
 												</tr>
-												</s:iterator>
-								</table>
-							</td></tr>
-						</table>				
+												<tr>
+													<td width="40" align="center">
+														序号
+													</td>
+													<td width="350" align="center">
+														课程名
+													</td>
+													<td width="60" align="center">
+														教师
+													</td>
+													<td width="120" align="center">
+														所属系
+													</td>
+													<td width="80" align="center">
+														级别
+													</td>
+													<td width="40" align="center">
+														点击
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+
+									<s:iterator value="courseList" status="course">
+										<tr>
+											<td width="40" align="center">
+												<s:property value="#course.count" />
+											</td>
+											<td width="350" align="center">
+												<a
+													href="<s:url action="enterCourseAction"> 
+																				<s:param name="courseId"> <s:property value="id"/> </s:param> </s:url>">
+													<s:property value="name" />
+												</a>
+											</td>
+											<td width="60" align="center">
+												<s:property value="teacher.userInfo.name" />
+											</td>
+											<td width="120" align="center">
+												<s:property value="department.name" />
+											</td>
+											<td width="80" align="center">
+												<s:property value="level" />
+											</td>
+											<td width="40" align="center">
+												<s:property value="count" />
+											</td>
+										</tr>
+										<tr height="3">
+											<td colspan="6"
+												background="${ctx}/homepage/image/table_line.gif"></td>
+										</tr>
+									</s:iterator>
+								</table>			
 
 			<!-- /内容 -->
 			</td>
