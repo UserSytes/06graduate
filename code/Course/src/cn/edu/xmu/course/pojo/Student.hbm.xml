@@ -21,10 +21,7 @@
         </property>
         <property name="password" type="java.lang.String">
             <column name="password" not-null="true" />
-        </property>
-        <property name="photo" type="java.lang.String">
-            <column name="photo" />
-        </property>
+        </property>        
         <set name="collections" inverse="true" cascade="delete">
             <key>
                 <column name="student_id" not-null="true" />

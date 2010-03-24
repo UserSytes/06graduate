@@ -44,6 +44,8 @@ body {
 
 .itemtitle ul {
 	float: left;
+	list-style-type: none;
+	margin-left: 0px;
 }
 
 .itemtitle li {
@@ -184,7 +186,18 @@ a.v1:visited {
 .snippet_wrap a {
 	color: #666;
 }
+.delete_msg {
+	width: 200px;
+}
 
+.delete_msg a {
+	display: block;
+	margin-right: 10px;
+	margin-left: 150px;
+	margin-top: 10px;
+	width: 18px;
+	height: 19px;
+}
 
 
 .grayfont {
