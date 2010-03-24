@@ -88,4 +88,13 @@ public interface IStudentCourseService {
 	 * @return
 	 */
 	public boolean checkStudent(Course course, Student student);
+	
+	/**
+	 * 根据课程、系、年级批量删除学生课程关系
+	 * @param course
+	 * @param departmentId
+	 * @param gradeId
+	 * @return
+	 */
+	public boolean deleteMoreSudentCourse(Course course, String departmentId, String gradeId);
 }

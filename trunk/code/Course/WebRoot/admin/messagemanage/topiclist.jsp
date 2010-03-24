@@ -40,7 +40,7 @@
 						<td colspan="3" bgcolor="#FFFFFF">
 							&nbsp;&nbsp;&nbsp;
 							<s:textfield cssClass="INPUT" id="topicKey"
-							name="topicKey" label="关键字"></s:textfield>
+							name="topicKey" label="关键字"  size="40"></s:textfield>
 						</td>
 					</tr>
 					<tr bgcolor="#ECF3FD">

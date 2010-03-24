@@ -42,7 +42,7 @@
 											<td width="2" bgcolor="#e7e7e7" valign="top"></td>
 											<td width="10" valign="top"></td>
 											<td valign="top" width="170">
-												<img width="170" src="<%=(String) session.getAttribute("photoPath")%>" /> 
+												<img width="170" src="${ctx}/upload/<s:property value="student.userInfo.photo"/>" /> 
 											</td>
 											<td width="10" valign="top"></td>
 											<td width="2" bgcolor="#e7e7e7" valign="top"></td>
@@ -167,7 +167,7 @@
 									<tr>
 										<td width="11" background=""></td>
 										<td width="172" align="center">
-											<a href="${ctx}/student/changepassword.jsp">
+											<a href="<s:url action="goChangeStudentPwdAction"></s:url>">
 												<img src="${ctx}/homepage/image/mycourse_menu2_4.gif"
 													border="0"> </a>
 										</td>

@@ -53,3 +53,6 @@ a.submenu:hover   {color:#000000; text-decoration:none; font-size:9pt;}
 .consult_input { BORDER-RIGHT: #CCCCCC 1px solid; BORDER-TOP: #CCCCCC 1px solid; BORDER-LEFT: #CCCCCC 1px solid; BORDER-BOTTOM: #CCCCCC 1px solid; BACKGROUND-COLOR: #ffffff; font-size:9pt; color:#666666; }
 .consult_textarea { BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; BORDER-BOTTOM: #cccccc 1px solid; BACKGROUND-COLOR: #ffffff }
 
+INPUT {
+	FONT-SIZE: 12px; width: 100px; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"
+}

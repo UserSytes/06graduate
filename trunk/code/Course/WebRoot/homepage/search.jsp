@@ -117,14 +117,14 @@
 								<!-- 内容 -->
 								<s:form action="searchCourseByKeywordAction" onsubmit="return check(this);" method="post" enctype="multipart/form-data">
 									<table border="0" cellpadding="0" cellspacing="0">
-										<tr>
-											<td width="420" align="right">
+										<tr height="35">
+											<td width="350" align="right">
 												<s:select name="flag" list="# {'0':'课程名称','1':'教师姓名'}" headerKey="-1" headerValue="请选择" />
 											</td>
-											<td width="194" width="192" align="center">
-												<s:textfield name="keyword" cssClass="text" />
+											<td width="300" align="center">
+												<s:textfield name="keyword" cssClass="text" size="40"/>
 											</td>
-											<td width="84">
+											<td width="80">
 												<input type="submit" name="submit" value="关键字搜索 ">
 											</td>
 										</tr>

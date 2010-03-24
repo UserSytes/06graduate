@@ -79,15 +79,15 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" id="schoolName" name="school.Name" label="学院名称" onblur="checkSchool(this.value)"></s:textfield>
+						<s:textfield  size="50" cssClass="INPUT" id="schoolName" name="school.Name" label="学院名称" onblur="checkSchool(this.value)"></s:textfield>
 						&nbsp;*<span style="color: green;" id="result">点击验证 </span>
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">
-					<td width="30%">
+					<td width="20%">
 						&nbsp;
 					</td>
-					<td width="70%">
+					<td width="80%">
 						<s:submit id="button" cssClass="label" value="确定添加"></s:submit>
 					</td>
 				</tr>

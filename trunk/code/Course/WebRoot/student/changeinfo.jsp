@@ -141,7 +141,7 @@
 												<strong> 电话：</strong>
 											</td>
 											<td>
-												&nbsp;&nbsp;<s:textfield cssClass="text" id="mobile"
+												&nbsp;&nbsp;<s:textfield cssClass="text" id="mobile" size="30"
 																					name="userInfo.mobile" label="电话"></s:textfield>
 																				&nbsp;*
 											</td>
@@ -151,7 +151,7 @@
 												<strong> 邮箱：</strong>
 											</td>
 											<td>
-												&nbsp;&nbsp;<s:textfield cssClass="text" id="email"
+												&nbsp;&nbsp;<s:textfield cssClass="text" id="email"  size="30"
 																					name="userInfo.email" label="邮箱"></s:textfield>
 																				&nbsp;*
 											</td>

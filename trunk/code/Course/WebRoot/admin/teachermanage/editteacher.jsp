@@ -76,7 +76,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" id="teacherName"
+						<s:textfield cssClass="INPUT" id="teacherName"  size="30"
 							name="userInfo.name" label="姓名"></s:textfield>
 						&nbsp;*
 					</td>
@@ -114,7 +114,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield cssClass="INPUT" id="position"
+						<s:textfield cssClass="INPUT" id="position"  size="30"
 							name="teacher.position" label="职位"></s:textfield>
 
 					</td>

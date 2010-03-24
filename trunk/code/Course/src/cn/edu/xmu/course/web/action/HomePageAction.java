@@ -174,7 +174,6 @@ public class HomePageAction extends BaseAction{
 				System.out.println("test1: "+student.getPassword());
 				super.getSession().put(STUDENT, student);
 				super.getSession().put("user", student.getUserInfo().getName()+"ͬѧ");
-				super.getSession().put("photoPath", ServletActionContext.getServletContext().getRealPath("/upload") + "/" + student.getUserInfo().getPhoto());
 				userInfo = student.getUserInfo();
 				return "student";
 			}
