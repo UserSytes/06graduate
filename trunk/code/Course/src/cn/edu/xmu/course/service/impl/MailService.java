@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import cn.edu.xmu.course.dao.MailDAO;
@@ -17,6 +18,7 @@ public class MailService implements IMailService {
 		mail.setReceiver(receiver);
 		mail.setStatus(1);
 		mail.setSort(1);
+		mail.setTime(new Date());
 		try {
 			mailDAO.save(mail);
 			return true;
@@ -31,6 +33,7 @@ public class MailService implements IMailService {
 		mail.setReceiver(receiver);
 		mail.setStatus(2);
 		mail.setSort(2);
+		mail.setTime(new Date());
 		try {
 			mailDAO.save(mail);
 			return true;
@@ -41,15 +44,19 @@ public class MailService implements IMailService {
 	
 	public boolean addAndSaveMail(Mail mail, UserInfo sender, UserInfo receiver) {
 		// TODO Auto-generated method stub
-		Mail saveMail = mail;
+		Mail saveMail = new Mail();
+		saveMail.setContent(mail.getContent());
+		saveMail.setTitle(mail.getTitle());
 		saveMail.setSender(receiver);
 		saveMail.setReceiver(sender);
 		saveMail.setStatus(1);
 		saveMail.setSort(2);
+		saveMail.setTime(new Date());
 		mail.setSender(sender);
 		mail.setReceiver(receiver);
 		mail.setStatus(1);
 		mail.setSort(1);
+		mail.setTime(new Date());
 		try {
 			mailDAO.save(saveMail);
 			mailDAO.save(mail);
