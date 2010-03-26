@@ -4,114 +4,188 @@ import java.util.List;
 
 import cn.edu.xmu.course.pojo.Mail;
 import cn.edu.xmu.course.pojo.Student;
+import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.IMailService;
 import cn.edu.xmu.course.service.IStudentInfoService;
 
-public class MailAction extends BaseAction{
+public class MailAction extends BaseAction {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -7887886471455615261L;
-	
+
 	private IMailService mailService;
 	private IStudentInfoService studentInfoService;
 	private Mail mail;
+	private Mail oldMail;
+	private UserInfo replyUser;
 	private List<Mail> mailList;
 	private Integer mailId;
 	private String studentNo;
-	private int sort;
+	private int count;
 	private int status;
-	
-	/**
-	 * 教师给学生发送一个新的消息
-	 * @return
-	 */
-	public String addNewMailByTeacher(){
-		Student student = getStudentInfoService().findByStudentNo(studentNo);
-		
-		if(mailService.addNewMail(mail, super.getTeacher().getUserInfo(), student.getUserInfo())){
+	private String[] pmitemid;
+	private String savetosentbox;
+
+	public String addNewMail(UserInfo sender, UserInfo receiver) {
+		if (mailService.addNewMail(mail, sender, receiver)) {
 			addActionMessage("发送消息成功！");
 			return SUCCESS;
-		}else{
+		} else {
 			addActionError("发送消息失败，请重新操作！");
 			return ERROR;
 		}
 	}
-	
+
+	public String addAndSaveMail(UserInfo sender, UserInfo receiver) {
+		if (mailService.addAndSaveMail(mail, sender, receiver)) {
+			addActionMessage("发送消息成功,消息已保存在发件箱！");
+			return SUCCESS;
+		} else {
+			addActionError("发送消息失败，请重新操作！");
+			return ERROR;
+		}
+	}
+
 	/**
-	 * 将消息保存在草稿箱中
+	 * 教师给学生发送一个新的消息
+	 * 
 	 * @return
 	 */
-	public String addDraftByTeacher(){
-		Student student = getStudentInfoService().findByStudentNo(studentNo);		
-		if(mailService.addDraft(mail, super.getTeacher().getUserInfo(), student.getUserInfo())){
+	public String addReplyMailByTea() {
+		if (savetosentbox.equals("true"))
+			return this.addAndSaveMail(super.getTeacher().getUserInfo(), mail
+					.getReceiver());
+		else
+			return this.addNewMail(super.getTeacher().getUserInfo(), mail
+					.getReceiver());
+	}
+
+	public String addReplyDraftByTea(){
+		return this.addDraft(super.getTeacher().getUserInfo(), mail.getReceiver());
+	}
+	/**
+	 * 将消息保存在草稿箱中
+	 * 
+	 * @return
+	 */
+	public String addDraft(UserInfo sender, UserInfo receiver) {
+		if (mailService.addDraft(mail, sender,receiver)) {
 			addActionMessage("已将消息保存在草稿箱！");
 			return SUCCESS;
-		}else{
+		} else {
 			addActionError("保存消息失败，请重新操作！");
 			return ERROR;
 		}
 	}
-	
+
 	/**
 	 * 删除消息
+	 * 
 	 * @return
 	 */
-	public String deleteMailByTeacher(){
-		mail = mailService.getMailById(mailId);
-		if(mailService.deleteMail(mail))
-			return SUCCESS;
-		else{
-			addActionError("删除消息失败，请重新操作！");
-			return ERROR;
+	public String deleteMailByTeacher() {
+		// mail = mailService.getMailById(mailId);
+		System.out.println(pmitemid.length);
+		for (int i = 0; i < pmitemid.length; i++) {
+			System.out.println("获得的id是: " + pmitemid[i]);
 		}
+		// if(mailService.deleteMail(mail))
+		// return SUCCESS;
+		// else{
+		// addActionError("删除消息失败，请重新操作！");
+		// return ERROR;
+		// }
+		return SUCCESS;
 	}
-	
+
+	/**
+	 * 标记信件的状态
+	 * 
+	 * @return
+	 */
+	public String updateMailStatusByTea() {
+		return SUCCESS;
+	}
+
 	/**
 	 * 教师查询收到的消息
+	 * 
 	 * @return
 	 */
-	public String getReceiveMailByTea(){
-		mailList = mailService.getMailsByReceiver(super.getTeacher().getUserInfo());
+	public String getReceiveMailByTea() {
+		mailList = mailService.getMailsByReceiver(super.getTeacher()
+				.getUserInfo());
+		count = mailList.size();
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * 教师查询发送的消息和草稿
+	 * 
 	 * @return
 	 */
-	public String getSendMailListByTea(){
-		mailList = mailService.getMailsBySender(super.getTeacher().getUserInfo(), getStatus());
+	public String getSendMailListByTea() {
+		mailList = mailService.getMailsBySender(super.getTeacher()
+				.getUserInfo(), getStatus());
+		count = mailList.size();
 		return SUCCESS;
 	}
-	
-	public String getMailDetail(){
-		mail=mailService.getMailById(mailId);
+
+	/**
+	 * 获取消息的详细内容
+	 * 
+	 * @return
+	 */
+	public String getMailDetail() {
+		mail = mailService.getMailById(mailId);
+		// 标记信件的状态
 		return null;
 	}
-	
+
+	/**
+	 * 跳到回复消息页面
+	 * 
+	 * @return
+	 */
+	public String goReplyMail(){
+		oldMail = mailService.getMailById(mailId);
+		mail=new Mail();
+		mail.setReceiver(oldMail.getSender());
+		mail.setTitle("回复："+oldMail.getTitle());
+		mail.setContent("\n\n\n\n------------------ 原始邮件 ------------------\n>"+oldMail.getContent());
+		return SUCCESS;
+	}
+
 	public IMailService getMailService() {
 		return mailService;
 	}
+
 	public void setMailService(IMailService mailService) {
 		this.mailService = mailService;
 	}
+
 	public Mail getMail() {
 		return mail;
 	}
+
 	public void setMail(Mail mail) {
 		this.mail = mail;
 	}
+
 	public List<Mail> getMailList() {
 		return mailList;
 	}
+
 	public void setMailList(List<Mail> mailList) {
 		this.mailList = mailList;
 	}
+
 	public Integer getMailId() {
 		return mailId;
 	}
+
 	public void setMailId(Integer mailId) {
 		this.mailId = mailId;
 	}
@@ -122,15 +196,6 @@ public class MailAction extends BaseAction{
 
 	public String getStudentNo() {
 		return studentNo;
-	}
-
-
-	public void setSort(int sort) {
-		this.sort = sort;
-	}
-
-	public int getSort() {
-		return sort;
 	}
 
 	public void setStatus(int status) {
@@ -148,7 +213,45 @@ public class MailAction extends BaseAction{
 	public IStudentInfoService getStudentInfoService() {
 		return studentInfoService;
 	}
-	
-	
-	
+
+	public void setPmitemid(String[] pmitemid) {
+		this.pmitemid = pmitemid;
+	}
+
+	public String[] getPmitemid() {
+		return pmitemid;
+	}
+
+	public void setOldMail(Mail oldMail) {
+		this.oldMail = oldMail;
+	}
+
+	public Mail getOldMail() {
+		return oldMail;
+	}
+
+	public void setReplyUser(UserInfo replyUser) {
+		this.replyUser = replyUser;
+	}
+
+	public UserInfo getReplyUser() {
+		return replyUser;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setSavetosentbox(String savetosentbox) {
+		this.savetosentbox = savetosentbox;
+	}
+
+	public String getSavetosentbox() {
+		return savetosentbox;
+	}
+
 }

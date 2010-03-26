@@ -357,6 +357,17 @@
 			<result name="success">/teacher/mycourse/receivemaillist.jsp
 			</result>			
 		</action>
+		<action name="deleteMailByTeaAction" method="deleteMailByTeacher" class="mailAction">
+			<result name="success" type="redirect-action">getReceiveMailByTeaAction</result>
+		</action>
+		<action name="goReplyMailAction" method="goReplyMail" class="mailAction">
+			<result name="success">teacher/mycourse/replymail.jsp</result>
+		</action>
+		<action name="addReplyMailByTeaAction" class="mailAction">
+			<result name="success">/commons/prompt.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		
 		<!-- 留言板（教师） -->
 		<action name="showTopicsByTeacherAction" method="showTopicsByTeacher" class="messageAction">

@@ -10,22 +10,20 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
 		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
-
-		<title>课程列表</title>
+		<title></title>
 		<style type="text/css">
-		
 .delete_msg {
-	width: 20px;	
+	width: 20px;
 }
+
 .delete_msg a {
 	display: block;
 	margin-right: 3px;
 	margin-left: 3px;
 	margin-top: 10px;
 	width: 16px;
-	height: 16px;	
+	height: 16px;
 }
-
 
 itemtitle ul a:hover span {
 	background: url(${ctx}/teacher/images/btn_block.gif) no-repeat 100%
@@ -41,11 +39,6 @@ itemtitle ul a:hover span {
 		-23px;
 	color: #FFF;
 }
-
-.checkbox_toggle {
-	width: 35px;
-	text-align: center;
-}
 </style>
 		<script type="text/javascript" src="${ctx}/js/mail.js"></script>
 		<script type="text/javascript" src="/dwr/engine.js"></script>
@@ -57,13 +50,17 @@ itemtitle ul a:hover span {
 	var table1;
 	var row1;
 	var currpmdiv;
-	function getMailDetail(mailId,e,obj) {	
+	function getMailDetail(mailId,e,obj,status) {	
 		currpmdiv = mailId+ '_div';	
 		if (!$(currpmdiv)) {
 		table1 = document.getElementById("table");
 		row1 = table1.insertRow(obj.parentNode.parentNode.rowIndex + 1);
+		if(status == 1){
+		var e = table1.rows[obj.parentNode.parentNode.rowIndex].cells[0].firstChild;
+		e.src="${ctx}/teacher/images/pm_0.gif";}
 		MailService.getMailDetail(mailId, callBack);	   
 					$(prepmdiv).style.display = 'none';
+			
 				changestatus(obj);
 				prepmdiv = currpmdiv;
 			}
@@ -80,44 +77,9 @@ itemtitle ul a:hover span {
 				prepmdiv = '';
 			}
 		}
-				doane(e);
+		
 	}
-	function checkCheckBox(form,objtag)
-	{
-		if (typeof(objtag.checked) == "undefined")
-		{
-			objtag.checked = true;
-		}
-		for(var i = 0; i < form.elements.length; i++) 
-		{
-			var e = form.elements[i];
-			if(e.name == "pmitemid") 
-			{
-				e.checked = objtag.checked;
-			}
-		}
-		objtag.checked = !objtag.checked;
-	}
-	    function selectAll() {  
-        var arryObj = document.getElementsByName("pmform")  
-   for ( var i = 0; i < arryObj.length; i++) {  
-   
-            if (typeof arryObj[i].type != "undefined"  
-   && arryObj[i].type == 'checkbox')  
-                arryObj[i].checked = true;  
-        }  
-    }  
-     
-   function unSelectAll() {  
-       var arryObj = document.getElementsByName("pmform");  
-       for ( var i = 0; i < arryObj.length; i++) {  
-           if (typeof arryObj[i].type != "undefined"  
-                   && arryObj[i].type == 'checkbox')  
-              ;  
-          arryObj[i].checked = false;  
-      }  
-   }  
-	
+		  
 	
 </script>
 
@@ -127,18 +89,19 @@ itemtitle ul a:hover span {
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 教师信息 -&gt; 消息管理
+					当前位置: 教师信息 -&gt; 消息管理 -&gt;收件箱
 				</td>
 			</tr>
 		</table>
+
 		<div align="center" style="width: 100%">
-			<form id="pmform" name="pmform" method="post" action="">
+			<s:form id="pmform" name="pmform" method="post"
+				action="deleteMailByTeaAction">
 				<table id="table" cellspacing="0" width="98%" cellpadding="0"
 					class="pm_list" summary="收件箱">
 					<div class="cm_header itemtitle s_clear">
 						<ul>
-
-							<a style="color: #09C; float: right; font-weight: 700" href="##">+
+							<a style="color: #09C; float: right; font-weight: 700;" href="##">+
 								写新消息</a>
 							<li class="current">
 								<a href="#"><span>收件箱</span> </a>
@@ -154,21 +117,25 @@ itemtitle ul a:hover span {
 					<s:iterator value="mailList" status="mail">
 						<tr class="listTr">
 							<td class="msg_icon">
-								<img src="${ctx}/teacher/images/pm_0.gif" title="已读" />
+
+								<img id="msg_img" name="msg_img"
+									src="${ctx}/teacher/images/pm_<s:property value="status"/>.gif" />
+
 							</td>
 							<td class="checkbox_toggle">
-								<s:checkbox id="pmitemid" theme="simple" name="pmitemid"
-									value="id" />
+								<s:checkbox id="%{id}" name="pmitemid" fieldValue="%{id}" />
 							</td>
 
 							<td class="profile_pic">
 
-								<img width="48" src="<s:property value="sender.photo"/>" />
+								<img width="48"
+									src="${ctx}/upload/<s:property value="sender.photo"/>" />
 							</td>
 							<td class="name_and_date">
 								<span class="name"><a href="###"> <s:property
 											value="sender.name" /> </a> </span>
-								<span class="date">今天 10:23</span>
+								<span class="date"><s:date name="time"
+										format="yyyy-MM-dd hh:mm:ss" /> </span>
 							</td>
 
 							</td>
@@ -177,7 +144,12 @@ itemtitle ul a:hover span {
 								<div class="subject_wrap">
 
 									<p>
-										<a href="###" onclick="getMailDetail(${id},event,this)"><s:property
+										<a
+											href="<s:url action="goReceiveMailDetailAction"> 
+                     			<s:param name="mailId"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param> 
+                					</s:url>"><s:property
 												value="title" /> </a>
 									</p>
 									<div class="snippet_wrap grayfont">
@@ -187,41 +159,47 @@ itemtitle ul a:hover span {
 
 							</td>
 							<td class="delete_msg">
-								<a href="#" onclick="getMailDetail(${id},event,this)"
-									style="background-image: url('${ctx}/teacher/images/down.gif');">
-								</a>
+								<a href="#" onclick="getMailDetail(${id},event,this,${status});"
+									style="background-image: url('${ctx}/teacher/images/down.gif');"
+									title="预览"> </a>
 							</td>
 							<td class="delete_msg">
-								<a href="#"
-									style="background-image: url('${ctx}/teacher/images/reply.gif');">
-								</a>
+								<a href="<s:url action="goReplyMailAction"> 
+                     			<s:param name="mailId"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param> 
+                					</s:url>"
+									style="background-image: url('${ctx}/teacher/images/reply.gif');"
+									title="回复"> </a>
 							</td>
 							<td class="delete_msg">
 								<a
 									style="background-image: url('${ctx}/teacher/images/del.gif');"
-									href="<s:url action="goAddCourseStudentBatchByTeaAction"> 
-                     			<s:param name="courseId"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param> 
-                					</s:url>">
-								</a>
+									href="###"
+									onclick="if (confirm('您确定要删除吗?')){$('${id}').checked=true;$('pmform').submit();}"
+									title="删除"> </a>
 							</td>
 						</tr>
 					</s:iterator>
 				</table>
-			</form>
+			</s:form>
 			<div class="cpbox s_clear">
 				<div class="pages_btns">
 					<div class="pages">
-						<em>共有短消息:1条</em>
+						<em style="font-style: normal">共有短消息:<s:property
+								value="count" />条</em>
 					</div>
 					<a href="###" onclick="checkCheckBox($('pmform'),this)">全选</a>
-					<span class="pipe">|</span>
+					<span>|</span>
 					<a href="###"
 						onclick="if (confirm('您确定要删除吗?'))$('pmform').submit();">删除</a>
+					<span>|</span>
+					<a href="updateMailStatusByTeaAction.action?status=0">标记为己读</a>
+					<span>|</span>
+					<a href="updateMailStatusByTeaAction.action?status=1">标记为未读</a>
 				</div>
 			</div>
-
 		</div>
+
 	</body>
 </html>

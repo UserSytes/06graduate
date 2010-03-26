@@ -1,3 +1,20 @@
+function checkCheckBox(form,objtag)
+	{
+		if (typeof(objtag.checked) == "undefined")
+		{
+			objtag.checked = true;
+		}
+		for(var i = 0; i < form.elements.length; i++) 
+		{
+			var e = form.elements[i];
+			if(e.name == "pmitemid") 
+			{
+				e.checked = objtag.checked;
+			}
+		}
+		objtag.checked = !objtag.checked;
+	}
+
 function callBack(data) {
 
 	row1.id = currpmdiv;

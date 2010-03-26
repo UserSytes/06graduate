@@ -190,28 +190,156 @@ a.v1:visited {
 .snippet_wrap a {
 	color: #666;
 }
+
 .delete_msg {
 	width: 20px;
 }
+
 .delete_msg a {
 	display: block;
 	margin-right: 10px;
 	margin-left: 150px;
 	margin-top: 10px;
 	width: 18px;
-	height: 19px;	
-}
-
-.yulan_msg a {
-	display: block;
-	margin-right: 10px;
-	margin-left: 10px;
-	margin-top: 10px;
-	width: 18px;
 	height: 19px;
 }
 
 
+.checkbox_toggle {
+	width: 35px;
+	text-align: center;
+}
+
+.cpbox {
+	margin: 10px 0;
+	width: 95%;
+}
+
+.cpbox a,.cpbox span {
+	padding: 0 4px;
+	float: left;
+	color: #09C;
+}
+
+.cpbox em {
+	color: #09C;
+}
+
+.pages_btns {
+	clear: both;
+	overflow: hidden;
+	zoom: 1;
+	padding: 5px 0 0.5em;
+}
+
+.pages_btns a{
+ 	color: #09C;
+}
+
+.pages_btns span{
+ 	color:#CBCBCB;
+}
+
+.pages {
+	float: right;
+}
+
+.pages a,.pages span,.pages em {
+	float: left;
+	overflow: hidden;
+	padding: 0 6px;
+	margin-right: 2px;
+	height: 24px;
+	border: 1px solid;
+	line-height: 24px;
+}
+
+.pages a {
+	border-color: #E6E7E1;
+	background-color: #FFF;
+	color: #09C;
+}
+
+.pages a:hover {
+	text-decoration: none;
+}
+
+.pages span {
+	border-color: #09C;
+	background-color: #09C;
+	color: #FFF;
+	font-weight: 700;
+}
+
+.pages a:hover,.pages em {
+	border-color: #09C;
+}
+
 .grayfont {
 	color: #999
+}
+
+
+.formtable {
+	width: 100%;
+	border-width: 0px;
+}
+
+.formtable th {
+	padding: 5px 2px;
+	width: 50px;
+	font-weight: 400;
+	vertical-align: top;
+}
+
+.formtable th a {
+	font-weight: 400;
+	color: #09C;
+	text-decoration: underline;
+}
+
+.formtable th label {
+	FONT-SIZE: 13px;
+	width:30px;
+	LINE-HEIGHT: 100%;
+	background-color: #FFF;
+	FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"
+}
+
+.formtable td {
+	padding: 5px 2px;
+}
+
+
+
+.formtable .sep_space th {
+	height: 40px;
+}
+
+.txt,.txtarea {
+	padding: 2px; *
+	padding: 0 2px;
+	height: 16px; *
+	height: 20px;
+	border: 1px solid;
+	border-color: #999 #CCC #CCC #999;
+	background: #FFF;
+	margin-left: 20px;
+}
+
+.txtarea {
+	height: auto;
+}
+
+.with_side {
+	margin-bottom: 10px;
+	background: #FFF;
+	border: 0px solid #C8DCFF;
+}
+
+.wrap {
+	overflow: hidden;
+	text-align: left;
+	margin: 0 auto;
+	margin: 0 auto;
 }
