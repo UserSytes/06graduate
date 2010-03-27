@@ -10,6 +10,8 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
 		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
+		<link rel="stylesheet" href="${ctx}/css/thickbox.css" type="text/css"
+			media="screen" />
 		<title></title>
 		<style type="text/css">
 .delete_msg {
@@ -39,13 +41,44 @@ itemtitle ul a:hover span {
 		-23px;
 	color: #FFF;
 }
+
+#tinybox {
+	position: absolute;
+	display: none;
+	padding: 10px;
+	background: #ffffff url(../image/preload.gif) no-repeat 50% 50%;
+	border: 10px solid #e3e3e3;
+	z-index: 2000;
+}
+
+#tinymask {
+	position: absolute;
+	display: none;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: #000000;
+	z-index: 1500;
+}
+
+#tinycontent {
+	background: #ffffff;
+	font-size: 1.1em;
+}
 </style>
 		<script type="text/javascript" src="${ctx}/js/mail.js"></script>
 		<script type="text/javascript" src="/dwr/engine.js"></script>
 		<script type="text/javascript" src="/dwr/util.js"></script>
 		<script type="text/javascript" src="/dwr/interface/MailService.js"></script>
+		<script type="text/javascript"
+			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
+		<script type="text/javascript" src="${ctx}/js/thickbox.js"></script>
+		<script>
+     jQuery.noConflict();
+</script>
 		<script type="text/javascript">
-			var prepmdiv = '';
+				var prepmdiv = '';
 	var folder = 'inbox';
 	var table1;
 	var row1;
@@ -101,8 +134,9 @@ itemtitle ul a:hover span {
 					class="pm_list" summary="收件箱">
 					<div class="cm_header itemtitle s_clear">
 						<ul>
-							<a style="color: #09C; float: right; font-weight: 700;" href="##">+
-								写新消息</a>
+							<a
+								style="color: #09C; float: right; font-weight: 700;" href="${ctx}/teacher/mycourse/newmail.jsp?height=350&width=550"
+								class="thickbox" title="撰写短消息">+ 写新消息</a>
 							<li class="current">
 								<a href="#"><span>收件箱</span> </a>
 							</li>
@@ -127,9 +161,10 @@ itemtitle ul a:hover span {
 							</td>
 
 							<td class="profile_pic">
-
-								<img width="48"
-									src="${ctx}/upload/<s:property value="sender.photo"/>" />
+								<a href="${ctx}/upload/<s:property value="sender.photo"/>"
+									title="" class="thickbox"> <img width="48"
+										src="${ctx}/upload/<s:property value="sender.photo"/>" />
+								</a>
 							</td>
 							<td class="name_and_date">
 								<span class="name"><a href="###"> <s:property
@@ -164,7 +199,8 @@ itemtitle ul a:hover span {
 									title="预览"> </a>
 							</td>
 							<td class="delete_msg">
-								<a href="<s:url action="goReplyMailAction"> 
+								<a
+									href="<s:url action="goReplyMailAction"> 
                      			<s:param name="mailId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
@@ -200,6 +236,7 @@ itemtitle ul a:hover span {
 				</div>
 			</div>
 		</div>
+
 
 	</body>
 </html>

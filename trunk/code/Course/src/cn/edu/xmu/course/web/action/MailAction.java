@@ -141,7 +141,7 @@ public class MailAction extends BaseAction {
 	public String getMailDetail() {
 		mail = mailService.getMailById(mailId);
 		// 标记信件的状态
-		return null;
+		return SUCCESS;
 	}
 
 	/**
