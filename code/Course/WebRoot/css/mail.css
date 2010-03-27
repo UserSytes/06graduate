@@ -22,6 +22,8 @@ body {
 	background: #F5F5F5;
 }
 
+
+
 .itemtitle {
 	clear: both;
 	overflow: hidden;
@@ -342,4 +344,47 @@ a.v1:visited {
 	text-align: left;
 	margin: 0 auto;
 	margin: 0 auto;
+}
+
+
+.notefilter a {
+	color: #0954A6;
+	padding-left: 15px;
+}
+
+.notefilter {
+	padding: 5px 10px;
+	margin-bottom: 10px;
+	margin-top: 4px;
+	background: #EEF4F9;
+	border-top: 1px solid #D3E0EC;
+	border-bottom: 1px solid #D3E0EC;
+}
+
+.notefilter a {
+	color: #0954A6;
+	padding-left: 15px;
+}
+
+.note {
+	list-style-type: none;
+}
+
+.note cite {
+	font-weight: 400;
+	font-style: normal;
+}
+
+.note li {
+	padding: 4px 0;
+}
+
+.f_bold {
+	font-weight: 700;
+}
+
+.time {
+	font-size: 10px;
+	color: #999;
+	font-family: Arial, sans-serif;
 }
