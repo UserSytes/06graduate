@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.service;
 
+import java.util.Date;
 import java.util.List;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.School;
@@ -16,4 +17,11 @@ public interface ITopicService {
 	
 	public List<Topic> getTopicByShcool(School school);
 	public List<Topic> searchTopicByKey(String key, School school);
+	public List<Topic> searchTopicByName(Course course,String name);
+	public List<Topic> searchTopicByAuthorName(Course course,String authorName);
+	public List<Topic> searchtopicByNameAndAuthorName(Course course,String name, String authorName);
+	public List<Topic> searchTopicByTime(Course course,Date date);
+	public List<Topic> searchTopicByNameAndTime(Course course,String name,Date date);
+	public List<Topic> searchTopicByAuthorNameAndTime(Course course,String authorName,Date date);
+	public List<Topic> searchTopicByNameAndAuthorNameAndTime(Course course,String name,String authorName,Date date);
 }
