@@ -1268,6 +1268,11 @@
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
 		</action>
+		<action name="searchTopicByKeyAction" method="searchTopicByKey" class="messageAction">
+			<result name="success">/coursepage/messagemanage/showtopics.jsp
+			</result>
+			<result name="error">/commons/prompt1.jsp</result>
+		</action>
 			
 		<action name="loginFromMessageBoardAction" method="loginFromMessageBoard" class="messageAction">
 			<result name="teacher">/coursepage/loginsuccess.jsp</result>
