@@ -12,6 +12,17 @@
     <location>/commons/error.jsp</location>
   	</error-page>
 	
+	<filter>    
+		<filter-name>hibernateFilter</filter-name>    
+		<filter-class>    
+		org.springframework.orm.hibernate3.support.OpenSessionInViewFilter     
+</filter-class>    
+</filter>     
+<filter-mapping>    
+<filter-name>hibernateFilter</filter-name>    
+<url-pattern>*.action</url-pattern>    
+</filter-mapping> 
+	
 	<listener>
 		<listener-class>
 			org.springframework.web.context.ContextLoaderListener
@@ -88,6 +99,14 @@
 		</url-pattern>
 	</filter-mapping>
 
+  <filter> 
+        <filter-name>struts-cleanup</filter-name> 
+        <filter-class>org.apache.struts2.dispatcher.ActionContextCleanUp</filter-class> 
+    </filter>
+    <filter-mapping>
+        <filter-name>struts-cleanup</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 	<filter>
 		<filter-name>struts</filter-name>
 		<filter-class>
@@ -100,12 +119,5 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
-	    <filter> 
-        <filter-name>struts-cleanup</filter-name> 
-        <filter-class>org.apache.struts2.dispatcher.ActionContextCleanUp</filter-class> 
-    </filter>
-    <filter-mapping>
-        <filter-name>struts-cleanup</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
+	  
 </web-app>

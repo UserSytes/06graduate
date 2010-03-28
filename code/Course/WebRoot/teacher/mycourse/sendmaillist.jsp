@@ -88,7 +88,7 @@ itemtitle ul a:hover span {
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 教师信息 -&gt; 消息管理  -&gt; 发件箱
+					当前位置: 教师信息 -&gt; 消息管理 -&gt;收件箱
 				</td>
 			</tr>
 		</table>
@@ -103,11 +103,11 @@ itemtitle ul a:hover span {
 							<a style="color: #09C; float: right; font-weight: 700;"
 								href="${ctx}/teacher/mycourse/newmail.jsp?height=350&width=550"
 								class="thickbox" title="撰写短消息">+ 写新消息</a>
-							<li>
+							<li class="current">
 								<a href="#"><span>收件箱</span> </a>
 							</li>
-							<li class="current">
-								<a href="getSendMailByTeaAction.action"><span>发件箱</span> </a>
+							<li>
+								<a href="#"><span>发件箱</span> </a>
 							</li>
 							<li>
 								<a href="#"><span>草稿箱</span> </a>
