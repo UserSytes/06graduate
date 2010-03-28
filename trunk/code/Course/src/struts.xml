@@ -3,7 +3,14 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
 	"http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	
+	    <package name="aticle_ajax" extends="json-default" >  
+        <action name="getMailDetailJsonAction" class="mailAction" method="getMailDetail">  
+           <result type="json"><param name="root">result</param> </result>  
+        </action>  
+        <action name="findStudentJsonAction" class="mailAction" method="findStudentByStuNo">  
+           <result type="json"><param name="root">result</param> </result>  
+        </action>  
+    </package>  
 	<package name="struts" extends="struts-default">
 		<action name="download" class="cn.edu.xmu.course.web.action.DownloadAction">
 			 <!-- 设置文件名参数，由页面上传入 -->
@@ -368,6 +375,11 @@
 			<result name="success">teacher/mycourse/replymail.jsp</result>
 		</action>
 		<action name="addReplyMailByTeaAction" class="mailAction">
+			<result name="success">/commons/prompt.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="addMailByTeaAction" class="mailAction">
 			<result name="success">/commons/prompt.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>

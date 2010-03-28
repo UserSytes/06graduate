@@ -2,6 +2,8 @@ package cn.edu.xmu.course.web.action;
 
 import java.util.List;
 
+import com.googlecode.jsonplugin.annotations.JSON;
+
 import cn.edu.xmu.course.pojo.Mail;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.UserInfo;
@@ -27,7 +29,17 @@ public class MailAction extends BaseAction {
 	private int status;
 	private String[] pmitemid;
 	private String savetosentbox;
+	private String result;
 
+	
+	public String findStudentByStuNo(){
+		Student stu = studentInfoService.findByStudentNo(studentNo);
+		if(stu == null)
+			this.result=null;
+		else this.result=stu.getUserInfo().getName();
+		return SUCCESS;
+	}
+	
 	public String addNewMail(UserInfo sender, UserInfo receiver) {
 		if (mailService.addNewMail(mail, sender, receiver)) {
 			addActionMessage("发送消息成功！");
@@ -47,9 +59,22 @@ public class MailAction extends BaseAction {
 			return ERROR;
 		}
 	}
-
+	
 	/**
 	 * 教师给学生发送一个新的消息
+	 * 
+	 * @return
+	 */
+	public String addNewMailByTea() {
+		Student stu=studentInfoService.findByStudentNo(studentNo);
+		if (savetosentbox.equals("true"))
+			return this.addAndSaveMail(super.getTeacher().getUserInfo(), stu.getUserInfo());
+		else
+			return this.addNewMail(super.getTeacher().getUserInfo(), stu.getUserInfo());
+	}
+
+	/**
+	 * 教师回复消息
 	 * 
 	 * @return
 	 */
@@ -62,6 +87,19 @@ public class MailAction extends BaseAction {
 					.getReceiver());
 	}
 
+	/**
+	 * 添加草稿
+	 * @return
+	 */
+	public String addDraftByTea(){
+		Student stu=studentInfoService.findByStudentNo(studentNo);
+		return this.addDraft(super.getTeacher().getUserInfo(), stu.getUserInfo());
+	}
+	
+	/**
+	 * 添加回复消息到草稿
+	 * @return
+	 */
 	public String addReplyDraftByTea(){
 		return this.addDraft(super.getTeacher().getUserInfo(), mail.getReceiver());
 	}
@@ -140,6 +178,8 @@ public class MailAction extends BaseAction {
 	 */
 	public String getMailDetail() {
 		mail = mailService.getMailById(mailId);
+		System.out.println(mail.getContent());
+		this.result=mail.getContent();
 		// 标记信件的状态
 		return SUCCESS;
 	}
@@ -252,6 +292,14 @@ public class MailAction extends BaseAction {
 
 	public String getSavetosentbox() {
 		return savetosentbox;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
+	public String getResult() {
+		return result;
 	}
 
 }
