@@ -27,6 +27,8 @@ public interface IStudentInfoService {
 	
 	public Student findById(int id);
 	
+	public Student findByUserInfo(UserInfo userInfo);
+	
 	public boolean batchAddStudents(List<Student> studentList, List<UserInfo> userInfoList);
 	
 	public Student findByStudentNo(String studentNo);

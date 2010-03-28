@@ -31,15 +31,15 @@ public class MailAction extends BaseAction {
 	private String savetosentbox;
 	private String result;
 
-	
-	public String findStudentByStuNo(){
+	public String findStudentByStuNo() {
 		Student stu = studentInfoService.findByStudentNo(studentNo);
-		if(stu == null)
-			this.result=null;
-		else this.result=stu.getUserInfo().getName();
+		if (stu == null)
+			this.result = null;
+		else
+			this.result = stu.getUserInfo().getName();
 		return SUCCESS;
 	}
-	
+
 	public String addNewMail(UserInfo sender, UserInfo receiver) {
 		if (mailService.addNewMail(mail, sender, receiver)) {
 			addActionMessage("发送消息成功！");
@@ -59,18 +59,20 @@ public class MailAction extends BaseAction {
 			return ERROR;
 		}
 	}
-	
+
 	/**
 	 * 教师给学生发送一个新的消息
 	 * 
 	 * @return
 	 */
 	public String addNewMailByTea() {
-		Student stu=studentInfoService.findByStudentNo(studentNo);
+		Student stu = studentInfoService.findByStudentNo(studentNo);
 		if (savetosentbox.equals("true"))
-			return this.addAndSaveMail(super.getTeacher().getUserInfo(), stu.getUserInfo());
+			return this.addAndSaveMail(super.getTeacher().getUserInfo(), stu
+					.getUserInfo());
 		else
-			return this.addNewMail(super.getTeacher().getUserInfo(), stu.getUserInfo());
+			return this.addNewMail(super.getTeacher().getUserInfo(), stu
+					.getUserInfo());
 	}
 
 	/**
@@ -89,27 +91,32 @@ public class MailAction extends BaseAction {
 
 	/**
 	 * 添加草稿
+	 * 
 	 * @return
 	 */
-	public String addDraftByTea(){
-		Student stu=studentInfoService.findByStudentNo(studentNo);
-		return this.addDraft(super.getTeacher().getUserInfo(), stu.getUserInfo());
+	public String addDraftByTea() {
+		Student stu = studentInfoService.findByStudentNo(studentNo);
+		return this.addDraft(super.getTeacher().getUserInfo(), stu
+				.getUserInfo());
 	}
-	
+
 	/**
 	 * 添加回复消息到草稿
+	 * 
 	 * @return
 	 */
-	public String addReplyDraftByTea(){
-		return this.addDraft(super.getTeacher().getUserInfo(), mail.getReceiver());
+	public String addReplyDraftByTea() {
+		return this.addDraft(super.getTeacher().getUserInfo(), mail
+				.getReceiver());
 	}
+
 	/**
 	 * 将消息保存在草稿箱中
 	 * 
 	 * @return
 	 */
 	public String addDraft(UserInfo sender, UserInfo receiver) {
-		if (mailService.addDraft(mail, sender,receiver)) {
+		if (mailService.addDraft(mail, sender, receiver)) {
 			addActionMessage("已将消息保存在草稿箱！");
 			return SUCCESS;
 		} else {
@@ -164,9 +171,21 @@ public class MailAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	public String getSendMailListByTea() {
+	public String getSendMailByTea() {
 		mailList = mailService.getMailsBySender(super.getTeacher()
-				.getUserInfo(), getStatus());
+				.getUserInfo(), 1);
+		count = mailList.size();
+		return SUCCESS;
+	}
+	
+	/**
+	 * 教师查询发送的消息和草稿
+	 * 
+	 * @return
+	 */
+	public String getDraftByTea() {
+		mailList = mailService.getMailsBySender(super.getTeacher()
+				.getUserInfo(), 2);
 		count = mailList.size();
 		return SUCCESS;
 	}
@@ -178,9 +197,20 @@ public class MailAction extends BaseAction {
 	 */
 	public String getMailDetail() {
 		mail = mailService.getMailById(mailId);
-		System.out.println(mail.getContent());
-		this.result=mail.getContent();
+		this.result = mail.getContent();
 		// 标记信件的状态
+		return SUCCESS;
+	}
+	
+	/**
+	 * 再次编辑草稿
+	 * @return
+	 */
+	public String goDraftDetail() {
+		mail = mailService.getMailById(mailId);
+		Student stu = studentInfoService.findByUserInfo(mail.getReceiver());
+		if(stu!= null)
+			studentNo = stu.getStudentNo();
 		return SUCCESS;
 	}
 
@@ -189,12 +219,13 @@ public class MailAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	public String goReplyMail(){
+	public String goReplyMail() {
 		oldMail = mailService.getMailById(mailId);
-		mail=new Mail();
+		mail = new Mail();
 		mail.setReceiver(oldMail.getSender());
-		mail.setTitle("回复："+oldMail.getTitle());
-		mail.setContent("\n\n\n\n------------------ 原始邮件 ------------------\n>"+oldMail.getContent());
+		mail.setTitle("回复：" + oldMail.getTitle());
+		mail.setContent("\n\n\n\n------------------ 原始邮件 ------------------\n>"
+				+ oldMail.getContent());
 		return SUCCESS;
 	}
 

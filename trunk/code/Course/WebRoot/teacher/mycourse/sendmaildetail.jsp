@@ -36,7 +36,7 @@
 				</td>
 			</tr>
 		</table>
-<div align="center" style="width: 100%">
+
 		<div class="with_side wrap" align="center" style="width: 95%;">
 			<div class="cm_header itemtitle s_clear">
 				<ul>
@@ -77,20 +77,13 @@
 			</ul>
 			<div class="notefilter">
 
-				<a href="getReceiveMailByTeaAction.action">返回列表</a>
-				<a
-					href="<s:url action="goReplyMailAction"> 
-                     			<s:param name="mailId"> 
-                       			 	<s:property value="mail.id"/> 
-                    			</s:param> 
-                					</s:url>">回复</a>
-				<a href="usercpshowpm.aspx?action=noread&amp;pmid=529018">标记为未读</a>
+				<a href="getSendMailByTeaAction.action">返回列表</a>				
 				<a href="usercpshowpm.aspx?action=delete&amp;pmid=529018"
 					onclick="if (confirm('您确定要删除吗?')){return true;}">删除</a>
 			</div>
 
 
 		</div>
-</div>
+
 	</body>
 </html>

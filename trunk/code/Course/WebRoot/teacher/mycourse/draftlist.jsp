@@ -50,12 +50,7 @@ itemtitle ul a:hover span {
 		
 		table1 = document.getElementById("table");
 		row1 = table1.insertRow(obj.parentNode.parentNode.rowIndex + 1);
-		if(status == 1){
-		var e = table1.rows[obj.parentNode.parentNode.rowIndex].cells[0].firstChild;
-		e.src="${ctx}/teacher/images/pm_0.gif";
-		}
-	
-		 jQuery.post("getMailDetailJsonAction.action", { mailId:mailId},  
+	 jQuery.post("getMailDetailJsonAction.action", { mailId:mailId},  
                                     callBack, "json");  
 	   
 					$(prepmdiv).style.display = 'none';
@@ -87,28 +82,29 @@ itemtitle ul a:hover span {
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 教师信息 -&gt; 消息管理  -&gt; 发件箱
+					当前位置: 教师信息 -&gt; 消息管理 -&gt; 草稿箱
 				</td>
 			</tr>
 		</table>
 
 		<div align="center" style="width: 100%">
 			<s:form id="pmform" name="pmform" method="post"
-				action="deleteReceiveMailByTeaAction">
+				action="deleteDraftByTeaAction">
 				<table id="table" cellspacing="0" width="98%" cellpadding="0"
-					class="pm_list" summary="收件箱">
+					class="pm_list" summary="草稿箱">
 					<div class="cm_header itemtitle s_clear">
 						<ul>
 							<a style="color: #09C; float: right; font-weight: 700;"
 								href="${ctx}/teacher/mycourse/newmail.jsp?height=350&width=550"
 								class="thickbox" title="撰写短消息">+ 写新消息</a>
-							<li class="current">
-								<a href="getReceiveMailByTeaAction.action"><span>收件箱</span> </a>
+							<li>
+								<a href="getReceiveMailByTeaAction.action"><span>收件箱</span>
+								</a>
 							</li>
 							<li>
 								<a href="getSendMailByTeaAction.action"><span>发件箱</span> </a>
 							</li>
-							<li>
+							<li class="current">
 								<a href="getDraftByTeaAction.action"><span>草稿箱</span> </a>
 							</li>
 						</ul>
@@ -118,7 +114,7 @@ itemtitle ul a:hover span {
 							<td class="msg_icon">
 
 								<img id="msg_img" name="msg_img"
-									src="${ctx}/teacher/images/pm_<s:property value="status"/>.gif" />
+									src="${ctx}/teacher/images/pm_0.gif" />
 
 							</td>
 							<td class="checkbox_toggle">
@@ -144,7 +140,7 @@ itemtitle ul a:hover span {
 
 									<p>
 										<a
-											href="<s:url action="goReceiveMailDetailAction"> 
+											href="<s:url action="goDraftDetailAction"> 
                      			<s:param name="mailId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
@@ -161,16 +157,6 @@ itemtitle ul a:hover span {
 								<a href="#" onclick="getMailDetail(${id},event,this,${status});"
 									style="background-image: url('${ctx}/teacher/images/down.gif');"
 									title="预览"> </a>
-							</td>
-							<td class="delete_msg">
-								<a
-									href="<s:url action="goReplyMailAction"> 
-                     			<s:param name="mailId"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param> 
-                					</s:url>"
-									style="background-image: url('${ctx}/teacher/images/reply.gif');"
-									title="回复"> </a>
 							</td>
 							<td class="delete_msg">
 								<a
@@ -193,10 +179,6 @@ itemtitle ul a:hover span {
 					<span>|</span>
 					<a href="###"
 						onclick="if (confirm('您确定要删除吗?'))$('pmform').submit();">删除</a>
-					<span>|</span>
-					<a href="updateMailStatusByTeaAction.action?status=0">标记为己读</a>
-					<span>|</span>
-					<a href="updateMailStatusByTeaAction.action?status=1">标记为未读</a>
 				</div>
 			</div>
 		</div>
