@@ -39,7 +39,10 @@ public class NoticeService implements INoticeService {
 	}
 	public Notice findLastestNotice(Course course) {
 		List<Notice> list=noticeDAO.findByCourseAndSort(course.getId(), 1);
-		return list.get(0);
+		if(list.size()==0)
+			return null;
+		else 
+			return list.get(0);
 	}
 	public List getNoticeListByCourse(Course course) {
 		// TODO Auto-generated method stub
