@@ -12,6 +12,7 @@ import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.Grade;
 import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Student;
+import cn.edu.xmu.course.pojo.UserInfo;
 
 /**
  * A data access object (DAO) providing persistence and search support for
@@ -51,6 +52,17 @@ public class StudentDAO extends HibernateDaoSupport {
 		try {
 			String queryString = "from Student as model where model.userInfo.department = ?";
 			return getHibernateTemplate().find(queryString, department);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	
+	public List findByUserInfo(UserInfo userInfo){
+		log.debug("finding Student instance with property: userInfo, value: " + userInfo);
+		try {
+			String queryString = "from Student as model where model.userInfo = ?";
+			return getHibernateTemplate().find(queryString, userInfo);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
 			throw re;

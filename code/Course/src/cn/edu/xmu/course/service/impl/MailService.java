@@ -47,8 +47,8 @@ public class MailService implements IMailService {
 		Mail saveMail = new Mail();
 		saveMail.setContent(mail.getContent());
 		saveMail.setTitle(mail.getTitle());
-		saveMail.setSender(receiver);
-		saveMail.setReceiver(sender);
+		saveMail.setReceiver(receiver);
+		saveMail.setSender(sender);
 		saveMail.setStatus(1);
 		saveMail.setSort(2);
 		saveMail.setTime(new Date());

@@ -13,21 +13,6 @@
 
 		<title></title>
 		<style type="text/css">
-itemtitle ul a:hover span {
-	background: url(${ctx}/teacher/images/btn_block.gif) no-repeat 100%
-		-69px;
-}
-
-.itemtitle ul .current a,.itemtitle ul .current a:hover {
-	background: url(${ctx}/teacher/images/btn_block.gif) no-repeat 0 0;
-}
-
-.itemtitle ul .current a span,.itemtitle ul .current a:hover span {
-	background: url(${ctx}/teacher/images/btn_block.gif) no-repeat 100%
-		-23px;
-	color: #FFF;
-}
-
 </style>
 		<script type="text/javascript">
 			
@@ -45,23 +30,26 @@ itemtitle ul a:hover span {
 		</table>
 
 		<div class="with_side wrap" align="center" style="width: 95%;">
-			<s:form id="postpm" name="postpm" method="post"
-				action="addReplyMailByTeaAction">
+			
 				<div class="cm_header itemtitle s_clear">
 					<ul>
 						<a style="color: #09C; float: right; font-weight: 700;" href="##">+
 							写新消息</a>
-						<li class="current">
-							<a href="#"><span>收件箱</span> </a>
-						</li>
 						<li>
-							<a href="#"><span>发件箱</span> </a>
-						</li>
-						<li>
-							<a href="#"><span>草稿箱</span> </a>
-						</li>
+						<a href="getReceiveMailByTeaAction.action"><span>收件箱</span> </a>
+					</li>
+					<li>
+						<a href="getSendMailByTeaAction.action"><span>发件箱</span>
+						</a>
+					</li>
+					<li>
+						<a href="getDraftByTeaAction.action"><span>草稿箱</span>
+						</a>
+					</li>
 					</ul>
 				</div>
+<s:form id="postpm" name="postpm" method="post"
+				action="addReplyMailByTeaAction">
 				<table cellspacing="0" cellpadding="0" class="formtable"
 					summary="撰写短消息" border="0px">
 					<s:hidden name="mail.receiver.id"></s:hidden>

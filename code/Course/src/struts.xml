@@ -360,16 +360,36 @@
 			<result name="success">/teacher/mycourse/receivemaillist.jsp
 			</result>			
 		</action>
-		<action name="getMailDetailAction" method="getMailDetail" class="mailAction">
-			<result name="success">/teacher/mycourse/receivemaillist.jsp
+		<action name="getSendMailByTeaAction" method="getSendMailByTea" class="mailAction">
+			<result name="success">/teacher/mycourse/sendmaillist.jsp
+			</result>
+			<result name="draft">/teacher/mycourse/draftlist.jsp
+			</result>			
+		</action>
+		<action name="getDraftByTeaAction" method="getDraftByTea" class="mailAction">
+			<result name="success">/teacher/mycourse/draftlist.jsp
+			</result>				
+		</action>
+		<action name="goSendMailDetailAction" method="getMailDetail" class="mailAction">
+			<result name="success">/teacher/mycourse/sendmaildetail.jsp
+			</result>			
+		</action>
+		<action name="goDraftDetailAction" method="goDraftDetail" class="mailAction">
+			<result name="success">/teacher/mycourse/draftdetail.jsp
 			</result>			
 		</action>
 		<action name="goReceiveMailDetailAction" method="getMailDetail" class="mailAction">
 			<result name="success">/teacher/mycourse/receivemaildetail.jsp
 			</result>			
 		</action>
-		<action name="deleteMailByTeaAction" method="deleteMailByTeacher" class="mailAction">
+		<action name="deleteReceiveMailByTeaAction" method="deleteMailByTeacher" class="mailAction">
 			<result name="success" type="redirect-action">getReceiveMailByTeaAction</result>
+		</action>
+		<action name="deleteSendMailByTeaAction" method="deleteMailByTeacher" class="mailAction">
+			<result name="success" type="redirect-action">getSendMailByTeaAction</result>
+		</action>
+		<action name="deleteDraftByTeaAction" method="deleteMailByTeacher" class="mailAction">
+			<result name="success" type="redirect-action">getDraftByTeaAction</result>
 		</action>
 		<action name="goReplyMailAction" method="goReplyMail" class="mailAction">
 			<result name="success">teacher/mycourse/replymail.jsp</result>

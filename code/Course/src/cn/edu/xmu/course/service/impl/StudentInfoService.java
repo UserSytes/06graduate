@@ -236,4 +236,14 @@ public class StudentInfoService implements IStudentInfoService {
 		return true;
 	}
 
+	public Student findByUserInfo(UserInfo userInfo) {
+		// TODO Auto-generated method stub
+		List<Student> students = studentDAO.findByUserInfo(userInfo);
+		if (students.size() == 0) {
+			return null;
+		} else {
+			return students.get(0);
+		}
+	}
+
 }
