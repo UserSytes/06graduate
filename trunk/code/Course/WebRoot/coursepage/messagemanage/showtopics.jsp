@@ -25,6 +25,9 @@ boder:none;
 					欢迎你，<s:property value="userInfo.name"/>&nbsp;&nbsp;&nbsp;<a href="<s:url action="enterPersionalSpaceAction"> 
                 					</s:url>">
 												个人空间
+											</a>&nbsp;&nbsp;&nbsp;
+<a href="${ctx}/coursepage/messagemanage/searchtopic.jsp">
+												搜索
 											</a>&nbsp;&nbsp;&nbsp;<a href="<s:url action="logoutFromMessageBoardAction"> 
                 					</s:url>">
 												退出
@@ -32,7 +35,8 @@ boder:none;
 		
 		    
 <div align=right style="height:500">
-
+<font size="3"><strong><s:actionmessage />
+						</strong>
 <table width="100%">
 <tr style="background-repeat:repeat-x; background-image: url(${ctx}/coursepage/images/cbg.gif)" >
 	<th width="4%">&nbsp;</th>
