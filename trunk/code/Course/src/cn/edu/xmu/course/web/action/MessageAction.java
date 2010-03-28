@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.Action;
 
 import cn.edu.xmu.course.commons.MessageInfo;
 import cn.edu.xmu.course.pojo.Course;
+
 import cn.edu.xmu.course.pojo.Message;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.Teacher;
@@ -39,7 +40,10 @@ public class MessageAction extends BaseAction {
 	private Teacher teacher;
 	private int flag;
 	private String userName, password;
-	private int time=0;
+	private int time = 0;
+	private String keyword="";
+	private String authorName="";
+	private Date keydate;
 
 	public String loginFromMessageBoard() {
 
@@ -52,7 +56,7 @@ public class MessageAction extends BaseAction {
 				return ERROR;
 			} else {
 				userInfo = teacher.getUserInfo();
-				System.out.println("正在登陆的是"+teacher.getTeacherNo());
+				System.out.println("正在登陆的是" + teacher.getTeacherNo());
 				addActionMessage("亲爱的" + getUserInfo().getName() + "，欢迎你！");
 				System.out.println(teacher.getPassword());
 				super.getSession().put(TEACHER, teacher);
@@ -68,7 +72,7 @@ public class MessageAction extends BaseAction {
 				return ERROR;
 			} else {
 				userInfo = student.getUserInfo();
-				System.out.println("正在登陆的是"+student.getStudentNo());
+				System.out.println("正在登陆的是" + student.getStudentNo());
 				addActionMessage("亲爱的" + getUserInfo().getName() + "，欢迎你！");
 				System.out.println("test1: " + student.getPassword());
 				super.getSession().put(STUDENT, student);
@@ -81,71 +85,65 @@ public class MessageAction extends BaseAction {
 	public String logoutFromMessageBoard() {
 		student = (Student) super.getSession().get(STUDENT);
 		teacher = (Teacher) super.getSession().get(TEACHER);
-		if (null != student)
-		{
-			System.out.println("正在登出的是"+student.getStudentNo());
+		if (null != student) {
+			System.out.println("正在登出的是" + student.getStudentNo());
 			super.getSession().remove(STUDENT);
 			return SUCCESS;
-		}
-		else if(null!=teacher)
-		{
-			System.out.println("正在登出的是"+teacher.getTeacherNo());
+		} else if (null != teacher) {
+			System.out.println("正在登出的是" + teacher.getTeacherNo());
 			super.getSession().remove(TEACHER);
 			return SUCCESS;
-			}
-		else
+		} else
 			return ERROR;
-		
+
 	}
 
 	public String enterPersionalSpace() {
 		student = (Student) super.getSession().get(STUDENT);
 		teacher = (Teacher) super.getSession().get(TEACHER);
-		if (null != student)
-		{
-			System.out.println("正在进入空间的是"+student.getStudentNo());
+		if (null != student) {
+			System.out.println("正在进入空间的是" + student.getStudentNo());
 			return "student";
-			}
-		else if(null != teacher)
-		{	
-			System.out.println("正在进入空间的是"+teacher.getTeacherNo());
+		} else if (null != teacher) {
+			System.out.println("正在进入空间的是" + teacher.getTeacherNo());
 			return "teacher";
-		
-		}else
+
+		} else
 			return ERROR;
 
 	}
-	public String addNewMessage(){
-//		userInfo=(UserInfo) super.getSession().get(USERINFO);
-//		System.out.println("******"+userInfo.getName()+"********");
-//		topic.setAuthorName(userInfo.getName());
-//		topicService.addTopic(super.getCourse(), topic);
-//		message.setGrade(1);
-//		message.setUserInfo(userInfo);
-		boolean	result=messageService.addMessage(super.getCourse(),topic, message,super.getUserInfo());
+
+	public String addNewMessage() {
+		// userInfo=(UserInfo) super.getSession().get(USERINFO);
+		// System.out.println("******"+userInfo.getName()+"********");
+		// topic.setAuthorName(userInfo.getName());
+		// topicService.addTopic(super.getCourse(), topic);
+		// message.setGrade(1);
+		// message.setUserInfo(userInfo);
+		boolean result = messageService.addMessage(super.getCourse(), topic,
+				message, super.getUserInfo());
 		if (result) {
 			addActionMessage("添加帖子成功！");
 			return SUCCESS;
-		} else
-		{
+		} else {
 			addActionError("添加帖子失败！");
 			return ERROR;
 		}
-		}
-	public String goReply(){
-		topic =topicService.getTopicById(topicId);
-		System.out.println("进入ID为："+topic.getId()+"的回复页面");
-		userInfo=(UserInfo) super.getSession().get(USERINFO);
-		if(getTopic()==null){
+	}
+
+	public String goReply() {
+		topic = topicService.getTopicById(topicId);
+		System.out.println("进入ID为：" + topic.getId() + "的回复页面");
+		userInfo = (UserInfo) super.getSession().get(USERINFO);
+		if (getTopic() == null) {
 			addActionError("该贴已经不存在！");
 			return ERROR;
-		}
-		else
-		{
+		} else {
 			return SUCCESS;
 		}
-		
+
 	}
+
 	/**
 	 * 显示课程留言主题
 	 * 
@@ -155,7 +153,7 @@ public class MessageAction extends BaseAction {
 	public String showTopics() {
 		student = (Student) super.getSession().get(STUDENT);
 		teacher = (Teacher) super.getSession().get(TEACHER);
-		if (null==student && null==teacher) {
+		if (null == student && null == teacher) {
 			addActionError("您还未登录，请先登录！");
 			return "login";
 		} else {
@@ -176,113 +174,101 @@ public class MessageAction extends BaseAction {
 		}
 
 	}
-	
-	
+
 	public String showMessages() {
-	topic = topicService.getTopicById(topicId);
-	messageList = messageService.getAllMessages(topic, pageSize,
-			pageNow);
-	System.out.println("查找到：" + messageList.size());
-	pageCount = (messageList.size() + getPageSize() - 1)
-			/ getPageSize();
-	topic.setCountPerson(topic.getCountPerson() + 1);
-	topicService.updateTopic(topic);
-	if (getMessageList().size() > 0) {
-		return "messages";
-	} else {
-		System.out.println("查看留言出错！");
-		addActionError("查看留言出错！");
-		return ERROR;
+		topic = topicService.getTopicById(topicId);
+		messageList = messageService.getAllMessages(topic, pageSize, pageNow);
+		System.out.println("查找到：" + messageList.size());
+		pageCount = (messageList.size() + getPageSize() - 1) / getPageSize();
+		topic.setCountPerson(topic.getCountPerson() + 1);
+		topicService.updateTopic(topic);
+		if (getMessageList().size() > 0) {
+			return "messages";
+		} else {
+			System.out.println("查看留言出错！");
+			addActionError("查看留言出错！");
+			return ERROR;
+		}
 	}
-}
-	
-	public String addReply(){		
-//		System.out.println("ACTION正在加入帖子为："+topicId+"的留言1");
-//		topic = topicService.getTopicById(topicId);
-		System.out.println("ACTION正在加入帖子为："+topic.getId()+"的留言2");
+
+	public String addReply() {
+		// System.out.println("ACTION正在加入帖子为："+topicId+"的留言1");
+		// topic = topicService.getTopicById(topicId);
+		System.out.println("ACTION正在加入帖子为：" + topic.getId() + "的留言2");
 		topic = topicService.getTopicById(topic.getId());
-//		topic.setCountReply(topic.getCountReply()+1);
-//		topic.setLastUpdate(new Date());
-//		topic.setLastAnswer(super.getUserInfo().getName());
-//		topicService.updateTopic(topic);
-//		System.out.println(message.getContent());
-//		message.setGrade(topic.getCountReply()+2);
-		boolean result=messageService.addReplyMessage(topic, message,super.getUserInfo());
+		// topic.setCountReply(topic.getCountReply()+1);
+		// topic.setLastUpdate(new Date());
+		// topic.setLastAnswer(super.getUserInfo().getName());
+		// topicService.updateTopic(topic);
+		// System.out.println(message.getContent());
+		// message.setGrade(topic.getCountReply()+2);
+		boolean result = messageService.addReplyMessage(topic, message, super
+				.getUserInfo());
 		if (result) {
 			addActionMessage("添加帖子成功！");
 			return SUCCESS;
-		} else
-		{
+		} else {
 			addActionError("添加帖子失败！");
 			return ERROR;
 		}
 	}
-//	public String showMessages() {
-//		topic = topicService.getTopicById(topicId);
-//		messageInfoList = messageService.getAllMessages(topic, pageSize,
-//				pageNow);
-//		System.out.println("查找到：" + messageInfoList.size());
-//		pageCount = (messageInfoList.size() + getPageSize() - 1)
-//				/ getPageSize();
-//		topic.setCountPerson(topic.getCountPerson() + 1);
-//		topicService.updateTopic(topic);
-//		if (getMessageInfoList().size() > 0) {
-//			return "messages";
-//		} else {
-//			System.out.println("查看留言出错！");
-//			addActionError("查看留言出错！");
-//			return ERROR;
-//		}
-//		//		
-//		// if
-//		// ((this.messageInfoList=messageService.getAllMessages(topic)).size()
-//		// != 0) {
-//		//
-//		// int length = this.messageInfoList.size();
-//		// System.out.println("留言总数：" + length);
-//		// int start = (pageNow - 1) * pageSize;
-//		// int end = start + pageSize;
-//		// int flag = 0;
-//		// System.out.println("length%pagesize="+length%pageSize);
-//		// System.out.println("length/pagesize="+length/pageSize);
-//		// if ((length % pageSize) > 0)
-//		// flag = 1;
-//		// else
-//		// flag = 0;
-//		// if (start == (length / pageSize + flag)) {
-//		// end = length - 1;
-//		// System.out.println("end:"+end);
-//		// }
-//		//			
-//		// this.showMessageList.clear();
-//		// System.out.println(start);
-//		//
-//		// if (start < 0) {
-//		// JOptionPane.showMessageDialog(null, "没有信息可以显示！");
-//		// for (int i = 0; i < pageSize; i++)
-//		// this.showMessageList.add(this.messageInfoList.get(i));
-//		// } else if (start >= length) {
-//		// JOptionPane.showMessageDialog(null, "没有信息可以显示！");
-//		// for (int i = length - pageSize; i < length; i++)
-//		// this.showMessageList.add(this.messageInfoList.get(i));
-//		// } else {
-//		// for (int i = start; i < end; i++) {
-//		// this.showMessageList.add(this.messageInfoList.get(i));
-//		// }
-//		// }
-//		// if (showMessageList != null) {
-//		// return "messages";
-//		// } else {
-//		// return ERROR;
-//		// }
-//		// } else{
-//		// JOptionPane.showMessageDialog(null, "没有信息可以显示！");
-//		// return ERROR;
-//		// }
-//	}
-	
-	public String showTopicsByTeacher() {		 
-		topicList = getTopicService().getTopicsByTeacher(super.getTeacher(),getTime());
+
+	public String searchTopicByKey() {
+		System.out.println("keyword=" + keyword);
+		System.out.println("authorName=" + authorName);
+		System.out.println("keydate=" + keydate);
+		Course course = super.getCourse();
+		if (keydate == null) {
+			if (authorName.equals("")) {// 按主题名称搜索
+				System.out.println("按主题名称搜索:" + keyword);
+				topicList = topicService.searchTopicByName(course, keyword);
+			} else {
+				if (keyword.equals("")) {
+					// 按作者名称搜索
+					System.out.println("按作者名称搜索:" + getAuthorName());
+					topicList = topicService.searchTopicByAuthorName(course,
+							getAuthorName());
+				} else {
+					// 按主题名称和作者名称搜索
+					System.out.println("按主题名称和作者名称搜索:" + keyword + "  "
+							+ getAuthorName());
+					topicList = topicService.searchtopicByNameAndAuthorName(
+							course, keyword, getAuthorName());
+				}
+			}
+		} else {
+			if (authorName.equals("")) {
+				if (keyword.equals("")) { // 按时间搜索
+					System.out.println("按时间搜索:" + keydate);
+					topicList = topicService.searchTopicByTime(course, keydate);
+				} else { // 按关键字和时间搜索
+					System.out.println("按关键字和时间搜索:" + keyword + "" + keydate);
+					topicList = topicService.searchTopicByNameAndTime(course,
+							keyword, keydate);
+				}
+			} else {
+				if (keyword.equals("")) { // 按作者名和时间搜索
+					System.out.println("按作者名和时间搜索:" + getAuthorName() + "   "
+							+ keydate);
+					topicList = topicService.searchTopicByAuthorNameAndTime(
+							course, getAuthorName(), keydate);
+				} else { // 按主题名称、作者名和时间搜索
+					System.out.println("按主题名称、作者名和时间搜索:" + keyword + "   "
+							+ getAuthorName() + "  " + keydate);
+					topicList = topicService
+							.searchTopicByNameAndAuthorNameAndTime(course,
+									keyword, getAuthorName(), keydate);
+				}
+			}
+		}
+		addActionMessage("共为您搜索到"+topicList.size()+"个符合条件的主题");
+		System.out.println(topicList.size());
+		return SUCCESS;
+	}
+
+	public String showTopicsByTeacher() {
+		topicList = getTopicService().getTopicsByTeacher(super.getTeacher(),
+				getTime());
 		super.getSession().put(USERINFO, super.getTeacher().getUserInfo());
 		return SUCCESS;
 	}
@@ -453,5 +439,29 @@ public class MessageAction extends BaseAction {
 
 	public int getTime() {
 		return time;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeydate(Date keydate) {
+		this.keydate = keydate;
+	}
+
+	public Date getKeydate() {
+		return keydate;
+	}
+
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
+	}
+
+	public String getAuthorName() {
+		return authorName;
 	}
 }
