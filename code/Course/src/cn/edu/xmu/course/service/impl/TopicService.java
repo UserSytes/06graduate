@@ -70,7 +70,78 @@ public class TopicService implements ITopicService{
 	public List<Topic> getTopicByShcool(School school){
 		return topicDAO.getTopicByShcool(school);
 	}
-	
+	/**
+	 * 按照主题名称搜索
+	 * @param course
+	 * @param name
+	 * @return
+	 */
+	public List<Topic> searchTopicByName(Course course,String name) {
+		return topicDAO.findByName(course,name);
+	}
+	/**
+	 * 按照发帖人名称搜索
+	 * @param course
+	 * @param authorName
+	 * @return
+	 */
+	public List<Topic> searchTopicByAuthorName(Course course,String authorName) {
+		return topicDAO.findByAuthorName(course,authorName);
+	}
+	/**
+	 * 按照主题名称和发帖人名称综合搜索
+	 * @param course
+	 * @param name
+	 * @param authorName
+	 * @return
+	 */
+	public List<Topic> searchtopicByNameAndAuthorName(Course course,String name,
+			String authorName) {
+		return topicDAO.findByNameAndAuthorName(course,name, authorName);
+	}
+	/**
+	 * 按照主题发帖时间搜索
+	 * @param course
+	 * @param date
+	 * @return
+	 */
+	public List<Topic> searchTopicByTime(Course course,Date date) {
+		return topicDAO.findByTime(course,date);
+	}
+	/**
+	 * 按照主题发帖人和时间搜索
+	 * @param course
+	 * @param authorName
+	 * @param date
+	 * @return
+	 */
+	public List<Topic> searchTopicByAuthorNameAndTime(Course course,
+			String authorName, Date date) {
+		return topicDAO.findByAuthorNameAndTime(course, authorName, date);
+	}
+	/**
+	 * 按照主题名称、发帖人和时间搜索
+	 * @param course
+	 * @param authorName
+	 * @param date
+	 * @return
+	 */
+	public List<Topic> searchTopicByNameAndAuthorNameAndTime(Course course,String name,
+			String authorName, Date date) {
+		return topicDAO.findByNameAndAuthorNameAndTime(course, name, authorName, date);
+	}
+	/**
+	 * 按照主题名称和发帖时间搜索
+	 * @param course
+	 * @param name
+	 * @param date
+	 * @return
+	 */
+	public List<Topic> searchTopicByNameAndTime(Course course, String name,
+			Date date) {
+		return topicDAO.findByNameAndTime(course, name, date);
+	}
+
 	public List<Topic> searchTopicByKey(String key, School school){
 		return topicDAO.searchTopicByKey(key, school);
 	}
@@ -82,7 +153,5 @@ public class TopicService implements ITopicService{
 	public TopicDAO getTopicDAO() {
 		return topicDAO;
 	}
-
-
 
 }
