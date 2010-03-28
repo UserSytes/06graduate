@@ -1,6 +1,8 @@
 package cn.edu.xmu.course.dao;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import org.apache.commons.logging.Log;
@@ -9,6 +11,7 @@ import org.hibernate.LockMode;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.pojo.Topic;
@@ -32,7 +35,7 @@ public class TopicDAO extends HibernateDaoSupport {
 	public static final String AUTHOR_NAME = "authorName";
 	public static final String LAST_ANSWER = "lastAnswer";
 	public static final String COUNT_PERSON = "countPerson";
-
+	private SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd");
 	protected void initDao() {
 		// do nothing
 	}
@@ -162,14 +165,93 @@ public class TopicDAO extends HibernateDaoSupport {
 		return findByProperty("course", course);
 	}
 
-	public List findByName(Object name) {
-		return findByProperty(NAME, name);
+	public List<Topic> findByName(Course course,Object name) {
+		try {
+			String queryString = "from Topic as model where model.name like '%"
+					+ name + "%' and model.course.id="+course.getId();
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by key name failed", re);
+			throw re;
+		}
 	}
 
-	public List findByAuthorName(Object authorName) {
-		return findByProperty(AUTHOR_NAME, authorName);
+	public List<Topic> findByAuthorName(Course course,Object authorName) {
+		try {
+			String queryString = "from Topic as model where model.authorName like '%"
+					+ authorName + "%' and model.course.id="+course.getId();
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by key authorName failed", re);
+			throw re;
+		}
 	}
-
+	public List<Topic> findByNameAndAuthorName(Course course,Object name,
+			Object authorName) {
+		try {
+			String queryString = "from Topic as model where model.name like '%"
+					+ name
+					+ "%' and model.authorName like '%"
+					+ authorName + "%' and model.course.id="+course.getId();
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by property name and authorName failed", re);
+			throw re;
+		}
+	}
+	public List<Topic> findByTime(Object course,Date time){
+		String dftime=df.format(time);
+		System.out.println("传入"+dftime);
+		List<Topic> list=findByCourse(course);
+		Iterator<Topic> it=list.iterator();
+		while(it.hasNext()){
+			Topic topic=it.next();
+			String dftime2=df.format(topic.getTime());
+			System.out.println(topic.getName()+"时间："+dftime2);
+			System.out.println(dftime2);
+			if(!dftime2.equals(dftime))
+				it.remove();
+		}
+		return list;
+	}
+	public List<Topic> findByAuthorNameAndTime(Course course,String authorName, Date time){
+		String dftime=df.format(time);
+		List<Topic> list=findByAuthorName(course, authorName);
+		Iterator<Topic> it=list.iterator();
+		while(it.hasNext()){
+			Topic topic=it.next();
+			String dftime2=df.format(topic.getTime());
+			if(!dftime2.equals(dftime))
+				it.remove();
+		}
+		return list;
+	}
+	public List<Topic> findByNameAndAuthorNameAndTime(Course course,String name,String authorName, Date time){
+		String dftime=df.format(time);
+		List<Topic> list=findByNameAndAuthorName(course, name, authorName);
+		Iterator<Topic> it=list.iterator();
+		while(it.hasNext()){
+			Topic topic=it.next();
+			String dftime2=df.format(topic.getTime());
+			if(!dftime2.equals(dftime))
+				it.remove();
+		}
+		return list;
+	}
+	public List<Topic> findByNameAndTime(Course course, String name,Date time){
+		String dftime=df.format(time);
+		System.out.println("传入"+dftime);
+		List<Topic> list=findByName(course, name);
+		Iterator<Topic> it=list.iterator();
+		while(it.hasNext()){
+			Topic topic=it.next();
+			String dftime2=df.format(topic.getTime());
+			System.out.println(topic.getName()+"时间："+dftime2);
+			if(!dftime2.equals(dftime))
+				it.remove();
+		}
+		return list;
+	}
 	public List findByLastAnswer(Object lastAnswer) {
 		return findByProperty(LAST_ANSWER, lastAnswer);
 	}
