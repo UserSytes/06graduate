@@ -1124,52 +1124,87 @@
 			</result>
 		</action>
 <!-- 课程评价 -->	
+<action name="loginFromEvaluationAction" method="loginFromEvaluation"
+			class="evaluationAction">
+			<result name="expert">/coursepage/evaluation/expertevaluate.jsp</result>
+			<result name="teacher">/coursepage/evaluation/teacherevaluate.jsp</result>
+			<result name="student">/coursepage/evaluation/studentevaluate.jsp</result>
+			<result name="success">/coursepage/evaluation/evaluatesuccess.jsp</result>
+			<result name="tesuccess">/coursepage/evaluation/tevaluatesuccess.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
 <action name="evaluateAction" method="evaluate"
 			class="evaluationAction">
-			<result name="success">/coursepage/evaluate.jsp
+			<result name="success">/coursepage/evaluation/evaluate.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>	
 <action name="studentEvaluateResultAction" method="studentEvaluateResult"
 			class="evaluationAction">
-			<result name="success">/coursepage/stuevaluateresult.jsp
+			<result name="success">/coursepage/evaluation/stuevaluateresult.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>	
 <action name="expertEvaluateResultAction" method="expertEvaluateResult"
 			class="evaluationAction">
-			<result name="success">/coursepage/expevaluateresult.jsp
+			<result name="success">/coursepage/evaluation/expevaluateresult.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>	
+<action name="teacherEvaluateResultAction" method="teacherEvaluateResult"
+			class="evaluationAction">
+			<result name="success">/coursepage/evaluation/teacherresult.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
 <action name="enterEvaluationAction" method="enterEvaluation"
 			class="evaluationAction">
-			<result name="success">/coursepage/enterexpevaluation.jsp
+			<result name="success">/coursepage/evaluation/enterexpevaluation.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>	
+<action name="enterTeaEvaluationAction" method="enterTeaEvaluation"
+			class="evaluationAction">
+			<result name="success">/coursepage/evaluation/enterteaevaluation.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>	
 <action name="studentEvaluateAction" method="studentEvaluate"
 			class="evaluationAction">
-			<result name="success">/coursepage/evaluatesuccess.jsp
+			<result name="success">/coursepage/evaluation/evaluatesuccess.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/coursepage/evaluation/studentevaluate.jsp</result>
 		</action>
 <action name="expertEvaluateAction" method="expertEvaluate"
 			class="evaluationAction">
-			<result name="success">/coursepage/expertevaluatesuccess.jsp
+			<result name="success">/coursepage/evaluation/expertevaluatesuccess.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/coursepage/evaluation/expertevaluate.jsp</result>
+		</action>
+<action name="teacherEvaluateAction" method="teacherEvaluate" class="evaluationAction">
+			<result name="success">/coursepage/evaluation/tevaluatesuccess.jsp
+			</result>
+			<result name="error">/coursepage/evaluation/teacherevaluate.jsp</result>
 		</action>
 <action name="eDetailEvaluateAction" method="eDetailEvaluate"
 			class="evaluationAction">
-			<result name="success">/coursepage/expertevaluate.jsp
-			</result>
+			<result name="login">/coursepage/evaluation/login.jsp</result>
+			<result name="evluate">/coursepage/evaluation/expertevaluate.jsp</result>
+			<result name="success">/coursepage/evaluation/expertevaluatesuccess.jsp</result>
 			<result name="error">/commons/error.jsp</result>
-		</action>		
+		</action>
+<action name="tDetailEvaluateAction" method="tDetailEvaluate"
+			class="evaluationAction">
+			<result name="login">/coursepage/evaluation/login.jsp</result>
+			<result name="evluate">/coursepage/evaluation/teacherevaluate.jsp</result>
+			<result name="success">/coursepage/evaluation/tevaluatesuccess.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>			
 <action name="sDetailEvaluateAction" method="sDetailEvaluate"
 			class="evaluationAction">
-			<result name="success">/coursepage/studentevaluate.jsp
-			</result>
+			<result name="login">/coursepage/evaluation/login.jsp</result>
+			<result name="evluate">/coursepage/evaluation/studentevaluate.jsp</result>
+			<result name="success">/coursepage/evaluation/evaluatesuccess.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<!-- 课程首页公告 -->		
