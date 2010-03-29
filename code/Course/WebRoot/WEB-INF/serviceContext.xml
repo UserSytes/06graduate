@@ -15,6 +15,9 @@
 		<property name="superAdminDAO">
 			<ref bean="SuperAdminDAO" />
 		</property>
+		<property name="evaluationDAO">
+			<ref bean="EvaluationDAO" />
+		</property>
 	</bean>
 	
 	<!-- 教师信息管理 -->
