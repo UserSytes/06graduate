@@ -3,10 +3,12 @@ package cn.edu.xmu.course.service.impl;
 import java.util.List;
 
 import cn.edu.xmu.course.dao.AdministratorDAO;
+import cn.edu.xmu.course.dao.EvaluationDAO;
 import cn.edu.xmu.course.dao.StudentDAO;
 import cn.edu.xmu.course.dao.SuperAdminDAO;
 import cn.edu.xmu.course.dao.TeacherDAO;
 import cn.edu.xmu.course.pojo.Administrator;
+import cn.edu.xmu.course.pojo.Evaluation;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.SuperAdmin;
 import cn.edu.xmu.course.pojo.Teacher;
@@ -24,7 +26,8 @@ public class LoginService implements ILoginService {
 	private StudentDAO studentDAO;
 	private AdministratorDAO administratorDAO;
 	private SuperAdminDAO superAdminDAO;
-
+	private EvaluationDAO evaluationDAO;
+	
 	public Teacher teacherLogin(String account, String password) {
 		// TODO Auto-generated method stub
 		List<Teacher> teachers = teacherDAO.findByTeacherNo(account);
@@ -49,29 +52,7 @@ public class LoginService implements ILoginService {
 			return null;
 	}
 	
-	public TeacherDAO getTeacherDAO() {
-		return teacherDAO;
-	}
 
-	public void setTeacherDAO(TeacherDAO teacherDAO) {
-		this.teacherDAO = teacherDAO;
-	}
-
-	public AdministratorDAO getAdministratorDAO() {
-		return administratorDAO;
-	}
-
-	public void setAdministratorDAO(AdministratorDAO administratorDAO) {
-		this.administratorDAO = administratorDAO;
-	}
-
-	public SuperAdminDAO getSuperAdminDAO() {
-		return superAdminDAO;
-	}
-
-	public void setSuperAdminDAO(SuperAdminDAO superAdminDAO) {
-		this.superAdminDAO = superAdminDAO;
-	}
 
 	public Student studentLogin(String userName, String password) {
 		// TODO Auto-generated method stub
@@ -97,6 +78,18 @@ public class LoginService implements ILoginService {
 			return null;
 	}
 
+	public Evaluation expertLogin(String username, String password) {
+		// TODO Auto-generated method stub
+		List<Evaluation> evaluations = evaluationDAO.findByUsername(username);
+		if (0 == evaluations.size())
+			return null;
+		Evaluation a = evaluations.get(0);
+		if (password.equals(a.getPassword()))
+			return a;
+		else
+			return null;
+	}
+	
 	public StudentDAO getStudentDAO() {
 		return studentDAO;
 	}
@@ -104,5 +97,37 @@ public class LoginService implements ILoginService {
 	public void setStudentDAO(StudentDAO studentDAO) {
 		this.studentDAO = studentDAO;
 	}
+	public TeacherDAO getTeacherDAO() {
+		return teacherDAO;
+	}
 
+	public void setTeacherDAO(TeacherDAO teacherDAO) {
+		this.teacherDAO = teacherDAO;
+	}
+
+	public AdministratorDAO getAdministratorDAO() {
+		return administratorDAO;
+	}
+
+	public void setAdministratorDAO(AdministratorDAO administratorDAO) {
+		this.administratorDAO = administratorDAO;
+	}
+
+	public SuperAdminDAO getSuperAdminDAO() {
+		return superAdminDAO;
+	}
+
+	public void setSuperAdminDAO(SuperAdminDAO superAdminDAO) {
+		this.superAdminDAO = superAdminDAO;
+	}
+
+	public EvaluationDAO getEvaluationDAO() {
+		return evaluationDAO;
+	}
+
+	public void setEvaluationDAO(EvaluationDAO evaluationDAO) {
+		this.evaluationDAO = evaluationDAO;
+	}
+
+	
 }
