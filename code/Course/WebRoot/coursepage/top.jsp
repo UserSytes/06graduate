@@ -168,9 +168,6 @@ a.inner:hover {background:#add;}
 		</a>
 		<a class="outer"
 			href="<s:url action="evaluateAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
                 					</s:url>">课程评价
 		</a>
 		<a class="outer"
