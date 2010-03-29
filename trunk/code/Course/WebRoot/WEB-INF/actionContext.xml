@@ -229,6 +229,9 @@
 		<property name="evaluateService">
 			<ref bean="evaluateService" />
 		</property>
+		<property name="loginService">
+			<ref bean="loginService" />
+		</property>	
 		
 	</bean>
 	<!-- 进入课程查询 -->
