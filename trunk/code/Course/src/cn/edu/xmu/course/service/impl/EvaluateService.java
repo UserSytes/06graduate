@@ -8,6 +8,7 @@ import cn.edu.xmu.course.dao.EvaluationDAO;
 import cn.edu.xmu.course.dao.StudentCourseDAO;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Evaluation;
+import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.StudentCourse;
 import cn.edu.xmu.course.service.IEvaluateService;
 
@@ -15,9 +16,11 @@ public class EvaluateService implements IEvaluateService {
 
 	private StudentCourseDAO studentCourseDAO;
 	private EvaluationDAO evaluationDAO;
-	private List<StudentCourse> studentCourseList;
+	private List<StudentCourse> studentCourse;
 	private Object score ;
+	private List<Evaluation> evaluation;
 
+	
 	public boolean updateStudentCourse(StudentCourse studentCourse) {
 		try {
 			studentCourseDAO.merge(studentCourse);
@@ -30,7 +33,11 @@ public class EvaluateService implements IEvaluateService {
 	public StudentCourse findStudentCourseByStudentId(Integer id) {
 		return studentCourseDAO.findById(id);
 	}
-
+	
+	public List<StudentCourse>  findByStudentAndCourse(Course course, Student student) {
+		return studentCourse=studentCourseDAO.findByStudentAndCourse(course, student);
+	}
+	
 	public boolean updateEvaluation(Evaluation evaluation) {
 		try {
 			evaluationDAO.merge(evaluation);
@@ -80,11 +87,24 @@ public class EvaluateService implements IEvaluateService {
 	public List<Evaluation> findEvaluationByCourseId(int courseId) {
 		return evaluationDAO.findByCourse(courseId);
 	}
-
+	//根据课程和用户名找Evaluation
+	public List<Evaluation> findByCourseAndUsernameAndSort(Course course,String username,int sort) {
+		System.out.println("findByCourseAndUsername");
+		System.out.println("course:"+course.getName());
+		System.out.println("username:"+username);
+		return  evaluationDAO.findByCourseAndUsernameAndSort(course, username,sort);
+		
+	}
+	//根据课程和分类找Evaluation
+	public List<Evaluation> findByCourseAndSort(Course course,Object object) {	
+		return evaluationDAO.findByCourseAndSort(course, object);
+		
+	}
 	public boolean addEvaluation(Evaluation evaluation, Course course) {
 		// TODO Auto-generated method stub
 		evaluation.setCourse(course);
 		evaluation.setStatus(0);
+	
 		try {
 			evaluationDAO.save(evaluation);
 			return true;
@@ -93,6 +113,18 @@ public class EvaluateService implements IEvaluateService {
 		}
 	}
 
+	public boolean addStudentCourse(StudentCourse  studentCourse, Course course) {
+		// TODO Auto-generated method stub
+		studentCourse.setCourse(course);
+		studentCourse.setStatus(0);
+		try {
+			studentCourseDAO.save(studentCourse);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
 	public void setStudentCourseDAO(StudentCourseDAO studentCourseDAO) {
 		this.studentCourseDAO = studentCourseDAO;
 	}
@@ -109,13 +141,6 @@ public class EvaluateService implements IEvaluateService {
 		this.evaluationDAO = evaluationDAO;
 	}
 
-	public List<StudentCourse> getStudentCourse() {
-		return studentCourseList;
-	}
-
-	public void setStudentCourse(List<StudentCourse> studentCourse) {
-		this.studentCourseList = studentCourse;
-	}
 
 	public Object getScore() {
 		return score;
@@ -124,5 +149,24 @@ public class EvaluateService implements IEvaluateService {
 	public void setScore(Object score) {
 		this.score = score;
 	}
+
+
+	public List<Evaluation> getEvaluation() {
+		return evaluation;
+	}
+
+	public void setEvaluation(List<Evaluation> evaluation) {
+		this.evaluation = evaluation;
+	}
+
+	public List<StudentCourse> getStudentCourse() {
+		return studentCourse;
+	}
+
+	public void setStudentCourse(List<StudentCourse> studentCourse) {
+		this.studentCourse = studentCourse;
+	}
+
+
 
 }
