@@ -9,6 +9,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Evaluation;
+import cn.edu.xmu.course.pojo.Student;
 
 /**
  * A data access object (DAO) providing persistence and search support for
@@ -205,5 +206,38 @@ public class EvaluationDAO extends HibernateDaoSupport {
 
 	public static EvaluationDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (EvaluationDAO) ctx.getBean("EvaluationDAO");
+	}
+	
+	/**
+	 * 根据用户名、课程查找
+	 * @param course
+	 * @param student
+	 * @return
+	 */
+	public List findByCourseAndUsernameAndSort(Course course, Object username,int sort) {
+		try {
+			String queryString = "from Evaluation as model where model.course.id ="
+					+ course.getId() + " and model.username= ? and model.sort="+sort;
+			return getHibernateTemplate().find(queryString, username);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	/**
+	 * 根据SORT、课程查找
+	 * @param course
+	 * @param student
+	 * @return
+	 */
+	public List findByCourseAndSort(Course course, Object object) {
+		try {
+			String queryString = "from Evaluation as model where model.course.id ="
+					+ course.getId() + " and model.sort= ?";
+			return getHibernateTemplate().find(queryString, object);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
 	}
 }
