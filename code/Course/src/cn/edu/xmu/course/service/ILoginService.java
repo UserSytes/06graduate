@@ -40,4 +40,12 @@ public interface ILoginService {
 	 * @return
 	 */
 	public SuperAdmin superAdminLogin(String userName, String password);
+
+	/**
+	 * ×¨¼ÒµÇÂ¼
+	 * @param userName
+	 * @param password
+	 * @return
+	 */
+	public Evaluation expertLogin(String username, String password);
 }
