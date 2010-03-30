@@ -36,16 +36,20 @@
 				<table class="listing form" cellpadding="0" cellspacing="0">
 					<tr class="bg">
 						<td>
-<s:property value="scorestring" />
-							您的评分是&nbsp;
-							<s:property value="evaluation.score" />
-	您的评分内容是&nbsp;
+							<s:property value="scorestring" />
+						</td>
+					</tr>
+					<br />
+					<tr class="bg">
+						<td>
+							您的评分内容是&nbsp;
 							<s:text name="">${evaluation.content}</s:text>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<a href="<s:url action="eDetailEvaluateAction"> 
+							<a
+								href="<s:url action="eDetailEvaluateAction"> 
                      			<s:param name="course"> 
                        			 	<s:property value="id"/> 
                     			</s:param>
@@ -53,12 +57,11 @@
                        			 	<s:property value="2"/> 
                     			</s:param>
                 					</s:url>" />
-							<img src="${ctx}/coursepage/images/4-reEvaluate.jpg" WIDTH=70
- HEIGHT=40 ALT="" border="0">
-							</a>
+								<img src="${ctx}/coursepage/images/4-reEvaluate.jpg" WIDTH=70
+									HEIGHT=40 ALT="" border="0"> </a>
 						</td>
 					</tr>
-					
+
 				</table>
 			</div>
 
