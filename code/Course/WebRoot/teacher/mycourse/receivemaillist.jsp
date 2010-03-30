@@ -14,7 +14,7 @@
 			media="screen" />
 		<title></title>
 		<style type="text/css">
-itemtitle ul a:hover span {
+.itemtitle ul a:hover span {
 	background: url(${ctx}/teacher/images/btn_block.gif) no-repeat 100%
 		-69px;
 }
@@ -34,50 +34,40 @@ itemtitle ul a:hover span {
 		<script type="text/javascript"
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
 		<script type="text/javascript" src="${ctx}/js/thickbox.js"></script>
-		<script>
-     jQuery.noConflict();
-</script>
+		<script>jQuery.noConflict();</script>
 		<script type="text/javascript">
-		
-				var prepmdiv = '';
-	var folder = 'inbox';
-	var table1;
-	var row1;
-	var currpmdiv;
-	function getMailDetail(mailId,e,obj,status) {
-		currpmdiv = mailId+ '_div';	
-		if (!$(currpmdiv)) {
-		
-		table1 = document.getElementById("table");
-		row1 = table1.insertRow(obj.parentNode.parentNode.rowIndex + 1);
-		if(status == 1){
-		var e = table1.rows[obj.parentNode.parentNode.rowIndex].cells[0].firstChild;
-		e.src="${ctx}/teacher/images/pm_0.gif";
-		}
-	
-		 jQuery.post("getMailDetailJsonAction.action", { mailId:mailId},  
-                                    callBack, "json");  
-	   
-					$(prepmdiv).style.display = 'none';
-			
-				changestatus(obj);
-				prepmdiv = currpmdiv;
+		var prepmdiv = '';
+		var folder = 'inbox';
+		var table1;
+		var row1;
+		var currpmdiv;
+		function getMailDetail(mailId,e,obj,status) {
+			currpmdiv = mailId+ '_div';	
+			if (!$(currpmdiv)) {
+			table1 = document.getElementById("table");
+			row1 = table1.insertRow(obj.parentNode.parentNode.rowIndex + 1);
+			if(status == 1){
+			var e = table1.rows[obj.parentNode.parentNode.rowIndex].cells[0].firstChild;
+			e.src="${ctx}/teacher/images/pm_0.gif";
 			}
-		else {
-			if ($(currpmdiv).style.display == 'none') {
-					$(currpmdiv).style.display = '';
-				changestatus(obj);
-				if (prepmdiv) {
-					$(prepmdiv).style.display = 'none';
-				}
-				prepmdiv = currpmdiv;
-			} else {
-				$(currpmdiv).style.display = 'none';
-				prepmdiv = '';
+			jQuery.post("getMailDetailJsonAction.action", { mailId:mailId},callBack, "json");
+			$(prepmdiv).style.display = 'none';
+			changestatus(obj);
+			prepmdiv = currpmdiv;
 			}
-		}
-		
-	}		
+			else {
+				if ($(currpmdiv).style.display == 'none') {
+						$(currpmdiv).style.display = '';
+						changestatus(obj);
+						if (prepmdiv) {
+						$(prepmdiv).style.display = 'none';	}
+						prepmdiv = currpmdiv;
+				} else {
+					$(currpmdiv).style.display = 'none';
+					prepmdiv = '';
+					}
+			}	
+		}		
 
 </script>
 
@@ -87,14 +77,14 @@ itemtitle ul a:hover span {
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 教师信息 -&gt; 消息管理  -&gt; 发件箱
+					当前位置: 教师信息 -&gt; 消息管理 -&gt; 发件箱
 				</td>
 			</tr>
 		</table>
 
 		<div align="center" style="width: 100%">
 			<s:form id="pmform" name="pmform" method="post"
-				action="deleteReceiveMailByTeaAction">
+				action="deleteMailsAction">
 				<table id="table" cellspacing="0" width="98%" cellpadding="0"
 					class="pm_list" summary="收件箱">
 					<div class="cm_header itemtitle s_clear">
@@ -103,7 +93,8 @@ itemtitle ul a:hover span {
 								href="${ctx}/teacher/mycourse/newmail.jsp?height=350&width=550"
 								class="thickbox" title="撰写短消息">+ 写新消息</a>
 							<li class="current">
-								<a href="getReceiveMailByTeaAction.action"><span>收件箱</span> </a>
+								<a href="getReceiveMailByTeaAction.action"><span>收件箱</span>
+								</a>
 							</li>
 							<li>
 								<a href="getSendMailByTeaAction.action"><span>发件箱</span> </a>
@@ -193,10 +184,6 @@ itemtitle ul a:hover span {
 					<span>|</span>
 					<a href="###"
 						onclick="if (confirm('您确定要删除吗?'))$('pmform').submit();">删除</a>
-					<span>|</span>
-					<a href="updateMailStatusByTeaAction.action?status=0">标记为己读</a>
-					<span>|</span>
-					<a href="updateMailStatusByTeaAction.action?status=1">标记为未读</a>
 				</div>
 			</div>
 		</div>

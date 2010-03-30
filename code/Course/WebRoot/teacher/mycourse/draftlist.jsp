@@ -14,7 +14,7 @@
 			media="screen" />
 		<title></title>
 		<style type="text/css">
-itemtitle ul a:hover span {
+.itemtitle ul a:hover span {
 	background: url(${ctx}/teacher/images/btn_block.gif) no-repeat 100%
 		-69px;
 }
@@ -34,27 +34,20 @@ itemtitle ul a:hover span {
 		<script type="text/javascript"
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
 		<script type="text/javascript" src="${ctx}/js/thickbox.js"></script>
-		<script>
-     jQuery.noConflict();
-</script>
+		<script>jQuery.noConflict();</script>
 		<script type="text/javascript">
-		
-				var prepmdiv = '';
+	var prepmdiv = '';
 	var folder = 'inbox';
 	var table1;
 	var row1;
 	var currpmdiv;
 	function getMailDetail(mailId,e,obj,status) {
 		currpmdiv = mailId+ '_div';	
-		if (!$(currpmdiv)) {
-		
+		if (!$(currpmdiv)) {		
 		table1 = document.getElementById("table");
 		row1 = table1.insertRow(obj.parentNode.parentNode.rowIndex + 1);
-	 jQuery.post("getMailDetailJsonAction.action", { mailId:mailId},  
-                                    callBack, "json");  
-	   
-					$(prepmdiv).style.display = 'none';
-			
+		jQuery.post("getMailDetailJsonAction.action", { mailId:mailId},callBack, "json");  
+	   			$(prepmdiv).style.display = 'none';			
 				changestatus(obj);
 				prepmdiv = currpmdiv;
 			}
@@ -70,8 +63,7 @@ itemtitle ul a:hover span {
 				$(currpmdiv).style.display = 'none';
 				prepmdiv = '';
 			}
-		}
-		
+		}		
 	}		
 
 </script>
@@ -89,7 +81,7 @@ itemtitle ul a:hover span {
 
 		<div align="center" style="width: 100%">
 			<s:form id="pmform" name="pmform" method="post"
-				action="deleteDraftByTeaAction">
+				action="deleteMailsAction">
 				<table id="table" cellspacing="0" width="98%" cellpadding="0"
 					class="pm_list" summary="草稿箱">
 					<div class="cm_header itemtitle s_clear">

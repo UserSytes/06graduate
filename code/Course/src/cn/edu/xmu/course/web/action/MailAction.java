@@ -31,15 +31,25 @@ public class MailAction extends BaseAction {
 	private String savetosentbox;
 	private String result;
 
+	/**
+	 * 查找学生
+	 * 
+	 * @return
+	 */
 	public String findStudentByStuNo() {
-		Student stu = studentInfoService.findByStudentNo(studentNo);
-		if (stu == null)
-			this.result = null;
-		else
-			this.result = stu.getUserInfo().getName();
+		List<Mail> newMailList=mailService.getMailsByReceiver(super.getUserInfo());
+		
+		
 		return SUCCESS;
 	}
 
+	/**
+	 * 添加新的消息
+	 * 
+	 * @param sender
+	 * @param receiver
+	 * @return
+	 */
 	public String addNewMail(UserInfo sender, UserInfo receiver) {
 		if (mailService.addNewMail(mail, sender, receiver)) {
 			addActionMessage("发送消息成功！");
@@ -50,6 +60,13 @@ public class MailAction extends BaseAction {
 		}
 	}
 
+	/**
+	 * 发送并保存消息
+	 * 
+	 * @param sender
+	 * @param receiver
+	 * @return
+	 */
 	public String addAndSaveMail(UserInfo sender, UserInfo receiver) {
 		if (mailService.addAndSaveMail(mail, sender, receiver)) {
 			addActionMessage("发送消息成功,消息已保存在发件箱！");
@@ -127,32 +144,36 @@ public class MailAction extends BaseAction {
 
 	/**
 	 * 删除消息
+	 * @return
+	 */
+	public String deleteMail(){
+		mail = mailService.getMailById(mailId);
+		if(mailService.deleteMail(mail)){
+			addActionMessage("删除消息成功！");
+			return SUCCESS;
+		}			
+		else {
+			addActionError("删除消息失败，请重新操作！");
+			return ERROR;
+		}
+	}
+	
+	/**
+	 * 批量删除消息
 	 * 
 	 * @return
 	 */
-	public String deleteMailByTeacher() {
-		// mail = mailService.getMailById(mailId);
-		System.out.println(pmitemid.length);
-		for (int i = 0; i < pmitemid.length; i++) {
-			System.out.println("获得的id是: " + pmitemid[i]);
+	public String deleteMails() {
+		if(mailService.deleteMails(pmitemid)){
+			addActionMessage("删除消息成功！");
+			return SUCCESS;
 		}
-		// if(mailService.deleteMail(mail))
-		// return SUCCESS;
-		// else{
-		// addActionError("删除消息失败，请重新操作！");
-		// return ERROR;
-		// }
-		return SUCCESS;
+		else {
+			addActionError("删除消息失败，请重新操作！");
+			return ERROR;
+		}
 	}
 
-	/**
-	 * 标记信件的状态
-	 * 
-	 * @return
-	 */
-	public String updateMailStatusByTea() {
-		return SUCCESS;
-	}
 
 	/**
 	 * 教师查询收到的消息
@@ -177,7 +198,7 @@ public class MailAction extends BaseAction {
 		count = mailList.size();
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * 教师查询发送的消息和草稿
 	 * 
@@ -196,20 +217,24 @@ public class MailAction extends BaseAction {
 	 * @return
 	 */
 	public String getMailDetail() {
-		mail = mailService.getMailById(mailId);
+		mail = mailService.updateMailStatus(mailId);
+		if (mail == null){
+			addActionError("获取消息失败，请重新操作！");
+			return ERROR;
+		}
 		this.result = mail.getContent();
-		// 标记信件的状态
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * 再次编辑草稿
+	 * 
 	 * @return
 	 */
 	public String goDraftDetail() {
 		mail = mailService.getMailById(mailId);
 		Student stu = studentInfoService.findByUserInfo(mail.getReceiver());
-		if(stu!= null)
+		if (stu != null)
 			studentNo = stu.getStudentNo();
 		return SUCCESS;
 	}
@@ -224,6 +249,19 @@ public class MailAction extends BaseAction {
 		mail = new Mail();
 		mail.setReceiver(oldMail.getSender());
 		mail.setTitle("回复：" + oldMail.getTitle());
+		mail.setContent("\n\n\n\n------------------ 原始邮件 ------------------\n>"
+				+ oldMail.getContent());
+		return SUCCESS;
+	}
+	/**
+	 * 跳到回复消息页面
+	 * 
+	 * @return
+	 */
+	public String goReSendMail() {
+		oldMail = mailService.getMailById(mailId);
+		mail = new Mail();
+		mail.setTitle("转发：" + oldMail.getTitle());
 		mail.setContent("\n\n\n\n------------------ 原始邮件 ------------------\n>"
 				+ oldMail.getContent());
 		return SUCCESS;

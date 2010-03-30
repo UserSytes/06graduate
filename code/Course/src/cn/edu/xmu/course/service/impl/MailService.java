@@ -26,7 +26,7 @@ public class MailService implements IMailService {
 			return false;
 		}
 	}
-	
+
 	public boolean addDraft(Mail mail, UserInfo sender, UserInfo receiver) {
 		// TODO Auto-generated method stub
 		mail.setSender(sender);
@@ -41,7 +41,7 @@ public class MailService implements IMailService {
 			return false;
 		}
 	}
-	
+
 	public boolean addAndSaveMail(Mail mail, UserInfo sender, UserInfo receiver) {
 		// TODO Auto-generated method stub
 		Mail saveMail = new Mail();
@@ -80,7 +80,7 @@ public class MailService implements IMailService {
 		// TODO Auto-generated method stub
 		return mailDAO.findById(id);
 	}
-	
+
 	public String getMailDetail(Integer id) {
 		// TODO Auto-generated method stub
 		System.out.println("here");
@@ -107,6 +107,48 @@ public class MailService implements IMailService {
 		}
 	}
 
+	public boolean deleteMails(String[] mailIds) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < mailIds.length; i++) {
+			Mail mail = this.getMailById(Integer.parseInt(mailIds[i]));
+			try{				
+				this.deleteMail(mail);
+			}catch(Exception e){
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public Mail updateMailStatus(Integer id) {
+		// TODO Auto-generated method stub
+		Mail mail = this.getMailById(id);
+		if (mail.getStatus() == 1 && mail.getSort() == 1) {
+			mail.setStatus(0);
+			try {
+				mailDAO.merge(mail);
+			} catch (Exception e) {
+				return null;
+			}
+		} 
+		return mail;
+	}
+
+	public boolean updateMails(String[] mailIds, int status) {
+		// TODO Auto-generated method stub
+		
+		for (int i = 0; i < mailIds.length; i++) {
+			Mail mail = this.getMailById(Integer.parseInt(mailIds[i]));
+			mail.setStatus(status);
+			try{				
+				this.updateMail(mail);
+			}catch(Exception e){
+				return false;
+			}
+		}
+		return true;
+	}
+
 	public void setMailDAO(MailDAO mailDAO) {
 		this.mailDAO = mailDAO;
 	}
@@ -114,8 +156,5 @@ public class MailService implements IMailService {
 	public MailDAO getMailDAO() {
 		return mailDAO;
 	}
-
-
-
 
 }

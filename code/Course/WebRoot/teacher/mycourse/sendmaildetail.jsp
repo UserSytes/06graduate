@@ -15,6 +15,7 @@
 		<script type="text/javascript"
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
 		<script type="text/javascript" src="${ctx}/js/thickbox.js"></script>
+		<script>jQuery.noConflict();</script>
 		<title></title>
 		<style type="text/css">
 .notefilter {
@@ -22,10 +23,6 @@
 		5px 50%;
 }
 </style>
-		<script type="text/javascript">
-			
-</script>
-
 	</head>
 	<body>
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
@@ -47,12 +44,10 @@
 						<a href="getReceiveMailByTeaAction.action"><span>收件箱</span> </a>
 					</li>
 					<li>
-						<a href="getSendMailByTeaAction.action"><span>发件箱</span>
-						</a>
+						<a href="getSendMailByTeaAction.action"><span>发件箱</span> </a>
 					</li>
 					<li>
-						<a href="getDraftByTeaAction.action"><span>草稿箱</span>
-						</a>
+						<a href="getDraftByTeaAction.action"><span>草稿箱</span> </a>
 					</li>
 				</ul>
 			</div>
@@ -77,8 +72,19 @@
 			</ul>
 			<div class="notefilter">
 
-				<a href="getSendMailByTeaAction.action">返回列表</a>				
-				<a href="usercpshowpm.aspx?action=delete&amp;pmid=529018"
+				<a href="getSendMailByTeaAction.action">返回列表</a>
+				<a
+					href="<s:url action="goReSendMailAction"> 
+                     			<s:param name="mailId"> 
+                       			 	<s:property value="mail.id"/> 
+                    			</s:param> 
+                					</s:url>">转发</a>
+				<a
+					href="<s:url action="deleteMailAction"> 
+                     			<s:param name="mailId"> 
+                       			 	<s:property value="mail.id"/> 
+                    			</s:param> 
+                					</s:url>"
 					onclick="if (confirm('您确定要删除吗?')){return true;}">删除</a>
 			</div>
 

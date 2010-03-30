@@ -10,45 +10,42 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
 		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
-
+		<link rel="stylesheet" href="${ctx}/css/thickbox.css" type="text/css"
+			media="screen" />
+		<script type="text/javascript"
+			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
+		<script type="text/javascript" src="${ctx}/js/thickbox.js"></script>
+		<script>jQuery.noConflict();</script>
 		<title></title>
-		<style type="text/css">
-</style>
-		<script type="text/javascript">
-			
-</script>
-
 	</head>
 	<body>
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 教师信息 -&gt; 消息管理 -&gt;回复邮件
+					当前位置: 教师信息 -&gt; 消息管理 -&gt; 回复邮件
 				</td>
 			</tr>
 		</table>
 
 		<div class="with_side wrap" align="center" style="width: 95%;">
-			
-				<div class="cm_header itemtitle s_clear">
-					<ul>
-						<a style="color: #09C; float: right; font-weight: 700;" href="##">+
-							写新消息</a>
-						<li>
+
+			<div class="cm_header itemtitle s_clear">
+				<ul>
+					<a style="color: #09C; float: right; font-weight: 700;" href="##">+
+						写新消息</a>
+					<li>
 						<a href="getReceiveMailByTeaAction.action"><span>收件箱</span> </a>
 					</li>
 					<li>
-						<a href="getSendMailByTeaAction.action"><span>发件箱</span>
-						</a>
+						<a href="getSendMailByTeaAction.action"><span>发件箱</span> </a>
 					</li>
 					<li>
-						<a href="getDraftByTeaAction.action"><span>草稿箱</span>
-						</a>
+						<a href="getDraftByTeaAction.action"><span>草稿箱</span> </a>
 					</li>
-					</ul>
-				</div>
-<s:form id="postpm" name="postpm" method="post"
+				</ul>
+			</div>
+			<s:form id="postpm" name="postpm" method="post"
 				action="addReplyMailByTeaAction">
 				<table cellspacing="0" cellpadding="0" class="formtable"
 					summary="撰写短消息" border="0px">
@@ -61,8 +58,8 @@
 								</label>
 							</th>
 							<td>
-								<s:textfield name="mail.receiver.name" readonly="true" cssClass="txt" size="25"
-									id="msgto"></s:textfield>
+								<s:textfield name="mail.receiver.name" readonly="true"
+									cssClass="txt" size="25" id="msgto"></s:textfield>
 							</td>
 						</tr>
 						<tr>
@@ -84,15 +81,15 @@
 								</label>
 							</th>
 							<td>
-								<s:textarea theme="ajax" id="content" name="mail.content" cols="60" rows="8"
-									cssStyle="width: 80%;" cssClass="txtarea"></s:textarea>
+								<s:textarea theme="ajax" id="content" name="mail.content"
+									cols="60" rows="8" cssStyle="width: 80%;" cssClass="txtarea"></s:textarea>
 							</td>
 						</tr>
 						<tr>
 							<th></th>
 							<td>
 								<s:checkbox name="savetosentbox" id="savetosentbox"></s:checkbox>
-								保存到发件箱								
+								保存到发件箱
 							</td>
 
 						</tr>
@@ -107,7 +104,7 @@
 					</tbody>
 
 				</table>
-			</s:form>			
+			</s:form>
 		</div>
 
 	</body>
