@@ -194,7 +194,7 @@
 									<tr>
 										<td width="11" background=""></td>
 										<td width="172" align="center">
-											<a href="<s:url action=""></s:url>">
+											<a href="getReceiveMailByStuAction.action">
 												<img src="${ctx}/homepage/image/mycourse_menu_05.gif"
 													border="0"> </a>
 										</td>

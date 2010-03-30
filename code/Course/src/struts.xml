@@ -10,7 +10,13 @@
         <action name="findStudentJsonAction" class="mailAction" method="findStudentByStuNo">  
            <result type="json"> <param name="root">result</param> </result>  
         </action>  
-         <action name="findAllStudentsJsonAction" class="mailAction" method="findAllStudents">  
+         <action name="findAllStudentsJsonAction" class="mailAction" method="findAllStudentsByDepartment">  
+           <result type="json"> <param name="root">rows</param> </result>  
+        </action>  
+          <action name="findTeacherJsonAction" class="mailAction" method="findTeacherByTeaNo">  
+           <result type="json"> <param name="root">result</param> </result>  
+        </action>  
+         <action name="findAllTeachersJsonAction" class="mailAction" method="findAllTeachersBySchool">  
            <result type="json"> <param name="root">rows</param> </result>  
         </action>  
     </package>  
@@ -356,6 +362,58 @@
 		<action name="goEditNoticeAction" method="goEditNotice" class="noticeAction">
 			<result name="success">/teacher/mycourse/editnotice.jsp
 			</result>			
+		</action>
+		
+		<!-- 我的消息（学生） -->
+		<action name="getReceiveMailByStuAction" method="getReceiveMailByStu" class="mailAction">
+			<result name="success">/student/receivemaillist.jsp
+			</result>			
+		</action>
+		<action name="getSendMailByStuAction" method="getSendMailByStu" class="mailAction">
+			<result name="success">/student/sendmaillist.jsp
+			</result>					
+		</action>
+		<action name="getDraftByStuAction" method="getDraftByStu" class="mailAction">
+			<result name="success">/student/draftlist.jsp
+			</result>				
+		</action>		
+		<action name="goSendMailDetailByStuAction" method="getMailDetail" class="mailAction">
+			<result name="success">/student/sendmaildetail.jsp
+			</result>			
+		</action>
+		<action name="goDraftDetailByStuAction" method="goDraftDetailByStu" class="mailAction">
+			<result name="success">/student/draftdetail.jsp
+			</result>			
+		</action>
+		<action name="goReceiveMailDetailByStuAction" method="getMailDetail" class="mailAction">
+			<result name="success">/student/receivemaildetail.jsp
+			</result>			
+		</action>
+		<action name="deleteMailsByStuAction" method="deleteMails" class="mailAction">
+			<result name="success">/student/mailprompt.jsp</result>
+			<result name="error">/student/mailprompt.jsp</result>
+		</action>
+		<action name="deleteMailByStuAction" method="deleteMail" class="mailAction">
+			<result name="success">/student/mailprompt.jsp</result>
+			<result name="error">/student/mailprompt.jsp</result>
+		</action>
+		<action name="updateMailsByStuAction" method="updateMails" class="mailAction">
+			<result name="success">/student/mailprompt.jsp</result>
+			<result name="error">/student/mailprompt.jsp</result>
+		</action>
+		<action name="goReplyMailByStuAction" method="goReplyMail" class="mailAction">
+			<result name="success">/student/replymail.jsp</result>
+		</action>
+		<action name="goReSendMailByStuAction" method="goReSendMail" class="mailAction">
+			<result name="success">/student/newmail.jsp</result>
+		</action>
+		<action name="addReplyMailByStuAction" class="mailAction">
+			<result name="success">/tstudent/mailprompt.jsp</result>
+			<result name="error">/student/mailprompt.jsp</result>
+		</action>
+		<action name="addMailByStuAction" class="mailAction">
+			<result name="success">/student/mailprompt.jsp</result>
+			<result name="error">/student/mailprompt.jsp</result>
 		</action>
 		
 		<!-- 我的消息（教师） -->

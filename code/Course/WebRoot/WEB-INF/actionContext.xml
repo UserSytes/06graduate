@@ -267,6 +267,9 @@
 				<property name="studentInfoService">
 			<ref bean="studentInfoService" />
 		</property>
+		<property name="teacherInfoService">
+			<ref bean="teacherInfoService" />
+		</property>
 	</bean>
 	
 </beans>
