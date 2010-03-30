@@ -191,6 +191,15 @@
 										</td>
 										<td width="11" background=""></td>
 									</tr>
+									<tr>
+										<td width="11" background=""></td>
+										<td width="172" align="center">
+											<a href="<s:url action=""></s:url>">
+												<img src="${ctx}/homepage/image/mycourse_menu_05.gif"
+													border="0"> </a>
+										</td>
+										<td width="11" background=""></td>
+									</tr>
 								</table>
 							</td>
 						</tr>
