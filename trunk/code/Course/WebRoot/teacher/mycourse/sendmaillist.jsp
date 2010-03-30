@@ -14,7 +14,7 @@
 			media="screen" />
 		<title></title>
 		<style type="text/css">
-itemtitle ul a:hover span {
+.itemtitle ul a:hover span {
 	background: url(${ctx}/teacher/images/btn_block.gif) no-repeat 100%
 		-69px;
 }
@@ -34,12 +34,9 @@ itemtitle ul a:hover span {
 		<script type="text/javascript"
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
 		<script type="text/javascript" src="${ctx}/js/thickbox.js"></script>
-		<script>
-     jQuery.noConflict();
-</script>
-		<script type="text/javascript">
-		
-				var prepmdiv = '';
+		<script>jQuery.noConflict();</script>
+		<script type="text/javascript">		
+	var prepmdiv = '';
 	var folder = 'inbox';
 	var table1;
 	var row1;
@@ -89,7 +86,7 @@ itemtitle ul a:hover span {
 
 		<div align="center" style="width: 100%">
 			<s:form id="pmform" name="pmform" method="post"
-				action="deleteSendMailByTeaAction">
+				action="deleteMailsAction">
 				<table id="table" cellspacing="0" width="98%" cellpadding="0"
 					class="pm_list" summary="发件箱">
 					<div class="cm_header itemtitle s_clear">
@@ -98,9 +95,10 @@ itemtitle ul a:hover span {
 								href="${ctx}/teacher/mycourse/newmail.jsp?height=350&width=550"
 								class="thickbox" title="撰写短消息">+ 写新消息</a>
 							<li>
-								<a href="getReceiveMailByTeaAction.action"><span>收件箱</span> </a>
+								<a href="getReceiveMailByTeaAction.action"><span>收件箱</span>
+								</a>
 							</li>
-							<li  class="current">
+							<li class="current">
 								<a href="getSendMailByTeaAction.action"><span>发件箱</span> </a>
 							</li>
 							<li>
@@ -156,7 +154,7 @@ itemtitle ul a:hover span {
 								<a href="#" onclick="getMailDetail(${id},event,this,${status});"
 									style="background-image: url('${ctx}/teacher/images/down.gif');"
 									title="预览"> </a>
-							</td>							
+							</td>
 							<td class="delete_msg">
 								<a
 									style="background-image: url('${ctx}/teacher/images/del.gif');"

@@ -382,27 +382,31 @@
 			<result name="success">/teacher/mycourse/receivemaildetail.jsp
 			</result>			
 		</action>
-		<action name="deleteReceiveMailByTeaAction" method="deleteMailByTeacher" class="mailAction">
-			<result name="success" type="redirect-action">getReceiveMailByTeaAction</result>
+		<action name="deleteMailsAction" method="deleteMails" class="mailAction">
+			<result name="success">/teacher/mycourse/mailprompt.jsp</result>
+			<result name="error">/teacher/mycourse/mailprompt.jsp</result>
 		</action>
-		<action name="deleteSendMailByTeaAction" method="deleteMailByTeacher" class="mailAction">
-			<result name="success" type="redirect-action">getSendMailByTeaAction</result>
+		<action name="deleteMailAction" method="deleteMail" class="mailAction">
+			<result name="success">/teacher/mycourse/mailprompt.jsp</result>
+			<result name="error">/teacher/mycourse/mailprompt.jsp</result>
 		</action>
-		<action name="deleteDraftByTeaAction" method="deleteMailByTeacher" class="mailAction">
-			<result name="success" type="redirect-action">getDraftByTeaAction</result>
+		<action name="updateMailsAction" method="updateMails" class="mailAction">
+			<result name="success">/teacher/mycourse/mailprompt.jsp</result>
+			<result name="error">/teacher/mycourse/mailprompt.jsp</result>
 		</action>
 		<action name="goReplyMailAction" method="goReplyMail" class="mailAction">
-			<result name="success">teacher/mycourse/replymail.jsp</result>
+			<result name="success">/teacher/mycourse/replymail.jsp</result>
+		</action>
+		<action name="goReSendMailAction" method="goReSendMail" class="mailAction">
+			<result name="success">/teacher/mycourse/draftdetail.jsp</result>
 		</action>
 		<action name="addReplyMailByTeaAction" class="mailAction">
-			<result name="success">/commons/prompt.jsp
-			</result>
-			<result name="error">/commons/prompt.jsp</result>
+			<result name="success">/teacher/mycourse/mailprompt.jsp</result>
+			<result name="error">/teacher/mycourse/mailprompt.jsp</result>
 		</action>
 		<action name="addMailByTeaAction" class="mailAction">
-			<result name="success">/commons/prompt.jsp
-			</result>
-			<result name="error">/commons/prompt.jsp</result>
+			<result name="success">/teacher/mycourse/mailprompt.jsp</result>
+			<result name="error">/teacher/mycourse/mailprompt.jsp</result>
 		</action>
 		
 		<!-- 留言板（教师） -->

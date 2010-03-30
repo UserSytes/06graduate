@@ -10,13 +10,14 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
 		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
+		<link rel="stylesheet" href="${ctx}/css/thickbox.css" type="text/css"
+			media="screen" />
 		<script type="text/javascript"
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
-		<title></title>
-		<style type="text/css">
-</style>
+		<script type="text/javascript" src="${ctx}/js/thickbox.js"></script>
+		<script>jQuery.noConflict();</script>
+		<title></title>	
 		<script type="text/javascript">
-	var flag = true;
 	function check(form) {
 		if (form.receiverid.value == "") {
 			alert("收件人不能为空！");
@@ -37,15 +38,15 @@
 
 	}
 	function findStudent() {
-		$.post("findStudentJsonAction.action", {
-			studentNo :$("#receiverid").val()
+		jQuery.post("findStudentJsonAction.action", {
+			studentNo :jQuery("#receiverid").val()
 		}, function(data) {
 			if (data == null) {
-				$("#receiverIdError").html(
+				jQuery("#receiverIdError").html(
 						"<font color='red'>该学生不存在，请重新输入！</font>");
 				flag = false;
 			} else {
-				$("#receiverIdError").html(
+				jQuery("#receiverIdError").html(
 						"<font color='green'>" + data + " 同学</font>");
 				flag = true;
 			}
@@ -59,7 +60,7 @@
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 教师信息 -&gt; 消息管理 -&gt;回复邮件
+					当前位置: 教师信息 -&gt; 消息管理 -&gt; 发邮件
 				</td>
 			</tr>
 		</table>
@@ -81,8 +82,6 @@
 								</li>
 							</ul>
 						</div>
-
-
 			<div class="with_side wrap" align="center" style="width: 95%;">
 				<s:form id="postpm" name="postpm" method="post"
 					action="addMailByTeaAction" onsubmit="return check(this);">

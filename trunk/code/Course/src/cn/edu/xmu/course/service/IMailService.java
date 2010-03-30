@@ -19,6 +19,12 @@ public interface IMailService {
 
 	public Mail getMailById(Integer id);
 
+	public Mail updateMailStatus(Integer id);
+	
+	public boolean deleteMails(String[] mailIds);
+	
+	public boolean updateMails(String[] mailIds, int status);
+	
 	public List getMailsByReceiver(UserInfo receiver);
 
 	public List getMailsBySender(UserInfo sender, int status);
