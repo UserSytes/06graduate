@@ -33,11 +33,14 @@
 				<td>
 					<table border="0" cellpadding="0" cellspacing="0">
 						<tr>
-							<td colspan="2" align="right">
+							<td  align="right">
 								<table border="0" cellpadding="0" cellspacing="0" id="myHome">
 									<tr>
 										<td width="80">
 											<a href="<s:url action="myPageAction"></s:url>">我的主页</a>&nbsp;
+										</td>
+										<td width="80">
+											<a href="<s:url action=""></s:url>">站内信（0）</a>&nbsp;
 										</td>
 										<td width="80">
 											<a href="<s:url action="logoutAction"></s:url>">退出系统</a> &nbsp;

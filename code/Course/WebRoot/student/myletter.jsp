@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>我的留言-厦门大学课程中心</title>
+		<title>站内信-厦门大学课程中心</title>
 		<link type=text/css rel=stylesheet href="${ctx}/homepage/link.css">
 	</head>
 	<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0"
@@ -39,7 +39,7 @@
 									<tr>
 										<td width="11"></td>
 										<td>
-											<img src="${ctx}/homepage/image/title_mytopic.gif" border="0"
+											<img src="${ctx}/homepage/image/title_myletter.gif" border="0"
 												alt="">
 										</td>
 									</tr>
