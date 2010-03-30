@@ -1,15 +1,86 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.fckeditor.net" prefix="FCK"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ include file="../../commons/taglibs.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 	<head>
-<meta http-equiv="Content-Style-Type" content="text/css">
-<link href="${ctx}/coursepage/default.css" rel="stylesheet" type="text/css" /></head>
-		<title>厦门大学精品课程</title>
+		<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+		<META http-equiv=Pragma content=no-cache>
+		<META http-equiv=Cache-Control content=no-cache>
+		<META http-equiv=Expires content=-1000>
+		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
+		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
+		<link rel="stylesheet" href="${ctx}/css/thickbox.css" type="text/css"
+			media="screen" />
+		<title></title>
+		<style type="text/css">
+itemtitle ul a:hover span {
+	background: url(${ctx}/teacher/images/btn_block.gif) no-repeat 100%
+		-69px;
+}
+
+.itemtitle ul .current a,.itemtitle ul .current a:hover {
+	background: url(${ctx}/teacher/images/btn_block.gif) no-repeat 0 0;
+}
+
+.itemtitle ul .current a span,.itemtitle ul .current a:hover span {
+	background: url(${ctx}/teacher/images/btn_block.gif) no-repeat 100%
+		-23px;
+	color: #FFF;
+}
+</style>
+		<script type="text/javascript" src="${ctx}/js/mail.js"></script>
+		<script type="text/javascript" src="${ctx}/js/prototype.js"></script>
+		<script type="text/javascript"
+			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
+		<script type="text/javascript" src="${ctx}/js/thickbox.js"></script>
+		<script>
+     jQuery.noConflict();
+</script>
+		<script type="text/javascript">
 		
-	</head>
+				var prepmdiv = '';
+	var folder = 'inbox';
+	var table1;
+	var row1;
+	var currpmdiv;
+	function getMailDetail(mailId,e,obj,status) {
+		currpmdiv = mailId+ '_div';	
+		if (!$(currpmdiv)) {
+		
+		table1 = document.getElementById("table");
+		row1 = table1.insertRow(obj.parentNode.parentNode.rowIndex + 1);
+		if(status == 1){
+		var e = table1.rows[obj.parentNode.parentNode.rowIndex].cells[0].firstChild;
+		e.src="${ctx}/teacher/images/pm_0.gif";
+		}
+	
+		 jQuery.post("eDetailEvaluateAction.action", { mailId:mailId},  
+                                    callBack, "json");  
+	   
+					$(prepmdiv).style.display = 'none';
+			
+				changestatus(obj);
+				prepmdiv = currpmdiv;
+			}
+		else {
+			if ($(currpmdiv).style.display == 'none') {
+					$(currpmdiv).style.display = '';
+				changestatus(obj);
+				if (prepmdiv) {
+					$(prepmdiv).style.display = 'none';
+				}
+				prepmdiv = currpmdiv;
+			} else {
+				$(currpmdiv).style.display = 'none';
+				prepmdiv = '';
+			}
+		}
+		
+	}		
+
+</script>
+
 	<body>
 		<div id="header">
 			<h1>
@@ -37,6 +108,9 @@
 					</tr>
 					<tr>
 							<td align="center"><br>
+<a style="color: #09C; float: right; font-weight: 700;"
+								href="${ctx}/coursepage/evaluation/login.jsp?height=350&width=450"
+								class="thickbox" title="登陆">登陆</a>
 								<a href="<s:url action="sDetailEvaluateAction"> 
 	                     											<s:param name="course"> 
                        			 	<s:property value="id"/> 
@@ -45,6 +119,22 @@
 
 							</td>
 						</tr>
+<tr>
+				<td >
+					<div align="left">
+						<br>
+<font size="3" color="#09C"><strong><s:fielderror />
+						</strong>
+						</font>
+						<font size="3"><strong><s:actionmessage />
+						</strong>
+						</font>
+						<font size="3"><strong><s:actionerror />
+						</strong>
+						</font>
+					</div>
+				</td>
+			</tr>
 				</table>
 			</div>
 
