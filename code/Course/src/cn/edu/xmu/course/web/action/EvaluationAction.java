@@ -277,7 +277,8 @@ public class EvaluationAction extends BaseAction {
 		result = evaluateService.updateEvaluation(evaluation);
 		System.out.println("test_3: " + result);
 		if (result) {
-			scorestring = "评价成功，";
+			scorestring = "评价成功，你的评分是：" + score.toString().substring(0, i)
+			+ "分";
 			return SUCCESS;
 		} else
 			return ERROR;
