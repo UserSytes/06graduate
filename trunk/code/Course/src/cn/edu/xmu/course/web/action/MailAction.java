@@ -11,9 +11,11 @@ import com.googlecode.jsonplugin.annotations.JSON;
 
 import cn.edu.xmu.course.pojo.Mail;
 import cn.edu.xmu.course.pojo.Student;
+import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.IMailService;
 import cn.edu.xmu.course.service.IStudentInfoService;
+import cn.edu.xmu.course.service.ITeacherInfoService;
 
 public class MailAction extends BaseAction {
 
@@ -24,12 +26,14 @@ public class MailAction extends BaseAction {
 
 	private IMailService mailService;
 	private IStudentInfoService studentInfoService;
+	private ITeacherInfoService teacherInfoService;
 	private Mail mail;
 	private Mail oldMail;
 	private UserInfo replyUser;
 	private List<Mail> mailList;
 	private Integer mailId;
 	private String studentNo;
+	private String teacherNo;
 	private int count;
 	private int status;
 	private String[] pmitemid;
@@ -37,12 +41,25 @@ public class MailAction extends BaseAction {
 	private String result;
 	private List rows = new ArrayList();
 
+	public String findAllTeachersBySchool(){
+		List<Teacher> teas = teacherInfoService.findTeachersBySchool(super.getStudent().getUserInfo().getDepartment().getSchool());
+		for (Teacher t : teas) {
+			Map cellMap = new HashMap();
+			cellMap.put("name", t.getUserInfo().getName());
+			cellMap.put("teano", t.getTeacherNo());
+
+			rows.add(cellMap);
+		}
+
+		return SUCCESS;
+	}
+	
 	/**
 	 * 查找学生
 	 * 
 	 * @return
 	 */
-	public String findAllStudents() {
+	public String findAllStudentsByDepartment() {
 		List<Student> stus = studentInfoService.findByDepartment(super
 				.getTeacher().getUserInfo().getDepartment());
 		for (Student s : stus) {
@@ -65,6 +82,18 @@ public class MailAction extends BaseAction {
 		else
 			result = "姓名:" + stu.getUserInfo().getName() + ";学号:"
 					+ stu.getStudentNo();
+		return SUCCESS;
+	}
+	
+	public String findTeacherByTeaNo() {
+		String[] teacherNos = getTeacherNo().split(":"); 
+		String number = teacherNos[teacherNos.length-1];
+		Teacher tea = teacherInfoService.findTeacherByTeacherNo(number);
+		if (tea == null)
+			this.result = null;
+		else
+			result = "姓名:" + tea.getUserInfo().getName() + ";工作证号:"
+					+ tea.getTeacherNo();
 		return SUCCESS;
 	}
 
@@ -102,20 +131,38 @@ public class MailAction extends BaseAction {
 		}
 	}
 
+	
+	/**
+	 *学生给老师发送一个新的消息
+	 * 
+	 * @return
+	 */
+	public String addNewMailByStu() {
+		String[] teacherNos = getTeacherNo().split(":"); 
+		String number = teacherNos[teacherNos.length-1];
+		Teacher tea = teacherInfoService.findTeacherByTeacherNo(number);
+		if (savetosentbox.equals("true"))
+			return this.addAndSaveMail(super.getStudent().getUserInfo(), tea
+					.getUserInfo());
+		else
+			return this.addNewMail(super.getStudent().getUserInfo(), tea
+					.getUserInfo());
+	}
+	
 	/**
 	 * 教师给学生发送一个新的消息
 	 * 
 	 * @return
 	 */
 	public String addNewMailByTea() {
-		String[] stuNos = studentNo.split(":"); 
-		String number = stuNos[stuNos.length-1];
-		Student stu = studentInfoService.findByStudentNo(number);
+		String[] teacherNos = getTeacherNo().split(":"); 
+		String number = teacherNos[teacherNos.length-1];
+		Teacher tea = teacherInfoService.findTeacherByTeacherNo(number);
 		if (savetosentbox.equals("true"))
-			return this.addAndSaveMail(super.getTeacher().getUserInfo(), stu
+			return this.addAndSaveMail(super.getStudent().getUserInfo(), tea
 					.getUserInfo());
 		else
-			return this.addNewMail(super.getTeacher().getUserInfo(), stu
+			return this.addNewMail(super.getStudent().getUserInfo(), tea
 					.getUserInfo());
 	}
 
@@ -201,6 +248,18 @@ public class MailAction extends BaseAction {
 			return ERROR;
 		}
 	}
+	
+	/**
+	 * 学生查询收到的消息
+	 * 
+	 * @return
+	 */
+	public String getReceiveMailByStu() {
+		mailList = mailService.getMailsByReceiver(super.getStudent()
+				.getUserInfo());
+		count = mailList.size();
+		return SUCCESS;
+	}
 
 	/**
 	 * 教师查询收到的消息
@@ -213,9 +272,21 @@ public class MailAction extends BaseAction {
 		count = mailList.size();
 		return SUCCESS;
 	}
+	
+	/**
+	 * 学生查询发送的消息
+	 * 
+	 * @return
+	 */
+	public String getSendMailByStu() {
+		mailList = mailService.getMailsBySender(super.getStudent()
+				.getUserInfo(), 1);
+		count = mailList.size();
+		return SUCCESS;
+	}
 
 	/**
-	 * 教师查询发送的消息和草稿
+	 * 教师查询发送的消息
 	 * 
 	 * @return
 	 */
@@ -225,9 +296,21 @@ public class MailAction extends BaseAction {
 		count = mailList.size();
 		return SUCCESS;
 	}
+	
+	/**
+	 * 学生查询草稿
+	 * 
+	 * @return
+	 */
+	public String getDraftByStu() {
+		mailList = mailService.getMailsBySender(super.getStudent()
+				.getUserInfo(), 2);
+		count = mailList.size();
+		return SUCCESS;
+	}
 
 	/**
-	 * 教师查询发送的消息和草稿
+	 * 教师查询草稿
 	 * 
 	 * @return
 	 */
@@ -252,9 +335,23 @@ public class MailAction extends BaseAction {
 		this.result = mail.getContent();
 		return SUCCESS;
 	}
+	
+	/**
+	 * 学生再次编辑草稿
+	 * 
+	 * @return
+	 */
+	public String goDraftDetailByStu() {
+		mail = mailService.getMailById(mailId);
+		Teacher tea = teacherInfoService.findTeacherByUserInfo(mail.getReceiver());
+		if (tea != null)
+			setTeacherNo("姓名:" + tea.getUserInfo().getName() + ";工作证号:"
+			+ tea.getTeacherNo());
+		return SUCCESS;
+	}
 
 	/**
-	 * 再次编辑草稿
+	 * 教师再次编辑草稿
 	 * 
 	 * @return
 	 */
@@ -408,6 +505,22 @@ public class MailAction extends BaseAction {
 	@JSON(name = "rows")
 	public List getRows() {
 		return rows;
+	}
+
+	public void setTeacherInfoService(ITeacherInfoService teacherInfoService) {
+		this.teacherInfoService = teacherInfoService;
+	}
+
+	public ITeacherInfoService getTeacherInfoService() {
+		return teacherInfoService;
+	}
+
+	public void setTeacherNo(String teacherNo) {
+		this.teacherNo = teacherNo;
+	}
+
+	public String getTeacherNo() {
+		return teacherNo;
 	}
 
 }

@@ -12,6 +12,8 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Teacher;
+import cn.edu.xmu.course.pojo.UserInfo;
+
 import org.hibernate.Query;
 
 /**
@@ -42,6 +44,17 @@ public class TeacherDAO extends HibernateDaoSupport {
 		try {
 			String queryString = "from Teacher as model where model.userInfo.department.school = ?";
 			return getHibernateTemplate().find(queryString, school);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	
+	public List findByUserInfo(UserInfo userInfo){
+		log.debug("finding Teacher instance with property: userInfo, value: " + userInfo);
+		try {
+			String queryString = "from Teacher as model where model.userInfo = ?";
+			return getHibernateTemplate().find(queryString, userInfo);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
 			throw re;

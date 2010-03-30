@@ -126,6 +126,17 @@ public class TeacherInfoService implements ITeacherInfoService {
 			return teachers.get(0);
 		}
 	}
+	
+
+	public Teacher findTeacherByUserInfo(UserInfo userInfo) {
+		// TODO Auto-generated method stub
+		List<Teacher> teachers = teacherDAO.findByUserInfo(userInfo);
+		if(teachers.size()==0){
+			return null;
+		}else{
+			return teachers.get(0);
+		}
+	}
 
 	
 	public void setTeacherDAO(TeacherDAO teacherDAO) {
@@ -143,5 +154,6 @@ public class TeacherInfoService implements ITeacherInfoService {
 	public UserInfoDAO getUserInfoDAO() {
 		return userInfoDAO;
 	}
+
 
 }
