@@ -1,6 +1,11 @@
 package cn.edu.xmu.course.web.action;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import net.sf.json.JSONObject;
 
 import com.googlecode.jsonplugin.annotations.JSON;
 
@@ -30,16 +35,36 @@ public class MailAction extends BaseAction {
 	private String[] pmitemid;
 	private String savetosentbox;
 	private String result;
+	private List rows = new ArrayList();
 
 	/**
 	 * 查找学生
 	 * 
 	 * @return
 	 */
+	public String findAllStudents() {
+		List<Student> stus = studentInfoService.findByDepartment(super
+				.getTeacher().getUserInfo().getDepartment());
+		for (Student s : stus) {
+			Map cellMap = new HashMap();
+			cellMap.put("name", s.getUserInfo().getName());
+			cellMap.put("stuno", s.getStudentNo());
+
+			rows.add(cellMap);
+		}
+
+		return SUCCESS;
+	}
+
 	public String findStudentByStuNo() {
-		List<Mail> newMailList=mailService.getMailsByReceiver(super.getUserInfo());
-		
-		
+		String[] stuNos = studentNo.split(":"); 
+		String number = stuNos[stuNos.length-1];
+		Student stu = studentInfoService.findByStudentNo(number);
+		if (stu == null)
+			this.result = null;
+		else
+			result = "姓名:" + stu.getUserInfo().getName() + ";学号:"
+					+ stu.getStudentNo();
 		return SUCCESS;
 	}
 
@@ -83,7 +108,9 @@ public class MailAction extends BaseAction {
 	 * @return
 	 */
 	public String addNewMailByTea() {
-		Student stu = studentInfoService.findByStudentNo(studentNo);
+		String[] stuNos = studentNo.split(":"); 
+		String number = stuNos[stuNos.length-1];
+		Student stu = studentInfoService.findByStudentNo(number);
 		if (savetosentbox.equals("true"))
 			return this.addAndSaveMail(super.getTeacher().getUserInfo(), stu
 					.getUserInfo());
@@ -112,7 +139,9 @@ public class MailAction extends BaseAction {
 	 * @return
 	 */
 	public String addDraftByTea() {
-		Student stu = studentInfoService.findByStudentNo(studentNo);
+		String[] stuNos = studentNo.split(":"); 
+		String number = stuNos[stuNos.length-1];
+		Student stu = studentInfoService.findByStudentNo(number);
 		return this.addDraft(super.getTeacher().getUserInfo(), stu
 				.getUserInfo());
 	}
@@ -144,36 +173,34 @@ public class MailAction extends BaseAction {
 
 	/**
 	 * 删除消息
+	 * 
 	 * @return
 	 */
-	public String deleteMail(){
+	public String deleteMail() {
 		mail = mailService.getMailById(mailId);
-		if(mailService.deleteMail(mail)){
+		if (mailService.deleteMail(mail)) {
 			addActionMessage("删除消息成功！");
 			return SUCCESS;
-		}			
-		else {
+		} else {
 			addActionError("删除消息失败，请重新操作！");
 			return ERROR;
 		}
 	}
-	
+
 	/**
 	 * 批量删除消息
 	 * 
 	 * @return
 	 */
 	public String deleteMails() {
-		if(mailService.deleteMails(pmitemid)){
+		if (mailService.deleteMails(pmitemid)) {
 			addActionMessage("删除消息成功！");
 			return SUCCESS;
-		}
-		else {
+		} else {
 			addActionError("删除消息失败，请重新操作！");
 			return ERROR;
 		}
 	}
-
 
 	/**
 	 * 教师查询收到的消息
@@ -218,7 +245,7 @@ public class MailAction extends BaseAction {
 	 */
 	public String getMailDetail() {
 		mail = mailService.updateMailStatus(mailId);
-		if (mail == null){
+		if (mail == null) {
 			addActionError("获取消息失败，请重新操作！");
 			return ERROR;
 		}
@@ -235,7 +262,9 @@ public class MailAction extends BaseAction {
 		mail = mailService.getMailById(mailId);
 		Student stu = studentInfoService.findByUserInfo(mail.getReceiver());
 		if (stu != null)
-			studentNo = stu.getStudentNo();
+			studentNo = "姓名:" + stu.getUserInfo().getName() + ";学号:"
+			+ stu.getStudentNo();
+		System.out.println(studentNo);
 		return SUCCESS;
 	}
 
@@ -253,6 +282,7 @@ public class MailAction extends BaseAction {
 				+ oldMail.getContent());
 		return SUCCESS;
 	}
+
 	/**
 	 * 跳到回复消息页面
 	 * 
@@ -369,6 +399,15 @@ public class MailAction extends BaseAction {
 
 	public String getResult() {
 		return result;
+	}
+
+	public void setRows(List rows) {
+		this.rows = rows;
+	}
+
+	@JSON(name = "rows")
+	public List getRows() {
+		return rows;
 	}
 
 }
