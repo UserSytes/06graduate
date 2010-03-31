@@ -8,6 +8,56 @@ scrollbar-arrow-color: #999999}
 
 form {margin:0; color: #5E5E5D;FONT-FAMILY:"Verdana", "Arial", "Helvetica", "sans-serif", arial; FONT-SIZE: 9pt;;letter-spacing:-0.02em; text-decoration:none;line-height:12pt;}
 
+
+/* Menu */
+
+#menu {
+	float: left;
+	width: 750px;
+	height: 55px;
+	background: url(image/img02.gif) repeat-x left top;
+}
+
+#menu ul {
+	margin: 0;
+	padding: 23px 0 0 20px;
+	list-style: none;
+	line-height: normal;
+}
+
+#menu li {
+	float: left;
+	text-align: center;
+}
+
+#menu a {
+	display: block;
+	padding: 0 34px;
+	background: url(image/img03.jpg) no-repeat right 50%;
+	text-decoration: none;
+	text-transform: uppercase;
+	font:bold 13px Georgia, "Times New Roman", Times, serif;
+	color: #FFFFFF;
+}
+
+#menu a:hover { 
+	color: #EDD140;
+}
+
+#menu .last a {
+	display: block;
+	padding: 0 30px;
+	text-decoration: none;
+	background:none;
+	text-transform: uppercase;
+	font:bold 13px ËÎÌו, "Times New Roman", Times, serif;
+	color: #FFFFFF;
+}
+
+#menu .current_page_item a {
+	color: #FFFFFF;
+}
+
 A:link {color:#666666; text-decoration:none; font-size:9pt;}
 A:visited {color:#666666; text-decoration:none; font-size:9pt;}
 A:active {color:#4169e1; text-decoration:none; font-size:9pt;}
@@ -53,6 +103,4 @@ a.submenu:hover   {color:#000000; text-decoration:none; font-size:9pt;}
 .consult_input { BORDER-RIGHT: #CCCCCC 1px solid; BORDER-TOP: #CCCCCC 1px solid; BORDER-LEFT: #CCCCCC 1px solid; BORDER-BOTTOM: #CCCCCC 1px solid; BACKGROUND-COLOR: #ffffff; font-size:9pt; color:#666666; }
 .consult_textarea { BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; BORDER-BOTTOM: #cccccc 1px solid; BACKGROUND-COLOR: #ffffff }
 
-INPUT {
-	FONT-SIZE: 12px; width: 100px; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"
-}
+
