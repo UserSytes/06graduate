@@ -35,9 +35,11 @@ public class StudentDAO extends HibernateDaoSupport {
 	protected void initDao() {
 		// do nothing
 	}
-	
-	public List findBySchool(School school){
-		log.debug("finding Student instance with property: userInfo.department.school, value: " + school);
+
+	public List findBySchool(School school) {
+		log
+				.debug("finding Student instance with property: userInfo.department.school, value: "
+						+ school);
 		try {
 			String queryString = "from Student as model where model.userInfo.department.school = ?";
 			return getHibernateTemplate().find(queryString, school);
@@ -46,9 +48,11 @@ public class StudentDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-	
-	public List findByDepartment(Department department){
-		log.debug("finding Student instance with property: userInfo.department, value: " + department);
+
+	public List findByDepartment(Department department) {
+		log
+				.debug("finding Student instance with property: userInfo.department, value: "
+						+ department);
 		try {
 			String queryString = "from Student as model where model.userInfo.department = ?";
 			return getHibernateTemplate().find(queryString, department);
@@ -57,9 +61,21 @@ public class StudentDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-	
-	public List findByUserInfo(UserInfo userInfo){
-		log.debug("finding Student instance with property: userInfo, value: " + userInfo);
+
+	public List findStuNameAndNumberByDepartment(Department department) {
+		try {
+			String queryString = "select userInfo.name||';'||student.studentNo as stu from Student student, UserInfo userInfo where student.userInfo.id = userInfo.id and userInfo.department.id = "
+					+ department.getId();
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+
+	public List findByUserInfo(UserInfo userInfo) {
+		log.debug("finding Student instance with property: userInfo, value: "
+				+ userInfo);
 		try {
 			String queryString = "from Student as model where model.userInfo = ?";
 			return getHibernateTemplate().find(queryString, userInfo);
@@ -68,18 +84,23 @@ public class StudentDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-	
-	public List findByDepartmentAndGrade(Department department, Grade grade){
-		log.debug("finding Student instance with property: userInfo.department, value: " + department+" and property: grade, value:"+grade);
+
+	public List findByDepartmentAndGrade(Department department, Grade grade) {
+		log
+				.debug("finding Student instance with property: userInfo.department, value: "
+						+ department + " and property: grade, value:" + grade);
 		try {
-			String queryString = "from Student as model where model.userInfo.department.id = "+department.getId()+" and model.grade.id = "+grade.getId();
+			String queryString = "from Student as model where model.userInfo.department.id = "
+					+ department.getId()
+					+ " and model.grade.id = "
+					+ grade.getId();
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
 			throw re;
 		}
 	}
-	
+
 	public void save(Student transientInstance) {
 		log.debug("saving Student instance");
 		try {
@@ -140,16 +161,19 @@ public class StudentDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByStudentNoFuzzy(String studentNo , School school) {
+	public List findByStudentNoFuzzy(String studentNo, School school) {
 		try {
-			String queryString = "from Student as model where model.studentNo like '%"+ studentNo +"%' and model.userInfo.department.school.id = "+school.getId();
+			String queryString = "from Student as model where model.studentNo like '%"
+					+ studentNo
+					+ "%' and model.userInfo.department.school.id = "
+					+ school.getId();
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
 			throw re;
 		}
 	}
-	
+
 	public List findByStudentNo(Object studentNo) {
 		return findByProperty(STUDENT_NO, studentNo);
 	}

@@ -9,6 +9,7 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
+		<LINK href="${ctx}/css/thickbox.css" type=text/css rel=stylesheet>
 		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
 		<link rel="stylesheet" type="text/css"
 			href="${ctx}/css/jquery.autocomplete.css" />
@@ -19,7 +20,7 @@
 		<script type='text/javascript' src='${ctx}/js/jquery.ajaxQueue.js'></script>
 		<script type='text/javascript' src='${ctx}/js/thickbox-compressed.js'></script>
 		<script type='text/javascript' src='${ctx}/js/jquery.autocomplete.js'></script>
-		<script type='text/javascript' src='${ctx}/js/localdata.js'></script>
+		<script type='text/javascript' src='${ctx}/js/thickbox.js'></script>
 		<script>
 	jQuery.noConflict();
 </script>
@@ -27,7 +28,7 @@
 		<script type="text/javascript">
 	var flag = true;
 	function check(form) {
-		
+
 		if (form.receiverid.value == "") {
 			alert("收件人不能为空！");
 			return false;
@@ -45,36 +46,37 @@
 			return false;
 		}
 	}
-	
+
 	function validateStudent() {
 		jQuery.post("findStudentJsonAction.action", {
 			studentNo :jQuery("#receiverid").val()
 		}, function(data) {
 			if (data == null) {
-			flag = false;	}
-			 else {
-			 table1 = document.getElementById("receiverid").value=data;		 
-			 flag = true;
+				jQuery("#receiverIdError").html(
+						"<font color='red'>该学生不存在，请重新输入！</font>");
+				flag = false;
+			} else {
+				table1 = document.getElementById("receiverid").value = data;
+				flag = true;
 			}
 		}, "json");
 	}
-	
+
 	function findStudent() {
-		jQuery.post("findAllStudentsJsonAction.action", "", callBackStu, "json");
+		jQuery
+				.post("findAllStudentsJsonAction.action", "", callBackStu,
+						"json");
 	}
 
 	function callBackStu(json) {
-		var myobj = eval(json);
-		arrayObj = new Array();
-		for ( var i = 0; i < myobj.length; i++) {
-			arrayObj.push("姓名:" + myobj[i].name + ";学号:" + myobj[i].stuno);
-		}
-		jQuery("#receiverid").autocomplete(arrayObj, {		
+		jQuery("#receiverid").autocomplete(json, {
 			matchContains :true,
 			minChars :0
-		});	
-	}	
-	
+		});
+		jQuery("#receiverid").result( function(event, data, formatted) {
+			jQuery("#receiverIdError").html("");
+		});
+	}
 </script>
 
 	</head>
@@ -87,12 +89,9 @@
 				</td>
 			</tr>
 		</table>
-
 		<div class="with_side wrap" align="center" style="width: 95%;">
 			<div class="cm_header itemtitle s_clear">
-				<ul>
-					<a style="color: #09C; float: right; font-weight: 700;" href="##">+
-						写新消息</a>
+				<ul>					
 					<li>
 						<a href="getReceiveMailByTeaAction.action"><span>收件箱</span> </a>
 					</li>

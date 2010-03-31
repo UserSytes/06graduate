@@ -41,53 +41,37 @@ public class MailAction extends BaseAction {
 	private String result;
 	private List rows = new ArrayList();
 
-	public String findAllTeachersBySchool(){
-		List<Teacher> teas = teacherInfoService.findTeachersBySchool(super.getStudent().getUserInfo().getDepartment().getSchool());
-		for (Teacher t : teas) {
-			Map cellMap = new HashMap();
-			cellMap.put("name", t.getUserInfo().getName());
-			cellMap.put("teano", t.getTeacherNo());
-
-			rows.add(cellMap);
-		}
-
+	public String findAllTeachersBySchool() {
+		rows = teacherInfoService.getTeaNameAndNumber(super.getStudent().getUserInfo().getDepartment().getSchool());
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * 查找学生
 	 * 
 	 * @return
 	 */
 	public String findAllStudentsByDepartment() {
-		List<Student> stus = studentInfoService.findByDepartment(super
-				.getTeacher().getUserInfo().getDepartment());
-		for (Student s : stus) {
-			Map cellMap = new HashMap();
-			cellMap.put("name", s.getUserInfo().getName());
-			cellMap.put("stuno", s.getStudentNo());
-
-			rows.add(cellMap);
-		}
-
+		rows = studentInfoService.getStuNameAndNumber(super.getTeacher()
+				.getUserInfo().getDepartment());
 		return SUCCESS;
 	}
 
 	public String findStudentByStuNo() {
-		String[] stuNos = studentNo.split(":"); 
-		String number = stuNos[stuNos.length-1];
+		String[] stuNos = studentNo.split(";");
+		String number = stuNos[stuNos.length - 1];
 		Student stu = studentInfoService.findByStudentNo(number);
 		if (stu == null)
 			this.result = null;
 		else
-			result = "姓名:" + stu.getUserInfo().getName() + ";学号:"
+			result =  stu.getUserInfo().getName() + ";"
 					+ stu.getStudentNo();
 		return SUCCESS;
 	}
-	
+
 	public String findTeacherByTeaNo() {
-		String[] teacherNos = getTeacherNo().split(":"); 
-		String number = teacherNos[teacherNos.length-1];
+		String[] teacherNos = getTeacherNo().split(":");
+		String number = teacherNos[teacherNos.length - 1];
 		Teacher tea = teacherInfoService.findTeacherByTeacherNo(number);
 		if (tea == null)
 			this.result = null;
@@ -131,15 +115,14 @@ public class MailAction extends BaseAction {
 		}
 	}
 
-	
 	/**
 	 *学生给老师发送一个新的消息
 	 * 
 	 * @return
 	 */
 	public String addNewMailByStu() {
-		String[] teacherNos = getTeacherNo().split(":"); 
-		String number = teacherNos[teacherNos.length-1];
+		String[] teacherNos = getTeacherNo().split(";");
+		String number = teacherNos[teacherNos.length - 1];
 		Teacher tea = teacherInfoService.findTeacherByTeacherNo(number);
 		if (savetosentbox.equals("true"))
 			return this.addAndSaveMail(super.getStudent().getUserInfo(), tea
@@ -148,15 +131,15 @@ public class MailAction extends BaseAction {
 			return this.addNewMail(super.getStudent().getUserInfo(), tea
 					.getUserInfo());
 	}
-	
+
 	/**
 	 * 教师给学生发送一个新的消息
 	 * 
 	 * @return
 	 */
 	public String addNewMailByTea() {
-		String[] teacherNos = getTeacherNo().split(":"); 
-		String number = teacherNos[teacherNos.length-1];
+		String[] stuNos = studentNo.split(";");
+		String number = stuNos[stuNos.length - 1];
 		Teacher tea = teacherInfoService.findTeacherByTeacherNo(number);
 		if (savetosentbox.equals("true"))
 			return this.addAndSaveMail(super.getStudent().getUserInfo(), tea
@@ -186,8 +169,8 @@ public class MailAction extends BaseAction {
 	 * @return
 	 */
 	public String addDraftByTea() {
-		String[] stuNos = studentNo.split(":"); 
-		String number = stuNos[stuNos.length-1];
+		String[] stuNos = studentNo.split(";");
+		String number = stuNos[stuNos.length - 1];
 		Student stu = studentInfoService.findByStudentNo(number);
 		return this.addDraft(super.getTeacher().getUserInfo(), stu
 				.getUserInfo());
@@ -248,7 +231,7 @@ public class MailAction extends BaseAction {
 			return ERROR;
 		}
 	}
-	
+
 	/**
 	 * 学生查询收到的消息
 	 * 
@@ -272,7 +255,7 @@ public class MailAction extends BaseAction {
 		count = mailList.size();
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * 学生查询发送的消息
 	 * 
@@ -296,7 +279,7 @@ public class MailAction extends BaseAction {
 		count = mailList.size();
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * 学生查询草稿
 	 * 
@@ -335,18 +318,20 @@ public class MailAction extends BaseAction {
 		this.result = mail.getContent();
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * 学生再次编辑草稿
 	 * 
 	 * @return
 	 */
 	public String goDraftDetailByStu() {
+
 		mail = mailService.getMailById(mailId);
-		Teacher tea = teacherInfoService.findTeacherByUserInfo(mail.getReceiver());
+		Teacher tea = teacherInfoService.findTeacherByUserInfo(mail
+				.getReceiver());
 		if (tea != null)
-			setTeacherNo("姓名:" + tea.getUserInfo().getName() + ";工作证号:"
-			+ tea.getTeacherNo());
+			setTeacherNo(tea.getUserInfo().getName() + ";"
+					+ tea.getTeacherNo());
 		return SUCCESS;
 	}
 
@@ -356,11 +341,13 @@ public class MailAction extends BaseAction {
 	 * @return
 	 */
 	public String goDraftDetail() {
+		rows = studentInfoService.getStuNameAndNumber(super.getTeacher()
+				.getUserInfo().getDepartment());
 		mail = mailService.getMailById(mailId);
 		Student stu = studentInfoService.findByUserInfo(mail.getReceiver());
 		if (stu != null)
-			studentNo = "姓名:" + stu.getUserInfo().getName() + ";学号:"
-			+ stu.getStudentNo();
+			studentNo =stu.getUserInfo().getName() + ";"
+					+ stu.getStudentNo();
 		System.out.println(studentNo);
 		return SUCCESS;
 	}

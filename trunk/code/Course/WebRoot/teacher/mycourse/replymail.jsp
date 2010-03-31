@@ -32,8 +32,9 @@
 
 			<div class="cm_header itemtitle s_clear">
 				<ul>
-					<a style="color: #09C; float: right; font-weight: 700;" href="##">+
-						写新消息</a>
+					<a style="color: #09C; float: right; font-weight: 700;"
+								href="${ctx}/teacher/mycourse/newmail.jsp?height=350&width=500"
+								title="撰写短消息" class="thickbox">+ 写新消息</a>
 					<li>
 						<a href="getReceiveMailByTeaAction.action"><span>收件箱</span> </a>
 					</li>
