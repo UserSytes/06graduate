@@ -131,6 +131,7 @@ a.v1:visited {
 
 .pm_list {
 	WIDTH: 95%;
+	border-width: 0px;
 }
 
 .pm_list tr td {

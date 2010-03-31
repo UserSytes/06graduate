@@ -88,7 +88,7 @@
 			<s:form id="pmform" name="pmform" method="post"
 				action="deleteMailsAction">
 				<table id="table" cellspacing="0" width="98%" cellpadding="0"
-					class="pm_list" summary="收件箱">
+					class="pm_list" summary="收件箱" border="0">
 					<div class="cm_header itemtitle s_clear">
 						<ul>
 							<a style="color: #09C; float: right; font-weight: 700;"
