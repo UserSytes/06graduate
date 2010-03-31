@@ -10,14 +10,6 @@
 		<META http-equiv=Expires content=-1000>
 		<link type=text/css rel=stylesheet href="${ctx}/homepage/link.css">
 		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
-		<link rel="stylesheet" href="${ctx}/css/thickbox.css" type="text/css"
-			media="screen" />
-		<script type="text/javascript"
-			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
-		<script type="text/javascript" src="${ctx}/js/thickbox.js"></script>
-		<script>
-	jQuery.noConflict();
-</script>
 		<title></title>
 	</head>
 	<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0"

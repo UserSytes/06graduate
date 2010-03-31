@@ -8,7 +8,7 @@
 		<META http-equiv=Pragma content=no-cache>
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
-<link type=text/css rel=stylesheet href="${ctx}/homepage/link.css">
+		<link type=text/css rel=stylesheet href="${ctx}/homepage/link.css">
 		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
 		<link rel="stylesheet" type="text/css"
 			href="${ctx}/css/jquery.autocomplete.css" />
@@ -19,7 +19,6 @@
 		<script type='text/javascript' src='${ctx}/js/jquery.ajaxQueue.js'></script>
 		<script type='text/javascript' src='${ctx}/js/thickbox-compressed.js'></script>
 		<script type='text/javascript' src='${ctx}/js/jquery.autocomplete.js'></script>
-		<script type='text/javascript' src='${ctx}/js/localdata.js'></script>
 		<script>
 	jQuery.noConflict();
 </script>
@@ -51,6 +50,8 @@
 			teacherNo :jQuery("#receiverid").val()
 		}, function(data) {
 			if (data == null) {
+			jQuery("#receiverIdError").html(
+						"<font color='red'>该老师不存在，请重新输入！</font>");
 			flag = false;	}
 			 else {
 			 table1 = document.getElementById("receiverid").value=data;		 
@@ -64,15 +65,13 @@
 	}
 
 	function callBackTea(json) {
-		var myobj = eval(json);
-		arrayObj = new Array();
-		for ( var i = 0; i < myobj.length; i++) {
-			arrayObj.push("姓名:" + myobj[i].name + ";工作证号:" + myobj[i].teano);
-		}
-		jQuery("#receiverid").autocomplete(arrayObj, {		
+		jQuery("#receiverid").autocomplete(json, {
 			matchContains :true,
 			minChars :0
-		});	
+		});
+		jQuery("#receiverid").result( function(event, data, formatted) {
+			jQuery("#receiverIdError").html("");
+		});
 	}	
 	
 </script>
