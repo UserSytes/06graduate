@@ -11,7 +11,7 @@
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
 		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
 		<link rel="stylesheet" type="text/css"
-			href="${ctx}/css/jquery.autocomplete.css" />		
+			href="${ctx}/css/jquery.autocomplete.css" />
 		<script type="text/javascript"
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
 		<script type="text/javascript" src="${ctx}/js/thickbox-compressed.js"></script>
@@ -25,7 +25,6 @@
 		<title></title>
 		<script type="text/javascript">
 	var flag = false;
-	var stu = false;
 	function check(form) {
 
 		if (form.receiverid.value == "") {
@@ -62,10 +61,9 @@
 	}
 
 	function findStudent() {
-		if (stu == false) {
-			jQuery.post("findAllStudentsJsonAction.action", "", callBackStu,
-					"json");
-		}
+		jQuery
+				.post("findAllStudentsJsonAction.action", "", callBackStu,
+						"json");
 	}
 
 	function callBackStu(json) {
@@ -76,13 +74,12 @@
 		jQuery("#receiverid").result( function(event, data, formatted) {
 			jQuery("#receiverIdError").html("");
 		});
-		stu = true;
 	}
 </script>
 
 	</head>
-	<body>
-<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+	<body onload="findStudent()">
+		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
@@ -96,8 +93,8 @@
 			<div class="cm_header itemtitle s_clear">
 				<ul>
 					<a style="color: #09C; float: right; font-weight: 700;"
-								href="${ctx}/teacher/mycourse/newmail.jsp"
-								title="撰写短消息" >+ 写新消息</a>
+						href="${ctx}/teacher/mycourse/newmail.jsp" title="撰写短消息">+
+						写新消息</a>
 					<li>
 						<a href="getReceiveMailByTeaAction.action"><span>收件箱</span> </a>
 					</li>
@@ -109,7 +106,7 @@
 					</li>
 				</ul>
 			</div>
-		
+
 			<s:form id="postpm" name="postpm" method="post"
 				action="addMailByTeaAction" onsubmit="return check(this);">
 
@@ -126,8 +123,7 @@
 							</th>
 							<td>
 								<s:textfield name="studentNo" cssClass="txt" size="35"
-									id="receiverid" onfocus="findStudent();"
-									onblur="validateStudent()"></s:textfield>
+									id="receiverid" onblur="validateStudent()"></s:textfield>
 								<span id="receiverIdError"></span>
 							</td>
 						</tr>

@@ -41,6 +41,10 @@ public class MailAction extends BaseAction {
 	private String result;
 	private List rows = new ArrayList();
 
+	/**
+	 * 查找本学院所有的老师
+	 * @return
+	 */
 	public String findAllTeachersBySchool() {
 		rows = teacherInfoService.getTeaNameAndNumber(super.getStudent()
 				.getUserInfo().getDepartment().getSchool());
@@ -48,7 +52,7 @@ public class MailAction extends BaseAction {
 	}
 
 	/**
-	 * 查找学生
+	 * 查找本系所有的学生
 	 * 
 	 * @return
 	 */
@@ -58,6 +62,10 @@ public class MailAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	/**
+	 * 根据学号查找学生
+	 * @return
+	 */
 	public String findStudentByStuNo() {
 		String[] stuNos = studentNo.split(";");
 		String number = stuNos[stuNos.length - 1];
@@ -69,6 +77,10 @@ public class MailAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	/**
+	 * 根据教师工作证号查找教师
+	 * @return
+	 */
 	public String findTeacherByTeaNo() {
 		String[] teacherNos = getTeacherNo().split(";");
 		String number = teacherNos[teacherNos.length - 1];
@@ -148,6 +160,18 @@ public class MailAction extends BaseAction {
 					.getUserInfo());
 	}
 
+	/**
+	 * 学生回复教师信息
+	 * @return
+	 */
+	public String addReplyMailByStu(){
+		if (savetosentbox.equals("true"))
+			return this.addAndSaveMail(super.getStudent().getUserInfo(), mail
+					.getReceiver());
+		else
+			return this.addNewMail(super.getStudent().getUserInfo(), mail
+					.getReceiver());
+	}
 	/**
 	 * 教师回复消息
 	 * 
