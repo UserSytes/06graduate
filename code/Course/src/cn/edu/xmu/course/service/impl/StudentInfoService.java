@@ -151,6 +151,11 @@ public class StudentInfoService implements IStudentInfoService {
 			Grade grade) {
 		return studentDAO.findByDepartmentAndGrade(department, grade);
 	}
+	
+	public List getStuNameAndNumber(Department department) {
+		// TODO Auto-generated method stub
+		return studentDAO.findStuNameAndNumberByDepartment(department);
+	}
 
 	public StudentDAO getStudentDAO() {
 		return studentDAO;
@@ -177,6 +182,8 @@ public class StudentInfoService implements IStudentInfoService {
 			return students.get(0).getUserInfo();
 		}
 	}
+	
+	
 
 	public String addMoreStudent(Student student, Grade grade,
 			Department department, File file) {
@@ -245,5 +252,7 @@ public class StudentInfoService implements IStudentInfoService {
 			return students.get(0);
 		}
 	}
+
+	
 
 }

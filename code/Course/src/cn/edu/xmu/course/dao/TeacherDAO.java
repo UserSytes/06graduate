@@ -50,6 +50,17 @@ public class TeacherDAO extends HibernateDaoSupport {
 		}
 	}
 	
+	public List findTeaNameAndNumberBySchool(School school) {
+		try {
+			String queryString = "select userInfo.name||';'||teacher.teacherNo as tea from Teacher teacher, UserInfo userInfo where teacher.userInfo.id = userInfo.id and userInfo.department.school.id = "
+					+ school.getId();
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	
 	public List findByUserInfo(UserInfo userInfo){
 		log.debug("finding Teacher instance with property: userInfo, value: " + userInfo);
 		try {

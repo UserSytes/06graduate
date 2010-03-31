@@ -29,4 +29,6 @@ public interface ITeacherInfoService {
 	public Teacher findTeacherByTeacherNo(String teacherNo);
 	
 	public Teacher findTeacherByUserInfo(UserInfo userInfo);
+	
+	public List getTeaNameAndNumber(School school);
 }
