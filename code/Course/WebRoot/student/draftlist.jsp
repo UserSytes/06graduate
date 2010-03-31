@@ -154,14 +154,14 @@
 													</td>
 
 													<td class="profile_pic">
-														<a href="${ctx}/upload/<s:property value="sender.photo"/>"
+														<a href="${ctx}/upload/<s:property value="receiver.photo"/>"
 															title="" class="thickbox"> <img width="48"
-																src="${ctx}/upload/<s:property value="sender.photo"/>" />
+																src="${ctx}/upload/<s:property value="receiver.photo"/>" />
 														</a>
 													</td>
 													<td class="name_and_date">
 														<span class="name"><a href="###"> <s:property
-																	value="sender.name" /> </a> </span>
+																	value="receiver.name" /> </a> </span>
 														<span class="date"><s:date name="time"
 																format="yyyy-MM-dd hh:mm:ss" /> </span>
 													</td>

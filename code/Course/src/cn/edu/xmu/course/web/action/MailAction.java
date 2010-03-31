@@ -42,7 +42,8 @@ public class MailAction extends BaseAction {
 	private List rows = new ArrayList();
 
 	public String findAllTeachersBySchool() {
-		rows = teacherInfoService.getTeaNameAndNumber(super.getStudent().getUserInfo().getDepartment().getSchool());
+		rows = teacherInfoService.getTeaNameAndNumber(super.getStudent()
+				.getUserInfo().getDepartment().getSchool());
 		return SUCCESS;
 	}
 
@@ -64,20 +65,18 @@ public class MailAction extends BaseAction {
 		if (stu == null)
 			this.result = null;
 		else
-			result =  stu.getUserInfo().getName() + ";"
-					+ stu.getStudentNo();
+			result = stu.getUserInfo().getName() + ";" + stu.getStudentNo();
 		return SUCCESS;
 	}
 
 	public String findTeacherByTeaNo() {
-		String[] teacherNos = getTeacherNo().split(":");
+		String[] teacherNos = getTeacherNo().split(";");
 		String number = teacherNos[teacherNos.length - 1];
 		Teacher tea = teacherInfoService.findTeacherByTeacherNo(number);
 		if (tea == null)
 			this.result = null;
 		else
-			result = "姓名:" + tea.getUserInfo().getName() + ";工作证号:"
-					+ tea.getTeacherNo();
+			result = tea.getUserInfo().getName() + ";" + tea.getTeacherNo();
 		return SUCCESS;
 	}
 
@@ -330,8 +329,7 @@ public class MailAction extends BaseAction {
 		Teacher tea = teacherInfoService.findTeacherByUserInfo(mail
 				.getReceiver());
 		if (tea != null)
-			setTeacherNo(tea.getUserInfo().getName() + ";"
-					+ tea.getTeacherNo());
+			setTeacherNo(tea.getUserInfo().getName() + ";" + tea.getTeacherNo());
 		return SUCCESS;
 	}
 
@@ -346,8 +344,7 @@ public class MailAction extends BaseAction {
 		mail = mailService.getMailById(mailId);
 		Student stu = studentInfoService.findByUserInfo(mail.getReceiver());
 		if (stu != null)
-			studentNo =stu.getUserInfo().getName() + ";"
-					+ stu.getStudentNo();
+			studentNo = stu.getUserInfo().getName() + ";" + stu.getStudentNo();
 		System.out.println(studentNo);
 		return SUCCESS;
 	}

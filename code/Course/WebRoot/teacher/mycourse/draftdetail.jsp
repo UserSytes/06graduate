@@ -9,7 +9,6 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<LINK href="${ctx}/css/thickbox.css" type=text/css rel=stylesheet>
 		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
 		<link rel="stylesheet" type="text/css"
 			href="${ctx}/css/jquery.autocomplete.css" />
@@ -20,7 +19,6 @@
 		<script type='text/javascript' src='${ctx}/js/jquery.ajaxQueue.js'></script>
 		<script type='text/javascript' src='${ctx}/js/thickbox-compressed.js'></script>
 		<script type='text/javascript' src='${ctx}/js/jquery.autocomplete.js'></script>
-		<script type='text/javascript' src='${ctx}/js/thickbox.js'></script>
 		<script>
 	jQuery.noConflict();
 </script>
@@ -91,7 +89,10 @@
 		</table>
 		<div class="with_side wrap" align="center" style="width: 95%;">
 			<div class="cm_header itemtitle s_clear">
-				<ul>					
+				<ul>
+					<a style="color: #09C; float: right; font-weight: 700;"
+						href="${ctx}/teacher/mycourse/newmail.jsp" title="撰写短消息">+
+						写新消息</a>
 					<li>
 						<a href="getReceiveMailByTeaAction.action"><span>收件箱</span> </a>
 					</li>

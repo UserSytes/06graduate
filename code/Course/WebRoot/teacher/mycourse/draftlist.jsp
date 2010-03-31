@@ -87,8 +87,8 @@
 					<div class="cm_header itemtitle s_clear">
 						<ul>
 							<a style="color: #09C; float: right; font-weight: 700;"
-								href="${ctx}/teacher/mycourse/newmail.jsp?height=350&width=500"
-								title="撰写短消息" class="thickbox">+ 写新消息</a>
+								href="${ctx}/teacher/mycourse/newmail.jsp"
+								title="撰写短消息">+ 写新消息</a>
 							<li>
 								<a href="getReceiveMailByTeaAction.action"><span>收件箱</span>
 								</a>
@@ -114,13 +114,13 @@
 							</td>
 
 							<td class="profile_pic">
-								<a href="${ctx}/upload/<s:property value="sender.photo"/>"
+								<a href="${ctx}/upload/<s:property value="receiver.photo"/>"
 									title="" class="thickbox"> <img width="48"
-										src="${ctx}/upload/<s:property value="sender.photo"/>" /> </a>
+										src="${ctx}/upload/<s:property value="receiver.photo"/>" /> </a>
 							</td>
 							<td class="name_and_date">
 								<span class="name"><a href="###"> <s:property
-											value="sender.name" /> </a> </span>
+											value="receiver.name" /> </a> </span>
 								<span class="date"><s:date name="time"
 										format="yyyy-MM-dd hh:mm:ss" /> </span>
 							</td>

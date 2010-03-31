@@ -405,7 +405,7 @@
 			<result name="success">/student/replymail.jsp</result>
 		</action>
 		<action name="goReSendMailByStuAction" method="goReSendMail" class="mailAction">
-			<result name="success">/student/draftmail.jsp</result>
+			<result name="success">/student/newmail.jsp</result>
 		</action>
 		<action name="addReplyMailByStuAction" class="mailAction">
 			<result name="success">/tstudent/mailprompt.jsp</result>
@@ -459,7 +459,7 @@
 			<result name="success">/teacher/mycourse/replymail.jsp</result>
 		</action>
 		<action name="goReSendMailAction" method="goReSendMail" class="mailAction">
-			<result name="success">/teacher/mycourse/draftmail.jsp</result>
+			<result name="success">/teacher/mycourse/newmail.jsp</result>
 		</action>
 		<action name="addReplyMailByTeaAction" class="mailAction">
 			<result name="success">/teacher/mycourse/mailprompt.jsp</result>
