@@ -6,7 +6,8 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Insert title here</title>
-<script language="javascript">
+        <link rel="stylesheet" href="${ctx}/homepage/link.css">
+		<script language="javascript">
 	function checkPopedom(){
 		var user = <%=(String) session.getAttribute("user")%>;
 		if(user == null){	
@@ -27,13 +28,13 @@
 			<tr>
 				<td width="880" valign="top">
 					&nbsp;
-					<a href="index.htm"><img src="${ctx}/homepage/image/logo.gif" border="0">
-					</a>
+					<a href="index.htm"><img src="${ctx}/homepage/image/logo.gif"
+							border="0"> </a>
 				</td>
 				<td>
 					<table border="0" cellpadding="0" cellspacing="0">
 						<tr>
-							<td  align="right">
+							<td align="right">
 								<table border="0" cellpadding="0" cellspacing="0" id="myHome">
 									<tr>
 										<td width="80">
@@ -43,7 +44,8 @@
 											<a href="<s:url action=""></s:url>">站内信（0）</a>&nbsp;
 										</td>
 										<td width="80">
-											<a href="<s:url action="logoutAction"></s:url>">退出系统</a> &nbsp;
+											<a href="<s:url action="logoutAction"></s:url>">退出系统</a>
+											&nbsp;
 										</td>
 									</tr>
 								</table>
@@ -51,25 +53,30 @@
 						</tr>
 						<tr>
 							<td>
-								<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-									codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0"
-									width="753" height="55">
-									<param name="movie" value="${ctx}/homepage/flash/menu_v7.swf?button=1" />
-									<param name="quality" value="high" />
-									<param name="menu" value="false" />
-									<param name="wmode" value="transparent" />
-									<!--[if !IE]> <-->
-									<object data="flash/menu_v7.swf?button=1" width="753"
-										height="55" type="application/x-shockwave-flash">
-										<param name="quality" value="high" />
-										<param name="menu" value="false" />
-										<param name="wmode" value="transparent" />
-										<param name="pluginurl"
-											value="http://www.macromedia.com/go/getflashplayer" />
-										FAIL (the browser should render some flash content, not this).
-									</object>
-									<!--> <![endif]-->
-								</object>
+								<div id="wrapper">
+										<div id="menu">
+											<ul>
+												<li class="current_page_item">
+													<a href="<s:url action="homepageNewsAction"> </s:url>">首页</a>
+												</li>
+												<li>
+													<a href="<s:url action="newsAction"> </s:url>">新闻公告</a>
+												</li>
+												<li>
+													<a href="<s:url action="forwardToSearchAction"> </s:url>">搜索课程</a>
+												</li>
+												<li>
+													<a href="<s:url action="achievementAction"> </s:url>">建设成果</a>
+												</li>
+												<li>
+													<a href="<s:url action="schoolCourseAction"> </s:url>">院系课程</a>
+												</li>
+												<li class="last">
+													<a href="<s:url action="lastCourseAction"> </s:url>">最新课程</a>
+												</li>
+											</ul>
+										</div>
+									</div>
 							</td>
 						</tr>
 						<tr>
