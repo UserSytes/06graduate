@@ -11,8 +11,7 @@
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
 		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
 		<link rel="stylesheet" type="text/css"
-			href="${ctx}/css/jquery.autocomplete.css" />
-		<link rel="stylesheet" type="text/css" href="${ctx}/css/thickbox.css" />
+			href="${ctx}/css/jquery.autocomplete.css" />		
 		<script type="text/javascript"
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
 		<script type="text/javascript" src="${ctx}/js/thickbox-compressed.js"></script>
@@ -20,7 +19,6 @@
 		<script type='text/javascript' src='${ctx}/js/jquery.ajaxQueue.js'></script>
 		<script type='text/javascript' src='${ctx}/js/thickbox-compressed.js'></script>
 		<script type='text/javascript' src='${ctx}/js/jquery.autocomplete.js'></script>
-		<script type="text/javascript" src="${ctx}/js/thickbox.js"></script>
 		<script>
 	jQuery.noConflict();
 </script>
@@ -84,7 +82,34 @@
 
 	</head>
 	<body>
+<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+			align=center border=0>
+			<tr class=position bgcolor="#ECF3FD">
+				<td>
+					当前位置: 教师信息 -&gt; 消息管理 -&gt; 回复邮件
+				</td>
+			</tr>
+		</table>
+
 		<div class="with_side wrap" align="center" style="width: 95%;">
+
+			<div class="cm_header itemtitle s_clear">
+				<ul>
+					<a style="color: #09C; float: right; font-weight: 700;"
+								href="${ctx}/teacher/mycourse/newmail.jsp"
+								title="撰写短消息" >+ 写新消息</a>
+					<li>
+						<a href="getReceiveMailByTeaAction.action"><span>收件箱</span> </a>
+					</li>
+					<li>
+						<a href="getSendMailByTeaAction.action"><span>发件箱</span> </a>
+					</li>
+					<li>
+						<a href="getDraftByTeaAction.action"><span>草稿箱</span> </a>
+					</li>
+				</ul>
+			</div>
+		
 			<s:form id="postpm" name="postpm" method="post"
 				action="addMailByTeaAction" onsubmit="return check(this);">
 
@@ -100,7 +125,7 @@
 								</label>
 							</th>
 							<td>
-								<s:textfield name="studentNo" cssClass="txt" size="30"
+								<s:textfield name="studentNo" cssClass="txt" size="35"
 									id="receiverid" onfocus="findStudent();"
 									onblur="validateStudent()"></s:textfield>
 								<span id="receiverIdError"></span>
@@ -113,7 +138,7 @@
 								</label>
 							</th>
 							<td>
-								<s:textfield name="mail.title" id="title" size="59"
+								<s:textfield name="mail.title" id="title" size="60"
 									cssClass="txt"></s:textfield>
 							</td>
 
@@ -126,7 +151,7 @@
 							</th>
 							<td>
 								<s:textarea id="content" name="mail.content" cols="60" rows="8"
-									cssStyle="width: 90%;" cssClass="txtarea"></s:textarea>
+									cssStyle="width: 80%;" cssClass="txtarea"></s:textarea>
 							</td>
 						</tr>
 						<tr>

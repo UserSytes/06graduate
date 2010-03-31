@@ -98,7 +98,7 @@
 													name="mail.time" format="yyyy-MM-dd hh:mm:ss" /> </span>
 										</li>
 										<li>
-											<cite>发送人：<s:property value="mail.sender.name" /> </cite>
+											<cite>收件人：<s:property value="mail.receiver.name" /> </cite>
 										</li>
 										<li>
 											-------------------------------------

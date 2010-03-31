@@ -9,13 +9,7 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
-		<link rel="stylesheet" href="${ctx}/css/thickbox.css" type="text/css"
-			media="screen" />
-		<script type="text/javascript"
-			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
-		<script type="text/javascript" src="${ctx}/js/thickbox.js"></script>
-		<script>jQuery.noConflict();</script>
+		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>		
 		<title></title>
 		<style type="text/css">
 .notefilter {
@@ -38,8 +32,8 @@
 			<div class="cm_header itemtitle s_clear">
 				<ul>
 					<a style="color: #09C; float: right; font-weight: 700;"
-								href="${ctx}/teacher/mycourse/newmail.jsp?height=350&width=500"
-								title="撰写短消息" class="thickbox">+ 写新消息</a>
+								href="${ctx}/teacher/mycourse/newmail.jsp"
+								title="撰写短消息">+ 写新消息</a>
 					<li>
 						<a href="getReceiveMailByTeaAction.action"><span>收件箱</span> </a>
 					</li>
@@ -60,7 +54,7 @@
 							name="mail.time" format="yyyy-MM-dd hh:mm:ss" /> </span>
 				</li>
 				<li>
-					<cite>发送人：<s:property value="mail.sender.name" /> </cite>
+					<cite>收件人：<s:property value="mail.receiver.name" /> </cite>
 				</li>
 				<li>
 					-------------------------------------

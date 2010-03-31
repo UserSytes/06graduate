@@ -164,7 +164,7 @@
 									</label>
 								</th>
 								<td>
-									<s:textfield name="teacherNo" cssClass="txt" size="40"
+									<s:textfield name="teacherNo" cssClass="txt" size="35"
 										id="receiverid" onblur="validateTeacher()"></s:textfield>
 									<span id="receiverIdError"></span>
 								</td>
