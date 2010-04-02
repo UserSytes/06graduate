@@ -32,6 +32,7 @@ public class MailAction extends BaseAction {
 	private UserInfo replyUser;
 	private List<Mail> mailList;
 	private Integer mailId;
+	private Integer studentId;
 	private String studentNo;
 	private String teacherNo;
 	private int count;
@@ -43,6 +44,7 @@ public class MailAction extends BaseAction {
 
 	/**
 	 * 查找本学院所有的老师
+	 * 
 	 * @return
 	 */
 	public String findAllTeachersBySchool() {
@@ -64,6 +66,7 @@ public class MailAction extends BaseAction {
 
 	/**
 	 * 根据学号查找学生
+	 * 
 	 * @return
 	 */
 	public String findStudentByStuNo() {
@@ -79,6 +82,7 @@ public class MailAction extends BaseAction {
 
 	/**
 	 * 根据教师工作证号查找教师
+	 * 
 	 * @return
 	 */
 	public String findTeacherByTeaNo() {
@@ -162,9 +166,10 @@ public class MailAction extends BaseAction {
 
 	/**
 	 * 学生回复教师信息
+	 * 
 	 * @return
 	 */
-	public String addReplyMailByStu(){
+	public String addReplyMailByStu() {
 		if (savetosentbox.equals("true"))
 			return this.addAndSaveMail(super.getStudent().getUserInfo(), mail
 					.getReceiver());
@@ -172,6 +177,7 @@ public class MailAction extends BaseAction {
 			return this.addNewMail(super.getStudent().getUserInfo(), mail
 					.getReceiver());
 	}
+
 	/**
 	 * 教师回复消息
 	 * 
@@ -191,6 +197,19 @@ public class MailAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	public String addDraftByStu() {
+		String[] teaNos = teacherNo.split(";");
+		String number = teaNos[teaNos.length - 1];
+		Teacher tea = teacherInfoService.findTeacherByTeacherNo(number);
+		return this.addDraft(super.getTeacher().getUserInfo(), tea
+				.getUserInfo());
+	}
+	
+	/**
+	 * 添加草稿
+	 * 
+	 * @return
+	 */
 	public String addDraftByTea() {
 		String[] stuNos = studentNo.split(";");
 		String number = stuNos[stuNos.length - 1];
@@ -199,6 +218,16 @@ public class MailAction extends BaseAction {
 				.getUserInfo());
 	}
 
+	/**
+	 * 添加回复消息到草稿
+	 * 
+	 * @return
+	 */
+	public String addReplyDraftByStu() {
+		return this.addDraft(super.getStudent().getUserInfo(), mail
+				.getReceiver());
+	}
+	
 	/**
 	 * 添加回复消息到草稿
 	 * 
@@ -363,13 +392,20 @@ public class MailAction extends BaseAction {
 	 * @return
 	 */
 	public String goDraftDetail() {
-		rows = studentInfoService.getStuNameAndNumber(super.getTeacher()
-				.getUserInfo().getDepartment());
 		mail = mailService.getMailById(mailId);
 		Student stu = studentInfoService.findByUserInfo(mail.getReceiver());
 		if (stu != null)
 			studentNo = stu.getUserInfo().getName() + ";" + stu.getStudentNo();
-		System.out.println(studentNo);
+		return SUCCESS;
+	}
+
+	/**
+	 * 教师给学生发送站内信
+	 * @return
+	 */
+	public String goSendNewMailByTea() {
+		Student stu = studentInfoService.findById(getStudentId());
+		studentNo = stu.getUserInfo().getName() + ";" + stu.getStudentNo();
 		return SUCCESS;
 	}
 
@@ -529,6 +565,14 @@ public class MailAction extends BaseAction {
 
 	public String getTeacherNo() {
 		return teacherNo;
+	}
+
+	public void setStudentId(Integer studentId) {
+		this.studentId = studentId;
+	}
+
+	public Integer getStudentId() {
+		return studentId;
 	}
 
 }

@@ -47,24 +47,21 @@
 
 								<th width="4%">
 									&nbsp;
-								</th>
-								<th width="15">
-									&nbsp;
-								</th>
+								</th>								
 								<th width="40%" align="left">
 									标题
 								</th>
-								<th width="15%" align="center">
+								<th width="12%" align="center">
 									所属课程
 								</th>
 
-								<th width="20%" align="center">
+								<th width="18%" align="center">
 									作者
 								</th>
 								<th width="8%" align="center">
 									回复/查看
 								</th>
-								<th width="20%" align="center">
+								<th width="18%" align="center">
 									最后发表
 								</th>
 							</tr>
@@ -74,7 +71,7 @@
 										<img src="${ctx}/coursepage/images/folder_new.gif" border="0"
 											alt="新帖" />
 									</td>
-									<td></td>
+									
 									<td align="left">
 										<a
 											href="<s:url action="showMessagesByTeaAction"> 

@@ -3,23 +3,36 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
 	"http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	    <package name="aticle_ajax" extends="json-default" >  
-        <action name="getMailDetailJsonAction" class="mailAction" method="getMailDetail">  
-           <result type="json"><param name="root">result</param> </result>  
-        </action>  
-        <action name="findStudentJsonAction" class="mailAction" method="findStudentByStuNo">  
-           <result type="json"> <param name="root">result</param> </result>  
-        </action>  
-         <action name="findAllStudentsJsonAction" class="mailAction" method="findAllStudentsByDepartment">  
-           <result type="json"> <param name="root">rows</param> </result>  
-        </action>  
-          <action name="findTeacherJsonAction" class="mailAction" method="findTeacherByTeaNo">  
-           <result type="json"> <param name="root">result</param> </result>  
-        </action>  
-         <action name="findAllTeachersJsonAction" class="mailAction" method="findAllTeachersBySchool">  
-           <result type="json"> <param name="root">rows</param> </result>  
-        </action>  
-    </package>  
+	<package name="aticle_ajax" extends="json-default">
+		<action name="getMailDetailJsonAction" class="mailAction"
+			method="getMailDetail">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="findStudentJsonAction" class="mailAction" method="findStudentByStuNo">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="findAllStudentsJsonAction" class="mailAction"
+			method="findAllStudentsByDepartment">
+			<result type="json">
+				<param name="root">rows</param>
+			</result>
+		</action>
+		<action name="findTeacherJsonAction" class="mailAction" method="findTeacherByTeaNo">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="findAllTeachersJsonAction" class="mailAction"
+			method="findAllTeachersBySchool">
+			<result type="json">
+				<param name="root">rows</param>
+			</result>
+		</action>
+	</package>
 	<package name="struts" extends="struts-default">
 		<action name="download" class="cn.edu.xmu.course.web.action.DownloadAction">
 			 <!-- 设置文件名参数，由页面上传入 -->
@@ -30,7 +43,8 @@
 				<param name="contentType">application/octet-stream</param>
                                 
                 <!-- 下载文件处理方法 -->
-				<param name="contentDisposition"> attachment;filename="${originalFileName}" </param>    
+				<param name="contentDisposition"> attachment;filename="${originalFileName}" 
+				</param>    
                 <!-- 下载文件输出流定义 -->
 				<param name="inputName">downloadFile</param>
 			</result>
@@ -62,7 +76,8 @@
 		<action name="myPageAction" method="myPage"
 			class="cn.edu.xmu.course.web.action.LoginAction">
 			<result name="teacher">/teacher/main.jsp</result>
-			<result name="student">/student/studentinfo.jsp</result>
+			<result name="student">/student/studentinfo.jsp
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="logoutAction" method="logout"
@@ -87,11 +102,14 @@
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="goChangePhotoAction" method="getTeacherInfo" class="teacherInfoAction">
-			<result name="success">/teacher/changephoto.jsp</result>
+		<action name="goChangePhotoAction" method="getTeacherInfo"
+			class="teacherInfoAction">
+			<result name="success">/teacher/changephoto.jsp
+			</result>
 		</action>
 		<action name="changePhotoAction" method="changePhoto" class="teacherInfoAction">
-			<result name="success">/teacher/changephoto.jsp</result>
+			<result name="success">/teacher/changephoto.jsp
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<!--教师管理-->
@@ -134,7 +152,8 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="findStudentByNoAction" method="findStudentByNo" class="studentAction">
+		<action name="findStudentByNoAction" method="findStudentByNo"
+			class="studentAction">
 			<result name="success">/admin/studentmanage/studentlist.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
@@ -177,18 +196,24 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="goAddMoreStudentAction" method="goAddMoreStudent" class="studentAction">
-			<result name="success">/admin/studentmanage/addmorestudent.jsp</result>
+		<action name="goAddMoreStudentAction" method="goAddMoreStudent"
+			class="studentAction">
+			<result name="success">/admin/studentmanage/addmorestudent.jsp
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="addMoreStudentAction" method="addMoreStudent" class="studentAction">
+		<action name="addMoreStudentAction" method="addMoreStudent"
+			class="studentAction">
 			<result name="success">/commons/prompt.jsp</result>
 		</action>
-		<action name="goDeleteMoreStudentAction" method="goAddMoreStudent" class="studentAction">
-			<result name="success">/admin/studentmanage/deletestudent.jsp</result>
+		<action name="goDeleteMoreStudentAction" method="goAddMoreStudent"
+			class="studentAction">
+			<result name="success">/admin/studentmanage/deletestudent.jsp
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="deleteMoreStudentAction" method="deleteMoreStudent" class="studentAction">
+		<action name="deleteMoreStudentAction" method="deleteMoreStudent"
+			class="studentAction">
 			<result name="success">/commons/prompt.jsp</result>
 		</action>
 		
@@ -218,7 +243,8 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="coursePassByTeaAction" method="findMyCoursesList" class="courseAction">
+		<action name="coursePassByTeaAction" method="findMyCoursesList"
+			class="courseAction">
 			<result name="success">/teacher/mycourse/courselist.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
@@ -250,18 +276,17 @@
 		<action name="getMyCourseInLeft" method="findMyCoursesListInLeft"
 			class="courseAction">
 			<result>/teacher/left_course_children.jsp
-			</result>			
+			</result>
 		</action>
-		<action name="goEidtCourseAction" method="goEidtCourse"
-			class="courseAction">
+		<action name="goEidtCourseAction" method="goEidtCourse" class="courseAction">
 			<result>/teacher/courseinfomanage/editcourse.jsp
-			</result>			
+			</result>
 		</action>
 		<action name="updateCourseAction" method="updateCourseVisible"
 			class="courseAction">
 			<result name="success" type="redirect-action">getMyCourseAction
 			</result>
-			<result name="error">/commons/prompt.jsp</result>		
+			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<!-- 课程信息管理 (教师)-->
 		<action name="addNewCourseInfoAction" method="addNewCourseInfo"
@@ -337,152 +362,197 @@
 		</action>
 		
 		<!-- 课程通知公告（教师） -->
-		<action name="getNoticeListByTeacherAction" method="getNoticeListByTeacher" class="noticeAction">
+		<action name="getNoticeListByTeacherAction" method="getNoticeListByTeacher"
+			class="noticeAction">
 			<result name="success">/teacher/mycourse/noticelist.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="getNoticeListByCourseAction" method="getNoticeListByCourse" class="noticeAction">
+		<action name="getNoticeListByCourseAction" method="getNoticeListByCourse"
+			class="noticeAction">
 			<result name="success">/teacher/mycourse/noticelist.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="addNoticeAction" method="addNewNotice" class="noticeAction">
-			<result name="success">/commons/prompt.jsp
-			</result>
+			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="updateNoticeAction" method="updateNotice" class="noticeAction">
-			<result name="success">/commons/prompt.jsp
-			</result>
+			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="deleteNoticeAction" method="deleteNotice" class="noticeAction">
-			<result name="success">/commons/prompt.jsp
-			</result>
+			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="goAddNoticeAction" method="goAddNotice" class="noticeAction">
 			<result name="success">/teacher/mycourse/addnotice.jsp
-			</result>			
+			</result>
 		</action>
 		<action name="goEditNoticeAction" method="goEditNotice" class="noticeAction">
 			<result name="success">/teacher/mycourse/editnotice.jsp
-			</result>			
+			</result>
 		</action>
 		
 		<!-- 我的消息（学生） -->
-		<action name="getReceiveMailByStuAction" method="getReceiveMailByStu" class="mailAction">
+		<action name="getReceiveMailByStuAction" method="getReceiveMailByStu"
+			class="mailAction">
 			<result name="success">/student/receivemaillist.jsp
-			</result>			
+			</result>
 		</action>
-		<action name="getSendMailByStuAction" method="getSendMailByStu" class="mailAction">
+		<action name="getSendMailByStuAction" method="getSendMailByStu"
+			class="mailAction">
 			<result name="success">/student/sendmaillist.jsp
-			</result>					
+			</result>
 		</action>
-		<action name="getDraftByStuAction" method="getDraftByStu" class="mailAction">
+		<action name="getDraftByStuAction" method="getDraftByStu"
+			class="mailAction">
 			<result name="success">/student/draftlist.jsp
-			</result>				
-		</action>		
-		<action name="goSendMailDetailByStuAction" method="getMailDetail" class="mailAction">
+			</result>
+		</action>
+		<action name="goSendMailDetailByStuAction" method="getMailDetail"
+			class="mailAction">
 			<result name="success">/student/sendmaildetail.jsp
-			</result>			
+			</result>
 		</action>
-		<action name="goDraftDetailByStuAction" method="goDraftDetailByStu" class="mailAction">
+		<action name="goDraftDetailByStuAction" method="goDraftDetailByStu"
+			class="mailAction">
 			<result name="success">/student/draftdetail.jsp
-			</result>			
+			</result>
 		</action>
-		<action name="goReceiveMailDetailByStuAction" method="getMailDetail" class="mailAction">
+		<action name="goReceiveMailDetailByStuAction" method="getMailDetail"
+			class="mailAction">
 			<result name="success">/student/receivemaildetail.jsp
-			</result>			
+			</result>
 		</action>
-		<action name="deleteMailsByStuAction" method="deleteMails" class="mailAction">
-			<result name="success">/student/mailprompt.jsp</result>
-			<result name="error">/student/mailprompt.jsp</result>
+		<action name="deleteMailsByStuAction" method="deleteMails"
+			class="mailAction">
+			<result name="success">/student/mailprompt.jsp
+			</result>
+			<result name="error">/student/mailprompt.jsp
+			</result>
 		</action>
 		<action name="deleteMailByStuAction" method="deleteMail" class="mailAction">
-			<result name="success">/student/mailprompt.jsp</result>
-			<result name="error">/student/mailprompt.jsp</result>
+			<result name="success">/student/mailprompt.jsp
+			</result>
+			<result name="error">/student/mailprompt.jsp
+			</result>
 		</action>
-		<action name="updateMailsByStuAction" method="updateMails" class="mailAction">
-			<result name="success">/student/mailprompt.jsp</result>
-			<result name="error">/student/mailprompt.jsp</result>
+		<action name="updateMailsByStuAction" method="updateMails"
+			class="mailAction">
+			<result name="success">/student/mailprompt.jsp
+			</result>
+			<result name="error">/student/mailprompt.jsp
+			</result>
 		</action>
-		<action name="goReplyMailByStuAction" method="goReplyMail" class="mailAction">
-			<result name="success">/student/replymail.jsp</result>
+		<action name="goReplyMailByStuAction" method="goReplyMail"
+			class="mailAction">
+			<result name="success">/student/replymail.jsp
+			</result>
 		</action>
-		<action name="goReSendMailByStuAction" method="goReSendMail" class="mailAction">
+		<action name="goReSendMailByStuAction" method="goReSendMail"
+			class="mailAction">
 			<result name="success">/student/newmail.jsp</result>
 		</action>
 		<action name="addReplyMailByStuAction" class="mailAction">
-			<result name="success">/tstudent/mailprompt.jsp</result>
-			<result name="error">/student/mailprompt.jsp</result>
+			<result name="success">/tstudent/mailprompt.jsp
+			</result>
+			<result name="error">/student/mailprompt.jsp
+			</result>
 		</action>
 		<action name="addMailByStuAction" class="mailAction">
-			<result name="success">/student/mailprompt.jsp</result>
-			<result name="error">/student/mailprompt.jsp</result>
+			<result name="success">/student/mailprompt.jsp
+			</result>
+			<result name="error">/student/mailprompt.jsp
+			</result>
 		</action>
 		
 		<!-- 我的消息（教师） -->
-		<action name="getReceiveMailByTeaAction" method="getReceiveMailByTea" class="mailAction">
+		<action name="getReceiveMailByTeaAction" method="getReceiveMailByTea"
+			class="mailAction">
 			<result name="success">/teacher/mycourse/receivemaillist.jsp
-			</result>			
+			</result>
 		</action>
-		<action name="getSendMailByTeaAction" method="getSendMailByTea" class="mailAction">
+		<action name="getSendMailByTeaAction" method="getSendMailByTea"
+			class="mailAction">
 			<result name="success">/teacher/mycourse/sendmaillist.jsp
 			</result>
 			<result name="draft">/teacher/mycourse/draftlist.jsp
-			</result>			
+			</result>
 		</action>
-		<action name="getDraftByTeaAction" method="getDraftByTea" class="mailAction">
+		<action name="getDraftByTeaAction" method="getDraftByTea"
+			class="mailAction">
 			<result name="success">/teacher/mycourse/draftlist.jsp
-			</result>				
+			</result>
 		</action>
-		<action name="goSendMailDetailAction" method="getMailDetail" class="mailAction">
+		<action name="goSendMailDetailAction" method="getMailDetail"
+			class="mailAction">
 			<result name="success">/teacher/mycourse/sendmaildetail.jsp
-			</result>			
+			</result>
 		</action>
-		<action name="goDraftDetailAction" method="goDraftDetail" class="mailAction">
+		<action name="goDraftDetailAction" method="goDraftDetail"
+			class="mailAction">
 			<result name="success">/teacher/mycourse/draftdetail.jsp
-			</result>			
+			</result>
 		</action>
-		<action name="goReceiveMailDetailAction" method="getMailDetail" class="mailAction">
+		<action name="goReceiveMailDetailAction" method="getMailDetail"
+			class="mailAction">
 			<result name="success">/teacher/mycourse/receivemaildetail.jsp
-			</result>			
+			</result>
+		</action>
+		<action name="goSendNewMailAction" method="goSendNewMailByTea"
+			class="mailAction">
+			<result name="success">/teacher/mycourse/newmail.jsp
+			</result>
 		</action>
 		<action name="deleteMailsAction" method="deleteMails" class="mailAction">
-			<result name="success">/teacher/mycourse/mailprompt.jsp</result>
-			<result name="error">/teacher/mycourse/mailprompt.jsp</result>
+			<result name="success">/teacher/mycourse/mailprompt.jsp
+			</result>
+			<result name="error">/teacher/mycourse/mailprompt.jsp
+			</result>
 		</action>
 		<action name="deleteMailAction" method="deleteMail" class="mailAction">
-			<result name="success">/teacher/mycourse/mailprompt.jsp</result>
-			<result name="error">/teacher/mycourse/mailprompt.jsp</result>
+			<result name="success">/teacher/mycourse/mailprompt.jsp
+			</result>
+			<result name="error">/teacher/mycourse/mailprompt.jsp
+			</result>
 		</action>
 		<action name="updateMailsAction" method="updateMails" class="mailAction">
-			<result name="success">/teacher/mycourse/mailprompt.jsp</result>
-			<result name="error">/teacher/mycourse/mailprompt.jsp</result>
+			<result name="success">/teacher/mycourse/mailprompt.jsp
+			</result>
+			<result name="error">/teacher/mycourse/mailprompt.jsp
+			</result>
 		</action>
 		<action name="goReplyMailAction" method="goReplyMail" class="mailAction">
-			<result name="success">/teacher/mycourse/replymail.jsp</result>
+			<result name="success">/teacher/mycourse/replymail.jsp
+			</result>
 		</action>
 		<action name="goReSendMailAction" method="goReSendMail" class="mailAction">
-			<result name="success">/teacher/mycourse/newmail.jsp</result>
+			<result name="success">/teacher/mycourse/newmail.jsp
+			</result>
 		</action>
 		<action name="addReplyMailByTeaAction" class="mailAction">
-			<result name="success">/teacher/mycourse/mailprompt.jsp</result>
-			<result name="error">/teacher/mycourse/mailprompt.jsp</result>
+			<result name="success">/teacher/mycourse/mailprompt.jsp
+			</result>
+			<result name="error">/teacher/mycourse/mailprompt.jsp
+			</result>
 		</action>
 		<action name="addMailByTeaAction" class="mailAction">
-			<result name="success">/teacher/mycourse/mailprompt.jsp</result>
-			<result name="error">/teacher/mycourse/mailprompt.jsp</result>
+			<result name="success">/teacher/mycourse/mailprompt.jsp
+			</result>
+			<result name="error">/teacher/mycourse/mailprompt.jsp
+			</result>
 		</action>
 		
 		<!-- 留言板（教师） -->
-		<action name="showTopicsByTeacherAction" method="showTopicsByTeacher" class="messageAction">
+		<action name="showTopicsByTeacherAction" method="showTopicsByTeacher"
+			class="messageAction">
 			<result name="success">/teacher/mycourse/showtopics.jsp
 			</result>
 		</action>
-		<action name="showMessagesByTeaAction" method="showMessages" class="messageAction">
+		<action name="showMessagesByTeaAction" method="showMessages"
+			class="messageAction">
 			<result name="messages">/teacher/mycourse/showmessages.jsp
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
@@ -613,7 +683,8 @@
 		</action>
 		<action name="goAddCoursewareAction" method="goAddCourseware"
 			class="coursewareAction">
-			<result name="success">/teacher/coursemanage/addcourseware.jsp</result>
+			<result name="success">/teacher/coursemanage/addcourseware.jsp
+			</result>
 		</action>
 		
 		
@@ -623,8 +694,7 @@
 			<result name="success">/teacher/coursemanage/exerciselist.jsp
 			</result>
 		</action>
-		<action name="addExerciseAction" method="addExercise"
-			class="exerciseAction">
+		<action name="addExerciseAction" method="addExercise" class="exerciseAction">
 			<result name="success" type="redirect-action">getExerciseListByChapterAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
@@ -648,7 +718,8 @@
 		</action>
 		<action name="goAddExerciseAction" method="goAddExercise"
 			class="exerciseAction">
-			<result name="success">/teacher/coursemanage/addexercise.jsp</result>
+			<result name="success">/teacher/coursemanage/addexercise.jsp
+			</result>
 		</action>
 			
 		
@@ -661,13 +732,12 @@
 		<action name="addExperimentAction" method="addExperiment"
 			class="experimentAction">
 			<interceptor-ref name="fileUpload">
-				 <param name ="allowedTypes" >
-                    image/bmp,image/png,image/gif,image/jpeg
-                </param >
-				
+				<param name="allowedTypes">
+					image/bmp,image/png,image/gif,image/jpeg </param>
 			</interceptor-ref>
 			<interceptor-ref name="defaultStack" />
-			<result name ="input" >/commons/prompt.jsp</result >	
+			<result name="input">/commons/prompt.jsp
+			</result>
 			<result name="success" type="redirect-action">getExperimentListByChapterAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
@@ -691,7 +761,8 @@
 		</action>
 		<action name="goAddExperimentAction" method="goAddExperiment"
 			class="experimentAction">
-			<result name="success">/teacher/coursemanage/addexperiment.jsp</result>
+			<result name="success">/teacher/coursemanage/addexperiment.jsp
+			</result>
 		</action>
 		
 		<!-- 课程管理-教学录像部分 (教师)-->
@@ -761,26 +832,22 @@
 			<result name="success">/teacher/coursemanage/booklist.jsp
 			</result>
 		</action>
-		<action name="addBookAction" method="addBook"
-			class="bookAction">
+		<action name="addBookAction" method="addBook" class="bookAction">
 			<result name="success" type="redirect-action">getBookListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="updateBookAction" method="updateBook"
-			class="bookAction">
+		<action name="updateBookAction" method="updateBook" class="bookAction">
 			<result name="success" type="redirect-action">getBookListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="deleteBookAction" method="deleteBook"
-			class="bookAction">
+		<action name="deleteBookAction" method="deleteBook" class="bookAction">
 			<result name="success" type="redirect-action">getBookListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="goEditBookAction" method="goEditBook"
-			class="bookAction">
+		<action name="goEditBookAction" method="goEditBook" class="bookAction">
 			<result name="success">/teacher/coursemanage/editbook.jsp
 			</result>
 		</action>
@@ -836,12 +903,11 @@
 		</action>
 		<action name="deleteMoreStudentCourseAction" method="deleteMoreStudent"
 			class="courseAction">
-			<result name="success">/commons/prompt.jsp
-			</result>
+			<result name="success">/commons/prompt.jsp</result>
 		</action>
 		<action name="deleteStudentFromCourseAction" method="deleteStudent"
 			class="courseAction">
-			<result name="success" type="redirect-action">viewCourseStudentByTeaAction
+			<result name="success" type="redirect">viewCourseStudentByTeaAction.action?courseId=${courseId}&amp;
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
