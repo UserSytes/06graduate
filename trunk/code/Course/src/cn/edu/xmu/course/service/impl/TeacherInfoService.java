@@ -1,10 +1,13 @@
 package cn.edu.xmu.course.service.impl;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
 import org.hibernate.Session;
 
+import cn.edu.xmu.course.commons.FileOperation;
 import cn.edu.xmu.course.dao.TeacherDAO;
 import cn.edu.xmu.course.dao.UserInfoDAO;
 import cn.edu.xmu.course.pojo.Department;
@@ -112,39 +115,59 @@ public class TeacherInfoService implements ITeacherInfoService {
 		return teacherDAO.findById(id);
 	}
 
-	public List findTeachersBySchool(School school) {	
+	public List findTeachersBySchool(School school) {
 		return teacherDAO.findBySchool(school);
-		
+
 	}
-	
+
 	public Teacher findTeacherByTeacherNo(String teacherNo) {
 		// TODO Auto-generated method stub
 		List<Teacher> teachers = teacherDAO.findByTeacherNo(teacherNo);
-		if(teachers.size()==0){
+		if (teachers.size() == 0) {
 			return null;
-		}else{
+		} else {
 			return teachers.get(0);
 		}
 	}
-	
 
 	public Teacher findTeacherByUserInfo(UserInfo userInfo) {
 		// TODO Auto-generated method stub
 		List<Teacher> teachers = teacherDAO.findByUserInfo(userInfo);
-		if(teachers.size()==0){
+		if (teachers.size() == 0) {
 			return null;
-		}else{
+		} else {
 			return teachers.get(0);
 		}
 	}
-	
+
+	public boolean addTeacherPhoto(UserInfo userInfo, File photo, String fileLink) {
+		// TODO Auto-generated method stub
+		String oldPhoto = userInfo.getPhoto();
+		String path = ServletActionContext.getServletContext().getRealPath(
+				"/upload");		
+		String fileName = path + "/" + fileLink;
+		File file = new File(fileName);
+		userInfo.setPhoto(fileLink);		
+		try {
+			
+			if (!oldPhoto.equals("photo/defaultPhoto.jpg"))
+				FileOperation.delete(new File(path + "/" + oldPhoto));
+			if (FileOperation.copy(photo, file)){	
+				userInfoDAO.merge(userInfo);
+				return true;
+			}
+			else
+				return false;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 
 	public List getTeaNameAndNumber(School school) {
 		// TODO Auto-generated method stub
 		return teacherDAO.findTeaNameAndNumberBySchool(school);
 	}
 
-	
 	public void setTeacherDAO(TeacherDAO teacherDAO) {
 		this.teacherDAO = teacherDAO;
 	}
@@ -160,7 +183,5 @@ public class TeacherInfoService implements ITeacherInfoService {
 	public UserInfoDAO getUserInfoDAO() {
 		return userInfoDAO;
 	}
-
-
 
 }

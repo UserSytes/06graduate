@@ -6,9 +6,12 @@ body {
 }
 
 th,td {
-	padding: 2px 4px 2px 4px !important;
 	text-align: left;
 	vertical-align: top;
+}
+
+P {
+	MARGIN: 0px
 }
 
 .STYLE1 {

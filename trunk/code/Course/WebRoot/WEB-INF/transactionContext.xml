@@ -14,7 +14,7 @@
 		<property name="transactionAttributes">
 			<props>
 				<prop key="delete*">PROPAGATION_REQUIRED</prop>
-				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="add*">PROPAGATION_REQUIRED,-Exception</prop>
 				<prop key="update*">PROPAGATION_REQUIRED</prop>
 				<prop key="save*">PROPAGATION_REQUIRED</prop>
 				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
