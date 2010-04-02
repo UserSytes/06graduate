@@ -23,8 +23,9 @@ import cn.edu.xmu.course.service.ITopicService;
 
 /**
  * 学生主页
+ * 
  * @author Sky
- *
+ * 
  */
 public class StudentInfoAction extends BaseAction {
 
@@ -43,171 +44,173 @@ public class StudentInfoAction extends BaseAction {
 	private int courseId;
 	private String oldPassword;
 	private String newPassword;
-	
-	
+
 	private ITopicService topicService;
 	private IMessageService messageService;
-	
+
 	private List<Topic> topicList;
 	private List<Message> messageList;
-	
+
 	private Topic topic;
 	private int topicId;
-	
+
 	private File upload;
 	private String uploadContentType;
 	private String uploadFileName;
-	
+
 	private String photoPath;
-	
-	public String myTopics(){
+
+	public String myTopics() {
 		student = (Student) super.getSession().get(STUDENT);
 		userInfo = student.getUserInfo();
 		messageList = messageService.getMessageByUserInfo(userInfo);
-		if(messageList.size()==0){
+		if (messageList.size() == 0) {
 			addActionMessage("您目前还未发表帖子留言！");
 		}
 		return SUCCESS;
-		
+
 	}
-	
-//	public String myReplyTopics(){
-//		student = (Student) super.getSession().get(STUDENT);
-//		userInfo = student.getUserInfo();
-//		messageList = messageService.getReplyMessageByUserInfo(userInfo);
-//		System.out.println("我的帖子："+messageList.get(0).getGrade());
-//		System.out.println("我的帖子2："+messageList.get(0).getTopic().getName());
-//		if(messageList.size()==0){
-//			addActionMessage("您目前还未有任何留言回复！");
-//			return ERROR;
-//		}else{
-//			return SUCCESS;
-//		}
-//	}
-	
-	public String changeHead(){
+
+	// public String myReplyTopics(){
+	// student = (Student) super.getSession().get(STUDENT);
+	// userInfo = student.getUserInfo();
+	// messageList = messageService.getReplyMessageByUserInfo(userInfo);
+	// System.out.println("我的帖子："+messageList.get(0).getGrade());
+	// System.out.println("我的帖子2："+messageList.get(0).getTopic().getName());
+	// if(messageList.size()==0){
+	// addActionMessage("您目前还未有任何留言回复！");
+	// return ERROR;
+	// }else{
+	// return SUCCESS;
+	// }
+	// }
+
+	public String changeHead() {
 		student = (Student) super.getSession().get(STUDENT);
-		if(upload.length()>=new Long(1048576L)){
-			addActionError("上传图片大小不能超过1M,请重新上传！");
-			return ERROR;
-		}
-		String fileLink = "photo/"+new Date().getTime()+"_" + uploadFileName;
+		String oldPhoto = student.getUserInfo().getPhoto();
+		int pos = uploadFileName.lastIndexOf(".");
+		String fileLink = "photo/" + new Date().getTime()+uploadFileName.substring(pos);
 		student.getUserInfo().setPhoto(fileLink);
-		if (studentInfoService.addStudentPhoto(student.getUserInfo(), upload)){
+		if (studentInfoService.addStudentPhoto(student.getUserInfo(), upload,
+				oldPhoto)) {
 			userInfo = student.getUserInfo();
 			return SUCCESS;
-		}
-		else {
+		} else {
 			addActionError("上传头像失败，请重新上传！");
 			return ERROR;
 		}
 	}
-	
+
 	/**
 	 * 查找学生个人信息
+	 * 
 	 * @return
 	 */
-	public String findStudentInfo(){
+	public String findStudentInfo() {
 		student = null;
 		student = (Student) super.getSession().get(STUDENT);
 		student = studentInfoService.findById(student.getId());
-		if(student == null){
+		if (student == null) {
 			addActionError("您还未登录，请先登录！");
 			return ERROR;
-		}else{
+		} else {
 			userInfo = student.getUserInfo();
 			return SUCCESS;
 		}
 	}
-	
+
 	/**
 	 * 修改学生信息
+	 * 
 	 * @return
 	 */
-	public String changeStudentInfo(){
+	public String changeStudentInfo() {
 		boolean result = studentInfoService.updateStudent(student, userInfo);
-		if(result){
+		if (result) {
 			student = studentInfoService.findById(student.getId());
 			userInfo = student.getUserInfo();
 			super.getSession().put(STUDENT, student);
 			return SUCCESS;
-		}else
+		} else
 			return ERROR;
 	}
-	
+
 	/**
 	 * 修改密码
+	 * 
 	 * @return
 	 */
-	public String changePassword(){
+	public String changePassword() {
 		student = (Student) super.getSession().get(STUDENT);
-		if(student.getPassword().equals(oldPassword)){
+		if (student.getPassword().equals(oldPassword)) {
 			student.setPassword(newPassword);
 			boolean result = studentInfoService.updatePassword(student);
-			if(result){
+			if (result) {
 				addActionMessage("修改密码成功！");
 				return SUCCESS;
-			}
-			else
+			} else
 				return SUCCESS;
-		}
-		else{
+		} else {
 			addActionError("原密码错误！");
 			return SUCCESS;
 		}
 	}
+
 	/**
 	 * 查找我的课程
+	 * 
 	 * @return
 	 */
-	public String findMyCourses(){
+	public String findMyCourses() {
 		student = (Student) super.getSession().get(STUDENT);
 		List<StudentCourse> studentCourses = new ArrayList<StudentCourse>();
 		studentCourses = studentCourseService.findByStudent(student);
-		if(studentCourses.size()==0){
+		if (studentCourses.size() == 0) {
 			addActionError("您暂无课程！");
 			return SUCCESS;
 		}
-		courseList =  new ArrayList<Course>();
-		for(StudentCourse sc: studentCourses){
+		courseList = new ArrayList<Course>();
+		for (StudentCourse sc : studentCourses) {
 			courseList.add(sc.getCourse());
 		}
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * 查找我的收藏课程
+	 * 
 	 * @return
 	 */
-	public String findMyCollection(){
+	public String findMyCollection() {
 		student = (Student) super.getSession().get(STUDENT);
 		List<Collection> collections = new ArrayList<Collection>();
 		collections = studentCourseService.findCollectionByStudent(student);
-		if(collections.size()==0){
+		if (collections.size() == 0) {
 			addActionError("您暂未收藏任何课程！");
 			return SUCCESS;
 		}
-		courseList =  new ArrayList<Course>();
-		for(Collection c: collections){
+		courseList = new ArrayList<Course>();
+		for (Collection c : collections) {
 			courseList.add(c.getCourse());
 		}
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * 删除收藏课程
+	 * 
 	 * @return
 	 */
-	public String deleteCollection(){
+	public String deleteCollection() {
 		student = (Student) super.getSession().get(STUDENT);
 		course = courseService.getCourseById(courseId);
 		boolean result = studentCourseService.deleteCollection(student, course);
-		if(result){
+		if (result) {
 			this.findMyCollection();
 			return SUCCESS;
-		}else
+		} else
 			return ERROR;
-		
+
 	}
 
 	public IStudentInfoService getStudentInfoService() {
@@ -222,7 +225,8 @@ public class StudentInfoAction extends BaseAction {
 		return studentCourseService;
 	}
 
-	public void setStudentCourseService(IStudentCourseService studentCourseService) {
+	public void setStudentCourseService(
+			IStudentCourseService studentCourseService) {
 		this.studentCourseService = studentCourseService;
 	}
 
@@ -373,5 +377,5 @@ public class StudentInfoAction extends BaseAction {
 	public String getPhotoPath() {
 		return photoPath;
 	}
-	
+
 }

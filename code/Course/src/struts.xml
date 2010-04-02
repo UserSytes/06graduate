@@ -87,6 +87,13 @@
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+		<action name="goChangePhotoAction" method="getTeacherInfo" class="teacherInfoAction">
+			<result name="success">/teacher/changephoto.jsp</result>
+		</action>
+		<action name="changePhotoAction" method="changePhoto" class="teacherInfoAction">
+			<result name="success">/teacher/changephoto.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		<!--教师管理-->
 		<action name="goAddTeacherAction" method="getDepartmentBySchool"
 			class="teacherInfoAction">

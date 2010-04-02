@@ -8,13 +8,14 @@
 		<META http-equiv=Pragma content=no-cache>
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
-<link type=text/css rel=stylesheet href="${ctx}/homepage/link.css">
+		<link type=text/css rel=stylesheet href="${ctx}/homepage/link.css">
 		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
-		
+
 		<link rel="stylesheet" href="${ctx}/css/thickbox.css" type="text/css"
 			media="screen" />
 		<title></title>
 		<style type="text/css">
+
 .itemtitle ul a:hover span {
 	background: url(${ctx}/teacher/images/btn_block.gif) no-repeat 100%
 		-69px;
@@ -107,8 +108,9 @@
 									<tr>
 										<td width="11"></td>
 										<td>
-											<img style="float: left"  src="${ctx}/homepage/image/title_myletter.gif"
-												border="0" alt="">
+											<img style="float: left"
+												src="${ctx}/homepage/image/title_myletter.gif" border="0"
+												alt="">
 										</td>
 									</tr>
 									<tr height="3">
@@ -132,13 +134,12 @@
 											<div class="cm_header itemtitle s_clear">
 												<ul>
 													<a style="color: #09C; float: right; font-weight: 700;"
-														href="${ctx}/student/newmail.jsp" title="撰写短消息">+
-														写新消息</a>
+														href="${ctx}/student/newmail.jsp" title="撰写短消息">+ 写新消息</a>
 													<li>
 														<a href="getReceiveMailByStuAction.action"><span>收件箱</span>
 														</a>
 													</li>
-													<li  class="current">
+													<li class="current">
 														<a href="getSendMailByStuAction.action"><span>发件箱</span>
 														</a>
 													</li>
@@ -161,7 +162,8 @@
 													</td>
 
 													<td class="profile_pic">
-														<a href="${ctx}/upload/<s:property value="receiver.photo"/>"
+														<a
+															href="${ctx}/upload/<s:property value="receiver.photo"/>"
 															title="" class="thickbox"> <img width="48"
 																src="${ctx}/upload/<s:property value="receiver.photo"/>" />
 														</a>

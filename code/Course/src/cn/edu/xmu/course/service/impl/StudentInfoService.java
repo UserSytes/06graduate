@@ -24,14 +24,15 @@ public class StudentInfoService implements IStudentInfoService {
 	private StudentDAO studentDAO;
 	private UserInfoDAO userInfoDAO;
 
-	public boolean addStudentPhoto(UserInfo userInfo, File photo) {
+	public boolean addStudentPhoto(UserInfo userInfo, File photo,String oldPhoto) {
 		String path = ServletActionContext.getServletContext().getRealPath(
 				"/upload");
 		String fileName = path + "/" + userInfo.getPhoto();
-		File file = new File(fileName);
-		
+		File file = new File(fileName);		
 		try {
 			userInfoDAO.merge(userInfo);
+			if(!oldPhoto.equals("photo/defaultPhoto.jpg"))
+				FileOperation.delete(new File(path + "/" + oldPhoto));
 			if (FileOperation.copy(photo, file))
 				return true;
 			else

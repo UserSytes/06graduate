@@ -6,7 +6,13 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>个人信息-厦门大学精品课程网站</title>
 		<link type=text/css rel=stylesheet href="${ctx}/homepage/link.css">
-	<SCRIPT language=javascript>
+		<link rel="stylesheet" href="${ctx}/css/thickbox.css" type="text/css"
+			media="screen" />
+		<script type="text/javascript"
+			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
+		<script type="text/javascript" src="${ctx}/js/thickbox.js"></script>
+		<script>jQuery.noConflict();</script>
+		<SCRIPT language=javascript>
 	function check(form) {
 		if (form.upload.value == "") {
 			alert("照片不能为空！");
@@ -67,29 +73,62 @@
 						<tr>
 							<td valign="top" align="center">
 								<!-- 内容 -->
-								<s:form action="changeHeadAction" onsubmit="return check(this);" method="post" enctype="multipart/form-data">
+								<s:form action="changeHeadAction" onsubmit="return check(this);"
+									method="post" enctype="multipart/form-data">
 									<table width="95%" border="3" cellpadding="0" cellspacing="0"
 										bordercolor="#e7e7d7">
 
 										<tr height="300">
 											<td width="240">
 												<table>
-													<tr height="30"><td align="left" width="200"><strong>&nbsp;&nbsp;&nbsp;&nbsp;当前头像</strong></td></tr>
-													<tr height="2" ><td align="center"  bgcolor="#d7d7d7"  width="200"></td></tr>
-													<tr><td align="center" ><strong><img width="180" src="${ctx}/upload/<s:property value="userInfo.photo"/>" />
-</strong></td></tr>
+													<tr height="30">
+														<td align="left" width="200">
+															<strong>&nbsp;&nbsp;&nbsp;&nbsp;当前头像</strong>
+														</td>
+													</tr>
+													<tr height="2">
+														<td align="center" bgcolor="#d7d7d7" width="200"></td>
+													</tr>
+													<tr>
+														<td align="center">
+															<strong><a
+																href="${ctx}/upload/<s:property value="student.userInfo.photo"/>"
+																title="" class="thickbox"><img width="180"
+																		src="${ctx}/upload/<s:property value="userInfo.photo"/>" />
+															</a> </strong>
+														</td>
+													</tr>
 												</table>
 											</td>
 											<td>
 												<table height="100%" width="100%">
-													<tr height="38"><td align="left"><strong>设置新头像</strong></td></tr>
-													<tr height="2"><td bgcolor="#d7d7d7"  width="95%"></td></tr>
-													<tr height="30"><td align="left">支持JPG、JPEG、GIF、BMP和PNG文件，最大1M。</td></tr>
-													<tr height="30"><td align="left"><s:file id="upload" name="upload"></s:file></td></tr>
-													<tr height="30"><td align="left">
-													<s:submit cssClass="label" value="确认" />
-													<s:reset cssClass="label" value="取消" /></td></tr>
-													<tr><td></td></tr>
+													<tr height="38">
+														<td align="left">
+															<strong>设置新头像</strong>
+														</td>
+													</tr>
+													<tr height="2">
+														<td bgcolor="#d7d7d7" width="95%"></td>
+													</tr>
+													<tr height="30">
+														<td align="left">
+															支持JPG、JPEG、GIF、BMP和PNG文件，最大1M。
+														</td>
+													</tr>
+													<tr height="30">
+														<td align="left">
+															<s:file id="upload" name="upload"></s:file>
+														</td>
+													</tr>
+													<tr height="30">
+														<td align="left">
+															<s:submit cssClass="label" value="确认" />
+															<s:reset cssClass="label" value="取消" />
+														</td>
+													</tr>
+													<tr>
+														<td></td>
+													</tr>
 												</table>
 											</td>
 										</tr>

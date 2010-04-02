@@ -54,7 +54,7 @@ public interface IStudentInfoService {
 	
 	public String addMoreStudent(Student student, Grade grade, Department department, File file) ;
 	
-	public boolean addStudentPhoto(UserInfo userInfo, File photo);
+	public boolean addStudentPhoto(UserInfo userInfo, File photo,String oldPhoto);
 	
 	public List getStuNameAndNumber(Department department);
 

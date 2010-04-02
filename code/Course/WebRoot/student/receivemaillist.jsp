@@ -8,11 +8,11 @@
 		<META http-equiv=Pragma content=no-cache>
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
-
-		<link type=text/css rel=stylesheet href="${ctx}/homepage/link.css">
-		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
 		<link rel="stylesheet" href="${ctx}/css/thickbox.css" type="text/css"
 			media="screen" />
+		<link type=text/css rel=stylesheet href="${ctx}/homepage/link.css">
+		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
+		
 		<title>站内信-厦门大学课程中心</title>
 		<style type="text/css">
 .itemtitle ul a:hover span {
@@ -187,7 +187,7 @@
                 					</s:url>"><s:property
 																		value="title" /> </a>
 															</p>
-															<div class="snippet_wrap grayfont">
+															<div class="snippet_wrap grayfont" >
 																<s:property value="content" escape="false" />
 															</div>
 														</div>

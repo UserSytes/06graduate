@@ -1,5 +1,7 @@
 package cn.edu.xmu.course.web.action;
 
+import java.io.File;
+import java.util.Date;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.*;
@@ -30,12 +32,19 @@ public class TeacherInfoAction extends BaseAction{
 	private int teacherId;
 	private int departmentId;
 	
+	private File upload;
+	private String uploadContentType;
+	private String uploadFileName;
+	
 	public String changePassword(){
-		teacher = teacherInfoService.getTeacher("123");
+		teacher = super.getTeacher();
 		if(teacher.getPassword().equals(password)){
 			teacher.setPassword(newPassword);
-			if(teacherInfoService.changePassword(teacher))
+			if(teacherInfoService.changePassword(teacher)){
+				teacher = teacherInfoService.findTeacherById(super.getTeacher().getId());
+				super.getSession().put(TEACHER, teacher);
 				return SUCCESS;
+			}
 			else
 				return "fail";
 		}
@@ -44,15 +53,32 @@ public class TeacherInfoAction extends BaseAction{
 	}
 	
 	public String changeTeacherInfo(){
-		if(teacherInfoService.updateTeacher(teacher, userInfo))
+		if(teacherInfoService.updateTeacher(teacher, userInfo)){
+			teacher = teacherInfoService.findTeacherById(super.getTeacher().getId());
+			super.getSession().put(TEACHER, teacher);
+			addActionMessage("修改个人信息成功！");
 			return SUCCESS;
+		}
 		else
 			return ERROR;
 	}
 	
+	public String changePhoto() {
+		int pos = uploadFileName.lastIndexOf(".");
+		String fileLink = "photo/" + new Date().getTime()+uploadFileName.substring(pos);		
+		if (teacherInfoService.addTeacherPhoto(super.getTeacher().getUserInfo(), upload, fileLink)) {
+			userInfo = super.getTeacher().getUserInfo();		
+			return SUCCESS;
+		} else {
+			addActionError("上传头像失败，请重新上传！");
+			return ERROR;
+		}
+	}
+	
 	public String getTeacherInfo(){
-		teacher = teacherInfoService.getTeacher("123");
+		teacher = super.getTeacher();
 		userInfo = teacher.getUserInfo();
+		System.out.println(userInfo.getPhoto());
 		return SUCCESS;
 	}
 	
@@ -225,6 +251,30 @@ public class TeacherInfoAction extends BaseAction{
 
 	public void setDepartmentId(int departmentId) {
 		this.departmentId = departmentId;
+	}
+
+	public void setUploadFileName(String uploadFileName) {
+		this.uploadFileName = uploadFileName;
+	}
+
+	public String getUploadFileName() {
+		return uploadFileName;
+	}
+
+	public void setUploadContentType(String uploadContentType) {
+		this.uploadContentType = uploadContentType;
+	}
+
+	public String getUploadContentType() {
+		return uploadContentType;
+	}
+
+	public void setUpload(File upload) {
+		this.upload = upload;
+	}
+
+	public File getUpload() {
+		return upload;
 	}
 	
 }

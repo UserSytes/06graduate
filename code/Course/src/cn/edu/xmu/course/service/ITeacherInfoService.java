@@ -1,5 +1,6 @@
 package cn.edu.xmu.course.service;
 
+import java.io.File;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.*;
@@ -31,4 +32,7 @@ public interface ITeacherInfoService {
 	public Teacher findTeacherByUserInfo(UserInfo userInfo);
 	
 	public List getTeaNameAndNumber(School school);
+	
+	public boolean addTeacherPhoto(UserInfo userInfo, File photo,String fileLink);
+	
 }

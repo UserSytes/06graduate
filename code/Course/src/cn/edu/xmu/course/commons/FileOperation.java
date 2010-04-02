@@ -20,6 +20,11 @@ public class FileOperation {
 		return instance;
 	}
 
+	public static void delete(File del) {
+		if(del.exists())
+			del.delete();
+	}
+	
 	public static boolean copy(File src, File dst) throws Exception {
 		if (!dst.getParentFile().exists()) {
 			dst.getParentFile().mkdirs();
