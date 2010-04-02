@@ -47,82 +47,55 @@ public class EvaluationAction extends BaseAction {
 				addActionError("用户名获密码错误！请返回重试！");
 				return ERROR;
 			} else {
-				//addActionMessage("亲爱的" + evaluation.getName() + "，欢迎你！");
 				System.out.println(evaluation.getPassword());
 				super.getSession().put(EVALUATION, evaluation);
-				// super.getSession().put(USERINFO, teacher.getUserInfo());
 				return "expert";
 			}
 		} else if (getFlag() == 1) {
-			teacher = getLoginService().teacherLogin(userName, getPassword());
+			evaluation = getLoginService().expertLogin(userName, getPassword());
 			System.out.println(userName);
-			if (null == teacher) {
+			if (null == evaluation) {
 				addActionError("用户名获密码错误！请返回重试！");
 				return ERROR;
 			} else {
-				userInfo = teacher.getUserInfo();
-				System.out.println("正在登陆的是" + teacher.getTeacherNo());
-				//addActionMessage("亲爱的" + getUserInfo().getName() + "，欢迎你！");
-				System.out.println(teacher.getPassword());
-				super.getSession().put(TEACHER, teacher);
-				super.getSession().put(USERINFO, teacher.getUserInfo());
-	
-				System.out.println(course.getName());
-				evaluation=evaluateService.findByCourseAndUsernameAndSort(course, teacher.getTeacherNo(),1).get(0);
+				System.out.println(evaluation.getPassword());
+				super.getSession().put(EVALUATION, evaluation);
 				score = evaluation.getScore();
 				if (score == null) {
 					return "teacher";
 				} else {
 					if(number==null)
 					{
-						int i = score.toString().indexOf(".");
-						scorestring = "您已经评价过，你上一次对该课程的评分是："
-								+ score.toString().substring(0, i) + "分";
-						System.out.println(scorestring);
+						scorestring = "您已经评价过，你上一次对该课程的评分是："+ score.intValue() + "分";
 						return "tesuccess";
 					}
 					else
-					{
-						return "teacher";
-					}
-					
+						return "teacher";				
 				}
 			}
 		} else {
 			student = getLoginService().studentLogin(userName, getPassword());
-			System.out.println(userName);
 			if (null == student) {
 				addActionError("用户名获密码错误！请返回重试！");
 				return ERROR;
 			} else {
 				userInfo = student.getUserInfo();
-				System.out.println("正在登陆的是" + student.getStudentNo());
-				//addActionMessage("亲爱的" + getUserInfo().getName() + "，欢迎你！");
-				System.out.println("test1: " + student.getPassword());
 				super.getSession().put(STUDENT, student);
 				super.getSession().put(USERINFO, student.getUserInfo());
 
-				studentCourse = evaluateService.findByStudentAndCourse(course,
-						student).get(0);
+				studentCourse = evaluateService.findByStudentAndCourse(course,student).get(0);
 				score = studentCourse.getScore();
 				if (score == null) {
-					return "student";
-					
+					return "student";				
 				} else {
 					if(number==null)
 					{
-						int i = score.toString().indexOf(".");
-						scorestring = "您已经评价过，你上一次对该课程的评分是："
-								+ score.toString().substring(0, i) + "分";
-						System.out.println(scorestring);
+						scorestring = "您已经评价过，你上一次对该课程的评分是："+ score.intValue() + "分";
 						return SUCCESS;
 					}
 					else
-					{
 						return "student";
-					}
 				}
-
 			}
 		}
 	}
@@ -146,15 +119,13 @@ public class EvaluationAction extends BaseAction {
 	public String studentEvaluateResult() {
 		course = super.getCourse();
 		viewScore = evaluateService.calculatStudent(1);
-		System.out.println("test_4: " + viewScore);
 		if (viewScore == null) {
 			scorestring = "该课程还没有学生评价";
+			return SUCCESS;
 		}
-		if (viewScore != null) {
-			
+		if (viewScore != null) {			
 			int i = viewScore.toString().lastIndexOf(".");
 			scorestring = viewScore.toString().substring(0, i) + "分";
-			System.out.println("test_4: " + scorestring);
 			return SUCCESS;
 		} else
 			return ERROR;
@@ -167,13 +138,8 @@ public class EvaluationAction extends BaseAction {
 	 */
 	public String expertEvaluateResult() {
 		course = super.getCourse();
-		evaluationList = evaluateService.findEvaluationByCourseId(course
-				.getId());
-		System.out.println("test_专家评价结果1: " + evaluationList.size());
-		for (int i = 0; i < evaluationList.size(); i++) {
-			if (evaluationList.get(i).getSort() == 1)
-				evaluationList.remove(i);
-		}
+		course = super.getCourse();	
+		evaluationList=evaluateService.findByCourseAndSort(course, 0);
 		if (evaluationList == null) {
 			return ERROR;
 		} else
@@ -186,19 +152,8 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String teacherEvaluateResult() {
-		course = super.getCourse();
-		evaluationList = evaluateService.findEvaluationByCourseId(course
-				.getId());
-		System.out.println("test_教师评价结果1: " + evaluationList.size());
-		for (int i = 0; i < evaluationList.size(); i++) {
-			System.out.println("test_教师评价结果2: "
-					+ evaluationList.get(i).getName());
-			if (evaluationList.get(i).getSort() == 0) {
-				evaluationList.remove(i);
-				i = i - 1;
-				System.out.println("test_教师评价结果3: " + evaluationList.size());
-			}
-		}
+		course = super.getCourse();	
+		evaluationList=evaluateService.findByCourseAndSort(course, 1);
 		if (evaluationList == null) {
 			return ERROR;
 		} else
@@ -239,21 +194,11 @@ public class EvaluationAction extends BaseAction {
 	public String studentEvaluate() {
 		student = (Student) super.getSession().get(STUDENT);
 		course = super.getCourse();
-		int i = score.toString().indexOf(".");
-		int j = score.toString().length();
-		if (score < 0.0f || score > 100.0f
-				|| !score.toString().substring(i + 1, j).equals("0")) {
-			addActionMessage("请输入0到100分的整数");
-			return ERROR;
-		}
-
-		studentCourse = evaluateService.findByStudentAndCourse(course, student)
-				.get(0);
+    	studentCourse = evaluateService.findByStudentAndCourse(course, student).get(0);
 		studentCourse.setScore(score);
 		result = evaluateService.updateStudentCourse(studentCourse);
-
 		if (result) {
-			scorestring = "评价成功，你的评分是：" + score.toString().substring(0, i)
+			scorestring = "评价成功，你的评分是：" + score.intValue()
 					+ "分";
 			return SUCCESS;
 		} else
@@ -267,17 +212,9 @@ public class EvaluationAction extends BaseAction {
 	 */
 	public String expertEvaluate() {
 		score=evaluation.getScore();
-		int i = score.toString().indexOf(".");
-		int j = score.toString().length();
-		if (score < 0.0f || score > 100.0f
-				|| !score.toString().substring(i + 1, j).equals("0")) {
-			addActionMessage("请输入0到100分的整数");
-			return ERROR;
-		}
 		result = evaluateService.updateEvaluation(evaluation);
-		System.out.println("test_3: " + result);
 		if (result) {
-			scorestring = "评价成功，你的评分是：" + score.toString().substring(0, i)
+			scorestring = "评价成功，你的评分是：" + score.intValue()
 			+ "分";
 			return SUCCESS;
 		} else
@@ -293,19 +230,9 @@ public class EvaluationAction extends BaseAction {
 		teacher = super.getTeacher();
 		course = super.getCourse();
 		score=evaluation.getScore();
-		int i = score.toString().indexOf(".");
-		int j = score.toString().length();
-		if (score < 0.0f || score > 100.0f
-				|| !score.toString().substring(i + 1, j).equals("0")) {
-			addActionMessage("请输入0到100分的整数");
-			return ERROR;
-		}
 		result = evaluateService.updateEvaluation(evaluation);
-		System.out.println(evaluation.getEmail());
-		System.out.println("test_4: " + result);
-
-		if (result) {
-			scorestring = "评价成功，你的评分是：" + score.toString().substring(0, i)
+    	if (result) {
+			scorestring = "评价成功，你的评分是：" + score.intValue()
 			+ "分";
 			return SUCCESS;
 		} else
@@ -315,7 +242,7 @@ public class EvaluationAction extends BaseAction {
 	public String eDetailEvaluate() {
 		// evaluation = evaluateService.findById(1);
 		evaluation = (Evaluation) super.getSession().get(EVALUATION);
-		if (null == evaluation) {
+		if (null == evaluation||evaluation.getSort()==1) {
 			addActionError("您还未登录，请先登录！");
 			return "login";
 		} else {
@@ -326,53 +253,36 @@ public class EvaluationAction extends BaseAction {
 			} else {
 				if(number==null)
 				{
-					int i = score.toString().indexOf(".");
 					scorestring = "您已经评价过，你上一次对该课程的评分是："
-							+ score.toString().substring(0, i) + "分";
-					System.out.println(scorestring);
+						+ score.intValue() + "分";
 					return SUCCESS;
 				}
 				else
-				{
-					return "evluate";
-				}
-				
+					return "evluate";			
 			}
-
 		}
-
 	}
 
 	public String tDetailEvaluate() {
-		// evaluation = evaluateService.findById(1);
-		teacher = (Teacher) super.getSession().get(TEACHER);
-		if (null == student && null == teacher) {
+		evaluation = (Evaluation) super.getSession().get(EVALUATION);
+		if (null == evaluation||evaluation.getSort()==0) {
 			addActionError("您还未登录，请先登录！");
 			return "login";
 		} else {
-			userInfo = teacher.getUserInfo();
-			course = super.getCourse();
-			
-			evaluation=evaluateService.findByCourseAndUsernameAndSort(course, teacher.getTeacherNo(),1).get(0);
-			score = evaluation.getScore();
+			course = super.getCourse();		
+           score = evaluation.getScore();
 			if (score == null) {
 				return "evluate";
 			} else {
 				if(number==null)
 				{
-					int i = score.toString().indexOf(".");
 					scorestring = "您已经评价过，你上一次对该课程的评分是："
-							+ score.toString().substring(0, i) + "分";
-					System.out.println(scorestring);
+						+ score.intValue() + "分";
 					return SUCCESS;
 				}
 				else
-				{
-					return "evluate";
-				}
-				
+					return "evluate";			
 			}
-
 		}
 	}
 
@@ -388,24 +298,17 @@ public class EvaluationAction extends BaseAction {
 					student).get(0);
 			score = studentCourse.getScore();
 			if (score == null) {
-				return "evluate";
-				
+				return "evluate";			
 			} else {
 				if(number==null)
 				{
-					int i = score.toString().indexOf(".");
 					scorestring = "您已经评价过，你上一次对该课程的评分是："
-							+ score.toString().substring(0, i) + "分";
-					System.out.println(scorestring);
+						+ score.intValue() + "分";
 					return SUCCESS;
 				}
 				else
-				{
-					System.out.println("test-sDetailEvaluate"+number);
 					return "evluate";
-				}
 			}
-
 		}
 	}
 
