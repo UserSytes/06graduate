@@ -10,7 +10,17 @@
 			type="text/css" />
 	</head>
 	<title>厦门大学精品课程</title>
-
+<SCRIPT language=javascript>
+			function check(form)
+			{
+				if (form.score.value < 0 ||form.score.value>100)
+				{
+					alert("请输入0到100分的整数");
+					return false;
+				}
+				return true;
+			}
+		</SCRIPT>
 	</head>
 	<body>
 		<div id="header">
@@ -29,7 +39,7 @@
 					<strong>课程评价</strong>
 				</h2>
 				<hr id="border-top" />
-				<s:form action="studentEvaluateAction" method="post">
+				<s:form action="studentEvaluateAction" method="post" onsubmit="return check(this);">
 &nbsp;&nbsp; 
 			<table class="listing form" cellpadding="0" cellspacing="0">
 						<tr class="bg">
@@ -43,22 +53,7 @@
 								<s:textfield cssClass="INPUT" id="score" name="score" label="分数"></s:textfield>
 							</td>
 						</tr>
-<tr>
-				<td bgcolor="#FFFFFF">
-					<div align="left">
-						<br>
-<font size="3"><strong><s:fielderror />
-						</strong>
-						</font>
-						<font size="3"><strong><s:actionmessage />
-						</strong>
-						</font>
-						<font size="3"><strong><s:actionerror />
-						</strong>
-						</font>
-					</div>
-				</td>
-			</tr>
+
 						<tr bgcolor="#ECF3FD">
 							<td class="first">
 								评价标准：
