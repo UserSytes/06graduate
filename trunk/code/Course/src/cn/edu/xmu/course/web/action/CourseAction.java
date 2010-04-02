@@ -159,8 +159,8 @@ public class CourseAction extends BaseAction {
 	 */
 	public String getStudentByCourse() {
 		course = courseService.getCourseById(courseId);
-		List<StudentCourse> scList = new ArrayList<StudentCourse>();
-		scList = studentCourseService.findByCourse(course);
+		System.out.println("the courseId is"+courseId);
+		List<StudentCourse> scList = studentCourseService.findByCourse(course);
 		if (scList.size() == 0) {
 			addActionError("此课程暂未添加学生！");
 			return ERROR;
