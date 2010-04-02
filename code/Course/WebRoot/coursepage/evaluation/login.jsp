@@ -9,6 +9,23 @@
 		<meta http-equiv="Content-Style-Type" content="text/css">
 		<link href="${ctx}/coursepage/default.css" rel="stylesheet"
 			type="text/css" />
+<SCRIPT language=javascript>
+	function check(form) {
+		if (form.userName.value == "") {
+			alert("账号不能为空！");
+			return false;
+		}
+		if (form.password.value == "") {
+			alert("密码不能为空！");
+			return false;
+		}
+		if (form.flag.value == -1) {
+			alert("请选择权限！");
+			return false;
+		}
+		return true;
+	}
+</SCRIPT>
 	</head>
 	<body>
 		<jsp:include page="header.jsp"></jsp:include>

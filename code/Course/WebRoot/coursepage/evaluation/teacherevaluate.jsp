@@ -8,7 +8,32 @@
 <meta http-equiv="Content-Style-Type" content="text/css">
 <link href="${ctx}/coursepage/default.css" rel="stylesheet" type="text/css" /></head>
 		<title>厦门大学精品课程</title>
-		
+<SCRIPT language=javascript>
+			function check(form)
+			{
+				if (form.expertName.value == "")
+				{
+					alert("姓名不能为空！");
+					return false;
+				}
+				if (form.expertCompany.value == "")
+				{
+					alert("单位不能为空！");
+					return false;
+				}
+				if (form.expertPosition.value == "")
+				{
+					alert("职位不能为空！");
+					return false;
+				}
+				if (form.score.value < 0 ||form.score.value>100)
+				{
+					alert("请输入0到100分的整数");
+					return false;
+				}
+				return true;
+			}
+		</SCRIPT>		
 	</head>
 	<body>
 		<div id="header">
@@ -35,7 +60,7 @@
 						</td>
 					</tr>
 				</table>
-				<s:form action="teacherEvaluateAction" method="post">
+				<s:form action="teacherEvaluateAction" method="post" onsubmit="return check(this);">
 <s:hidden name="evaluation.id"></s:hidden>
 <s:hidden name="evaluation.course.id"></s:hidden>
 <s:hidden name="evaluation.username"></s:hidden>
@@ -124,22 +149,7 @@
 								<s:textfield cssClass="INPUT" id="score" name="evaluation.score" label="分数"></s:textfield>
 							</td>
 						</tr>
-<tr>
-				<td bgcolor="#FFFFFF">
-					<div align="left">
-						<br>
-<font size="3"><strong><s:fielderror />
-						</strong>
-						</font>
-						<font size="3"><strong><s:actionmessage />
-						</strong>
-						</font>
-						<font size="3"><strong><s:actionerror />
-						</strong>
-						</font>
-					</div>
-				</td>
-			</tr>
+
 						<tr class="bg">
 							<td colspan="4" bgcolor="#FFFFFF">
 								<FCK:editor instanceName="evaluation.content" width="100%"
