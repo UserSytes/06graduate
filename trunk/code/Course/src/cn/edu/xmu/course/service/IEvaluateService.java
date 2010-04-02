@@ -20,7 +20,7 @@ public interface IEvaluateService {
 	public List<Evaluation>  findEvaluationByCourseId(int courseId);
 	public List<StudentCourse>  findByStudentAndCourse(Course course, Student student);
 	public List<Evaluation> findByCourseAndUsernameAndSort(Course course,String username,int sort);
-	public List<Evaluation> findByCourseAndSort(Course course,Object object);
+	public List<Evaluation> findByCourseAndSort(Course course,int sort);
 	/**
 	 * ÑûÇë×¨¼ÒÆÀ¼Û
 	 * @param evaluation
