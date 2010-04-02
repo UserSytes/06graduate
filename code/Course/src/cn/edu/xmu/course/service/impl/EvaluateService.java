@@ -53,17 +53,6 @@ public class EvaluateService implements IEvaluateService {
 
 	// 算课程评价得分
 	public Object calculatStudent(int courseId) {
-//		studentCourseList = studentCourseDAO.findByCourse(courseId);
-//		System.out.println("test_1: " + studentCourseList.size());
-//		if (studentCourseList.size() == 0) {
-//			score = -1.0f;
-//			System.out.println("test_2: " + score);
-//		} else {
-//			for (int i = 0; i < studentCourseList.size(); i++) {
-//				score += studentCourseList.get(i).getScore();
-//			}
-//			score = score / studentCourseList.size();
-//		}	
 		Object result = getStudentCourseCalculateResult(courseId)[1];
 		return result;
 	}
@@ -96,8 +85,8 @@ public class EvaluateService implements IEvaluateService {
 		
 	}
 	//根据课程和分类找Evaluation
-	public List<Evaluation> findByCourseAndSort(Course course,Object object) {	
-		return evaluationDAO.findByCourseAndSort(course, object);
+	public List<Evaluation> findByCourseAndSort(Course course,int sort) {	
+		return evaluationDAO.findByCourseAndSort(course, sort);
 		
 	}
 	public boolean addEvaluation(Evaluation evaluation, Course course) {
