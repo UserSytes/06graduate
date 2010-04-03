@@ -455,6 +455,10 @@
 			class="mailAction">
 			<result name="success">/student/newmail.jsp</result>
 		</action>
+		<action name="goNewMailByStuAction" method="goNewMailByStu"
+			class="mailAction">
+			<result name="success">/student/newmail.jsp</result>
+		</action>
 		<action name="addReplyMailByStuAction" class="mailAction">
 			<result name="success">/tstudent/mailprompt.jsp
 			</result>
