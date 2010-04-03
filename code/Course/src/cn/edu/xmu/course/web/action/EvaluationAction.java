@@ -8,13 +8,16 @@ import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.StudentCourse;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.pojo.UserInfo;
+import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.IEvaluateService;
 import cn.edu.xmu.course.service.ILoginService;
 import cn.edu.xmu.course.service.ILoginService;
+import cn.edu.xmu.course.service.impl.CourseService;
 
 public class EvaluationAction extends BaseAction {
 
 	private IEvaluateService evaluateService;
+	private ICourseService courseService;
 	private StudentCourse studentCourse;
 	private Float score;
 	private Object viewScore;
@@ -293,7 +296,13 @@ public class EvaluationAction extends BaseAction {
 			return "login";
 		} else {
 			userInfo = student.getUserInfo();
-			course = super.getCourse();
+			if(course != null){			
+				course = courseService.getCourseById(course.getId());
+				super.getSession().put(COURSE,course);
+			}else{
+				course = super.getCourse();
+			}
+
 			studentCourse = evaluateService.findByStudentAndCourse(course,
 					student).get(0);
 			score = studentCourse.getScore();
@@ -554,5 +563,15 @@ public class EvaluationAction extends BaseAction {
 	public void setResult(boolean result) {
 		this.result = result;
 	}
+
+	public ICourseService getCourseService() {
+		return courseService;
+	}
+
+	public void setCourseService(ICourseService courseService) {
+		this.courseService = courseService;
+	}
+
+
 
 }

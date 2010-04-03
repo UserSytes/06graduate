@@ -229,6 +229,9 @@
 		<property name="evaluateService">
 			<ref bean="evaluateService" />
 		</property>
+		<property name="courseService">
+			<ref bean="courseService" />
+		</property>
 		<property name="loginService">
 			<ref bean="loginService" />
 		</property>	
