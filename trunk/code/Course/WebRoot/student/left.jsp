@@ -82,16 +82,13 @@
 									<tr>
 										<td width="2" bgcolor="#e7e7e7"></td>
 										<td width="13"></td>
-										<td>
-											<a href="<s:url action="goChangeHeadAction"></s:url>"><img
-													src="${ctx}/homepage/image/change_head.gif" border="0"
-													alt="修改头像"> </a>
+										<td width="77">
 										</td>
 										<td width="6"></td>
 										<td width="83">
-											<a href="#"><img
+											<a href="<s:url action="goChangeHeadAction"></s:url>"><img
 													src="${ctx}/homepage/image/change_head.gif" border="0"
-													alt=""> </a>
+													alt="修改头像"> </a>
 										</td>
 										<td width="11"></td>
 										<td width="2" bgcolor="#e7e7e7"></td>
@@ -182,15 +179,7 @@
 										</td>
 										<td width="11" background=""></td>
 									</tr>
-									<tr>
-										<td width="11" background=""></td>
-										<td width="172" align="center">
-											<a href="<s:url action=""></s:url>">
-												<img src="${ctx}/homepage/image/mycourse_menu_04.gif"
-													border="0"> </a>
-										</td>
-										<td width="11" background=""></td>
-									</tr>
+					
 									<tr>
 										<td width="11" background=""></td>
 										<td width="172" align="center">

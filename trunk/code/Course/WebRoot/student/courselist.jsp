@@ -88,8 +88,8 @@
 													<td width="80" align="center">
 														级别
 													</td>
-													<td width="40" align="center">
-														点击
+													<td width="80" align="center">
+														我的评价
 													</td>
 												</tr>
 											</table>
@@ -117,8 +117,10 @@
 											<td width="80" align="center">
 												<s:property value="level" />
 											</td>
-											<td width="40" align="center">
-												<s:property value="count" />
+											<td width="80" align="center">
+												<a href="<s:url action="sDetailEvaluateAction"> 
+	                     							<s:param name="course.id"><s:property value="id"/></s:param>
+	                									</s:url>">查看</a>
 											</td>
 										</tr>
 										<tr height="3">

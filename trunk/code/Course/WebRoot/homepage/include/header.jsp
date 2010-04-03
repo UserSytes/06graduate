@@ -41,7 +41,7 @@
 											<a href="<s:url action="myPageAction"></s:url>">我的主页</a>&nbsp;
 										</td>
 										<td width="80">
-											<a href="<s:url action=""></s:url>">站内信（0）</a>&nbsp;
+											<a href="getReceiveMailByStuAction.action">站内信</a>&nbsp;
 										</td>
 										<td width="80">
 											<a href="<s:url action="logoutAction"></s:url>">退出系统</a>
