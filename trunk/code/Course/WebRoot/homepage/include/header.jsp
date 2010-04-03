@@ -33,17 +33,23 @@
 				</td>
 				<td>
 					<table border="0" cellpadding="0" cellspacing="0">
-						<tr>
+						<tr height="25">
 							<td align="right">
 								<table border="0" cellpadding="0" cellspacing="0" id="myHome">
 									<tr>
-										<td width="80">
+										<td width="80" align="center">
 											<a href="<s:url action="myPageAction"></s:url>">我的主页</a>&nbsp;
 										</td>
-										<td width="80">
+										<td width="4">
+											<img src="${ctx}/homepage/image/line.gif" border="0">
+										</td>
+										<td width="80" align="center">
 											<a href="getReceiveMailByStuAction.action">站内信</a>&nbsp;
 										</td>
-										<td width="80">
+										<td width="4">
+											<img src="${ctx}/homepage/image/line.gif" border="0">
+										</td>
+										<td width="80" align="center">
 											<a href="<s:url action="logoutAction"></s:url>">退出系统</a>
 											&nbsp;
 										</td>
