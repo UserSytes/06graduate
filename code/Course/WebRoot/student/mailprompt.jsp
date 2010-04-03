@@ -72,7 +72,7 @@
 			<div class="cm_header itemtitle s_clear">
 				<ul>
 					<a style="color: #09C; float: right; font-weight: 700;"
-							href="${ctx}/student/newmail.jsp"
+							href="goNewMailByStuAction.action"
 							title="撰写短消息">+ 写新消息</a>
 					<li>
 						<a href="getReceiveMailByStuAction.action"><span>收件箱</span> </a>
