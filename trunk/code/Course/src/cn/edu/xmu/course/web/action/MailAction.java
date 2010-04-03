@@ -163,6 +163,10 @@ public class MailAction extends BaseAction {
 			return this.addNewMail(super.getStudent().getUserInfo(), tea
 					.getUserInfo());
 	}
+	
+	public String goNewMailByStu(){
+		return SUCCESS;
+	}
 
 	/**
 	 * 学生回复教师信息
