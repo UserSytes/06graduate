@@ -67,7 +67,7 @@
 							<td valign="bottom" align="left">
 								<table border="0" cellpadding="0" cellspacing="0">
 								<tr>
-									<td><font color="#966f48"style="font-size:16px; font-weight:bold">发表回复</font></td>
+									<td><font color="#966f48"style="font-size:16px; font-weight:bold">发布新主题</font></td>
 								</tr>
 								<tr>
 									<td><font color="#92a35d"style="font-size:12px;"></font></td></tr>
@@ -83,20 +83,31 @@
 								<tr>
 									<td width="24"></td>
 									<td><BR/>
-<s:form action="addReplyAction" method="post" id="myform" name="myform"
-			namespace="/upLoadFile" target="_self" enctype="multipart/form-data" onsubmit="return checkAll();">
-			<s:hidden name="topic.id" ></s:hidden>
+<s:form action="addNewMessageAction" method="post" id="myform" name="myform"
+			namespace="/upLoadFile" target="_self" enctype="multipart/form-data" onsubmit="return check(this);">
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
-					<td class=editHeaderTd colSpan=7>
-						请编辑回复内容
+					<td class=editHeaderTd colSpan=2>
+						<font color="#966f48"style="font-size:14px; font-weight:bold">请编辑主题内容</font>
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							内容：
+							<font color="#966f48"style="font-size:14px; font-weight:bold">标题：</font>
+						</div>
+					</td>
+					<td>
+						<s:textfield cssClass="LONGINPUT" id="title" name="topic.name"
+							label="标题"></s:textfield>
+						&nbsp;*
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							<font color="#966f48"style="font-size:14px; font-weight:bold">内容：</font>
 						</div>
 					</td>
 					<td colspan="4" bgcolor="#FFFFFF">
@@ -107,12 +118,12 @@
 						</FCK:editor>
 					</td>
 				</tr>
-				<tr bgcolor="#ECF3FD">
+				<tr>
 					<td width="15%">
 						&nbsp;
 					</td>
 					<td width="85%">
-						<s:submit cssClass="label" value="发表回复"></s:submit>
+						<s:submit cssClass="label" value="发新主题"></s:submit>
 					</td>
 				</tr>
 			</table>
