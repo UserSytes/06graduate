@@ -49,7 +49,7 @@
 														<table border="0" cellpadding="0" cellspacing="0">
 						<tr>
 							<td width="773" align="center">
-								<table border="0" cellpadding="0" cellspacing="0" width="760" height="94" background="${ctx}/coursepage/classical/image/titlebg2.gif" style="background-repeat:no-repeat">
+								<table border="0" cellpadding="0" cellspacing="0" width="760" height="94" background="${ctx}/coursepage/classical/image/titlebg5.gif" style="background-repeat:no-repeat">
 						<tr>
 						<td width="350"><font style="font-size:12px; color:#574434"><b>欢迎你，<s:property value="userInfo.name"/>&gt;<a href="<s:url action="enterPersionalSpaceAction"> 
                 					</s:url>">个人空间
@@ -61,7 +61,7 @@
 												退出
 											</a></b></font>
 											</td>
-							<td width="400" valign="top" align="right"><font style="font-size:12px; color:#574434">首页 &gt;<b>留言板&gt;浏览主题</font></td></tr>
+							<td width="400" valign="top" align="right"><font style="font-size:12px; color:#574434">首页 &gt;<b>课程教案列表</b></font></td></tr>
 						<tr height="69">
 							<td valign="bottom" align="left">
 								<table border="0" cellpadding="0" cellspacing="0">
@@ -71,13 +71,6 @@
 								<tr>
 									<td>
 <a href="<s:url action="goNewTopicAction"></s:url>"><img src="${ctx}/coursepage/classical/image/newtopic.gif" alt="新帖" border="0"/></a>
-<a href="<s:url action="goReplyAction">
-                     			<s:param name="topicId"> 
-                       			 	<s:property value="topic.id"/> 
-                    			</s:param>
-                					</s:url>">
-												<img src="${ctx}/coursepage/classical/image/reply.gif" alt="回复" border="0"/>
-											</a>
 </td></tr>
 								</table></td></tr>
 						<tr height="1">
@@ -88,66 +81,41 @@
 						<tr>
 					<td width="750" align="center">
 						<!--게시판 -->
-<table border="0" cellpadding="0" cellspacing="0" width="760" height="31" background="${ctx}/coursepage/classical/image/pro_titlebg.gif" style="background-repeat:no-repeat">
-								<tr><td>主题：[03-31]你们有谁买过螺旋藻~~都是用那个牌子的，价格如何</td></tr>
-								</table>
-<table frame="below" ellspacing="0" cellpadding="4" width="100%"
-									align="center" style="border-bottom:thin solid #9db350;">
-
-<s:iterator value="messageList" status="message">
-<tr style="height: 100%">
-										<td width="24%" valign="top" style="border-right: thin dotted #60B7DE;" >
-											<font style="font-weight:bold; font-size:14px"><s:property value="userInfo.name"/></font>
-										   <div>
-												个人信息：
-											  <br />
-													<img src="${ctx}/coursepage/classical/image/icon_1.gif" width="13" height="13">ID：<font color="#ffc0dc"><s:property value="userInfo.id"/></font>
-												<br />
-													<img src="${ctx}/coursepage/classical/image/icon_10.gif" width="12" height="12">系别：<font color="#800080"><s:property value="userInfo.department.name"/></font>
-												<br />
-													<img src="${ctx}/coursepage/classical/image/icon_4.gif" width="13" height="13">学院：：<font color="#ff0000"><s:property value="userInfo.department.school.name"/></font>
-												<br />
-													<img src="${ctx}/coursepage/classical/image/icon_12.gif" width="12" height="12">性别：<font color="#48b00d"><s:property value="userInfo.sex"/></font>
-												<br />
-													<img src="${ctx}/coursepage/classical/image/icon_9.gif">邮箱：<a href="mailto:<s:property value="userInfo.email"/>?subject=[厦门大学课程网络平台]"><font color="#ffa500"><s:property value="userInfo.email"/></font></a>
-											  <br />
-													<img src="${ctx}/coursepage/classical/image/icon_6.gif" width="13" height="13">联系方式：<font color="#48e0d0"><s:property value="userInfo.mobile"/></font>
-										</div>
-									  </td>
-										<td width="76%" valign="top" style="padding: 0px"
-											height="100%">
-											<table border="0" cellspacing="0" cellpadding="4"
-												height="100%" width="100%">
-												<tr>
-													<td>
-														<div style="padding-top: 4px; border-bottom:thin inset #9db350;">
-															第<s:property value="grade"/>楼&nbsp;&nbsp;&nbsp;发表于<s:date name="time" format="yyyy-MM-dd hh:mm:ss" />&nbsp;
-															<a href="" target="_blank">个人资料</a>&nbsp;
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td valign="top" height="100%" style="padding-top: 10px;">
-														<div>
-													<s:text name="">${content}</s:text>		
-												</div>
-													</td>
-												</tr>
-												<tr height="20">
-													<td align="right">
-														&nbsp;
-														<a href="">引用</a> &nbsp;
-														<a href="###" onclick="">回复</a>
-														<a href="###" onclick="scroll(0,0)"><img src="${ctx}/coursepage/classical/image/top.gif"
-																border="0" alt="顶部" />
-														</a>
-													</td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-</s:iterator>
-</table>
+						<table border="0" cellpadding="0" cellspacing="0" width="740">
+						<tr height="3" bgcolor="#d3b981"><td colspan="14"></td></tr>
+						<tr bgcolor="#f1e1be">
+							<td width="50" height="40" align="center"><font style="font-size:14px;font-weight:bold;">序号</font></td>
+							<td>&nbsp;</td>
+							<td width="280" height="40" align="center"><font style="font-size:14px;font-weight:bold;">标题</font></td>
+							<td>&nbsp;</td>
+							<td width="160" height="40" align="center"><font style="font-size:14px;font-weight:bold;">作者</font></td>
+							<td>&nbsp;</td>
+							<td width="120" height="40" align="center"><font style="font-size:14px;font-weight:bold;">回复/查看</font></td>
+							<td>&nbsp;</td>
+							<td width="120" height="40" align="center"><font style="font-size:14px;font-weight:bold;">最后发表</font></td>
+						</tr>
+<s:iterator value="pageBean.list" status="topic">
+						<tr height="33" bgcolor="#fdfbf3"  <s:if test="#topic.even">style="background-color:#faefda"</s:if>>
+							<td width="50" align="center"><font color="#74582f"><s:property value="#topic.count" /></font></td>
+							<td></td>	
+							<td width="280" align="left"><font color="#74582f"><a href="<s:url action="showMessagesAction"> 
+		<s:param name="topicId"> 
+		<s:property value="id"/> 
+		</s:param>
+		</s:url>">
+<s:property value="name" /></a></font></td>
+							<td></td>
+							<td width="160" align="center"><font color="#74582f"><s:property value="authorName"/><br><s:date name="time" format="yyyy-MM-dd" /></font></td>
+							<td></td>
+							<td width="120" align="center"><font color="#74582f"><s:property value="countReply"/>/<s:property value="countPerson"/></font></td>
+							<td></td>
+							<td width="120" align="center"><font color="#74582f"><s:date name="lastUpdate" format="yyyy-MM-dd" /><br>by <s:property value="lastAnswer"/></font></td>
+							</tr>
+</s:iterator>					
+						<tr height="4"><td></td></tr>
+						<tr height="1" bgcolor="#d3b981"><td colspan="14"></td></tr>
+						<tr height="3" bgcolor="#eedcb3"><td colspan="14" width="630"></td></tr>
+						</table>
 						<!--/게시판 -->
 					</td></tr>
 <tr>
@@ -155,29 +123,42 @@
 						<!-- 페지검색 -->
 						<table border="0" cellpadding="0" cellspacing="0">
 						<tr>
-							<td width="14"></td>
-							<td><a href="#"><img src="${ctx}/coursepage/classical/image/icon3.gif" border="0"></a></td>
-							<td width="4"></td>
-							<td><s:url id="url_pre" value="showMessagesAction.action">
-				<s:param name="pageNow" value="pageNow-1"></s:param>
-			</s:url>
-			<s:url id="url_next" value="showMessagesAction.action">
-				<s:param name="pageNow" value="pageNow+1"></s:param>
-			</s:url>
-			<s:a href="%{url_pre}">上一页</s:a></td>
-							<td><s:iterator value="messageInfoList" status="status">
-				<s:url id="url" value="showMessagesAction.action">
-					<s:param name="pageNow" value="pageNow" />
-				</s:url>
-			</s:iterator>
-			<s:a href="%{url_next}">下一页</s:a></td>
-			<td>&nbsp;当前页<s:property value="pageNow"/></td>
-							<td width="4"></td>
-							<td><a href="#"><img src="${ctx}/coursepage/classical/image/icon6.gif" border="0"></a></td>
-							<td width="30"></td>
-							<td><a href="#"><img src="${ctx}/coursepage/classical/image/button1.gif" border="0"></a></td></tr>
+							<td>共<s:property value="pageBean.allRow"/> 条记录</td>
+							<td>共<s:property value="pageBean.totalPage"/> 页</td>
+							<td>当前第<s:property value="pageBean.currentPage"/>页</td>
+							</tr>
+<tr>
+							<td colspan="3"><s:if test="%{pageBean.currentPage == 1}">
+            第一页 上一页
+        </s:if>
+        <s:else>
+            <a href="showTopics2Action.action?page=1">第一页</a>
+            <a href="showTopics2Action.action?page=<s:property value="%{pageBean.currentPage-1}"/>">上一页</a>
+        </s:else>
+<s:bean name="org.apache.struts2.util.Counter" id="counter"> 
+  <s:param name="first" value="1" /> 
+  <s:param name="last" value="pageBean.totalPage" />
+   <s:iterator status="current">
+   <s:if test="pageBean.currentPage!=current-1">
+    <a href="showTopics2Action.action?page=<s:property value="%{current-1}"/>"> 
+[<s:property/>]</a> 
+    </s:if> 
+    <s:else>
+    <font color="red"><s:property/></font> 
+    </s:else> 
+   </s:iterator> 
+</s:bean> 
+        <s:if test="%{pageBean.currentPage != pageBean.totalPage}">
+            <a href="showTopics2Action.action?page=<s:property value="%{pageBean.currentPage+1}"/>">下一页</a>
+            <a href="showTopics2Action.action?page=<s:property value="pageBean.totalPage"/>">最后一页</a>
+        </s:if>
+        <s:else>
+            下一页 最后一页
+        </s:else></td>
+							</tr>
 						</table>
 						<!-- /페지검색 -->
+
 					</td></tr>
 <tr>
 					<td width="658" align="center">
