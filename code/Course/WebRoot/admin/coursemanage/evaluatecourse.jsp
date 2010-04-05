@@ -10,6 +10,22 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
 		<title>课程列表</title>
+		<SCRIPT language=javascript>
+	function check(form) {	
+		var ccount=0;
+		for (var i=0;i<form.courseIds.length;i++)
+  		{ 	 if (form.courseIds[i].checked) 
+    			{ ccount=ccount+1;}
+  		}
+  		if (ccount<1) {
+      			 alert("至少选择一门课程！");
+       			return false;
+       		}
+  		return true;
+		
+	}
+
+</SCRIPT>
 		<style type="text/css">
 <!--
 .STYLE1 {
@@ -54,7 +70,7 @@
 						<s:property value="#course.count" />
 					</td>
 					<td width="40%">
-						<s:checkbox  theme="simple" name="courseIds" value="flase" fieldValue="%{id}"></s:checkbox>
+						<s:checkbox  theme="simple" id="courseIds" name="courseIds" value="flase" fieldValue="%{id}"></s:checkbox>
 						<s:property value="name" />&nbsp;[<s:property value="teacher.userInfo.name" />]
 					</td>
 					<s:if test="#course.even||#course.last">
@@ -62,7 +78,7 @@
 					</s:if>
 				</s:iterator>
                 <tr class="listFooterTr">
-					<td colspan="4">
+					<td colspan="4" align="right">
 						<s:submit id="button" cssClass="label" value="查看评价"></s:submit>
 					</td>
 				</tr>

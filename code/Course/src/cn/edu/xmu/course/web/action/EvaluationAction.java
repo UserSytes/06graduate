@@ -400,10 +400,12 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String showEvaluateCourses() {
-		Course course;
+		courseList = new ArrayList<Course>();
 		System.out.println("≤‚ ‘øŒ≥Ã∆¿º€£∫"+courseIds.size());
 		for(int i = 0; i< courseIds.size(); i++){
-			course = courseService.getCourseById( Integer.parseInt(courseIds.get(i)) );
+			Course course = courseService.getCourseById( Integer.parseInt(courseIds.get(i)) );
+			System.out.println("≤‚ ‘øŒ≥Ã∆¿º€2£∫"+courseIds.get(i));
+			System.out.println("≤‚ ‘øŒ≥Ã∆¿º€3£∫"+course.getName());
 			courseList.add(course);
 		}
 		if(courseList.size()==0){

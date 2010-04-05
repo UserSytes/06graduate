@@ -75,8 +75,8 @@ public class EvaluateService implements IEvaluateService {
 	 */
 	public List<CourseEvaluate> getEvaluateByCourseList(List<Course> courseList){
 		List<CourseEvaluate> courseEvaluateList = new ArrayList<CourseEvaluate>() ;
-		CourseEvaluate courseEvaluate = new CourseEvaluate();
 		for(Course course : courseList){
+			CourseEvaluate courseEvaluate = new CourseEvaluate();
 			courseEvaluate.setCourseName(course.getName());
 			courseEvaluate.setTeacherName(course.getTeacher().getUserInfo().getName());
 			Object[] expertEvaluationResult = this.getEvaluationCalculateResult(course.getId(), 0);
