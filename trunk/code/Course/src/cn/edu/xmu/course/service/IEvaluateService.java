@@ -2,6 +2,7 @@ package cn.edu.xmu.course.service;
 
 import java.util.List;
 
+import cn.edu.xmu.course.commons.CourseEvaluate;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Evaluation;
 import cn.edu.xmu.course.pojo.Student;
@@ -15,7 +16,7 @@ public interface IEvaluateService {
 	public Evaluation findById(Integer id); 
 	public Object calculatStudent(int courseId);
 
-	public Object[] getEvaluationCalculateResult(int courseId);
+	public Object[] getEvaluationCalculateResult(int courseId, int sort);
 	public Object[] getStudentCourseCalculateResult(int courseId);
 	public List<Evaluation>  findEvaluationByCourseId(int courseId);
 	public List<StudentCourse>  findByStudentAndCourse(Course course, Student student);
@@ -29,4 +30,11 @@ public interface IEvaluateService {
 	 */
 	public boolean addEvaluation(Evaluation evaluation, Course course);
 	public boolean addStudentCourse(StudentCourse  studentcourse, Course course);
+	
+	/**
+	 * 根据课程列表获取评价信息
+	 * @param courseList
+	 * @return
+	 */
+	public List<CourseEvaluate> getEvaluateByCourseList(List<Course> courseList);
 }

@@ -1,9 +1,15 @@
 package cn.edu.xmu.course.web.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
+import cn.edu.xmu.course.commons.CourseEvaluate;
+import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Evaluation;
+import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.StudentCourse;
 import cn.edu.xmu.course.pojo.Teacher;
@@ -40,6 +46,10 @@ public class EvaluationAction extends BaseAction {
 	private String userName, password;
 	private String number;
 	private boolean result;
+	
+	private List<Course> courseList;
+	private List<String> courseIds;
+	private List<CourseEvaluate> courseEvaluateList = new ArrayList<CourseEvaluate>() ;
 
 	public String loginFromEvaluation() {
 		course = super.getCourse();
@@ -340,7 +350,7 @@ public class EvaluationAction extends BaseAction {
 	public String getEvaluationResult() {
 
 		Object[] evaluationResult = evaluateService
-				.getEvaluationCalculateResult(super.getCourse().getId());
+				.getEvaluationCalculateResult(super.getCourse().getId(), 0);
 		Object[] scResult = evaluateService
 				.getStudentCourseCalculateResult(super.getCourse().getId());
 		stuCount = scResult[0];
@@ -366,6 +376,45 @@ public class EvaluationAction extends BaseAction {
 			return ERROR;
 		}
 	}
+	
+	/**
+	 * 获取学院课程列表
+	 * 
+	 * @return
+	 */
+	public String findCourse() {
+		Administrator admin = (Administrator) super.getSession().get(
+				ADMIN);
+		School school = admin.getSchool();
+		courseList = courseService.findBySchool(school);
+		if (courseList.size() == 0) {
+			addActionError("暂无课程！");
+			return ERROR;
+		} else {
+			return SUCCESS;
+		}
+	}
+	
+	/**
+	 * 获取选择的课程
+	 * @return
+	 */
+	public String showEvaluateCourses() {
+		Course course;
+		System.out.println("测试课程评价："+courseIds.size());
+		for(int i = 0; i< courseIds.size(); i++){
+			course = courseService.getCourseById( Integer.parseInt(courseIds.get(i)) );
+			courseList.add(course);
+		}
+		if(courseList.size()==0){
+			addActionError("您未选择任何课程！");
+			return ERROR;
+		}else{
+			courseEvaluateList = evaluateService.getEvaluateByCourseList(courseList);
+			return SUCCESS;
+		}
+	}
+	
 
 	public String getEvaluationDetail() {
 		evaluation = evaluateService.findById(evaluationId);
@@ -572,6 +621,28 @@ public class EvaluationAction extends BaseAction {
 		this.courseService = courseService;
 	}
 
+	public List<Course> getCourseList() {
+		return courseList;
+	}
 
+	public void setCourseList(List<Course> courseList) {
+		this.courseList = courseList;
+	}
+
+	public List<String> getCourseIds() {
+		return courseIds;
+	}
+
+	public void setCourseIds(List<String> courseIds) {
+		this.courseIds = courseIds;
+	}
+
+	public List<CourseEvaluate> getCourseEvaluateList() {
+		return courseEvaluateList;
+	}
+
+	public void setCourseEvaluateList(List<CourseEvaluate> courseEvaluateList) {
+		this.courseEvaluateList = courseEvaluateList;
+	}
 
 }
