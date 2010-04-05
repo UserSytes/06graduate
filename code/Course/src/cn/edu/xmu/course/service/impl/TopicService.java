@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import cn.edu.xmu.course.commons.CalculateDate;
+import cn.edu.xmu.course.commons.PageBean;
 import cn.edu.xmu.course.dao.TopicDAO;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.School;
@@ -152,6 +153,25 @@ public class TopicService implements ITopicService{
 
 	public TopicDAO getTopicDAO() {
 		return topicDAO;
+	}
+
+	public PageBean queryForPage(int pageSize, int page) {
+		final String hql = "from Topic";        //查询语句
+        int allRow = topicDAO.getAllRowCount(hql);    //总记录数
+        int totalPage = PageBean.countTotalPage(pageSize, allRow);    //总页数
+        final int offset = PageBean.countOffset(pageSize, page);    //当前页开始记录
+        final int length = pageSize;    //每页记录数
+        final int currentPage = PageBean.countCurrentPage(page);
+        List<Topic> list = topicDAO.queryForPage(hql,offset, length);        //"一页"的记录    
+        //把分页信息保存到Bean中
+        PageBean pageBean = new PageBean();
+        pageBean.setPageSize(pageSize);    
+        pageBean.setCurrentPage(currentPage);
+        pageBean.setAllRow(allRow);
+        pageBean.setTotalPage(totalPage);
+        pageBean.setList(list);
+        pageBean.init();
+        return pageBean;
 	}
 
 }
