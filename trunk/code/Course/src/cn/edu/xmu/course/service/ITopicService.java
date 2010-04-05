@@ -2,6 +2,8 @@ package cn.edu.xmu.course.service;
 
 import java.util.Date;
 import java.util.List;
+
+import cn.edu.xmu.course.commons.PageBean;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Teacher;
@@ -24,4 +26,12 @@ public interface ITopicService {
 	public List<Topic> searchTopicByNameAndTime(Course course,String name,Date date);
 	public List<Topic> searchTopicByAuthorNameAndTime(Course course,String authorName,Date date);
 	public List<Topic> searchTopicByNameAndAuthorNameAndTime(Course course,String name,String authorName,Date date);
+	 /**
+     * 分页查询
+     * @param currentPage 当前第几页
+     * @param pageSize 每页大小
+     * @return 封闭了分页信息(包括记录集list)的Bean
+     */
+    public PageBean queryForPage(int pageSize,int currentPage);
+
 }
