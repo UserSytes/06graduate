@@ -23,7 +23,7 @@
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 课程管理 -&gt; 课程列表 
+					当前位置: 课程管理 -&gt; 课程评价  -&gt;评价比对
 				</td>
 			</tr>
 		</table>
@@ -54,22 +54,24 @@
 						<td width="5%">
 							<s:property value="#ce.count" />
 						</td>
+						<td width="35%">
+							<s:property value="courseName" />&nbsp; [<s:property value="teacherName" />]
+						</td>
 						<td width="20%">
-							<s:property value="courseName" />&nbsp; [<s:property value="techerName" />]
+							<s:property value="stuAvgScore" />分&nbsp; /共<s:property value="stuCount" />人
 						</td>
-						<td width="25%">
-							<s:property value="stuAvgScore" />&nbsp; /<s:property value="stuCount" />
+						<td width="20%">
+							<s:property value="expertAvgScore" />分&nbsp; /共<s:property value="expertCount" />人
 						</td>
-						<td width="25%">
-							<s:property value="expertAvgScore" />&nbsp; /<s:property value="expertCount" />
-						</td>
-						<td width="25%">
-							<s:property value="teacherAvgScore" />&nbsp; /<s:property value="teacherCount" />
+						<td width="20%">
+							<s:property value="teacherAvgScore" />分&nbsp; /共<s:property value="teacherCount" />人
 						</td>
 					</tr>
 				</s:iterator>
 				<tr class="listFooterTr">
-					<s:submit id="button" cssClass="label" value="图表显示"></s:submit>
+					<td colspan="5" align="right">
+						<s:submit id="button" cssClass="label" value="图表显示"></s:submit>
+					</td>
 				</tr>
 			</table>
 			</s:form>
