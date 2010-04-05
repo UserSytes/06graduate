@@ -7,6 +7,7 @@ import java.util.List;
 import com.opensymphony.xwork2.Action;
 
 import cn.edu.xmu.course.commons.MessageInfo;
+import cn.edu.xmu.course.commons.PageBean;
 import cn.edu.xmu.course.pojo.Course;
 
 import cn.edu.xmu.course.pojo.Message;
@@ -44,7 +45,10 @@ public class MessageAction extends BaseAction {
 	private String keyword="";
 	private String authorName="";
 	private Date keydate;
-
+	//调试的分页如下 
+    private int page;    //第几页
+    private PageBean pageBean;    //包含分布信息的bean
+    
 	public String loginFromMessageBoard() {
 
 		if (getFlag() == 0) {
@@ -157,14 +161,11 @@ public class MessageAction extends BaseAction {
 			addActionError("您还未登录，请先登录！");
 			return "login";
 		} else {
-			if (teacher != null)
-				userInfo = teacher.getUserInfo();
-			else
-				userInfo = student.getUserInfo();
+
+				userInfo = super.getUserInfo();
 			course = super.getCourse();
-			topicList = getTopicService().getAllTopics(course);
-			System.out.println("共找到主题" + topicList.size());
-			if (getTopicList().size() > 0) {
+			this.pageBean = getTopicService().queryForPage(pageSize, page);
+			if (getPageBean().getAllRow() > 0) {
 				return "topics";
 			} else {
 				System.out.println("本课程尚未有留言！");
@@ -174,11 +175,11 @@ public class MessageAction extends BaseAction {
 		}
 
 	}
-
 	public String showMessages() {
+		userInfo=super.getUserInfo();
 		topic = topicService.getTopicById(topicId);
 		messageList = messageService.getAllMessages(topic, pageSize, pageNow);
-		System.out.println("查找到：" + messageList.size());
+		System.out.println("查找到：" + messageList.size()+"个留言");
 		pageCount = (messageList.size() + getPageSize() - 1) / getPageSize();
 		topic.setCountPerson(topic.getCountPerson() + 1);
 		topicService.updateTopic(topic);
@@ -190,7 +191,10 @@ public class MessageAction extends BaseAction {
 			return ERROR;
 		}
 	}
-
+	public String goNewTopic(){
+		userInfo=super.getUserInfo();
+		return SUCCESS;
+	}
 	public String addReply() {
 		// System.out.println("ACTION正在加入帖子为："+topicId+"的留言1");
 		// topic = topicService.getTopicById(topicId);
@@ -463,5 +467,21 @@ public class MessageAction extends BaseAction {
 
 	public String getAuthorName() {
 		return authorName;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPageBean(PageBean pageBean) {
+		this.pageBean = pageBean;
+	}
+
+	public PageBean getPageBean() {
+		return pageBean;
 	}
 }
