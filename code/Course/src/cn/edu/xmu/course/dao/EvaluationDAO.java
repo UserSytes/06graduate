@@ -88,11 +88,11 @@ public class EvaluationDAO extends HibernateDaoSupport {
 		}
 	}
 	
-	public List findCountAndScoreAvg(int courseId) {
+	public List findCountAndScoreAvg(int courseId, int sort) {
 		log.debug("finding Evaluation instance with property: course"
 				+ ", value: " + courseId);
 		try {
-			String queryString = "select count(*),avg(score) from Evaluation as model where model.course.id"
+			String queryString = "select count(*),avg(score) from Evaluation as model where model.sort = "+sort+" and model.course.id"
 					+"= "+courseId;
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {

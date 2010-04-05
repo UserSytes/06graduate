@@ -869,6 +869,16 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
+		<action name="evaluateCourseAction" method="findCourse" class="evaluationAction">
+			<result name="success">/admin/coursemanage/evaluatecourse.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="showEvaluateCoursesAction" method="showEvaluateCourses" class="evaluationAction">
+			<result name="success">/admin/coursemanage/evaluateshow.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		<action name="applicationCourseAction" method="findApplicationCourse"
 			class="courseAction">
 			<result name="success">/admin/coursemanage/applicationlist.jsp
