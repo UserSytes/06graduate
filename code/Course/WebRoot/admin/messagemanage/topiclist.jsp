@@ -29,7 +29,7 @@
 		</table>
 
 <div align="center">
-			<s:form action="searchTopicByKeyAction" method="post">
+			<s:form action="searchSchoolTopicByKeyAction" method="post">
 				<table class="listTable">
 					<tr>
 						<td bgcolor="#FFFDF0">
@@ -99,7 +99,7 @@
 							<s:property value="authorName" />
 						</td>
 						<td width="15%">
-							<s:property value="lastUpdate+lastAnswer" />
+							<s:date name="lastUpdate" format="yy-MM-dd hh:mm" /><s:property value="lastAnswer" />
 						</td>
 						<td width="20%">
 							<a
