@@ -1,21 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ include file="../../commons/taglibs.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>	
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>My JSP 'header.jsp' starting page</title>
-	<link href="${ctx}/coursepage/style/common/common.css" rel="stylesheet" type="text/css" />
-	<link href="${ctx}/coursepage/style/common/layout.css" rel="stylesheet" type="text/css" />
-	<link href="${ctx}/coursepage/style/green/color.css" rel="stylesheet" type="text/css" />
+  <head>  
 	<script src="${ctx}/coursepage/style/common/jquery-1.4.1-and-plugins.min.js" type="text/javascript"></script>
 
   </head>
   <script type="text/javascript">
 $(function(){
 	   $("#main_nav li:has(ul)").hover(function(){
-			$(this).children("ul").stop(true,true).slideDown(400);
+			$(this).children("ul").stop(true,true).slideDown(500);
         },function(){
 		    $(this).children("ul").stop(true,true).slideUp("fast");
 		});
