@@ -982,7 +982,7 @@
 			<result name="success">/admin/messagemanage/topiclist.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="searchTopicByKeyAction" method="searchTopic" class="topicManageAction">
+		<action name="searchSchoolTopicByKeyAction" method="searchTopic" class="topicManageAction">
 			<result name="success">/admin/messagemanage/topiclist.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
