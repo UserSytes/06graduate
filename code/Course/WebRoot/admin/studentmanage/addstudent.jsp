@@ -93,7 +93,7 @@
 <tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							账号：
+							账号/学号：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">

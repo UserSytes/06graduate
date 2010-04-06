@@ -123,5 +123,22 @@
 				</tr>
 			</table>
 		</s:form>
+
+	  <table bgcolor="white" class=editTable cellSpacing=1 cellPadding=0
+			width="90%" align=center border=0>
+			<TR>
+				<td bgcolor="white">
+					<img src="${ctx}/teacher/images/icon_1.png" width="16" height="16" />
+					<strong><font color="red" size="3"> 提示</font> </strong>
+					<div id="content_note">
+						<ul>
+							<li>
+								您可以一次性删除本学院指定系、年级的所有学生。
+							</li>
+						</ul>
+					</div>
+				</td>
+			</TR>
+		</table>
 	</body>
 </html>

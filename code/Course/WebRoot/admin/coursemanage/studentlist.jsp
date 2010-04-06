@@ -100,5 +100,28 @@
 				</s:iterator>
 			</table>
 		</div>
+
+	  <table bgcolor="white" class=editTable cellSpacing=1 cellPadding=0
+			width="90%" align=center border=0>
+			<TR>
+				<td bgcolor="white">
+					<img src="${ctx}/teacher/images/icon_1.png" width="16" height="16" />
+					<strong><font color="red" size="3"> 提示</font> </strong>
+					<div id="content_note">
+						<ul>
+							<li>
+								学生列表罗列该门课程的所有学生。
+							</li>
+							<li>
+								您可以点对应行的“删除”按钮执行从该门课程删除该学生的操作。
+							</li>
+							<li>
+								您也可以点击左上方的“批量删除”按钮，一次性从课程中删除大量学生。
+							</li>
+						</ul>
+					</div>
+				</td>
+			</TR>
+		</table>
 	</body>
 </html>

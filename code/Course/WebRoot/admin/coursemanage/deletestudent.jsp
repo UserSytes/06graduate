@@ -12,8 +12,7 @@
 		<title>添加学生</title>
 		<SCRIPT language=javascript>
 			function check(form)
-			{
-				
+			{	
 				if (form.departmentId.value == -1)
 				{
 					alert("所属系不能为空！");
@@ -22,11 +21,6 @@
 				if (form.gradeId.value == -1)
 				{
 					alert("年级不能为空！");
-					return false;
-				}
-				if (form.studentNo.value == "")
-				{
-					alert("账号不能为空！");
 					return false;
 				}
 			}
@@ -124,5 +118,22 @@
 				</tr>
 			</table>
 		</s:form>
+
+	  <table bgcolor="white" class=editTable cellSpacing=1 cellPadding=0
+			width="90%" align=center border=0>
+			<TR>
+				<td bgcolor="white">
+					<img src="${ctx}/teacher/images/icon_1.png" width="16" height="16" />
+					<strong><font color="red" size="3"> 提示</font> </strong>
+					<div id="content_note">
+						<ul>
+							<li>
+								您可以一次性删除该门课程中指定系、年级的所有学生。
+							</li>
+						</ul>
+					</div>
+				</td>
+			</TR>
+		</table>
 	</body>
 </html>

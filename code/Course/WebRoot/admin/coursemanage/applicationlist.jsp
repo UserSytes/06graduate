@@ -19,11 +19,11 @@
 </style>
 	</head>
 	<body>
-<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 课程管理 -&gt; 申报课程列表 
+					当前位置: 课程管理 -&gt; 申报课程列表
 				</td>
 			</tr>
 		</table>
@@ -68,16 +68,14 @@
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
-								<font color="green">【通过】</font>
-							</a>
+								<font color="green">【通过】</font> </a>
 							<a
 								href="<s:url action="refuseReasonAction" >
                      			<s:param name="courseId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
-                					</s:url>" >
-								<font color="red">【退回】</font>
-							</a>
+                					</s:url>">
+								<font color="red">【退回】</font> </a>
 						</td>
 					</tr>
 				</s:iterator>
@@ -86,5 +84,28 @@
 				</tr>
 			</table>
 		</div>
+
+		<table bgcolor="white" class=editTable cellSpacing=1 cellPadding=0
+			width="90%" align=center border=0>
+			<TR>
+				<td bgcolor="white">
+					<img src="${ctx}/teacher/images/icon_1.png" width="16" height="16" />
+					<strong><font color="red" size="3"> 提示</font> </strong>
+					<div id="content_note">
+						<ul>
+							<li>
+								本院所有教师申请新的课程需要等待您审核通过才能进行教学资料上传。
+							</li>
+							<li>
+								若课程审核通过系统将提示教师可以正式开设该课程，并开始上传教学资料、课件等。
+							</li>
+							<li>
+								若课程审核未通过，需要您填写理由，系统自动将退回理由传达给教师。
+							</li>
+						</ul>
+					</div>
+				</td>
+			</TR>
+		</table>
 	</body>
 </html>
