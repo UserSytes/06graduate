@@ -1,0 +1,178 @@
+body{
+   color:#000;
+   background:#F0F8FF url(img/bg2.jpg) 0 0 repeat-x;
+}
+
+.border_bottom3{
+  border-bottom:3px solid #87CEFA;
+}
+
+#sub_nav{
+  background-color: #00688B;
+}
+
+#sub_nav li{  
+  color:#FFF;
+}
+
+#sub_nav li a:link{
+  color:#FFF;
+}
+
+#sub_nav li a:visited{
+  color:#FFF;
+}
+
+#sub_nav li a:hover{
+  color:#FFF;
+}
+
+.dgreen-bg{
+  background-color:#00688B;
+  width:100%;
+  height:34px;
+  border-bottom:20px solid #B0C4DE;
+  border-top:3px solid  #6495ED ;
+}
+
+#main_nav li{
+  color:#FFF;  
+}
+
+#main_nav li a:link{
+  color:#FFF;
+}
+
+#main_nav li a:visited{
+  color:#FFF;
+}
+
+#main_nav li a:hover{
+  color:#FFF;
+}
+
+#main_nav li ul{
+	background-color: #00688B;	
+}
+#main_nav li:hover ul{
+	background-color: #00688B;	
+}
+
+#main_nav li ul li{
+	border-bottom: 1px solid #BBB;
+}
+
+
+#top-adv{
+  border:1px solid #5F9EA0;
+  border-bottom:4px solid #5F9EA0;
+}
+
+#top-contact-info{
+  color:#565615;
+  background:transparent url(../img/contact-bg.gif) 0 2px no-repeat;
+}
+
+#left-nav-bar{
+  background:#B0C4DE;
+}
+
+#left-nav-bar h2{
+  color:  #4169E1;
+  letter-spacing:1px;
+  border-bottom:1px solid #ABABAB;
+}
+
+#left-nav-bar h3{
+  border-top:1px solid #BBB;
+  border-bottom:1px solid #BBB;
+  color:#6E1920;
+}
+
+#left-nav-bar h3 a{
+  border-top:1px solid #BBB;
+  border-bottom:1px solid #BBB;
+}
+
+#left-nav-bar ul li a{
+
+}
+
+#h3a1{
+  color:#1874CD;  	
+}
+
+#h3a2{
+  color:#104E8B;
+}
+
+#h3a3{
+  color:#121212;	
+}
+#right-cnt{background:#F0F8FF;
+}
+#right-cnt p{
+  color:#4D4D4D;
+}
+
+.pages{
+  background-color: #B0C4DE;
+  border-bottom:3px solid #5F9EA0;
+}
+
+.pages h2{
+  color:#4169E1;  
+}
+
+#tags{
+  background-color:#F6F6F6;
+}
+
+#products-list li ul li{
+  border-top:1px dashed #000;
+  color:#6F6F6F;
+
+}
+
+#products-list li ul li span{
+  color:#C80000;
+}
+
+div.col_center{
+  margin-top:0px;
+  border:1px solid #B6B683;  }
+
+.sub-title h2{ 
+  color:#4169E1;
+}
+
+div.col_center p#intro{
+  color:#4169E1;
+}
+
+div.col_center ul li a:link{
+  color:#4169E1;
+}
+
+div.col_center ul li a:visited{
+  color:#4169E1;
+}
+
+div.col_center ul li a:hover{
+  color:#0000CD;
+}
+
+#right-list li{
+  border-bottom:1px solid #CECECE;
+}
+
+#about{
+  background-color:#00688B;
+  width:100%;
+  padding:10px 0 10px 0;
+  height:14px;
+  border-top:3px solid #6495ED;
+  text-align:left;
+  color:#FFF;
+}
+-->
