@@ -73,7 +73,7 @@
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 学生管理 -&gt; 添加学生
+					当前位置: 学生管理 -&gt; 批量添加学生
 				</td>
 			</tr>
 		</table>
@@ -83,7 +83,7 @@
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						请选择新学生信息
+						请选择批量添加的学生信息
 					</td>
 				</tr>
 				<tr>
@@ -146,5 +146,31 @@
 				</tr>
 			</table>
 		</s:form>
+
+	  <table bgcolor="white" class=editTable cellSpacing=1 cellPadding=0
+			width="90%" align=center border=0>
+			<TR>
+				<td bgcolor="white">
+					<img src="${ctx}/teacher/images/icon_1.png" width="16" height="16" />
+					<strong><font color="red" size="3"> 提示</font> </strong>
+					<div id="content_note">
+						<ul>
+							<li>
+								您可以批量添加指定系、年级的学生帐号，添加的学生信息来自您上传的文件中。
+							</li>
+							<li>
+								上传文件格式为“Excel”，且文件前三列分别为学生学号、姓名、性别既可，其他列不要求。
+							</li>
+							<li>
+								文件中的学生学号不能重复。
+							</li>
+							<li>
+								所添加的学生帐号的 初始密码与账号（学号）相同。
+							</li>
+						</ul>
+					</div>
+				</td>
+			</TR>
+		</table>
 	</body>
 </html>
