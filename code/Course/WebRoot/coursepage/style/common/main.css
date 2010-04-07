@@ -1,0 +1,234 @@
+html,body,a,img,ul,li,fieldset,label,legend {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+
+
+
+label{
+color: #000;
+}
+#wrapper {
+	width: 878px;
+	border: 9px solid #33373b;
+	margin: 20px auto;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#panel {
+	
+}
+
+.btn-slide {
+	text-align: center;
+	width: 144px;
+	height: 31px;
+	margin: 0 auto;
+	font: bold 120%/ 100% Arial, Helvetica, sans-serif;
+	text-decoration: none;	
+	
+}
+
+.active {
+	background-position: right 12px;
+}
+
+#site {
+	
+	background-repeat: repeat-x;
+	width: 942px;
+	margin: 20px auto;
+}
+.splitter {
+	text-align: right;
+	background: url(classical/image/test.GIF) repeat-x;
+	border-bottom: 1px solid #1d1f21;
+	padding: 6px 40px 5px;
+}
+a {
+	color: #46c5ec;
+	border-bottom: 1px solid #294e5a;
+}
+
+a:hover,a:focus {
+	color: #ededed;
+	border-bottom-color: #595959;
+}
+
+a:active {
+	position: relative;
+	top: 1px;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+li {
+	list-style: none;
+}
+
+button,input[type="submit"],input[type="image"],label,label>input[type="checkbox"],label>input[type="radio"]
+	{
+	cursor: pointer;
+}
+
+/* 1. HEADER
+????????????????????????????????????????????????????????????????????? ?*/
+#title {
+	text-align: center;
+	position: relative;
+}
+
+#title h1 {
+	font: normal 36px/ 45px "Myriad Pro", "Myriad", "Gill Sans",
+		"Frutiger Linotype", "Helvetica Neue", sans-serif;
+	text-align: center;
+	text-shadow: rgba(0, 0, 0, 0.5) 0 1px 4px;
+	color: #46c5ec;
+	position: relative;
+	width: 221px;
+	height: 45px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#title h1 span {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: url("i/quicksand-logo.png") no-repeat;
+}
+
+#title p {
+	margin-top: 3px;
+	margin-right: 0;
+}
+
+#title a {
+	position: absolute;
+	left: -12px;
+	top: 13px;
+	background: #44494e url("i/nav.png") no-repeat 0 0;
+	color: #282b2e;
+	font-size: 11px;
+	line-height: 1;
+	border: 0;
+	text-shadow: rgba(255, 255, 255, 0.08) 0 1px 0;
+	padding: 5px 4px 5px 14px;
+	-moz-border-radius-topright: 2px;
+	-moz-border-radius-bottomright: 2px;
+	-webkit-border-top-right-radius: 2px;
+	-webkit-border-bottom-right-radius: 2px;
+	-webkit-transition: background-color 0.15s linear;
+	-moz-transition: background-color 0.15s linear;
+}
+
+#title a:hover,#title a:focus {
+	background-color: #5b6269;
+}
+
+#title a:active {
+	left: -13px;
+}
+
+/* 2. CONTENT
+????????????????????????????????????????????????????????????????????? ?*/
+
+
+ul li {
+	list-style: none;
+}
+
+
+strong {
+	font-size: 14;
+	font-weight: normal;
+	color: #FFFFFF;
+	text-shadow: rgba(255, 255, 255, 0.85) 0 0 3px;
+}
+
+.header {
+	font: normal 24px/ 1 "Myriad Pro", "Myriad", "Gill Sans",
+		"Frutiger Linotype", "Helvetica Neue", sans-serif;
+	text-shadow: rgba(0, 0, 0, 0.5) 0 1px 2px;
+	color: #46c5ec;
+	background: url("i/arrow.png") no-repeat;
+	margin-left: -59px;
+	padding-left: 59px;
+	margin-top: 16px;
+	padding-top: 4px;
+}
+
+.misc   ~ .header {
+	background-image: url("i/arrow-misc.png");
+	color: #6f7378;
+}
+
+/* 3. DEMO
+????????????????????????????????????????????????????????????????????? ?*/
+	/* 3.1 =Demo Area
+---------------------------------------------------------------------- */
+.demo p,.demo ul {
+	margin-right: 0;
+}
+
+#performance-toggle {
+	text-align: center;
+	margin-right: 0;
+	font-size: 11px;
+	opacity: 0.5;
+	-webkit-transition: opacity 0.25s linear;
+	-moz-transition: opacity 0.25s linear;
+}
+
+#performance-toggle :hover {
+	opacity: 0.999;
+}
+
+/* 3.2 =Image Grid
+---------------------------------------------------------------------- */
+.image-grid {
+	margin: 10px 20px 0px 20px;
+       padding-left:5px;
+	width: 880px;
+}
+
+.image-grid:after {
+	content: "";
+	display: block;
+	height: 0;
+	overflow: hidden;
+	clear: both;
+}
+
+.image-grid li {
+	width: 88px;
+	margin: 20px 5px 0 30px;
+	float: left;
+	text-align: center;
+	font-family: "Helvetica Neue", sans-serif;
+	line-height: 17px;
+	color: #686f74;
+	height: 120px;
+	overflow: hidden;
+}
+
+.image-grid li img,.image-grid li strong {
+	display: block;
+}
+
+.image-grid li strong {
+	color: #000000;
+}
+
+.image-grid li span {
+	color: #fff;
+	display: none;
+}

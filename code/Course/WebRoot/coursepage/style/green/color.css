@@ -1,6 +1,6 @@
 body{
    color:#000;
-   background:#FDFDEE url(img/bg1.gif) 0 0 repeat-x;
+   background:#FDFDEE url(bg1.gif) 0 0 repeat-x;
 }
 
 .border_bottom3{
@@ -137,6 +137,9 @@ div.col_center{
 margin-top:0px;
   border:1px solid #B6B683;  }
 
+.sub-title{ 
+ background-color:#B6B683;
+}
 .sub-title h2{ 
   color:#3E650C;
 }
