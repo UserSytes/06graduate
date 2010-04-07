@@ -1,6 +1,6 @@
 body{
    color:#000;
-   background:#F0F8FF url(img/bg2.jpg) 0 0 repeat-x;
+   background:#F0F8FF url(bg2.JPG) 0 0 repeat-x;
 }
 
 .border_bottom3{
@@ -78,7 +78,7 @@ body{
 }
 
 #left-nav-bar h2{
-  color:  #4169E1;
+  color:  #036;
   letter-spacing:1px;
   border-bottom:1px solid #ABABAB;
 }
@@ -92,6 +92,10 @@ body{
 #left-nav-bar h3 a{
   border-top:1px solid #BBB;
   border-bottom:1px solid #BBB;
+}
+
+#left-nav-bar ul li a:hover{
+  color:#0000CD;
 }
 
 #left-nav-bar ul li a{
@@ -109,19 +113,19 @@ body{
 #h3a3{
   color:#121212;	
 }
-#right-cnt{background:#F0F8FF;
+#right-cnt{
 }
 #right-cnt p{
   color:#4D4D4D;
 }
 
 .pages{
-  background-color: #B0C4DE;
+  background-color: #58ACFA;
   border-bottom:3px solid #5F9EA0;
 }
 
 .pages h2{
-  color:#4169E1;  
+  color:#036;  
 }
 
 #tags{
@@ -138,24 +142,29 @@ body{
   color:#C80000;
 }
 
-div.col_center{
+div.col_center{background:#F0F8FF;
   margin-top:0px;
   border:1px solid #B6B683;  }
 
+.sub-title{
+background-color: #58ACFA;
+}
+
 .sub-title h2{ 
-  color:#4169E1;
+
+  color:#036;
 }
 
 div.col_center p#intro{
-  color:#4169E1;
+  color:#369;
 }
 
 div.col_center ul li a:link{
-  color:#4169E1;
+  color:#369;
 }
 
 div.col_center ul li a:visited{
-  color:#4169E1;
+  color:#369;
 }
 
 div.col_center ul li a:hover{

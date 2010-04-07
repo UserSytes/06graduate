@@ -5,6 +5,7 @@
 
 .content {
 	MARGIN: 0px auto;
+	MARGIN-TOP: 5px;
 	WIDTH: 950px
 }
 
@@ -31,7 +32,7 @@
 #sub_nav {
 	RIGHT: 12px;
 	FLOAT: right;
-	WIDTH: 202px;
+	WIDTH: 212px;
 	POSITION: absolute;
 	TOP: 0px;
 	HEIGHT: 26px;
@@ -46,7 +47,7 @@
 	PADDING-LEFT: 5px;
 	FLOAT: left;
 	PADDING-BOTTOM: 5px;
-	WIDTH: 57px;
+	WIDTH: 60px;
 	PADDING-TOP: 5px;
 	HEIGHT: 12px;
 	TEXT-ALIGN: center
@@ -90,7 +91,7 @@
 
 #main_nav li ul {
 	position: absolute;
-	width: 80px;
+	width: 90px;
 	overflow: hidden;
 	display: none;
 	top: 30px;
@@ -101,7 +102,7 @@
 
 #main_nav li:hover ul {
 	position: absolute;
-	width: 80px;
+	width: 90px;
 	display: block;
 	top: 30px;
 	left: 1px;
@@ -219,9 +220,7 @@
 
 #right-cnt {
 	FLOAT: right;
-	WIDTH: 724px;
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
+	WIDTH: 724px
 }
 
 #right-cnt P {
@@ -229,17 +228,6 @@
 	MARGIN: 0px auto 24px;
 	WIDTH: 96%;
 	LINE-HEIGHT: 150%
-}
-
-P#location {
-	PADDING-RIGHT: 0px;
-	PADDING-LEFT: 5px;
-	FONT-WEIGHT: bold;
-	PADDING-BOTTOM: 6px;
-	MARGIN: 0px auto;
-	WIDTH: 647px;
-	TEXT-INDENT: 0px;
-	PADDING-TOP: 6px
 }
 
 .pages {
@@ -301,7 +289,7 @@ P#location {
 
 #products-list {
 	FLOAT: left;
-	WIDTH: 752px
+	WIDTH: 724px;
 }
 
 #products-list LI {
@@ -335,59 +323,16 @@ P#location {
 
 #products-list LI UL LI {
 	PADDING-RIGHT: 0px;
-	DISPLAY: inline000
+	DISPLAY: inline000;
+	PADDING-LEFT: 5px;
+	FLOAT: left;
+	PADDING-BOTTOM: 5px;
+	WIDTH: 151px;
+	MARGIN-RIGHT: 5px;
+	PADDING-TOP: 5px;
+	HEIGHT: 12px
 }
 
-;
-PADDING-LEFT
-:
- 
-5
-px
-;
- 
-FLOAT
-:
- 
-left
-;
- 
-PADDING-BOTTOM
-:
- 
-5
-px
-;
- 
-WIDTH
-:
- 
-151
-px
-;
- 
-MARGIN-RIGHT
-:
- 
-5
-px
-;
- 
-PADDING-TOP
-:
- 
-5
-px
-;
- 
-HEIGHT
-:
- 
-12
-px
-
-
-}
 #products-list LI UL LI SPAN {
 	FONT: bold 12px "", sans-serif;
 	MARGIN-LEFT: 20px;
@@ -519,5 +464,5 @@ DIV.col_center UL LI {
 	LINE-HEIGHT: 150%;
 	PADDING-TOP: 0px;
 	TEXT-ALIGN: center;
-	FONT: bold 14px "", sans-serif;
+	font: bold 13px Arial, Helvetica, sans-serif;
 }
