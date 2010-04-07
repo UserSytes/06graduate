@@ -16,7 +16,11 @@
 			document.getElementById("myHome").style.display="block";
 		}	
   	}
-  	</script>
+  	</script><style type="text/css">
+	.tda{
+		text-align: center;
+	}
+</style>
 	</head>
 	<body onload="checkPopedom()">
 
@@ -35,21 +39,21 @@
 					<table border="0" cellpadding="0" cellspacing="0">
 						<tr height="25">
 							<td align="right">
-								<table border="0" cellpadding="0" cellspacing="0" id="myHome">
+								<table border="0" cellpadding="0" cellspacing="0" id="myHome" align="right">
 									<tr>
-										<td width="80" align="center">
+										<td width="80" class="tda" align="center" >
 											<a href="<s:url action="myPageAction"></s:url>">我的主页</a>&nbsp;
 										</td>
-										<td width="4">
+										<td width="4" align="center" >
 											<img src="${ctx}/homepage/image/line.gif" border="0">
 										</td>
-										<td width="80" align="center">
+										<td  width="80" class="tda"  align="center">
 											<a href="getReceiveMailByStuAction.action">站内信</a>&nbsp;
 										</td>
-										<td width="4">
+										<td width="4" align="center">
 											<img src="${ctx}/homepage/image/line.gif" border="0">
 										</td>
-										<td width="80" align="center">
+										<td width="80" class="tda"  align="center">
 											<a href="<s:url action="logoutAction"></s:url>">退出系统</a>
 											&nbsp;
 										</td>
