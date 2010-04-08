@@ -504,12 +504,12 @@ demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
 									<td>
 									<!-- 분야별 프로그램 -->
 										<table border="0" cellpadding="0" cellspacing="0">
-										<tr>
-											<td width="96" align="right"><img src="${ctx}/homepage/image/utility_cont1.gif" alt=""></td>
-											<td width="97" align="right"><img src="${ctx}/homepage/image/utility_cont2.gif" alt=""></td>
-											<td width="97" align="right"><img src="${ctx}/homepage/image/utility_cont3.gif" alt=""></td>
-											<td width="97" align="right"><img src="${ctx}/homepage/image/utility_cont4.gif" alt=""></td>
-											<td width="97" align="right"><img src="${ctx}/homepage/image/utility_cont5.gif" alt=""></td>
+                                        <tr>
+											<td width="96" align="right"><a href="http://www.xmu.edu.cn/"><img src="${ctx}/homepage/image/utility_cont1.GIF" alt=""></a></td>
+											<td width="97" align="right"><a href="http://jwc.xmu.edu.cn/"><img src="${ctx}/homepage/image/utility_cont2.GIF" alt=""></a></td>
+											<td width="97" align="right"><a href="http://210.34.4.20/cn/"><img src="${ctx}/homepage/image/utility_cont3.GIF" alt=""></a></td>
+											<td width="97" align="right"><a href="http://zsb.xmu.edu.cn/"><img src="${ctx}/homepage/image/utility_cont4.GIF" alt=""></a></td>
+											<td width="97" align="right"><a href="http://xsc.xmu.edu.cn/"><img src="${ctx}/homepage/image/utility_cont5.GIF" alt=""></a></td>
 										</tr>
 										</table>
 									<!--/ 분야별 프로그램 -->

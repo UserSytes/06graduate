@@ -476,11 +476,11 @@ demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
 									<!-- 분야별 프로그램 -->
 										<table border="0" cellpadding="0" cellspacing="0">
 										<tr>
-											<td width="96" align="right"><img src="image/utility_cont1.gif" alt=""></td>
-											<td width="97" align="right"><img src="image/utility_cont2.gif" alt=""></td>
-											<td width="97" align="right"><img src="image/utility_cont3.gif" alt=""></td>
-											<td width="97" align="right"><img src="image/utility_cont4.gif" alt=""></td>
-											<td width="97" align="right"><img src="image/utility_cont5.gif" alt=""></td>
+											<td width="96" align="right"><a href="http://www.xmu.edu.cn/"><img src="image/utility_cont1.jpg" alt=""></a></td>
+											<td width="97" align="right"><a href="http://jwc.xmu.edu.cn/"><img src="image/utility_cont2.jpg" alt=""></a></td>
+											<td width="97" align="right"><a href="http://210.34.4.20/cn/"><img src="image/utility_cont3.jpg" alt=""></a></td>
+											<td width="97" align="right"><a href="http://zsb.xmu.edu.cn/"><img src="image/utility_cont4.jpg" alt=""></a></td>
+											<td width="97" align="right"><a href="http://xsc.xmu.edu.cn/"><img src="image/utility_cont5.jpg" alt=""></a></td>
 										</tr>
 										</table>
 									<!--/ 분야별 프로그램 -->
