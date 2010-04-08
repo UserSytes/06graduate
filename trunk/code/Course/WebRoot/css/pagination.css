@@ -1,0 +1,25 @@
+#pagination{
+	list-style:none;
+	float:right;
+}
+#pagination li{
+	display:inline;
+	margin-right:5px;
+}
+#pagination #text{
+	margin-right:30px;
+}
+.disabledTrue{
+	cursor:pointer;
+}
+.disabledFalse{
+	cursor:text;
+}
+.go{
+	border:1px solid #07CBFF;
+	background:#F2F5FF;
+}
+#turn{
+	width:24px;
+	border:1px solid #07CBFF;
+}
