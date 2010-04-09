@@ -10,6 +10,34 @@
 		<script type="text/javascript" src="${ctx}/dwr/util.js"></script>
 		<script type="text/javascript" src="${ctx}/dwr/interface/DepartmentDAO.js"></script>
 		<script type="text/javascript" src="${ctx}/dwr/interface/SchoolDAO.js"></script>
+		<LINK href="${ctx}/css/pagination.css" type=text/css rel=stylesheet>
+		<script type="text/javascript"
+			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
+		<script type="text/javascript" src="${ctx}/js/jquery.pagination.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//这是一个非常简单的demo实例，让列表元素分页显示
+	//回调函数的作用是显示对应分页的列表项内容
+	//回调函数在用户每次点击分页链接的时候执行
+	//参数page_index{int整型}表示当前的索引页
+	var $table = $('#table');
+	$("#tbody tr:gt(" + 9+ ")").hide().end();
+	$("#tbody").css("display","");  
+		var num_entries = $("#tbody tr").length;
+		// 创建分页
+		$("#Pagination").pagination( {
+				count:num_entries,
+				pageCount:10,
+				imagePath:"${ctx}/commons/images",
+				callback:function(page_index){							
+		 			$table.find("#tbody tr").show();               
+          			$("#tbody tr:lt(" + (page_index-1) * 10 + ")").hide().end();                  
+       				$("#tbody tr:gt(" + ((page_index) * 10 -1) + ")").hide().end();
+			}
+		});
+
+});
+</script>
 		<script language="javascript">
 	function getSchool() {
 		SchoolDAO.findAll(callbackorg);
@@ -37,6 +65,7 @@
 		return true;
 	}
 </script>
+</head>
 	<body onload="getSchool()" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0"	background="${ctx}/homepage/image/back_img.gif"
 		style="background-repeat: repeat-x">
 
@@ -187,7 +216,7 @@
 										</td>
 									</tr>
 								</table>
-								<table width="96%" cellpadding="0" cellspacing="0">
+								<table width="96%" id="table" style="">
 									<tr height="40">
 										<td colspan="6" background="${ctx}/homepage/image/bbs_bg.gif">
 											<table border="0" cellpadding="0" cellspacing="0"
@@ -218,7 +247,7 @@
 											</table>
 										</td>
 									</tr>
-
+									<tbody id="tbody" style="display: none;">
 									<s:iterator value="courseList" status="course">
 										<tr>
 											<td width="40" align="center">
@@ -248,9 +277,9 @@
 											<td colspan="6"
 												background="${ctx}/homepage/image/table_line.gif"></td>
 										</tr>
-									</s:iterator>
+									</s:iterator></tbody>
 								</table>
-
+								<div id="Pagination" class="pagination"></div>
 							</td>
 						</tr>
 					</table>
