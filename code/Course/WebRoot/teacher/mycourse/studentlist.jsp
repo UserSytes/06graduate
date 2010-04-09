@@ -11,12 +11,12 @@
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
 		<LINK href="${ctx}/css/pagination.css" type=text/css rel=stylesheet>
 		<link rel="stylesheet" href="${ctx}/css/thickbox.css" type="text/css"
-			media="screen" />		
-	
+			media="screen" />
+
 		<script type="text/javascript"
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
-	   <script type="text/javascript" src="${ctx}/js/thickbox2.js"></script>
-		<script type="text/javascript" src="${ctx}/js/jquery.pagination.js" charset="gbk"></script>
+		<script type="text/javascript" src="${ctx}/js/thickbox2.js"></script>
+		<script type="text/javascript" src="${ctx}/js/jquery.pagination.js"></script>
 		<title>学生列表</title>
 		<style type="text/css">
 <!--
@@ -35,40 +35,31 @@
 -->
 </style>
 		<script type="text/javascript">
-$(function(){
+$(document).ready(function(){
 	//这是一个非常简单的demo实例，让列表元素分页显示
 	//回调函数的作用是显示对应分页的列表项内容
 	//回调函数在用户每次点击分页链接的时候执行
 	//参数page_index{int整型}表示当前的索引页
-	var initPagination = function() {
-	
-	$("#tbody tr:gt(" + 3 + ")").hide().end();
+	var $table = $('#table');
+	$("#tbody tr:gt(" + 9+ ")").hide().end();
 	$("#tbody").css("display","");  
-		var num_entries = $("#table tbody tr").length;
-
+		var num_entries = $("#tbody tr").length;
 		// 创建分页
 		$("#Pagination").pagination( {
 				count:num_entries,
-				pageCount:4,
+				pageCount:10,
 				imagePath:"${ctx}/commons/images",
-				callback: pageselectCallback,
+				callback:function(page_index){							
+		 			$table.find("#tbody tr").show();               
+          			$("#tbody tr:lt(" + (page_index-1) * 10 + ")").hide().end();                  
+       				$("#tbody tr:gt(" + ((page_index) * 10 -1) + ")").hide().end();
+			}
 		});
-	 }();
 
-	 
-	function pageselectCallback(page_index, jq){
-		 var $table = $('#table');		
-		 $table.find("#tbody tr").show();               
-         $("#tbody tr:lt(" + (page_index-1) * 4 + ")").hide().end();                  
-         $("#tbody tr:gt(" + ((page_index) * 4 -1) + ")").hide().end();
-	}
 });
 </script>
 	</head>
 	<body>
-		
-
-		</div>
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
@@ -105,7 +96,7 @@ $(function(){
 						操作
 					</th>
 				</tr>
-<tbody id="tbody" style="display:none;">
+				<tbody id="tbody" style="display: none;">
 					<s:iterator value="studentList" status="student">
 						<tr class="listTr">
 							<td width="5%">
@@ -163,13 +154,13 @@ $(function(){
 									<font color="red">【从该课程删除】</font> </a>
 							</td>
 						</tr>
-				</s:iterator>
-</tbody>
+					</s:iterator>
+				</tbody>
 				</div>
 			</table>
-<div id="Pagination" class="pagination">
-			<!-- 这里显示分页 -->
-		</div>
+			<div id="Pagination" class="pagination">
+				<!-- 这里显示分页 -->
+			</div>
 		</div>
 	</body>
 </html>
