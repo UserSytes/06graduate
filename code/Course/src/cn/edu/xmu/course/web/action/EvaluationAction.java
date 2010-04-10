@@ -1,9 +1,8 @@
 package cn.edu.xmu.course.web.action;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import cn.edu.xmu.course.commons.CourseEvaluate;
 import cn.edu.xmu.course.pojo.Administrator;
@@ -17,8 +16,6 @@ import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.IEvaluateService;
 import cn.edu.xmu.course.service.ILoginService;
-import cn.edu.xmu.course.service.ILoginService;
-import cn.edu.xmu.course.service.impl.CourseService;
 
 public class EvaluationAction extends BaseAction {
 
@@ -401,11 +398,8 @@ public class EvaluationAction extends BaseAction {
 	 */
 	public String showEvaluateCourses() {
 		courseList = new ArrayList<Course>();
-		System.out.println("测试课程评价："+courseIds.size());
 		for(int i = 0; i< courseIds.size(); i++){
 			Course course = courseService.getCourseById( Integer.parseInt(courseIds.get(i)) );
-			System.out.println("测试课程评价2："+courseIds.get(i));
-			System.out.println("测试课程评价3："+course.getName());
 			courseList.add(course);
 		}
 		if(courseList.size()==0){
@@ -413,11 +407,34 @@ public class EvaluationAction extends BaseAction {
 			return ERROR;
 		}else{
 			courseEvaluateList = evaluateService.getEvaluateByCourseList(courseList);
+			super.getSession().put("data", courseEvaluateList);
 			return SUCCESS;
 		}
 	}
 	
+	/**
+	 * 生成课程柱形图
+	 * @return
+	 */
+	public String genrEvaluateChart() {
+		try {
+			Administrator admin = (Administrator) super.getSession().get(
+					ADMIN);
+			School school = admin.getSchool();
+			Date currentDate = new Date();
+			super.getSession().put(
+					"title", school.getName()+ "课程评价对比柱形图");
+			super.getSession().put("abscissa", "课程");
+			super.getSession().put("ordinate", "平均分");
 
+			return SUCCESS;
+		} catch (RuntimeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return ERROR;
+		}
+	}
+	
 	public String getEvaluationDetail() {
 		evaluation = evaluateService.findById(evaluationId);
 		return SUCCESS;

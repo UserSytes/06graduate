@@ -65,6 +65,18 @@
 		<url-pattern>/dwr/*</url-pattern>
 	</servlet-mapping>
 
+	<!-- JFreeChart -->
+	<servlet>
+		<servlet-name>ServletChartGenerator</servlet-name>
+		<servlet-class>
+			cn.edu.xmu.course.commons.ServletChartGenerator
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletChartGenerator</servlet-name>
+		<url-pattern>/servlet/ServletChartGenerator</url-pattern>
+	</servlet-mapping>
+	
 <display-name>FCKeditor.Java Sample Web Application</display-name>
 	<description>FCKeditor.Java Sample Web Application</description>
 
