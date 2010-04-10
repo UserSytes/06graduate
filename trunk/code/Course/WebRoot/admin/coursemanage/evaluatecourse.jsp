@@ -47,8 +47,7 @@
 			<s:form action="showEvaluateCoursesAction" method="post"
 				onsubmit="return check(this);">
 				<table class="listTable">
-					<tr class="listHeaderTr"
-						<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
+					<tr class="listHeaderTr">
 						<th>
 							序号
 						</th>
