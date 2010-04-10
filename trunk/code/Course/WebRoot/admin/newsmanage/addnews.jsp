@@ -104,7 +104,7 @@ conditionTable.deleteRow(o.parentElement.rowIndex*1);
 					</td>
 					<td colspan="4" bgcolor="#FFFFFF">
 						<s:textfield cssClass="LONGINPUT" id="author" name="news.author"
-							label="作者"  size="30"></s:textfield>
+							label="作者"  size="30" value="厦门大学"></s:textfield>
 						&nbsp;*
 					</td>
 				</tr>
