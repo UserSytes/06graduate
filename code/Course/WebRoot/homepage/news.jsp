@@ -92,12 +92,12 @@ $(document).ready(function(){
 					<tbody id="tbody" style="display: none;">		
 						<s:iterator value="newsList" status="new">			
 												<tr height="25">
-													<td width="70%">&nbsp;&nbsp;<img src="${ctx}/homepage/image/but.jpg" border="0" alt="">&nbsp;&nbsp;
+													<td width="80%">&nbsp;&nbsp;<img src="${ctx}/homepage/image/but.jpg" border="0" alt="">&nbsp;&nbsp;
 													<a href="<s:url action="enterNewsAction"> <s:param name="newsId"> 
 	                       			 									<s:property value="id"/> </s:param> </s:url>">
 																			<s:property value="title" /></a>
 													&nbsp;&nbsp;</td>
-													<td width="30%"><s:date name="time" format="yyyy-MM-dd hh:mm:ss" />&nbsp;&nbsp;</td>
+													<td width="20%"><s:date name="time" format="yyyy-MM-dd hh:mm:ss" />&nbsp;&nbsp;</td>
 												</tr>
 												<tr height="1">
 													<td colspan="2" background="${ctx}/homepage/image/main_line.gif"></td>
