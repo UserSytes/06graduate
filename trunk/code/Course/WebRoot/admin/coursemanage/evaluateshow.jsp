@@ -28,7 +28,7 @@
 			</tr>
 		</table>
 		<div align="center">
-			<s:form action="showEvaluateCoursesAction" method="post"
+			<s:form action="evaluateChartAction" method="post"
 			onsubmit="return check(this);">
 			<table class="listTable">
 				<tr class="listHeaderTr"

@@ -1,6 +1,6 @@
 package cn.edu.xmu.course.commons;
 
-public class CourseEvaluate {
+public class CourseEvaluate implements java.io.Serializable{
 
 	private String courseName;
 	private String teacherName;

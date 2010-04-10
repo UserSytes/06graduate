@@ -874,6 +874,11 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
+		<action name="evaluateChartAction" method="genrEvaluateChart" class="evaluationAction">
+			<result name="success">/admin/coursemanage/chart.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		<action name="showEvaluateCoursesAction" method="showEvaluateCourses" class="evaluationAction">
 			<result name="success">/admin/coursemanage/evaluateshow.jsp
 			</result>
