@@ -2,6 +2,7 @@ package cn.edu.xmu.course.service;
 
 import java.util.List;
 
+import cn.edu.xmu.course.commons.PageBean;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.pojo.Teacher;
@@ -69,7 +70,8 @@ public interface INoticeService {
 	 * @param course
 	 * @return
 	 */
-	public List findLastestFiveNews(Course course);
+	public List findLastestFiveNews(Course course,int sort);
 	
+	public PageBean queryForPage(Course course, Integer sort,int pageSize,int page);
 	
 }
