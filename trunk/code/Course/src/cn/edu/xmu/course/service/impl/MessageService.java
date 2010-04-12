@@ -8,6 +8,7 @@ import java.util.List;
 
 import cn.edu.xmu.course.commons.CompareTime;
 import cn.edu.xmu.course.commons.MessageInfo;
+import cn.edu.xmu.course.commons.PageBean;
 import cn.edu.xmu.course.dao.MessageDAO;
 import cn.edu.xmu.course.dao.TopicDAO;
 import cn.edu.xmu.course.pojo.Course;
@@ -21,15 +22,18 @@ import cn.edu.xmu.course.service.IMessageService;
 public class MessageService implements IMessageService {
 	private MessageDAO messageDAO;
 	private TopicDAO topicDAO;
-	
-	public boolean addMessage(Course course,Topic topic, Message message,UserInfo userInfo) {
-		System.out.println("正在加入帖子为："+topic.getId()+"的留言");
+
+	public boolean addMessage(Course course, Topic topic, Message message,
+			UserInfo userInfo) {
+		System.out.println("正在加入帖子为：" + topic.getId() + "的留言");
 		topic.setCourse(course);
 		topic.setTime(new Date());
 		topic.setCountPerson(0);
 		topic.setCountReply(0);
 		topic.setLastAnswer("无");
 		topic.setAuthorName(userInfo.getName());
+		topic.setLastAnswer(userInfo.getName());
+		topic.setLastUpdate(new Date());
 		message.setGrade(1);
 		message.setUserInfo(userInfo);
 		message.setTopic(topic);
@@ -42,18 +46,22 @@ public class MessageService implements IMessageService {
 			return false;
 		}
 	}
-	
+
 	/*
 	 * (non-Javadoc)
-	 * @see cn.edu.xmu.course.service.IMessageService#addReplyMessage(cn.edu.xmu.course.pojo.Topic, cn.edu.xmu.course.pojo.Message, cn.edu.xmu.course.pojo.UserInfo)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IMessageService#addReplyMessage(cn.edu.xmu.
+	 * course.pojo.Topic, cn.edu.xmu.course.pojo.Message,
+	 * cn.edu.xmu.course.pojo.UserInfo)
 	 */
 	public boolean addReplyMessage(Topic topic, Message message,
 			UserInfo userInfo) {
 		// TODO Auto-generated method stub
-		topic.setCountReply(topic.getCountReply()+1);
+		topic.setCountReply(topic.getCountReply() + 1);
 		topic.setLastUpdate(new Date());
 		topic.setLastAnswer(userInfo.getName());
-		message.setGrade(topic.getCountReply()+2);
+		message.setGrade(topic.getCountReply() + 2);
 		message.setUserInfo(userInfo);
 		message.setTopic(topic);
 		message.setTime(new Date());
@@ -75,14 +83,14 @@ public class MessageService implements IMessageService {
 		}
 	}
 
-	public List getAllMessages(Topic topic,int pageSize, int pageNow)
-	{	
-		List list = messageDAO.queryByPage(topic,pageSize ,pageNow);
+	public List getAllMessages(Topic topic, int pageSize, int pageNow) {
+		List list = messageDAO.queryByPage(topic, pageSize, pageNow);
 		if (list.size() > 0) {
 			return list;
 		} else
 			return null;
 	}
+
 	public Message getMessageById(Integer id) {
 
 		return messageDAO.findById(id);
@@ -98,19 +106,20 @@ public class MessageService implements IMessageService {
 		}
 	}
 
-	public List getMessageByTopic(Topic topic){
+	public List getMessageByTopic(Topic topic) {
 		return messageDAO.findByTopicByOrder(topic);
 	}
-	
+
 	/**
 	 * 根据用户查找主题（grade为1的message）
+	 * 
 	 * @param userInfo
 	 * @return
 	 */
-	public List getMessageByUserInfo(UserInfo userInfo){
+	public List getMessageByUserInfo(UserInfo userInfo) {
 		return messageDAO.findTopicByUserInfo(userInfo);
 	}
-	
+
 	public void setMessageDAO(MessageDAO messageDAO) {
 		this.messageDAO = messageDAO;
 	}
@@ -127,6 +136,25 @@ public class MessageService implements IMessageService {
 		return topicDAO;
 	}
 
-
+	public PageBean queryForPage(Topic topic, int pageSize, int page) {
+		final String hql = "from Message message where message.topic.id='"
+				+ topic.getId() + "' order by message.grade"; // 查询语句
+		int allRow = messageDAO.getAllRowCount(hql); // 总记录数
+		System.out.println("getAllRowCount:"+allRow);
+		int totalPage = PageBean.countTotalPage(pageSize, allRow); // 总页数
+		final int offset = PageBean.countOffset(pageSize, page); // 当前页开始记录
+		final int length = pageSize; // 每页记录数
+		final int currentPage = PageBean.countCurrentPage(page);
+		List<Message> list = messageDAO.queryForPage2(hql, offset, length); //"一页"的记录
+		// 把分页信息保存到Bean中
+		PageBean pageBean = new PageBean();
+		pageBean.setPageSize(pageSize);
+		pageBean.setCurrentPage(currentPage);
+		pageBean.setAllRow(allRow);
+		pageBean.setTotalPage(totalPage);
+		pageBean.setList(list);
+		pageBean.init();
+		return pageBean;
+	}
 
 }
