@@ -177,8 +177,9 @@
 	PADDING-LEFT: 10px;
 	PADDING-BOTTOM: 3px;
 	WIDTH: 200px;
+	OVERFLOW: hidden;
 	PADDING-TOP: 5px;
-	HEIGHT: 12px
+	HEIGHT: 28px
 }
 
 #left-nav-bar H3 {
@@ -246,7 +247,7 @@
 	PADDING-LEFT: 10px;
 	FLOAT: left;
 	FONT: bold 14px "", sans-serif;
-	WIDTH: 100px;
+	WIDTH: 300px;
 	LETTER-SPACING: 1px;
 	HEIGHT: 14px
 }
@@ -419,10 +420,10 @@ DIV.col_center UL LI {
 	FLOAT: left;
 	PADDING-BOTTOM: 4px;
 	MARGIN-LEFT: 5px;
-	OVERFLOW: hidden;
-	WIDTH: 282px;
+	WIDTH: 300px;
 	PADDING-TOP: 5px;
-	HEIGHT: 12px
+	OVERFLOW: hidden;
+	HEIGHT: 14px;
 }
 
 #m_adv {

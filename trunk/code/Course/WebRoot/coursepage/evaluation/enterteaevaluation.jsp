@@ -120,7 +120,7 @@ itemtitle ul a:hover span {
 						<td class="first" align="center">
 							<br>
 							<a style="color: #09C; float: right; font-weight: 700;"
-								href="${ctx}/coursepage/evaluation/login.jsp?height=350&width=450"
+								href="${ctx}/coursepage/evaluation/login.jsp?height=150&width=250"
 								class="thickbox" title="登陆">登陆</a>
 							<a
 								href="<s:url action="tDetailEvaluateAction"> 

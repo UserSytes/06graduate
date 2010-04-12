@@ -14,60 +14,12 @@
   <body>
   <s:include value="style/header.jsp"></s:include>
 <div class="content">
-	 <div id="left-nav-bar" class="bg_white">
-		  <h2>公告信息</h2>
-		  <ul>
-			  <li><a href="#">千亿美元进中国 推高股价房价</a></li>
-
-			  <li><a href="#">千亿美元进中国 推高股价房价</a></li>
-			  <li><a href="#">千亿美元进中国 推高股价房价</a></li>
-			  <li><a href="#">千亿美元进中国 推高股价房价</a></li>
-			  <li><a href="#">千亿美元进中国 推高股价房价</a></li>
-
-			  <li><a href="#">千亿美元进中国 推高股价房价</a></li>
-			  <li><a href="#">千亿美元进中国 推高股价房价</a></li>
-			  <li><a href="#">千亿美元进中国 推高股价房价</a></li>
-		  </ul><br>
-<h2>任课教师</h2>
-		  <ul>
-&nbsp;&nbsp;<img src="${ctx}/coursepage/style/green/noavatar_small.gif"/>
-			 <li>姓名：林坤辉</li>
-			  <li>职称：教授</li>
-			  <li>电话：123456789</li>
-			  <li>Email：test@qq.com</li>
-
-		  </ul>
-
-		  <span id="hits">现在已经有[132342342342]次点击</span>
-  </div> 
-  <div id="right-cnt">
-	      <div class="col_center">
-	        <div class="sub-title"><h2>课程通知</h2><span><a href="#" class="cblue">MORE</a></span><br class="clear" />
-	        </div>
-			<ul>
-			    <li><a href="#">千亿美元进中国房价中国房价中国国房价中国价中国</a></li>
-
-				<li><a href="#">千亿美元进中国房价中国房价中国国房价中国价中国</a></li>
-			    <li><a href="#">千亿美元进中国房价中国房价中国国房价中国价中国</a></li>
-				<li><a href="#">千亿美元进中国房价中国房价中国国房价中国价中国</a></li>
-			    <li><a href="#">千亿美元进中国房价中国房价中国国房价中国价中国</a></li>
-				<li><a href="#">千亿美元进中国房价中国房价中国国房价中国价中国</a></li>
-				<li><a href="#">千亿美元进中国房价中国房价中国国房价中国价中国</a></li>
-
-			</ul>
-		  </div>
-	      <div class="col_center right">
-	        <div class="sub-title"><h2>课程简介</h2><span><a href="#" class="cblue">MORE</a></span><br class="clear" /></div>
-			<p id="intro">
-			课程啊[<a href="#" class="cgray">详细</a>]           </p>
-
-		  </div><br class="clear" />
-		 		  
+	 <s:include value="style/left.jsp"></s:include> 
+  <div id="right-cnt">		 		  
 		    <div class="pages"><h2>成果展示</h2><div id="more"><a href="#" class="cblue">MORE</a></div>
 		    <br class="clear" /></div>
-			<ul id="products-list">
-
-			</ul><br class="clear" />
+<div><font style="font-size: 12px; color: #74582f">自从1968年提出“软件工程”这一术语以来，研究软件工程的专家学者们陆续提出了100多条关于软件工程的准则或信条。美国著名的软件工程专家巴利·玻姆（Barry Boehm）综合这些专家的意见，并总结了美国天合公司（TRW）多年的开发软件的经验，于1983年提出了软件工程的七条基本原理。</font></div>
+<br class="clear" />
   </div>
   
   <br class="clear" />

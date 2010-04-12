@@ -28,17 +28,22 @@
 </SCRIPT>
 	</head>
 	<body>
-		<jsp:include page="header.jsp"></jsp:include>
+		<!--<jsp:include page="header.jsp"></jsp:include>
 		<jsp:include page="top.jsp"></jsp:include>
-		<div id="content">
-			<div style="width: 770px">
+		--><div>
+			<div>
 <s:form action="loginFromEvaluationAction" method="post"
 													onsubmit="">
 													<table width="60%" height="100%" border="0"
-														cellspacing="0" cellpadding="0" align="center">
+														cellspacing="0" cellpadding="0" align="center" style="margin-top:100px;">
 														<tr>
+															<td colspan="2" align="center">
+																<font style="font-size:18px;font-weight:bold;">用户登录</font>
+															</td>
+														</tr>
+<tr>
 															<td height="30" align="center">
-																&nbsp;账号：
+																&nbsp;<font style="font-size:16px;font-weight:bold;">账号：</font>
 															</td>
 															<td>
 																<s:textfield name="userName"></s:textfield>
@@ -46,7 +51,7 @@
 														</tr>
 														<tr>
 															<td height="30" align="center">
-																&nbsp;密码：
+																&nbsp;<font style="font-size:16px;font-weight:bold;">密码：</font>
 															</td>
 															<td>
 																<s:password name="password"></s:password>
@@ -54,7 +59,7 @@
 														</tr>
 														<tr>
 															<td height="30" align="center">
-																&nbsp;角色：
+																&nbsp;<font style="font-size:16px;font-weight:bold;">角色：</font>
 															</td>
 															<td>
 																<s:select name="flag" list="# {'0':'专家','1':'老師','2':'學生'}"
@@ -76,6 +81,6 @@
 			</div>
 		</div>
 
-		<jsp:include page="bottom.jsp"></jsp:include>
-	</body>
+		<!--<jsp:include page="bottom.jsp"></jsp:include>
+	--></body>
 </html>

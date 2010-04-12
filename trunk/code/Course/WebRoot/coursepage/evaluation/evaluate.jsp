@@ -1,107 +1,120 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ include file="../../commons/taglibs.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
 	<head>
-		<meta http-equiv="Content-Style-Type" content="text/css">
-		<link href="${ctx}/coursepage/default.css" rel="stylesheet"
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>课程评价-厦门大学课程网络平台</title>
+		<link href="${ctx}/coursepage/style/common/common.css"
+			rel="stylesheet" type="text/css" />
+		<link href="${ctx}/coursepage/style/common/layout.css"
+			rel="stylesheet" type="text/css" />
+		<link href="${ctx}/coursepage/style/green/color.css" rel="stylesheet"
 			type="text/css" />
 	</head>
-	<title>厦门大学精品课程</title>
-
-	</head>
 	<body>
-		<div id="header">
-			<h1>
-				<s:text name="">${course.name}</s:text>
-				精品课程
-				<br />
-				<span class="text1"><s:property value="applicationForm.name" />
-				</span>
-			</h1>
-		</div>
-		<jsp:include page="${ctx}/coursepage/top.jsp"></jsp:include>
-		<div id="content">
-			<div id="right">
-				<h2 align="center">
-					<strong>课程评价</strong>
-				</h2>
-				<hr id="border-top" />
-				<table cellpadding="0" cellspacing="0">
+		<!-- 头部 -->
+		<s:include value="../style/header.jsp"></s:include>
+		<div class="content">
+			<!-- 左侧 -->
+			<s:include value="../style/left.jsp"></s:include>
+			<div id="right-cnt">
+				<br class="clear" />
+				<!-- 正文部分 -->
+				<div class="pages">
+					<h2>
+						<a href="goIndexQueryAction.action">首页</a>&gt;
+						<a href="<s:url action="evaluateAction"> 
+                					</s:url>">课程评价</a>&gt;详细浏览
+					</h2>
+					<br class="clear" />
+				</div>
+
+<ul id="products-list">
+			</ul>
+		<!-- 正文 -->
+				<div>
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="724" align="center">
+								<table border="0" cellpadding="0" cellspacing="0" width="724"
+									height="94"
+									background="${ctx}/coursepage/style/green/titlebg.gif"
+									style="background-repeat: no-repeat">
+									<tr>
+										<td width="724" valign="top" align="right">
+											<font style="font-size: 12px; color: #574434"></font>
+										</td>
+									</tr>
+									<tr height="69">
+										<td valign="bottom" align="left">
+											<table border="0" cellpadding="0" cellspacing="0">
+												<tr>
+													<td align="center">
+														<font color="#966f48"
+															style="font-size: 18px; font-weight: bold">请选择评价方式</font>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<font color="#92a35d" style="font-size: 12px;"></font>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr height="1">
+										<td width="724" bgcolor="#c4ae86" valign="top"></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td width="24"></td>
+										<td><br />
+												<table cellpadding="0" cellspacing="0" align="center">
 					<tr>
 						<td>
-							<a
-								href="<s:url action="studentEvaluateResultAction"> 
-                					</s:url>">学生对课程的评价</a>
+							<a href="<s:url action="studentEvaluateResultAction"> 
+                					</s:url>"><font color="#74582f" style="font-size:16px;font-weight:bold;">&gt;&gt;学生对课程的评价</font></a>
 
 						</td>
 					</tr>
-					<br><tr>
-						<td>
+					<tr>
+						<td><br />
 							<a
 								href="<s:url action="expertEvaluateResultAction"> 
-                					</s:url>">专家对课程的评价</a>
+                					</s:url>"><font color="#74582f" style="font-size:16px;font-weight:bold;">&gt;&gt;专家对课程的评价</font></a>
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td><br />
 							<a
 								href="<s:url action="teacherEvaluateResultAction"> 
                      			
-                					</s:url>">同行教师对课程的评价</a>
+                					</s:url>"><font color="#74582f" style="font-size:16px;font-weight:bold;">&gt;&gt;同行教师对课程的评价</font></a>
 
 						</td>
 					</tr>
 				</table>
-
+										</td>
+										<td width="24"></td>
+									</tr>
+								</table>
+							</td>
+						</tr>	
+					</table>
+				</div>
+				<br class="clear" />
 			</div>
 
-			<div id="left">
-				<h2>
-					<strong>最新更新</strong>
-				</h2>
-				<p>
-					<strong>[06/09/2009]</strong>面向对象以及设计模式
-					<a href="#"></a>
-				</p>
-				<p>
-					<strong>[06/06/2009]</strong>Java 语言的基本语句、语法、应用程序开发技巧
-				</p>
-				<p>
-					<strong>[06/03/2009]</strong> 软件工程中的流程模型之瀑布模型
-				</p>
-				<p>
-					<strong>[06/06/2009]</strong>Java 语言的基本语句、语法、应用程序开发技巧
-				</p>
-				<p>
-					<strong>[06/03/2009]</strong> 软件工程中的流程模型之瀑布模型
-				</p>
-				<p>
-					&nbsp;
-				</p>
-				<h2>
-					在线学生
-				</h2>
-				<ul>
-					<li>
-						访客用户
-					</li>
-					<li>
-						陈晓明
-					</li>
-					<li>
-						刘晓庆
-					</li>
-					<li>
-						潘粤明
-					</li>
-				</ul>
-				<p>
-					&nbsp;
-				</p>
-			</div>
+			<br class="clear" />
 		</div>
-		<jsp:include page="${ctx}/coursepage/bottom.jsp"></jsp:include>
+		<s:include value="../style/bottom.jsp"></s:include>
 	</body>
 </html>
