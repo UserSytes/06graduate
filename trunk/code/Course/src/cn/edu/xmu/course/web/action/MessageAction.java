@@ -35,7 +35,7 @@ public class MessageAction extends BaseAction {
 	private IMessageService messageService;
 	private ILoginService loginService;
 	private int pageNow = 1;
-	private int pageSize = 5;
+	private int pageSize = 10;
 	private int pageCount = 0;
 	private Student student;
 	private Teacher teacher;
@@ -164,7 +164,7 @@ public class MessageAction extends BaseAction {
 
 				userInfo = super.getUserInfo();
 			course = super.getCourse();
-			this.pageBean = getTopicService().queryForPage(pageSize, page);
+			this.pageBean = getTopicService().queryForPage(course,pageSize, page);
 			if (getPageBean().getAllRow() > 0) {
 				return "topics";
 			} else {
@@ -184,6 +184,21 @@ public class MessageAction extends BaseAction {
 		topic.setCountPerson(topic.getCountPerson() + 1);
 		topicService.updateTopic(topic);
 		if (getMessageList().size() > 0) {
+			return "messages";
+		} else {
+			System.out.println("查看留言出错！");
+			addActionError("查看留言出错！");
+			return ERROR;
+		}
+	}
+	public String showMessages2() {
+		userInfo=super.getUserInfo();
+		topic = topicService.getTopicById(topicId);
+		this.pageBean = getMessageService().queryForPage(topic, pageSize, page);
+		System.out.println("getAllRow:"+getPageBean().getAllRow());
+		topic.setCountPerson(topic.getCountPerson() + 1);
+		topicService.updateTopic(topic);
+		if (getPageBean().getAllRow() > 0) {
 			return "messages";
 		} else {
 			System.out.println("查看留言出错！");
@@ -225,48 +240,46 @@ public class MessageAction extends BaseAction {
 		if (keydate == null) {
 			if (authorName.equals("")) {// 按主题名称搜索
 				System.out.println("按主题名称搜索:" + keyword);
-				topicList = topicService.searchTopicByName(course, keyword);
+				this.pageBean = topicService.searchTopicByName(course, keyword,pageSize, page);
 			} else {
 				if (keyword.equals("")) {
 					// 按作者名称搜索
 					System.out.println("按作者名称搜索:" + getAuthorName());
-					topicList = topicService.searchTopicByAuthorName(course,
-							getAuthorName());
+					this.pageBean = topicService.searchTopicByAuthorName(course,
+							getAuthorName(),pageSize, page);
 				} else {
 					// 按主题名称和作者名称搜索
 					System.out.println("按主题名称和作者名称搜索:" + keyword + "  "
 							+ getAuthorName());
-					topicList = topicService.searchtopicByNameAndAuthorName(
-							course, keyword, getAuthorName());
+					this.pageBean = topicService.searchtopicByNameAndAuthorName(
+							course, keyword, getAuthorName(),pageSize, page);
 				}
 			}
 		} else {
 			if (authorName.equals("")) {
 				if (keyword.equals("")) { // 按时间搜索
 					System.out.println("按时间搜索:" + keydate);
-					topicList = topicService.searchTopicByTime(course, keydate);
+					this.pageBean = topicService.searchTopicByTime(course, keydate,pageSize, page);
 				} else { // 按关键字和时间搜索
 					System.out.println("按关键字和时间搜索:" + keyword + "" + keydate);
-					topicList = topicService.searchTopicByNameAndTime(course,
-							keyword, keydate);
+					this.pageBean  = topicService.searchTopicByNameAndTime(course,
+							keyword, keydate,pageSize, page);
 				}
 			} else {
 				if (keyword.equals("")) { // 按作者名和时间搜索
 					System.out.println("按作者名和时间搜索:" + getAuthorName() + "   "
 							+ keydate);
-					topicList = topicService.searchTopicByAuthorNameAndTime(
-							course, getAuthorName(), keydate);
+					this.pageBean  = topicService.searchTopicByAuthorNameAndTime(
+							course, getAuthorName(), keydate,pageSize, page);
 				} else { // 按主题名称、作者名和时间搜索
 					System.out.println("按主题名称、作者名和时间搜索:" + keyword + "   "
 							+ getAuthorName() + "  " + keydate);
-					topicList = topicService
+					this.pageBean  = topicService
 							.searchTopicByNameAndAuthorNameAndTime(course,
-									keyword, getAuthorName(), keydate);
+									keyword, getAuthorName(), keydate,pageSize, page);
 				}
 			}
 		}
-		addActionMessage("共为您搜索到"+topicList.size()+"个符合条件的主题");
-		System.out.println(topicList.size());
 		return SUCCESS;
 	}
 

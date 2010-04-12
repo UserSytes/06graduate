@@ -112,6 +112,24 @@ public class CourseInfoAction extends BaseAction {
 		return SUCCESS;
 	}
 	/**
+	 * 课程页面获取当前课程信息
+	 * 
+	 * @return
+	 */
+	public String findCourseInfo2() {
+		Course currentCourse = super.getCourse();
+		courseInfo = courseInfoService.getCourseInfo(currentCourse.getId(),
+				sort);
+		if (null == courseInfo) {
+			courseInfo = new CourseInfo();
+			courseInfo.setContent("暂无任何内容！");
+		}
+		if(sort==1)
+			return "courseinfo1";
+		else
+			return "courseinfo2";
+	}
+	/**
 	 * 首页获取当前课程信息
 	 * 
 	 * @return
