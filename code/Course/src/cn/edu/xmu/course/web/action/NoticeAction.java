@@ -2,6 +2,7 @@ package cn.edu.xmu.course.web.action;
 
 import java.util.List;
 
+import cn.edu.xmu.course.commons.PageBean;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.pojo.Teacher;
@@ -25,7 +26,9 @@ public class NoticeAction extends BaseAction {
 	private Integer noticeId;
 	private List<Notice> noticeList;
 	private List<Course> courseList;
-
+	private int page;    //第几页
+    private PageBean pageBean;    //包含分布信息的bean
+	private int pageSize = 10;
 	/**
 	 * 添加新的课程通知
 	 * 
@@ -95,10 +98,12 @@ public class NoticeAction extends BaseAction {
 	 */
 	public String getNoticeBySort() {
 		Course course = super.getCourse();
-		noticeList = noticeService.getNoticeBySort(course, getSort());
+		this.pageBean = getNoticeService().queryForPage(course, getSort(),pageSize, page);
+//		noticeList = noticeService.getNoticeBySort(course, getSort());
+		setSort(getSort());
 		return SUCCESS;
 	}
-
+	
 	public String findNoticeById() {
 		notice=noticeService.getNoticeById(noticeId);
 		if (getNotice() == null) {
@@ -231,6 +236,30 @@ public class NoticeAction extends BaseAction {
 
 	public Integer getSort() {
 		return sort;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPageBean(PageBean pageBean) {
+		this.pageBean = pageBean;
+	}
+
+	public PageBean getPageBean() {
+		return pageBean;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+
+	public int getPageSize() {
+		return pageSize;
 	}
 
 }

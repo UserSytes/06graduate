@@ -6,9 +6,11 @@ import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.CourseInfo;
 import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.pojo.Teacher;
+import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.ICourseInfoService;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.INoticeService;
+import cn.edu.xmu.course.service.ITeacherInfoService;
 
 public class EnterCourseAction extends BaseAction {
 
@@ -20,29 +22,30 @@ public class EnterCourseAction extends BaseAction {
 	private INoticeService noticeService;
 	private ICourseService courseService;
 	private ICourseInfoService courseInfoService;
-	
+	private ITeacherInfoService teacherInfoService;
+	private UserInfo userInfo;
 	private Integer sort;
 	private Notice notice;
 	private CourseInfo courseInfo;
 	private Course course;
 	private Integer noticeId;
 	private List<Notice> noticeList;
+	private List<Notice> noticeList2;
 	private Integer count;
+	private Teacher teacher;
 	
 	public String goIndexQuery(){
-		Course course=super.getCourse();
-		setNotice(noticeService.findLastestNotice(course));
-		if (null == getNotice()) {
-			setNotice(new Notice());
-			notice.setContent("暂无任何内容！");
-		}
+		course=super.getCourse();
 		setCourseInfo(courseInfoService.getCourseInfo(course.getId(),
 				1));
 		if (null == getCourseInfo()) {
 			setCourseInfo(new CourseInfo());
 			getCourseInfo().setContent("暂无任何内容！");
 		}
-		setNoticeList(noticeService.findLastestFiveNews(course));
+		setTeacher(course.getTeacher());
+		setUserInfo(getTeacher().getUserInfo());
+		setNoticeList(noticeService.findLastestFiveNews(course,0));
+		setNoticeList2(noticeService.findLastestFiveNews(course,1));
 		setCount(course.getCount());	
 		return SUCCESS;
 	}
@@ -125,6 +128,38 @@ public class EnterCourseAction extends BaseAction {
 
 	public Integer getCount() {
 		return count;
+	}
+
+	public void setNoticeList2(List<Notice> noticeList2) {
+		this.noticeList2 = noticeList2;
+	}
+
+	public List<Notice> getNoticeList2() {
+		return noticeList2;
+	}
+
+	public void setTeacherInfoService(ITeacherInfoService teacherInfoService) {
+		this.teacherInfoService = teacherInfoService;
+	}
+
+	public ITeacherInfoService getTeacherInfoService() {
+		return teacherInfoService;
+	}
+
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
+	}
+
+	public UserInfo getUserInfo() {
+		return userInfo;
+	}
+
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+
+	public Teacher getTeacher() {
+		return teacher;
 	}
 
 }
