@@ -2,6 +2,7 @@ package cn.edu.xmu.course.service;
 
 import java.util.List;
 
+import cn.edu.xmu.course.commons.PageBean;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Message;
 import cn.edu.xmu.course.pojo.Topic;
@@ -32,4 +33,11 @@ public interface IMessageService {
 	
 	public List getMessageByTopic(Topic topic);
 	public List getMessageByUserInfo(UserInfo userInfo);
+	/**
+     * 分页查询
+     * @param currentPage 当前第几页
+     * @param pageSize 每页大小
+     * @return 封闭了分页信息(包括记录集list)的Bean
+     */
+    public PageBean queryForPage(Topic topic,int pageSize,int page);
 }
