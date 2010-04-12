@@ -1369,6 +1369,7 @@
 			class="noticeAction">
 			<result name="success">/coursepage/noticelist.jsp
 			</result>
+
 		</action>
 		<action name="viewNoticeAction" method="findNoticeById"
 			class="noticeAction">
@@ -1398,10 +1399,12 @@
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
 		</action>
-		<action name="findCourseInfoAction" method="findCourseInfo"
+		<action name="findCourseInfoAction" method="findCourseInfo2"
 			class="courseInfoAction">
 			<param name=""></param>
-			<result name="success">/coursepage/courseintro.jsp
+			<result name="courseinfo1">/coursepage/courseintro.jsp
+			</result>
+			<result name="courseinfo2">/coursepage/courseintro2.jsp
 			</result>
 		</action>
 		<action name="findTeacherTeamAction" method="findTeacherTeam"
@@ -1454,6 +1457,10 @@
 			<result name="error">/commons/prompt1.jsp</result>
 			</action>
 			<!-- 留言板 -->
+			<action name="goNewTopicAction" method="goNewTopic" class="messageAction">
+			<result name="success">/coursepage/messagemanage/newtopic.jsp
+			</result>
+			</action>
 		<action name="addNewMessageAction" method="addNewMessage" class="messageAction">
 			<result name="success">/coursepage/messagemanage/success.jsp
 			</result>
@@ -1465,7 +1472,7 @@
 			<result name="error">/commons/prompt1.jsp</result>
 			<result name="login">/coursepage/login.jsp</result>
 			</action>
-		<action name="showMessagesAction" method="showMessages" class="messageAction">
+		<action name="showMessagesAction" method="showMessages2" class="messageAction">
 			<result name="messages">/coursepage/messagemanage/showmessages.jsp
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
