@@ -1,58 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.fckeditor.net" prefix="FCK"%>
-<%@ include file="../../commons/taglibs.jsp"%><html>
+<%@ include file="../../commons/taglibs.jsp"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title><s:property value="courseInfo.title"></s:property>-教学大纲-厦门大学网络课程中心</title>
-<link rel="stylesheet" href="${ctx}/coursepage/classical/link.css">
-</head>
-<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" background="${ctx}/coursepage/classical/image/back.gif" >
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>回复主题-<s:property value="topic.name" />-师生留言-厦门大学课程网络平台</title>
+		<link href="${ctx}/coursepage/style/common/common.css"
+			rel="stylesheet" type="text/css" />
+		<link href="${ctx}/coursepage/style/common/layout.css"
+			rel="stylesheet" type="text/css" />
+		<link href="${ctx}/coursepage/style/green/color.css" rel="stylesheet"
+			type="text/css" />
+	</head>
+	<body>
+		<!-- 头部 -->
+		<s:include value="../style/header.jsp"></s:include>
+		<div class="content">
+			<!-- 左侧 -->
+			<s:include value="../style/left.jsp"></s:include>
+			<div id="right-cnt">
+				<br class="clear" />
+				<!-- 正文部分 -->
+				<div class="pages">
+					<h2>
+						<a href="goIndexQueryAction.action">首页</a>&gt;
+						<a href="<s:url action="showTopicsAction"> 
+                					</s:url>">师生留言</a>&gt;<a href="<s:url action="goReplyAction">
+                     			<s:param name="topicId"> 
+                       			 	<s:property value="topic.id"/> 
+                    			</s:param>
+                					</s:url>">
+												发表回复
+											</a>
+					</h2>
+					<br class="clear" />
+				</div>
 
-<!-- 导航 -->
-<s:include value="../classical/header.jsp"></s:include>
-<!-- /导航 -->
-
-<!-- 正文-->
-<table border="0" cellpadding="0" cellspacing="0" width="950" align="center" >
-<tr>
-	<td width="175">
-		<!--左边栏 -->
-		<s:include value="../classical/left.jsp"></s:include>
-		<!-- /左边栏 --></td>
-	<td width="775"  valign="top" align="center">
-		<table border="0" cellpadding="0" cellspacing="0" align="center">
-		<tr>
-			<td>
-				<!-- 中间主体内容 -->
-				<table border="0" cellpadding="0" cellspacing="0">
-				<tr>
-					<td colspan="3"><img width="775" src="${ctx}/coursepage/classical/image/topline2.gif" border="0"></td></tr>
-				<tr>
-					<td width="1" bgcolor="#b29f79"></td>
-					<td bgcolor="#fdfbf3">
-						<table border="0" cellpadding="0" cellspacing="0" width="773" >
+<ul id="products-list">
+			</ul>
+		<!-- 正文 -->
+				<div>
+					<table border="0" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>
-								<table border="0" cellpadding="0" cellspacing="0">
-								<tr>
-									<td valign="bottom">&nbsp;</td>
-									<td>
-										<table border="0" cellpadding="0" cellspacing="0">
-
-										<tr>
-											<td colspan="3">
-												<table border="0" cellpadding="0" cellspacing="0">
-												<tr>
-													<td>
-														<!-- 课程内容 -->
-														<table border="0" cellpadding="0" cellspacing="0">
+							<td width="724" align="center">
+								<table border="0" cellpadding="0" cellspacing="0" width="724" height="94" background="${ctx}/coursepage/classical/image/titlebg.gif" style="background-repeat:no-repeat">
 						<tr>
-							<td width="773" align="center">
-								<table border="0" cellpadding="0" cellspacing="0" width="760" height="94" background="${ctx}/coursepage/classical/image/titlebg.gif" style="background-repeat:no-repeat">
-						<tr>
-<td width="350"><font style="font-size:12px; color:#574434"><b>欢迎你，<s:property value="userInfo.name"/>&gt;<a href="<s:url action="enterPersionalSpaceAction"> 
+<td width="324"><font style="font-size:12px; color:#574434"><b>欢迎你，<s:property value="userInfo.name"/>&gt;<a href="<s:url action="enterPersionalSpaceAction"> 
                 					</s:url>">个人空间
 											</a>&nbsp;<a href="${ctx}/coursepage/messagemanage/searchtopic.jsp">
 												搜索
@@ -62,7 +58,7 @@
 												退出
 											</a></b></font>
 											</td>
-							<td width="400" valign="top" align="right"><font style="font-size:12px; color:#574434">首页&gt;<b>留言板&gt;<b>发新主题</b></font></td></tr>
+							<td width="400" valign="top" align="right"><font style="font-size:12px; color:#574434"></font></td></tr>
 						<tr height="69">
 							<td valign="bottom" align="left">
 								<table border="0" cellpadding="0" cellspacing="0">
@@ -73,7 +69,7 @@
 									<td><font color="#92a35d"style="font-size:12px;"></font></td></tr>
 								</table></td></tr>
 						<tr height="1">
-							<td width="750" bgcolor="#c4ae86" valign="top"></td></tr>
+							<td width="724" bgcolor="#c4ae86" valign="top"></td></tr>
 						</table>
 							</td></tr>
 						<tr height="20"><td></td></tr>
@@ -121,36 +117,13 @@
 										</tr>
 								</table>
 							</td></tr>
-						<tr height="35"><td></td></tr>	
-						<tr height="45">
-							<td width="753" align="right" valign="top"></td></tr>
 						</table>
-														<!-- /주요클리닉 -->
-													</td></tr>
-												</table>
-											</td></tr>
-										<tr height="12"><td></td></tr>
-										</table>
-									</td></tr>
-								</table>
-							</td></tr>
-						</table></td>
-					<td width="1" bgcolor="#cec1a6"></td></tr>
-				<tr>
-					<td colspan="3"><img width="775"  src="${ctx}/coursepage/classical/image/bottomline2.gif" border="0"></td></tr>
-				<tr height="10">
-					<td colspan="3"></td></tr>
-				</table>
-			</td></tr>
-		</table></td>
-	<td width="13"></td>
-</tr>
-</table>
-<!-- /내용부분-->
+				</div>
+				<br class="clear" />
+			</div>
 
-<!--底部 -->
-<s:include value="../classical/bottom.jsp"></s:include>
-<!--/底部 -->
-
-</body>
+			<br class="clear" />
+		</div>
+		<s:include value="../style/bottom.jsp"></s:include>
+	</body>
 </html>

@@ -1,203 +1,148 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ include file="../../commons/taglibs.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
-		<META http-equiv=Content-Type content="text/html; charset=UTF-8">
-		<META http-equiv=Pragma content=no-cache>
-		<META http-equiv=Cache-Control content=no-cache>
-		<META http-equiv=Expires content=-1000>
-		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>课程评价-厦门大学课程网络平台</title>
+		<link href="${ctx}/coursepage/style/common/common.css"
+			rel="stylesheet" type="text/css" />
+		<link href="${ctx}/coursepage/style/common/layout.css"
+			rel="stylesheet" type="text/css" />
+		<link href="${ctx}/coursepage/style/green/color.css" rel="stylesheet"
+			type="text/css" />
 		<link rel="stylesheet" href="${ctx}/css/thickbox.css" type="text/css"
 			media="screen" />
-		<title></title>
-		<style type="text/css">
-itemtitle ul a:hover span {
-	background: url(${ctx}/teacher/images/btn_block.gif) no-repeat 100%
-		-69px;
-}
-
-.itemtitle ul .current a,.itemtitle ul .current a:hover {
-	background: url(${ctx}/teacher/images/btn_block.gif) no-repeat 0 0;
-}
-
-.itemtitle ul .current a span,.itemtitle ul .current a:hover span {
-	background: url(${ctx}/teacher/images/btn_block.gif) no-repeat 100%
-		-23px;
-	color: #FFF;
-}
-</style>
 		<script type="text/javascript" src="${ctx}/js/mail.js"></script>
 		<script type="text/javascript" src="${ctx}/js/prototype.js"></script>
 		<script type="text/javascript"
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
 		<script type="text/javascript" src="${ctx}/js/thickbox.js"></script>
 		<script>
-     jQuery.noConflict();
+	jQuery.noConflict();
 </script>
-		<script type="text/javascript">
-		
-				var prepmdiv = '';
-	var folder = 'inbox';
-	var table1;
-	var row1;
-	var currpmdiv;
-	function getMailDetail(mailId,e,obj,status) {
-		currpmdiv = mailId+ '_div';	
-		if (!$(currpmdiv)) {
-		
-		table1 = document.getElementById("table");
-		row1 = table1.insertRow(obj.parentNode.parentNode.rowIndex + 1);
-		if(status == 1){
-		var e = table1.rows[obj.parentNode.parentNode.rowIndex].cells[0].firstChild;
-		e.src="${ctx}/teacher/images/pm_0.gif";
-		}
-	
-		 jQuery.post("eDetailEvaluateAction.action", { mailId:mailId},  
-                                    callBack, "json");  
-	   
-					$(prepmdiv).style.display = 'none';
-			
-				changestatus(obj);
-				prepmdiv = currpmdiv;
-			}
-		else {
-			if ($(currpmdiv).style.display == 'none') {
-					$(currpmdiv).style.display = '';
-				changestatus(obj);
-				if (prepmdiv) {
-					$(prepmdiv).style.display = 'none';
-				}
-				prepmdiv = currpmdiv;
-			} else {
-				$(currpmdiv).style.display = 'none';
-				prepmdiv = '';
-			}
-		}
-		
-	}		
-
-</script>
-
 	</head>
 	<body>
-		<div id="header">
-			<h1>
-				<s:text name="">${course.name}</s:text>
-				精品课程
-				<br />
-				<span class="text1"><s:property value="applicationForm.name" />
-				</span>
-			</h1>
-		</div>
-		<jsp:include page="${ctx}/coursepage/top.jsp"></jsp:include>
-		<div id="content">
-			<div id="right">
-				<h2 align="center">
-					<strong>专家对课程《<s:text name="">${course.name}</s:text>》的评价</strong>
-				</h2>
-				<hr id="border-top" />
+		<!-- 头部 -->
+		<s:include value="../style/header.jsp"></s:include>
+		<div class="content">
+			<!-- 左侧 -->
+			<s:include value="../style/left.jsp"></s:include>
+			<div id="right-cnt">
+				<br class="clear" />
+				<!-- 正文部分 -->
+				<div class="pages">
+					<h2>
+						<a href="goIndexQueryAction.action">首页</a>&gt;
+						<a
+							href="<s:url action="evaluateAction"> 
+                					</s:url>">课程评价</a>&gt;详细浏览
+					</h2>
+					<br class="clear" />
+				</div>
 
-				<table class="listing form" cellpadding="0" cellspacing="0">
+				<ul id="products-list">
+				</ul>
+				<!-- 正文 -->
+				<div>
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="724" align="center">
+								<table border="0" cellpadding="0" cellspacing="0" width="724"
+									height="94"
+									background="${ctx}/coursepage/style/green/titlebg.gif"
+									style="background-repeat: no-repeat">
+									<tr>
+										<td width="724" valign="top" align="right">
+											<font style="font-size: 12px; color: #574434"></font>
+										</td>
+									</tr>
+									<tr height="69">
+										<td valign="bottom" align="left">
+											<table border="0" cellpadding="0" cellspacing="0">
+												<tr>
+													<td align="center">
+														<font color="#966f48"
+															style="font-size: 18px; font-weight: bold">专家对课程《<s:text name="">${course.name}</s:text>》的评价</font>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<font color="#92a35d" style="font-size: 12px;"></font>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr height="1">
+										<td width="724" bgcolor="#c4ae86" valign="top"></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table cellpadding="0" cellspacing="0" align="center">
+									<s:iterator value="evaluationList" status="evaluation">
+										<tr>
+											<td>
 
-					<s:iterator value="evaluationList" status="evaluation">
-						<tr class="bg">
-							<td class="first">
-
-								<img src="${ctx}/homepage/images/but.jpg" width="4" height="7">
-									&nbsp; 
-								<a
-									href="<s:url action="enterEvaluationAction"> 
+												<img src="${ctx}/homepage/images/but.jpg" width="4"
+													height="7">
+													&nbsp; 
+												<a
+													href="<s:url action="enterEvaluationAction"> 
 	                     											<s:param name="evaluationId"> 
 	                       			 									<s:property value="id"/> 
 	                    											</s:param> 
 	                													</s:url>">
-									专家评价：<s:property value="name" />&nbsp;&nbsp; 教授</a>
-								<br>
-							</td>
-						</tr>
-					</s:iterator>
-					<tr class="bg">
-						<td class="first" align="center">
-							<br>
-<a style="color: #09C; float: right; font-weight: 700;"
-								href="${ctx}/coursepage/evaluation/login.jsp?height=350&width=450"
-								class="thickbox" title="登陆">登陆</a>
-							<a href="<s:url action="eDetailEvaluateAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-                					</s:url>">
-							我要评价</a>
-
+													<font color="#74582f"
+													style="font-size: 16px; font-weight: bold;">专家评价：<s:property
+															value="name" />&nbsp;&nbsp; 教授</font>
+												</a>
+											</td>
+										</tr>
+									</s:iterator>
+<tr>
+						<td>
+							<div align="left">
+								<br />
+								<font size="3"><strong><s:fielderror /> </strong> </font>
+								<font size="3"><strong><s:actionmessage /> </strong> </font>
+								<font size="3"><strong><s:actionerror /> </strong> </font>
+							</div>
 						</td>
 					</tr>
-<tr>
-				<td >
-					<div align="left">
-						<br>
-<font size="3"><strong><s:fielderror />
-						</strong>
-						</font>
-						<font size="3"><strong><s:actionmessage />
-						</strong>
-						</font>
-						<font size="3"><strong><s:actionerror />
-						</strong>
-						</font>
-					</div>
-				</td>
-			</tr>
-				</table>
+									<tr>
+										<td align="center">
+											<br />
+											<a style="color: #09C; float: right; font-weight: 700;"
+												href="${ctx}/coursepage/evaluation/login.jsp?height=350&width=450"
+												class="thickbox" title="登陆"><font color="#74582f"
+												style="font-size: 16px; font-weight: bold;">登陆</font>
+											</a>
+											<a
+												href="<s:url action="eDetailEvaluateAction"> 
+	                     							<s:param name="course"> 
+                       			 						<s:property value="id"/> 
+                    								</s:param>
+								</s:url>"><font color="#74582f" style="font-size: 16px; font-weight: bold;">进入评价</font>
+											</a>
+
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<br class="clear" />
 			</div>
 
-			<div id="left">
-				<h2>
-					<strong>最新更新</strong>
-				</h2>
-				<p>
-					<strong>[06/09/2009]</strong>面向对象以及设计模式
-					<a href="#"></a>
-				</p>
-				<p>
-					<strong>[06/06/2009]</strong>Java 语言的基本语句、语法、应用程序开发技巧
-				</p>
-				<p>
-					<strong>[06/03/2009]</strong> 软件工程中的流程模型之瀑布模型
-				</p>
-				<p>
-					<strong>[06/06/2009]</strong>Java 语言的基本语句、语法、应用程序开发技巧
-				</p>
-				<p>
-					<strong>[06/03/2009]</strong> 软件工程中的流程模型之瀑布模型
-				</p>
-				<p>
-					&nbsp;
-				</p>
-				<h2>
-					在线学生
-				</h2>
-				<ul>
-					<li>
-						访客用户
-					</li>
-					<li>
-						陈晓明
-					</li>
-					<li>
-						刘晓庆
-					</li>
-					<li>
-						潘粤明
-					</li>
-				</ul>
-				<p>
-					&nbsp;
-				</p>
-			</div>
+			<br class="clear" />
 		</div>
-		<jsp:include page="bottom.jsp"></jsp:include>
+		<s:include value="../style/bottom.jsp"></s:include>
 	</body>
 </html>

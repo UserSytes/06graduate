@@ -1,86 +1,104 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.fckeditor.net" prefix="FCK"%>
 <%@ include file="../../commons/taglibs.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
 	<head>
-<meta http-equiv="Content-Style-Type" content="text/css">
-<link href="${ctx}/coursepage/default.css" rel="stylesheet" type="text/css" /></head>
-		<title>厦门大学精品课程</title>
-<SCRIPT language=javascript>
-			function check(form)
-			{
-				if (form.expertName.value == "")
-				{
-					alert("姓名不能为空！");
-					return false;
-				}
-				if (form.expertCompany.value == "")
-				{
-					alert("单位不能为空！");
-					return false;
-				}
-				if (form.expertPosition.value == "")
-				{
-					alert("职位不能为空！");
-					return false;
-				}
-				if (form.score.value < 0 ||form.score.value>100)
-				{
-					alert("请输入0到100分的整数");
-					return false;
-				}
-				return true;
-			}
-		</SCRIPT>		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>同行教师评价-课程评价-厦门大学课程网络平台</title>
+		<link href="${ctx}/coursepage/style/common/common.css"
+			rel="stylesheet" type="text/css" />
+		<link href="${ctx}/coursepage/style/common/layout.css"
+			rel="stylesheet" type="text/css" />
+		<link href="${ctx}/coursepage/style/green/color.css" rel="stylesheet"
+			type="text/css" />
+<link rel="stylesheet" href="${ctx}/css/thickbox.css" type="text/css"
+			media="screen" />
+		<script type="text/javascript" src="${ctx}/js/mail.js"></script>
+		<script type="text/javascript" src="${ctx}/js/prototype.js"></script>
 	</head>
 	<body>
-		<div id="header">
-			<h1>
-				<s:text name="">${course.name}</s:text>
-				精品课程
-				<br />
-				<span class="text1"><s:property value="applicationForm.name" />
-				</span>
-			</h1>
-		</div>
-		<jsp:include page="${ctx}/coursepage/top.jsp"></jsp:include>
-		<div id="content">
-			<div id="right">
-				<h2 align="center">
-					<strong>课程评价</strong>
-				</h2>
-				<hr id="border-top" />
-				<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
-					align=center border=0>
-					<tr class=position bgcolor="#ECF3FD">
-						<td>
-							当前位置: 课程评价
-						</td>
-					</tr>
-				</table>
-				<s:form action="teacherEvaluateAction" method="post" onsubmit="return check(this);">
+		<!-- 头部 -->
+		<s:include value="../style/header.jsp"></s:include>
+		<div class="content">
+			<!-- 左侧 -->
+			<s:include value="../style/left.jsp"></s:include>
+			<div id="right-cnt">
+				<br class="clear" />
+				<!-- 正文部分 -->
+				<div class="pages">
+					<h2>
+						<a href="goIndexQueryAction.action">首页</a>&gt;
+						<a href="<s:url action="evaluateAction"> 
+                					</s:url>">课程评价</a>&gt;同行教师评价
+					</h2>
+					<br class="clear" />
+				</div>
+
+<ul id="products-list">
+			</ul>
+		<!-- 正文 -->
+				<div>
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="724" align="center">
+								<table border="0" cellpadding="0" cellspacing="0" width="724"
+									height="94"
+									background="${ctx}/coursepage/style/green/titlebg.gif"
+									style="background-repeat: no-repeat">
+									<tr>
+										<td width="724" valign="top" align="right">
+											<font style="font-size: 12px; color: #574434"></font>
+										</td>
+									</tr>
+									<tr height="69">
+										<td valign="bottom" align="left">
+											<table border="0" cellpadding="0" cellspacing="0">
+												<tr>
+													<td align="center">
+														<font color="#966f48"
+															style="font-size: 18px; font-weight: bold">专家评价课程</font>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<font color="#92a35d" style="font-size: 12px;"></font>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr height="1">
+										<td width="724" bgcolor="#c4ae86" valign="top"></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+				<s:form action="teacherEvaluateAction" method="post">
 <s:hidden name="evaluation.id"></s:hidden>
 <s:hidden name="evaluation.course.id"></s:hidden>
 <s:hidden name="evaluation.username"></s:hidden>
 <s:hidden name="evaluation.password"></s:hidden>
 <s:hidden name="evaluation.status"></s:hidden>
 <s:hidden name="evaluation.sort"></s:hidden>
-					<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+					<table cellSpacing=1 cellPadding=0 width="100%"
 						align=center border=0>
-						<tr class=editHeaderTr>
-							<td class=editHeaderTd colSpan=7>
+						<tr>
+							<td colspan="7">
 								请输入个人信息及对该课程的评价
 							</td>
 						</tr>
 						<tr>
-							<td bgcolor="#FFFDF0">
+							<td>
 								<div align="center">
 									姓名：
 								</div>
 							</td>
-							<td colspan="3" bgcolor="#FFFFFF">
+							<td colspan="3">
 								&nbsp;&nbsp;&nbsp;
 								<s:textfield cssClass="INPUT" id="expertName"
 									name="evaluation.name" label="姓名"></s:textfield>
@@ -88,12 +106,12 @@
 							</td>
 						</tr>
 						<tr>
-							<td bgcolor="#FFFDF0">
+							<td>
 								<div align="center">
 									单位：
 								</div>
 							</td>
-							<td colspan="3" bgcolor="#FFFFFF">
+							<td colspan="3">
 								&nbsp;&nbsp;&nbsp;
 								<s:textfield cssClass="INPUT" id="expertCompany"
 									name="evaluation.company" label="单位"></s:textfield>
@@ -101,12 +119,12 @@
 							</td>
 						</tr>
 						<tr>
-							<td bgcolor="#FFFDF0">
+							<td>
 								<div align="center">
 									职位：
 								</div>
 							</td>
-							<td colspan="3" bgcolor="#FFFFFF">
+							<td colspan="3">
 								&nbsp;&nbsp;&nbsp;
 								<s:textfield cssClass="INPUT" id="expertPosition"
 									name="evaluation.position" label="职位"></s:textfield>
@@ -114,12 +132,12 @@
 							</td>
 						</tr>
 						<tr>
-							<td bgcolor="#FFFDF0">
+							<td>
 								<div align="center">
 									电话：
 								</div>
 							</td>
-							<td colspan="3" bgcolor="#FFFFFF">
+							<td colspan="3">
 								&nbsp;&nbsp;&nbsp;
 								<s:textfield cssClass="INPUT" id="expertPhone"
 									name="evaluation.phone" label="电话"></s:textfield>
@@ -127,12 +145,12 @@
 							</td>
 						</tr>
 						<tr>
-							<td bgcolor="#FFFDF0">
+							<td>
 								<div align="center">
 									邮箱：
 								</div>
 							</td>
-							<td colspan="3" bgcolor="#FFFFFF">
+							<td colspan="3">
 								&nbsp;&nbsp;&nbsp;
 								<s:textfield cssClass="INPUT" id="expertEmail"
 									name="evaluation.email" label="邮箱"></s:textfield>
@@ -141,17 +159,16 @@
 
 						</tr>
 <tr class="bg">
-							<td bgcolor="#FFFDF0">
+							<td>
 								请填写评价分数（0到100分的整数）
 							</td>
-<td colspan="3" bgcolor="#FFFFFF">
+<td colspan="3">
 								&nbsp;&nbsp;&nbsp;
 								<s:textfield cssClass="INPUT" id="score" name="evaluation.score" label="分数"></s:textfield>
 							</td>
 						</tr>
-
 						<tr class="bg">
-							<td colspan="4" bgcolor="#FFFFFF">
+							<td colspan="4">
 								<FCK:editor instanceName="evaluation.content" width="100%"
 									height="405" toolbarSet="Default">
 									<jsp:attribute name="value">
@@ -171,56 +188,15 @@
 						</tr>
 					</table>
 				</s:form>
-
-
-
+							</td>
+						</tr>	
+					</table>
+				</div>
+				<br class="clear" />
 			</div>
 
-			<div id="left">
-				<h2>
-					<strong>最新更新</strong>
-				</h2>
-				<p>
-					<strong>[06/09/2009]</strong>面向对象以及设计模式
-					<a href="#"></a>
-				</p>
-				<p>
-					<strong>[06/06/2009]</strong>Java 语言的基本语句、语法、应用程序开发技巧
-				</p>
-				<p>
-					<strong>[06/03/2009]</strong> 软件工程中的流程模型之瀑布模型
-				</p>
-				<p>
-					<strong>[06/06/2009]</strong>Java 语言的基本语句、语法、应用程序开发技巧
-				</p>
-				<p>
-					<strong>[06/03/2009]</strong> 软件工程中的流程模型之瀑布模型
-				</p>
-				<p>
-					&nbsp;
-				</p>
-				<h2>
-					在线学生
-				</h2>
-				<ul>
-					<li>
-						访客用户
-					</li>
-					<li>
-						陈晓明
-					</li>
-					<li>
-						刘晓庆
-					</li>
-					<li>
-						潘粤明
-					</li>
-				</ul>
-				<p>
-					&nbsp;
-				</p>
-			</div>
+			<br class="clear" />
 		</div>
-		<jsp:include page="${ctx}/coursepage/bottom.jsp"></jsp:include>
+		<s:include value="../style/bottom.jsp"></s:include>
 	</body>
 </html>
