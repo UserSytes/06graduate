@@ -17,8 +17,6 @@ body {
 	margin-bottom: 0px;
 }
 -->
-</style>
-		<style>
 .navPoint {
 	COLOR: white;
 	CURSOR: hand;
@@ -27,7 +25,7 @@ body {
 }
 </style>
 	</head>
-	<frameset rows="*" cols="156,6,*" id="frame" style="width:500;height:500;overflow:auto;" >
+	<frameset rows="*" cols="156,6,*" id="frame" style="width:100%;height:100%;overflow:auto;" >
 		<frame src="left.jsp" name="I1" noresize="noresize" scrolling="No"
 			marginwidth="0" marginheight="0" frameborder="0" />
 		<frame src="leftmiddle.jsp" name="I3" noresize="noresize"

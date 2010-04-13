@@ -21,7 +21,7 @@
 									<td height="23" style="cursor: hand"
 										onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
 										onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
-										<span class="STYLE2">&nbsp;<span class="STYLE2">&nbsp;<a
+										<span class="STYLE3"><a
 												target=I2
 												href="<s:url action="saveCurrentCourseAction"> 
                      			<s:param name="courseId"> 

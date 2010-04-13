@@ -19,7 +19,12 @@ body {
 	font-weight: bold;
 	font-size: 12px;
 }
-
+.STYLE3 {
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 12px;
+	margin: 0px auto;
+}
 .STYLE2 {
 	font-size: 12px;
 	color: #03515d;
