@@ -5,7 +5,6 @@
 
 .content {
 	MARGIN: 0px auto;
-	MARGIN-TOP: 5px;
 	WIDTH: 950px
 }
 
@@ -144,6 +143,12 @@
 	HEIGHT: 76px
 }
 
+.notice-list {
+	overflow: hidden;
+	height: 200px;
+	width: 210px;
+}
+
 #left-nav-bar {
 	PADDING-RIGHT: 5px;
 	PADDING-LEFT: 5px;
@@ -180,6 +185,7 @@
 	OVERFLOW: hidden;
 	PADDING-TOP: 5px;
 	HEIGHT: 28px
+	LINE-HEIGHT: 15px;
 }
 
 #left-nav-bar H3 {
@@ -225,7 +231,7 @@
 }
 
 #right-cnt P {
-	FONT-SIZE: 14px;
+	FONT-SIZE: 13px;
 	MARGIN: 0px auto 24px;
 	WIDTH: 96%;
 	LINE-HEIGHT: 150%
@@ -408,6 +414,21 @@ DIV.col_center P {
 	-webkit-border-radius: 10px;
 }
 
+.main_con {
+	display: block;
+	PADDING-RIGHT: 5px;
+	PADDING-LEFT: 5px;
+	PADDING-BOTTOM: 5px;
+	WIDTH: 714px;
+	PADDING-TOP: 5px;
+	HEIGHT: 265px;
+	overflow: hidden;
+	line-height: 20px;
+	text-overflow: ellipsis;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
 DIV.col_center UL {
 	FLOAT: left;
 	WIDTH: 302px
@@ -424,6 +445,7 @@ DIV.col_center UL LI {
 	PADDING-TOP: 5px;
 	OVERFLOW: hidden;
 	HEIGHT: 14px;
+	FONT: 13px "", sans-serif;
 }
 
 #m_adv {
