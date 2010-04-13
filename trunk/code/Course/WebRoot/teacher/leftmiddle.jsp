@@ -13,12 +13,12 @@ var displayBar=true;
 function switchBar(obj){
 	if (displayBar)
 	{
-		parent.frame.cols="0,6,*";
+		window.parent.window.document.getElementById("frame").cols="0,6,*";
 		displayBar=false;
 		obj.title="打开左边管理菜单";
 	}
 	else{
-		parent.frame.cols="156,6,*";
+		window.parent.window.document.getElementById("frame").cols="156,6,*";
 		displayBar=true;
 		obj.title="关闭左边管理菜单";
 	}
