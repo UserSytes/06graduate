@@ -40,7 +40,7 @@ a:hover{
 
 .cdred,a.cdred:link,a.cdred:visited{color:#C80000;}
 .cwhite,a.cwhite:link,a.cwhite:visited{color:#FFF;background-color:transparent;}
-.cgray,a.cgray:link,a.cgray:visited{color:#6B6B6B;}
+.cgray,a.cgray:link,a.cgray:visited{color:#6B6B6B;float: right;}
 .cblue,a.cblue:link,a.cblue:visited{color:#1F3A87;}
 .cred,a.cred:link,a.cred:visited{color:#FF0000;}
 

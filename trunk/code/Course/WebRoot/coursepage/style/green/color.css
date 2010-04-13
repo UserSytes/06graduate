@@ -71,7 +71,9 @@ body{
 #top-contact-info{
   color:#565615;
 }
-
+.notice-list {
+	border: 0px solid #dde5bc;
+}
 #left-nav-bar{
   background:#E7E7D6 ;
 }
@@ -136,7 +138,9 @@ body{
 div.col_center{
 margin-top:0px;
   border:1px solid #B6B683;  }
-
+.main_con {
+ border:1px solid #B6B683;
+}
 .sub-title{ 
  background-color:#B6B683;
 }

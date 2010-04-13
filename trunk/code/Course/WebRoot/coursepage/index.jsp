@@ -27,7 +27,7 @@
 	        </div>
 			<ul>
 <s:iterator value="noticeList" status="notice">
-			    <li><font style="font-size:14px; color:#5a5547"><a href="<s:url action="viewNoticeAction"> 
+			    <li><a href="<s:url action="viewNoticeAction"> 
 										<s:param name="noticeId"> 
 								<s:property value="id"/> 
 								</s:param>
@@ -39,29 +39,20 @@
 													</s:if> <s:else>
 												<s:property value="title" />
 											</s:else>
-								</a></font>
+								</a>
 </li>
 </s:iterator>
 			</ul>
 		  </div>
 	      <div class="col_center right">
 	        <div class="sub-title"><h2>成果展示</h2><span><a href="<s:url action="findAchievementAction"></s:url>" class="cblue">MORE</a></span><br class="clear" /></div>
-			<div><s:text name="courseintrotext">${courseInfo.content}</s:text>[<a href="<s:url action="findCourseInfoAction"> 
-                     			<s:param name="sort"> 
-                       			 	1 
-                    			</s:param>
-                					</s:url>" class="cgray">详细</a>]</div>
+			<div><s:text name="courseintrotext">${courseInfo.content}</s:text></div>
 
 		  </div><br class="clear" />
 	<!-- 正文部分 -->	 		  
-		    <div class="pages"><h2>课程简介</h2><div id="more"><a href="<s:url action="findCourseInfoAction"> 
-                     			<s:param name="sort"> 
-                       			 	1 
-                    			</s:param>
-                					</s:url>" class="cblue">MORE</a></div>
-		    <br class="clear" /></div>
+		    <div class="pages"><h2>课程简介</h2><div id="more"><a href="#" class="cblue">MORE</a></div><br class="clear" /></div>
 <!-- 正文 --> 
-<div style="height:350px; overflow:hidden;"><s:text name="courseintrotext">${courseInfo.content}</s:text></div>
+<div class="main_con"><s:property value="courseInfo.content" escape="false"/></div>
 <br class="clear" />
 			</div>
 
