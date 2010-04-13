@@ -84,7 +84,7 @@ public class StudentCourseDAO extends HibernateDaoSupport {
 		log.debug("finding Evaluation instance with property: course"
 				+ ", value: " + courseId);
 		try {
-			String queryString = "select count(*),avg(score) from StudentCourse as model where model.course.id"
+			String queryString = "select count(*),avg(score) from StudentCourse as model where model.score != null and model.course.id"
 					+"= "+courseId;
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
