@@ -45,7 +45,7 @@
 				</td>
 			</tr>
 		</table>
-		<s:form action="addEvaluationAction" method="post"
+		<s:form action="addEvaTeacherAction" method="post"
 			enctype="multipart/form-data" onsubmit="return check(this);">
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>

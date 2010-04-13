@@ -104,10 +104,6 @@ public class EvaluateService implements IEvaluateService {
 		return rows;
 	}
 
-	// 根据课程ID找Evaluation
-	public List<Evaluation> findEvaluationByCourseId(int courseId) {
-		return evaluationDAO.findByCourse(courseId);
-	}
 
 	// 根据课程和用户名找Evaluation
 	public List<Evaluation> findByCourseAndUsernameAndSort(Course course,

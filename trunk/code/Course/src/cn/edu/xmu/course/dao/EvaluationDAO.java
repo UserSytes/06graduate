@@ -92,7 +92,7 @@ public class EvaluationDAO extends HibernateDaoSupport {
 		log.debug("finding Evaluation instance with property: course"
 				+ ", value: " + courseId);
 		try {
-			String queryString = "select count(*),avg(score) from Evaluation as model where model.sort = "+sort+" and model.course.id"
+			String queryString = "select count(*),avg(score) from Evaluation as model where model.score != null and model.sort = "+sort+" and model.course.id"
 					+"= "+courseId;
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
@@ -230,11 +230,11 @@ public class EvaluationDAO extends HibernateDaoSupport {
 	 * @param student
 	 * @return
 	 */
-	public List findByCourseAndSort(Course course, Object object) {
+	public List findByCourseAndSort(Course course, Integer sort) {
 		try {
 			String queryString = "from Evaluation as model where model.course.id ="
-					+ course.getId() + " and model.sort= ?";
-			return getHibernateTemplate().find(queryString, object);
+					+ course.getId() + " and model.sort= "+sort;
+			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
 			throw re;

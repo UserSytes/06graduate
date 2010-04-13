@@ -8,7 +8,6 @@
 		<META http-equiv=Pragma content=no-cache>
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
-		\
 		<link rel="stylesheet" href="${ctx}/css/thickbox.css" type="text/css"
 			media="screen" />
 		<script type="text/javascript"

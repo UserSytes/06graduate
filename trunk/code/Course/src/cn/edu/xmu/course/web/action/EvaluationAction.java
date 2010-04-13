@@ -35,6 +35,8 @@ public class EvaluationAction extends BaseAction {
 	private Object expertAvgScore = 0;
 	private Object stuCount;
 	private Object expertCount;
+	private Object teaAvgScore=0;
+	private Object teaCount;
 	private List<Evaluation> evaluationList;
 	private Teacher teacher;
 	private UserInfo userInfo;
@@ -147,7 +149,6 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String expertEvaluateResult() {
-		course = super.getCourse();
 		course = super.getCourse();	
 		evaluationList=evaluateService.findByCourseAndSort(course, 0);
 		if (evaluationList == null) {
@@ -329,13 +330,24 @@ public class EvaluationAction extends BaseAction {
 	}
 
 	/**
-	 * 获得该课程评价列表（教师）
+	 * 获得该课程专家评价列表（教师）
 	 * 
 	 * @return
 	 */
 	public String getEvaluationListByCourse() {
-		evaluationList = evaluateService.findEvaluationByCourseId(super
-				.getCourse().getId());
+		evaluationList = evaluateService.findByCourseAndSort(super
+				.getCourse(),0);
+		return SUCCESS;
+	}
+	
+	/**
+	 * 获得该课程同行评价列表（教师）
+	 * 
+	 * @return
+	 */
+	public String getEvaTeacherListByCourse() {
+		evaluationList = evaluateService.findByCourseAndSort(super
+				.getCourse(),1);
 		return SUCCESS;
 	}
 
@@ -348,10 +360,15 @@ public class EvaluationAction extends BaseAction {
 
 		Object[] evaluationResult = evaluateService
 				.getEvaluationCalculateResult(super.getCourse().getId(), 0);
+		Object[] teaResult = evaluateService
+		.getEvaluationCalculateResult(super.getCourse().getId(), 1);
 		Object[] scResult = evaluateService
 				.getStudentCourseCalculateResult(super.getCourse().getId());
 		stuCount = scResult[0];
 		expertCount = evaluationResult[0];
+		teaCount = teaResult[0];
+		if(teaResult[1] !=null)
+			teaAvgScore = teaResult[1];
 		if (scResult[1] != null)
 			stuAvgScore = scResult[1];
 		if (evaluationResult[1] != null)
@@ -366,6 +383,20 @@ public class EvaluationAction extends BaseAction {
 	 */
 	public String addEvaluation() {
 		evaluation.setSort(0);
+		if (evaluateService.addEvaluation(evaluation, super.getCourse()))
+			return SUCCESS;
+		else {
+			addActionError("邀请专家时发生错误，请重新操作！");
+			return ERROR;
+		}
+	}
+	/**
+	 * 邀请新的同行进行评价（教师)
+	 * 
+	 * @return
+	 */
+	public String addEvaTeacher() {
+		evaluation.setSort(1);
 		if (evaluateService.addEvaluation(evaluation, super.getCourse()))
 			return SUCCESS;
 		else {
@@ -662,6 +693,22 @@ public class EvaluationAction extends BaseAction {
 
 	public void setCourseEvaluateList(List<CourseEvaluate> courseEvaluateList) {
 		this.courseEvaluateList = courseEvaluateList;
+	}
+
+	public void setTeaCount(Object teaCount) {
+		this.teaCount = teaCount;
+	}
+
+	public Object getTeaCount() {
+		return teaCount;
+	}
+
+	public void setTeaAvgScore(Object teaAvgScore) {
+		this.teaAvgScore = teaAvgScore;
+	}
+
+	public Object getTeaAvgScore() {
+		return teaAvgScore;
 	}
 
 }

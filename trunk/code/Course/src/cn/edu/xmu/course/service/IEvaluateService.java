@@ -18,7 +18,6 @@ public interface IEvaluateService {
 
 	public Object[] getEvaluationCalculateResult(int courseId, int sort);
 	public Object[] getStudentCourseCalculateResult(int courseId);
-	public List<Evaluation>  findEvaluationByCourseId(int courseId);
 	public List<StudentCourse>  findByStudentAndCourse(Course course, Student student);
 	public List<Evaluation> findByCourseAndUsernameAndSort(Course course,String username,int sort);
 	public List<Evaluation> findByCourseAndSort(Course course,int sort);

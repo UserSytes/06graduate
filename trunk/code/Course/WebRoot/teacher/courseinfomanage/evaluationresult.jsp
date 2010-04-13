@@ -50,13 +50,41 @@
 			<tr>
 				<td bgcolor="#FFFDF0">
 					<div align="left">
-						<font size="3">&nbsp;&nbsp;&nbsp;平均得分: <s:property value="stuAvgScore"/><br> </font>
-						<font size="3">&nbsp;&nbsp;&nbsp;评价人数: <s:property value="stuCount"/><br> </font>
+						<font size="3">&nbsp;&nbsp;&nbsp;平均得分: <s:property
+								value="stuAvgScore" />
+							<br> </font>
+						<font size="3">&nbsp;&nbsp;&nbsp;评价人数: <s:property
+								value="stuCount" />
+							<br> </font>
 					</div>
 				</td>
 			</tr>
 		</table>
 
+		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+			align=center border=0>
+			<tr class=editHeaderTr>
+				<td class=editHeaderTd colSpan=7>
+					同行评价
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFDF0">
+					<div align="left">
+						<font size="3">&nbsp;&nbsp;&nbsp;平均得分: <s:property
+								value="teaAvgScore" /> <a
+							href="getEvaTeacherListByCourseAction.action"> <font
+								color="green">【查看详情】</font> </a> <br> </font>
+						<font size="3">&nbsp;&nbsp;&nbsp;评价人数: <s:property
+								value="teaCount" />
+							<br> </font>
+						<font size="3">&nbsp;&nbsp;&nbsp;点击<a
+							href="${ctx}/teacher/courseinfomanage/addevateacher.jsp">这里</a>邀请新的同行进行课程评价<br>
+						</font>
+					</div>
+				</td>
+			</tr>
+		</table>
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=editHeaderTr>
@@ -67,13 +95,16 @@
 			<tr>
 				<td bgcolor="#FFFDF0">
 					<div align="left">
-						<font size="3">&nbsp;&nbsp;&nbsp;平均得分: <s:property value="expertAvgScore"/> <a
-							href="getEvaluationListByCourseAction.action">
-								<font color="green">【查看详情】</font> </a>
-						<br> </font>
-						<font size="3">&nbsp;&nbsp;&nbsp;评价人数: <s:property value="expertAvgScore"/><br> </font>
-<font size="3">&nbsp;&nbsp;&nbsp;点击<a
-							href="${ctx}/teacher/courseinfomanage/addevaluation.jsp">这里</a>邀请专家新的专家进行课程评价<br> </font>
+						<font size="3">&nbsp;&nbsp;&nbsp;平均得分: <s:property
+								value="expertAvgScore" /> <a
+							href="getEvaluationListByCourseAction.action"> <font
+								color="green">【查看详情】</font> </a> <br> </font>
+						<font size="3">&nbsp;&nbsp;&nbsp;评价人数: <s:property
+								value="expertAvgScore" />
+							<br> </font>
+						<font size="3">&nbsp;&nbsp;&nbsp;点击<a
+							href="${ctx}/teacher/courseinfomanage/addevaluation.jsp">这里</a>邀请专家新的专家进行课程评价<br>
+						</font>
 					</div>
 				</td>
 			</tr>
@@ -94,15 +125,16 @@
 							专家评价有评分和评价内容，只有接受邀请的专家才能对课程进行评价。
 						</li>
 						<li>
-							如果要邀请新的专家来对课程进行评价，需要产生一个用户和密码，
-							同时<br>受邀请专家通过专门的网站登录点进行登录，登录后方可进行评价。
+							如果要邀请新的专家来对课程进行评价，需要产生一个用户和密码， 同时
+							<br>
+							受邀请专家通过专门的网站登录点进行登录，登录后方可进行评价。
 						</li>
 						<li>
 							专家登录网址为：http://……
 						</li>
 						<li>
 							学生和专家评价均不能进行删除操作。
-						</li>						
+						</li>
 					</ul>
 
 				</div>
