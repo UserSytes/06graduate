@@ -1396,6 +1396,11 @@
 			<result name="success">/coursepage/index.jsp
 			</result>
 		</action>
+		<action name="getLeftNoticeAction" method="getLeftNotice"
+			class="enterCourseAction">
+			<result name="success">/coursepage/style/leftinfo.jsp
+			</result>
+		</action>
 		
 		<action name="getcourseintroAction" method="getCourseintroFromIndex"
 			class="courseInfoAction">

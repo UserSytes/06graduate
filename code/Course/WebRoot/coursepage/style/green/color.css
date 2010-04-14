@@ -117,7 +117,35 @@ body{
   border-bottom:3px solid #4D4D37;
 }
 
+.table-list{
+	background-color: #FDFDEE;
+}
+
+.table-title{
+  color:#966f48;  
+}
+.tr-head{
+	background-color: #d3b981;	
+}
+.tr-foot{
+	background-color: #eedcb3;	
+}
+.td-foot{
+	background-color:#c4ae86;  
+}
+.tr-title td{
+   background-color: #f1e1be;
+}
+.tr-content{
+	background-color: #faefda;
+}
+.tr-content td{
+	color:#74582f;
+}
 .pages h2{
+  color:#3F4808;  
+}
+.pages h2 a{
   color:#3F4808;  
 }
 

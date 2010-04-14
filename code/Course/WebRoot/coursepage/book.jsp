@@ -26,69 +26,124 @@
 				<div class="pages">
 					<h2>
 						<a href="goIndexQueryAction.action">首页</a>&gt;
-						<a href="<s:url action="getAllBookAction"> 
+						<a
+							href="<s:url action="getAllBookAction"> 
                 					</s:url>">参考书籍</a>&gt;详细浏览
 					</h2>
 					<br class="clear" />
 				</div>
 
-<ul id="products-list">
-			</ul>
-		<!-- 正文 -->
+				<ul id="products-list">
+				</ul>
+				<!-- 正文 -->
 				<div>
 					<table border="0" cellpadding="0" cellspacing="0">
 						<tr>
 							<td width="724" align="center">
-								<table border="0" cellpadding="0" cellspacing="0" width="724" height="94" background="${ctx}/coursepage/classical/image/titlebg4.gif" style="background-repeat:no-repeat">
-						<tr>
-							<td width="724" valign="top" align="right"><font style="font-size:12px; color:#574434"></font></td></tr>
-						<tr height="69">
-							<td valign="bottom" align="left">
-								<table border="0" cellpadding="0" cellspacing="0">
-								<tr>
-									<td><font color="#966f48"style="font-size:16px; font-weight:bold">参考书籍</font></td>
-								</tr>
-								<tr>
-									<td><font color="#92a35d"style="font-size:12px;"></font></td></tr>
-								</table></td></tr>
-						<tr height="1">
-							<td width="724" bgcolor="#c4ae86" valign="top"></td></tr>
-						</table>
-							</td></tr>
-						<tr height="20"><td></td></tr>
-						<tr>
-					<td width="724" align="center">
-						<!--게시판 -->
-						<table border="0" cellpadding="0" cellspacing="0" width="724">
-						<tr height="3" bgcolor="#d3b981"><td colspan="14"></td></tr>
-						<tr bgcolor="#f1e1be">
-							<td width="48" height="40" align="center"><font style="font-size:14px;font-weight:bold;">序号</font></td>
-							<td>&nbsp;</td>
-							<td width="150" height="40" align="center"><font style="font-size:14px;font-weight:bold;">书名</font></td>
-							<td>&nbsp;</td>
-							<td width="70" height="40" align="center"><font style="font-size:14px;font-weight:bold;">作者</font></td>
-							<td>&nbsp;</td>
-							<td width="100" height="40" align="center"><font style="font-size:14px;font-weight:bold;">出版社</font></td>
-							<td>&nbsp;</td>
-							<td width="62" height="40" align="center"><font style="font-size:14px;font-weight:bold;">出版时间</font></td>
-							<td>&nbsp;</td>
-							<td width="68" height="40" align="center"><font style="font-size:14px;font-weight:bold;">链接</font></td>
+								<table border="0" cellpadding="0" cellspacing="0" width="724"
+									height="94"
+									background="${ctx}/coursepage/classical/image/titlebg4.gif"
+									style="background-repeat: no-repeat">
+									<tr>
+										<td width="724" valign="top" align="right">
+										</td>
+									</tr>
+									<tr height="69">
+										<td valign="bottom" align="left">
+											<table border="0" cellpadding="0" cellspacing="0">
+												<tr>
+													<td class="table-title">
+														参考书籍
+													</td>
+												</tr>
+												<tr>
+													<td>
+
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr height="1">
+										<td width="724" class="td-foot" valign="top"></td>
+									</tr>
+								</table>
+							</td>
 						</tr>
-<s:iterator value="bookList" status="book">
-						<tr height="33" bgcolor="#fdfbf3"  <s:if test="#book.even">style="background-color:#faefda"</s:if>>
-							<td align="center"><font color="#74582f"><s:property value="#book.count" /></font></td>
+						<tr height="20">
 							<td></td>
-							
-							<td width="150" align="center"><font color="#74582f"><s:property value="name" /></font></td> 
-							<td></td>
-							<td width="70" align="center"><DIV align="center"><s:property value="author" /></DIV></td>
-							<td></td>
-							<td width="100" align="center"><font color="#74582f"><s:property value="publication" /></font></td>
-							<td></td>
-							<td width="62" align="center"><font color="#74582f"><s:date name="time" format="yyyy-MM-dd" /></font></td>
-							<td></td>
-							<td width="68" align="center"><font color="#74582f"><a
-																			href="<s:url action="download"> 
+						</tr>
+						<tr>
+							<td width="724" align="center">
+								<!--게시판 -->
+								<table class="table-list" border="0" cellpadding="0"
+									cellspacing="0" width="724">
+									<tr height="3" class="tr-head">
+										<td colspan="14"></td>
+									</tr>
+									<tr class="tr-title">
+										<td width="48" height="40" align="center">
+											序号
+										</td>
+										<td>
+											&nbsp;
+										</td>
+										<td width="150" height="40" align="center">
+											书名
+										</td>
+										<td>
+											&nbsp;
+										</td>
+										<td width="70" height="40" align="center">
+											作者
+										</td>
+										<td>
+											&nbsp;
+										</td>
+										<td width="100" height="40" align="center">
+											出版社
+										</td>
+										<td>
+											&nbsp;
+										</td>
+										<td width="62" height="40" align="center">
+											出版时间
+										</td>
+										<td>
+											&nbsp;
+										</td>
+										<td width="68" height="40" align="center">
+											链接
+										</td>
+									</tr>
+									<s:iterator value="bookList" status="book">
+										<tr height="33" class="tr-content"
+											<s:if test="#book.odd">style="background-color:#FFF"</s:if>>
+											<td align="center">
+												<s:property value="#book.count" />
+											</td>
+											<td></td>
+
+											<td width="150" align="center" style="font-weight: bold">
+												<s:property value="name" />
+											</td>
+											<td></td>
+											<td width="70" align="center">
+												<s:property value="author" />
+											</td>
+											<td></td>
+											<td width="100" align="center">
+												<s:property value="publication" />
+
+											</td>
+											<td></td>
+											<td width="62" align="center">
+												<s:date name="time" format="yyyy-MM-dd" />
+											</td>
+											<td></td>
+											<td width="68" align="center">
+												<a
+													href="<s:url action="download"> 
                      			<s:param name="fileName"> 
                        			 	<s:property value="fileLink"/> 
                     			</s:param>  
@@ -96,26 +151,26 @@
                        			 	<s:property value="filename"/> 
                     			</s:param> 
                 					</s:url>"
-																			onclick="JAVAscript:if(!confirm('确认下载附件？')) return false;return true;">
-																			<font color="red">点此下载</font> </a></font></td></tr>
-</s:iterator>					
-						<tr height="4"><td></td></tr>
-						<tr height="1" bgcolor="#d3b981"><td colspan="14"></td></tr>
-						<tr height="3" bgcolor="#eedcb3"><td colspan="14" width="630"></td></tr>
-						</table>
-						<!--/게시판 -->
-					</td></tr>
-<tr>
-					<td>
-						<!-- 페지검색 -->
-						
-						<!-- /페지검색 -->
-					</td></tr>
-						</table>
+													onclick="JAVAscript:if(!confirm('确认下载附件？')) return false;return true;">
+													<font color="red">点此下载</font> </a>
+											</td>
+										</tr>
+									</s:iterator>
+									<tr height="4">
+										<td></td>
+									</tr>
+									<tr height="3" class="tr-foot">
+										<td colspan="14" width="630"></td>
+									</tr>
+								</table>
+								
+							</td>
+						</tr>
+					
+					</table>
 				</div>
 				<br class="clear" />
 			</div>
-
 			<br class="clear" />
 		</div>
 		<s:include value="style/bottom.jsp"></s:include>

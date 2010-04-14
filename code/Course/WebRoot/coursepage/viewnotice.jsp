@@ -51,7 +51,12 @@
 							<td valign="bottom" align="left">
 								<table border="0" cellpadding="0" cellspacing="0">
 								<tr>
-									<td><font color="#966f48"style="font-size:16px; font-weight:bold"><s:property value="notice.title"/></font></td>
+									<td>
+														<font color="#966f48"
+															style="font-size: 16px; font-weight: bold"><s:property
+																value="notice.title" />
+														</font>
+													</td>
 								</tr>
 								<tr>
 									<td><font color="#92a35d"style="font-size:12px;">发布时间：<s:date name="notice.time" format="yyyy-MM-dd" /></font></td></tr>
