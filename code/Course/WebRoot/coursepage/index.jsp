@@ -13,6 +13,7 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/green/color.css" rel="stylesheet"
 			type="text/css" />
+
 	</head>
 	<body>
 		<!-- 头部 -->

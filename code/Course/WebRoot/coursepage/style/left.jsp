@@ -5,18 +5,10 @@
 	<head>
 	</head>
 	<body onload="getLeftNotice()">
-<script type="text/javascript" src="${ctx}/js/prototype.js"></script>
 		<script language="javascript">
 	function getLeftNotice() {
 		var url = "getLeftNoticeAction.action";
-		new Ajax.Updater('left-nav-bar', url, {
-			onLoading : function() {
-			},
-			onSuccess : function(request) {
-			},
-			onFailure : function(request) {
-			}
-		});
+		$('#left-nav-bar').load(url);
 	}
 	var speed = 80
 	var demo = document.getElementById("demo");
