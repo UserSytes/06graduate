@@ -63,7 +63,22 @@
 						<br class="clear" />
 					</div>
 					<div>
-						<s:text name="courseintrotext">${courseInfo.content}</s:text>
+						<ul>
+						<s:iterator value="achievementList" status="achievement">
+							<li>
+								<a href="<s:url action="viewAchievementAction">
+								<s:param name="achievementId"> 
+								<s:property value="id"/> 
+								</s:param>
+								</s:url>"><s:if
+										test="title.length()>20">
+										<s:property value="title.substring(0, 20)+'...'" />
+									</s:if> <s:else>
+										<s:property value="title" />
+									</s:else> </a>
+							</li>
+						</s:iterator>
+					</ul>
 					</div>
 
 				</div>
