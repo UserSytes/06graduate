@@ -12,8 +12,9 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
-		<link href="${ctx}/coursepage/style/green/color.css" rel="stylesheet"
+		<link href="${ctx}/coursepage/style/<s:property value="course.style"/>/color.css" rel="stylesheet"
 			type="text/css" />
+
 	</head>
 	<body>
 		<!-- 头部 -->
