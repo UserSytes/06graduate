@@ -97,7 +97,7 @@ public class NoticeAction extends BaseAction {
 	 * @return
 	 */
 	public String getNoticeBySort() {
-		Course course = super.getCourse();
+		course = super.getCourse();
 		this.pageBean = getNoticeService().queryForPage(course, getSort(),pageSize, page);
 //		noticeList = noticeService.getNoticeBySort(course, getSort());
 		setSort(getSort());
@@ -105,6 +105,7 @@ public class NoticeAction extends BaseAction {
 	}
 	
 	public String findNoticeById() {
+		course = super.getCourse();
 		notice=noticeService.getNoticeById(noticeId);
 		if (getNotice() == null) {
 			addActionError("新闻或通告已不存在！");
@@ -114,7 +115,7 @@ public class NoticeAction extends BaseAction {
 		
 	}
 	public String findLastestNotice(){
-		Course course=super.getCourse();
+		course=super.getCourse();
 		notice=noticeService.findLastestNotice(course);
 		return SUCCESS;
 	}

@@ -35,7 +35,7 @@ public class AchievementAction extends BaseAction {
 	private IAchievementService achievementService;
 
 	public String getAchievementListByCourse() {
-		System.out.println(super.getCourse());
+		course = super.getCourse();
 		achievementList = achievementService.getAllAchievements(super.getCourse());
 		return SUCCESS;
 	}
@@ -94,6 +94,7 @@ public class AchievementAction extends BaseAction {
 	}
 
 	public String getAchievementById(){
+		course = super.getCourse();
 		achievement = achievementService.getAchievementById(achievementId);
 		if (achievement==null)
 			return ERROR;
