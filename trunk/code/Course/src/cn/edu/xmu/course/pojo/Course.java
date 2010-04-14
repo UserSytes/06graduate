@@ -23,6 +23,7 @@ public class Course implements java.io.Serializable {
 	private Integer count;
 	private Integer visible;
 	private String style;
+	private String header;
 	private Date time;
 	private Set courseMovies = new HashSet(0);
 	private Set collections = new HashSet(0);
@@ -285,6 +286,14 @@ public class Course implements java.io.Serializable {
 
 	public Date getTime() {
 		return time;
+	}
+
+	public void setHeader(String header) {
+		this.header = header;
+	}
+
+	public String getHeader() {
+		return header;
 	}
 
 }
