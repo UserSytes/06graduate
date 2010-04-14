@@ -249,6 +249,10 @@
 		<property name="courseService">
 			<ref bean="courseService" />
 		</property>
+		<property name="achievementService">
+			<ref bean="achievementService" />
+		</property>
+		
 	</bean>
 	
 	<!-- 课程通知 -->
