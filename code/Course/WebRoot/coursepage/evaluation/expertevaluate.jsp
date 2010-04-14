@@ -12,8 +12,9 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
-		<link href="${ctx}/coursepage/style/green/color.css" rel="stylesheet"
+		<link href="${ctx}/coursepage/style/<s:property value="course.style"/>/color.css" rel="stylesheet"
 			type="text/css" />
+
 <link rel="stylesheet" href="${ctx}/css/thickbox.css" type="text/css"
 			media="screen" />
 		<script type="text/javascript" src="${ctx}/js/mail.js"></script>
@@ -21,7 +22,7 @@
 	</head>
 	<body>
 		<!-- 头部 -->
-		<s:include value="../style/header.jsp"></s:include>
+		<s:include value="../style/%{course.header}"></s:include>
 		<div class="content">
 			<!-- 左侧 -->
 			<s:include value="../style/left.jsp"></s:include>
