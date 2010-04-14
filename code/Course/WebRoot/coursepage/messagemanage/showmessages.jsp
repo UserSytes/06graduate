@@ -13,6 +13,16 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/green/color.css" rel="stylesheet"
 			type="text/css" />
+<SCRIPT language=javascript>
+	function check(form) {
+		if (form.messagecontent.value == "") {
+			alert("内容不能为空！");
+			return false;
+		}
+		return true;
+
+	}
+</SCRIPT>
 	</head>
 	<body>
 		<!-- 头部 -->
@@ -188,10 +198,38 @@
 										</td>
 									</tr>
 								</table>
+<s:form action="addReplyAction" method="post"
+				onsubmit="return check(this);">
+				<s:hidden name="topic.id"></s:hidden>
+				<table cellspacing="0" cellpadding="4" border="0"
+					width="100%" align="center">
+					<tr style="HEIGHT: 30px; padding-left: 10px;font-size:15px;font-weight:bold;">
+						<td colspan="4">
+							快速回复主题
+						</td>
+					</tr>
+					<tr>
+						<td width="24%" align="center" valign="top">
+							<span class="bold" style="font-size: 16px">内容</span>
+						</td>
+						<td width="76%" valign="top">
+							<div style="width: 97%" align="left">
+								<s:textarea rows="7" cols="70 " id="messagecontent"
+									name="message.content"></s:textarea>
+								<div class="left">
+									<s:submit cssClass="label" value="发表回复"></s:submit>
+
+								</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</s:form>
 						<!-- /페지검색 -->
 					</td></tr><tr height="35"><td></td></tr>	
 						<tr height="45">
-							<td width="753" align="right" valign="top"><a href="#"><img src="${ctx}/coursepage/classical/image/button.gif" border="0"></a></td></tr>
+							<td width="753" align="right" valign="top"><a href="<s:url action="showTopicsAction"> 
+                					</s:url>"><img src="${ctx}/coursepage/classical/image/button.gif" border="0"></a></td></tr>
 						</table>
 				</div>
 				<br class="clear" />
