@@ -45,6 +45,8 @@ public class MessageAction extends BaseAction {
 	private String keyword="";
 	private String authorName="";
 	private Date keydate;
+	private int searchFlag;
+	
 	//调试的分页如下 
     private int page;    //第几页
     private PageBean pageBean;    //包含分布信息的bean
@@ -231,7 +233,19 @@ public class MessageAction extends BaseAction {
 			return ERROR;
 		}
 	}
-
+	public String goQuickSearchTopic(){
+		Course course = super.getCourse();
+		System.out.println("keyword=" + keyword);
+		if(searchFlag==0)
+		{
+			this.pageBean = topicService.searchTopicByName(course, keyword,pageSize, page);
+		}
+		else
+			this.pageBean = topicService.searchTopicByAuthorName(course,
+					keyword,pageSize, page);
+		return SUCCESS;
+			
+	}
 	public String searchTopicByKey() {
 		System.out.println("keyword=" + keyword);
 		System.out.println("authorName=" + authorName);
@@ -496,5 +510,13 @@ public class MessageAction extends BaseAction {
 
 	public PageBean getPageBean() {
 		return pageBean;
+	}
+
+	public void setSearchFlag(int searchFlag) {
+		this.searchFlag = searchFlag;
+	}
+
+	public int getSearchFlag() {
+		return searchFlag;
 	}
 }
