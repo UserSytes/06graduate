@@ -226,55 +226,24 @@
 									<tr>
 
 										<td>
-											<table border="0" cellpadding="0" cellspacing="0" width="724">
-												<tr height="40" bgcolor="#f1e1be">
-													<td>
-														<img src="${ctx}/coursepage/classical/image/s_left.gif"
-															border="0">
-													</td>
-													<td width="7"></td>
-													<td>
-														<img src="${ctx}/coursepage/classical/image/search.gif"
-															border="0">
-													</td>
-													<td width="8"></td>
-													<td>
-														<select name="select"
-															style="width: 73px; height: 21px; background-color: #ffffff; color: #777777">
-															<option>
-																标题
-															</option>
-															<option>
-																作者
-															</option>
-														</select>
-													</td>
-													<td width="3"></td>
-													<td>
-														<input type="text" name=""
-															style="width: 197px; height: 21px; border: solid 1px #c1a568; background-color: #ffffff">
-													</td>
-													<td width="5"></td>
-													<td>
-														<a href="#"><img
-																src="${ctx}/coursepage/classical/image/button3.gif"
-																border="0">
-														</a>
-													</td>
-													<td width="143"></td>
-													<td>
-														<a href="#"><img
-																src="${ctx}/coursepage/classical/image/button2.gif"
-																border="0">
-														</a>
-													</td>
-													<td width="6"></td>
-													<td>
-														<img src="${ctx}/coursepage/classical/image/s_right.gif"
-															border="0">
-													</td>
-												</tr>
-											</table>
+											<s:form action="goQuickSearchTopicAction" onsubmit="return check(this);" method="post" enctype="multipart/form-data">
+								<table border="0" cellpadding="0" cellspacing="0" width="724">
+								<tr height="40" bgcolor="#f1e1be">
+									<td width="7"></td>
+									<td><img src="${ctx}/coursepage/classical/image/search.gif" border="0"></td>
+									<td width="8"></td>
+									<td>
+								<s:select name="searchFlag" cssStyle="width:73px;height:21px;background-color:#ffffff;color:#777777" list="# {'0':'标题','1':'作者'}" headerKey="-1" headerValue="请选择" />									</td>
+									<td width="3"></td>
+									<td>
+<s:textfield name="keyword" cssClass="text" size="40"/></td>
+									<td width="5"></td>
+									<td><input type="submit" name="submit" style=" background-image:${ctx}/coursepage/classical/image/button3.gif"></td>
+									<td width="143"></td>
+									<td><a href="#"><img src="${ctx}/coursepage/classical/image/button2.gif" border="0"></a></td>
+									<td width="6"></td>
+								</table>
+</s:form>
 										</td>
 									</tr>
 								</table>
