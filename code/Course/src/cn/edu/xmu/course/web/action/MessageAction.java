@@ -159,13 +159,13 @@ public class MessageAction extends BaseAction {
 	public String showTopics() {
 		student = (Student) super.getSession().get(STUDENT);
 		teacher = (Teacher) super.getSession().get(TEACHER);
-		if (null == student && null == teacher) {
+		course = super.getCourse();
+		if (null == student && null == teacher) {		
 			addActionError("Äú»¹Î´µÇÂ¼£¬ÇëÏÈµÇÂ¼£¡");
 			return "login";
 		} else {
 
 				userInfo = super.getUserInfo();
-			course = super.getCourse();
 			this.pageBean = getTopicService().queryForPage(course,pageSize, page);
 			if (getPageBean().getAllRow() > 0) {
 				return "topics";
@@ -178,6 +178,7 @@ public class MessageAction extends BaseAction {
 
 	}
 	public String showMessages() {
+		course = super.getCourse();
 		userInfo=super.getUserInfo();
 		topic = topicService.getTopicById(topicId);
 		messageList = messageService.getAllMessages(topic, pageSize, pageNow);
@@ -194,6 +195,7 @@ public class MessageAction extends BaseAction {
 		}
 	}
 	public String showMessages2() {
+		course = super.getCourse();
 		userInfo=super.getUserInfo();
 		topic = topicService.getTopicById(topicId);
 		this.pageBean = getMessageService().queryForPage(topic, pageSize, page);
