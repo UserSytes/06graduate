@@ -48,7 +48,7 @@
 									style="background-repeat: no-repeat">
 									<tr>
 										<td width="724" valign="top" align="right">
-											<font style="font-size: 12px; color: #574434"></font>
+											
 										</td>
 									</tr>
 									<tr height="69">
