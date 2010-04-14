@@ -257,6 +257,10 @@
 	LETTER-SPACING: 1px;
 	HEIGHT: 14px
 }
+.pages H2 a{
+	FONT: bold 14px "", sans-serif;
+	HEIGHT: 14px
+}
 
 .pages SPAN {
 	FONT-WEIGHT: bold;
@@ -264,6 +268,16 @@
 	WIDTH: 480px;
 	HEIGHT: 12px;
 	TEXT-ALIGN: left
+}
+
+.table-title{
+  FONT: 16px "", sans-serif;
+  font-weight: bold; 
+}
+
+.tr-title td{
+  FONT: 14px "", sans-serif;
+  font-weight: bold; 
 }
 
 .pages SPAN#p_nav {

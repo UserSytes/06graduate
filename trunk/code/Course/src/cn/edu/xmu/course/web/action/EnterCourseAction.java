@@ -41,12 +41,19 @@ public class EnterCourseAction extends BaseAction {
 		if (null == getCourseInfo()) {
 			setCourseInfo(new CourseInfo());
 			getCourseInfo().setContent("暂无任何内容！");
-		}
+		}		
+		setNoticeList(noticeService.findLastestFiveNews(course,0));	
+		
+		return SUCCESS;
+	}
+	
+	public String getLeftNotice(){
+		course=super.getCourse();
 		setTeacher(course.getTeacher());
 		setUserInfo(getTeacher().getUserInfo());
-		setNoticeList(noticeService.findLastestFiveNews(course,0));
 		setNoticeList2(noticeService.findLastestFiveNews(course,1));
 		setCount(course.getCount());	
+		System.out.println(noticeList2.size());
 		return SUCCESS;
 	}
 
