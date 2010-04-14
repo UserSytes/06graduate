@@ -227,7 +227,9 @@
 
 #right-cnt {
 	FLOAT: right;
-	WIDTH: 724px
+	WIDTH: 724px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
 }
 
 #right-cnt P {

@@ -259,99 +259,153 @@ else display = true;
 			<div class="demo" id="panel">
 				<ul id="applications" class="image-grid">
 					<li data-id="id-10" data-type="util">
-						<img src="${ctx}/coursepage/style/blue/form.gif" width="88"
-							height="88" alt="" />
+						<a
+							href="<s:url action="findApplicationFormAction"> 
+                     			<s:param name="course"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param>
+                					</s:url>"><img
+								src="${ctx}/coursepage/style/blue/form.gif" width="88"
+								height="88" alt="" /> </a>
 						<strong>申报表格</strong>
 						<span data-type="size">1</span>
 						<span data-type="name">r</span>
 					</li>
 					<li data-id="id-5" data-type="util">
-						<img src="${ctx}/coursepage/style/blue/info.png" width="88"
-							height="88" alt="" />
+						<a
+							href="<s:url action="findCourseInfoAction"> 
+                     			<s:param name="sort"> 
+                       			 	1 
+                    			</s:param>
+                					</s:url>"><img
+								src="${ctx}/coursepage/style/blue/info.png" width="88"
+								height="88" alt="" /> </a>
 						<strong>课程简介</strong>
 						<span data-type="size">2</span>
 						<span data-type="name">l</span>
 					</li>
 					<li data-id="id-14" data-type="util">
-						<img src="${ctx}/coursepage/style/blue/outline.png" width="88"
-							height="88" alt="" />
+						<a
+							href="<s:url action="findCourseInfoAction"> 
+                     			<s:param name="sort"> 
+                       			 	2 
+                    			</s:param>
+                					</s:url>"><img
+								src="${ctx}/coursepage/style/blue/outline.png" width="88"
+								height="88" alt="" /> </a>
 						<strong>教学大纲</strong>
 						<span data-type="size">3</span>
 						<span data-type="name">j</span>
 
 					</li>
 					<li data-id="id-3" data-type="util">
-						<img src="${ctx}/coursepage/style/blue/teateam.png" width="88"
-							height="88" alt="" />
+						<a
+							href="<s:url action="findTeacherTeamAction"> 
+                					</s:url>"><img
+								src="${ctx}/coursepage/style/blue/teateam.png" width="88"
+								height="88" alt="" /> </a>
 						<strong>教师队伍</strong>
 						<span data-type="size">4</span>
 						<span data-type="name">d</span>
 					</li>
 					<li data-id="id-12" data-type="app">
-						<img src="${ctx}/coursepage/style/blue/notice.png" width="88"
-							height="88" alt="" />
+						<a
+							href="<s:url action="getNoticeBySortAction"> 
+                     			<s:param name="sort"> 
+                       			 	0 
+                    			</s:param>
+                					</s:url>"><img
+								src="${ctx}/coursepage/style/blue/notice.png" width="88"
+								height="88" alt="" /> </a>
 						<strong>通知公告</strong>
 						<span data-type="size">5</span>
 						<span data-type="name">t</span>
 					</li>
 					<li data-id="id-4" data-type="app">
-						<img src="${ctx}/coursepage/style/blue/ppt.png" width="88"
-							height="88" alt="" />
+						<a
+							href="<s:url action="getAllCoursewareAction"> 
+                					</s:url>"><img
+								src="${ctx}/coursepage/style/blue/ppt.png" width="88"
+								height="88" alt="" /> </a>
 						<strong>课程教案</strong>
 						<span data-type="size">6</span>
 						<span data-type="name">k</span>
 					</li>
 					<li data-id="id-8" data-type="app">
-						<img src="${ctx}/coursepage/style/blue/exercise.png" width="88"
-							height="88" alt="" />
+						<a
+							href="<s:url action="getAllExerciseAction"> 
+                					</s:url>"><img
+								src="${ctx}/coursepage/style/blue/exercise.png" width="88"
+								height="88" alt="" /> </a>
 						<strong>作业习题</strong>
 						<span data-type="size">7</span>
 						<span data-type="name">z</span>
 					</li>
 					<li data-id="id-1" data-type="app">
-						<a href="#"><img src="${ctx}/coursepage/style/blue/lab.png"
-								width="88" height="88" alt="" /> </a><strong>实验指导</strong>
+						<a
+							href="<s:url action="getAllExperimentAction"> 
+                					</s:url>"><img
+								src="${ctx}/coursepage/style/blue/lab.png" width="88"
+								height="88" alt="" /> </a><strong>实验指导</strong>
 						<span data-type="size">8</span>
 						<span data-type="name">s</span>
 					</li>
 					<li data-id="id-9" data-type="app">
-						<img src="${ctx}/coursepage/style/blue/ituna.png" width="88"
-							height="88" alt="" />
+						<a
+							href="<s:url action="getCourseMovieListAction"> 
+                					</s:url>"><img
+								src="${ctx}/coursepage/style/blue/ituna.png" width="88"
+								height="88" alt="" /> </a>
 						<strong>课程录像</strong>
 						<span data-type="size">9</span>
 						<span data-type="name">m</span>
 					</li>
 					<li data-id="id-13" data-type="app">
-						<img src="${ctx}/coursepage/style/blue/textedit.png" width="88"
-							height="88" alt="" />
+						<a
+							href="<s:url action="getAllExaminationAction"> 
+                					</s:url>"><img
+								src="${ctx}/coursepage/style/blue/textedit.png" width="88"
+								height="88" alt="" /> </a>
 						<strong>课程试卷</strong>
 						<span data-type="size">10</span>
 						<span data-type="name">n</span>
 					</li>
 					<li data-id="id-2" data-type="app">
-						<img src="${ctx}/coursepage/style/blue/book.png" width="88"
-							height="88" alt="" />
+						<a
+							href="<s:url action="getAllBookAction"> 
+                					</s:url>"><img
+								src="${ctx}/coursepage/style/blue/book.png" width="88"
+								height="88" alt="" /> </a>
 						<strong>参考书籍</strong>
 						<span data-type="size">11</span>
 						<span data-type="name">c</span>
 					</li>
 					<li data-id="id-11" data-type="util">
-						<img src="${ctx}/coursepage/style/blue/achievement.png" width="88"
-							height="88" alt="" />
+						<a
+							href="<s:url action="findAchievementAction"> 
+                					</s:url>"><img
+								src="${ctx}/coursepage/style/blue/achievement.png" width="88"
+								height="88" alt="" /> </a>
 						<strong>教学成果</strong>
 						<span data-type="size">12</span>
 						<span data-type="name">g</span>
 					</li>
 					<li data-id="id-6" data-type="util">
-						<img src="${ctx}/coursepage/style/blue/evaluation.png" width="88"
-							height="88" alt="" />
+						<a
+							href="<s:url action="evaluateAction"> 
+                					</s:url>"><img
+								src="${ctx}/coursepage/style/blue/evaluation.png" width="88"
+								height="88" alt="" /> </a>
 						<strong>专家评价</strong>
 						<span data-type="size">13</span>
 						<span data-type="name">y</span>
 					</li>
 					<li data-id="id-7" data-type="util">
-						<img src="${ctx}/coursepage/style/blue/message.png" width="88"
-							height="88" alt="" />
+						<a
+							href="<s:url action="showTopicsAction"> 
+                					</s:url>"><img
+								src="${ctx}/coursepage/style/blue/message.png" width="88"
+								height="88" alt="" /> </a>
 						<strong>留言板</strong>
 						<span data-type="size">14</span>
 						<span data-type="name">o</span>
