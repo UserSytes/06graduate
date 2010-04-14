@@ -2,11 +2,13 @@ package cn.edu.xmu.course.web.action;
 
 import java.util.List;
 
+import cn.edu.xmu.course.pojo.Achievement;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.CourseInfo;
 import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.pojo.UserInfo;
+import cn.edu.xmu.course.service.IAchievementService;
 import cn.edu.xmu.course.service.ICourseInfoService;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.INoticeService;
@@ -23,6 +25,7 @@ public class EnterCourseAction extends BaseAction {
 	private ICourseService courseService;
 	private ICourseInfoService courseInfoService;
 	private ITeacherInfoService teacherInfoService;
+	private IAchievementService achievementService;
 	private UserInfo userInfo;
 	private Integer sort;
 	private Notice notice;
@@ -33,11 +36,13 @@ public class EnterCourseAction extends BaseAction {
 	private List<Notice> noticeList2;
 	private Integer count;
 	private Teacher teacher;
+	private List<Achievement> achievementList;
 	
 	public String goIndexQuery(){
 		course=super.getCourse();
 		setCourseInfo(courseInfoService.getCourseInfo(course.getId(),
 				1));
+		setAchievementList(getAchievementService().getAllAchievements(course));
 		if (null == getCourseInfo()) {
 			setCourseInfo(new CourseInfo());
 			getCourseInfo().setContent("暂无任何内容！");
@@ -167,6 +172,22 @@ public class EnterCourseAction extends BaseAction {
 
 	public Teacher getTeacher() {
 		return teacher;
+	}
+
+	public void setAchievementList(List<Achievement> achievementList) {
+		this.achievementList = achievementList;
+	}
+
+	public List<Achievement> getAchievementList() {
+		return achievementList;
+	}
+
+	public void setAchievementService(IAchievementService achievementService) {
+		this.achievementService = achievementService;
+	}
+
+	public IAchievementService getAchievementService() {
+		return achievementService;
 	}
 
 }
