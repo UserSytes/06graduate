@@ -1433,7 +1433,11 @@
 			<result name="success">/coursepage/achievement.jsp
 			</result>
 		</action>
-		
+				<action name="viewAchievementAction" method="getAchievementById"
+			class="achievementAction">
+			<result name="success">/coursepage/viewachievement.jsp
+			</result>
+		</action>
 		<action name="getAllCoursewareAction" method="getAllCourseware"
 			class="coursewareAction">
 			<result name="success">/coursepage/downloadcourseware.jsp
@@ -1506,6 +1510,10 @@
 			<result name="success">/coursepage/messagemanage/showtopics.jsp
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
+		</action>
+		<action name="goQuickSearchTopicAction" method="goQuickSearchTopic" class="messageAction">
+			<result name="success">/coursepage/messagemanage/showtopics.jsp
+			</result>
 		</action>
 			
 		<action name="loginFromMessageBoardAction" method="loginFromMessageBoard" class="messageAction">
