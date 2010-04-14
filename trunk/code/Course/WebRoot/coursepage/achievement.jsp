@@ -66,27 +66,17 @@
 								<tr>
 									<td width="10"></td>
 									<td><img src="${ctx}/coursepage/classical/image/icon_img.gif" border="0"></td>
-									<td align="left" width="100%"><s:property value="title" /></td>
+									<td align="left" width="100%">
+<a href="<s:url action="viewAchievementAction">
+								<s:param name="achievementId"> 
+								<s:property value="id"/> 
+								</s:param>
+								</s:url>"><s:property value="title" /></a>
+									</td>
 									</tr>
 								</table>
 							</td></tr>
-						<tr height="20"><td></td></tr>
-						<tr>
-							<td>
-								<table border="0" cellpadding="0" cellspacing="0">
-								<tr>
-									<td width="24"></td>
-									<td><font style="font-size:14px; color:#74582f"><s:text name="">${content}</s:text>
-<br />
-附件下载：<a href="<s:url action="download"> 
-                     			<s:param name="fileName"> 
-                       			 	<s:property value="fileLink"/> 
-                    			</s:param> 
-                					</s:url>"
-						onclick="JAVAscript:if(!confirm('确认下载附件？')) return false;return true;">
-						<font color="red">点此下载</font> </a></font></td></tr>
-								</table>
-							</td></tr>								
+						<tr height="20"><td></td></tr>								
 </s:iterator>
 								</table>
 							</td></tr>
