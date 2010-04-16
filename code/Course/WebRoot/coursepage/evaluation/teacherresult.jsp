@@ -88,40 +88,24 @@
 								<table cellpadding="0" cellspacing="0" align="center">
 
 					<s:iterator value="evaluationList" status="evaluation">
-						<tr class="bg">
-							<td class="first">
-
-								<img src="${ctx}/homepage/images/but.jpg" width="4" height="7">
-								&nbsp;
-								<a
-									href="<s:url action="enterTeaEvaluationAction"> 
+						<tr>
+							<td>
+							<font style="font-size:16px;">同行教师:<s:property value="name" />&nbsp;评价分数：<s:property value="score" />
+								&nbsp;</font>
+								<a href="<s:url action="enterTeaEvaluationAction"> 
 	                     											<s:param name="evaluationId"> 
 	                       			 									<s:property value="id"/> 
 	                    											</s:param> 
 	                													</s:url>">
-									<font color="#74582f"
-													style="font-size: 16px; font-weight: bold;">同行教师的评价：<s:property value="name" />&nbsp;&nbsp; </font></a>
+									<font
+								color="green" style="font-size:14px;font-weight:bold;">【查看详细】</font></a>
 								<br />
 							</td>
 						</tr>
 					</s:iterator>
-<tr>
-						<td>
-							<div align="left">
-								<br />
-								<font size="3"><strong><s:fielderror /> </strong> </font>
-								<font size="3"><strong><s:actionmessage /> </strong> </font>
-								<font size="3"><strong><s:actionerror /> </strong> </font>
-							</div>
-						</td>
-					</tr>
 					<tr >
 						<td align="center">
 							<br />
-							<a style="color: #09C; float: right; font-weight: 700;"
-								href="${ctx}/coursepage/evaluation/login.jsp?height=350&width=450"
-								class="thickbox" title="登陆"><font color="#74582f"
-													style="font-size: 16px; font-weight: bold;">登陆</font></a>
 							<a href="<s:url action="tDetailEvaluateAction"> 
                      			<s:param name="course"> 
                        			 	<s:property value="id"/> 

@@ -74,6 +74,80 @@
 						</tr>
 						<tr>
 							<td>
+<br />
+<table cellSpacing=1 cellPadding=0 width="100%"
+			align=center border=0>
+			<tr class="tr-title">
+				<td colSpan=7>
+					<font color="#74582f" style="font-size:16px;font-weight:bold;">学生评价</font>
+				</td>
+			</tr>
+			<tr class="tr-content">
+				<td>
+					<div align="left">
+						<font style="font-size:16px;">&nbsp;&nbsp;&nbsp;平均得分: <s:property
+								value="stuAvgScore" />
+							<br> </font>
+						<font style="font-size:16px;">&nbsp;&nbsp;&nbsp;评价人数: <s:property
+								value="stuCount" />
+							<br> </font>
+<a href="<s:url action="sDetailEvaluateAction"></s:url>"> <font
+								color="green" style="font-size:14px;font-weight:bold;">【进入评价】<br></font> </a>
+					</div>
+				</td>
+			</tr>
+		</table>
+
+		<table cellSpacing=1 cellPadding=0 width="100%"
+			align=center border=0>
+			<tr class="tr-title">
+				<td colSpan=7>
+					<font color="#74582f" style="font-size:16px;font-weight:bold;">同行评价</font>
+				</td>
+			</tr>
+			<tr class="tr-content">
+				<td>
+					<div align="left">
+						<font style="font-size:16px;">&nbsp;&nbsp;&nbsp;平均得分: <s:property
+								value="teaAvgScore" /> <a
+							href="teacherEvaluateResultAction.action"> <font
+								color="green">【查看详情】</font> </a> <br> </font>
+						<font style="font-size:16px;">&nbsp;&nbsp;&nbsp;评价人数: <s:property
+								value="teaCount" />
+							<br> </font>
+						&nbsp;&nbsp;&nbsp;<a
+							href="<s:url action="tDetailEvaluateAction"> 
+                					</s:url>"><font
+								color="green" style="font-size:14px;font-weight:bold;">【进入评价】</font></a><br>
+
+					</div>
+				</td>
+			</tr>
+		</table>
+		<table cellSpacing=1 cellPadding=0 width="100%"
+			align=center border=0>
+			<tr class="tr-title">
+				<td colSpan=7>
+					<font color="#74582f" style="font-size:16px;font-weight:bold;">专家评价</font>
+				</td>
+			</tr>
+			<tr class="tr-content">
+				<td>
+					<div align="left">
+						<font style="font-size:16px;">&nbsp;&nbsp;&nbsp;平均得分: <s:property
+								value="expertAvgScore" /> <a
+							href="expertEvaluateResultAction.action"> <font
+								color="green">【查看详情】</font> </a> <br> </font>
+						<font style="font-size:16px;">&nbsp;&nbsp;&nbsp;评价人数: <s:property
+								value="expertCount" />
+							<br> </font>
+					&nbsp;&nbsp;&nbsp;<a
+							href="<s:url action="expertEvaluateResultAction"></s:url>"><font
+								color="green" style="font-size:14px;font-weight:bold;">【进入评价】</font></a><br>
+					</div>
+				</td>
+			</tr>
+		</table><!--
 								<table border="0" cellpadding="0" cellspacing="0" width="100%">
 									<tr>
 										<td width="24"></td>
@@ -107,7 +181,7 @@
 										<td width="24"></td>
 									</tr>
 								</table>
-							</td>
+							--></td>
 						</tr>	
 					</table>
 				</div>
