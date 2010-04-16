@@ -616,7 +616,7 @@
 		
 		<!-- 课程管理-课程评价部分 (教师)-->
 		<action name="getEvaluationResultByCourseAction" method="getEvaluationResult"
-			class="evaluationAction">
+	class="evaluationAction">
 			<result name="success">/teacher/courseinfomanage/evaluationresult.jsp
 			</result>
 		</action>
@@ -1312,7 +1312,7 @@
 			<result name="tesuccess">/coursepage/evaluation/tevaluatesuccess.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-<action name="evaluateAction" method="evaluate"
+<action name="evaluateAction" method="getEvaluationResult"
 			class="evaluationAction">
 			<result name="success">/coursepage/evaluation/evaluate.jsp
 			</result>
@@ -1367,21 +1367,21 @@
 		</action>
 <action name="eDetailEvaluateAction" method="eDetailEvaluate"
 			class="evaluationAction">
-			<result name="login">/coursepage/evaluation/expevaluateresult.jsp</result>
+			<result name="login">/coursepage/evaluation/login.jsp</result>
 			<result name="evluate">/coursepage/evaluation/expertevaluate.jsp</result>
 			<result name="success">/coursepage/evaluation/expertevaluatesuccess.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 <action name="tDetailEvaluateAction" method="tDetailEvaluate"
 			class="evaluationAction">
-			<result name="login">/coursepage/evaluation/teacherresult.jsp</result>
+			<result name="login">/coursepage/evaluation/login.jsp</result>
 			<result name="evluate">/coursepage/evaluation/teacherevaluate.jsp</result>
 			<result name="success">/coursepage/evaluation/tevaluatesuccess.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>			
 <action name="sDetailEvaluateAction" method="sDetailEvaluate"
 			class="evaluationAction">
-			<result name="login">/coursepage/evaluation/stuevaluateresult.jsp</result>
+			<result name="login">/coursepage/evaluation/login.jsp</result>
 			<result name="evluate">/coursepage/evaluation/studentevaluate.jsp</result>
 			<result name="success">/coursepage/evaluation/evaluatesuccess.jsp</result>
 			<result name="error">/commons/error.jsp</result>
