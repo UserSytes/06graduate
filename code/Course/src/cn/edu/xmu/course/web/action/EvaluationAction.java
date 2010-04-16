@@ -222,6 +222,7 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String expertEvaluate() {
+		course=super.getCourse();
 		score=evaluation.getScore();
 		result = evaluateService.updateEvaluation(evaluation);
 		if (result) {
@@ -251,6 +252,7 @@ public class EvaluationAction extends BaseAction {
 	}
 
 	public String eDetailEvaluate() {
+		course=super.getCourse();
 		// evaluation = evaluateService.findById(1);
 		evaluation = (Evaluation) super.getSession().get(EVALUATION);
 		if (null == evaluation||evaluation.getSort()==1) {
@@ -275,6 +277,7 @@ public class EvaluationAction extends BaseAction {
 	}
 
 	public String tDetailEvaluate() {
+		course=super.getCourse();
 		evaluation = (Evaluation) super.getSession().get(EVALUATION);
 		if (null == evaluation||evaluation.getSort()==0) {
 			addActionError("Äú»¹Î´µÇÂ¼£¬ÇëÏÈµÇÂ¼£¡");
@@ -298,6 +301,7 @@ public class EvaluationAction extends BaseAction {
 	}
 
 	public String sDetailEvaluate() {
+		course=super.getCourse();
 		student = (Student) super.getSession().get(STUDENT);
 		if (null == student && null == teacher) {
 			addActionError("Äú»¹Î´µÇÂ¼£¬ÇëÏÈµÇÂ¼£¡");
@@ -357,13 +361,13 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String getEvaluationResult() {
-
+		course=super.getCourse();
 		Object[] evaluationResult = evaluateService
-				.getEvaluationCalculateResult(super.getCourse().getId(), 0);
+				.getEvaluationCalculateResult(course.getId(), 0);
 		Object[] teaResult = evaluateService
-		.getEvaluationCalculateResult(super.getCourse().getId(), 1);
+		.getEvaluationCalculateResult(course.getId(), 1);
 		Object[] scResult = evaluateService
-				.getStudentCourseCalculateResult(super.getCourse().getId());
+				.getStudentCourseCalculateResult(course.getId());
 		stuCount = scResult[0];
 		expertCount = evaluationResult[0];
 		teaCount = teaResult[0];
