@@ -271,7 +271,10 @@
 	HEIGHT: 12px;
 	TEXT-ALIGN: left
 }
-
+.table-title{
+  margin-left: 10px;
+  padding-left: 10px;
+}
 .table-title{
   FONT: 16px "", sans-serif;
   font-weight: bold; 
