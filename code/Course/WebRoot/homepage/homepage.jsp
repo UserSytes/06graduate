@@ -294,7 +294,7 @@
 												<s:iterator value="courseList" status="course">
 													<tr height="28">
 														<td width="11"></td>
-														<td width="162" align="center">
+														<td width="162" align="left">
 															<img src="${ctx}/homepage/image/left_bg1.gif" border="0">
 															<a
 																href="<s:url action="enterCourseAction"> <s:param name="courseId"> <s:property value="id"/> </s:param> </s:url>">
@@ -345,7 +345,7 @@
 											<table border="0" cellpadding="0" cellspacing="0">
 												<tr height="28">
 													<td width="11"></td>
-													<td width="162" align="center">
+													<td width="162" align="left">
 														<img src="${ctx}/homepage/image/left_bg1.gif" border="0">
 														<a href="#">1、软件工程[林坤辉]</a>
 													</td>
@@ -694,31 +694,31 @@
 																			<td width="96" align="right">
 																				<a href="http://www.xmu.edu.cn/"><img
 																						src="${ctx}/homepage/image/utility_cont1.GIF"
-																						alt="">
+																						border="0">
 																				</a>
 																			</td>
 																			<td width="97" align="right">
 																				<a href="http://jwc.xmu.edu.cn/"><img
 																						src="${ctx}/homepage/image/utility_cont2.GIF"
-																						alt="">
+																						alt="" border="0">
 																				</a>
 																			</td>
 																			<td width="97" align="right">
 																				<a href="http://210.34.4.20/cn/"><img
 																						src="${ctx}/homepage/image/utility_cont3.GIF"
-																						alt="">
+																						alt="" border="0">
 																				</a>
 																			</td>
 																			<td width="97" align="right">
 																				<a href="http://zsb.xmu.edu.cn/"><img
 																						src="${ctx}/homepage/image/utility_cont4.GIF"
-																						alt="">
+																						alt="" border="0">
 																				</a>
 																			</td>
 																			<td width="97" align="right">
 																				<a href="http://xsc.xmu.edu.cn/"><img
 																						src="${ctx}/homepage/image/utility_cont5.GIF"
-																						alt="">
+																						alt="" border="0">
 																				</a>
 																			</td>
 																		</tr>
