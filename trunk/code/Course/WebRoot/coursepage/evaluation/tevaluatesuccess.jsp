@@ -57,7 +57,7 @@
 												<tr>
 													<td align="center">
 														<font color="#966f48"
-															style="font-size: 18px; font-weight: bold">学生对课程的综合评价</font>
+															style="font-size: 18px; font-weight: bold">教师对课程的综合评价</font>
 													</td>
 												</tr>
 												<tr>

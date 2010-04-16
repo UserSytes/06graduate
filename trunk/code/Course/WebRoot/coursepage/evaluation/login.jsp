@@ -1,13 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ include file="../../commons/taglibs.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
 	<head>
-		<title>厦门大学精品课程</title>
-		<meta http-equiv="Content-Style-Type" content="text/css">
-		<link href="${ctx}/coursepage/default.css" rel="stylesheet"
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>用户登录-厦门大学课程网络平台</title>
+		<link href="${ctx}/coursepage/style/common/common.css"
+			rel="stylesheet" type="text/css" />
+		<link href="${ctx}/coursepage/style/common/layout.css"
+			rel="stylesheet" type="text/css" />
+		<link href="${ctx}/coursepage/style/<s:property value="course.style"/>/color.css" rel="stylesheet"
 			type="text/css" />
 <SCRIPT language=javascript>
 	function check(form) {
@@ -28,22 +32,59 @@
 </SCRIPT>
 	</head>
 	<body>
-		<!--<jsp:include page="header.jsp"></jsp:include>
-		<jsp:include page="top.jsp"></jsp:include>
-		--><div>
-			<div>
+		<!-- 头部 -->
+		<s:include value="../style/%{course.header}"></s:include>
+		<div class="content">
+			<!-- 左侧 -->
+			<s:include value="../style/left.jsp"></s:include>
+			<div id="right-cnt">
+				<br class="clear" />
+				<!-- 正文部分 -->
+				<div class="pages">
+					<h2>
+						<a href="goIndexQueryAction.action">首页</a>&gt;
+						用户登录
+					</h2>
+					<br class="clear" />
+				</div>
+
+<ul id="products-list">
+			</ul>
+		<!-- 正文 -->
+				<div>
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="724" align="center">
+								<table border="0" cellpadding="0" cellspacing="0" width="724" height="94" background="${ctx}/coursepage/classical/image/titlebg.gif" style="background-repeat:no-repeat">
+						<tr>
+							<td width="724" valign="top" align="right"><font style="font-size:12px; color:#574434"></font></td></tr>
+						<tr height="69">
+							<td valign="bottom" align="left">
+								<table border="0" cellpadding="0" cellspacing="0">
+								<tr>
+									<td><font color="#966f48"style="font-size:16px; font-weight:bold">用户登录</font></td>
+								</tr>
+								<tr>
+									<td><font color="#92a35d"style="font-size:12px;"</font></td></tr>
+								</table></td></tr>
+						<tr height="1">
+							<td width="724" bgcolor="#c4ae86" valign="top"></td></tr>
+						</table>
+							</td></tr>
+						<tr height="20"><td></td></tr>
+						<tr>
+							<td>
+								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<td width="24"></td>
+									<td><font style="font-size:12px; color:#74582f"><BR/>
 <s:form action="loginFromEvaluationAction" method="post"
-													onsubmit="">
+													onsubmit="return check(this);">
 													<table width="60%" height="100%" border="0"
-														cellspacing="0" cellpadding="0" align="center" style="margin-top:100px;">
+														cellspacing="0" cellpadding="0" align="center">
 														<tr>
-															<td colspan="2" align="center">
-																<font style="font-size:18px;font-weight:bold;">用户登录</font>
-															</td>
-														</tr>
-<tr>
 															<td height="30" align="center">
-																&nbsp;<font style="font-size:16px;font-weight:bold;">账号：</font>
+																&nbsp;账号：
 															</td>
 															<td>
 																<s:textfield name="userName"></s:textfield>
@@ -51,7 +92,7 @@
 														</tr>
 														<tr>
 															<td height="30" align="center">
-																&nbsp;<font style="font-size:16px;font-weight:bold;">密码：</font>
+																&nbsp;密码：
 															</td>
 															<td>
 																<s:password name="password"></s:password>
@@ -59,7 +100,7 @@
 														</tr>
 														<tr>
 															<td height="30" align="center">
-																&nbsp;<font style="font-size:16px;font-weight:bold;">角色：</font>
+																&nbsp;角色：
 															</td>
 															<td>
 																<s:select name="flag" list="# {'0':'专家','1':'老師','2':'學生'}"
@@ -78,9 +119,18 @@
 														<tr>
 													</table>
 												</s:form>
+</font></td>
+										<td width="24"></td>
+										</tr>
+								</table>
+							</td></tr>
+						</table>
+				</div>
+				<br class="clear" />
 			</div>
-		</div>
 
-		<!--<jsp:include page="bottom.jsp"></jsp:include>
-	--></body>
+			<br class="clear" />
+		</div>
+		<s:include value="../style/bottom.jsp"></s:include>
+	</body>
 </html>

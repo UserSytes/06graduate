@@ -89,9 +89,7 @@
 									<s:iterator value="evaluationList" status="evaluation">
 										<tr>
 											<td>
-
-												<img src="${ctx}/homepage/images/but.jpg" width="4"
-													height="7">
+专家：<s:property value="name" />&nbsp;<s:property value="position" />&nbsp;评价分数：<s:property value="score" />
 													&nbsp; 
 												<a
 													href="<s:url action="enterEvaluationAction"> 
@@ -99,33 +97,15 @@
 	                       			 									<s:property value="id"/> 
 	                    											</s:param> 
 	                													</s:url>">
-													<font color="#74582f"
-													style="font-size: 16px; font-weight: bold;">专家评价：<s:property
-															value="name" />&nbsp;&nbsp; 教授</font>
+													<font color="green" style="font-size:14px;font-weight:bold;">【查看详细】</font>
 												</a>
 											</td>
 										</tr>
 									</s:iterator>
-<tr>
-						<td>
-							<div align="left">
-								<br />
-								<font size="3"><strong><s:fielderror /> </strong> </font>
-								<font size="3"><strong><s:actionmessage /> </strong> </font>
-								<font size="3"><strong><s:actionerror /> </strong> </font>
-							</div>
-						</td>
-					</tr>
 									<tr>
 										<td align="center">
 											<br />
-											<a style="color: #09C; float: right; font-weight: 700;"
-												href="${ctx}/coursepage/evaluation/login.jsp?height=350&width=450"
-												class="thickbox" title="登陆"><font color="#74582f"
-												style="font-size: 16px; font-weight: bold;">登陆</font>
-											</a>
-											<a
-												href="<s:url action="eDetailEvaluateAction"> 
+											<a href="<s:url action="eDetailEvaluateAction"> 
 	                     							<s:param name="course"> 
                        			 						<s:property value="id"/> 
                     								</s:param>

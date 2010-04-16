@@ -89,8 +89,8 @@
 						<td>
 							<font color="#74582f" style="font-size:16px;font-weight:bold;"> 
 							专家
-							<s:property value="evaluation.name" />
-							对该门课程的评价分数是：
+							<s:property value="evaluation.name" />&nbsp;<s:property value="evaluation.pisition" />&nbsp;来自：<s:property value="evaluation.company" />
+							<br />对该门课程的评价分数是：
 							<br />
 							<s:text name="">${evaluation.score}</s:text>
 							<br />
@@ -103,9 +103,6 @@
 					</tr>
 					<tr>
 							<td align="center"><br />
-<a style="color: #09C; float: right; font-weight: 700;"
-								href="${ctx}/coursepage/evaluation/login.jsp?height=350&width=450"
-								class="thickbox" title="登陆"><font color="#74582f" style="font-size:16px;font-weight:bold;">登陆</font></a>
 								<a href="<s:url action="eDetailEvaluateAction"> 
 	                     											<s:param name="course"> 
                        			 	<s:property value="id"/> 
