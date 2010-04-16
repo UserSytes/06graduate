@@ -13,7 +13,23 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/<s:property value="course.style"/>/color.css" rel="stylesheet"
 			type="text/css" />
-
+<SCRIPT language=javascript>
+	function check(form) {
+		if (form.userName.value == "") {
+			alert("账号不能为空！");
+			return false;
+		}
+		if (form.password.value == "") {
+			alert("密码不能为空！");
+			return false;
+		}
+		if (form.flag.value == -1) {
+			alert("请选择权限！");
+			return false;
+		}
+		return true;
+	}
+</SCRIPT>
 	</head>
 	<body>
 		<!-- 头部 -->
@@ -27,7 +43,7 @@
 				<div class="pages">
 					<h2>
 						<a href="goIndexQueryAction.action">首页</a>&gt;
-						<a href="${ctx}/coursepage/login.jsp">用户登录</a>
+						用户登录
 					</h2>
 					<br class="clear" />
 				</div>
@@ -63,7 +79,7 @@
 									<td width="24"></td>
 									<td><font style="font-size:12px; color:#74582f"><BR/>
 <s:form action="loginFromMessageBoardAction" method="post"
-													onsubmit="">
+													onsubmit="return check(this);">
 													<table width="60%" height="100%" border="0"
 														cellspacing="0" cellpadding="0" align="center">
 														<tr>
