@@ -32,6 +32,18 @@
 				<param name="root">rows</param>
 			</result>
 		</action>
+		<action name="changeColorAction" class="enterCourseAction"
+			method="changeColor">
+			<result type="json">
+				<param name="root">color</param>
+			</result>
+		</action>
+		<action name="sortSandAction" class="enterCourseAction"
+			method="sortSand">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
 	</package>
 	<package name="struts" extends="struts-default">
 		<action name="download" class="cn.edu.xmu.course.web.action.DownloadAction">
@@ -1392,6 +1404,11 @@
 			</result>
 		</action>
 		<action name="goIndexQueryAction" method="goIndexQuery"
+			class="enterCourseAction">
+			<result name="success">/coursepage/index.jsp
+			</result>
+		</action>
+		<action name="changeHeaderAction" method="changeHeader"
 			class="enterCourseAction">
 			<result name="success">/coursepage/index.jsp
 			</result>
