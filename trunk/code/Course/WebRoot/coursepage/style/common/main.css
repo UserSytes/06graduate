@@ -224,10 +224,6 @@ strong {
 	display: block;
 }
 
-.image-grid li strong {
-	color: #000000;
-}
-
 .image-grid li span {
 	color: #fff;
 	display: none;
