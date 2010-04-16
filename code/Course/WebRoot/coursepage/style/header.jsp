@@ -4,10 +4,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
-		<link id="cssfile" href="${ctx}/coursepage/style/<s:property value="#session.style"/>/color.css" rel="stylesheet"
-			type="text/css" />
+		<link type="text/css" href="${ctx}/coursepage/style/common/easyui.css"
+			rel="stylesheet" />
+		<link id="cssfile"
+			href="${ctx}/coursepage/style/<s:property value="#session.style"/>/color.css"
+			rel="stylesheet" type="text/css" />
 		<script src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"
 			type="text/javascript"></script>
+		<script src="${ctx}/js/jquery.easyui.min.js" type="text/javascript"></script>
+
 
 	</head>
 	<script type="text/javascript">
@@ -17,7 +22,63 @@
 		}, function() {
 			$(this).children("ul").stop(true, true).slideUp("fast");
 		});
+		
+		$("#blue").click( function() {
+			$.post("changeColorAction.action", {
+				color :'blue'
+			}, callBack, "json");
+		});
+		$("#green").click( function() {
+			$.post("changeColorAction.action", {
+				color :'green'
+			}, callBack, "json");
+		});
+		$("#orange").click( function() {
+			$.post("changeColorAction.action", {
+				color :'orange'
+			}, callBack, "json");
+		});
+		$("#white").click( function() {
+			$.post("changeColorAction.action", {
+				color :'white'
+			}, callBack, "json");
+		});
+		$("#red").click( function() {
+			$.post("changeColorAction.action", {
+				color :'red'
+			}, callBack, "json");
+		});
+		$("#purple").click( function() {
+			$.post("changeColorAction.action", {
+				color :'purple'
+			}, callBack, "json");
+		});
+		$("#gray").click( function() {
+			$.post("changeColorAction.action", {
+				color :'gray'
+			}, callBack, "json");
+		});
+		$("#pink").click( function() {
+			$.post("changeColorAction.action", {
+				color :'pink'
+			}, callBack, "json");
+		});
+
+		function callBack(data) {
+			if (data == null)
+				return;			
+			$("#cssfile").attr("href",
+					"${ctx}/coursepage/style/" + data + "/color.css"); //设置不同皮肤		
+			$("#logo").attr("src",
+					"${ctx}/coursepage/style/" + data + "/logo.gif");
+		}
 	})
+</script>
+
+	<script type="text/javascript">
+	function changeHeader(header) {
+		window.location.href = "changeHeaderAction.action?header=" + header;
+	}
 </script>
 	<body>
 		<div class="content border_bottom">
@@ -30,14 +91,61 @@
 					<a
 						href="javascript:window.external.addFavorite('http://www.yoursite.com','<s:property value="course.name" />-厦门大学课程网络平台')">加入收藏</a>
 				</li>
-				<li class="nobg">
-					<a href="#">联系我们</a>
+				<li>
+					<a href="#" style="margin-top: -5px" id="mb1"
+						class="easyui-menubutton" menu="#mm1">风格设置</a>
 				</li>
 			</ul>
 			<img src="${ctx}/coursepage/style/green/logo.gif" alt="居然之家"
 				name="logo" width="200" height="75" id="logo" />
 
 			<br class="clear" />
+
+			<div id="mm1" style="width: 100px;">
+				<div>
+					<span>风格</span>
+					<div style="width: 100px;">
+						<div id="blue">
+							蓝色
+						</div>
+						<div id="green">
+							绿色
+						</div>
+						<div id="white">
+							白色
+						</div>
+						<div id="gray">
+							灰色
+						</div>
+						<div id="orange">
+							橙色
+						</div>
+						<div id="pink">
+							粉色
+						</div>
+						<div id="purple">
+							紫色
+						</div>
+						<div id="red">
+							红色
+						</div>
+					</div>
+				</div>
+				<div>
+					<span>导航菜单</span>
+					<div style="width: 100px;">
+						<div id="trad" onclick="changeHeader('header.jsp')">
+							导航一
+						</div>
+						<div id="dock" onclick="changeHeader('header_dock.jsp')">
+							导航二
+						</div>
+						<div id="sand" onclick="changeHeader('header_sand.jsp')">
+							导航三
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="content dgreen-bg">
 			<div class="content">

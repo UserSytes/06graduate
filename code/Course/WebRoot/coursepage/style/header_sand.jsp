@@ -275,7 +275,7 @@
 				</li>
 				<li>
 					<a href="#" style="margin-top: -5px" id="mb1"
-						class="easyui-menubutton" menu="#mm1">导航设置</a>
+						class="easyui-menubutton" menu="#mm1">风格设置</a>
 
 				</li>
 			</ul>
