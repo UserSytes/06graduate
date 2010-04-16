@@ -54,7 +54,10 @@ public class EvaluateService implements IEvaluateService {
 		return evaluationDAO.findById(id);
 	}
 
-	// 算课程评价得分
+	/**
+	 * 查询学生对课程的平均评分
+	 * 
+	 */
 	public Object calculatStudent(int courseId) {
 		Object result = getStudentCourseCalculateResult(courseId)[1];
 		return result;
