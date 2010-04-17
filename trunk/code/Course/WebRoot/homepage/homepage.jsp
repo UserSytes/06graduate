@@ -78,7 +78,7 @@
 														</td>
 														<td width="4" valign="top"></td>
 														<td valign="top" width="120">
-															<s:textfield name="userName" size="14"></s:textfield>
+															<s:textfield name="userName" size="15"></s:textfield>
 														</td>
 														<td width="7" valign="top"></td>
 														<td width="9" valign="top"></td>
@@ -220,8 +220,8 @@
 												<tr>
 													<td width="2" bgcolor="#e7e7e7"></td>
 													<td width="10"></td>
-													<td width="170">
-														现在是
+													<td width="170"> 
+														跳转到 <font color="#8080c0"><strong><a href='<s:url action="myPageAction"></s:url>'>我的主页</a></strong></font>
 													</td>
 													<td width="10"></td>
 													<td width="2" bgcolor="#e7e7e7"></td>
@@ -693,13 +693,13 @@
 																		<tr>
 																			<td width="96" align="right">
 																				<a href="http://www.xmu.edu.cn/"><img
-																						src="${ctx}/homepage/image/utility_cont1.GIF"
+																						src="${ctx}/homepage/image/utility_cont1.gif"
 																						border="0">
 																				</a>
 																			</td>
 																			<td width="97" align="right">
 																				<a href="http://jwc.xmu.edu.cn/"><img
-																						src="${ctx}/homepage/image/utility_cont2.GIF"
+																						src="${ctx}/homepage/image/utility_cont2.gif"
 																						alt="" border="0">
 																				</a>
 																			</td>

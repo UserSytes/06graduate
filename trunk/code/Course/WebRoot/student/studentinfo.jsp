@@ -66,10 +66,10 @@
 									</tr>
 								</table>
 								<s:form action="goChangeMyInfoAction" method="post">
-									<table width="95%" border="3" cellpadding="0" cellspacing="0" bordercolor="#e7e7d7">
+									<table width="95%" border="0" cellpadding="0" cellspacing="0">
 									
 										<tr height="30">
-											<td width="100" align="right"><strong> 
+											<td width="100" align="right"><strong>  
 												姓名：</strong>
 											</td>
 											<td >
@@ -125,6 +125,12 @@
 												&nbsp;&nbsp;<s:property value="userInfo.email" />
 											</td>
 										</tr>
+										<tr height="10">
+											<th colspan="2"></th>
+									    </tr>
+										<tr height="2">
+											<th colspan="2" bgcolor="#d7d7d7"></th>
+									    </tr>
 										<tr  height="30">
 											<th colspan="2">
 												<div align="right">
@@ -132,6 +138,7 @@
 												</div>
 											</th>
 										</tr>
+
 									</table>
 								</s:form>
 

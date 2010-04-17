@@ -94,7 +94,7 @@
 															<strong><a
 																href="${ctx}/upload/<s:property value="student.userInfo.photo"/>"
 																title="" class="thickbox"><img width="180"
-																		src="${ctx}/upload/<s:property value="userInfo.photo"/>" />
+																		src="${ctx}/upload/<s:property value="userInfo.photo"/>" border="0"/>
 															</a> </strong>
 														</td>
 													</tr>
