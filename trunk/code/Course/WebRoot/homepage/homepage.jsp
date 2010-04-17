@@ -699,7 +699,7 @@
 																			</td>
 																			<td width="97" align="right">
 																				<a href="http://jwc.xmu.edu.cn/"><img
-																						src="${ctx}/homepage/image/utility_cont2.gif"
+																						src="${ctx}/homepage/image/jiaowu.gif"
 																						alt="" border="0">
 																				</a>
 																			</td>
