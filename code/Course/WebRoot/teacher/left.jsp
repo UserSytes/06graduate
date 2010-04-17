@@ -212,7 +212,7 @@ a:visited {
 							</td>
 						</tr>
 						<tr>
-							<td height="22" background="images/main_36.gif">
+							<td height="22" background="images/main_25.gif">
 								<table width="100%" border="0" cellspacing="0" cellpadding="0">
 									<tr>
 										<td width="13%">
@@ -347,7 +347,7 @@ a:visited {
 							</td>
 						</tr>
 						<tr>
-							<td height="22" background="images/main_36.gif">
+							<td height="22" background="images/main_25.gif">
 								<table width="100%" border="0" cellspacing="0" cellpadding="0">
 									<tr>
 										<td width="13%">
@@ -388,7 +388,7 @@ a:visited {
 							</td>
 						</tr>
 						<tr>
-							<td height="22" background="images/main_36.gif">
+							<td height="22" background="images/main_25.gif">
 								<table width="100%" border="0" cellspacing="0" cellpadding="0">
 									<tr>
 										<td width="13%">
@@ -465,7 +465,7 @@ a:visited {
 																<td height="23" style="cursor: hand"
 																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
 																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
-																	<span class="STYLE2">&nbsp;帮助中心：软件学院 </span>
+																	<span class="STYLE2">&nbsp;版权所有：厦门大学 </span>
 																</td>
 															</tr>
 														</table>
@@ -479,7 +479,7 @@ a:visited {
 																<td height="23" style="cursor: hand"
 																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
 																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
-																	<span class="STYLE2">&nbsp;系统版本：1.0开发版 </span>
+																	<span class="STYLE2">&nbsp;系统版本：3.0开发版 </span>
 																</td>
 															</tr>
 														</table>

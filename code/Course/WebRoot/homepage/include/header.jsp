@@ -47,12 +47,6 @@
 										<td width="4" align="center" >
 											<img src="${ctx}/homepage/image/line.gif" border="0">
 										</td>
-										<td  width="80" class="tda"  align="center">
-											<a href="getReceiveMailByStuAction.action">站内信</a>&nbsp;
-										</td>
-										<td width="4" align="center">
-											<img src="${ctx}/homepage/image/line.gif" border="0">
-										</td>
 										<td width="80" class="tda"  align="center">
 											<a href="<s:url action="logoutAction"></s:url>">退出系统</a>
 											&nbsp;

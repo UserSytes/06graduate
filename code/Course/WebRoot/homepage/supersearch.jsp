@@ -160,7 +160,7 @@ $(document).ready(function(){
 						<tr>
 							<td valign="top" align="center">
 								<!-- 内容 -->
-								<table width="95%"  border="1" cellpadding="0" cellspacing="0"
+								<table width="95%"  border="0" cellpadding="0" cellspacing="0"
 										bordercolor="#e7e7d7"><tr>
 										<td>
 								<s:form action="superSearchCourseAction"

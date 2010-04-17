@@ -90,7 +90,7 @@
 									</tr>
 								</table>
 								<s:form action="changeStudentPwdAction" method="post" onsubmit="return check(this);">
-									<table width="95%" border="3" cellpadding="0" cellspacing="0" bordercolor="#e7e7d7">
+									<table width="95%" border="0" cellpadding="0" cellspacing="0">
 										<tr height="30">
 											<td align="right" width="30%">
 												<strong> 请输入原密码：</strong>
@@ -113,14 +113,20 @@
 										</tr>
 										<tr  height="30">
 											<td align="right">
-												<strong> 请再次输入新密码：</strong>
+												<strong> 请确认新密码：</strong>
 											</td>
 											<td>
 												&nbsp;&nbsp;<s:password cssClass="password" id="newPasswordAgain" name="newPasswordAgain"
 																				 size="30" label="新密码2"></s:password>
 																			&nbsp;*
 											</td>
-										</tr>									
+										</tr>	
+										<tr height="10">
+											<th colspan="2"></th>
+									    </tr>
+										<tr height="2">
+											<th colspan="2" bgcolor="#d7d7d7"></th>
+									    </tr>								
 										<tr  height="30">
 											<th colspan="2">
 												<div align="right">

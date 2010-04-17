@@ -131,12 +131,12 @@ body {
             </tr>
             <tr>
               <td width="60" height="30" ><strong><font size="2" face="宋体" color="gray">账号</font></strong></td>
-              <td><s:textfield name="userName" size="18" label="帐号"></s:textfield>
+              <td><s:textfield name="userName" size="19" label="帐号"></s:textfield>
 			 </td> 
             </tr>
             <tr>
               <td height="30" width="60"><strong><font size="2" face="宋体" color="gray">密码</font></strong></td>
-              <td><s:password size="20" name="password"></s:password></td>
+              <td><s:password size="19" name="password"></s:password></td>
             </tr>
             <tr>
               <td height="30"><strong><font size="2" face="宋体" color="gray"> 权限</font></strong> </td>

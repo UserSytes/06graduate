@@ -94,7 +94,7 @@
 																	<s:hidden name="student.password" />
 																	<s:hidden name="student.grade.id" />
 																	<s:hidden name="userInfo.photo"/>
-									<table width="95%" border="3" cellpadding="0" cellspacing="0" bordercolor="#e7e7d7">
+									<table width="95%" border="0" cellpadding="0" cellspacing="0">
 									
 										<tr height="30">
 											<td width="100" align="right"><strong> 
@@ -157,6 +157,12 @@
 																				&nbsp;*
 											</td>
 										</tr>
+										<tr height="10">
+											<th colspan="2"></th>
+									    </tr>
+										<tr height="2">
+											<th colspan="2" bgcolor="#d7d7d7"></th>
+									    </tr>
 										<tr  height="30">
 											<th colspan="2">
 												<div align="right">

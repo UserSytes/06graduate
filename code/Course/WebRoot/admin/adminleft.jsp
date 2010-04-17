@@ -22,9 +22,9 @@ eval("submenu" + sid + ".style.display=\"none\";");
 }
 </SCRIPT>
 <body bgcolor="16ACFF">
-<table width="98%" border="0" cellpadding="0" cellspacing="0" background="Images/tablemde.jpg">
+<table width="98%" border="0" cellpadding="0" cellspacing="0" background="Images/tablemde.gif">
   <tr>
-    <td height="5" background="Images/tableline_top.jpg" bgcolor="#16ACFF"></td>
+    <td height="5" background="Images/tableline_top.gif" bgcolor="#16ACFF"></td>
   </tr>
   <tr>
     <td><TABLE width="97%" 
@@ -57,10 +57,10 @@ border=0 align=right cellPadding=0 cellSpacing=0 class=leftframetable>
     </TABLE></td>
   </tr>
   <tr>
-    <td height="5" background="Images/tableline_bottom.jpg" bgcolor="#9BC2ED"></td>
+    <td height="5" background="Images/tableline_bottom.gif" bgcolor="#9BC2ED"></td>
   </tr>
   <tr>
-    <td height="5" background="Images/tableline_top.jpg" bgcolor="#9BC2ED"></td>
+    <td height="5" background="Images/tableline_top.gif" bgcolor="#9BC2ED"></td>
   </tr>
   <tr>
     <td><table class="leftframetable" cellspacing="0" cellpadding="0" width="97%" align="right" 
@@ -100,10 +100,10 @@ border="0">
     </table></td>
   </tr>
   <tr>
-    <td height="5" background="Images/tableline_bottom.jpg" bgcolor="#9BC2ED"></td>
+    <td height="5" background="Images/tableline_bottom.gif" bgcolor="#9BC2ED"></td>
   </tr>
   <tr>
-    <td height="5" background="Images/tableline_top.jpg" bgcolor="#9BC2ED"></td>
+    <td height="5" background="Images/tableline_top.gif" bgcolor="#9BC2ED"></td>
   </tr>
   <tr>
     <td><TABLE class=leftframetable cellSpacing=0 cellPadding=0 width="97%" align=right 
@@ -140,10 +140,10 @@ border=0>
     </TABLE></td>
   </tr>
   <tr>
-    <td height="5" background="Images/tableline_bottom.jpg" bgcolor="#9BC2ED"></td>
+    <td height="5" background="Images/tableline_bottom.gif" bgcolor="#9BC2ED"></td>
   </tr>
   <tr>
-    <td height="5" background="Images/tableline_top.jpg" bgcolor="#9BC2ED"></td>
+    <td height="5" background="Images/tableline_top.gif" bgcolor="#9BC2ED"></td>
   </tr>
   <tr>
     <td><TABLE class=leftframetable cellSpacing=0 cellPadding=0 width="97%" align=right border=0>
@@ -176,10 +176,10 @@ border=0>
     </TABLE></td>
   </tr>
   <tr>
-    <td height="5" background="Images/tableline_bottom.jpg" bgcolor="#9BC2ED"></td>
+    <td height="5" background="Images/tableline_bottom.gif" bgcolor="#9BC2ED"></td>
   </tr>
 <tr>
-    <td height="5" background="Images/tableline_top.jpg" bgcolor="#9BC2ED"></td>
+    <td height="5" background="Images/tableline_top.gif" bgcolor="#9BC2ED"></td>
   </tr>
   <tr>
     <td><TABLE class=leftframetable cellSpacing=0 cellPadding=0 width="97%" align=right border=0>
@@ -207,10 +207,10 @@ border=0>
     </TABLE></td>
   </tr>
   <tr>
-    <td height="5" background="Images/tableline_bottom.jpg" bgcolor="#9BC2ED"></td>
+    <td height="5" background="Images/tableline_bottom.gif" bgcolor="#9BC2ED"></td>
   </tr>
   <tr>
-    <td height="5" background="Images/tableline_top.jpg" bgcolor="#9BC2ED"></td>
+    <td height="5" background="Images/tableline_top.gif" bgcolor="#9BC2ED"></td>
   </tr>
   <tr>
     <td height="8">
@@ -228,17 +228,15 @@ border=0>
           </TR>
         <TR>
           <TD 
-      height=105><span class="STYLE2"><IMG src="Images/closed.gif">版权所有：厦门大学<br>
+      height=60><span class="STYLE2"><IMG src="Images/closed.gif">版权所有：厦门大学<br>
               <IMG src="Images/closed.gif">设计制作：软件学院<br>
-              <IMG src="Images/closed.gif">技术支持：<a href="#" target="_blank">865171</a><br>
-              <IMG src="Images/closed.gif">帮助中心：<a href="#" target="_blank">865171</a><br>
-            <IMG src="Images/closed.gif">系统版本：1.0</span></TD>
+            <IMG src="Images/closed.gif">系统版本：3.0</span></TD>
         </TR>
       </TBODY>
     </TABLE>	</td>
   </tr>
   <tr>
-    <td height="5" background="Images/tableline_bottom.jpg"></td>
+    <td height="5" background="Images/tableline_bottom.gif"></td>
   </tr>
 </table>
 </body></html>

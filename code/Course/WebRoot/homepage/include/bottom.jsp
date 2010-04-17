@@ -21,11 +21,11 @@
 	</td>
 	<td width="567" valign="top">
 		<table border="0" cellpadding="0" cellspacing="0" bgcolor="#e6e6e6" width="100%">
-		<tr height="10" bgcolor="#e6e6e6"><td></td></tr>
+		<tr height="30" bgcolor="#e6e6e6"><td></td></tr>
 		<tr>
 			<td>©Copyright Software School of Xiamen University 2010</td>
 		</tr>
-		<tr height="42" bgcolor="#e6e6e6">
+		<tr height="22" bgcolor="#e6e6e6">
 			<td>办公电话：2580566 &nbsp; &nbsp; 邮箱：software@xmu.edu.cn</td>
 		</tr>
 		</table>
@@ -46,7 +46,9 @@
 	<td valign="top">
 		<table border="0" cellpadding="0" cellspacing="0">
 		<tr>
-			<td valign="top">&nbsp;</td>
+			<td valign="top">
+				<img src="${ctx}/homepage/image/bottom_right.gif" border="0" alt="">
+			</td>
 		</tr>
 		</table>
 	</td>
