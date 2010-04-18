@@ -46,11 +46,12 @@ public class MessageAction extends BaseAction {
 	private String authorName="";
 	private Date keydate;
 	private int searchFlag;
-	
+	private String replyString="";
+	private int replyGrade;
+	private String replyContent="";
 	//调试的分页如下 
     private int page;    //第几页
     private PageBean pageBean;    //包含分布信息的bean
-    
 	public String loginFromMessageBoard() {
 
 		if (getFlag() == 0) {
@@ -126,6 +127,7 @@ public class MessageAction extends BaseAction {
 		// topicService.addTopic(super.getCourse(), topic);
 		// message.setGrade(1);
 		// message.setUserInfo(userInfo);
+		course=super.getCourse();
 		boolean result = messageService.addMessage(super.getCourse(), topic,
 				message, super.getUserInfo());
 		if (result) {
@@ -138,8 +140,8 @@ public class MessageAction extends BaseAction {
 	}
 
 	public String goReply() {
+		course=super.getCourse();
 		topic = topicService.getTopicById(topicId);
-		System.out.println("进入ID为：" + topic.getId() + "的回复页面");
 		userInfo = (UserInfo) super.getSession().get(USERINFO);
 		if (getTopic() == null) {
 			addActionError("该贴已经不存在！");
@@ -149,7 +151,36 @@ public class MessageAction extends BaseAction {
 		}
 
 	}
+	public String goReplyToSomeone() {
+		course=super.getCourse();
+		topic = topicService.getTopicById(topicId);
+		System.out.println(getReplyString());
+		setReplyString(""+"<b>回复 第"+getReplyGrade()+"楼<i> "+getReplyString()+"</i> 的帖子：</b><br />------------------------------");
+		System.out.println(getReplyString());
+		userInfo = (UserInfo) super.getSession().get(USERINFO);
+		if (getTopic() == null) {
+			addActionError("该贴已经不存在！");
+			return ERROR;
+		} else {
+			return SUCCESS;
+		}
 
+	}
+	public String goReplyWithQuote() {
+		course=super.getCourse();
+		System.out.println(getReplyString());
+		topic = topicService.getTopicById(topicId);
+		setReplyString("<quote:msgheader>"+"QUOTE:原帖由第"+getReplyGrade()+"楼<i> "+getReplyString()+"</i> 的帖子：</quote:msgheader><br /><br />"+"<quote:msgborder>"+getReplyContent()+"</quote:msgborder>");
+		System.out.println(getReplyString());
+		userInfo = (UserInfo) super.getSession().get(USERINFO);
+		if (getTopic() == null) {
+			addActionError("该贴已经不存在！");
+			return ERROR;
+		} else {
+			return SUCCESS;
+		}
+
+	}
 	/**
 	 * 显示课程留言主题
 	 * 
@@ -217,6 +248,7 @@ public class MessageAction extends BaseAction {
 	public String addReply() {
 		// System.out.println("ACTION正在加入帖子为："+topicId+"的留言1");
 		// topic = topicService.getTopicById(topicId);
+		course=super.getCourse();
 		System.out.println("ACTION正在加入帖子为：" + topic.getId() + "的留言2");
 		topic = topicService.getTopicById(topic.getId());
 		// topic.setCountReply(topic.getCountReply()+1);
@@ -236,7 +268,7 @@ public class MessageAction extends BaseAction {
 		}
 	}
 	public String goQuickSearchTopic(){
-		Course course = super.getCourse();
+		course = super.getCourse();
 		System.out.println("keyword=" + keyword);
 		if(searchFlag==0)
 		{
@@ -252,7 +284,7 @@ public class MessageAction extends BaseAction {
 		System.out.println("keyword=" + keyword);
 		System.out.println("authorName=" + authorName);
 		System.out.println("keydate=" + keydate);
-		Course course = super.getCourse();
+		course = super.getCourse();
 		if (keydate == null) {
 			if (authorName.equals("")) {// 按主题名称搜索
 				System.out.println("按主题名称搜索:" + keyword);
@@ -521,4 +553,29 @@ public class MessageAction extends BaseAction {
 	public int getSearchFlag() {
 		return searchFlag;
 	}
+
+	public void setReplyString(String replyString) {
+		this.replyString = replyString;
+	}
+
+	public String getReplyString() {
+		return replyString;
+	}
+
+	public void setReplyContent(String replyContent) {
+		this.replyContent = replyContent;
+	}
+
+	public String getReplyContent() {
+		return replyContent;
+	}
+
+	public void setReplyGrade(int replyGrade) {
+		this.replyGrade = replyGrade;
+	}
+
+	public int getReplyGrade() {
+		return replyGrade;
+	}
+
 }

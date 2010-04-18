@@ -29,6 +29,8 @@ public class NoticeAction extends BaseAction {
 	private int page;    //第几页
     private PageBean pageBean;    //包含分布信息的bean
 	private int pageSize = 10;
+	private String keyword;
+	private int searchFlag;
 	/**
 	 * 添加新的课程通知
 	 * 
@@ -104,6 +106,13 @@ public class NoticeAction extends BaseAction {
 		return SUCCESS;
 	}
 	
+	public String getNoticeByNameAndSort(){
+		course = super.getCourse();
+		this.pageBean=getNoticeService().getNoticeByNameAndSort(course, getKeyword(), getSearchFlag(), pageSize, page);
+		setSort(getSearchFlag());
+		return SUCCESS;
+		
+	}
 	public String findNoticeById() {
 		course = super.getCourse();
 		notice=noticeService.getNoticeById(noticeId);
@@ -261,6 +270,22 @@ public class NoticeAction extends BaseAction {
 
 	public int getPageSize() {
 		return pageSize;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setSearchFlag(int searchFlag) {
+		this.searchFlag = searchFlag;
+	}
+
+	public int getSearchFlag() {
+		return searchFlag;
 	}
 
 }
