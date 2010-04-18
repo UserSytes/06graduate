@@ -64,5 +64,5 @@
 
 </ul>
 
-<span id="hits">现在已经有[13]次点击</span>
+<span id="hits">现在已经有[<s:property value="course.count" />]次点击</span>
 
