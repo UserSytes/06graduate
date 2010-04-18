@@ -33,8 +33,7 @@
                      			<s:param name="topicId"> 
                        			 	<s:property value="topic.id"/> 
                     			</s:param>
-                					</s:url>">
-												发表回复
+                					</s:url>">发表回复
 											</a>
 					</h2>
 					<br class="clear" />
@@ -49,7 +48,7 @@
 							<td width="724" align="center">
 								<table border="0" cellpadding="0" cellspacing="0" width="724" height="94" background="${ctx}/coursepage/classical/image/titlebg.gif" style="background-repeat:no-repeat">
 						<tr>
-<td width="324"><font style="font-size:12px; color:#574434"><b>欢迎你，<s:property value="userInfo.name"/>&gt;<a href="<s:url action="enterPersionalSpaceAction"> 
+						<td width="324" align="left"><font style="font-size:12px; color:#574434"><b>欢迎你，<s:property value="userInfo.name"/>&gt;<a href="<s:url action="enterPersionalSpaceAction"> 
                 					</s:url>">个人空间
 											</a>&nbsp;<a href="${ctx}/coursepage/messagemanage/searchtopic.jsp">
 												搜索
@@ -79,27 +78,26 @@
 								<table border="0" cellpadding="0" cellspacing="0" width="100%">
 								<tr>
 									<td width="24"></td>
-									<td><BR/>
+									<td>
 <s:form action="addReplyAction" method="post" id="myform" name="myform"
 			namespace="/upLoadFile" target="_self" enctype="multipart/form-data" onsubmit="return checkAll();">
 			<s:hidden name="topic.id" ></s:hidden>
-			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+			<table cellSpacing=1 cellPadding=1 width="100%"
 				align=center border=0>
-				<tr class=editHeaderTr>
-					<td class=editHeaderTd colSpan=7>
-						请编辑回复内容
+				<tr class=tr-head>
+					<td colSpan=2 height="25">
+						<font color="#966f48"style="font-size:14px; font-weight:bold">请编辑回复内容</font>
 					</td>
 				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							内容：
-						</div>
+				<tr  class="tr-content">
+					<td align="center">				
+							<font color="#966f48"style="font-size:14px; font-weight:bold">内容：</font>
 					</td>
-					<td colspan="4" bgcolor="#FFFFFF">
-						<FCK:editor instanceName="message.content" width="100%" height="405"
+					<td colspan="4">
+						<FCK:editor instanceName="message.content" width="100%" height="405" 
 							toolbarSet="Default">
 							<jsp:attribute name="value">
+								<s:text name="">${replyString}</s:text>
                             </jsp:attribute>
 						</FCK:editor>
 					</td>

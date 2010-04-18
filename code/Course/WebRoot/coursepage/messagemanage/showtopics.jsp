@@ -239,9 +239,9 @@
 									<td>
 <s:textfield name="keyword" cssClass="text" size="40"/></td>
 									<td width="5"></td>
-									<td><input type="submit" name="submit" style=" background-image:${ctx}/coursepage/classical/image/button3.gif"></td>
-									<td width="143"></td>
-									<td><a href="#"><img src="${ctx}/coursepage/classical/image/button2.gif" border="0"></a></td>
+									<td><input type="submit" name="submit" value=" 查 询 " style=" background-image:${ctx}/coursepage/classical/image/button3.gif"></td>
+									<td width="200"></td>
+									<td><!--<a href="#"><img src="${ctx}/coursepage/classical/image/button2.gif" border="0"></a>--></td>
 									<td width="6"></td>
 								</table>
 </s:form>

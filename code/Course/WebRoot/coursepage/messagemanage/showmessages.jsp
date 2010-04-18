@@ -3,7 +3,7 @@
 <%@ include file="../../commons/taglibs.jsp"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<html xmlns:quote>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title><s:property value="topic.name" />-师生留言-厦门大学课程网络平台</title>
@@ -24,6 +24,14 @@
 
 	}
 </SCRIPT>
+	<style type="text/css"> 
+		quote\:msgheader {
+	BORDER-BOTTOM: #e7e7e7 1px solid; BORDER-LEFT: #e7e7e7 1px solid; PADDING-BOTTOM: 5px; MARGIN: 0px 1em; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; BACKGROUND: #f3f8d7; COLOR: #000000; BORDER-TOP: #e7e7e7 1px solid; FONT-WEIGHT: bold; BORDER-RIGHT: #e7e7e7 1px solid; PADDING-TOP: 5px
+} 
+		quote\:msgborder {
+	BORDER-BOTTOM: #e7e7e7 1px solid; BORDER-LEFT: #e7e7e7 1px solid; PADDING-BOTTOM: 10px; MARGIN: 0px 1em; PADDING-LEFT: 10px; WIDTH: 100%; PADDING-RIGHT: 10px; WORD-WRAP: break-word; BACKGROUND: #fdfff2; OVERFLOW: hidden; BORDER-TOP: 0px; BORDER-RIGHT: #e7e7e7 1px solid; PADDING-TOP: 10px
+} 
+</style>
 	</head>
 	<body>
 		<!-- 头部 -->
@@ -127,18 +135,38 @@
 														</div>
 													</td>
 												</tr>
-												<tr>
+												<tr height="100%">
 													<td valign="top" height="100%" style="padding-top: 10px;">
 														<div>
 													<s:text name="">${content}</s:text>		
 												</div>
 													</td>
 												</tr>
-												<tr height="20">
+												<tr>
 													<td align="right">
 														&nbsp;
-														<a href="">引用</a> &nbsp;
-														<a href="###" onclick="">回复</a>
+														<a href="<s:url action="goReplyWithQuoteAction">
+                     			<s:param name="topicId"> 
+                       			 	<s:property value="topic.id"/> 
+                    			</s:param>
+								<s:param name="replyString" value="userInfo.name"> 
+                    			</s:param>
+								<s:param name="replyGrade" value="grade"> 
+                    			</s:param>
+								<s:param name="replyContent" value="content"> 
+                    			</s:param>
+                					</s:url>" onclick="">引用</a> &nbsp;
+														<a href="<s:url action="goReplyToSomeoneAction">
+                     			<s:param name="topicId"> 
+                       			 	<s:property value="topic.id"/> 
+                    			</s:param>
+								<s:param name="replyString"> 
+                       			 	<s:property value="userInfo.name"/>
+                    			</s:param>
+								<s:param name="replyGrade"> 
+                       			 	<s:property value="grade"/>
+                    			</s:param>
+                					</s:url>" onclick="">回复</a>
 														<a href="###" onclick="scroll(0,0)"><img src="${ctx}/coursepage/classical/image/top.gif"
 																border="0" alt="顶部" />
 														</a>
@@ -161,9 +189,8 @@
             第一页 上一页
         </s:if>
 											<s:else>
-												<a href="showMessagesAction.action?page=1">第一页</a>
-												<a
-													href="showMessagesAction.action?page=<s:property value="%{pageBean.currentPage-1}"/>">上一页</a>
+												<a href="showMessagesAction.action?page=1&topicId=<s:property value="topic.id" />">第一页</a>
+												<a href="showMessagesAction.action?page=<s:property value="%{pageBean.currentPage-1}"/>&topicId=<s:property value="topic.id" />">上一页</a>
 											</s:else>
 											<s:bean name="org.apache.struts2.util.Counter" id="counter">
 												<s:param name="first" value="1" />
@@ -171,7 +198,7 @@
 												<s:iterator status="current">
 													<s:if test="pageBean.currentPage!=current-1">
 														<a
-															href="showMessagesAction.action?page=<s:property value="%{current-1}"/>">
+															href="showMessagesAction.action?page=<s:property value="%{current-1}"/>&topicId=<s:property value="topic.id" />">
 															[<s:property />]</a>
 													</s:if>
 													<s:else>
@@ -182,9 +209,9 @@
 											</s:bean>
 											<s:if test="%{pageBean.currentPage != pageBean.totalPage}">
 												<a
-													href="showMessagesAction.action?page=<s:property value="%{pageBean.currentPage+1}"/>">下一页</a>
+													href="showMessagesAction.action?page=<s:property value="%{pageBean.currentPage+1}"/>&topicId=<s:property value="topic.id" />">下一页</a>
 												<a
-													href="showMessagesAction.action?page=<s:property value="pageBean.totalPage"/>">最后一页</a>
+													href="showMessagesAction.action?page=<s:property value="pageBean.totalPage"/>&topicId=<s:property value="topic.id" />">最后一页</a>
 											</s:if>
 											<s:else>
             下一页 最后一页

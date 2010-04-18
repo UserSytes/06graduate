@@ -73,21 +73,19 @@
 								<table border="0" cellpadding="0" cellspacing="0" width="100%">
 								<tr>
 									<td width="24"></td>
-									<td><BR/>
+									<td>
 <s:form action="addNewMessageAction" method="post" id="myform" name="myform"
 			namespace="/upLoadFile" target="_self" enctype="multipart/form-data" onsubmit="return check(this);">
-			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
-				align=center border=0>
-				<tr class=editHeaderTr>
-					<td class=editHeaderTd colSpan=2>
+			<table cellSpacing=1 cellPadding=1 width="100%"
+				align=center>
+				<tr class=tr-head>
+					<td colSpan=2 height="25">	
 						<font color="#966f48"style="font-size:14px; font-weight:bold">请编辑主题内容</font>
 					</td>
 				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
+				<tr class="tr-content">
+					<td align="center">
 							<font color="#966f48"style="font-size:14px; font-weight:bold">标题：</font>
-						</div>
 					</td>
 					<td>
 						<s:textfield cssClass="LONGINPUT" id="title" name="topic.name"
@@ -95,13 +93,11 @@
 						&nbsp;*
 					</td>
 				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
+				<tr class="tr-content">
+					<td align="center">
 							<font color="#966f48"style="font-size:14px; font-weight:bold">内容：</font>
-						</div>
 					</td>
-					<td colspan="4" bgcolor="#FFFFFF">
+					<td colspan="4">
 						<FCK:editor instanceName="message.content" width="100%" height="405"
 							toolbarSet="Default">
 							<jsp:attribute name="value">
@@ -109,7 +105,7 @@
 						</FCK:editor>
 					</td>
 				</tr>
-				<tr>
+				<tr class="tr-content">
 					<td width="15%">
 						&nbsp;
 					</td>
