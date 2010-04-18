@@ -88,9 +88,9 @@
 								<table cellpadding="0" cellspacing="0" align="center">
 									<s:iterator value="evaluationList" status="evaluation">
 										<tr>
-											<td>
+											<td><font style="font-size:16px;">
 专家：<s:property value="name" />&nbsp;<s:property value="position" />&nbsp;评价分数：<s:property value="score" />
-													&nbsp; 
+													&nbsp; </font>
 												<a
 													href="<s:url action="enterEvaluationAction"> 
 	                     											<s:param name="evaluationId"> 
