@@ -1,6 +1,6 @@
 body{
    color:#000;
-   background:#151618 url(bg4.jpg) 0 0 repeat-x;
+   background:#464B51 url(bg4.jpg) 0 0 repeat-x;
 }
 
 .border_bottom3{
@@ -104,7 +104,7 @@ body{
   border-bottom:1px solid #D8CECD;
 }
 
-#right-cnt{background: #202125;
+#right-cnt{background: #464B51 ;
 }
 #right-cnt p{
   color:#4D4D4D;
@@ -145,15 +145,15 @@ margin-top:0px;
 }
 
 div.col_center p#intro{
-  color:#6B6B6B;
+  color:#F0F8FF ;
 }
 
 div.col_center ul li a:link{
-  color:#6B6B6B;
+  color:#F0F8FF ;
 }
 
 div.col_center ul li a:visited{
-  color:#6B6B6B;
+  color:#F0F8FF ;
 }
 
 div.col_center ul li a:hover{
@@ -175,7 +175,6 @@ div.col_center ul li a:hover{
   text-align:left;
   color:#FFF;
 }
-
 .image-grid li strong {
 	color: #FFF;
 }
