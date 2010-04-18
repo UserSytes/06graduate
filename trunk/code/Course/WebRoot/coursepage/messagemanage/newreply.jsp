@@ -89,7 +89,7 @@
 						<font color="#966f48"style="font-size:14px; font-weight:bold">请编辑回复内容</font>
 					</td>
 				</tr>
-				<tr  class="tr-content">
+				<tr class="tr-content">
 					<td align="center">				
 							<font color="#966f48"style="font-size:14px; font-weight:bold">内容：</font>
 					</td>
@@ -102,7 +102,7 @@
 						</FCK:editor>
 					</td>
 				</tr>
-				<tr bgcolor="#ECF3FD">
+				<tr  class="tr-content">
 					<td width="15%">
 						&nbsp;
 					</td>
