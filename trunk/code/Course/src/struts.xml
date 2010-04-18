@@ -1391,7 +1391,11 @@
 			class="noticeAction">
 			<result name="success">/coursepage/noticelist.jsp
 			</result>
-
+		</action>
+		<action name="getNoticeByNameAndSortAction" method="getNoticeByNameAndSort"
+			class="noticeAction">
+			<result name="success">/coursepage/noticelist.jsp
+			</result>
 		</action>
 		<action name="viewNoticeAction" method="findNoticeById"
 			class="noticeAction">
@@ -1518,6 +1522,17 @@
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
 		</action>
+		<action name="goReplyToSomeoneAction" method="goReplyToSomeone" class="messageAction">
+			<result name="success">/coursepage/messagemanage/newreply.jsp
+			</result>
+			<result name="error">/commons/prompt1.jsp</result>
+		</action>
+		<action name="goReplyWithQuoteAction" method="goReplyWithQuote" class="messageAction">
+			<result name="success">/coursepage/messagemanage/newreply.jsp
+			</result>
+			<result name="error">/commons/prompt1.jsp</result>
+		</action>
+		
 		<action name="addReplyAction" method="addReply" class="messageAction">
 			<result name="success">/coursepage/messagemanage/success.jsp
 			</result>
