@@ -1,6 +1,6 @@
 body{
    color:#000;
-   background:#10091a url(bg3.png) 0 0 repeat-x;
+   background:#5A3D99 url(bg3.png) 0 0 repeat-x;
 }
 
 .border_bottom3{
@@ -76,7 +76,7 @@ body{
 }
 
 #left-nav-bar{
-  background:#190b2c ;
+  background:#473C8B;
   color:#FFF; 
 }
 
@@ -101,10 +101,10 @@ body{
   border-bottom:1px solid #D8CECD;
 }
 
-#right-cnt{background:#10091a ;
+#right-cnt{background:#5A3D99;
 }
 #right-cnt p{
-  color:#4D4D4D;
+  color:#DCB5FF;
 }
 
 .pages{
@@ -142,15 +142,15 @@ margin-top:0px;
 }
 
 div.col_center p#intro{
-  color:#b3a3d4;
+  color:#DCB5FF;
 }
 
 div.col_center ul li a:link{
-  color:#b3a3d4;
+  color:#DCB5FF;
 }
 
 div.col_center ul li a:visited{
-  color:#b3a3d4;
+  color:#DCB5FF;
 }
 
 div.col_center ul li a:hover{
