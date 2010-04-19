@@ -53,7 +53,7 @@ public class EvaluationAction extends BaseAction {
 	public String loginFromEvaluation() {
 		course = super.getCourse();
 		if (getFlag() == 0) {
-			evaluation = getLoginService().expertLogin(userName, getPassword());
+			evaluation = getLoginService().expertLogin(userName, getPassword(),0);
 			System.out.println(userName);
 			if (null == evaluation) {
 				addActionError("用户名获密码错误！请返回重试！");
@@ -64,7 +64,7 @@ public class EvaluationAction extends BaseAction {
 				return "expert";
 			}
 		} else if (getFlag() == 1) {
-			evaluation = getLoginService().expertLogin(userName, getPassword());
+			evaluation = getLoginService().expertLogin(userName, getPassword(),1);
 			System.out.println(userName);
 			if (null == evaluation) {
 				addActionError("用户名获密码错误！请返回重试！");
