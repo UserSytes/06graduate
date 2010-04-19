@@ -8,165 +8,47 @@
 		<META http-equiv=Pragma content=no-cache>
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
-		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
-		<LINK href="${ctx}/css/pagination.css" type=text/css rel=stylesheet>
-		<script type="text/javascript"
-			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
-		<script type="text/javascript" src="${ctx}/js/jquery.pagination.js"></script>
 		<title>学生列表</title>
-		<script language="javascript">
-	function getStudent(type) {
-	    if(type == 1){
-			document.getElementById("search1").style.display="block";
-			document.getElementById("search2").style.display="none";	
-		}else{
-			document.getElementById("search1").style.display="none";
-			document.getElementById("search2").style.display="block";	
-		}	
-	}
-	
-	$(document).ready(function(){
-	//这是一个非常简单的demo实例，让列表元素分页显示
-	//回调函数的作用是显示对应分页的列表项内容
-	//回调函数在用户每次点击分页链接的时候执行
-	//参数page_index{int整型}表示当前的索引页
-	var $table = $('#table');
-	$("#tbody tr:gt(" + 9+ ")").hide().end();
-	$("#tbody").css("display","");  
-		var num_entries = $("#tbody tr").length;
-		// 创建分页
-		$("#Pagination").pagination( {
-				count:num_entries,
-				pageCount:10,
-				imagePath:"${ctx}/commons/images",
-				callback:function(page_index){							
-		 			$table.find("#tbody tr").show();               
-          			$("#tbody tr:lt(" + (page_index-1) * 10 + ")").hide().end();                  
-       				$("#tbody tr:gt(" + ((page_index) * 10 -1) + ")").hide().end();
-			}
-		});
-
-});
-</script>
-		<style type="text/css">
-<!--
-.STYLE1 {
-	color: #000000
-}
--->
-</style>
+		<style type="text/css" title="currentStyle">
+			@import "${ctx}/css/demo_page.css";
+			@import "${ctx}/css/demo_table_jui.css";
+			@import "${ctx}/css/jquery-ui-1.7.2.custom.css";
+		</style>
+		<script type="text/javascript" language="javascript" src="${ctx}/js/jquery.js"></script>
+		<script type="text/javascript" language="javascript" src="${ctx}/js/jquery.dataTables.js" charset="gb2312"></script>
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				oTable = $('#example').dataTable({
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers"
+				});
+			} );
+		</script>
 	</head>
-	<body>
+	<body id="dt_example">
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
-				<td>
+				<td height=24>
 					当前位置: 学生管理 -&gt; 学生列表
 				</td>
 			</tr>
 		</table>
 
-		<table class=listTable align="center">
-			<tr>
-				<td>
-					请选择查询条件：&nbsp;&nbsp;&nbsp;
-					<s:select name="type" list="#{1:'帐号',0:'年级专业'}" listKey="key"
-						listValue="value" onchange="javascript:getStudent(this.value)" />
-
-				</td>
-			</tr>
-		</table>
-
-		<div align="center" id="search1">
-			<s:form action="findStudentByNoAction" method="post">
-				<table class="listTable">
-					<tr class=editHeaderTr>
-						<td class=editHeaderTd colSpan=7>
-							查找学生
-						</td>
-					</tr>
-					<tr>
-						<td bgcolor="#FFFDF0">
-							<div align="center">
-								请输入学生帐号：
-							</div>
-						</td>
-						<td colspan="3" bgcolor="#FFFFFF">
-							&nbsp;&nbsp;&nbsp;
-							<s:textfield cssClass="INPUT" id="studentNo" size="30"
-								name="studentNo" label="账号"></s:textfield>
-						</td>
-					</tr>
-					<tr bgcolor="#ECF3FD">
-						<td width="20%">
-							&nbsp;
-						</td>
-						<td width="80%">
-							<s:submit cssClass="label" value="查找"></s:submit>
-						</td>
-					</tr>
-				</table>
-			</s:form>
-		</div>
-		<div align="center" id="search2" style="display: none;">
-			<s:form action="findStudentByGradeAction" method="post">
-				<table class="listTable">
-					<tr class=editHeaderTr>
-						<td class=editHeaderTd colSpan=7>
-							查找学生
-						</td>
-					</tr>
-					<tr>
-						<td bgcolor="#FFFDF0">
-							<div align="center">
-								请选择筛选年级：
-							</div>
-						</td>
-						<td colspan="3" bgcolor="#FFFFFF">
-							&nbsp;&nbsp;&nbsp;
-							<s:select name="gradeId" list="gradeList" headerKey="-1"
-								headerValue="所有" listKey="id" listValue="name+grade" />
-						</td>
-					</tr>
-					<tr>
-						<td bgcolor="#FFFDF0">
-							<div align="center">
-								请选择筛选系：
-							</div>
-						</td>
-						<td colspan="3" bgcolor="#FFFFFF">
-							&nbsp;&nbsp;&nbsp;
-							<s:select name="departmentId" list="departmentList"
-								headerKey="-1" headerValue="所有" listKey="id" listValue="name" />
-						</td>
-					</tr>
-					<tr bgcolor="#ECF3FD">
-						<td width="20%">
-							&nbsp;
-						</td>
-						<td width="80%">
-							<s:submit cssClass="label" value="查找"></s:submit>
-						</td>
-					</tr>
-				</table>
-			</s:form>
-		</div>
-		<div align="center">
+		
+		<div class="demo_jui">
 			<s:hidden name="studentList" />
-			<table id="table" class="listTable" style="">
-				<tr class="listHeaderTr"
-					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
+			<table cellpadding="0" cellspacing="0" border="0"  class="display" id="example">
+				<thead>
+					<tr>				
 					<th>
-						序号
+						学号
 					</th>
 					<th>
 						姓名
 					</th>
 					<th>
 						性别
-					</th>
-					<th>
-						账号
 					</th>
 					<th>
 						年级
@@ -178,20 +60,18 @@
 						操作
 					</th>
 				</tr>
-				<tbody id="tbody" style="display: none;">
+				</thead>
+				<tbody>
 					<s:iterator value="studentList" status="student">
-						<tr class="listTr">
-							<td width="5%">
-								<s:property value="#student.count" />
+						<tr <s:if test="#student.odd">style="background-color:ebf4fd"</s:if>>							
+							<td width="20%">
+								<s:property value="studentNo" />
 							</td>
 							<td width="15%">
 								<s:property value="userInfo.name" />
 							</td>
-							<td width="5%">
+							<td width="10%">
 								<s:property value="userInfo.sex" />
-							</td>
-							<td width="20%">
-								<s:property value="studentNo" />
 							</td>
 							<td width="15%">
 								<s:property value="grade.name+grade.grade" />
@@ -220,7 +100,6 @@
 					</s:iterator>
 				</tbody>
 			</table>
-			<div id="Pagination" class="pagination">
 			</div>
 		</div>
 	</body>
