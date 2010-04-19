@@ -190,68 +190,68 @@ public class StudentAction extends BaseAction {
 		}
 	}
 
-	/**
-	 * 根据年级或者系查找学生
-	 * 
-	 * @return
-	 */
-	public String findStudentsByGrade() {
-		if (gradeId == -1 && departmentId == -1) {
-			return this.findStudentBySchool();
-		} else if (gradeId == -1 && departmentId != -1) {
-			department = superAdminService.findDepartmentById(departmentId);
-			studentList = studentInfoService.findByDepartment(department);
-			if (studentList.size() == 0) {
-				addActionMessage(department.getName() + "尚未添加学生！");
-				return ERROR;
-			} else {
-				this.goAddStudent();
-				return SUCCESS;
-			}
-		} else if (gradeId != -1 && departmentId == -1) {
-			grade = superAdminService.findGradeById(gradeId);
-			studentList = studentInfoService.findByGrade(grade);
-			if (studentList.size() == 0) {
-				addActionMessage(grade.getName() + grade.getGrade()
-						+ "级 尚未添加学生！");
-				return ERROR;
-			} else {
-				this.goAddStudent();
-				return SUCCESS;
-			}
-		} else {
-			department = superAdminService.findDepartmentById(departmentId);
-			grade = superAdminService.findGradeById(gradeId);
-			studentList = studentInfoService.findByDepartmentAndGrade(
-					department, grade);
-			if (studentList.size() == 0) {
-				addActionMessage(grade.getName() + grade.getGrade() + "级"
-						+ department.getName() + "尚未添加学生！");
-				return ERROR;
-			} else {
-				this.goAddStudent();
-				return SUCCESS;
-			}
-		}
-	}
+//	/**
+//	 * 根据年级或者系查找学生
+//	 * 
+//	 * @return
+//	 */
+//	public String findStudentsByGrade() {
+//		if (gradeId == -1 && departmentId == -1) {
+//			return this.findStudentBySchool();
+//		} else if (gradeId == -1 && departmentId != -1) {
+//			department = superAdminService.findDepartmentById(departmentId);
+//			studentList = studentInfoService.findByDepartment(department);
+//			if (studentList.size() == 0) {
+//				addActionMessage(department.getName() + "尚未添加学生！");
+//				return ERROR;
+//			} else {
+//				this.goAddStudent();
+//				return SUCCESS;
+//			}
+//		} else if (gradeId != -1 && departmentId == -1) {
+//			grade = superAdminService.findGradeById(gradeId);
+//			studentList = studentInfoService.findByGrade(grade);
+//			if (studentList.size() == 0) {
+//				addActionMessage(grade.getName() + grade.getGrade()
+//						+ "级 尚未添加学生！");
+//				return ERROR;
+//			} else {
+//				this.goAddStudent();
+//				return SUCCESS;
+//			}
+//		} else {
+//			department = superAdminService.findDepartmentById(departmentId);
+//			grade = superAdminService.findGradeById(gradeId);
+//			studentList = studentInfoService.findByDepartmentAndGrade(
+//					department, grade);
+//			if (studentList.size() == 0) {
+//				addActionMessage(grade.getName() + grade.getGrade() + "级"
+//						+ department.getName() + "尚未添加学生！");
+//				return ERROR;
+//			} else {
+//				this.goAddStudent();
+//				return SUCCESS;
+//			}
+//		}
+//	}
 
-	/**
-	 * 根据学号查找学生
-	 * @return
-	 */
-	public String findStudentByNo(){
-		Administrator admin = (Administrator) super.getSession().get(ADMIN);
-		school = admin.getSchool();
-		System.out.println("测试查找学生："+studentNo+ school.getName());
-		studentList = studentInfoService.findByStudentNoFuzzy(studentNo, school);
-		if(studentList.size() == 0){
-			addActionMessage("没有帐号和"+studentNo+"有关的学生。");
-			return ERROR;
-		}else{
-			this.goAddStudent();
-			return SUCCESS;
-		}
-	}
+//	/**
+//	 * 根据学号查找学生
+//	 * @return
+//	 */
+//	public String findStudentByNo(){
+//		Administrator admin = (Administrator) super.getSession().get(ADMIN);
+//		school = admin.getSchool();
+//		System.out.println("测试查找学生："+studentNo+ school.getName());
+//		studentList = studentInfoService.findByStudentNoFuzzy(studentNo, school);
+//		if(studentList.size() == 0){
+//			addActionMessage("没有帐号和"+studentNo+"有关的学生。");
+//			return ERROR;
+//		}else{
+//			this.goAddStudent();
+//			return SUCCESS;
+//		}
+//	}
 	
 	/**
 	 * 根据学院查找学生
