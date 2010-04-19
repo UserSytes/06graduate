@@ -42,10 +42,11 @@ public interface ILoginService {
 	public SuperAdmin superAdminLogin(String userName, String password);
 
 	/**
-	 * 专家登录
-	 * @param userName
+	 * 专家登陆
+	 * @param username
 	 * @param password
+	 * @param flag
 	 * @return
 	 */
-	public Evaluation expertLogin(String username, String password);
+	public Evaluation expertLogin(String username, String password ,int flag);
 }
