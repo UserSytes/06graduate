@@ -78,13 +78,13 @@ public class LoginService implements ILoginService {
 			return null;
 	}
 
-	public Evaluation expertLogin(String username, String password) {
+	public Evaluation expertLogin(String username, String password,int flag) {
 		// TODO Auto-generated method stub
 		List<Evaluation> evaluations = evaluationDAO.findByUsername(username);
 		if (0 == evaluations.size())
 			return null;
 		Evaluation a = evaluations.get(0);
-		if (password.equals(a.getPassword()))
+		if (password.equals(a.getPassword())&&a.getSort()==flag)
 			return a;
 		else
 			return null;
