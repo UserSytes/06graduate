@@ -20,8 +20,6 @@
 	background-position: right 12px;
 }
 </style>
-
-
 		<script type="text/javascript">
 	$( function() {
 
