@@ -90,7 +90,7 @@
 			<result name="teacher">/teacher/main.jsp</result>
 			<result name="student">/student/studentinfo.jsp
 			</result>
-			<result name="error">/commons/prompt.jsp</result>
+			<result name="error">/homepage/error.jsp</result>
 		</action>
 		<action name="logoutAction" method="logout"
 			class="cn.edu.xmu.course.web.action.LoginAction">
