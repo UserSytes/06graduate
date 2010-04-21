@@ -1375,7 +1375,7 @@
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<!-- 课程首页公告 -->		
-		<action name="getNoticeBySortAction" method="getNoticeBySort"
+		<action name="getNoticeBySortAction" method="getNoticeBySort2"
 			class="noticeAction">
 			<result name="success">/coursepage/noticelist.jsp
 			</result>
