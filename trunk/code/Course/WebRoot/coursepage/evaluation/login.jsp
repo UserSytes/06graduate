@@ -72,7 +72,7 @@
 						</table>
 							</td></tr>
 						<tr height="20"><td></td></tr>
-						<tr>
+						<tr align="center">
 							<td>
 								<table border="0" cellpadding="0" cellspacing="0" width="100%">
 								<tr>

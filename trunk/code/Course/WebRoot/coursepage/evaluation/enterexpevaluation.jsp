@@ -84,32 +84,36 @@
 						</tr>
 						<tr>
 							<td>
-								<table cellpadding="0" cellspacing="0" align="center">
+								<table cellpadding="0" cellspacing="0" align="center" width="724">
+<tr class="tr-title" style="height:20px;">
+										<td width="100" height="40" align="center">
+											专家名称
+										</td>
+										<td width="100" height="40" align="center">
+											职称
+										</td>
+										<td width="100" height="40" align="center">
+											来自
+										</td>
+										<td width="90" height="40" align="center">
+											评价分数
+										</td>
+									</tr>
+<tr class="tr-content"  style="height:20px;">	
+<td align="center"><s:property value="evaluation.name" /></td>
+<td align="center"><s:property value="evaluation.position" /></td>
+<td align="center"><s:property value="evaluation.company" /></td>
+<td align="center"><s:property value="evaluation.score" /></td>
+										</tr>
 					<tr>
-						<td>
+						<td colspan="4">
 							<font color="#74582f" style="font-size:16px;font-weight:bold;"> 
-							专家
-							<s:property value="evaluation.name" />&nbsp;<s:property value="evaluation.pisition" />&nbsp;来自：<s:property value="evaluation.company" />
-							<br />对该门课程的评价分数是：
-							<br />
-							<s:text name="">${evaluation.score}</s:text>
-							<br />
-							<br />
-							评价内容是：
+							课程评语：
 							<br />
 							<s:text name="">${evaluation.content}</s:text>
 							</font>
 						</td>
 					</tr>
-					<tr>
-							<td align="center"><br />
-								<a href="<s:url action="eDetailEvaluateAction"> 
-	                     											<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param></s:url>"><font color="#74582f" style="font-size:16px;font-weight:bold;">进入评价</font></a>
-
-							</td>
-						</tr>
 				</table>
 							</td>
 						</tr>	
