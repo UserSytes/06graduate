@@ -85,14 +85,39 @@
 						</tr>
 						<tr>
 							<td>
-								<table cellpadding="0" cellspacing="0" align="center">
-
+								<table cellpadding="0" cellspacing="0" align="center" border="0" width="724">
+<tr class="tr-title">
+										<td width="20" height="40" align="center">
+											序号
+										</td>
+										<td width="100" height="40" align="center">
+											教师名称
+										</td>
+										<td width="100" height="40" align="center">
+											职称
+										</td>
+										<td width="90" height="40" align="center">
+											评价分数
+										</td>
+										<td width="220" height="40" align="center">
+											评语
+										</td>
+										<td width="100" height="40" align="center">
+											详细
+										</td>
+									</tr>
 					<s:iterator value="evaluationList" status="evaluation">
-						<tr>
-							<td>
-							<font style="font-size:16px;">同行教师:<s:property value="name" />&nbsp;评价分数：<s:property value="score" />
-								&nbsp;</font>
-								<a href="<s:url action="enterTeaEvaluationAction"> 
+						<tr class="tr-content" <s:if test="#evaluation.odd">style="background-color:#fFF"</s:if>>
+<td align="center"><s:property value="#evaluation.count" /></td>
+<td align="center"><s:property value="name" /></td>
+<td align="center"><s:property value="position" /></td>
+<td align="center"><s:property value="score" /></td>
+<td align="center"><s:if test="content.length()>20">
+										<s:property value="content.substring(0, 20)+'...'" escape="false"/>
+									</s:if> <s:else>
+										<s:property value="content" escape="false"/>
+									</s:else></td>
+							<td><a href="<s:url action="enterTeaEvaluationAction"> 
 	                     											<s:param name="evaluationId"> 
 	                       			 									<s:property value="id"/> 
 	                    											</s:param> 
@@ -104,7 +129,7 @@
 						</tr>
 					</s:iterator>
 					<tr >
-						<td align="center">
+						<td align="center"  colspan="6">
 							<br />
 							<a href="<s:url action="tDetailEvaluateAction"> 
                      			<s:param name="course"> 
