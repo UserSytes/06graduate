@@ -81,7 +81,7 @@ $(document).ready(function(){
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>
-						序号
+						点击
 					</th>
 					<th>
 						回复
