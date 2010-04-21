@@ -11,13 +11,11 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
-		<link href="${ctx}/coursepage/style/<s:property value="course.style"/>/color.css" rel="stylesheet"
-			type="text/css" />
 
 	</head>
 	<body>
 		<!-- 头部 -->
-		<s:include value="../style/%{course.header}"></s:include>
+		<s:include value="../style/%{#session.header}"></s:include>
 		<div class="content">
 			<!-- 左侧 -->
 			<s:include value="../style/left.jsp"></s:include>
@@ -58,14 +56,14 @@
                 					</s:url>">
 														退出 </a> </b> </font>
 										</td>
-										<td width="400" valign="top" align="right">											
+										<td width="400" valign="top" align="right">
 										</td>
 									</tr>
 									<tr height="69">
 										<td valign="bottom" align="left">
 											<table border="0" cellpadding="0" cellspacing="0">
 												<tr>
-													<td>														
+													<td>
 													</td>
 												</tr>
 												<tr>
@@ -90,77 +88,62 @@
 						<tr>
 							<td width="724" align="center">
 								<!--게시판 -->
-								<table border="0" cellpadding="0" cellspacing="0" width="724">
-									<tr height="3" class="tr-head">
-										<td colspan="14"></td>
-									</tr>
-									<tr  class="tr-title">
+								<table border="0" cellpadding="0" cellspacing="0" width="724"
+									class="display" id="example">								
+									<tr class="tr-title">
 										<td width="50" height="40" align="center">
 											序号
-										</td>
-										<td>
-											&nbsp;
 										</td>
 										<td width="280" height="40" align="center">
 											标题
 										</td>
-										<td>
-											&nbsp;
-										</td>
 										<td width="160" height="40" align="center">
 											作者
 										</td>
-										<td>
-											&nbsp;
-										</td>
 										<td width="120" height="40" align="center">
 											回复/查看
-										<td>
-											&nbsp;
 										</td>
 										<td width="120" height="40" align="center">
 											最后发表
 										</td>
 									</tr>
 									<s:iterator value="pageBean.list" status="topic">
-										<tr height="33"  class="tr-content"
+										<tr height="33" class="tr-content"
 											<s:if test="#topic.odd">style="background-color:#fff"</s:if>>
 											<td width="50" align="center">
-												<s:property
-														value="#topic.count" />
-											</td>
-											<td></td>
-											<td width="280" align="left"  style="font-weight: bold">
+												<s:property value="#topic.count" />
+											</td>											
+											<td width="280" align="left" style="font-weight: bold">
 												<a
 													href="<s:url action="showMessagesAction"> 
 		<s:param name="topicId"> 
 		<s:property value="id"/> 
 		</s:param>
 		</s:url>">
-														<s:property value="name" /> </a>
+													<s:property value="name" /> </a>
 											</td>
-											<td></td>
 											<td width="160" align="center">
 												<s:property value="authorName" />
-													<br> <s:date name="time" format="yyyy-MM-dd" />
+												<br>
+												<s:date name="time" format="yyyy-MM-dd" />
 											</td>
-											<td></td>
 											<td width="120" align="center">
-												<s:property value="countReply" />/<s:property
-														value="countPerson" /> 
+												<s:property value="countReply" />
+												/
+												<s:property value="countPerson" />
 											</td>
-											<td></td>
 											<td width="120" align="center">
-												<s:date name="lastUpdate"
-														format="yyyy-MM-dd" /> <br> by <s:property
-														value="lastAnswer" /> 
+												<s:date name="lastUpdate" format="yyyy-MM-dd" />
+												<br>
+													by 
+												<s:property value="lastAnswer" />
 											</td>
 										</tr>
 									</s:iterator>
 									<tr height="4">
 										<td></td>
 									</tr>
-									
+
 									<tr height="3" class="tr-foot">
 										<td colspan="14" width="630"></td>
 									</tr>
@@ -227,24 +210,40 @@
 									<tr>
 
 										<td>
-											<s:form action="goQuickSearchTopicAction" onsubmit="return check(this);" method="post" enctype="multipart/form-data">
-								<table border="0" cellpadding="0" cellspacing="0" width="724">
-								<tr height="40" bgcolor="#f1e1be">
-									<td width="7"></td>
-									<td><img src="${ctx}/coursepage/classical/image/search.gif" border="0"></td>
-									<td width="8"></td>
-									<td>
-								<s:select name="searchFlag" cssStyle="width:73px;height:21px;background-color:#ffffff;color:#777777" list="# {'0':'标题','1':'作者'}" headerKey="-1" headerValue="请选择" />									</td>
-									<td width="3"></td>
-									<td>
-<s:textfield name="keyword" cssClass="text" size="40"/></td>
-									<td width="5"></td>
-									<td><input type="submit" name="submit" value=" 查 询 " style=" background-image:${ctx}/coursepage/classical/image/button3.gif"></td>
-									<td width="200"></td>
-									<td><!--<a href="#"><img src="${ctx}/coursepage/classical/image/button2.gif" border="0"></a>--></td>
-									<td width="6"></td>
-								</table>
-</s:form>
+											<s:form action="goQuickSearchTopicAction"
+												onsubmit="return check(this);" method="post"
+												enctype="multipart/form-data">
+												<table border="0" cellpadding="0" cellspacing="0"
+													width="724">
+													<tr height="40" bgcolor="#f1e1be">
+														<td width="7"></td>
+														<td>
+															<img src="${ctx}/coursepage/classical/image/search.gif"
+																border="0">
+														</td>
+														<td width="8"></td>
+														<td>
+															<s:select name="searchFlag"
+																cssStyle="width:73px;height:21px;background-color:#ffffff;color:#777777"
+																list="# {'0':'标题','1':'作者'}" headerKey="-1"
+																headerValue="请选择" />
+														</td>
+														<td width="3"></td>
+														<td>
+															<s:textfield name="keyword" cssClass="text" size="40" />
+														</td>
+														<td width="5"></td>
+														<td>
+															<input type="submit" name="submit" value=" 查 询 "
+																style=" background-image:${ctx}/coursepage/classical/image/button3.gif">
+														</td>
+														<td width="200"></td>
+														<td>
+															<!--<a href="#"><img src="${ctx}/coursepage/classical/image/button2.gif" border="0"></a>-->
+														</td>
+														<td width="6"></td>
+												</table>
+											</s:form>
 										</td>
 									</tr>
 								</table>

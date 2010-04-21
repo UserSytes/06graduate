@@ -11,10 +11,7 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
-		<link href="${ctx}/coursepage/style/<s:property value="course.style"/>/color.css" rel="stylesheet"
-			type="text/css" />
-
-<SCRIPT language=javascript>
+<script type="text/javascript">
 	function check(form) {
 		if (form.keyword.value == "" && form.keyname.value==""&&form.keydate.value=null) {
 			alert("搜索条件不能全为空，请重新搜索！");
@@ -22,11 +19,11 @@
 		}
 		return true;
 	}
-</SCRIPT>
+</script>
 	</head>
 	<body>
 		<!-- 头部 -->
-		<s:include value="../style/%{course.header}"></s:include>
+		<s:include value="../style/%{#session.header}"></s:include>
 		<div class="content">
 			<!-- 左侧 -->
 			<s:include value="../style/left.jsp"></s:include>
