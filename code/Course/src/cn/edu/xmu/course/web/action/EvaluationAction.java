@@ -177,6 +177,7 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String enterEvaluation() {
+		course = super.getCourse();
 		evaluation = evaluateService.findById(evaluationId);
 		if (evaluation == null) {
 			return ERROR;
@@ -190,6 +191,7 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String enterTeaEvaluation() {
+		course = super.getCourse();
 		evaluation = evaluateService.findById(evaluationId);
 		if (evaluation == null) {
 			return ERROR;
