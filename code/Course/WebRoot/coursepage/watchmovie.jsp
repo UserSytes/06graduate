@@ -11,18 +11,15 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
-		<link href="${ctx}/coursepage/style/<s:property value="course.style"/>/color.css" rel="stylesheet"
-			type="text/css" />
 
 	</head>
 	<body>
 		<!-- 头部 -->
-		<s:include value="style/%{course.header}"></s:include>
+		<s:include value="style/%{#session.header}"></s:include>
 		<div class="content">
 			<!-- 左侧 -->
 			<s:include value="style/left.jsp"></s:include>
 			<div id="right-cnt">
-				<br class="clear" />
 				<!-- 正文部分 -->
 				<div class="pages">
 					<h2>
@@ -31,56 +28,22 @@
 							href="<s:url action="getCourseMovieListAction"> 
                 					</s:url>">教学录像</a>&gt;详细浏览
 					</h2>
-					<br class="clear" />
 				</div>
-
-				<ul id="products-list">
-				</ul>
 				<!-- 正文 -->
 				<div>
-					<table border="0" cellpadding="0" cellspacing="0">
-						<tr>
-							<td width="724" align="center">
-								<table border="0" cellpadding="0" cellspacing="0" width="724"
-									height="94"
-									background="${ctx}/coursepage/classical/image/titlebg.gif"
-									style="background-repeat: no-repeat">
-									<tr>
-										<td width="724" valign="top" align="right">
-											<font style="font-size: 12px; color: #574434">
-											</font>
-										</td>
-									</tr>
-									<tr height="69">
-										<td valign="bottom" align="left">
-											<table border="0" cellpadding="0" cellspacing="0">
-												<tr>
-													<td>
-														<font color="#966f48"
-															style="font-size: 16px; font-weight: bold"><s:property
-																value="courseMovie.title" /> </font>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<font color="#92a35d" style="font-size: 12px;">发布时间：<s:date
-																name="courseMovie.time" format="yyyy-MM-dd" /> </font>
-													</td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-									<tr height="1">
-										<td width="724" bgcolor="#c4ae86" valign="top"></td>
-									</tr>
-								</table>
+					<table border="0" cellpadding="0" cellspacing="0"
+						style="margin-top: 20px;">
+						<tr height="29">
+							<td align="center">
+								<font style="font-size: 16px; font-weight: bold"><s:property
+										value="courseMovie.title" /> </font>
 							</td>
-						</tr>
-						<tr height="20">
-							<td></td>
+						</tr>						
+						<tr height="1" class="tr-title">
+							<td width="680" valign="top" style="padding-left: 10px"></td>
 						</tr>
 						<tr>
-							<td>
+							<td width="704">
 								<table border="0" cellpadding="0" cellspacing="0" width="100%">
 									<tr>
 										<td align="center">
@@ -116,7 +79,8 @@
 													controls="ControlPanel" height="27" width="356"
 													autostart="0" _extentx="7276" _extenty="1058" shuffle="0"
 													prefetch="0" nolabels="0" loop="0" numloop="0" center="0"
-													maintainaspect="0" backgroundcolor="#ffffff"> </embed>
+													maintainaspect="0" backgroundcolor="#ffffff">
+												</embed>
 											</object>
 										</td>
 									</tr>
@@ -140,16 +104,14 @@
 													</td>
 													<td width="120" align="center">
 														<font color="#74582f"><s:property
-																value="courseMovie.author" />
-														</font>
+																value="courseMovie.author" /> </font>
 													</td>
 													<td width="80" align="center">
 														<font style="font-size: 12px; font-weight: bold;">发布时间：</font>
 													</td>
 													<td width="150" align="center">
 														<font color="#74582f"><s:date
-																name="courseMovie.time" format="yyyy-MM-dd" />
-														</font>
+																name="courseMovie.time" format="yyyy-MM-dd" /> </font>
 													</td>
 													<td width="50" align="center">
 														<font style="font-size: 12px; font-weight: bold;">职称：</font>
@@ -167,8 +129,7 @@
 										</td>
 										<td width="480">
 											<font color="#74582f"><s:property
-													value="courseMovie.content" />
-											</font>
+													value="courseMovie.content" /> </font>
 										</td>
 									</tr>
 									<tr>
@@ -194,7 +155,8 @@
 						</tr>
 						<tr height="45">
 							<td width="724" align="right" valign="top">
-								<a href="<s:url action="getCourseMovieListAction"> 
+								<a
+									href="<s:url action="getCourseMovieListAction"> 
                 					</s:url>"><img
 										src="${ctx}/coursepage/classical/image/button.gif" border="0">
 								</a>

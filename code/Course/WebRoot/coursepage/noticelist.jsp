@@ -7,24 +7,23 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title><s:if test="sort==0">
-课程通知</s:if>
-			<s:else>课程公告</s:else>-厦门大学课程网络平台</title>
+课程通知</s:if> <s:else>课程公告</s:else>-厦门大学课程网络平台</title>
 		<link href="${ctx}/coursepage/style/common/common.css"
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
-		<link href="${ctx}/coursepage/style/<s:property value="course.style"/>/color.css" rel="stylesheet"
-			type="text/css" />
+		<link
+			href="${ctx}/coursepage/style/<s:property value="course.style"/>/color.css"
+			rel="stylesheet" type="text/css" />
 
 	</head>
 	<body>
 		<!-- 头部 -->
-		<s:include value="style/%{course.header}"></s:include>
+		<s:include value="style/%{#session.header}"></s:include>
 		<div class="content">
 			<!-- 左侧 -->
 			<s:include value="style/left.jsp"></s:include>
 			<div id="right-cnt">
-				<br class="clear" />
 				<!-- 正文部分 -->
 				<div class="pages">
 					<h2>
@@ -36,58 +35,17 @@
                     			</s:param>
                 					</s:url>"><s:if
 								test="sort==0">
-课程通知</s:if>
-							<s:else>课程公告</s:else>
-						</a>&gt;列表浏览
+课程通知</s:if> <s:else>课程公告</s:else> </a>&gt;列表浏览
 					</h2>
-					<br class="clear" />
 				</div>
 				<!-- 正文 -->
 				<div>
 					<table border="0" cellpadding="0" cellspacing="0">
 						<tr>
 							<td width="724" align="center">
-								<table border="0" cellpadding="0" cellspacing="0" width="724"
-									height="94"
-									background="${ctx}/coursepage/classical/image/titlebg2.gif"
-									style="background-repeat: no-repeat">
-									<tr>
-										<td width="724" valign="top" align="right">											
-										</td>
-									</tr>
-									<tr height="69">
-										<td valign="bottom" align="left">
-											<table border="0" cellpadding="0" cellspacing="0">
-												<tr>
-													<td class="table-title">
-														<s:if test="sort==0">
-课程通知</s:if>
-			<s:else>课程公告</s:else>
-													</td>
-												</tr>
-												<tr>
-													<td>
-													</td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-									<tr height="1">
-										<td width="724" class="td-foot" valign="top"></td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-						<tr height="20">
-							<td></td>
-						</tr>
-						<tr>
-							<td width="724" align="center">
 								<!--게시판 -->
-								<table border="0" cellpadding="0" cellspacing="0" width="724">
-									<tr height="3" class="tr-head">
-										<td colspan="14"></td>
-									</tr>
+								<table border="0" cellpadding="0" cellspacing="0" width="704"
+									class="table-list">
 									<tr class="tr-title">
 										<td width="48" height="40" align="center">
 											序号
@@ -115,8 +73,7 @@
 										<tr height="33" class="tr-content"
 											<s:if test="#notice.odd">style="background-color:#fff"</s:if>>
 											<td align="center">
-												<s:property
-														value="#notice.count" />
+												<s:property value="#notice.count" />
 											</td>
 											<td></td>
 											<td width="10"></td>
@@ -130,13 +87,11 @@
 											                       			 	<s:property value="sort"/>
 											                    			</s:param>
 											                					</s:url>"><s:property
-															value="title" />
-												</a>
+														value="title" /> </a>
 											</td>
 											<td></td>
 											<td width="83" align="center">
-												<s:date name="time"
-														format="yyyy-MM-dd hh:mm:ss" />
+												<s:date name="time" format="yyyy-MM-dd hh:mm:ss" />
 											</td>
 											<td></td>
 											<td width="48" align="center">
@@ -146,7 +101,7 @@
 									</s:iterator>
 									<tr height="4">
 										<td></td>
-									</tr>									
+									</tr>
 									<tr height="3" class="tr-foot">
 										<td colspan="14" width="630"></td>
 									</tr>
@@ -184,8 +139,7 @@
 															[<s:property />]</a>
 													</s:if>
 													<s:else>
-														<font color="red"><s:property />
-														</font>
+														<font color="red"><s:property /> </font>
 													</s:else>
 												</s:iterator>
 											</s:bean>
@@ -218,26 +172,41 @@
 									<tr>
 
 										<td>
-											<s:form action="getNoticeByNameAndSortAction" onsubmit="return check(this);" method="post" enctype="multipart/form-data">
-								<table border="0" cellpadding="0" cellspacing="0" width="724">
-								<tr height="40" bgcolor="#f1e1be">
-									<td width="7"></td>
-									<td><img src="${ctx}/coursepage/classical/image/search.gif" border="0"></td>
-									<td width="8"></td>
-									<td>
-								<s:select name="searchFlag" cssStyle="width:73px;height:21px;background-color:#ffffff;color:#777777" list="# {'0':'通知','1':'公告'}" headerKey="-1" headerValue="请选择" />									</td>
-									<td width="3"></td>
-									<td>
-<s:textfield name="keyword" cssClass="text" size="40"/></td>
-									<td width="5"></td>
-									<td>
-<input type="submit" name="submit" value=" 查 询 " style=" background-image:${ctx}/coursepage/classical/image/button3.gif;" ></td>
-									<td width="200"></td>
-									<td><!--<a href="#"><img src="${ctx}/coursepage/classical/image/button2.gif" border="0"></a>
---></td>
-									<td width="6"></td>
-								</table>
-</s:form>
+											<s:form action="getNoticeByNameAndSortAction"
+												onsubmit="return check(this);" method="post"
+												enctype="multipart/form-data">
+												<table border="0" cellpadding="0" cellspacing="0"
+													width="724">
+													<tr height="40" class="tr-title">
+														<td width="7"></td>
+														<td>
+															<img src="${ctx}/coursepage/classical/image/search.gif"
+																border="0">
+														</td>
+														<td width="8"></td>
+														<td>
+															<s:select name="searchFlag"
+																cssStyle="width:73px;height:21px;background-color:#ffffff;color:#777777"
+																list="# {'0':'通知','1':'公告'}" headerKey="-1"
+																headerValue="请选择" />
+														</td>
+														<td width="3"></td>
+														<td>
+															<s:textfield name="keyword" cssClass="text" size="40" />
+														</td>
+														<td width="5"></td>
+														<td>
+															<input type="submit" name="submit" value=" 查 询 "
+																style=" background-image:${ctx}/coursepage/classical/image/button3.gif;">
+														</td>
+														<td width="200"></td>
+														<td>
+															<!--<a href="#"><img src="${ctx}/coursepage/classical/image/button2.gif" border="0"></a>
+-->
+														</td>
+														<td width="6"></td>
+												</table>
+											</s:form>
 										</td>
 									</tr>
 								</table>

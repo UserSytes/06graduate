@@ -16,7 +16,7 @@
 	</head>
 	<body>
 		<!-- 头部 -->
-		<s:include value="style/%{course.header}"></s:include>
+		<s:include value="style/%{#session.header}"></s:include>
 		<div class="content">
 			<!-- 左侧 -->
 			<s:include value="style/left.jsp"></s:include>
@@ -37,50 +37,12 @@
 				</ul>
 				<!-- 正文 -->
 				<div>
-					<table border="0" cellpadding="0" cellspacing="0">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%">
 						<tr>
-							<td width="724" align="center">
-								<table border="0" cellpadding="0" cellspacing="0" width="724"
-									height="94"
-									background="${ctx}/coursepage/classical/image/titlebg4.gif"
-									style="background-repeat: no-repeat">
-									<tr>
-										<td width="724" valign="top" align="right">
-										</td>
-									</tr>
-									<tr height="69">
-										<td valign="bottom" align="left">
-											<table border="0" cellpadding="0" cellspacing="0">
-												<tr>
-													<td class="table-title">
-														参考书籍
-													</td>
-												</tr>
-												<tr>
-													<td>
-
-													</td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-									<tr height="1">
-										<td width="724" class="td-foot" valign="top"></td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-						<tr height="20">
-							<td></td>
-						</tr>
-						<tr>
-							<td width="724" align="center">
+							<td width="714" align="center">
 								<!--게시판 -->
 								<table class="table-list" border="0" cellpadding="0"
-									cellspacing="0" width="724">
-									<tr height="3" class="tr-head">
-										<td colspan="14"></td>
-									</tr>
+									cellspacing="0" width="714">									
 									<tr class="tr-title">
 										<td width="48" height="40" align="center">
 											序号
