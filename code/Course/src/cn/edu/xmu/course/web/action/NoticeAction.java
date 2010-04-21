@@ -106,6 +106,19 @@ public class NoticeAction extends BaseAction {
 		return SUCCESS;
 	}
 	
+	/**
+	 * 根据类别查找课程通知
+	 * 
+	 * @return
+	 */
+	public String getNoticeBySort2() {
+		course = super.getCourse();
+		noticeList = getNoticeService().getNoticeBySort(course, sort);
+//		noticeList = noticeService.getNoticeBySort(course, getSort());
+		setSort(getSort());
+		return SUCCESS;
+	}
+	
 	public String getNoticeByNameAndSort(){
 		course = super.getCourse();
 		this.pageBean=getNoticeService().getNoticeByNameAndSort(course, getKeyword(), getSearchFlag(), pageSize, page);
