@@ -6,86 +6,68 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title><s:property value="notice.title"></s:property>-<s:if test="sort==0">
-课程通知</s:if><s:else>课程公告</s:else>-厦门大学课程网络平台</title>
+		<title><s:property value="notice.title"></s:property>-<s:if
+				test="sort==0">
+课程通知</s:if> <s:else>课程公告</s:else>-厦门大学课程网络平台</title>
 		<link href="${ctx}/coursepage/style/common/common.css"
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
-		<link href="${ctx}/coursepage/style/<s:property value="course.style"/>/color.css" rel="stylesheet"
-			type="text/css" />
-
 	</head>
 	<body>
 		<!-- 头部 -->
-		<s:include value="style/%{course.header}"></s:include>
+		<s:include value="style/%{#session.header}"></s:include>
 		<div class="content">
 			<!-- 左侧 -->
 			<s:include value="style/left.jsp"></s:include>
 			<div id="right-cnt">
-				<br class="clear" />
 				<!-- 正文部分 -->
 				<div class="pages">
 					<h2>
 						<a href="goIndexQueryAction.action">首页</a>&gt;
-						<a href="<s:url action="getNoticeBySortAction"> 
+						<a
+							href="<s:url action="getNoticeBySortAction"> 
                      			<s:param name="sort"> 
                        			 	0 
                     			</s:param>
-                					</s:url>"><s:if test="sort==0">
-课程通知</s:if><s:else>课程公告</s:else></a>&gt;详细浏览
+                					</s:url>"><s:if
+								test="sort==0">
+课程通知</s:if> <s:else>课程公告</s:else> </a>&gt;详细浏览
 					</h2>
-					<br class="clear" />
 				</div>
-
-<ul id="products-list">
-			</ul>
-		<!-- 正文 -->
+				<!-- 正文 -->
 				<div>
-					<table border="0" cellpadding="0" cellspacing="0">
+					<table border="0" cellpadding="0" cellspacing="0" style="margin-top: 20px;">
+						<tr height="29">
+							<td align="center">
+								<font style="font-size: 16px; font-weight: bold"><s:property
+										value="notice.title" /> </font>
+							</td>
+						</tr>
+						<tr height="19">
+							<td style="padding-left: 10px" class="table-title ">
+								<font class="timefont">发布时间：<s:date name="notice.time"
+										format="yyyy-MM-dd hh:mm:ss" /> </font>
+							</td>
+						</tr>
+						<tr height="1" class="tr-title">
+							<td width="680" valign="top" style="padding-left: 10px"></td>
+						</tr>
 						<tr>
-							<td width="724" align="center">
-								<table border="0" cellpadding="0" cellspacing="0" width="724" height="94" background="${ctx}/coursepage/classical/image/titlebg.gif" style="background-repeat:no-repeat">
-						<tr>
-							<td width="724" valign="top" align="right"><font style="font-size:12px; color:#574434"></font></td></tr>
-						<tr height="69">
-							<td valign="bottom" align="left">
-								<table border="0" cellpadding="0" cellspacing="0">
-								<tr>
-									<td>
-														<font color="#966f48"
-															style="font-size: 16px; font-weight: bold"><s:property
-																value="notice.title" />
-														</font>
-													</td>
-								</tr>
-								<tr>
-									<td><font color="#92a35d"style="font-size:12px;">发布时间：<s:date name="notice.time" format="yyyy-MM-dd" /></font></td></tr>
-								</table></td></tr>
-						<tr height="1">
-							<td width="724" bgcolor="#c4ae86" valign="top"></td></tr>
-						</table>
-							</td></tr>
-						<tr height="20"><td></td></tr>
-						<tr>
-							<td>
+							<td width="704">
 								<table border="0" cellpadding="0" cellspacing="0" width="100%">
-								<tr>
-									<td width="24"></td>
-									<td><font style="font-size:14px; color:#74582f"><s:text name="">${notice.content}</s:text>
-</font></td>
+									<tr>
 										<td width="24"></td>
-										</tr>
+										<td>
+											<br />
+											<s:text name="">${notice.content}</s:text>
+										</td>
+										<td width="24"></td>
+									</tr>
 								</table>
-							</td></tr>
-						<tr height="35"><td></td></tr>	
-						<tr height="45">
-							<td width="724" align="right" valign="top"><a href="<s:url action="getNoticeBySortAction"> 
-                     			<s:param name="sort"> 
-                       			 	<s:property value="sort" /> 
-                    			</s:param>
-                					</s:url>"><img src="${ctx}/coursepage/classical/image/button.gif" border="0"></a></td></tr>
-						</table>
+							</td>
+						</tr>
+					</table>
 				</div>
 				<br class="clear" />
 			</div>

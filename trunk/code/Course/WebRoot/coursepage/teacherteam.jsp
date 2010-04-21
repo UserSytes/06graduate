@@ -11,17 +11,17 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
-		<link href="${ctx}/coursepage/style/<s:property value="course.style"/>/color.css" rel="stylesheet"
-			type="text/css" />
+		<link
+			href="${ctx}/coursepage/style/<s:property value="course.style"/>/color.css"
+			rel="stylesheet" type="text/css" />
 	</head>
 	<body>
 		<!-- 头部 -->
-		<s:include value="style/%{course.header}"></s:include>
+		<s:include value="style/%{#session.header}"></s:include>
 		<div class="content">
 			<!-- 左侧 -->
 			<s:include value="style/left.jsp"></s:include>
 			<div id="right-cnt">
-				<br class="clear" />
 				<!-- 正文部分 -->
 				<div class="pages">
 					<h2>
@@ -30,55 +30,15 @@
 							href="<s:url action="findTeacherTeamAction"> 
                 					</s:url>">教师队伍</a>&gt;详细浏览
 					</h2>
-					<br class="clear" />
 				</div>
-
-				<ul id="products-list">
-				</ul>
 				<!-- 正文 -->
 				<div>
 					<table border="0" cellpadding="0" cellspacing="0">
 						<tr>
-							<td width="724" align="center">
-								<table border="0" cellpadding="0" cellspacing="0" width="724"
-									height="94"
-									background="${ctx}/coursepage/classical/image/titlebg3.gif"
-									style="background-repeat: no-repeat">
-									<tr>
-										<td width="724" valign="top" align="right">											
-										</td>
-									</tr>
-									<tr height="69">
-										<td valign="bottom" align="left">
-											<table border="0" cellpadding="0" cellspacing="0">
-												<tr>
-													<td class="table-title">
-														教师队伍介绍
-													</td>
-												</tr>
-												<tr>
-													<td>														
-													</td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-									<tr height="1">
-										<td width="750" class="td-foot" valign="top"></td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-						<tr height="20">
-							<td></td>
-						</tr>
-						<tr>
 							<td width="750" align="center">
 								<!--게시판 -->
-								<table border="0" cellpadding="0" cellspacing="0" width="724">
-									<tr height="3" class="tr-head">
-										<td colspan="14"></td>
-									</tr>
+								<table border="0" cellpadding="0" cellspacing="0" width="704"
+									class="table-list">									
 									<tr class="tr-title">
 										<td width="48" height="40" align="center">
 											序号
@@ -112,14 +72,12 @@
 										<tr height="33" class="tr-content"
 											<s:if test="#teacher.odd">style="background-color:#fff"</s:if>>
 											<td align="center">
-												<s:property
-														value="#teacher.count" />												
+												<s:property value="#teacher.count" />
 											</td>
 											<td></td>
 
 											<td width="100" align="center" style="font-weight: bold">
-												<s:property
-														value="name" />
+												<s:property value="name" />
 											</td>
 											<td></td>
 											<td width="100" align="center">
@@ -127,18 +85,17 @@
 											</td>
 											<td></td>
 											<td width="182" align="center">
-												<s:property value="field" />												
+												<s:property value="field" />
 											</td>
 											<td></td>
 											<td width="68" align="center">
-												<a
-													href="<s:property value="link" />" target="_blank">点击浏览</a>												
+												<a href="<s:property value="link" />" target="_blank">点击浏览</a>
 											</td>
 										</tr>
 									</s:iterator>
 									<tr height="4">
 										<td></td>
-									</tr>								
+									</tr>
 									<tr height="3" class="tr-foot">
 										<td colspan="14" width="630"></td>
 									</tr>

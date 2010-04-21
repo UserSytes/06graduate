@@ -228,8 +228,10 @@
 #right-cnt {
 	FLOAT: right;
 	WIDTH: 724px;
+	min-height:508px;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
+	
 }
 
 #right-cnt P {
@@ -271,12 +273,23 @@
 	HEIGHT: 12px;
 	TEXT-ALIGN: left
 }
+
+.table-app{
+	FONT: 14px "", sans-serif;
+	margin-top:40px;
+	margin:20px auto;
+}
+
+.table-list {
+	margin-top:40px;
+	margin-bottom:20px;
+	margin-left:5px;
+	margin-right:5px;
+}
 .table-title{
   margin-left: 10px;
   padding-left: 10px;
-}
-.table-title{
-  FONT: 16px "", sans-serif;
+    FONT: 16px "", sans-serif;
   font-weight: bold; 
 }
 
@@ -284,6 +297,7 @@
   FONT: 14px "", sans-serif;
   font-weight: bold; 
 }
+
 
 .pages SPAN#p_nav {
 	FLOAT: right;

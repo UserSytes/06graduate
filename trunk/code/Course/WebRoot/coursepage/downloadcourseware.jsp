@@ -17,12 +17,11 @@
 	</head>
 	<body>
 		<!-- 头部 -->
-		<s:include value="style/%{course.header}"></s:include>
+		<s:include value="style/%{#session.header}"></s:include>
 		<div class="content">
 			<!-- 左侧 -->
 			<s:include value="style/left.jsp"></s:include>
 			<div id="right-cnt">
-				<br class="clear" />
 				<!-- 正文部分 -->
 				<div class="pages">
 					<h2>
@@ -30,56 +29,15 @@
 						<a
 							href="<s:url action="getAllCoursewareAction"> 
                 					</s:url>">课件教案</a>&gt;详细浏览
-					</h2>
-					<br class="clear" />
+					</h2>					
 				</div>
-
-				<ul id="products-list">
-				</ul>
 				<!-- 正文 -->
 				<div>
-					<table border="0" cellpadding="0" cellspacing="0">
-						<tr>
-							<td width="724" align="center">
-								<table border="0" cellpadding="0" cellspacing="0" width="724"
-									height="94"
-									background="${ctx}/coursepage/classical/image/titlebg5.gif"
-									style="background-repeat: no-repeat">
-									<tr>
-										<td width="724" valign="top" align="right">											
-										</td>
-									</tr>
-									<tr height="69">
-										<td valign="bottom" align="left">
-											<table border="0" cellpadding="0" cellspacing="0">
-												<tr>
-													<td class="table-title">
-														课件教案
-													</td>
-												</tr>
-												<tr>
-													<td>														
-													</td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-									<tr height="1">
-										<td width="724" class="td-foot" valign="top"></td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-						<tr height="20">
-							<td></td>
-						</tr>
+					<table border="0" cellpadding="0" cellspacing="0">						
 						<tr>
 							<td width="724" align="center">
 								<!--게시판 -->
-								<table border="0" cellpadding="0" cellspacing="0" width="724">
-									<tr height="3"  class="tr-head">
-										<td colspan="14"></td>
-									</tr>
+								<table border="0" cellpadding="0" cellspacing="0"  width="704" class="table-list">									
 									<tr class="tr-title">
 										<td width="48" height="40" align="center">
 											序号
