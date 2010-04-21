@@ -21,9 +21,9 @@ $(document).ready(function(){
 	//回调函数在用户每次点击分页链接的时候执行
 	//参数page_index{int整型}表示当前的索引页
 	var $table = $('#table');
-	$("#tbody tr:gt(" + 9+ ")").hide().end();
+	$("#tbody tr:gt(" + 19+ ")").hide().end();
 	$("#tbody").css("display","");  
-		var num_entries = $("#tbody tr").length;
+		var num_entries = $("#tbody tr").length/2;
 		// 创建分页
 		$("#Pagination").pagination( {
 				count:num_entries,
@@ -31,8 +31,8 @@ $(document).ready(function(){
 				imagePath:"${ctx}/commons/images",
 				callback:function(page_index){							
 		 			$table.find("#tbody tr").show();               
-          			$("#tbody tr:lt(" + (page_index-1) * 10 + ")").hide().end();                  
-       				$("#tbody tr:gt(" + ((page_index) * 10 -1) + ")").hide().end();
+          			$("#tbody tr:lt(" + (page_index-1) * 20 + ")").hide().end();                  
+       				$("#tbody tr:gt(" + ((page_index) * 20 -1) + ")").hide().end();
 			}
 		});
 
