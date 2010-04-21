@@ -69,7 +69,7 @@
 											点击量
 										</td>
 									</tr>
-									<s:iterator value="pageBean.list" status="notice">
+									<s:iterator value="noticeList" status="notice">
 										<tr height="33" class="tr-content"
 											<s:if test="#notice.odd">style="background-color:#fff"</s:if>>
 											<td align="center">
@@ -113,54 +113,6 @@
 							<td>
 								<!-- 페지검색 -->
 								<table border="0" cellpadding="0" cellspacing="0">
-									<!--<tr>
-							<td>共<s:property value="pageBean.allRow"/> 条记录</td>
-							<td>共<s:property value="pageBean.totalPage"/> 页</td>
-							<td>当前第<s:property value="pageBean.currentPage"/>页</td>
-							</tr>
--->
-									<tr>
-										<td colspan="3">
-											<s:if test="%{pageBean.currentPage == 1}">
-            第一页 上一页
-        </s:if>
-											<s:else>
-												<a href="getNoticeBySortAction.action?page=1">第一页</a>
-												<a
-													href="getNoticeBySortAction.action?page=<s:property value="%{pageBean.currentPage-1}"/>">上一页</a>
-											</s:else>
-											<s:bean name="org.apache.struts2.util.Counter" id="counter">
-												<s:param name="first" value="1" />
-												<s:param name="last" value="pageBean.totalPage" />
-												<s:iterator status="current">
-													<s:if test="pageBean.currentPage!=current-1">
-														<a
-															href="getNoticeBySortAction.action?page=<s:property value="%{current-1}"/>">
-															[<s:property />]</a>
-													</s:if>
-													<s:else>
-														<font color="red"><s:property /> </font>
-													</s:else>
-												</s:iterator>
-											</s:bean>
-											<s:if test="%{pageBean.currentPage != pageBean.totalPage}">
-												<a
-													href="getNoticeBySortAction.action?page=<s:property value="%{pageBean.currentPage+1}"/>">下一页</a>
-												<a
-													href="getNoticeBySortAction.action?page=<s:property value="pageBean.totalPage"/>">最后一页</a>
-											</s:if>
-											<s:else>
-            下一页 最后一页
-        </s:else>
-											&nbsp;共
-											<s:property value="pageBean.allRow" />
-											条记录&nbsp;当前第
-											<s:property value="pageBean.currentPage" />
-											页&nbsp;共
-											<s:property value="pageBean.totalPage" />
-											页
-										</td>
-									</tr>
 								</table>
 								<!-- /페지검색 -->
 							</td>
