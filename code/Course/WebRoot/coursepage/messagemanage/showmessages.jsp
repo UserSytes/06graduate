@@ -103,7 +103,7 @@
 <table frame="below" ellspacing="0" cellpadding="4" width="100%"
 									align="center" style="border-bottom:thin solid #9db350;">
 
-<s:iterator value="pageBean.list" status="message">
+<s:iterator value="messageList" status="message">
 <tr style="height: 100%">
 										<td width="24%" valign="top" style="border-bottom:thin solid #9db350;border-right: thin dotted #60B7DE;" >
 											<font style="font-weight:bold; font-size:14px"><s:property value="userInfo.name"/></font>
@@ -183,48 +183,7 @@
 					<td>
 						<!-- 페지검색 -->
 						<table border="0" cellpadding="0" cellspacing="0">
-									<tr>
-										<td colspan="3">
-											<s:if test="%{pageBean.currentPage == 1}">
-            第一页 上一页
-        </s:if>
-											<s:else>
-												<a href="showMessagesAction.action?page=1&topicId=<s:property value="topic.id" />">第一页</a>
-												<a href="showMessagesAction.action?page=<s:property value="%{pageBean.currentPage-1}"/>&topicId=<s:property value="topic.id" />">上一页</a>
-											</s:else>
-											<s:bean name="org.apache.struts2.util.Counter" id="counter">
-												<s:param name="first" value="1" />
-												<s:param name="last" value="pageBean.totalPage" />
-												<s:iterator status="current">
-													<s:if test="pageBean.currentPage!=current-1">
-														<a
-															href="showMessagesAction.action?page=<s:property value="%{current-1}"/>&topicId=<s:property value="topic.id" />">
-															[<s:property />]</a>
-													</s:if>
-													<s:else>
-														<font color="red"><s:property />
-														</font>
-													</s:else>
-												</s:iterator>
-											</s:bean>
-											<s:if test="%{pageBean.currentPage != pageBean.totalPage}">
-												<a
-													href="showMessagesAction.action?page=<s:property value="%{pageBean.currentPage+1}"/>&topicId=<s:property value="topic.id" />">下一页</a>
-												<a
-													href="showMessagesAction.action?page=<s:property value="pageBean.totalPage"/>&topicId=<s:property value="topic.id" />">最后一页</a>
-											</s:if>
-											<s:else>
-            下一页 最后一页
-        </s:else>
-											&nbsp;共
-											<s:property value="pageBean.allRow" />
-											条记录&nbsp;当前第
-											<s:property value="pageBean.currentPage" />
-											页&nbsp;共
-											<s:property value="pageBean.totalPage" />
-											页
-										</td>
-									</tr>
+								
 								</table>
 <s:form action="addReplyAction" method="post"
 				onsubmit="return check(this);">
