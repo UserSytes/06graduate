@@ -197,8 +197,8 @@ public class MessageAction extends BaseAction {
 		} else {
 
 				userInfo = super.getUserInfo();
-			this.pageBean = getTopicService().queryForPage(course,pageSize, page);
-			if (getPageBean().getAllRow() > 0) {
+				topicList = getTopicService().getAllTopics(course);
+			if (topicList.size()> 0) {
 				return "topics";
 			} else {
 				System.out.println("本课程尚未有留言！");
@@ -229,11 +229,11 @@ public class MessageAction extends BaseAction {
 		course = super.getCourse();
 		userInfo=super.getUserInfo();
 		topic = topicService.getTopicById(topicId);
-		this.pageBean = getMessageService().queryForPage(topic, pageSize, page);
-		System.out.println("getAllRow:"+getPageBean().getAllRow());
+		messageList = messageService.getMessageByTopic(topic);
+		System.out.println("查找到：" + messageList.size()+"个留言");
 		topic.setCountPerson(topic.getCountPerson() + 1);
 		topicService.updateTopic(topic);
-		if (getPageBean().getAllRow() > 0) {
+		if (getMessageList().size() > 0) {
 			return "messages";
 		} else {
 			System.out.println("查看留言出错！");
