@@ -150,7 +150,7 @@ public class EvaluationAction extends BaseAction {
 	 */
 	public String expertEvaluateResult() {
 		course = super.getCourse();	
-		evaluationList=evaluateService.findByCourseAndSort(course, 0);
+		evaluationList=evaluateService.findByCourseAndSortAndStatus(course, 0,1);
 		if (evaluationList == null) {
 			return ERROR;
 		} else
@@ -164,7 +164,7 @@ public class EvaluationAction extends BaseAction {
 	 */
 	public String teacherEvaluateResult() {
 		course = super.getCourse();	
-		evaluationList=evaluateService.findByCourseAndSort(course, 1);
+		evaluationList=evaluateService.findByCourseAndSortAndStatus(course, 1,1);
 		if (evaluationList == null) {
 			return ERROR;
 		} else
@@ -226,6 +226,7 @@ public class EvaluationAction extends BaseAction {
 	public String expertEvaluate() {
 		course=super.getCourse();
 		score=evaluation.getScore();
+		evaluation.setStatus(1);
 		result = evaluateService.updateEvaluation(evaluation);
 		if (result) {
 			scorestring = "评价成功，你的评分是：" + score.intValue()
@@ -244,6 +245,7 @@ public class EvaluationAction extends BaseAction {
 		teacher = super.getTeacher();
 		course = super.getCourse();
 		score=evaluation.getScore();
+		evaluation.setStatus(1);
 		result = evaluateService.updateEvaluation(evaluation);
     	if (result) {
 			scorestring = "评价成功，你的评分是：" + score.intValue()
@@ -252,7 +254,41 @@ public class EvaluationAction extends BaseAction {
 		} else
 			return ERROR;
 	}
+	/**
+	 * 专家课程评价（草稿）
+	 * 
+	 * @return
+	 */
+	public String expertEvaluateDraft() {
+		course=super.getCourse();
+		score=evaluation.getScore();
+		evaluation.setStatus(0);
+		result = evaluateService.updateEvaluation(evaluation);
+		if (result) {
+			scorestring = "保存草稿成功！";
+			return SUCCESS;
+		} else
+			return ERROR;
+	}
 
+	/**
+	 * 教师课程评价（草稿）
+	 * 
+	 * @return
+	 */
+	public String teacherEvaluateDraft() {
+		teacher = super.getTeacher();
+		course = super.getCourse();
+		score=evaluation.getScore();
+		evaluation.setStatus(0);
+		result = evaluateService.updateEvaluation(evaluation);
+    	if (result) {
+			scorestring = "保存草稿成功！";
+			return SUCCESS;
+		} else
+			return ERROR;
+	}
+	
 	public String eDetailEvaluate() {
 		course=super.getCourse();
 		// evaluation = evaluateService.findById(1);
