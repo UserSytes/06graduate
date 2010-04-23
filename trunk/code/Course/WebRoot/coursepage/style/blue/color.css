@@ -132,7 +132,48 @@ body {
 	font-size: 12px;
 	color: #336699;	
 }
-
+.newslist {
+	BORDER-BOTTOM: #369 1px solid; BORDER-LEFT: #369 1px solid; PADDING-BOTTOM: 4px; MARGIN: 0px 0px 5px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BORDER-TOP: #369 1px solid; BORDER-RIGHT: #369 1px solid; PADDING-TOP: 4px
+}
+.newslist DL DT.topic {
+	MARGIN: 6px 0px; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.newslist DL DD.author SPAN {
+	BORDER-BOTTOM: #369 1px solid; PADDING-BOTTOM: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 450px; COLOR: #369; FONT-WEIGHT: normal; PADDING-TOP: 0px
+}
+.newslist DL DD.desc {
+	PADDING-BOTTOM: 12px; LINE-HEIGHT: 150%; MIN-HEIGHT: 1px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; HEIGHT: auto; PADDING-TOP: 12px; _height: 1px
+}
+.newslist DL DD.desc:after {
+	DISPLAY: block; HEIGHT: 0px; VISIBILITY: hidden; CLEAR: both; CONTENT: "."
+}
+.newslist DL DD.desc {
+	DISPLAY: inline-block
+}
+.newslist DL DD.desc {
+	DISPLAY: block
+}
+.newslist DL DD.desc IMG {
+	FLOAT: right
+}
+.newslist DL DD.detail {
+	LINE-HEIGHT: 27px; MARGIN: 0px -10px; BACKGROUND: url(http://img.cnbeta.com/bg_newlist_op.png) repeat-x; HEIGHT: 27px
+}
+.newslist DL DD.detail SPAN {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; COLOR: #369; PADDING-TOP: 0px
+}
+.newslist DL DD.detail EM {
+	TEXT-ALIGN: right; PADDING-BOTTOM: 0px; MARGIN-TOP: -27px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; FLOAT: right; COLOR: #369; PADDING-TOP: 0px
+}
+.newslist DL DD.detail EM A:link {
+	COLOR: #036; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+.newslist DL DD.detail EM A:visited {
+	COLOR: #036; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+.newslist DL DD.detail EM A:hover {
+	COLOR: #e00; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
 .table-list {
 	border: 1px solid #666;
 	background-color: #EBF4FD;

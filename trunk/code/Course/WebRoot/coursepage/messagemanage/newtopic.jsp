@@ -34,8 +34,7 @@
 					<br class="clear" />
 				</div>
 
-<ul id="products-list">
-			</ul>
+
 		<!-- 正文 -->
 				<div>
 					<table border="0" cellpadding="0" cellspacing="0">
