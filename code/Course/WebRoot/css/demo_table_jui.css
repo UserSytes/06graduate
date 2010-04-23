@@ -254,11 +254,16 @@ TR.position {
 TD.position {
 	BORDER-RIGHT: #adceff 1px solid; PADDING-LEFT: 20px; BORDER-BOTTOM: #adceff 1px solid
 }
-th,td {
+.dataTables_wrapper th{
 	padding: 2px 4px 2px 4px !important;
 	text-align: left;
-	vertical-align: top;
 }
+
+.dataTables_wrapper td{
+	padding: 2px 4px 2px 4px !important;
+	text-align: left;
+}
+
 
 TABLE.editTable {
 	WIDTH: 100%; BACKGROUND-COLOR: #b1ceee
