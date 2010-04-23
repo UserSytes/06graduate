@@ -1342,13 +1342,12 @@
 			</result>
 			<result name="error">/coursepage/evaluation/studentevaluate.jsp</result>
 		</action>
-<action name="expertEvaluateAction" method="expertEvaluate"
-			class="evaluationAction">
+<action name="expertEvaluateAction" class="evaluationAction">
 			<result name="success">/coursepage/evaluation/expertevaluatesuccess.jsp
 			</result>
 			<result name="error">/coursepage/evaluation/expertevaluate.jsp</result>
 		</action>
-<action name="teacherEvaluateAction" method="teacherEvaluate" class="evaluationAction">
+<action name="teacherEvaluateAction" class="evaluationAction">
 			<result name="success">/coursepage/evaluation/tevaluatesuccess.jsp
 			</result>
 			<result name="error">/coursepage/evaluation/teacherevaluate.jsp</result>
