@@ -21,6 +21,7 @@ public interface IEvaluateService {
 	public List<StudentCourse>  findByStudentAndCourse(Course course, Student student);
 	public List<Evaluation> findByCourseAndUsernameAndSort(Course course,String username,int sort);
 	public List<Evaluation> findByCourseAndSort(Course course,int sort);
+	public List<Evaluation> findByCourseAndSortAndStatus(Course course,int sort,int status);
 	/**
 	 * ÑûÇë×¨¼ÒÆÀ¼Û
 	 * @param evaluation
