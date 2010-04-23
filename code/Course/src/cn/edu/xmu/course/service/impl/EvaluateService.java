@@ -124,7 +124,11 @@ public class EvaluateService implements IEvaluateService {
 		return evaluationDAO.findByCourseAndSort(course, sort);
 
 	}
+	// 根据课程和分类找Evaluation
+	public List<Evaluation> findByCourseAndSortAndStatus(Course course, int sort,int status) {
+		return evaluationDAO.findByCourseAndSortAndStatus(course, sort,status);
 
+	}
 	public boolean addEvaluation(Evaluation evaluation, Course course) {
 		// TODO Auto-generated method stub
 		evaluation.setCourse(course);
