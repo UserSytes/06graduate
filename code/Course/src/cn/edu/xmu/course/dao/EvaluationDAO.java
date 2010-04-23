@@ -240,4 +240,21 @@ public class EvaluationDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
+	/**
+	 * øŒ≥Ã“≥√Ê≤È’“
+	 * @param course
+	 * @param sort
+	 * @param status
+	 * @return
+	 */
+	public List findByCourseAndSortAndStatus(Course course, Integer sort,int status) {
+		try {
+			String queryString = "from Evaluation as model where model.course.id ="
+					+ course.getId() + " and model.sort= "+sort+"and model.status ="+status;
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
 }
