@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ include file="../../commons/taglibs.jsp"%>
-
 <h2>
 	公告信息
 </h2>
@@ -35,8 +34,25 @@
 	</div>
 	<div id="demo2"></div>
 </div>
-<script>
-	
+<script language="javascript">	
+	var speed = 80
+	var demo = document.getElementById("demo");
+	var demo2 = document.getElementById("demo2");
+	var demo1 = document.getElementById("demo1");
+	function Marquee() {
+		if (demo2.offsetTop - demo.scrollTop <= 0)
+			demo.scrollTop -= demo1.offsetHeight
+		else {
+			demo.scrollTop++
+		}
+	}
+	var MyMar = setInterval(Marquee, speed)
+	demo.onmouseover = function() {
+		clearInterval(MyMar)
+	}
+	demo.onmouseout = function() {
+		MyMar = setInterval(Marquee, speed)
+	}
 </script>
 <br>
 <h2>

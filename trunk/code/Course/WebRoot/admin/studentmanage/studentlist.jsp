@@ -10,12 +10,16 @@
 		<META http-equiv=Expires content=-1000>
 		<title>学生列表</title>
 		<style type="text/css" title="currentStyle">
-			@import "${ctx}/css/demo_page.css";
-			@import "${ctx}/css/demo_table_jui.css";
-			@import "${ctx}/css/jquery-ui-1.7.2.custom.css";
-		</style>
-		<script type="text/javascript" language="javascript" src="${ctx}/js/jquery.js"></script>
-		<script type="text/javascript" language="javascript" src="${ctx}/js/jquery.dataTables.js" charset="gb2312"></script>
+@import "${ctx}/css/demo_page.css";
+
+@import "${ctx}/css/demo_table_jui.css";
+
+@import "${ctx}/css/jquery-ui-1.7.2.custom.css";
+</style>
+		<script type="text/javascript" language="javascript"
+			src="${ctx}/js/jquery.js"></script>
+		<script type="text/javascript" language="javascript"
+			src="${ctx}/js/jquery.dataTables.js" charset="gb2312"></script>
 		<script type="text/javascript" charset="utf-8">
 			$(document).ready(function() {
 				oTable = $('#example').dataTable({
@@ -35,35 +39,37 @@
 			</tr>
 		</table>
 
-		
+
 		<div class="demo_jui">
 			<s:hidden name="studentList" />
-			<table cellpadding="0" cellspacing="0" border="0"  class="display" id="example">
+			<table cellpadding="0" cellspacing="0" border="0" class="display"
+				id="example">
 				<thead>
-					<tr>				
-					<th>
-						学号
-					</th>
-					<th>
-						姓名
-					</th>
-					<th>
-						性别
-					</th>
-					<th>
-						年级
-					</th>
-					<th>
-						所属系
-					</th>
-					<th>
-						操作
-					</th>
-				</tr>
+					<tr>
+						<th>
+							学号
+						</th>
+						<th>
+							姓名
+						</th>
+						<th>
+							性别
+						</th>
+						<th>
+							年级
+						</th>
+						<th>
+							所属系
+						</th>
+						<th>
+							操作
+						</th>
+					</tr>
 				</thead>
 				<tbody>
 					<s:iterator value="studentList" status="student">
-						<tr <s:if test="#student.odd">style="background-color:ebf4fd"</s:if>>							
+						<tr
+							<s:if test="#student.odd">style="background-color:ebf4fd"</s:if>>
 							<td width="20%">
 								<s:property value="studentNo" />
 							</td>
@@ -100,7 +106,7 @@
 					</s:iterator>
 				</tbody>
 			</table>
-			</div>
+		</div>
 		</div>
 	</body>
 </html>

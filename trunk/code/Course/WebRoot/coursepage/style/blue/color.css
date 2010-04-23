@@ -166,6 +166,38 @@ body {
 	color: #036;
 }
 
+
+.titlea{
+	color: #369;
+}
+
+a.titlea:link {
+	color: #369;
+}
+
+a.titlea:visited {
+	color: #369;
+}
+
+a.titlea:hover {
+	color: #0000CD;
+}
+
+.ui-widget-header {
+	border: 1px solid #aaaaaa;
+	background: #b1ceee;
+	color: #222222;
+	font-weight: bold;
+}
+
+tr.odd {
+	background-color: #ebf4fd;
+}
+
+tr.even {
+	background-color: white;
+}
+
 .pages {
 	background-color: #58ACFA;
 	border-bottom: 3px solid #5F9EA0;
