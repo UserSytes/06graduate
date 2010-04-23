@@ -198,7 +198,9 @@
 								&nbsp;
 							</td>
 							<td width="80%">
-								<s:submit cssClass="label" value="确定添加"></s:submit>
+<s:submit cssClass="label" name="expertEvaluate" value="确定添加"  method="expertEvaluate">
+								</s:submit>
+								<s:submit cssClass="label" name="expertEvaluateDraft" value="保存草稿" method="expertEvaluateDraft"/>
 								<s:reset cssClass="label" value="取消" />
 							</td>
 						</tr>

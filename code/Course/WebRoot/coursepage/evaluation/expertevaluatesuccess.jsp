@@ -57,7 +57,7 @@
 												<tr>
 													<td align="center">
 														<font color="#966f48"
-															style="font-size: 18px; font-weight: bold">学生对课程的综合评价</font>
+															style="font-size: 18px; font-weight: bold">专家对课程的综合评价</font>
 													</td>
 												</tr>
 												<tr>
@@ -79,13 +79,14 @@
 								<table cellpadding="0" cellspacing="0"  align="center">
 					<tr>
 						<td>
-							<font color="#74582f" style="font-size:16px;font-weight:bold;"><s:property value="scorestring" /></font>
+							<font color="#74582f" style="font-size:16px;font-weight:bold;"><s:property value="scorestring" />
+							<br /></font>
 						</td>
 					</tr>
-					<br />
+					
 					<tr>
-						<td align="center">
-							<font color="#74582f" style="font-size:16px;font-weight:bold;">您的评分内容是&nbsp;
+						<td >
+							<font color="#74582f" style="font-size:16px;font-weight:bold;">您的评语是&nbsp;&nbsp;
 							<s:text name="">${evaluation.content}</s:text></font>
 						</td>
 					</tr>

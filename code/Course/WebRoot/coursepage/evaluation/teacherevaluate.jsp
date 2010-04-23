@@ -37,9 +37,6 @@
 					</h2>
 					<br class="clear" />
 				</div>
-
-<ul id="products-list">
-			</ul>
 		<!-- 正文 -->
 				<div>
 					<table border="0" cellpadding="0" cellspacing="0">
@@ -182,8 +179,10 @@
 							<td width="20%">
 								&nbsp;
 							</td>
-							<td width="80%">
-								<s:submit cssClass="label" value="确定添加"></s:submit>
+							<td width="80%" align="left">
+								<s:submit cssClass="label" name="teacherEvaluate" value="确定添加"  method="teacherEvaluate">
+								</s:submit>
+								<s:submit cssClass="label" name="teacherEvaluateDraft" value="保存草稿" method="teacherEvaluateDraft"/>
 								<s:reset cssClass="label" value="取消" />
 							</td>
 						</tr>

@@ -34,9 +34,6 @@
 					</h2>
 					<br class="clear" />
 				</div>
-
-<ul id="products-list">
-			</ul>
 		<!-- 正文 -->
 				<div>
 					<table border="0" cellpadding="0" cellspacing="0">
@@ -76,28 +73,36 @@
 						</tr>
 						<tr>
 							<td>
-								<table cellpadding="0" cellspacing="0" align="center">
+					
+					<table cellpadding="0" cellspacing="0"  align="center">
 					<tr>
 						<td>
-							<font color="#74582f" style="font-size:16px;font-weight:bold;">&nbsp; 
-							<br /><s:property value="scorestring" />
-							<br />评分内容：
+							<font color="#74582f" style="font-size:16px;font-weight:bold;"><s:property value="scorestring" />
+							<br /></font>
+						</td>
+					</tr>
+					
+					<tr>
+						<td >
+							<font color="#74582f" style="font-size:16px;font-weight:bold;">您的评语是&nbsp;&nbsp;
 							<s:text name="">${evaluation.content}</s:text></font>
 						</td>
 					</tr>
 					<tr>
-							<td align="center"><br />
-								<a href="<s:url action="tDetailEvaluateAction"> 
-	                     		<s:param name="course"> 
+						<td>
+							<a
+								href="<s:url action="tDetailEvaluateAction"> 
+                     			<s:param name="course"> 
                        			 	<s:property value="id"/> 
                     			</s:param>
-								<s:param name="number">
-									<s:property value="2"/> 
-                    			</s:param></s:url>" />
-								<img src="${ctx}/coursepage/images/4-reEvaluate.jpg" ALT="" border="0"></a>
+<s:param name="number"> 
+                       			 	<s:property value="2"/> 
+                    			</s:param>
+                					</s:url>" />
+								<img src="${ctx}/coursepage/images/4-reEvaluate.jpg" ALT="" border="0"> </a>
+						</td>
+					</tr>
 
-							</td>
-						</tr>
 				</table>
 							</td>
 						</tr>	

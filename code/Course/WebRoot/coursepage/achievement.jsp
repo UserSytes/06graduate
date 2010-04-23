@@ -31,9 +31,6 @@
 					</h2>
 					<br class="clear" />
 				</div>
-
-<ul id="products-list">
-			</ul>
 		<!-- 正文 -->
 				<div>
 					<table border="0" cellpadding="0" cellspacing="0">
@@ -62,10 +59,42 @@
 							<s:iterator value="achievementList" status="achievement">
 							<tr>
 							<td>
-								<table border="0" cellpadding="0" cellspacing="0" width="724" height="31" background="${ctx}/coursepage/classical/image/pro_titlebg.gif" style="background-repeat:no-repeat">
+<div class="newslist">
+		
+		<dl>
+			<dt class="topic" ><a href="<s:url action="viewAchievementAction">
+								<s:param name="achievementId"> 
+								<s:property value="id"/> 
+								</s:param>
+								</s:url>"><strong><s:property value="title" /></strong></a></dt>
+			
+	   <dd class="author"><span>发布于 <s:date name="time" format="yyyy-MM-dd" /></span></dd>
+	   
+	   <dd class="desc">
+	<span><s:if test="content.length()>200">
+										<s:property value="content.substring(0, 200)+'...'" />
+									</s:if> <s:else>
+										<s:property value="content" />
+									</s:else></span></dd>
+		  </dl>
+		
+		<dl>
+		  <dd class="detail"><span><a href="<s:url action="viewAchievementAction">
+								<s:param name="achievementId"> 
+								<s:property value="id"/> 
+								</s:param>
+								</s:url>"><strong>详细内容</strong></a></span>
+		  
+          <em></em>
+	  </dd>
+	  
+		  </dl>
+		</div>
+
+								<!--<table border="0" cellpadding="0" cellspacing="0" width="724" height="31">
 								<tr>
 									<td width="10"></td>
-									<td><img src="${ctx}/coursepage/classical/image/icon_img.gif" border="0"></td>
+									<td></td>
 									<td align="left" width="100%">
 <a href="<s:url action="viewAchievementAction">
 								<s:param name="achievementId"> 
@@ -75,7 +104,7 @@
 									</td>
 									</tr>
 								</table>
-							</td></tr>
+							--></td></tr>
 						<tr height="20"><td></td></tr>								
 </s:iterator>
 								</table>
