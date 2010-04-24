@@ -11,9 +11,6 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
-
-
-
 	</head>
 	<body>
 		<!-- 头部 -->
@@ -21,14 +18,14 @@
 		<div class="content">
 			<!-- 左侧 -->
 			<s:include value="style/left.jsp"></s:include>
-			<div id="right-cnt">
+			<div id="right-cnt" style="height: 508px">
 				<div class="col_center">
 					<div class="sub-title">
 						<h2>
 							课程通知
 						</h2>
-						<span><a href="getNoticeBySortAction.action?sort=0" class="cblue">MORE</a>
-						</span>
+						<span><a href="getNoticeBySortAction.action?sort=0"
+							class="cblue">MORE</a> </span>
 						<br class="clear" />
 					</div>
 					<ul>
@@ -64,21 +61,22 @@
 					</div>
 					<div>
 						<ul>
-						<s:iterator value="achievementList" status="achievement">
-							<li>
-								<a href="<s:url action="viewAchievementAction">
+							<s:iterator value="achievementList" status="achievement">
+								<li>
+									<a
+										href="<s:url action="viewAchievementAction">
 								<s:param name="achievementId"> 
 								<s:property value="id"/> 
 								</s:param>
 								</s:url>"><s:if
-										test="title.length()>20">
-										<s:property value="title.substring(0, 20)+'...'" />
-									</s:if> <s:else>
-										<s:property value="title" />
-									</s:else> </a>
-							</li>
-						</s:iterator>
-					</ul>
+											test="title.length()>20">
+											<s:property value="title.substring(0, 20)+'...'" />
+										</s:if> <s:else>
+											<s:property value="title" />
+										</s:else> </a>
+								</li>
+							</s:iterator>
+						</ul>
 					</div>
 
 				</div>
@@ -90,19 +88,16 @@
 					</h2>
 					<div id="more">
 						<a href="#" class="cblue">MORE</a>
-					</div>
-					<br class="clear" />
+					</div>					
 				</div>
 				<!-- 正文 -->
 				<div class="main_con">
 					<s:property value="courseInfo.content" escape="false" />
 				</div>
-				<br class="clear" />
+				<br/>
 			</div>
-
 			<br class="clear" />
 		</div>
-		<br />
 		<s:include value="style/bottom.jsp"></s:include>
 	</body>
 </html>
