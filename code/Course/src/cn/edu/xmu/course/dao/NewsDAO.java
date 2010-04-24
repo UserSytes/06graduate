@@ -1,11 +1,13 @@
 package cn.edu.xmu.course.dao;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
+import org.hibernate.Query;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -95,6 +97,23 @@ public class NewsDAO extends HibernateDaoSupport {
 		}
 	}
 
+	public List findLastestTenNews () {
+	  	List list = new ArrayList() ;
+	  	try {
+	  	  
+	  		String queryString = 
+	  			"select news from News news order by news.time DESC";
+	  		Query queryObject = getSession().createQuery(queryString);
+	  		queryObject.setFirstResult(0); 
+	  		queryObject.setMaxResults(10); 
+	  		list=queryObject.list();
+	  	} catch(RuntimeException re) {
+	  		log.error("find News failed", re);
+	  		re.printStackTrace() ;
+	  	}
+	  	return list ;
+	  }
+	
 	public List findByTitle(Object title) {
 		return findByProperty(TITLE, title);
 	}
