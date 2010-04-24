@@ -26,7 +26,11 @@ public interface INewsService {
 	 * @return
 	 */
 	public boolean addNewsWithoutAttachment(News news);
-	
+	/**
+	 * 找出最新的10条新闻
+	 * @return
+	 */
+	public List findLastestTenNews();
 	/**
 	 * 发布新闻(带附件)
 	 * @param news
