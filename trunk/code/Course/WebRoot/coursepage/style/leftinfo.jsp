@@ -4,8 +4,8 @@
 <h2>
 	公告信息
 </h2>
-<div id="demo" class="notice-list">
-	<div id="demo1">
+<div class="notice-list">
+	<div>
 		<table border="0" cellpadding="0" cellspacing="0">
 			<s:iterator value="noticeList2" status="notice">
 				<tr>
@@ -32,28 +32,7 @@
 			</s:iterator>
 		</table>
 	</div>
-	<div id="demo2"></div>
 </div>
-<script language="javascript">	
-	var speed = 80
-	var demo = document.getElementById("demo");
-	var demo2 = document.getElementById("demo2");
-	var demo1 = document.getElementById("demo1");
-	function Marquee() {
-		if (demo2.offsetTop - demo.scrollTop <= 0)
-			demo.scrollTop -= demo1.offsetHeight
-		else {
-			demo.scrollTop++
-		}
-	}
-	var MyMar = setInterval(Marquee, speed)
-	demo.onmouseover = function() {
-		clearInterval(MyMar)
-	}
-	demo.onmouseout = function() {
-		MyMar = setInterval(Marquee, speed)
-	}
-</script>
 <br>
 <h2>
 	任课教师
