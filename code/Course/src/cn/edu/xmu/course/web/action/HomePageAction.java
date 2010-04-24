@@ -81,9 +81,8 @@ public class HomePageAction extends BaseAction{
     		this.setAfterLogin("block");
     	}
     	
-    	this.getAllNews();
+    	newsList=newsService.findLastestTenNews();
 		this.countCourseByLevel();
-
 		courseList = searchCourseService.findCourseByDate(30);
     	if(courseList == null){
 			addActionMessage("最近一个月未发布新课程！");
@@ -100,13 +99,6 @@ public class HomePageAction extends BaseAction{
 			return SUCCESS;
 	}
 
-    public void getAllNews(){
-    	newsList=newsService.findAllNews();
-		for(int i=10;i<newsList.size();i++)
-		{
-			newsList.remove(i);
-		}
-    }
     
     /**
      * 计算级别课程数
