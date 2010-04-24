@@ -5,11 +5,10 @@ html,body,a,img,ul,li,fieldset,label,legend {
 	vertical-align: baseline;
 }
 
-
-
-label{
-color: #000;
+label {
+	color: #000;
 }
+
 #wrapper {
 	width: 878px;
 	border: 9px solid #33373b;
@@ -29,8 +28,7 @@ color: #000;
 	height: 31px;
 	margin: 0 auto;
 	font: bold 120%/ 100% Arial, Helvetica, sans-serif;
-	text-decoration: none;	
-	
+	text-decoration: none;
 }
 
 .active {
@@ -38,17 +36,18 @@ color: #000;
 }
 
 #site {
-	
 	background-repeat: repeat-x;
 	width: 942px;
 	margin: 20px auto;
 }
+
 .splitter {
 	text-align: right;
 	background: url(classical/image/test.GIF) repeat-x;
 	border-bottom: 1px solid #1d1f21;
 	padding: 6px 40px 5px;
 }
+
 a {
 	color: #46c5ec;
 	border-bottom: 1px solid #294e5a;
@@ -140,12 +139,9 @@ button,input[type="submit"],input[type="image"],label,label>input[type="checkbox
 
 /* 2. CONTENT
 ????????????????????????????????????????????????????????????????????? ?*/
-
-
 ul li {
 	list-style: none;
 }
-
 
 strong {
 	font-size: 14;
@@ -166,7 +162,7 @@ strong {
 	padding-top: 4px;
 }
 
-.misc   ~ .header {
+.misc    ~ .header {
 	background-image: url("i/arrow-misc.png");
 	color: #6f7378;
 }
@@ -196,7 +192,7 @@ strong {
 ---------------------------------------------------------------------- */
 .image-grid {
 	margin: 10px 20px 0px 20px;
-       padding-left:5px;
+	padding-left: 5px;
 	width: 880px;
 }
 
