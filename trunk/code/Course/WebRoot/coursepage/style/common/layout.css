@@ -184,8 +184,7 @@
 	WIDTH: 200px;
 	OVERFLOW: hidden;
 	PADDING-TOP: 5px;
-	HEIGHT: 28px
-	LINE-HEIGHT: 15px;
+	HEIGHT: 28px LINE-HEIGHT :   15px;
 }
 
 #left-nav-bar H3 {
@@ -228,10 +227,9 @@
 #right-cnt {
 	FLOAT: right;
 	WIDTH: 724px;
-	min-height:508px;
+	min-height: 508px;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
-	
 }
 
 #right-cnt P {
@@ -261,7 +259,8 @@
 	LETTER-SPACING: 1px;
 	HEIGHT: 14px
 }
-.pages H2 a{
+
+.pages H2 a {
 	FONT: bold 14px "", sans-serif;
 	HEIGHT: 14px
 }
@@ -274,30 +273,30 @@
 	TEXT-ALIGN: left
 }
 
-.table-app{
+.table-app {
 	FONT: 14px "", sans-serif;
-	margin-top:40px;
-	margin:20px auto;
+	margin-top: 40px;
+	margin: 20px auto;
 }
 
 .table-list {
-	margin-top:40px;
-	margin-bottom:20px;
-	margin-left:5px;
-	margin-right:5px;
-}
-.table-title{
-  margin-left: 10px;
-  padding-left: 10px;
-    FONT: 16px "", sans-serif;
-  font-weight: bold; 
+	margin-top: 40px;
+	margin-bottom: 20px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
-.tr-title td{
-  FONT: 14px "", sans-serif;
-  font-weight: bold; 
+.table-title {
+	margin-left: 10px;
+	padding-left: 10px;
+	FONT: 16px "", sans-serif;
+	font-weight: bold;
 }
 
+.tr-title td {
+	FONT: 14px "", sans-serif;
+	font-weight: bold;
+}
 
 .pages SPAN#p_nav {
 	FLOAT: right;
