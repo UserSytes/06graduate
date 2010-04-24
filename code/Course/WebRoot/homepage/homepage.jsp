@@ -6,6 +6,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>厦门大学课程中心</title>
 		<link rel="stylesheet" href="${ctx}/homepage/link.css">
+	<script src="${ctx}/js/MSClass.js" language="javascript"></script>	
 		<SCRIPT language=javascript>
 	function check(form) {
 		if (form.userName.value == "") {
@@ -35,7 +36,7 @@
 			align="center">
 			<tr height="100%">
 				<td width="200" align="center" valign="top">
-					<!-- 왼쪽부분 -->
+					<!-- ???? -->
 					<table border="0" cellpadding="0" cellspacing="0" width="100%">
 						<tr>
 							<td valign="top">
@@ -50,7 +51,7 @@
 									</tr>
 									<tr height="11">
 										<td>
-											<!-- 로그인 웃부분 여백 -->
+											<!-- ??? ??? ?? -->
 											<table border="0" cellpadding="0" cellspacing="0"
 												width="100%" height="100%">
 												<tr>
@@ -59,7 +60,7 @@
 													<td width="2" bgcolor="#e7e7e7"></td>
 												</tr>
 											</table>
-											<!--/ 로그인 웃부분 여백 -->
+											<!--/ ??? ??? ?? -->
 										</td>
 									</tr>
 									<tr>
@@ -144,7 +145,7 @@
 									</tr>
 									<tr height="16">
 										<td>
-											<!-- 로그인 아래부분 여백 -->
+											<!-- ??? ???? ?? -->
 											<table border="0" cellpadding="0" cellspacing="0"
 												width="100%" height="100%">
 												<tr>
@@ -153,12 +154,12 @@
 													<td width="2" bgcolor="#e7e7e7"></td>
 												</tr>
 											</table>
-											<!--/ 로그인 아래부분 여백 -->
+											<!--/ ??? ???? ?? -->
 										</td>
 									</tr>
 									<tr>
 										<td>
-											<!-- 회원가입 및 id/pw찾기 -->
+											<!-- ???? ? id/pw?? -->
 											<table border="0" cellpadding="0" cellspacing="0">
 												<tr>
 													<td width="2" bgcolor="#e7e7e7"></td>
@@ -167,7 +168,7 @@
 													<td width="2" bgcolor="#e7e7e7"></td>
 												</tr>
 											</table>
-											<!--/ 회원가입 및 id/pw찾기 -->
+											<!--/ ???? ? id/pw?? -->
 										</td>
 									</tr>
 									<tr>
@@ -190,7 +191,7 @@
 									</tr>
 									<tr height="11">
 										<td>
-											<!-- 로그인 웃부분 여백 -->
+											<!-- ??? ??? ?? -->
 											<table border="0" cellpadding="0" cellspacing="0"
 												width="100%" height="100%">
 												<tr>
@@ -199,7 +200,7 @@
 													<td width="2" bgcolor="#e7e7e7"></td>
 												</tr>
 											</table>
-											<!--/ 로그인 웃부분 여백 -->
+											<!--/ ??? ??? ?? -->
 										</td>
 									</tr>
 									<tr>
@@ -233,7 +234,7 @@
 									</tr>
 									<tr height="16">
 										<td>
-											<!-- 로그인 아래부분 여백 -->
+											<!-- ??? ???? ?? -->
 											<table border="0" cellpadding="0" cellspacing="0"
 												width="100%" height="100%">
 												<tr>
@@ -242,12 +243,12 @@
 													<td width="2" bgcolor="#e7e7e7"></td>
 												</tr>
 											</table>
-											<!--/ 로그인 아래부분 여백 -->
+											<!--/ ??? ???? ?? -->
 										</td>
 									</tr>
 									<tr>
 										<td>
-											<!-- 회원가입 및 id/pw찾기 -->
+											<!-- ???? ? id/pw?? -->
 											<table border="0" cellpadding="0" cellspacing="0">
 												<tr>
 													<td width="2" bgcolor="#e7e7e7"></td>
@@ -256,7 +257,7 @@
 													<td width="2" bgcolor="#e7e7e7"></td>
 												</tr>
 											</table>
-											<!--/ 회원가입 및 id/pw찾기 -->
+											<!--/ ???? ? id/pw?? -->
 										</td>
 									</tr>
 									<tr>
@@ -266,7 +267,7 @@
 										</td>
 									</tr>
 								</table>
-								<!-- 리스트 -->
+								<!-- ??? -->
 							</td>
 						</tr>
 						<tr>
@@ -380,8 +381,8 @@
 						</tr>
 						<tr>
 							<td valign="top" width="194">
-								<!-- 주민자치쎈터 1 -->
-								<!--/ 주민자치쎈터 1 -->
+								<!-- ?????? 1 -->
+								<!--/ ?????? 1 -->
 								<br>
 							</td>
 						</tr>
@@ -392,7 +393,7 @@
 						<tr>
 							<td valign="top" width="194">
 
-								<!--/ 주민자치쎈터 2 -->
+								<!--/ ?????? 2 -->
 							</td>
 						</tr>
 						<tr>
@@ -408,10 +409,10 @@
 
 
 					</table>
-					<!-- 왼쪽부분 -->
+					<!-- ???? -->
 				</td>
 				<td width="754" valign="top">
-					<!-- 오른쪽부분 -->
+					<!-- ????? -->
 					<table border="0" cellpadding="0" cellspacing="0" width="100%">
 						<tr>
 							<td valign="top">
@@ -428,11 +429,11 @@
 													</td>
 													<td width="5"></td>
 													<td valign="top" width="358">
-														<!-- 내용부분-->
+														<!-- ????-->
 														<table border="0" cellpadding="0" cellspacing="0">
 															<tr>
 																<td valign="top">
-																	<!-- 게시판 -->
+																	<!-- ??? -->
 
 																	<table border="0" cellpadding="0" cellspacing="0">
 																		<tr>
@@ -452,9 +453,7 @@
 																		<tr>
 																			<td width="358" align="center" colspan="6">
 																				<!-- news -->
-																				<div id="demo"
-																					style="overflow: hidden; height: 232px; width: 358px; border: 0px solid #dde5bc;">
-																					<div id="demo1">
+																				<div id="marqueediv5" style="height:232px;width:358px; border:0px solid #dde5bc;overflow:hidden;"> 
 																						<table border="0" cellpadding="0" cellspacing="0">
 																							<s:iterator value="newsList" status="new">
 																								<tr height="25">
@@ -482,29 +481,10 @@
 																								</tr>
 																							</s:iterator>
 																						</table>
-																					</div>
-																					<div id="demo2"></div>
+
 																				</div>
-																				<script>
-	var speed = 40
-	var demo = document.getElementById("demo");
-	var demo2 = document.getElementById("demo2");
-	var demo1 = document.getElementById("demo1");
-	demo2.innerHTML = demo1.innerHTML
-	function Marquee() {
-		if (demo2.offsetTop - demo.scrollTop <= 0)
-			demo.scrollTop -= demo1.offsetHeight
-		else {
-			demo.scrollTop++
-		}
-	}
-	var MyMar = setInterval(Marquee, speed)
-	demo.onmouseover = function() {
-		clearInterval(MyMar)
-	}
-	demo.onmouseout = function() {
-		MyMar = setInterval(Marquee, speed)
-	}
+																				<script defer>
+new Marquee("marqueediv5",0,1,null,null,50,0,0)
 </script>
 																				<!--/new -->
 																			</td>
@@ -627,7 +607,7 @@
 																					</tr>
 
 																				</table>
-																				<!--/ 리스트 -->
+																				<!--/ ??? -->
 																			</td>
 																			<td width="1" bgcolor="#e4e3de"></td>
 																		</tr>
@@ -637,7 +617,7 @@
 																			</td>
 																		</tr>
 																	</table>
-																	<!--/ 오늘의 발행물 -->
+																	<!--/ ??? ??? -->
 																</td>
 															</tr>
 															<tr>
@@ -646,15 +626,15 @@
 															<tr>
 																<td>
 
-																	<!--/ 포커스 및 지도검색 -->
+																	<!--/ ??? ? ???? -->
 																</td>
 															</tr>
 														</table>
-														<!--/ 내용부분 -->
+														<!--/ ???? -->
 													</td>
 												</tr>
 											</table>
-											<!--/ 이미지 및 게시판 -->
+											<!--/ ??? ? ??? -->
 										</td>
 									</tr>
 
@@ -673,11 +653,11 @@
 									</tr>
 									<tr>
 										<td colspan="2" valign="top" width="800">
-											<!-- 소개부분 -->
+											<!-- ???? -->
 											<table border="0" cellpadding="0" cellspacing="0">
 												<tr>
 													<td width="484">
-														<!-- 분야별 프로그램 -->
+														<!-- ??? ???? -->
 														<table border="0" cellpadding="0" cellspacing="0"
 															width="100%">
 															<tr>
@@ -688,7 +668,7 @@
 															</tr>
 															<tr>
 																<td>
-																	<!-- 분야별 프로그램 -->
+																	<!-- ??? ???? -->
 																	<table border="0" cellpadding="0" cellspacing="0">
 																		<tr>
 																			<td width="96" align="right">
@@ -723,11 +703,11 @@
 																			</td>
 																		</tr>
 																	</table>
-																	<!--/ 분야별 프로그램 -->
+																	<!--/ ??? ???? -->
 																</td>
 															</tr>
 														</table>
-														<!--/ 분야별 프로그램 -->
+														<!--/ ??? ???? -->
 													</td>
 													<td width="19"></td>
 													<td>
@@ -736,15 +716,15 @@
 													</td>
 												</tr>
 											</table>
-											<!--/ 소개부분 -->
+											<!--/ ???? -->
 										</td>
 									</tr>
 								</table>
-								<!--/ 메인부분 -->
+								<!--/ ???? -->
 							</td>
 						</tr>
 					</table>
-					<!--/ 오른쪽부분 -->
+					<!--/ ????? -->
 				</td>
 			</tr>
 		</table>
