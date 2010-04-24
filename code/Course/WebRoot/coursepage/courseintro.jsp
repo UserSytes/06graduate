@@ -33,8 +33,7 @@
 				</div>
 				<!-- 正文 -->
 				<div>
-					<table border="0" cellpadding="0" cellspacing="0"
-						style="margin-top: 20px;">
+					<table border="0" cellpadding="0" cellspacing="0" class="table-info">
 						<tr height="29">
 							<td align="center">
 								<font style="font-size: 16px; font-weight: bold"><s:property
@@ -42,25 +41,21 @@
 							</td>
 						</tr>
 						<tr height="19">
-							<td style="padding-left: 10px">
+							<td>
 								<font class="timefont">发布时间：<s:date
 										name="courseInfo.time" format="yyyy-MM-dd hh:mm:ss" /> </font>
 							</td>
 						</tr>
 						<tr height="1" class="tr-title">
-							<td width="480" valign="top"
-								style="padding-left: 10px; margin-left: 10px;"></td>
+							<td></td>
 						</tr>
 						<tr>
 							<td width="704">
-								<table border="0" cellpadding="0" cellspacing="0" width="704">
+								<table border="0" cellpadding="0" cellspacing="0" width="704" style="padding: 10px;">
 									<tr>
-										<td width="24"></td>
 										<td>
-											<br />
 											<s:text name="">${courseInfo.content}</s:text>
 										</td>
-										<td width="24"></td>
 									</tr>
 								</table>
 							</td>

@@ -121,184 +121,6 @@ body {
 #right-cnt p {
 	color: #4D4D4D;
 }
-
-.table-app {
-	border: 1px solid #666;
-	background-color: #EBF4FD;
-}
-
-.timefont {
-	font-size: 12px;
-	color: #336699;
-}
-
-.newslist {
-	BORDER-BOTTOM: #369 1px solid;
-	BORDER-LEFT: #369 1px solid;
-	PADDING-BOTTOM: 4px;
-	MARGIN: 0px 0px 5px;
-	PADDING-LEFT: 10px;
-	PADDING-RIGHT: 10px;
-	BORDER-TOP: #369 1px solid;
-	BORDER-RIGHT: #369 1px solid;
-	PADDING-TOP: 4px
-}
-
-.newslist DL DT.topic {
-	MARGIN: 6px 0px;
-	FONT-SIZE: 14px;
-	FONT-WEIGHT: bold
-}
-
-.newslist DL DD.author SPAN {
-	BORDER-BOTTOM: #369 1px solid;
-	PADDING-BOTTOM: 6px;
-	PADDING-LEFT: 0px;
-	PADDING-RIGHT: 450px;
-	COLOR: #369;
-	FONT-WEIGHT: normal;
-	PADDING-TOP: 0px
-}
-
-.newslist DL DD.desc {
-	PADDING-BOTTOM: 12px;
-	LINE-HEIGHT: 150%;
-	MIN-HEIGHT: 1px;
-	PADDING-LEFT: 0px;
-	PADDING-RIGHT: 0px;
-	HEIGHT: auto;
-	PADDING-TOP: 12px;
-	_height: 1px
-}
-
-.newslist DL DD.desc:after {
-	DISPLAY: block;
-	HEIGHT: 0px;
-	VISIBILITY: hidden;
-	CLEAR: both;
-	CONTENT: "."
-}
-
-.newslist DL DD.desc {
-	DISPLAY: inline-block
-}
-
-.newslist DL DD.desc {
-	DISPLAY: block
-}
-
-.newslist DL DD.desc IMG {
-	FLOAT: right
-}
-
-.newslist DL DD.detail {
-	LINE-HEIGHT: 27px;
-	MARGIN: 0px -10px;
-	BACKGROUND: url(http://img.cnbeta.com/bg_newlist_op.png) repeat-x;
-	HEIGHT: 27px
-}
-
-.newslist DL DD.detail SPAN {
-	PADDING-BOTTOM: 0px;
-	PADDING-LEFT: 10px;
-	PADDING-RIGHT: 10px;
-	COLOR: #369;
-	PADDING-TOP: 0px
-}
-
-.newslist DL DD.detail EM {
-	TEXT-ALIGN: right;
-	PADDING-BOTTOM: 0px;
-	MARGIN-TOP: -27px;
-	PADDING-LEFT: 10px;
-	PADDING-RIGHT: 10px;
-	FLOAT: right;
-	COLOR: #369;
-	PADDING-TOP: 0px
-}
-
-.newslist DL DD.detail EM A:link {
-	COLOR: #036;
-	FONT-WEIGHT: normal;
-	TEXT-DECORATION: none
-}
-
-.newslist DL DD.detail EM A:visited {
-	COLOR: #036;
-	FONT-WEIGHT: normal;
-	TEXT-DECORATION: none
-}
-
-.newslist DL DD.detail EM A:hover {
-	COLOR: #e00;
-	FONT-WEIGHT: normal;
-	TEXT-DECORATION: none
-}
-
-.table-list {
-	border: 1px solid #666;
-	background-color: #EBF4FD;
-}
-
-.table-title {
-	color: #036;
-}
-
-.tr-head {
-	background-color: #58ACFA;
-}
-
-.tr-foot {
-	background-color: #b1ceee;
-}
-
-.td-foot {
-	background-color: #58ACFA;
-}
-
-.tr-title td {
-	background-color: #b1ceee;
-}
-
-.tr-content {
-	background-color: #ECF3FD;
-}
-
-.tr-content td {
-	color: #036;
-}
-
-.titlea {
-	color: #369;
-}
-
-a.titlea:link {
-	color: #369;
-}
-
-a.titlea:visited {
-	color: #369;
-}
-
-a.titlea:hover {
-	color: #0000CD;
-}
-
-.ui-widget-header {
-	border: 1px solid #aaaaaa;
-	background: #b1ceee;
-	color: #222222;
-	font-weight: bold;
-}
-
-tr.odd {
-	background-color: #ebf4fd;
-}
-
-tr.even {
-	background-color: white;
-}
-
 .pages {
 	background-color: #58ACFA;
 	border-bottom: 3px solid #5F9EA0;
@@ -372,4 +194,122 @@ div.col_center ul li a:hover {
 .image-grid li strong {
 	color: #000000;
 }
+
+
+.table-app {
+	border: 1px solid #666;
+	background-color: #EBF4FD;
+}
+
+.timefont {
+	font-size: 12px;
+	color: #336699;
+}
+
+.timefont a{
+	font-size: 12px;
+	color: #336699;
+}
+
+.newslist {
+	BORDER-BOTTOM: #369 1px solid;
+	BORDER-LEFT: #369 1px solid;
+	BORDER-TOP: #369 1px solid;
+	BORDER-RIGHT: #369 1px solid;
+}
+
+.newslist DL DD.author SPAN {
+	BORDER-BOTTOM: #369 1px solid;
+	COLOR: #369;
+}
+
+
+.newslist DL DD.detail {
+	BACKGROUND: url(bg_newlist_op.png) repeat-x;
+}
+
+.newslist DL DD.detail SPAN {
+	COLOR: #369;
+}
+
+.newslist DL DD.detail EM {
+	COLOR: #369;
+}
+
+.newslist DL DD.detail EM A:link {
+	COLOR: #036;
+}
+
+.newslist DL DD.detail EM A:visited {
+	COLOR: #036;
+}
+
+.newslist DL DD.detail EM A:hover {
+	COLOR: #e00;
+}
+
+.table-list {
+	border: 1px solid #666;
+	background-color: #EBF4FD;
+}
+
+.table-title {
+	color: #036;
+}
+
+.tr-head {
+	background-color: #58ACFA;
+}
+
+.tr-foot {
+	background-color: #b1ceee;
+}
+
+.td-foot {
+	background-color: #58ACFA;
+}
+
+.tr-title td {
+	background-color: #b1ceee;
+}
+
+.tr-content {
+	background-color: #ECF3FD;
+}
+
+.tr-content td {
+	color: #036;
+}
+
+.titlea {
+	color: #369;
+}
+
+a.titlea:link {
+	color: #369;
+}
+
+a.titlea:visited {
+	color: #369;
+}
+
+a.titlea:hover {
+	color: #0000CD;
+}
+
+.ui-widget-header {
+	border: 1px solid #aaaaaa;
+	background: #b1ceee;
+	color: #222222;
+	font-weight: bold;
+}
+
+tr.odd {
+	background-color: #ebf4fd;
+}
+
+tr.even {
+	background-color: white;
+}
+
 -->

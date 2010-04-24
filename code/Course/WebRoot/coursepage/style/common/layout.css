@@ -184,7 +184,7 @@
 	WIDTH: 200px;
 	OVERFLOW: hidden;
 	PADDING-TOP: 5px;
-	HEIGHT: 28px LINE-HEIGHT :   15px;
+	HEIGHT: 28px LINE-HEIGHT :             15px;
 }
 
 #left-nav-bar H3 {
@@ -232,13 +232,6 @@
 	-webkit-border-radius: 7px;
 }
 
-#right-cnt P {
-	FONT-SIZE: 13px;
-	MARGIN: 0px auto 24px;
-	WIDTH: 96%;
-	LINE-HEIGHT: 150%
-}
-
 .pages {
 	PADDING-RIGHT: 10px;
 	PADDING-LEFT: 10px;
@@ -271,6 +264,13 @@
 	WIDTH: 480px;
 	HEIGHT: 12px;
 	TEXT-ALIGN: left
+}
+
+.table-info {
+	width: 704px;
+	margin-top: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .table-app {
@@ -520,4 +520,123 @@ DIV.col_center UL LI {
 	PADDING-TOP: 0px;
 	TEXT-ALIGN: center;
 	font: bold 13px Arial, Helvetica, sans-serif;
+}
+
+.newslist {
+	PADDING-BOTTOM: 0px;
+	MARGIN: 5px auto;
+	PADDING-LEFT: 10px;
+	PADDING-RIGHT: 10px;
+	PADDING-TOP: 4px;
+}
+
+.newslist DL DT.topic {
+	MARGIN: 6px 0px;
+	FONT-SIZE: 14px;
+	FONT-WEIGHT: bold
+}
+
+.newslist DL DD.author SPAN {
+	PADDING-BOTTOM: 6px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 450px;
+	FONT-WEIGHT: normal;
+	PADDING-TOP: 0px
+}
+
+.newslist DL DD.desc {
+	PADDING-BOTTOM: 12px;
+	LINE-HEIGHT: 150%;
+	MIN-HEIGHT: 1px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	HEIGHT: auto;
+	PADDING-TOP: 12px;
+	_height: 1px
+}
+
+.newslist DL DD.desc:after {
+	DISPLAY: block;
+	HEIGHT: 0px;
+	VISIBILITY: hidden;
+	CLEAR: both;
+	CONTENT: "."
+}
+
+.newslist DL DD.desc {
+	DISPLAY: inline-block
+}
+
+.newslist DL DD.desc {
+	DISPLAY: block
+}
+
+.newslist DL DD.detail {
+	LINE-HEIGHT: 27px;
+	MARGIN: 0px -10px;
+	HEIGHT: 27px
+}
+
+.newslist DL DD.detail SPAN {
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 10px;
+	PADDING-RIGHT: 10px;
+	PADDING-TOP: 0px
+}
+
+.newslist DL DD.detail EM {
+	TEXT-ALIGN: right;
+	PADDING-BOTTOM: 0px;
+	MARGIN-TOP: -27px;
+	PADDING-LEFT: 10px;
+	PADDING-RIGHT: 10px;
+	FLOAT: right;
+	PADDING-TOP: 0px
+}
+
+.newslist DL DD.detail EM A:link {
+	FONT-WEIGHT: normal;
+	TEXT-DECORATION: none
+}
+
+.newslist DL DD.detail EM A:visited {
+	FONT-WEIGHT: normal;
+	TEXT-DECORATION: none
+}
+
+.newslist DL DD.detail EM A:hover {
+	FONT-WEIGHT: normal;
+	TEXT-DECORATION: none
+}
+
+.table-input {
+	clear: both;
+	line-height: 90%;
+	padding: 8px;
+}
+
+.table-input tr {
+	margin: 2px;
+}
+
+.table-input tr td {
+	margin: 2px;
+}
+
+.table-input tr td div {
+	font-weight: bold;
+	line-height: 18px;
+	margin: 0 0 0 10px;
+}
+
+.table-input tr td input {
+	border: 1px solid #336699;
+	margin: 0;
+	padding: 2px;
+	width: 210px;
+}
+
+.label {
+	LINE-HEIGHT: 150%;
+	FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"
 }

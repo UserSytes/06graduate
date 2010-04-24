@@ -11,101 +11,67 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
-		<link href="${ctx}/coursepage/style/<s:property value="course.style"/>/color.css" rel="stylesheet"
-			type="text/css" />
-
-		<script type="text/javascript" src="${ctx}/js/mail.js"></script>
-		<script type="text/javascript" src="${ctx}/js/prototype.js"></script>
 	</head>
 	<body>
 		<!-- 头部 -->
-		<s:include value="../style/%{course.header}"></s:include>
+		<s:include value="../style/%{#session.header}"></s:include>
 		<div class="content">
 			<!-- 左侧 -->
 			<s:include value="../style/left.jsp"></s:include>
-			<div id="right-cnt">
-				<br class="clear" />
+			<div id="right-cnt">			
 				<!-- 正文部分 -->
 				<div class="pages">
 					<h2>
 						<a href="goIndexQueryAction.action">首页</a>&gt;
-						<a href="<s:url action="evaluateAction"> 
+						<a
+							href="<s:url action="evaluateAction"> 
                 					</s:url>">课程评价</a>&gt;详细浏览
 					</h2>
 					<br class="clear" />
 				</div>
-		<!-- 正文 -->
+				<!-- 正文 -->
 				<div>
-					<table border="0" cellpadding="0" cellspacing="0">
-						<tr>
-							<td width="724" align="center">
-								<table border="0" cellpadding="0" cellspacing="0" width="724"
-									height="94"
-									background="${ctx}/coursepage/style/green/titlebg.gif"
-									style="background-repeat: no-repeat">
-									<tr>
-										<td width="724" valign="top" align="right">
-											<font style="font-size: 12px; color: #574434"></font>
-										</td>
-									</tr>
-									<tr height="69">
-										<td valign="bottom" align="left">
-											<table border="0" cellpadding="0" cellspacing="0">
-												<tr>
-													<td align="center">
-														<font color="#966f48"
-															style="font-size: 18px; font-weight: bold">教师对课程的综合评价</font>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<font color="#92a35d" style="font-size: 12px;"></font>
-													</td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-									<tr height="1">
-										<td width="724" bgcolor="#c4ae86" valign="top"></td>
-									</tr>
-								</table>
+					<table border="0" cellpadding="0" cellspacing="0"
+						class="table-info">
+						<tr height="29">
+							<td align="center">
+								<font style="font-size: 16px; font-weight: bold">
+									我对该课程的评价</font>
 							</td>
 						</tr>
-						<tr>
-							<td>
-					
-					<table cellpadding="0" cellspacing="0"  align="center">
-					<tr>
-						<td>
-							<font color="#74582f" style="font-size:16px;font-weight:bold;"><s:property value="scorestring" />
-							<br /></font>
-						</td>
-					</tr>
-					
-					<tr>
-						<td >
-							<font color="#74582f" style="font-size:16px;font-weight:bold;">您的评语是&nbsp;&nbsp;
-							<s:text name="">${evaluation.content}</s:text></font>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<a
-								href="<s:url action="tDetailEvaluateAction"> 
+						<tr height="19">
+							<td class="timefont">
+								<font class="timefont"><s:property value="scorestring" /><a
+									 style="float: right;"
+									href="<s:url action="tDetailEvaluateAction"> 
                      			<s:param name="course"> 
                        			 	<s:property value="id"/> 
                     			</s:param>
-<s:param name="number"> 
+								<s:param name="number"> 
                        			 	<s:property value="2"/> 
                     			</s:param>
-                					</s:url>" />
-								<img src="${ctx}/coursepage/images/4-reEvaluate.jpg" ALT="" border="0"> </a>
-						</td>
-					</tr>
-
-				</table>
+                					</s:url>"
+									>我要重新评价</a> </font>
 							</td>
-						</tr>	
+						</tr>
+						<tr height="1" class="tr-title">
+							<td></td>
+						</tr>
+						<tr>
+							<td>
+
+								<table cellpadding="0" cellspacings="0" align="center"
+									width="704" style="padding: 10px;">
+
+									<tr>
+										<td>
+											<s:text name="">${evaluation.content}</s:text>
+										</td>
+									</tr>								
+
+								</table>
+							</td>
+						</tr>
 					</table>
 				</div>
 				<br class="clear" />

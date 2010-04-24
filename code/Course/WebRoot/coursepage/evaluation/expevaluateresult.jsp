@@ -11,10 +11,6 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
-		<link
-			href="${ctx}/coursepage/style/<s:property value="course.style"/>/color.css"
-			rel="stylesheet" type="text/css" />
-
 		<link rel="stylesheet" href="${ctx}/css/thickbox.css" type="text/css"
 			media="screen" />
 		<script type="text/javascript" src="${ctx}/js/mail.js"></script>
@@ -28,7 +24,7 @@
 	</head>
 	<body>
 		<!-- 头部 -->
-		<s:include value="../style/%{course.header}"></s:include>
+		<s:include value="../style/%{#session.header}"></s:include>
 		<div class="content">
 			<!-- 左侧 -->
 			<s:include value="../style/left.jsp"></s:include>
@@ -50,21 +46,21 @@
 						<tr>
 							<td>
 								<table cellpadding="0" cellspacing="0" align="center" border="0"
-									width="704" class="table-list">
+									width="714" class="table-list">
 									<tr class="tr-title">
-										<td width="30" height="40" align="center">
+										<td width="34" height="40" align="center">
 											序号
 										</td>
 										<td width="100" height="40" align="center">
-											专家名称
+											姓名
 										</td>
 										<td width="100" height="40" align="center">
 											职称
 										</td>
 										<td width="90" height="40" align="center">
-											评价分数
+											得分
 										</td>
-										<td width="220" height="40" align="center">
+										<td width="290" height="40" align="center">
 											评语
 										</td>
 										<td width="100" height="40" align="center">
@@ -87,8 +83,8 @@
 												<s:property value="score" />
 											</td>
 											<td align="center">
-												<s:if test="content.length()>20">
-													<s:property value="content.substring(0, 20)+'...'"
+												<s:if test="content.length()>30">
+													<s:property value="content.substring(0, 30)+'...'"
 														escape="false" />
 												</s:if>
 												<s:else>
