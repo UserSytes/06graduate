@@ -18,6 +18,7 @@ import cn.edu.xmu.course.commons.FileOperation;
 import cn.edu.xmu.course.dao.AttachmentDAO;
 import cn.edu.xmu.course.dao.NewsDAO;
 import cn.edu.xmu.course.pojo.Attachment;
+import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.News;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.service.INewsService;
@@ -109,6 +110,9 @@ public class NewsService implements INewsService {
 //			}
 //		}
 		return true;
+	}
+	public List findLastestTenNews() {
+		return newsDAO.findLastestTenNews();
 	}
 	
 	public boolean addNews(News news, File[] myFile, String[] myFileContentType, String[] myFileFileName) {
