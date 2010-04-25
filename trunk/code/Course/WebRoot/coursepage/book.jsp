@@ -20,8 +20,7 @@
 		<div class="content">
 			<!-- 左侧 -->
 			<s:include value="style/left.jsp"></s:include>
-			<div id="right-cnt">
-				<br class="clear" />
+			<div id="right-cnt">				
 				<!-- 正文部分 -->
 				<div class="pages">
 					<h2>

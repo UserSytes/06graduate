@@ -7,7 +7,10 @@ scrollbar-track-color: #FFFFFF;
 scrollbar-arrow-color: #999999}
 
 form {margin:0; color: #5E5E5D;FONT-FAMILY:"Verdana", "Arial", "Helvetica", "sans-serif", arial; FONT-SIZE: 9pt;;letter-spacing:-0.02em; text-decoration:none;line-height:12pt;}
-
+ul li {
+float:left;
+position:relative;
+}
 
 /* Menu */
 

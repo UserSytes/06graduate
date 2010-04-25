@@ -7,6 +7,11 @@ P {
 BODY {
 	COLOR: #000; BACKGROUND-COLOR: #fff
 }
+ul li {
+float:left;
+position:relative;
+}
+
 BODY {
 	FONT-SIZE: 12px; LINE-HEIGHT: 150%; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"
 }
