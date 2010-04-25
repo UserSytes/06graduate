@@ -16,7 +16,7 @@ $.fn.pagination=function(opts){
 			strHtml+="<li><img alt='上一页' id='prev' /></li>";
 			strHtml+="<li><img alt='下一页' id='next' /></li>";
 			strHtml+="<li><img alt='尾页' id='last' /></li>";
-			strHtml+="<li style='padding:10px;'>转到第<input type='text' id='turn' />页<input class='go' type='button' value='GO'/></li></ul>";
+			strHtml+="<li>转到第<input type='text' id='turn' />页<input class='go' type='button' value='GO'/></li></ul>";
 			panel.empty();
 			panel.append(strHtml);
 
