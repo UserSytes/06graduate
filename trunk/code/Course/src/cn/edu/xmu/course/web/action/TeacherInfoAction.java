@@ -8,8 +8,9 @@ import cn.edu.xmu.course.pojo.*;
 import cn.edu.xmu.course.service.ISuperAdminService;
 import cn.edu.xmu.course.service.ITeacherInfoService;
 /**
- * 
- * @author Sky
+ * 负责管理教师信息的类
+ * @author 郑冰凌
+ * @author 何申密
  *
  */
 public class TeacherInfoAction extends BaseAction{
@@ -19,23 +20,27 @@ public class TeacherInfoAction extends BaseAction{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private ITeacherInfoService teacherInfoService;
-	private ISuperAdminService superAdminService;
+	private ITeacherInfoService teacherInfoService;	//管理教师信息的接口
+	private ISuperAdminService superAdminService;	//管理校方管理员的接口
 	
-	private Teacher teacher;
-	private UserInfo userInfo;
-	private String password;
-	private String newPassword;
+	private Teacher teacher;	//教师
+	private UserInfo userInfo;	//用户信息
+	private String password;	//密码
+	private String newPassword;	//新密码
 	
-	private List<Teacher> teacherList;
-	private List<Department> departmentList;
-	private int teacherId;
-	private int departmentId;
+	private List<Teacher> teacherList;	//教师列表
+	private List<Department> departmentList;	//系列表
+	private int teacherId;	//教师id
+	private int departmentId;	//系id
 	
-	private File upload;
-	private String uploadContentType;
-	private String uploadFileName;
+	private File upload;	//教师头像文件
+	private String uploadContentType;	//教师头像文件类型
+	private String uploadFileName;	//头像文件名称
 	
+	/**
+	 * 修改密码
+	 * @return
+	 */
 	public String changePassword(){
 		teacher = super.getTeacher();
 		if(teacher.getPassword().equals(password)){
@@ -52,6 +57,10 @@ public class TeacherInfoAction extends BaseAction{
 			return ERROR;
 	}
 	
+	/**
+	 * 修改教师信息
+	 * @return
+	 */
 	public String changeTeacherInfo(){
 		if(teacherInfoService.updateTeacher(teacher, userInfo)){
 			teacher = teacherInfoService.findTeacherById(super.getTeacher().getId());
@@ -63,6 +72,10 @@ public class TeacherInfoAction extends BaseAction{
 			return ERROR;
 	}
 	
+	/**
+	 * 修改头像
+	 * @return
+	 */
 	public String changePhoto() {
 		int pos = uploadFileName.lastIndexOf(".");
 		String fileLink = "photo/" + new Date().getTime()+uploadFileName.substring(pos);		
@@ -75,6 +88,10 @@ public class TeacherInfoAction extends BaseAction{
 		}
 	}
 	
+	/**
+	 * 获取教师信息
+	 * @return
+	 */
 	public String getTeacherInfo(){
 		teacher = super.getTeacher();
 		userInfo = teacher.getUserInfo();

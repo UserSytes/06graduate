@@ -5,24 +5,21 @@ import cn.edu.xmu.course.pojo.SuperAdmin;
 import cn.edu.xmu.course.service.IAdminService;
 
 /**
- * 
+ * 负责管理员信息管理的类
  * @author 郑冰凌
  *
  */
 public class AdminAction extends BaseAction {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1640606765141485215L;
 
-	private IAdminService adminService;
+	private IAdminService adminService; //管理员信息管理方法的接口
+
+	private Administrator admin; //学院管理员
+	private SuperAdmin superAdmin; //校方管理员
 	
-	private Administrator admin;
-	private SuperAdmin superAdmin;
-	
-	private String oldPassword;
-	private String newPassword;
+	private String oldPassword; //管理员帐号原密码
+	private String newPassword; //新密码
 	
 	/**
 	 * 获取学院管理员信息

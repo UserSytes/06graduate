@@ -1,9 +1,6 @@
 package cn.edu.xmu.course.web.action;
 
 import java.util.List;
-
-import org.apache.struts2.components.ActionMessage;
-
 import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Message;
 import cn.edu.xmu.course.pojo.School;
@@ -11,20 +8,23 @@ import cn.edu.xmu.course.pojo.Topic;
 import cn.edu.xmu.course.service.IMessageService;
 import cn.edu.xmu.course.service.ITopicService;
 
+/**
+ * 负责学院管理员管理学院课程留言的类
+ * @author 郑冰凌
+ *
+ */
 public class TopicManageAction extends BaseAction{
 
-	private ITopicService topicService;
-	private IMessageService messageService;
+	private ITopicService topicService;	//负责管理留言主题的接口
+	private IMessageService messageService;	//负责管理留言的接口
 	
-	private List<Topic> topicList;
-	private List<Message> messageList;
-	
-	private Topic topic;
-	private Message message;
-	private int topicId;
-	private int messageId;
-	
-	private String topicKey;
+	private List<Topic> topicList;	//留言主题列表
+	private List<Message> messageList;	//留言列表
+	private Topic topic;	//留言主题
+	private Message message;	//留言
+	private int topicId;	//留言主题id
+	private int messageId;	//留言id
+	private String topicKey;	//主题关键字
 	
 	/**
 	 * 获取本学院课程留言

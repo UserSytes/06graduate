@@ -22,9 +22,8 @@ import cn.edu.xmu.course.service.IStudentInfoService;
 import cn.edu.xmu.course.service.ITopicService;
 
 /**
- * 学生主页
- * 
- * @author Sky
+ * 负责管理学生主页的类
+ * @author 郑冰凌
  * 
  */
 public class StudentInfoAction extends BaseAction {
@@ -33,33 +32,31 @@ public class StudentInfoAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 6085308815177983503L;
-	private IStudentInfoService studentInfoService;
-	private IStudentCourseService studentCourseService;
-	private ICourseService courseService;
+	private IStudentInfoService studentInfoService;	//管理学生信息的接口
+	private IStudentCourseService studentCourseService;	//管理学生课程信息的接口
+	private ICourseService courseService;	//管理课程信息的接口
 
-	private Student student;
-	private UserInfo userInfo;
-	private List<Course> courseList;
-	private Course course;
-	private int courseId;
-	private String oldPassword;
-	private String newPassword;
+	private Student student;	//学生
+	private UserInfo userInfo;	//用户信息
+	private List<Course> courseList;	//课程列表
+	private Course course;	//课程
+	private int courseId;	//课程id
+	private String oldPassword;	//原密码
+	private String newPassword;	//新密码
 
-	private ITopicService topicService;
-	private IMessageService messageService;
 
-	private List<Topic> topicList;
-	private List<Message> messageList;
+	private IMessageService messageService;	//管理留言信息的接口
+	private List<Message> messageList;	//留言列表
 
-	private Topic topic;
-	private int topicId;
+	private File upload;	//头像文件
+	private String uploadContentType;	//头像文件类型
+	private String uploadFileName;	//头像文件名称
+	private String photoPath;	//头像路径
 
-	private File upload;
-	private String uploadContentType;
-	private String uploadFileName;
-
-	private String photoPath;
-
+	/**
+	 * 查找学生个人留言主题
+	 * @return
+	 */
 	public String myTopics() {
 		student = (Student) super.getSession().get(STUDENT);
 		userInfo = student.getUserInfo();
@@ -71,20 +68,10 @@ public class StudentInfoAction extends BaseAction {
 
 	}
 
-	// public String myReplyTopics(){
-	// student = (Student) super.getSession().get(STUDENT);
-	// userInfo = student.getUserInfo();
-	// messageList = messageService.getReplyMessageByUserInfo(userInfo);
-	// System.out.println("我的帖子："+messageList.get(0).getGrade());
-	// System.out.println("我的帖子2："+messageList.get(0).getTopic().getName());
-	// if(messageList.size()==0){
-	// addActionMessage("您目前还未有任何留言回复！");
-	// return ERROR;
-	// }else{
-	// return SUCCESS;
-	// }
-	// }
-
+	/**
+	 * 修改头像
+	 * @return
+	 */
 	public String changeHead() {
 		student = (Student) super.getSession().get(STUDENT);
 		String oldPhoto = student.getUserInfo().getPhoto();
@@ -293,15 +280,7 @@ public class StudentInfoAction extends BaseAction {
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
 	}
-
-	public ITopicService getTopicService() {
-		return topicService;
-	}
-
-	public void setTopicService(ITopicService topicService) {
-		this.topicService = topicService;
-	}
-
+	
 	public IMessageService getMessageService() {
 		return messageService;
 	}
@@ -310,36 +289,12 @@ public class StudentInfoAction extends BaseAction {
 		this.messageService = messageService;
 	}
 
-	public List<Topic> getTopicList() {
-		return topicList;
-	}
-
-	public void setTopicList(List<Topic> topicList) {
-		this.topicList = topicList;
-	}
-
 	public List<Message> getMessageList() {
 		return messageList;
 	}
 
 	public void setMessageList(List<Message> messageList) {
 		this.messageList = messageList;
-	}
-
-	public Topic getTopic() {
-		return topic;
-	}
-
-	public void setTopic(Topic topic) {
-		this.topic = topic;
-	}
-
-	public int getTopicId() {
-		return topicId;
-	}
-
-	public void setTopicId(int topicId) {
-		this.topicId = topicId;
 	}
 
 	public static long getSerialVersionUID() {
