@@ -87,7 +87,7 @@ public class HomePageAction extends BaseAction{
     	if(courseList == null){
 			addActionMessage("最近一个月未发布新课程！");
 		}else{
-			for(int i=5;i<courseList.size();i++)
+			for(int i=10;i<courseList.size();i++)
 			{
 				courseList.remove(i);
 			}
