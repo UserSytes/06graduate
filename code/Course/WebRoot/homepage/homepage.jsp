@@ -79,7 +79,7 @@
 														</td>
 														<td width="4" valign="top"></td>
 														<td valign="top" width="120">
-															<s:textfield name="userName" size="15"></s:textfield>
+															<s:textfield name="userName" size="16"></s:textfield>
 														</td>
 														<td width="7" valign="top"></td>
 														<td width="9" valign="top"></td>
@@ -329,49 +329,6 @@
 						</tr>
 						<tr>
 							<td height="4"></td>
-							</td>
-						</tr>
-
-						<tr>
-							<td valign="top" width="194">
-								<table border="0" cellpadding="0" cellspacing="0">
-									<tr>
-										<td>
-											<img src="${ctx}/homepage/image/left_menu_title2.gif"
-												border="0" alt="">
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<table border="0" cellpadding="0" cellspacing="0">
-												<tr height="28">
-													<td width="11"></td>
-													<td width="162" align="left">
-														<img src="${ctx}/homepage/image/left_bg1.gif" border="0">
-														<a href="#">1、软件工程[林坤辉]</a>
-													</td>
-													<td width="11"></td>
-												</tr>
-												<tr height="2">
-													<td width="11"></td>
-													<td width="135"
-														background="${ctx}/homepage/image/left_bg2.gif"></td>
-													<td width="11"></td>
-												</tr>
-
-											</table>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="${ctx}/homepage/image/left_menu_bottom2.gif"
-												border="0" alt="">
-										</td>
-									</tr>
-									<tr height="6">
-										<td></td>
-									</tr>
-								</table>
 							</td>
 						</tr>
 
