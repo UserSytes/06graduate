@@ -24,7 +24,7 @@ public interface IAdminService {
 	 * 添加学院管理员
 	 * @param admin
 	 * @param school
-	 * @return
+	 * @return 
 	 */
 	public boolean addAdmin(Administrator admin, School school);
 	
