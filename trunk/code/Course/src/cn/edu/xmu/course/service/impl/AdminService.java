@@ -11,31 +11,43 @@ import cn.edu.xmu.course.service.IAdminService;
 
 /**
  * 负责校、学院管理员信息管理的接口
+ * 
  * @author 郑冰凌
- *
+ * 
  */
 public class AdminService implements IAdminService {
 
 	private AdministratorDAO administratorDAO;
 	private SuperAdminDAO superAdminDAO;
-	
+
 	final String password = "123456";
-	
-	public Administrator getAdminByAccount(String account){
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IAdminService#getAdminByAccount(java.lang.String
+	 * )
+	 */
+	public Administrator getAdminByAccount(String account) {
 		List<Administrator> admins = administratorDAO.findByAccount(account);
-		if(admins.size()==0){
+		if (admins.size() == 0) {
 			return null;
-		}else
+		} else
 			return admins.get(0);
 	}
+
 	/*
 	 * 添加学院管理员(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.IAdminService#addAdmin(cn.edu.xmu.course.pojo.Administrator, cn.edu.xmu.course.pojo.School)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IAdminService#addAdmin(cn.edu.xmu.course.pojo
+	 * .Administrator, cn.edu.xmu.course.pojo.School)
 	 */
 	public boolean addAdmin(Administrator admin, School school) {
 		// TODO Auto-generated method stub
 		admin.setSchool(school);
-		admin.setPassword(password);	
+		admin.setPassword(password);
 		try {
 			administratorDAO.save(admin);
 			return true;
@@ -43,10 +55,13 @@ public class AdminService implements IAdminService {
 			return false;
 		}
 	}
-	
+
 	/*
 	 * 删除学院管理员(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.IAdminService#deleteAdmin(cn.edu.xmu.course.pojo.Administrator)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IAdminService#deleteAdmin(cn.edu.xmu.course
+	 * .pojo.Administrator)
 	 */
 	public boolean deleteAdmin(Administrator admin) {
 		// TODO Auto-generated method stub
@@ -57,18 +72,20 @@ public class AdminService implements IAdminService {
 			return false;
 		}
 	}
-	
+
 	/*
 	 * 查找所有的学院管理员(non-Javadoc)
+	 * 
 	 * @see cn.edu.xmu.course.service.IAdminService#findAllAdmin()
 	 */
 	public List findAllAdmin() {
 		// TODO Auto-generated method stub
 		return administratorDAO.findAll();
 	}
-	
+
 	/*
 	 * 根据id查找学院管理员(non-Javadoc)
+	 * 
 	 * @see cn.edu.xmu.course.service.IAdminService#findAdminById(int)
 	 */
 	public Administrator findAdminById(int id) {
@@ -98,20 +115,24 @@ public class AdminService implements IAdminService {
 
 	/*
 	 * 添加校管理员(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.IAdminService#addSuperAdmin(cn.edu.xmu.course.pojo.SuperAdmin)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IAdminService#addSuperAdmin(cn.edu.xmu.course
+	 * .pojo.SuperAdmin)
 	 */
 	public boolean addSuperAdmin(SuperAdmin superAdmin) {
 		// TODO Auto-generated method stub
-		try{
+		try {
 			superAdminDAO.save(superAdmin);
 			return true;
-		}catch(Exception e){
+		} catch (Exception e) {
 			return false;
 		}
 	}
 
 	/*
 	 * 根据id查找校管理员(non-Javadoc)
+	 * 
 	 * @see cn.edu.xmu.course.service.IAdminService#findSuperAdminById(int)
 	 */
 	public SuperAdmin findSuperAdminById(int id) {
@@ -121,31 +142,36 @@ public class AdminService implements IAdminService {
 
 	/*
 	 * 更新学院管理员(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.IAdminService#updateAdmin(cn.edu.xmu.course.pojo.Administrator)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IAdminService#updateAdmin(cn.edu.xmu.course
+	 * .pojo.Administrator)
 	 */
 	public boolean updateAdmin(Administrator admin) {
 		// TODO Auto-generated method stub
-		try{
+		try {
 			administratorDAO.merge(admin);
 			return true;
-		}catch(Exception e){
+		} catch (Exception e) {
 			return false;
 		}
 	}
 
 	/*
 	 * 更新校管理员(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.IAdminService#updateSuperAdmin(cn.edu.xmu.course.pojo.SuperAdmin)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IAdminService#updateSuperAdmin(cn.edu.xmu.course
+	 * .pojo.SuperAdmin)
 	 */
 	public boolean updateSuperAdmin(SuperAdmin superAdmin) {
 		// TODO Auto-generated method stub
-		try{
+		try {
 			superAdminDAO.merge(superAdmin);
 			return true;
-		}catch(Exception e){
+		} catch (Exception e) {
 			return false;
 		}
 	}
-	
-	
+
 }
