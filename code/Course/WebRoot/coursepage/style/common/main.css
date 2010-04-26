@@ -78,64 +78,6 @@ button,input[type="submit"],input[type="image"],label,label>input[type="checkbox
 
 /* 1. HEADER
 ????????????????????????????????????????????????????????????????????? ?*/
-#title {
-	text-align: center;
-	position: relative;
-}
-
-#title h1 {
-	font: normal 36px/ 45px "Myriad Pro", "Myriad", "Gill Sans",
-		"Frutiger Linotype", "Helvetica Neue", sans-serif;
-	text-align: center;
-	text-shadow: rgba(0, 0, 0, 0.5) 0 1px 4px;
-	color: #46c5ec;
-	position: relative;
-	width: 221px;
-	height: 45px;
-	margin: 0 auto;
-	overflow: hidden;
-}
-
-#title h1 span {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	background: url("i/quicksand-logo.png") no-repeat;
-}
-
-#title p {
-	margin-top: 3px;
-	margin-right: 0;
-}
-
-#title a {
-	position: absolute;
-	left: -12px;
-	top: 13px;
-	background: #44494e url("i/nav.png") no-repeat 0 0;
-	color: #282b2e;
-	font-size: 11px;
-	line-height: 1;
-	border: 0;
-	text-shadow: rgba(255, 255, 255, 0.08) 0 1px 0;
-	padding: 5px 4px 5px 14px;
-	-moz-border-radius-topright: 2px;
-	-moz-border-radius-bottomright: 2px;
-	-webkit-border-top-right-radius: 2px;
-	-webkit-border-bottom-right-radius: 2px;
-	-webkit-transition: background-color 0.15s linear;
-	-moz-transition: background-color 0.15s linear;
-}
-
-#title a:hover,#title a:focus {
-	background-color: #5b6269;
-}
-
-#title a:active {
-	left: -13px;
-}
 
 /* 2. CONTENT
 ????????????????????????????????????????????????????????????????????? ?*/

@@ -31,7 +31,6 @@
 		style="background-repeat: repeat-x">
 
 		<s:include value="include/header.jsp"></s:include>
-
 		<table border="0" cellpadding="0" cellspacing="0" width="950"
 			align="center">
 			<tr height="100%">
@@ -69,13 +68,12 @@
 											<s:form action="loginFromHomePageAction" method="post"
 												onsubmit="return check(this);">
 												<table border="0" cellpadding="0" cellspacing="0"
-													width="100%">
+													width="194">
 													<tr height="29">
 														<td width="2" bgcolor="#e7e7e7" valign="top"></td>
 														<td width="16" valign="top"></td>
 														<td valign="top" width="30">
-															<img src="${ctx}/homepage/image/account.gif" border="0"
-																alt="">
+															<img src="${ctx}/homepage/image/account.gif" border="0">
 														</td>
 														<td width="4" valign="top"></td>
 														<td valign="top" width="120">
