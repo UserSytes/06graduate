@@ -1,12 +1,7 @@
 package cn.edu.xmu.course.service.impl;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import org.apache.struts2.components.Set;
-
-import cn.edu.xmu.course.dao.ApplicationFormDAO;
 import cn.edu.xmu.course.dao.CourseDAO;
 import cn.edu.xmu.course.pojo.ApplicationForm;
 import cn.edu.xmu.course.pojo.Course;
@@ -15,6 +10,12 @@ import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.service.ICourseService;
 
+/**
+ * 管理课程信息的类
+ * @author 郑冰凌
+ * @author 何申密
+ *
+ */
 public class CourseService implements ICourseService {
 
 	private CourseDAO courseDAO;
@@ -22,7 +23,10 @@ public class CourseService implements ICourseService {
 	private List<Course> tempList;
 	private ApplicationForm applicationForm;
 
-
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ICourseService#addCourse(cn.edu.xmu.course.pojo.Course, cn.edu.xmu.course.pojo.Department, cn.edu.xmu.course.pojo.Teacher)
+	 */
 	public boolean addCourse(Course course, Department department,
 			Teacher teacher) {
 		// TODO Auto-generated method stub
@@ -39,6 +43,10 @@ public class CourseService implements ICourseService {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ICourseService#findCoursesByTeacher(java.lang.Integer, int)
+	 */
 	public List findCoursesByTeacher(Integer teacherId, int type) {
 		// TODO Auto-generated method stub
 		if (type == 3)
@@ -47,6 +55,10 @@ public class CourseService implements ICourseService {
 			return courseDAO.findByTeacherAndType(teacherId, type);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ICourseService#deleteCourse(cn.edu.xmu.course.pojo.Course)
+	 */
 	public boolean deleteCourse(Course course) {
 		// TODO Auto-generated method stub
 		try {
@@ -58,42 +70,50 @@ public class CourseService implements ICourseService {
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ICourseService#findCourseListLevel(java.lang.String)
+	 */
 	public List findCourseListLevel(String level) {
 		courses=courseDAO.findByLevel(level);
 		return courses;		
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ICourseService#findCourseListByTimeAndLevel(java.lang.String, java.lang.String)
+	 */
 	public List findCourseListByTimeAndLevel(String time, String level) {
 		courses = courseDAO.findAll();
-		System.out.println("test1: "+courses.size());
 		tempList = new ArrayList();
 		for (int i = 0; i < courses.size(); i++)
 		{
 			Course course = courses.get(i);
-			System.out.println("test2: "+course.getName());
 			boolean result = course.getLevel().equals(level);
 			if (result) {
 				tempList.add(course);
 			}
 		}
-		System.out.println("test3: "+tempList.size());
 		
 		for (int i = 0; i <tempList.size(); i++) {
 			applicationForm=(ApplicationForm)tempList.get(i)
 			.getApplicationForms().iterator().next();
-			System.out.println("test4: "+ applicationForm.getTime().toString().substring(0, 4));
 			if (!applicationForm.getTime().toString().substring(0, 4)
 					.equals(time))
 				tempList.remove(i);
 		}
-		System.out.println("test5: "+tempList.size());
 		return tempList;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ICourseService#findCourseListByLevel(java.lang.String)
+	 */
 	public List findCourseListByLevel(String level) {
 		courses=courseDAO.findByLevel(level);
 		return courses;	
 	}
+	
 	private List<Course> getCourses() {
 		return courses;
 	}
@@ -143,8 +163,9 @@ public class CourseService implements ICourseService {
 		return courseDAO;
 	}
 
-	/**
-	 * 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ICourseService#updateCourse(cn.edu.xmu.course.pojo.Course)
 	 */
 	public boolean updateCourse(Course course) {
 		// TODO Auto-generated method stub
