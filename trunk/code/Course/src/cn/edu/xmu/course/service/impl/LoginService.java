@@ -15,7 +15,7 @@ import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.service.ILoginService;
 
 /**
- * 负责登陆
+ * 负责登陆的类
  * @author 何申密
  * @author 郑冰凌
  *
@@ -28,6 +28,10 @@ public class LoginService implements ILoginService {
 	private SuperAdminDAO superAdminDAO;
 	private EvaluationDAO evaluationDAO;
 	
+	/*
+	 * 教师登录(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ILoginService#teacherLogin(java.lang.String, java.lang.String)
+	 */
 	public Teacher teacherLogin(String account, String password) {
 		// TODO Auto-generated method stub
 		List<Teacher> teachers = teacherDAO.findByTeacherNo(account);
@@ -40,6 +44,10 @@ public class LoginService implements ILoginService {
 			return null;
 	}
 
+	/*
+	 * 管理员登录(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ILoginService#adminLogin(java.lang.String, java.lang.String)
+	 */
 	public Administrator adminLogin(String account, String password) {
 		// TODO Auto-generated method stub
 		List<Administrator> admins = administratorDAO.findByAccount(account);
@@ -52,8 +60,10 @@ public class LoginService implements ILoginService {
 			return null;
 	}
 	
-
-
+	/*
+	 * 学生登录(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ILoginService#studentLogin(java.lang.String, java.lang.String)
+	 */
 	public Student studentLogin(String userName, String password) {
 		// TODO Auto-generated method stub
 		List<Student> students = studentDAO.findByStudentNo(userName);
@@ -66,6 +76,10 @@ public class LoginService implements ILoginService {
 			return null;
 	}
 
+	/*
+	 * 校方管理员登录(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ILoginService#superAdminLogin(java.lang.String, java.lang.String)
+	 */
 	public SuperAdmin superAdminLogin(String account, String password) {
 		// TODO Auto-generated method stub
 		List<SuperAdmin> superAdmins = superAdminDAO.findByAccount(account);
@@ -78,6 +92,10 @@ public class LoginService implements ILoginService {
 			return null;
 	}
 
+	/*
+	 * 专家登录(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ILoginService#expertLogin(java.lang.String, java.lang.String, int)
+	 */
 	public Evaluation expertLogin(String username, String password,int flag) {
 		// TODO Auto-generated method stub
 		List<Evaluation> evaluations = evaluationDAO.findByUsername(username);

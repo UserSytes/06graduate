@@ -19,8 +19,8 @@ import cn.edu.xmu.course.pojo.StudentCourse;
 import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.IStudentCourseService;
 /**
- * 
- * @author Sky
+ * 此类负责管理学生课程关系
+ * @author 郑冰凌
  *
  */
 public class StudentCourseService implements IStudentCourseService {
@@ -29,6 +29,10 @@ public class StudentCourseService implements IStudentCourseService {
 	private CollectionDAO collectionDAO;
 	private StudentDAO studentDAO;
 	
+	/*
+	 * 验证课程中是否存在指定学生(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentCourseService#checkStudent(cn.edu.xmu.course.pojo.Course, cn.edu.xmu.course.pojo.Student)
+	 */
 	public boolean checkStudent(Course course, Student student){
 		List<StudentCourse> studentCourses = studentCourseDAO.findByStudentAndCourse(course, student);
 		if(studentCourses.size()==0){
@@ -37,6 +41,10 @@ public class StudentCourseService implements IStudentCourseService {
 			return false;//该生已经加入该课程
 	}
 	
+	/*
+	 * 删除学生收藏的课程(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentCourseService#deleteCollection(cn.edu.xmu.course.pojo.Student, cn.edu.xmu.course.pojo.Course)
+	 */
 	public boolean deleteCollection(Student student, Course course){
 		Collection c = (Collection) collectionDAO.findByStudentAndCourse(course, student).get(0);
 		if(c != null){
@@ -51,23 +59,43 @@ public class StudentCourseService implements IStudentCourseService {
 		}
 	}
 	
+	/*
+	 * 查找某学生的收藏课程(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentCourseService#findCollectionByStudent(cn.edu.xmu.course.pojo.Student)
+	 */
 	public List<Collection> findCollectionByStudent(Student student){
 		return collectionDAO.findByProperty("student", student);
 	}
 	
+	/*
+	 * 根据课程查找学生(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentCourseService#findByCourse(cn.edu.xmu.course.pojo.Course)
+	 */
 	public List<StudentCourse> findByCourse(Course course) {
 		// TODO Auto-generated method stub
 		return studentCourseDAO.findByProperty("course", course);
 	}
 	
+	/*
+	 * 根据id查找学生(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentCourseService#findStudentById(int)
+	 */
 	public Student findStudentById(int id){
 		return studentDAO.findById(id);
 	}
 	
+	/*
+	 * 根据学号查找学生(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentCourseService#findStudentByStudentNo(java.lang.String)
+	 */
 	public Student findStudentByStudentNo(String studentNo){
 		return (Student) studentDAO.findByStudentNo(studentNo).get(0);
 	}
 	
+	/*
+	 * 删除某课程的某个学生(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentCourseService#delete(cn.edu.xmu.course.pojo.Course, cn.edu.xmu.course.pojo.Student)
+	 */
 	public boolean delete(Course course, Student student){
 		StudentCourse sc = (StudentCourse) studentCourseDAO.findByStudentAndCourse(course, student).get(0);
 		if(sc != null){
@@ -82,6 +110,10 @@ public class StudentCourseService implements IStudentCourseService {
 		}
 	}
 	
+	/*
+	 * 批量删除课程中的学生(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentCourseService#deleteMoreSudentCourse(cn.edu.xmu.course.pojo.Course, java.lang.String, java.lang.String)
+	 */
 	public boolean deleteMoreSudentCourse(Course course, String departmentId, String gradeId){
 		List<StudentCourse> scList = studentCourseDAO.fingByCourseAndDepartmentAndGrade(course, departmentId, gradeId);
 		if(scList.size()==0){
@@ -97,6 +129,10 @@ public class StudentCourseService implements IStudentCourseService {
 		return true;
 	}
 
+	/*
+	 * 添加学生到课程中(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentCourseService#addStudentCourse(cn.edu.xmu.course.pojo.StudentCourse)
+	 */
 	public boolean addStudentCourse(StudentCourse studentCourse){
 		try{
 			studentCourseDAO.save(studentCourse);
@@ -106,6 +142,10 @@ public class StudentCourseService implements IStudentCourseService {
 		}
 	}
 	
+	/*
+	 * 批量添加学生到课程中(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentCourseService#addMoreStudentCourse(cn.edu.xmu.course.pojo.Course, java.io.File)
+	 */
 	public String addMoreStudentCourse(Course course, File file){
 		Workbook book = null;
 		List<Student> students ;
@@ -168,6 +208,11 @@ public class StudentCourseService implements IStudentCourseService {
 		return true;
 	}
 	
+	/**
+	 * 更新学生课程信息
+	 * @param studentCourse
+	 * @return
+	 */
 	public boolean updateStudentCourse(StudentCourse studentCourse) {
 		// TODO Auto-generated method stub
 		try{
@@ -178,6 +223,10 @@ public class StudentCourseService implements IStudentCourseService {
 		}
 	}
 	
+	/*
+	 * 根据学生查找课程(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentCourseService#findByStudent(cn.edu.xmu.course.pojo.Student)
+	 */
 	public List<StudentCourse> findByStudent(Student student){
 		return studentCourseDAO.findByProperty("student", student);
 	}

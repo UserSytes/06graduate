@@ -1,11 +1,8 @@
 package cn.edu.xmu.course.service.impl;
 
 import java.io.File;
-import java.util.Calendar;
 import java.util.List;
-
 import org.apache.struts2.ServletActionContext;
-
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
@@ -19,11 +16,20 @@ import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.IStudentInfoService;
 
+/**
+ * 学生信息管理
+ * @author 郑冰凌
+ *
+ */
 public class StudentInfoService implements IStudentInfoService {
 
 	private StudentDAO studentDAO;
 	private UserInfoDAO userInfoDAO;
 
+	/*
+	 * 修改学生头像(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#addStudentPhoto(cn.edu.xmu.course.pojo.UserInfo, java.io.File, java.lang.String)
+	 */
 	public boolean addStudentPhoto(UserInfo userInfo, File photo,String oldPhoto) {
 		String path = ServletActionContext.getServletContext().getRealPath(
 				"/upload");
@@ -42,6 +48,10 @@ public class StudentInfoService implements IStudentInfoService {
 		}
 	}
 
+	/*
+	 * 添加学生(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#addStudent(cn.edu.xmu.course.pojo.Student, cn.edu.xmu.course.pojo.UserInfo)
+	 */
 	public boolean addStudent(Student student, UserInfo userInfo) {
 		// TODO Auto-generated method stub
 		try {
@@ -53,12 +63,20 @@ public class StudentInfoService implements IStudentInfoService {
 
 	}
 
+	/*
+	 * 批量添加学生(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#batchAddStudents(java.util.List, java.util.List)
+	 */
 	public boolean batchAddStudents(List<Student> studentList,
 			List<UserInfo> userInfoList) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
+	/*
+	 * 删除学生(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#deleteStudent(cn.edu.xmu.course.pojo.Student)
+	 */
 	public boolean deleteStudent(Student student) {
 		// TODO Auto-generated method stub
 		try {
@@ -70,6 +88,10 @@ public class StudentInfoService implements IStudentInfoService {
 		}
 	}
 
+	/*
+	 * 批量删除学生(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#deleteMoreStudent(cn.edu.xmu.course.pojo.Grade, cn.edu.xmu.course.pojo.Department)
+	 */
 	public int deleteMoreStudent(Grade grade, Department department) {
 		List<Student> studentList = studentDAO.findByDepartmentAndGrade(
 				department, grade);
@@ -86,21 +108,37 @@ public class StudentInfoService implements IStudentInfoService {
 		return i;
 	}
 
+	/*
+	 * 根据年级查找学生(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#findByGrade(cn.edu.xmu.course.pojo.Grade)
+	 */
 	public List<Student> findByGrade(Grade grade) {
 		// TODO Auto-generated method stub
 		return studentDAO.findByProperty("grade", grade);
 	}
 
+	/*
+	 * 根据id查找学生(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#findById(int)
+	 */
 	public Student findById(int id) {
 		// TODO Auto-generated method stub
 		return studentDAO.findById(id);
 	}
 
+	/*
+	 * 根据学院查找学生(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#findBySchool(cn.edu.xmu.course.pojo.School)
+	 */
 	public List findBySchool(School school) {
 		// TODO Auto-generated method stub
 		return studentDAO.findBySchool(school);
 	}
 
+	/*
+	 * 根据学号查找学生(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#findByStudentNo(java.lang.String)
+	 */
 	public Student findByStudentNo(String studentNo) {
 		// TODO Auto-generated method stub
 		List<Student> students = studentDAO.findByStudentNo(studentNo);
@@ -111,6 +149,10 @@ public class StudentInfoService implements IStudentInfoService {
 		}
 	}
 
+	/*
+	 * 根据学院和学号查找学生信息(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#findByStudentNoFuzzy(java.lang.String, cn.edu.xmu.course.pojo.School)
+	 */
 	public List findByStudentNoFuzzy(String studentNo, School school) {
 		// TODO Auto-generated method stub
 		List<Student> students = studentDAO.findByStudentNoFuzzy(studentNo,
@@ -120,6 +162,10 @@ public class StudentInfoService implements IStudentInfoService {
 
 	}
 
+	/*
+	 * 修改密码(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#updatePassword(cn.edu.xmu.course.pojo.Student)
+	 */
 	public boolean updatePassword(Student student) {
 		try {
 			studentDAO.merge(student);
@@ -129,6 +175,10 @@ public class StudentInfoService implements IStudentInfoService {
 		}
 	}
 
+	/*
+	 * 更新学生信息(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#updateStudent(cn.edu.xmu.course.pojo.Student, cn.edu.xmu.course.pojo.UserInfo)
+	 */
 	public boolean updateStudent(Student student, UserInfo userInfo) {
 		// TODO Auto-generated method stub
 		try {
@@ -144,15 +194,27 @@ public class StudentInfoService implements IStudentInfoService {
 		}
 	}
 
+	/*
+	 * 根据系查找学生(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#findByDepartment(cn.edu.xmu.course.pojo.Department)
+	 */
 	public List<Student> findByDepartment(Department department) {
 		return studentDAO.findByDepartment(department);
 	}
 
+	/*
+	 * 根据系和年级查找学生(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#findByDepartmentAndGrade(cn.edu.xmu.course.pojo.Department, cn.edu.xmu.course.pojo.Grade)
+	 */
 	public List<Student> findByDepartmentAndGrade(Department department,
 			Grade grade) {
 		return studentDAO.findByDepartmentAndGrade(department, grade);
 	}
 	
+	/*
+	 * 根据系查找学生信息(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#getStuNameAndNumber(cn.edu.xmu.course.pojo.Department)
+	 */
 	public List getStuNameAndNumber(Department department) {
 		// TODO Auto-generated method stub
 		return studentDAO.findStuNameAndNumberByDepartment(department);
@@ -174,6 +236,10 @@ public class StudentInfoService implements IStudentInfoService {
 		this.userInfoDAO = userInfoDAO;
 	}
 
+	/*
+	 * 根据学号查找用户信息(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#findUserInfoByStudentNo(java.lang.String)
+	 */
 	public UserInfo findUserInfoByStudentNo(String studentNo) {
 		// TODO Auto-generated method stub
 		List<Student> students = studentDAO.findByStudentNo(studentNo);
@@ -183,9 +249,11 @@ public class StudentInfoService implements IStudentInfoService {
 			return students.get(0).getUserInfo();
 		}
 	}
-	
-	
 
+	/*
+	 * 批量添加学生(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#addMoreStudent(cn.edu.xmu.course.pojo.Student, cn.edu.xmu.course.pojo.Grade, cn.edu.xmu.course.pojo.Department, java.io.File)
+	 */
 	public String addMoreStudent(Student student, Grade grade,
 			Department department, File file) {
 		// TODO Auto-generated method stub
@@ -244,6 +312,10 @@ public class StudentInfoService implements IStudentInfoService {
 		return true;
 	}
 
+	/*
+	 * 根据用户信息查找学生(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#findByUserInfo(cn.edu.xmu.course.pojo.UserInfo)
+	 */
 	public Student findByUserInfo(UserInfo userInfo) {
 		// TODO Auto-generated method stub
 		List<Student> students = studentDAO.findByUserInfo(userInfo);

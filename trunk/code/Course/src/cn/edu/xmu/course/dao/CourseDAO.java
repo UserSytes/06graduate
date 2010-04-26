@@ -99,6 +99,12 @@ public class CourseDAO extends HibernateDaoSupport {
 		}
 	}
 
+	/**
+	 * 根据名称模糊查找课程
+	 * @author 郑冰凌
+	 * @param key
+	 * @return
+	 */
 	public List findByName(Object key) {
 		try {
 			String queryString = "from Course as model where model.name like '%"
@@ -118,6 +124,11 @@ public class CourseDAO extends HibernateDaoSupport {
 		return findByProperty(STATUS, status);
 	}
 
+	/**
+	 * 根据级别查找课程
+	 * @param level
+	 * @return
+	 */
 	public List findByLevel(String level) {
 		if (level.equals("country")) {
 			return findByProperty(LEVEL, "国家级");
@@ -151,6 +162,11 @@ public class CourseDAO extends HibernateDaoSupport {
 		return findByProperty("department", department);
 	}
 
+	/**
+	 * 根据教师名称模糊查找课程
+	 * @param teacherName
+	 * @return
+	 */
 	public List findByTeacher(String teacherName) {
 		try {
 			String queryString = "from Course as model where model.teacher.userInfo.name like '%"
@@ -162,6 +178,12 @@ public class CourseDAO extends HibernateDaoSupport {
 		}
 	}
 
+	/**
+	 * 根据课程名称和教师名称模糊查找课程
+	 * @param courseName
+	 * @param teacherName
+	 * @return
+	 */
 	public List<Course> findCourseByNameAndTeacher(String courseName,
 			String teacherName) {
 		try {
@@ -176,6 +198,12 @@ public class CourseDAO extends HibernateDaoSupport {
 		}
 	}
 
+	/**
+	 * 根据部门和教师名称模糊查找课程
+	 * @param teacherName
+	 * @param department
+	 * @return
+	 */
 	public List<Course> findCourseByDepartmentAndTeacher(String teacherName,
 			Department department){
 		try {
@@ -189,6 +217,12 @@ public class CourseDAO extends HibernateDaoSupport {
 		}
 	}
 
+	/**
+	 * 根据名称和部门查找课程
+	 * @param courseName
+	 * @param department
+	 * @return
+	 */
 	public List<Course> findCourseByNameAndDepartment(String courseName,
 			Department department){
 		try {
@@ -202,6 +236,13 @@ public class CourseDAO extends HibernateDaoSupport {
 		}
 	}
 
+	/**
+	 * 根据教师姓名、课程名称、系模糊查找课程
+	 * @param courseName
+	 * @param department
+	 * @param teacherName
+	 * @return
+	 */
 	public List<Course> findCourseByNameAndDepartmentAndTeacher(
 			String courseName, Department department, String teacherName){
 		try {
@@ -217,6 +258,11 @@ public class CourseDAO extends HibernateDaoSupport {
 		}
 	}
 	
+	/**
+	 * 根据时间查找课程
+	 * @param date
+	 * @return
+	 */
 	public List findCourseByDate(String date){
 		try {
 			String queryString = "from Course as model where model.time >"+date;
@@ -227,6 +273,12 @@ public class CourseDAO extends HibernateDaoSupport {
 		}
 	}
 
+	/**
+	 * 根据教师和课程状态查找课程
+	 * @param teacherId
+	 * @param status
+	 * @return
+	 */
 	public List findByTeacherAndType(Integer teacherId, int status) {
 		log.debug("finding Course instance with property: teacher,status"
 				+ ", value: " + teacherId + " and " + status);
@@ -240,7 +292,11 @@ public class CourseDAO extends HibernateDaoSupport {
 		}
 	}
 
-
+	/**
+	 * 根据学院查找未审核的课程
+	 * @param school
+	 * @return
+	 */
 	public List findApplicationBySchool(School school) {
 		log
 				.debug("finding Course instance with status = 0 and department.school, value: "
@@ -254,6 +310,11 @@ public class CourseDAO extends HibernateDaoSupport {
 		}
 	}
 
+	/**
+	 * 根据学院查找通过审核的课程
+	 * @param school
+	 * @return
+	 */
 	public List findBySchool(School school) {
 		log
 				.debug("finding Course instance with status = 1 and department.school, value: "
@@ -267,6 +328,11 @@ public class CourseDAO extends HibernateDaoSupport {
 		}
 	}
 
+	/**
+	 * 通过学院查找未通过审核的课程
+	 * @param school
+	 * @return
+	 */
 	public List findNotPassBySchool(School school) {
 		log
 				.debug("finding Course instance with status = 2 and department.school, value: "
