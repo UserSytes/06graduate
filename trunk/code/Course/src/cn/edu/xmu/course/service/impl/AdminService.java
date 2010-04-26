@@ -10,8 +10,7 @@ import cn.edu.xmu.course.pojo.SuperAdmin;
 import cn.edu.xmu.course.service.IAdminService;
 
 /**
- * 负责校、学院管理员信息管理的接口
- * 
+ * 负责校、学院管理员信息管理的类
  * @author 郑冰凌
  * 
  */
@@ -20,14 +19,9 @@ public class AdminService implements IAdminService {
 	private AdministratorDAO administratorDAO;
 	private SuperAdminDAO superAdminDAO;
 
-	final String password = "123456";
-
 	/*
 	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * cn.edu.xmu.course.service.IAdminService#getAdminByAccount(java.lang.String
-	 * )
+	 * @see cn.edu.xmu.course.service.IAdminService#getAdminByAccount(java.lang.String)
 	 */
 	public Administrator getAdminByAccount(String account) {
 		List<Administrator> admins = administratorDAO.findByAccount(account);
@@ -47,7 +41,7 @@ public class AdminService implements IAdminService {
 	public boolean addAdmin(Administrator admin, School school) {
 		// TODO Auto-generated method stub
 		admin.setSchool(school);
-		admin.setPassword(password);
+		admin.setPassword(admin.getAccount());
 		try {
 			administratorDAO.save(admin);
 			return true;
@@ -99,10 +93,6 @@ public class AdminService implements IAdminService {
 
 	public void setAdministratorDAO(AdministratorDAO administratorDAO) {
 		this.administratorDAO = administratorDAO;
-	}
-
-	public String getPassword() {
-		return password;
 	}
 
 	public SuperAdminDAO getSuperAdminDAO() {
