@@ -1,12 +1,11 @@
 package cn.edu.xmu.course.service;
 
-import java.util.Date;
 import java.util.List;
-
 import cn.edu.xmu.course.pojo.*;
 /**
- * 
- * @author Sky
+ * 负责管理课程的接口
+ * @author 郑冰凌
+ * @author 何申密
  *
  */
 public interface ICourseService {

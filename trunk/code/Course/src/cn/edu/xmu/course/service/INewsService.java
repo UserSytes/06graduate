@@ -7,7 +7,7 @@ import cn.edu.xmu.course.pojo.Attachment;
 import cn.edu.xmu.course.pojo.News;
 
 /**
- * 网站新闻发布
+ * 网站新闻发布、管理
  * @author 郑冰凌
  * @author 赵海虹
  *
@@ -26,11 +26,13 @@ public interface INewsService {
 	 * @return
 	 */
 	public boolean addNewsWithoutAttachment(News news);
+	
 	/**
 	 * 找出最新的10条新闻
 	 * @return
 	 */
 	public List findLastestTenNews();
+	
 	/**
 	 * 发布新闻(带附件)
 	 * @param news
