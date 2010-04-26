@@ -121,6 +121,8 @@ public class TeacherInfoAction extends BaseAction{
 		Department department = superAdminService.findDepartmentById(departmentId);
 		teacher.setPassword(teacher.getTeacherNo());
 		userInfo.setDepartment(department);
+		String photo = "photo/defaultPhoto.jpg";
+		userInfo.setPhoto(photo);
 		teacher.setUserInfo(userInfo);
 		result = teacherInfoService.addTeacher(teacher, userInfo);
 		if (result) {
