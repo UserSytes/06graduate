@@ -2,8 +2,8 @@ package cn.edu.xmu.course.service;
 
 import cn.edu.xmu.course.pojo.Department;
 /**
- * 
- * @author Sky
+ * 负责管理系的接口
+ * @author 郑冰凌
  *
  */
 public interface IDepartmentService {

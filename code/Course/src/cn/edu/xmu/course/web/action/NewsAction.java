@@ -21,24 +21,22 @@ import cn.edu.xmu.course.service.INewsService;
 
 /**
  * 新闻管理
- * 
- * @author Sky
+ * @author 郑冰凌
  * 
  */
 public class NewsAction extends BaseAction {
 
-	private INewsService newsService;
+	private INewsService newsService;	//管理新闻的接口
 
-	private News news;
-	private List<News> newsList;
-	private int newsId;
-	private List<Attachment> attachmentList;
-
-	private File[] myFile;// 得到文件
-	private String[] myFileContentType;
-	private String[] myFileFileName;
+	private News news;	//新闻
+	private List<News> newsList;	//新闻列表
+	private int newsId;	//新闻id
+	private List<Attachment> attachmentList;	//附件列表
 	
-	private String ifChangeAttachment = "0";
+	private File[] myFile;// 上传的附件
+	private String[] myFileContentType;	//附件类型
+	private String[] myFileFileName;	//附件名称
+	
 	
 	/**
 	 * 跳转到添加新闻
@@ -208,14 +206,6 @@ public class NewsAction extends BaseAction {
 
 	public void setAttachmentList(List<Attachment> attachmentList) {
 		this.attachmentList = attachmentList;
-	}
-
-	public String getIfChangeAttachment() {
-		return ifChangeAttachment;
-	}
-
-	public void setIfChangeAttachment(String ifChangeAttachment) {
-		this.ifChangeAttachment = ifChangeAttachment;
 	}
 
 }

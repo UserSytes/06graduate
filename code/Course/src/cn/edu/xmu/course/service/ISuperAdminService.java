@@ -15,31 +15,91 @@ import cn.edu.xmu.course.pojo.School;
  */
 public interface ISuperAdminService {
 
-	//院系管理
+	/**
+	 * 添加学院
+	 * @param school
+	 * @return
+	 */
 	public boolean addSchool(School school);
 	
+	/**
+	 * 删除学院
+	 * @param school
+	 * @return
+	 */
 	public boolean deleteSchool(School school);
 	
+	/**
+	 * 添加系
+	 * @param school
+	 * @param department
+	 * @return
+	 */
 	public boolean addDepartment(School school, Department department);
 	
+	/**
+	 * 删除系
+	 * @param department
+	 * @return
+	 */
 	public boolean deleteDepartment(Department department);
 	
+	/**
+	 * 验证学院名dwr
+	 * @param name
+	 * @return
+	 */
 	public School checkSchool(String name);
 	
+	/**
+	 * 查找所有学院
+	 * @return
+	 */
 	public List findAllSchool();
 	
+	/**
+	 * 根据id查找学院
+	 * @param id
+	 * @return
+	 */
 	public School findSchoolById(int id);
 	
+	/**
+	 * 查找学院的系
+	 * @param school
+	 * @return
+	 */
 	public List findDepartmentBySchool(School school);
 	
+	/**
+	 * 根据Id查找系
+	 * @param id
+	 * @return
+	 */
 	public Department findDepartmentById(int id);
 
-	//年级管理
+	/**
+	 * 添加年级
+	 */
 	public boolean addGrade(Grade grade);
 	
+	/**
+	 * 删除年级
+	 * @param grade
+	 * @return
+	 */
 	public boolean deleteGrade(Grade grade);
 	
+	/**
+	 * 查找所有年级
+	 * @return
+	 */
 	public List findAllGrade();
 	
+	/**
+	 * 根据id查找年级
+	 * @param id
+	 * @return
+	 */
 	public Grade findGradeById(int id);
 }
