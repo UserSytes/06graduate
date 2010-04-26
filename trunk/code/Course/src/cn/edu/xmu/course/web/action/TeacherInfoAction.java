@@ -45,9 +45,10 @@ public class TeacherInfoAction extends BaseAction{
 		teacher = super.getTeacher();
 		if(teacher.getPassword().equals(password)){
 			teacher.setPassword(newPassword);
-			if(teacherInfoService.changePassword(teacher)){
+			if(teacherInfoService.updatePassword(teacher)){
 				teacher = teacherInfoService.findTeacherById(super.getTeacher().getId());
 				super.getSession().put(TEACHER, teacher);
+				addActionMessage("修改密码成功！");
 				return SUCCESS;
 			}
 			else
@@ -57,6 +58,20 @@ public class TeacherInfoAction extends BaseAction{
 			return ERROR;
 	}
 	
+	/**
+	 * 还原初始密码
+	 * @return
+	 */
+	public String restorePassword(){
+		teacher = teacherInfoService.findTeacherById(teacherId);
+		teacher.setPassword(teacher.getTeacherNo());
+		if(teacherInfoService.updatePassword(teacher)){
+			addActionMessage("还原密码成功！");
+			return SUCCESS;
+		}
+		else
+			return ERROR;
+	}
 	/**
 	 * 修改教师信息
 	 * @return

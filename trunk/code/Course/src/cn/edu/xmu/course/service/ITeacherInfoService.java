@@ -32,7 +32,7 @@ public interface ITeacherInfoService {
 	 * @param teacher
 	 * @return
 	 */
-	public boolean changePassword(Teacher teacher);
+	public boolean updatePassword(Teacher teacher);
 	
 	/**
 	 * ÃÌº”ΩÃ ¶

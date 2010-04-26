@@ -118,6 +118,21 @@ public class SchoolManageAction extends BaseAction {
 		} else
 			return ERROR;
 	}
+	
+	/**
+	 * 还原学院管理员密码
+	 * @return
+	 */
+	public String restoreAdminPassword(){
+		admin = adminService.findAdminById(adminId);
+		admin.setPassword(admin.getAccount());
+		if(adminService.updateAdmin(admin)){
+			addActionMessage("还原密码成功！");
+			return SUCCESS;
+		}
+		else
+			return ERROR;
+	}
 
 	/**
 	 * 添加年级

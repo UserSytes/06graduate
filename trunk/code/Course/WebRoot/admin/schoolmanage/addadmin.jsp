@@ -98,7 +98,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<font color="#808080">初始密码为&quot;123456&quot; </font>&nbsp;
+						<font color="#808080">初始密码与帐号相同 </font>&nbsp;
 					</td>
 				</tr>
 				<tr>

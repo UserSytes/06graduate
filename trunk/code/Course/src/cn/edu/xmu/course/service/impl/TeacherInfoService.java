@@ -47,14 +47,11 @@ public class TeacherInfoService implements ITeacherInfoService {
 	 * cn.edu.xmu.course.service.ITeacherInfoService#changePassword(cn.edu.xmu
 	 * .course.pojo.Teacher)
 	 */
-	public boolean changePassword(Teacher teacher) {
+	public boolean updatePassword(Teacher teacher) {
 		// TODO Auto-generated method stub
 		try {
-			Teacher t = teacherDAO.merge(teacher);
-			if (t == null)
-				return false;
-			else
-				return true;
+			teacherDAO.merge(teacher);
+			return true;
 		} catch (Exception e) {
 			return false;
 		}
