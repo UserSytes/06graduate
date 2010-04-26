@@ -3,7 +3,7 @@
   type="WEB"
   name="Course"
   id="myeclipse.1260689918875"
-  context-root="/"
+  context-root="/course"
   j2ee-spec="1.4"
   archive="Course.war">
   <attributes>

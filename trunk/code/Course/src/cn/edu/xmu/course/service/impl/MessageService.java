@@ -59,12 +59,13 @@ public class MessageService implements IMessageService {
 			UserInfo userInfo) {
 		// TODO Auto-generated method stub
 		topic.setCountReply(topic.getCountReply() + 1);
+		topic.setCountPerson(topic.getCountPerson()+1);
 		topic.setLastUpdate(new Date());
 		topic.setLastAnswer(userInfo.getName());
-		message.setGrade(topic.getCountReply() + 2);
+		message.setGrade(topic.getCountReply() + 1);
 		message.setUserInfo(userInfo);
 		message.setTopic(topic);
-		message.setTime(new Date());
+		message.setTime(new Date());	
 		try {
 			topicDAO.merge(topic);
 			messageDAO.save(message);

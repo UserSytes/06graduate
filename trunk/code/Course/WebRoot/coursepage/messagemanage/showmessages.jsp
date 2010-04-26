@@ -11,6 +11,9 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
+		<link href="${ctx}/facebox/facebox.css" media="screen"
+			rel="stylesheet" type="text/css" />
+
 		<LINK href="${ctx}/css/pagination.css" type=text/css rel=stylesheet>
 		<script type="text/javascript">
 	function check(form) {
@@ -72,6 +75,7 @@ quote\:msgborder {
 	<body>
 		<!-- 头部 -->
 		<s:include value="../style/%{#session.header}"></s:include>
+		<script src="${ctx}/facebox/facebox.js" type="text/javascript"></script>
 		<script type="text/javascript" src="${ctx}/js/jquery.pagination.js"></script>
 		<script type="text/javascript">
 $(document).ready(function(){
@@ -104,6 +108,10 @@ $(document).ready(function(){
        				$("#tbody tr:gt(" + ((page_index) * 40 -1) + ")").hide().end();
 			}
 		});
+		$('a[rel*=facebox]').facebox({
+        loading_image : '${ctx}/css/images/loading.gif',
+        close_image   : '${ctx}/css/images/closelabel.gif'
+      }) 
 
 });
 </script>
@@ -130,7 +138,8 @@ $(document).ready(function(){
 									<tr height="39">
 										<td valign="bottom" align="left">
 											&nbsp;&nbsp;
-											<a href="<s:url action="goNewTopicAction"></s:url>"><img
+											<a href="<s:url action="goNewTopicAction"></s:url>"
+												rel="facebox"><img
 													src="${ctx}/coursepage/classical/image/newtopic.gif"
 													alt="新帖" border="0" /> </a>
 											<a
@@ -138,9 +147,10 @@ $(document).ready(function(){
 															<s:param name="topicId"> 
 															<s:property value="topic.id"/> 
                     										</s:param>
-                											</s:url>">
-												<img src="${ctx}/coursepage/classical/image/reply.gif"
-													alt="回复" border="0" /> </a>
+                											</s:url>"
+												rel="facebox"> <img
+													src="${ctx}/coursepage/classical/image/reply.gif" alt="回复"
+													border="0" /> </a>
 										</td>
 										<td width="324" align="right" class="titlea"
 											style="line-height: 25px; font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 12px; margin-right: 20px;">
@@ -168,9 +178,9 @@ $(document).ready(function(){
 									background="${ctx}/coursepage/classical/image/pro_titlebg.gif"
 									style="background-repeat: no-repeat">
 									<tr>
-										<td><font style="font-size: 14px;font-weight: 700">
-											&nbsp;&nbsp;&nbsp;主题：
-											<s:property value="topic.name" /></font>
+										<td align="left">
+											<font style="font-size: 14px; font-weight: 700">
+												&nbsp;&nbsp;&nbsp;主题： <s:property value="topic.name" /> </font>
 										</td>
 									</tr>
 								</table>
@@ -181,7 +191,7 @@ $(document).ready(function(){
 										<s:iterator value="messageList" status="message">
 											<tr style="height: 100%">
 												<td width="200" valign="top"
-													style="border-bottom: thin solid #9db350; border-right: thin dotted #60B7DE;">
+													style="border-right: thin dotted #60B7DE; border-bottom: 0px;">
 													&nbsp;&nbsp;
 													<img width="120"
 														src="${ctx}/upload/<s:property value="userInfo.photo"/>" />
@@ -192,45 +202,32 @@ $(document).ready(function(){
 
 														<img src="${ctx}/coursepage/classical/image/icon_10.gif"
 															width="12" height="12">
-															系别： 
+														系别：
 														<font color="#003366"><s:property
 																value="userInfo.department.name" /> </font>
 														<br />
 														<img src="${ctx}/coursepage/classical/image/icon_4.gif"
 															width="13" height="13">
-															学院： 
+														学院：
 														<font color="#003366"><s:property
 																value="userInfo.department.school.name" /> </font>
 														<br />
 														<img src="${ctx}/coursepage/classical/image/icon_1.gif"
 															width="12" height="12">
-															性别： 
+														性别：
 														<font color="#003366"><s:property
 																value="userInfo.sex" /> </font>
-														<br />
-														<img src="${ctx}/coursepage/classical/image/icon_9.gif">
-															邮箱： 
-														<a
-															href="mailto:<s:property value="userInfo.email"/>?subject=[厦门大学课程网络平台]"><font
-															color="#003366"><s:property value="userInfo.email" />
-														</font> </a>
-														<br />
-														<img src="${ctx}/coursepage/classical/image/icon_6.gif"
-															width="13" height="13">
-															联系电话： 
-														<font color="#003366"><s:property
-																value="userInfo.mobile" /> </font>
+
+
 													</div>
 												</td>
-												<td width="514" valign="top"
-													style="border-bottom: thin solid #9db350; padding: 0px"
-													height="100%">
+												<td width="514" valign="top" height="100%">
 													<table border="0" cellspacing="0" cellpadding="4"
 														height="100%" width="100%">
 														<tr>
 															<td>
 																<div
-																	style="padding-top: 4px; padding-left: 10px; border-bottom: thin inset #9db350; color: #999999">
+																	style="padding-top: 4px; padding-left: 10px; border-bottom: 1px solid #9db350; color: #999999">
 																	第
 																	<s:property value="grade" />
 																	楼&nbsp;&nbsp;&nbsp;发表于
@@ -247,10 +244,30 @@ $(document).ready(function(){
 																</div>
 															</td>
 														</tr>
-														<tr height="40">
-															<td align="right" style="border-top: 1px solid #E7EEF6;">
-																<a class="fastreply"
-																	href="<s:url action="goReplyWithQuoteAction">
+
+													</table>
+												</td>
+											</tr>
+											<tr height="40">
+												<td width="200" align="left"
+													style="border-bottom: thin solid #9db350; border-right: thin dotted #60B7DE; border-top: 0px solid #E7EEF6;">
+													<img src="${ctx}/coursepage/classical/image/icon_9.gif">
+														邮箱： 
+													<a
+														href="mailto:<s:property value="userInfo.email"/>?subject=[厦门大学课程网络平台]"><font
+														color="#003366"><s:property value="userInfo.email" />
+													</font> </a>
+													<br />
+													<img src="${ctx}/coursepage/classical/image/icon_6.gif"
+														width="13" height="13">
+														联系电话： 
+													<font color="#003366"><s:property
+															value="userInfo.mobile" /> </font>
+												</td>
+												<td height="40" width="514" align="right"
+													style="border-top: 1px solid #E7EEF6; border-bottom: thin solid #9db350; padding: 0px; float: right;">
+													<a class="fastreply" rel="facebox"
+														href="<s:url action="goReplyWithQuoteAction">
                      										<s:param name="topicId"> 
                        			 								<s:property value="topic.id"/> 
                     										</s:param>
@@ -261,9 +278,9 @@ $(document).ready(function(){
 															<s:param name="replyContent" value="content"> 
                     										</s:param>
                 											</s:url>"><font
-																	color="#999">引用</font> </a>
-																<a class="repquote"
-																	href="<s:url action="goReplyToSomeoneAction">
+														color="#999">引用</font> </a>
+													<a class="repquote" rel="facebox"
+														href="<s:url action="goReplyToSomeoneAction">
                      										<s:param name="topicId"> 
                        			 								<s:property value="topic.id"/> 
                     										</s:param>
@@ -274,20 +291,17 @@ $(document).ready(function(){
                        			 								<s:property value="grade"/>
                     										</s:param>
                 											</s:url>"><font
-																	color="#999">回复</font> </a>
-																<a href="###" onclick="scroll(0,0)"><img
-																		src="${ctx}/coursepage/classical/image/top.gif"
-																		border="0" alt="顶部" /> </a>&nbsp;
-															</td>
-														</tr>
-													</table>
+														color="#999">回复</font> </a>
+													<a href="###" onclick="scroll(0,0)"><img
+															src="${ctx}/coursepage/classical/image/top.gif"
+															border="0" alt="顶部" /> </a>&nbsp;
 												</td>
 											</tr>
 										</s:iterator>
 									</tbody>
 
 								</table>
-<br>
+								<br>
 								<div id="Pagination" class="pagination">
 									<!-- 这里显示分页 -->
 								</div>
@@ -326,8 +340,8 @@ $(document).ready(function(){
 								</s:form>
 								<!-- /페지검색 -->
 							</td>
-						</tr>						
-						
+						</tr>
+
 					</table>
 				</div>
 				<br class="clear" />

@@ -8,110 +8,43 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>回复主题-<s:property value="topic.name" />-师生留言-厦门大学课程网络平台</title>
-		<link href="${ctx}/coursepage/style/common/common.css"
-			rel="stylesheet" type="text/css" />
-		<link href="${ctx}/coursepage/style/common/layout.css"
-			rel="stylesheet" type="text/css" />
-
 	</head>
-	<body>
-		<!-- 头部 -->
-		<s:include value="../style/%{#session.header}"></s:include>
-		<div class="content">
+	<body style="width: 600">
+		<div
+			style="padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom:  5px; background-color: #F1F5FA">
 			<!-- 左侧 -->
-			<s:include value="../style/left.jsp"></s:include>
-			<div id="right-cnt">
-				<!-- 正文部分 -->
-				<div class="pages">
-					<h2>
-						<a href="goIndexQueryAction.action">首页</a>&gt;
-						<a
-							href="<s:url action="showTopicsAction"> 
-                					</s:url>">师生留言</a>&gt;
-						<a
-							href="<s:url action="goReplyAction">
-                     			<s:param name="topicId"> 
-                       			 	<s:property value="topic.id"/> 
-                    			</s:param>
-                					</s:url>">发表回复
-						</a>
-					</h2>
-				</div>
-
-				<!-- 正文 -->
-				<div>
-					<table border="0" cellpadding="0" cellspacing="0" class="table-info">
-						<tr>
-							<td>
-								<table border="0" cellpadding="0" cellspacing="0" width="704">									
-									<tr>
-										<td class="table-title">
-											<font style="font-size: 14px; font-weight: bold">&nbsp;回复主题</font>
-										</td>
-										<td width="324" align="right" class="titlea"
-											style="line-height: 25px; font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 12px; margin-right: 20px;">
-											&nbsp;&nbsp;&nbsp;欢迎你,
-											<s:property value="userInfo.name" />
-											&nbsp;
-											<span style="color: #CBCBCB">|</span><a class="titlea"
-												href="<s:url action="enterPersionalSpaceAction"> 
-                					</s:url>">&nbsp;个人空间&nbsp;
-											</a><span style="color: #CBCBCB">|</span><a class="titlea"
-												href="<s:url action="logoutFromMessageBoardAction"> 
-                					</s:url>">
-												&nbsp;退出 </a>
-										</td>
-										<td width="20"></td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-						<tr height="1" class="tr-title">
-							<td></td>
-						</tr>
-						<tr>
-							<td>
-								<table border="0" cellpadding="0" cellspacing="0" width="100%">
-									<tr>
-										<td>
-											<s:form action="addReplyAction" method="post" id="myform"
-												name="myform" namespace="/upLoadFile" target="_self"
-												enctype="multipart/form-data" onsubmit="return checkAll();">
-												<s:hidden name="topic.id"></s:hidden>
-												<table cellpadding="0" cellspacing="0" width="100%"
-													align=center border=0 style="padding: 10px 10px 10px 10px;">
-													<tr>
-
-													</tr>
-													<tr class="tr-content">
-														<td width="684">
-															<FCK:editor instanceName="message.content" width="100%"
-																height="405" toolbarSet="Default">
-																<jsp:attribute name="value">
+			<!-- 正文 -->
+			<s:form action="addReplyAction" method="post" id="myform"
+				name="myform" namespace="/upLoadFile" target="_self"
+				enctype="multipart/form-data" onsubmit="return checkAll();">
+				<s:hidden name="topic.id"></s:hidden>
+				<table cellpadding="0" cellspacing="0" width="600" align=center
+					border=0 >
+					<tr>
+						<td>
+							<font color="#0099CC" style="font-size: 15px; font-weight: bold">&nbsp;回复主题</font>
+						</td>
+					</tr>
+					<tr
+						style="border-color: #999999 #CCCCCC #CCCCCC #999999; border-style: solid; border-width: 1px;">
+						
+						<td>
+							<FCK:editor instanceName="message.content" width="100%"
+								height="405" toolbarSet="Default">
+								<jsp:attribute name="value">
 								<s:text name="">${replyString}</s:text>
                             </jsp:attribute>
-															</FCK:editor>
-														</td>
-													</tr>
-													<tr class="tr-content">
-														<td>
-															<s:submit cssClass="label" value="发表回复"></s:submit>
-														</td>
-													</tr>
-												</table>
-											</s:form>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</div>
-				<br class="clear" />
-			</div>
-
-			<br class="clear" />
+							</FCK:editor>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<s:submit cssClass="label" value="发表回复"></s:submit>
+						</td>
+					</tr>
+				</table>
+			</s:form>
 		</div>
-		<s:include value="../style/bottom.jsp"></s:include>
+
 	</body>
 </html>

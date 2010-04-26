@@ -120,18 +120,14 @@ public class MessageAction extends BaseAction {
 
 	}
 
-	public String addNewMessage() {
-		// userInfo=(UserInfo) super.getSession().get(USERINFO);
-		// System.out.println("******"+userInfo.getName()+"********");
-		// topic.setAuthorName(userInfo.getName());
-		// topicService.addTopic(super.getCourse(), topic);
-		// message.setGrade(1);
-		// message.setUserInfo(userInfo);
+	public String addNewMessage() {		
 		course=super.getCourse();
 		boolean result = messageService.addMessage(super.getCourse(), topic,
 				message, super.getUserInfo());
 		if (result) {
-			addActionMessage("添加帖子成功！");
+			userInfo = super.getUserInfo();
+			topicList = getTopicService().getAllTopics(course);
+			message = null;
 			return SUCCESS;
 		} else {
 			addActionError("添加帖子失败！");
@@ -260,7 +256,8 @@ public class MessageAction extends BaseAction {
 		boolean result = messageService.addReplyMessage(topic, message, super
 				.getUserInfo());
 		if (result) {
-			addActionMessage("添加帖子成功！");
+			messageList = messageService.getMessageByTopic(topic);
+			message = null;
 			return SUCCESS;
 		} else {
 			addActionError("添加帖子失败！");
