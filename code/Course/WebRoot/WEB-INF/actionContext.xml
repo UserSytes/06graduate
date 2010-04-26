@@ -58,9 +58,6 @@
 		<property name="courseService">
 			<ref bean="courseService" />
 		</property>
-		<property name="topicService">
-			<ref bean="topicService" />
-		</property>
 		<property name="messageService">
 			<ref bean="messageService" />
 		</property>

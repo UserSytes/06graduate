@@ -19,14 +19,14 @@ public class LoginAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = -3613304347937871262L;
 
-	private ILoginService loginService;
+	private ILoginService loginService;	//管理用户登录的借口
 
-	private String userName;
-	private String password;
-	private int flag;
-	private Student student;
-	private Teacher teacher;
-	private UserInfo userInfo;
+	private String userName;	//用户帐号
+	private String password;	//用户密码
+	private int flag;	//用户角色
+	private Student student;	//学生
+	private Teacher teacher;	//教师
+	private UserInfo userInfo;	//用户信息
 
 	/**
 	 * 教师登录

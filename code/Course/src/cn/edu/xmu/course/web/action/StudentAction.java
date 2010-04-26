@@ -25,7 +25,7 @@ import cn.edu.xmu.course.service.ISuperAdminService;
 /**
  * 学生查找、添加、删除
  * 
- * @author Sky
+ * @author 郑冰凌
  * 
  */
 public class StudentAction extends BaseAction {
@@ -34,28 +34,28 @@ public class StudentAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private IStudentInfoService studentInfoService;
-	private ISuperAdminService superAdminService;
+	private IStudentInfoService studentInfoService;	//管理学生信息的接口
+	private ISuperAdminService superAdminService;	//管理校方管理员信息的接口
 
-	private Student student;
-	private UserInfo userInfo;
-	private School school;
-	private Grade grade;
-	private Department department;
+	private Student student;	//学生
+	private UserInfo userInfo;	//用户信息
+	private School school;	//学院
+	private Grade grade;	//年级
+	private Department department;	//系
 
-	private List<Department> departmentList;
-	private List<Student> studentList;
-	private List<Grade> gradeList;
+	private List<Department> departmentList;	//系列表
+	private List<Student> studentList;	//学生列表
+	private List<Grade> gradeList;	//年级列表
 
-	private int departmentId;
-	private int gradeId;
-	private int studentId;
+	private int departmentId;	//系id
+	private int gradeId;	//年级Id
+	private int studentId;	//学生id
 
-	private File studentFile;
-	private String studentFileContentType;
-	private String studentFileName;
+	private File studentFile;	//学生信息文件
+	private String studentFileContentType;	//学生信息文件类型
+	private String studentFileName;	//学生信息文件名称
 	
-	private String studentNo;
+	private String studentNo;	//学生学号、帐号
 
 	/**
 	 * 获取某学院的所有系
@@ -192,68 +192,6 @@ public class StudentAction extends BaseAction {
 		}
 	}
 
-//	/**
-//	 * 根据年级或者系查找学生
-//	 * 
-//	 * @return
-//	 */
-//	public String findStudentsByGrade() {
-//		if (gradeId == -1 && departmentId == -1) {
-//			return this.findStudentBySchool();
-//		} else if (gradeId == -1 && departmentId != -1) {
-//			department = superAdminService.findDepartmentById(departmentId);
-//			studentList = studentInfoService.findByDepartment(department);
-//			if (studentList.size() == 0) {
-//				addActionMessage(department.getName() + "尚未添加学生！");
-//				return ERROR;
-//			} else {
-//				this.goAddStudent();
-//				return SUCCESS;
-//			}
-//		} else if (gradeId != -1 && departmentId == -1) {
-//			grade = superAdminService.findGradeById(gradeId);
-//			studentList = studentInfoService.findByGrade(grade);
-//			if (studentList.size() == 0) {
-//				addActionMessage(grade.getName() + grade.getGrade()
-//						+ "级 尚未添加学生！");
-//				return ERROR;
-//			} else {
-//				this.goAddStudent();
-//				return SUCCESS;
-//			}
-//		} else {
-//			department = superAdminService.findDepartmentById(departmentId);
-//			grade = superAdminService.findGradeById(gradeId);
-//			studentList = studentInfoService.findByDepartmentAndGrade(
-//					department, grade);
-//			if (studentList.size() == 0) {
-//				addActionMessage(grade.getName() + grade.getGrade() + "级"
-//						+ department.getName() + "尚未添加学生！");
-//				return ERROR;
-//			} else {
-//				this.goAddStudent();
-//				return SUCCESS;
-//			}
-//		}
-//	}
-
-//	/**
-//	 * 根据学号查找学生
-//	 * @return
-//	 */
-//	public String findStudentByNo(){
-//		Administrator admin = (Administrator) super.getSession().get(ADMIN);
-//		school = admin.getSchool();
-//		System.out.println("测试查找学生："+studentNo+ school.getName());
-//		studentList = studentInfoService.findByStudentNoFuzzy(studentNo, school);
-//		if(studentList.size() == 0){
-//			addActionMessage("没有帐号和"+studentNo+"有关的学生。");
-//			return ERROR;
-//		}else{
-//			this.goAddStudent();
-//			return SUCCESS;
-//		}
-//	}
 	
 	/**
 	 * 根据学院查找学生

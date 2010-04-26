@@ -9,6 +9,11 @@ import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.service.IAdminService;
 import cn.edu.xmu.course.service.ISuperAdminService;
 
+/**
+ * 负责学院管理的类
+ * @author 郑冰凌
+ *
+ */
 public class SchoolManageAction extends BaseAction {
 
 	/**
@@ -16,28 +21,28 @@ public class SchoolManageAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private ISuperAdminService superAdminService;
-	private IAdminService adminService;
+	private ISuperAdminService superAdminService;	//管理校方管理员的接口
+	private IAdminService adminService;	//管理学院管理员、学院信息的接口
 
-	private String schoolName;
-	private List<School> allSchoolList;
-	private List<Department> departmentList;
-	private int schoolId;
-	private School school;
-	private int departmentId;
-	private Department department;
+	private String schoolName;	//学院名称
+	private List<School> allSchoolList;	//学院列表
+	private List<Department> departmentList;	//系列表
+	private int schoolId;	//学院Id
+	private School school;	//学院
+	private int departmentId;	//系id
+	private Department department;	//系
 
 	// 添加学院管理员
-	private int adminSchoolId;
-	private Administrator admin;
-	private School adminSchool;
-	private int adminId;
-	private List<Administrator> adminList;
+	private int adminSchoolId;	//学院管理员所属学院id
+	private Administrator admin;	//学院管理员
+	private School adminSchool;	//学院管理员所属学院	
+	private int adminId;	//学院管理员id
+	private List<Administrator> adminList;	//学院管理员列表
 
 	// 年级管理
-	private List<Grade> allGradeList;
-	private Grade grade;
-	private int gradeId;
+	private List<Grade> allGradeList;	//年级列表
+	private Grade grade;	//年级
+	private int gradeId;	//年级id
 
 	/**
 	 * 添加学院

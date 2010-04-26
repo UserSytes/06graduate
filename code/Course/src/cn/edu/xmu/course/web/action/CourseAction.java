@@ -15,7 +15,7 @@ import cn.edu.xmu.course.service.ISuperAdminService;
 import cn.edu.xmu.course.service.ITeacherInfoService;
 
 /**
- * 
+ * 负责管理员、教师管理课程的类
  * @author 何申密
  * @author 郑冰凌
  * 
@@ -26,40 +26,39 @@ public class CourseAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = -1435933948873647769L;
-	private String departmentId;
-	private int courseId;
-	private Department department;
-	private Teacher teacher;
-	private Course course;
-	private List<Course> myCoursesList;
-	private int type = 3;
+	private String departmentId;	//系的id
+	private int courseId;	//课程id
+	private Department department;	//系
+	private Teacher teacher;	//教师
+	private Course course;	//课程
+	private List<Course> myCoursesList;	//我（教师）的课程列表
+	private int type = 3;	//课程状态标识，3:通过审核的课程
 
-	private ISuperAdminService superAdminService;
-	private ITeacherInfoService teacherInfoService;
-	private IStudentCourseService studentCourseService;
-	private ICourseService courseService;
-	private IDepartmentService departmentService;
+	private ISuperAdminService superAdminService;	//负责管理校方管理员的接口
+	private ITeacherInfoService teacherInfoService;	//管理教师信息的接口
+	private IStudentCourseService studentCourseService;	//管理学生课程信息的接口
+	private ICourseService courseService;	//管理课程的接口
+	private IDepartmentService departmentService;	//管理系的接口
 
-	private List<Course> applicationCourseList;
-	private List<Student> studentList;
-	private Student student;
-	private int studentId;
-	private String studentNo;
-	private String refuseReason;
-	private String gradeId;
-	private List<Grade> gradeList;
-	private List<Department> departmentList;
+	private List<Course> applicationCourseList;	//申报课程列表
+	private List<Student> studentList;	//学生列表
+	private Student student;	//学生
+	private int studentId;	//学生id
+	private String studentNo;	//学生学号、帐号
+	private String refuseReason;	//审核课程退回时填写的理由
+	private String gradeId;	//学生年级id
+	private List<Grade> gradeList;	//学生年级列表
+	private List<Department> departmentList;	//系列表
 
-	private File studentFile;
-	private String studentFileContentType;
-	private String studentFileName;
+	private File studentFile;	//学生帐号文件
+	private String studentFileContentType;	//学生帐号文件类型
+	private String studentFileName;	//学生帐号文件名
 	
 	private final String userName = "123";
 	
 
 	/**
 	 * 申报课程
-	 * 
 	 * @return
 	 */
 	public String addNewCourse() {
@@ -75,13 +74,11 @@ public class CourseAction extends BaseAction {
 
 	/**
 	 * 获取某教师的课程
-	 * 
 	 * @return
 	 */
 	public String findMyCoursesList() {
 		Teacher tea = teacherInfoService.getTeacher(userName);
 		myCoursesList = courseService.findCoursesByTeacher(tea.getId(), type);
-		System.out.println(type);
 		return SUCCESS;
 	}
 	
@@ -171,18 +168,6 @@ public class CourseAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
-	
-//	public String searchStudentByCourse(){
-//		course = courseService.getCourseById(course.getId());
-//		List<StudentCourse> scList = new ArrayList<StudentCourse>();
-//		scList = studentCourseService.findByCourse(course);
-//		studentList = new ArrayList<Student>();
-//		for (StudentCourse sc : scList) {
-//			student = sc.getStudent();
-//			if(student.getStudentNo().)
-//			studentList.add(student);
-//		}
-//	}
 
 	/**
 	 * 删除course的某位学生关系
@@ -268,6 +253,10 @@ public class CourseAction extends BaseAction {
 		return SUCCESS;
 	}
 	
+	/**
+	 * 查看课程详细信息
+	 * @return
+	 */
 	public String courseDetail() {
 		course = courseService.getCourseById(courseId);
 		if (course == null) {
@@ -349,6 +338,10 @@ public class CourseAction extends BaseAction {
 		}
 	}
 
+	/**
+	 * 保存当前课程
+	 * @return
+	 */
 	public String saveCurrentCourse() {
 		Course currentCourse = courseService.getCourseById(courseId);
 		if (currentCourse.getStatus() == 1) {
