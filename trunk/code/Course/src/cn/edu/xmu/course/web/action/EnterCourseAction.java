@@ -1,10 +1,6 @@
 package cn.edu.xmu.course.web.action;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import net.sf.json.JSONObject;
 
 import cn.edu.xmu.course.pojo.Achievement;
 import cn.edu.xmu.course.pojo.Course;
@@ -68,6 +64,7 @@ public class EnterCourseAction extends BaseAction {
 	}
 	
 	
+
 	public String getLeftNotice(){
 		course=super.getCourse();
 		setTeacher(course.getTeacher());
