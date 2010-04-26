@@ -1,36 +1,32 @@
 package cn.edu.xmu.course.service.impl;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.Date;
 import java.util.List;
-
-import javax.servlet.ServletContext;
-
 import org.apache.struts2.ServletActionContext;
-
 import cn.edu.xmu.course.commons.FileOperation;
 import cn.edu.xmu.course.dao.AttachmentDAO;
 import cn.edu.xmu.course.dao.NewsDAO;
 import cn.edu.xmu.course.pojo.Attachment;
-import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.News;
-import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.service.INewsService;
 
+/**
+ * 此类负责管理新闻政策
+ * @author 郑冰凌
+ *
+ */
 public class NewsService implements INewsService {
 
 	private NewsDAO newsDAO;
 	private AttachmentDAO attachmentDAO;
 	
 	private static final int BUFFER_SIZE = 16 * 1024;
-
 	
+	/*
+	 * 添加无附件新闻(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.INewsService#addNewsWithoutAttachment(cn.edu.xmu.course.pojo.News)
+	 */
 	public boolean addNewsWithoutAttachment(News news){
 		Date nowDate = new Date();
 		news.setTime(nowDate);
@@ -52,32 +48,11 @@ public class NewsService implements INewsService {
 	 */
 	public boolean createAttachments(News news, File[] myFile, String[] myFileContentType, String[] myFileFileName){
 		// 上传附件
-//		InputStream in = null;
-//		OutputStream ou = null;
 		try {
 			/*
-			 * 
 			 * 开始上传多个附件
 			 */
 			for (int i = 0; i < myFileFileName.length; i++) {
-//
-//				ServletContext context = ServletActionContext.getServletContext();
-//				String realPath = context.getRealPath("/");// 得到服务器的路径
-//				Runtime rt = Runtime.getRuntime();
-//				rt.exec("cmd.exe" + " /c" + " md " + realPath + "newsUpload");// 在服务器下建立文件夹
-//
-//				int par = myFileFileName[i].lastIndexOf(".");// 对最后一个“.”结束的文件定位
-//				String fin = myFileFileName[i].substring(par);// 截取扩展名
-//				String fileName = new Date().getTime() + i + fin;// 以时间命名
-//				File file = new File(ServletActionContext.getServletContext().getRealPath("/newsUpload")
-//						+ "\\" + fileName);// newsUpload下新建文件
-//				in = new BufferedInputStream(new FileInputStream(myFile[i]),BUFFER_SIZE);
-//				ou = new BufferedOutputStream(new FileOutputStream(file),BUFFER_SIZE);
-//				byte[] buffer = new byte[BUFFER_SIZE];
-//	
-//				while (in.read(buffer) > 0) {
-//					ou.write(buffer);// 读写文件
-//				}
 				String path = ServletActionContext.getServletContext().getRealPath(
 				"/upload");
 				String fileName = path + "/newsUpload/" +new Date().getTime()+"_"+ myFileFileName[i];
@@ -96,25 +71,23 @@ public class NewsService implements INewsService {
 	
 			}
 		} catch (Exception e) {
-			return false;}
-//		} finally {
-//			// 关闭流
-//			try {
-//				if (null != in) {
-//					in.close();
-//				}
-//				if (null != ou) {
-//					ou.close();
-//				}
-//			} catch (Exception e) {
-//			}
-//		}
+			return false;
+		}
 		return true;
 	}
+	
+	/*
+	 * 查找最新的十条新闻(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.INewsService#findLastestTenNews()
+	 */
 	public List findLastestTenNews() {
 		return newsDAO.findLastestTenNews();
 	}
 	
+	/*
+	 * 添加附件新闻(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.INewsService#addNews(cn.edu.xmu.course.pojo.News, java.io.File[], java.lang.String[], java.lang.String[])
+	 */
 	public boolean addNews(News news, File[] myFile, String[] myFileContentType, String[] myFileFileName) {
 		// TODO Auto-generated method stub
 		Date nowDate = new Date();
@@ -127,6 +100,11 @@ public class NewsService implements INewsService {
 		return this.createAttachments(news, myFile, myFileContentType, myFileFileName);
 	}
 	
+	/**
+	 * 保存附件
+	 * @param attachment
+	 * @return
+	 */
 	public boolean saveAttachment(Attachment attachment){
 		try{
 			attachmentDAO.save(attachment);
@@ -136,6 +114,10 @@ public class NewsService implements INewsService {
 		}
 	}
 	
+	/*
+	 * 更新新闻(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.INewsService#updateNews(cn.edu.xmu.course.pojo.News, java.io.File[], java.lang.String[], java.lang.String[])
+	 */
 	public boolean updateNews(News news, File[] myFile, String[] myFileContentType, String[] myFileFileName){
 		Date nowDate = new Date();
 		news.setLastEditTime(nowDate);
@@ -148,7 +130,10 @@ public class NewsService implements INewsService {
 		return this.createAttachments(news, myFile, myFileContentType, myFileFileName);	
 	}
 	
-	
+	/*
+	 * 更新无附件新闻(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.INewsService#updateNewsWithoutAttachment(cn.edu.xmu.course.pojo.News)
+	 */
 	public boolean updateNewsWithoutAttachment(News news){
 		Date nowDate = new Date();
 		news.setLastEditTime(nowDate);
@@ -177,10 +162,18 @@ public class NewsService implements INewsService {
 		return true;
 	}
 	
+	/*
+	 * 根据新闻查找附件(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.INewsService#findAttachmentByNews(cn.edu.xmu.course.pojo.News)
+	 */
 	public List<Attachment> findAttachmentByNews(News news){
 		return attachmentDAO.findByProperty("news", news);
 	}
 	
+	/*
+	 * 删除新闻(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.INewsService#deleteNews(cn.edu.xmu.course.pojo.News)
+	 */
 	public boolean deleteNews(News news) {
 		// TODO Auto-generated method stub
 		try {
@@ -192,6 +185,9 @@ public class NewsService implements INewsService {
 		}
 	}
 
+	/*
+	 * 更新新闻
+	 */
 	public boolean updateNews(News news){
 		try {
 			newsDAO.merge(news);
@@ -201,11 +197,19 @@ public class NewsService implements INewsService {
 		}
 	}
 	
+	/*
+	 * 查找所有新闻(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.INewsService#findAllNews()
+	 */
 	public List findAllNews() {
 		// TODO Auto-generated method stub
 		return newsDAO.findAll();
 	}
 
+	/*
+	 * 根据Id查找新闻(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.INewsService#findNewsById(int)
+	 */
 	public News findNewsById(int id) {
 		// TODO Auto-generated method stub
 		return newsDAO.findById(id);

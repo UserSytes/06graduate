@@ -1,29 +1,29 @@
 package cn.edu.xmu.course.service.impl;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
-import org.hibernate.Session;
 
 import cn.edu.xmu.course.commons.FileOperation;
 import cn.edu.xmu.course.dao.TeacherDAO;
 import cn.edu.xmu.course.dao.UserInfoDAO;
-import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.School;
-import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.ITeacherInfoService;
-
+/**
+ * 教师信息管理
+ * @author 何申密
+ * @author 郑冰凌
+ */
 public class TeacherInfoService implements ITeacherInfoService {
 
 	private TeacherDAO teacherDAO;
 	private UserInfoDAO userInfoDAO;
 
 	/*
-	 * (non-Javadoc)
+	 * 根据登录帐号获取教师(non-Javadoc)
 	 * 
 	 * @see
 	 * cn.edu.xmu.course.service.ITeacherInfoService#getTeacher(java.lang.String
@@ -41,7 +41,7 @@ public class TeacherInfoService implements ITeacherInfoService {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * 修改密码(non-Javadoc)
 	 * 
 	 * @see
 	 * cn.edu.xmu.course.service.ITeacherInfoService#changePassword(cn.edu.xmu
@@ -61,7 +61,7 @@ public class TeacherInfoService implements ITeacherInfoService {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * 添加教师(non-Javadoc)
 	 * 
 	 * @see
 	 * cn.edu.xmu.course.service.ITeacherInfoService#addTeacher(cn.edu.xmu.course
@@ -79,7 +79,7 @@ public class TeacherInfoService implements ITeacherInfoService {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * 更新教师(non-Javadoc)
 	 * 
 	 * @see
 	 * cn.edu.xmu.course.service.ITeacherInfoService#updateTeacher(cn.edu.xmu
@@ -99,6 +99,10 @@ public class TeacherInfoService implements ITeacherInfoService {
 		}
 	}
 
+	/*
+	 * 删除教师信息(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ITeacherInfoService#deleteTeacher(cn.edu.xmu.course.pojo.Teacher)
+	 */
 	public boolean deleteTeacher(Teacher teacher) {
 		// TODO Auto-generated method stub
 		try {
@@ -110,16 +114,28 @@ public class TeacherInfoService implements ITeacherInfoService {
 		}
 	}
 
+	/*
+	 * 根据id查找教师(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ITeacherInfoService#findTeacherById(int)
+	 */
 	public Teacher findTeacherById(int id) {
 		// TODO Auto-generated method stub
 		return teacherDAO.findById(id);
 	}
 
+	/*
+	 * 根据学院查找教师(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ITeacherInfoService#findTeachersBySchool(cn.edu.xmu.course.pojo.School)
+	 */
 	public List findTeachersBySchool(School school) {
 		return teacherDAO.findBySchool(school);
 
 	}
 
+	/*
+	 * 根据教师帐号查找教师(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ITeacherInfoService#findTeacherByTeacherNo(java.lang.String)
+	 */
 	public Teacher findTeacherByTeacherNo(String teacherNo) {
 		// TODO Auto-generated method stub
 		List<Teacher> teachers = teacherDAO.findByTeacherNo(teacherNo);
@@ -130,6 +146,10 @@ public class TeacherInfoService implements ITeacherInfoService {
 		}
 	}
 
+	/*
+	 * 根据用户信息查找教师(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ITeacherInfoService#findTeacherByUserInfo(cn.edu.xmu.course.pojo.UserInfo)
+	 */
 	public Teacher findTeacherByUserInfo(UserInfo userInfo) {
 		// TODO Auto-generated method stub
 		List<Teacher> teachers = teacherDAO.findByUserInfo(userInfo);
@@ -140,6 +160,10 @@ public class TeacherInfoService implements ITeacherInfoService {
 		}
 	}
 
+	/*
+	 * 修改头像(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ITeacherInfoService#addTeacherPhoto(cn.edu.xmu.course.pojo.UserInfo, java.io.File, java.lang.String)
+	 */
 	public boolean addTeacherPhoto(UserInfo userInfo, File photo, String fileLink) {
 		// TODO Auto-generated method stub
 		String oldPhoto = userInfo.getPhoto();
@@ -163,6 +187,10 @@ public class TeacherInfoService implements ITeacherInfoService {
 		}
 	}
 
+	/*
+	 * 根据学院查找教师部分信息(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.ITeacherInfoService#getTeaNameAndNumber(cn.edu.xmu.course.pojo.School)
+	 */
 	public List getTeaNameAndNumber(School school) {
 		// TODO Auto-generated method stub
 		return teacherDAO.findTeaNameAndNumberBySchool(school);

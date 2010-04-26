@@ -1,15 +1,20 @@
 package cn.edu.xmu.course.commons;
 
+/**
+ * 课程评价信息
+ * @author 郑冰凌
+ *
+ */
 public class CourseEvaluate implements java.io.Serializable{
 
-	private String courseName;
-	private String teacherName;
-	private Object stuAvgScore = 0;
-	private Object expertAvgScore = 0;
-	private Object teacherAvgScore = 0;
-	private Object stuCount;
-	private Object expertCount;
-	private Object teacherCount;
+	private String courseName; //课程名称
+	private String teacherName; //教师姓名
+	private Object stuAvgScore = 0; //学生评价
+	private Object expertAvgScore = 0; //专家评价
+	private Object teacherAvgScore = 0; //教师评价
+	private Object stuCount; //学生评价人数
+	private Object expertCount; //专家评价人数
+	private Object teacherCount; //教师评价人数
 	
 	public String getCourseName() {
 		return courseName;

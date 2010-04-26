@@ -94,9 +94,10 @@ public class CollectionDAO extends HibernateDaoSupport {
 
 	/**
 	 * 根据学生、课程查找
+	 * @author 郑冰凌
 	 * @param course
 	 * @param student
-	 * @return
+	 * @return 
 	 */
 	public List findByStudentAndCourse(Course course, Student student) {
 		try {
