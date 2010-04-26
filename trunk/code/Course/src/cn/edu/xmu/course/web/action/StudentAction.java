@@ -108,6 +108,8 @@ public class StudentAction extends BaseAction {
 				.findDepartmentById(departmentId);
 		student.setPassword(student.getStudentNo());
 		userInfo.setDepartment(department);
+		String photo = "photo/defaultPhoto.jpg";
+		userInfo.setPhoto(photo);
 		student.setUserInfo(userInfo);
 		result = studentInfoService.addStudent(student, userInfo);
 		if (result) {
