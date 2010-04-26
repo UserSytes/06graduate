@@ -242,6 +242,21 @@ public class StudentAction extends BaseAction {
 	}
 
 	/**
+	 * 还原初始密码
+	 * @return
+	 */
+	public String restorePassword(){
+		student = studentInfoService.findById(studentId);
+		student.setPassword(student.getStudentNo());
+		if(studentInfoService.updatePassword(student)){
+			addActionMessage("还原密码成功！");
+			return SUCCESS;
+		}
+		else
+			return ERROR;
+	}
+	
+	/**
 	 * 删除学生
 	 * 
 	 * @return

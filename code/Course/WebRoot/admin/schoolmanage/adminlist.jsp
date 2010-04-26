@@ -86,7 +86,7 @@ $(document).ready(function(){
 						<td width="10%">
 							<s:property value="name" />
 						</td>
-						<td width="20%">
+						<td width="15%">
 							<s:property value="school.name" />
 						</td>
 						<td width="20%">
@@ -95,7 +95,7 @@ $(document).ready(function(){
 						<td width="15%">
 							<s:property value="mobile" />
 						</td>
-						<td width="15%">
+						<td width="20%">
 							<a
 								href="<s:url action="deleteAdminAction"> 
                      			<s:param name="adminId"> 
@@ -103,6 +103,14 @@ $(document).ready(function(){
                     			</s:param> 
                 					</s:url>"  onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
 								<font color="red">【删除】</font> </a>
+							<a
+								href="<s:url action="restoreAdminPasswordAction"> 
+                     			<s:param name="adminId"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param> 
+                					</s:url>"  onclick="JAVAscript:if(!confirm('确认还原初始密码？')) return false;return true;">
+								<font color="green">【还原初始密码】</font>
+							</a>
 						</td>
 					</tr>
 				</s:iterator>

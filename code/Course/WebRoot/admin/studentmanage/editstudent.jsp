@@ -129,6 +129,14 @@
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<font color="#808080">初始密码为与账号相同 </font>&nbsp;
+							<a
+								href="<s:url action="restoreStudentPasswordAction"> 
+                     			<s:param name="studentId"> 
+                       			 	<s:property value="student.id"/> 
+                    			</s:param> 
+                					</s:url>"  onclick="JAVAscript:if(!confirm('确认还原初始密码？')) return false;return true;">
+								<font color="green">【还原初始密码】</font>
+							</a>
 					</td>
 				</tr>
 				<tr bgcolor="#ECF3FD">

@@ -157,6 +157,12 @@
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
+		<action name="restoreTeacherPasswordAction" method="restorePassword"
+			class="teacherInfoAction">
+			<result name="success">/commons/prompt.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
 		
 		<!--学生管理-->
 		<action name="goAddStudentAction" method="goAddStudent" class="studentAction">
@@ -216,7 +222,12 @@
 			class="studentAction">
 			<result name="success">/commons/prompt.jsp</result>
 		</action>
-		
+		<action name="restoreStudentPasswordAction" method="restorePassword"
+			class="studentAction">
+			<result name="success">/commons/prompt.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
 		
 		<!-- 课程管理（教师） -->
 		<action name="viewCourseStudentByTeaAction" method="getStudentByCourse"
@@ -1074,6 +1085,10 @@
 		<action name="deleteAdminAction" method="deleteAdmin" class="schoolManageAction">
 			<result name="success">/admin/schoolmanage/adminlist.jsp
 			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="restoreAdminPasswordAction" method="restoreAdminPassword" class="schoolManageAction">
+			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="allGradeAction" method="findAllGrade" class="schoolManageAction">
