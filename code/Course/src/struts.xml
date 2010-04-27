@@ -1211,12 +1211,12 @@
 		<action name="getCourseMovieListAction" method="getCourseMovieListByCourse2" class="courseMovieAction">
 			<result name="movies">/coursepage/coursemovielist.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
+			<result name="error">/coursepage/prompt.jsp</result>
 		</action>
 		<action name="watchMovieAction" method="getCourseMovieById2" class="courseMovieAction">
 			<result name="movie">/coursepage/watchmovie.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
+			<result name="error">/coursepage/prompt.jsp</result>
 		</action>
 
 		
@@ -1429,13 +1429,13 @@
 			class="courseInfoAction">
 			<result name="success">/coursepage/index.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
+			<result name="error">/coursepage/prompt.jsp</result>
 		</action>
 		<action name="findApplicationFormAction" method="findApplicationForm"
 			class="applicationFormAction">
 			<result name="applicationForm">/coursepage/applicationform.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
+			<result name="error">/coursepage/prompt.jsp</result>
 		</action>
 		<action name="findCourseInfoAction" method="findCourseInfo2"
 			class="courseInfoAction">
@@ -1449,7 +1449,7 @@
 			class="teacherTeamAction">
 			<result name="teachers">/coursepage/teacherteam.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
+			<result name="error">/coursepage/prompt.jsp</result>
 		</action>
 		<action name="findAchievementAction" method="getAchievementListByCourse"
 			class="achievementAction">
@@ -1490,13 +1490,13 @@
 			class="experimentAction">
 			<result name="experiment">/coursepage/downloadexperiment.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
+			<result name="error">/coursepage/prompt.jsp</result>
 		</action>
 		<action name="downloadExerciseAction" method="downloadExercise"
 			class="exerciseAction">
 			<result name="exercise">/coursepage/downloadexercise.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
+			<result name="error">/coursepage/prompt.jsp</result>
 			</action>
 			<!-- 留言板 -->
 			<action name="goNewTopicAction" method="goNewTopic" class="messageAction">
@@ -1506,53 +1506,53 @@
 		<action name="addNewMessageAction" method="addNewMessage" class="messageAction">
 			<result name="success">/coursepage/messagemanage/showtopics.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
+			<result name="error">/coursepage/prompt.jsp</result>
 			</action>
 		<action name="showTopicsAction" method="showTopics" class="messageAction">
 			<result name="topics">/coursepage/messagemanage/showtopics.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
+			<result name="error">/coursepage/prompt.jsp</result>
 			<result name="login">/coursepage/login.jsp</result>
 			</action>
 		<action name="showMessagesAction" method="showMessages2" class="messageAction">
 			<result name="messages">/coursepage/messagemanage/showmessages.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
+			<result name="error">/coursepage/prompt.jsp</result>
 		</action>
 		<action name="goReplyAction" method="goReply" class="messageAction">
 			<result name="success">/coursepage/messagemanage/newreply.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
+			<result name="error">/coursepage/prompt.jsp</result>
 		</action>
 		<action name="goReplyToSomeoneAction" method="goReplyToSomeone" class="messageAction">
 			<result name="success">/coursepage/messagemanage/newreply.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
+			<result name="error">/coursepage/prompt.jsp</result>
 		</action>
 		<action name="goReplyWithQuoteAction" method="goReplyWithQuote" class="messageAction">
 			<result name="success">/coursepage/messagemanage/newreply.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
+			<result name="error">/coursepage/prompt.jsp</result>
 		</action>
 		
 		<action name="addReplyAction" method="addReply" class="messageAction">
 			<result name="success">/coursepage/messagemanage/showmessages.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
+			<result name="error">/coursepage/prompt.jsp</result>
 		</action>				
 		<action name="loginFromMessageBoardAction" method="loginFromMessageBoard" class="messageAction">
 			<result name="teacher">/coursepage/loginsuccess.jsp</result>
 			<result name="student">/coursepage/loginsuccess.jsp</result>
-			<result name="error">/commons/prompt1.jsp</result>
+			<result name="error">/coursepage/prompt.jsp</result>
 			</action>
 		<action name="logoutFromMessageBoardAction" method="loginFromMessageBoard" class="messageAction">
 			<result name="success">/coursepage/logoutsuccess.jsp</result>
-			<result name="error">/common/prompt1.jsp</result>
+			<result name="error">/coursepage/prompt.jsp</result>
 			</action>
 		<action name="enterPersionalSpaceAction" method="enterPersionalSpace" class="messageAction">
 			<result name="teacher">/teacher/main.jsp</result>
 			<result name="student">/student/studentinfo.jsp</result>
-			<result name="error">/commons/prompt1.jsp</result>
+			<result name="error">/coursepage/prompt.jsp</result>
 			</action>
 	</package>
 </struts>
