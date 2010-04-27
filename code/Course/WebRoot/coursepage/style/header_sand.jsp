@@ -228,7 +228,7 @@
 			$(this).animate( {
 				width :viewW,
 				height :viewH
-			}, 1000, function() {					  
+			}, 800, function() {					  
 				window.location.href = "changeHeaderAction.action?header=header.jsp";
 			});
 		});
@@ -240,7 +240,7 @@
 			$('#corner img').animate( {
 				width :viewW,
 				height :viewH
-			}, 1000, function() {
+			}, 800, function() {
 				$('#corner img').width("80px");
 				$('#corner img').height("80px");
 				$('#corner img').bind("mouseover", hovermouse);
@@ -294,7 +294,7 @@
 			$('#corner img').animate( {
 				width :viewW,
 				height :viewH
-			}, 1000, function() {				
+			}, 800, function() {				
 				window.location.href = "changeHeaderAction.action?header=" + header;		
 				$('#corner img').width("80px");
 				$('#corner img').height("80px");
