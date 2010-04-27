@@ -19,9 +19,28 @@
 .active {
 	background-position: right 12px;
 }
+#corner {
+	background: transparent url(${ctx}/coursepage/style/common/2x.png)
+		no-repeat top right;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	z-index: 9999;
+}
+
+#corner img {
+	border: 0;
+	width: 80px;
+	height: 80px;
+	-ms-interpolation-mode: bicubic;
+}
 </style>
 		<script type="text/javascript">
 	$( function() {
+		var de = document.documentElement;
+		var db = document.body;
+		var viewW = de.clientWidth == 0 ? db.clientWidth : de.clientWidth;
+		var viewH = de.clientHeight == 0 ? db.clientHeight : de.clientHeight;
 
 		$('#header').bind('contextmenu', function(e) {
 			$('#mm').menu('show', {
@@ -182,13 +201,52 @@
 				color :'pink'
 			}, callBack, "json");
 		});
-
+		$("#trad").click( function() {
+			changeHeader('header.jsp');
+		});
+		$("#dock").click( function() {
+			changeHeader('header_dock.jsp');
+		});
+		$("#sand").click( function() {
+			changeHeader('header_sand.jsp');
+		});
+		var hovermouse = function() {
+			$('#corner img').stop().animate( {
+				width :'200px',
+				height :'200px'
+			});
+		}
+		var mourseout = function() {
+			$('#corner img').stop().animate( {
+				width :'80px',
+				height :'80px'
+			});
+		}
+		$('#corner img').bind("mouseover", hovermouse);
+		$('#corner img').bind("mouseout", mourseout);
+		$('#corner img').click( function() {
+			$(this).animate( {
+				width :viewW,
+				height :viewH
+			}, 1000, function() {					  
+				window.location.href = "changeHeaderAction.action?header=header.jsp";
+			});
+		});
+		
 		function callBack(data) {
-			if (data == null)
-				return;
-			$data.find('img')
-					.each(
-							function() {
+			if (data == null)	return;
+			$('#corner img').unbind("mouseover", hovermouse);
+			$('#corner img').unbind("mouseout", mourseout);
+			$('#corner img').animate( {
+				width :viewW,
+				height :viewH
+			}, 1000, function() {
+				$('#corner img').width("80px");
+				$('#corner img').height("80px");
+				$('#corner img').bind("mouseover", hovermouse);
+				$('#corner img').bind("mouseout", mourseout);
+			});
+			$data.find('img').each(function() {
 								var imgId = $(this).attr("id");
 								var imgsrc = data + "/"
 										+ imgId.substring(0, imgId.length - 4)
@@ -229,6 +287,22 @@
 			$("#message-img").attr("src",
 					"${ctx}/coursepage/style/" + data + "/message.png");
 		}
+		
+		function changeHeader(header) {
+			$('#corner img').unbind("mouseover", hovermouse);
+			$('#corner img').unbind("mouseout", mourseout);
+			$('#corner img').animate( {
+				width :viewW,
+				height :viewH
+			}, 1000, function() {				
+				window.location.href = "changeHeaderAction.action?header=" + header;		
+				$('#corner img').width("80px");
+				$('#corner img').height("80px");
+				$('#corner img').bind("mouseover", hovermouse);
+				$('#corner img').bind("mouseout", mourseout);	
+			});
+			
+		}
 
 		$("#slide").click( function() {
 			$("#panel").slideToggle("slow");
@@ -241,9 +315,6 @@
 	})
 </script>
 		<script type="text/javascript">
-	function changeHeader(header) {
-		window.location.href = "changeHeaderAction.action?header=" + header;
-	}
 	// Custom sorting plugin
 	( function($) {
 		$.fn.sorted = function(customOptions) {
@@ -272,6 +343,8 @@
 </script>
 	</head>
 	<body>
+		<a id="corner" href="#"><img
+				src="${ctx}/coursepage/style/common/corner.png" /> </a>
 		<div id="header">
 			<div class="content border_bottom">
 				<ul id="sub_nav">

@@ -86,7 +86,7 @@
 												href="<s:url action="enterPersionalSpaceAction"> 
                 					</s:url>">&nbsp;个人空间&nbsp;
 											</a><span style="color: #CBCBCB">|</span><a class="titlea"
-												href="<s:url action="logoutFromMessageBoardAction"> 
+												href="<s:url action="logoutAction"> 
                 					</s:url>">
 												&nbsp;退出 </a>
 										</td>
