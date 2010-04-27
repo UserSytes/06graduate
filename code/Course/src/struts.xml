@@ -1539,17 +1539,7 @@
 			<result name="success">/coursepage/messagemanage/showmessages.jsp
 			</result>
 			<result name="error">/commons/prompt1.jsp</result>
-		</action>
-		<action name="searchTopicByKeyAction" method="searchTopicByKey" class="messageAction">
-			<result name="success">/coursepage/messagemanage/showtopics.jsp
-			</result>
-			<result name="error">/commons/prompt1.jsp</result>
-		</action>
-		<action name="goQuickSearchTopicAction" method="goQuickSearchTopic" class="messageAction">
-			<result name="success">/coursepage/messagemanage/showtopics.jsp
-			</result>
-		</action>
-			
+		</action>				
 		<action name="loginFromMessageBoardAction" method="loginFromMessageBoard" class="messageAction">
 			<result name="teacher">/coursepage/loginsuccess.jsp</result>
 			<result name="student">/coursepage/loginsuccess.jsp</result>
