@@ -2,7 +2,6 @@ package cn.edu.xmu.course.service;
 
 import java.util.List;
 
-import cn.edu.xmu.course.commons.PageBean;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.pojo.Teacher;
@@ -72,17 +71,5 @@ public interface INoticeService {
 	 */
 	public List findLastestFiveNews(Course course,int sort);
 	
-	public PageBean queryForPage(Course course, Integer sort,int pageSize,int page);
-	
-	/**
-	 * 按照标题和类别搜索
-	 * @param course
-	 * @param name
-	 * @param sort
-	 * @param pageSize
-	 * @param page
-	 * @return
-	 */
-	public PageBean getNoticeByNameAndSort(Course course, String name,int sort,int pageSize, int page);
-	
+
 }
