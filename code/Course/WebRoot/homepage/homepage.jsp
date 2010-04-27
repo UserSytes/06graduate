@@ -7,6 +7,7 @@
 		<title>厦门大学课程中心</title>
 		<link rel="stylesheet" href="${ctx}/homepage/link.css">
 	<script src="${ctx}/js/MSClass.js" language="javascript"></script>	
+	<script src="${ctx}/js/jquery.tools.min.js" language="javascript"></script>	
 		<SCRIPT language=javascript>
 	function check(form) {
 		if (form.userName.value == "") {
@@ -24,6 +25,25 @@
 		return true;
 	}
 </SCRIPT>
+<script>
+
+// execute your scripts when the DOM is ready. this is a good habit
+$(function() {
+
+	// assign a click event to the exposed element, using normal jQuery coding
+	$("#login").click(function() {
+
+		// perform exposing for the clicked element
+		$(this).expose({api: true}).load();
+
+	});
+});
+</script>
+<style type="text/css">
+.inputstyle{
+	width: 120px;
+}
+</style>
 	</head>
 	<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0"
 		width="100%" height="100%"
@@ -41,7 +61,7 @@
 							<td valign="top">
 								<!-- 登录 -->
 								<table border="0" cellpadding="0" cellspacing="0" align="center"
-									id="login" style="display:<s:property value="idLogin" />">
+									id="login" style="display:<s:property value="idLogin" />;background-color:#fff;">
 									<tr>
 										<td>
 											<img src="${ctx}/homepage/image/login_title.gif" border="0"
@@ -77,7 +97,7 @@
 														</td>
 														<td width="4" valign="top"></td>
 														<td valign="top" width="120">
-															<s:textfield name="userName" size="16"></s:textfield>
+															<s:textfield name="userName" cssClass="inputstyle"></s:textfield>
 														</td>
 														<td width="7" valign="top"></td>
 														<td width="9" valign="top"></td>
@@ -92,7 +112,7 @@
 														</td>
 														<td width="4"></td>
 														<td width="120">
-															<s:password name="password" size="16"></s:password>
+															<s:password name="password" cssClass="inputstyle"></s:password>
 														</td>
 														<td width="7"></td>
 														<td width="9"></td>

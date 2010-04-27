@@ -13,7 +13,6 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/facebox/facebox.css" media="screen"
 			rel="stylesheet" type="text/css" />
-
 		<LINK href="${ctx}/css/pagination.css" type=text/css rel=stylesheet>
 		<script type="text/javascript">
 	function check(form) {
@@ -24,7 +23,7 @@
 		return true;
 
 	}
-</SCRIPT>
+</script>
 		<style type="text/css">
 quote\:msgheader {
 	BORDER-BOTTOM: #e7e7e7 1px solid;
@@ -98,19 +97,9 @@ $(document).ready(function(){
        				$("#tbody tr:gt(" + ((page_index) * 40 -1) + ")").hide().end();
 			}
 		});
-		$("#Pagination2").pagination( {
-				count:num_entries,
-				pageCount:10,
-				imagePath:"${ctx}/commons/images",
-				callback:function(page_index){							
-		 			$table.find("#tbody tr").show();               
-          			$("#tbody tr:lt(" + (page_index-1) * 40 + ")").hide().end();                  
-       				$("#tbody tr:gt(" + ((page_index) * 40 -1) + ")").hide().end();
-			}
-		});
 		$('a[rel*=facebox]').facebox({
-        loading_image : '${ctx}/css/images/loading.gif',
-        close_image   : '${ctx}/css/images/closelabel.gif'
+        loading_image : '${ctx}/facebox/loading.gif',
+        close_image   : '${ctx}/facebox/closelabel.gif'
       }) 
 
 });

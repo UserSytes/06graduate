@@ -17,12 +17,16 @@
 	</head>
 	<script type="text/javascript">
 	$( function() {
+		var de = document.documentElement;
+		var db = document.body;
+		var viewW = de.clientWidth == 0 ? db.clientWidth : de.clientWidth;
+		var viewH = de.clientHeight == 0 ? db.clientHeight : de.clientHeight;
 		$("#main_nav li:has(ul)").hover( function() {
 			$(this).children("ul").stop(true, true).slideDown(500);
 		}, function() {
 			$(this).children("ul").stop(true, true).slideUp("fast");
 		});
-		
+
 		$("#blue").click( function() {
 			$.post("changeColorAction.action", {
 				color :'blue'
@@ -64,23 +68,94 @@
 			}, callBack, "json");
 		});
 
+		$("#trad").click( function() {
+			changeHeader('header.jsp');
+		});
+		$("#dock").click( function() {
+			changeHeader('header_dock.jsp');
+		});
+		$("#sand").click( function() {
+			changeHeader('header_sand.jsp');
+		});
+		var hovermouse = function() {
+			$('#corner img').stop().animate( {
+				width :'200px',
+				height :'200px'
+			});
+		}
+		var mourseout = function() {
+			$('#corner img').stop().animate( {
+				width :'80px',
+				height :'80px'
+			});
+		}
+		$('#corner img').bind("mouseover", hovermouse);
+		$('#corner img').bind("mouseout", mourseout);
+		$('#corner img').click( function() {
+			$(this).animate( {
+				width :viewW,
+				height :viewH
+			}, 1000, function() {					  
+				window.location.href = "changeHeaderAction.action?header=header_dock.jsp";
+			});
+		});	
+
+
 		function callBack(data) {
 			if (data == null)
-				return;			
+				return;
+			$('#corner img').unbind("mouseover", hovermouse);
+			$('#corner img').unbind("mouseout", mourseout);
+			$('#corner img').animate( {
+				width :viewW,
+				height :viewH
+			}, 1000, function() {
+				$('#corner img').width("80px");
+				$('#corner img').height("80px");
+				$('#corner img').bind("mouseover", hovermouse);
+				$('#corner img').bind("mouseout", mourseout);
+			});
 			$("#cssfile").attr("href",
 					"${ctx}/coursepage/style/" + data + "/color.css"); //设置不同皮肤		
 			$("#logo").attr("src",
-					"${ctx}/coursepage/style/" + data + "/logo.gif");
+					"${ctx}/coursepage/style/" + data + "/logo.gif");		
+		}
+			function changeHeader(header) {
+			$('#corner img').unbind("mouseover", hovermouse);
+			$('#corner img').unbind("mouseout", mourseout);
+			$('#corner img').animate( {
+				width :viewW,
+				height :viewH
+			}, 1000, function() {				
+				window.location.href = "changeHeaderAction.action?header=" + header;		
+				$('#corner img').width("80px");
+				$('#corner img').height("80px");
+				$('#corner img').bind("mouseover", hovermouse);
+				$('#corner img').bind("mouseout", mourseout);	
+			});			
 		}
 	})
 </script>
+	<style type="text/css">
+#corner {
+	background: transparent url(${ctx}/coursepage/style/common/2x.png)
+		no-repeat top right;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	z-index: 9999;
+}
 
-	<script type="text/javascript">
-	function changeHeader(header) {
-		window.location.href = "changeHeaderAction.action?header=" + header;
-	}
-</script>
+#corner img {
+	border: 0;
+	width: 80px;
+	height: 80px;
+	-ms-interpolation-mode: bicubic;
+}
+</style>
 	<body>
+		<a id="corner" href="#"><img
+				src="${ctx}/coursepage/style/common/corner.png" /> </a>
 		<div class="content border_bottom">
 			<ul id="sub_nav">
 				<li>
@@ -134,13 +209,13 @@
 				<div>
 					<span>导航菜单</span>
 					<div style="width: 100px;">
-						<div id="trad" onclick="changeHeader('header.jsp')">
+						<div id="trad" >
 							导航一
 						</div>
-						<div id="dock" onclick="changeHeader('header_dock.jsp')">
+						<div id="dock">
 							导航二
 						</div>
-						<div id="sand" onclick="changeHeader('header_sand.jsp')">
+						<div id="sand">
 							导航三
 						</div>
 					</div>
