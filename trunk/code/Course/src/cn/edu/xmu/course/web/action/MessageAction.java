@@ -7,9 +7,7 @@ import java.util.List;
 import com.opensymphony.xwork2.Action;
 
 import cn.edu.xmu.course.commons.MessageInfo;
-import cn.edu.xmu.course.commons.PageBean;
 import cn.edu.xmu.course.pojo.Course;
-
 import cn.edu.xmu.course.pojo.Message;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.Teacher;
@@ -34,9 +32,6 @@ public class MessageAction extends BaseAction {
 	private ITopicService topicService;
 	private IMessageService messageService;
 	private ILoginService loginService;
-	private int pageNow = 1;
-	private int pageSize = 10;
-	private int pageCount = 0;
 	private Student student;
 	private Teacher teacher;
 	private int flag;
@@ -49,9 +44,6 @@ public class MessageAction extends BaseAction {
 	private String replyString="";
 	private int replyGrade;
 	private String replyContent="";
-	//调试的分页如下 
-    private int page;    //第几页
-    private PageBean pageBean;    //包含分布信息的bean
 	public String loginFromMessageBoard() {
 
 		if (getFlag() == 0) {
@@ -204,23 +196,6 @@ public class MessageAction extends BaseAction {
 		}
 
 	}
-	public String showMessages() {
-		course = super.getCourse();
-		userInfo=super.getUserInfo();
-		topic = topicService.getTopicById(topicId);
-		messageList = messageService.getAllMessages(topic, pageSize, pageNow);
-		System.out.println("查找到：" + messageList.size()+"个留言");
-		pageCount = (messageList.size() + getPageSize() - 1) / getPageSize();
-		topic.setCountPerson(topic.getCountPerson() + 1);
-		topicService.updateTopic(topic);
-		if (getMessageList().size() > 0) {
-			return "messages";
-		} else {
-			System.out.println("查看留言出错！");
-			addActionError("查看留言出错！");
-			return ERROR;
-		}
-	}
 	public String showMessages2() {
 		course = super.getCourse();
 		userInfo=super.getUserInfo();
@@ -264,70 +239,6 @@ public class MessageAction extends BaseAction {
 			return ERROR;
 		}
 	}
-	public String goQuickSearchTopic(){
-		course = super.getCourse();
-		System.out.println("keyword=" + keyword);
-		if(searchFlag==0)
-		{
-			this.pageBean = topicService.searchTopicByName(course, keyword,pageSize, page);
-		}
-		else
-			this.pageBean = topicService.searchTopicByAuthorName(course,
-					keyword,pageSize, page);
-		return SUCCESS;
-			
-	}
-	public String searchTopicByKey() {
-		System.out.println("keyword=" + keyword);
-		System.out.println("authorName=" + authorName);
-		System.out.println("keydate=" + keydate);
-		course = super.getCourse();
-		if (keydate == null) {
-			if (authorName.equals("")) {// 按主题名称搜索
-				System.out.println("按主题名称搜索:" + keyword);
-				this.pageBean = topicService.searchTopicByName(course, keyword,pageSize, page);
-			} else {
-				if (keyword.equals("")) {
-					// 按作者名称搜索
-					System.out.println("按作者名称搜索:" + getAuthorName());
-					this.pageBean = topicService.searchTopicByAuthorName(course,
-							getAuthorName(),pageSize, page);
-				} else {
-					// 按主题名称和作者名称搜索
-					System.out.println("按主题名称和作者名称搜索:" + keyword + "  "
-							+ getAuthorName());
-					this.pageBean = topicService.searchtopicByNameAndAuthorName(
-							course, keyword, getAuthorName(),pageSize, page);
-				}
-			}
-		} else {
-			if (authorName.equals("")) {
-				if (keyword.equals("")) { // 按时间搜索
-					System.out.println("按时间搜索:" + keydate);
-					this.pageBean = topicService.searchTopicByTime(course, keydate,pageSize, page);
-				} else { // 按关键字和时间搜索
-					System.out.println("按关键字和时间搜索:" + keyword + "" + keydate);
-					this.pageBean  = topicService.searchTopicByNameAndTime(course,
-							keyword, keydate,pageSize, page);
-				}
-			} else {
-				if (keyword.equals("")) { // 按作者名和时间搜索
-					System.out.println("按作者名和时间搜索:" + getAuthorName() + "   "
-							+ keydate);
-					this.pageBean  = topicService.searchTopicByAuthorNameAndTime(
-							course, getAuthorName(), keydate,pageSize, page);
-				} else { // 按主题名称、作者名和时间搜索
-					System.out.println("按主题名称、作者名和时间搜索:" + keyword + "   "
-							+ getAuthorName() + "  " + keydate);
-					this.pageBean  = topicService
-							.searchTopicByNameAndAuthorNameAndTime(course,
-									keyword, getAuthorName(), keydate,pageSize, page);
-				}
-			}
-		}
-		return SUCCESS;
-	}
-
 	public String showTopicsByTeacher() {
 		topicList = getTopicService().getTopicsByTeacher(super.getTeacher(),
 				getTime());
@@ -407,22 +318,6 @@ public class MessageAction extends BaseAction {
 		return messageInfoList;
 	}
 
-	public int getPageNow() {
-		return pageNow;
-	}
-
-	public void setPageNow(int pageNow) {
-		this.pageNow = pageNow;
-	}
-
-	public int getPageSize() {
-		return pageSize;
-	}
-
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
-	}
-
 	public List<MessageInfo> getShowMessageList() {
 		return showMessageList;
 	}
@@ -431,13 +326,6 @@ public class MessageAction extends BaseAction {
 		this.showMessageList = showMessageList;
 	}
 
-	public void setPageCount(int pageCount) {
-		this.pageCount = pageCount;
-	}
-
-	public int getPageCount() {
-		return pageCount;
-	}
 
 	public Student getStudent() {
 		return student;
@@ -525,22 +413,6 @@ public class MessageAction extends BaseAction {
 
 	public String getAuthorName() {
 		return authorName;
-	}
-
-	public void setPage(int page) {
-		this.page = page;
-	}
-
-	public int getPage() {
-		return page;
-	}
-
-	public void setPageBean(PageBean pageBean) {
-		this.pageBean = pageBean;
-	}
-
-	public PageBean getPageBean() {
-		return pageBean;
 	}
 
 	public void setSearchFlag(int searchFlag) {
