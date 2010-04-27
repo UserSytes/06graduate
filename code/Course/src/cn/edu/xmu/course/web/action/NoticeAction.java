@@ -2,7 +2,6 @@ package cn.edu.xmu.course.web.action;
 
 import java.util.List;
 
-import cn.edu.xmu.course.commons.PageBean;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.pojo.Teacher;
@@ -26,9 +25,6 @@ public class NoticeAction extends BaseAction {
 	private Integer noticeId;
 	private List<Notice> noticeList;
 	private List<Course> courseList;
-	private int page;    //第几页
-    private PageBean pageBean;    //包含分布信息的bean
-	private int pageSize = 10;
 	private String keyword;
 	private int searchFlag;
 	/**
@@ -93,18 +89,6 @@ public class NoticeAction extends BaseAction {
 
 	}
 
-	/**
-	 * 根据类别查找课程通知
-	 * 
-	 * @return
-	 */
-	public String getNoticeBySort() {
-		course = super.getCourse();
-		this.pageBean = getNoticeService().queryForPage(course, getSort(),pageSize, page);
-//		noticeList = noticeService.getNoticeBySort(course, getSort());
-		setSort(getSort());
-		return SUCCESS;
-	}
 	
 	/**
 	 * 根据类别查找课程通知
@@ -119,13 +103,6 @@ public class NoticeAction extends BaseAction {
 		return SUCCESS;
 	}
 	
-	public String getNoticeByNameAndSort(){
-		course = super.getCourse();
-		this.pageBean=getNoticeService().getNoticeByNameAndSort(course, getKeyword(), getSearchFlag(), pageSize, page);
-		setSort(getSearchFlag());
-		return SUCCESS;
-		
-	}
 	public String findNoticeById() {
 		course = super.getCourse();
 		notice=noticeService.getNoticeById(noticeId);
@@ -259,30 +236,6 @@ public class NoticeAction extends BaseAction {
 
 	public Integer getSort() {
 		return sort;
-	}
-
-	public void setPage(int page) {
-		this.page = page;
-	}
-
-	public int getPage() {
-		return page;
-	}
-
-	public void setPageBean(PageBean pageBean) {
-		this.pageBean = pageBean;
-	}
-
-	public PageBean getPageBean() {
-		return pageBean;
-	}
-
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
-	}
-
-	public int getPageSize() {
-		return pageSize;
 	}
 
 	public void setKeyword(String keyword) {
