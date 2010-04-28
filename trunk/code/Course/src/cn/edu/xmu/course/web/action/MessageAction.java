@@ -45,40 +45,31 @@ public class MessageAction extends BaseAction {
 	private int replyGrade;
 	private String replyContent="";
 	public String loginFromMessageBoard() {
-
 		if (getFlag() == 0) {
 			Teacher teacher = getLoginService().teacherLogin(userName,
 					getPassword());
-			System.out.println(userName);
 			if (null == teacher) {
 				addActionError("用户名获密码错误！请返回重试！");
 				return ERROR;
 			} else {
-				userInfo = teacher.getUserInfo();
-				System.out.println("正在登陆的是" + teacher.getTeacherNo());
-				addActionMessage("亲爱的" + getUserInfo().getName() + "，欢迎你！");
-				System.out.println(teacher.getPassword());
+				userInfo = teacher.getUserInfo();				
 				super.getSession().put(TEACHER, teacher);
-				super.getSession().put(USERINFO, teacher.getUserInfo());
-				return "teacher";
+				super.getSession().put(USERINFO, teacher.getUserInfo());				
 			}
 		} else {
 			Student student = getLoginService().studentLogin(userName,
 					getPassword());
-			System.out.println(userName);
 			if (null == student) {
 				addActionError("用户名获密码错误！请返回重试！");
 				return ERROR;
 			} else {
-				userInfo = student.getUserInfo();
-				System.out.println("正在登陆的是" + student.getStudentNo());
-				addActionMessage("亲爱的" + getUserInfo().getName() + "，欢迎你！");
-				System.out.println("test1: " + student.getPassword());
+				userInfo = student.getUserInfo();			
 				super.getSession().put(STUDENT, student);
-				super.getSession().put(USERINFO, student.getUserInfo());
-				return "student";
+				super.getSession().put(USERINFO, student.getUserInfo());				
 			}
 		}
+		topicList = getTopicService().getAllTopics(course);
+		return SUCCESS;
 	}
 
 	public String logoutFromMessageBoard() {
@@ -87,10 +78,12 @@ public class MessageAction extends BaseAction {
 		if (null != student) {
 			System.out.println("正在登出的是" + student.getStudentNo());
 			super.getSession().remove(STUDENT);
+			super.getSession().remove(USERINFO);
 			return SUCCESS;
 		} else if (null != teacher) {
 			System.out.println("正在登出的是" + teacher.getTeacherNo());
 			super.getSession().remove(TEACHER);
+			super.getSession().remove(USERINFO);
 			return SUCCESS;
 		} else
 			return ERROR;

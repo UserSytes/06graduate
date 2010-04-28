@@ -1541,8 +1541,7 @@
 			<result name="error">/coursepage/prompt.jsp</result>
 		</action>				
 		<action name="loginFromMessageBoardAction" method="loginFromMessageBoard" class="messageAction">
-			<result name="teacher">/coursepage/loginsuccess.jsp</result>
-			<result name="student">/coursepage/loginsuccess.jsp</result>
+			<result name="success">/coursepage/showtopics.jsp</result>
 			<result name="error">/coursepage/prompt.jsp</result>
 			</action>
 		<action name="logoutFromMessageBoardAction" method="loginFromMessageBoard" class="messageAction">
