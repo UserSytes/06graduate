@@ -26,24 +26,39 @@
 				<!-- 正文部分 -->
 				<div class="pages">
 					<h2>
-						提示信息
+						<a href="goIndexQueryAction.action">首页</a>&gt; 提示信息
 					</h2>
 				</div>
 				<!-- 正文 -->
 				<div align="center">
-					<table border="0" align="center" cellpadding="0" cellspacing="0" 
-						width="704" style="padding-top: 30px;" align="center">
-<tr align="center">
-<td align="right" width="250"><img src="${ctx}/coursepage/style/common/load.gif" border="0" height="48"></td>
-<td align="left" height="48" width="454"><font style="font-size: 16px;">提示信息
-						<s:fielderror />
-						<s:actionmessage />
-						<s:actionerror />
-<br />
-现在将转入之前页面<br />
-<a href="javascript:history.back(-1)">如果浏览器没有相应，请点击这里</a></font>
-</td>
-</tr>
+					<table border="0" cellpadding="0" cellspacing="0" style=""
+						class="table-msg">
+						<tr height="29">
+							<td align="left" class="table-title">
+								<font style="font-size: 16px; font-weight: bold">提示信息 </font>
+							</td>
+						</tr>
+						<tr height="1" class="tr-title">
+							<td></td>
+						</tr>
+						<tr>
+							<td>
+								<div style="padding: 15px;">
+									<div class="alert_info" style="background-image: url(${ctx}/coursepage/style/common/error_big.gif)">
+										<p>
+											<font style="font-size: 16px;"><s:fielderror /> <s:actionmessage />
+									<s:actionerror /> <br /> 
+								</font>
+										</p>
+
+										<p class="alertmsg" style="margin-top: 8px;text-decoration: underline">
+											<a
+									href="javascript:history.back(-1)">[请点击这里返回上一页]</a>
+										</p>
+									</div>
+								</div>
+							</td>
+						</tr>
 					</table>
 				</div>
 			</div>

@@ -54,7 +54,7 @@
 								<div style="padding: 15px;">
 									<div class="alert_info" style="background-image: url(${ctx}/coursepage/style/common/error_big.gif)">
 										<p>
-											未定义操作，请返回。
+											请登录后再进行相关操作。
 										</p>
 
 										<p class="alertmsg" style="margin-top: 8px;">
