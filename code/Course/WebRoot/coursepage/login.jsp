@@ -11,117 +11,60 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
-		<link href="${ctx}/coursepage/style/<s:property value="course.style"/>/color.css" rel="stylesheet"
-			type="text/css" />
-<SCRIPT language=javascript>
-	function check(form) {
-		if (form.userName.value == "") {
-			alert("账号不能为空！");
-			return false;
-		}
-		if (form.password.value == "") {
-			alert("密码不能为空！");
-			return false;
-		}
-		if (form.flag.value == -1) {
-			alert("请选择权限！");
-			return false;
-		}
-		return true;
-	}
-</SCRIPT>
+		<link href="${ctx}/facebox/facebox.css" media="screen"
+			rel="stylesheet" type="text/css" />			
 	</head>
 	<body>
 		<!-- 头部 -->
-		<s:include value="style/%{course.header}"></s:include>
+		<s:include value="style/%{#session.header}"></s:include>
+		<script src="${ctx}/facebox/facebox.js" type="text/javascript"></script>
+		<script type="text/javascript">
+	$(document).ready( function() {
+		$('a[rel*=facebox]').facebox( {
+			loading_image :'${ctx}/facebox/loading.gif',
+			close_image :'${ctx}/facebox/closelabel.gif'
+		})
+
+	});
+</script>
 		<div class="content">
 			<!-- 左侧 -->
 			<s:include value="style/left.jsp"></s:include>
 			<div id="right-cnt">
-				<br class="clear" />
 				<!-- 正文部分 -->
 				<div class="pages">
 					<h2>
-						<a href="goIndexQueryAction.action">首页</a>&gt;
-						用户登录
+						<a href="goIndexQueryAction.action">首页</a>&gt; 提示信息
 					</h2>
-					<br class="clear" />
 				</div>
-		<!-- 正文 -->
+				<!-- 正文 -->
 				<div>
-					<table border="0" cellpadding="0" cellspacing="0">
-						<tr>
-							<td width="724" align="center">
-								<table border="0" cellpadding="0" cellspacing="0" width="724" height="94" background="${ctx}/coursepage/classical/image/titlebg.gif" style="background-repeat:no-repeat">
-						<tr>
-							<td width="724" valign="top" align="right"><font style="font-size:12px; color:#574434"></font></td></tr>
-						<tr height="69">
-							<td valign="bottom" align="left">
-								<table border="0" cellpadding="0" cellspacing="0">
-								<tr>
-									<td><font color="#966f48"style="font-size:16px; font-weight:bold">用户登录</font></td>
-								</tr>
-								<tr>
-									<td><font color="#92a35d"style="font-size:12px;"</font></td></tr>
-								</table></td></tr>
-						<tr height="1">
-							<td width="724" bgcolor="#c4ae86" valign="top"></td></tr>
-						</table>
-							</td></tr>
-						<tr height="20"><td></td></tr>
+					<table border="0" cellpadding="0" cellspacing="0" style=""
+						class="table-msg">
+						<tr height="29">
+							<td align="left" class="table-title">
+								<font style="font-size: 16px; font-weight: bold">提示信息 </font>
+							</td>
+						</tr>
+						<tr height="1" class="tr-title">
+							<td></td>
+						</tr>
 						<tr>
 							<td>
-								<table border="0" cellpadding="0" cellspacing="0" width="100%">
-								<tr>
-									<td width="24"></td>
-									<td><font style="font-size:12px; color:#74582f"><BR/>
-<s:form action="loginFromMessageBoardAction" method="post"
-													onsubmit="return check(this);">
-													<table width="60%" height="100%" border="0"
-														cellspacing="0" cellpadding="0" align="center">
-														<tr>
-															<td height="30" align="center">
-																&nbsp;账号：
-															</td>
-															<td>
-																<s:textfield name="userName"></s:textfield>
-															</td>
-														</tr>
-														<tr>
-															<td height="30" align="center">
-																&nbsp;密码：
-															</td>
-															<td>
-																<s:password name="password"></s:password>
-															</td>
-														</tr>
-														<tr>
-															<td height="30" align="center">
-																&nbsp;角色：
-															</td>
-															<td>
-																<s:select name="flag" list="# {'0':'老師','1':'學生'}"
-																	headerKey="-1" headerValue="请选择" />
-															</td>
-														</tr>
-														<tr>
-															<td colspan="2" align="center">
-																<input type="submit" name="submit"
-																	style="background: url(${ctx}/homepage/images/login_5.gif) no-repeat"
-																	value=" 登  陆 ">
-																<input type="reset" name="Submit"
-																	style="background: url(${ctx}/homepage/images/login_5.gif) no-repeat"
-																	value=" 取  消 ">
-															</td>
-														<tr>
-													</table>
-												</s:form>
-</font></td>
-										<td width="24"></td>
-										</tr>
-								</table>
-							</td></tr>
-						</table>
+								<div style="padding: 15px;">
+									<div class="alert_info" style="background-image: url(${ctx}/coursepage/style/common/error_big.gif)">
+										<p>
+											未定义操作，请返回。
+										</p>
+
+										<p class="alertmsg" style="margin-top: 8px;">
+											<a href="${ctx}/coursepage/messagemanage/messagelogin.jsp" rel="facebox">[ 点击这里进行登录]</a>
+										</p>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
 				</div>
 				<br class="clear" />
 			</div>

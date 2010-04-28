@@ -39,7 +39,7 @@
 						<s:iterator value="achievementList" status="achievement">
 							<tr>
 								<td>
-									<div class="newslist">
+									<div class="newslist" >
 										<dl>
 											<dt class="topic">
 												<a

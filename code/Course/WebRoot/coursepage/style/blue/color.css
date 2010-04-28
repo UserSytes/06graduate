@@ -211,6 +211,11 @@ div.col_center ul li a:hover {
 	color: #336699;
 }
 
+.alertmsg a{
+	font-size: 14px;
+	color: #336699;
+}
+
 .newslist {
 	BORDER-BOTTOM: #369 1px solid;
 	BORDER-LEFT: #369 1px solid;

@@ -184,7 +184,7 @@
 	WIDTH: 200px;
 	OVERFLOW: hidden;
 	PADDING-TOP: 5px;
-	HEIGHT: 28px LINE-HEIGHT :             15px;
+	HEIGHT: 28px LINE-HEIGHT :               15px;
 }
 
 #left-nav-bar H3 {
@@ -271,6 +271,11 @@
 	margin-top: 20px;
 	padding-left: 10px;
 	padding-right: 10px;
+}
+
+.table-msg {
+	width: 500px;
+	margin: 30px auto;
 }
 
 .table-app {
@@ -639,4 +644,11 @@ DIV.col_center UL LI {
 .label {
 	LINE-HEIGHT: 150%;
 	FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"
+}
+
+.alert_info {
+	padding: 6px 0 6px 58px;
+	line-height: 160%;
+	background: url() no-repeat 8px 50%;
+	font-size: 14px;
 }
