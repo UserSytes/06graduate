@@ -34,7 +34,9 @@
 				<!-- 正文部分 -->
 				<div class="pages">
 					<h2>
-						<a href="goIndexQueryAction.action">首页</a>&gt; 提示信息
+						<a href="goIndexQueryAction.action">首页</a>&gt; <a
+							href="<s:url action="evaluateAction"> 
+                					</s:url>">课程评价</a>&gt;提示信息
 					</h2>
 				</div>
 				<!-- 正文 -->

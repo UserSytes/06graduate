@@ -174,7 +174,7 @@
 						<td>
 						<td style="padding-left: 20px;" >
 							<div style="height:150px; border-left: 1px solid #DDDDDD;padding-left: 20px;padding-top: 50px;color: #444444;font-size: 14px;font-weight: 400;">
-							留言板功能目前仅对教师和学生开放，教师和学生用户请直接登录</div>
+							课程评价目前仅对学生、教师和专家开放，每位用户只能对课程评价一次</div>
 						</td>
 </tr></table>
 			</div>

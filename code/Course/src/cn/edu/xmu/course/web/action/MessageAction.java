@@ -73,20 +73,10 @@ public class MessageAction extends BaseAction {
 	}
 
 	public String logoutFromMessageBoard() {
-		student = (Student) super.getSession().get(STUDENT);
-		teacher = (Teacher) super.getSession().get(TEACHER);
-		if (null != student) {
-			System.out.println("正在登出的是" + student.getStudentNo());
-			super.getSession().remove(STUDENT);
-			super.getSession().remove(USERINFO);
-			return SUCCESS;
-		} else if (null != teacher) {
-			System.out.println("正在登出的是" + teacher.getTeacherNo());
-			super.getSession().remove(TEACHER);
-			super.getSession().remove(USERINFO);
-			return SUCCESS;
-		} else
-			return ERROR;
+		super.getSession().remove(STUDENT);
+		super.getSession().remove(USERINFO);
+		super.getSession().remove(TEACHER);
+		return SUCCESS;
 
 	}
 

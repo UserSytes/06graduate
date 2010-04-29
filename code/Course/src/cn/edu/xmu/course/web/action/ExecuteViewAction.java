@@ -178,6 +178,12 @@ public class ExecuteViewAction extends BaseAction {
 			course.setCount( course.getCount()+1);
 			courseService.updateCourse(course);
 			super.getSession().put(COURSE,course);
+			super.getSession().put("style", course.getStyle());
+			super.getSession().put("header", course.getHeader());
+			if(course.getHeader().equals("header_sand.jsp")){
+				super.getSession().put("sort", "sorttype");
+				super.getSession().put("filtercon", "allcon");
+			}
 			return "course";
 		}
 
