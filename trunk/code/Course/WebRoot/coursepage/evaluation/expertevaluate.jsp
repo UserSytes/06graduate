@@ -41,7 +41,10 @@
 						</tr>
 						<tr height="19">
 							<td>
-								<font class="timefont">当前专家平均得分为： </font>
+								<font class="timefont">当前平均得分：<s:property
+										value="expertAvgScore" />分  | 评价人数: <s:property
+										value="expertCount" />人
+								</font>
 							</td>
 						</tr>
 						<tr height="1" class="tr-title">
@@ -64,7 +67,7 @@
 													姓名：
 												</div>
 											</td>
-											<td colspan="3">												
+											<td colspan="3">
 												<s:textfield cssClass="INPUT" id="expertName"
 													name="evaluation.name" label="姓名"></s:textfield>
 												&nbsp;*
@@ -88,7 +91,7 @@
 													职位：
 												</div>
 											</td>
-											<td colspan="3">												
+											<td colspan="3">
 												<s:textfield cssClass="INPUT" id="expertPosition"
 													name="evaluation.position" label="职位"></s:textfield>
 												&nbsp;*
@@ -100,7 +103,7 @@
 													电话：
 												</div>
 											</td>
-											<td colspan="3">												
+											<td colspan="3">
 												<s:textfield cssClass="INPUT" id="expertPhone"
 													name="evaluation.phone" label="电话"></s:textfield>
 
@@ -112,7 +115,7 @@
 													邮箱：
 												</div>
 											</td>
-											<td colspan="3">												
+											<td colspan="3">
 												<s:textfield cssClass="INPUT" id="expertEmail"
 													name="evaluation.email" label="邮箱"></s:textfield>
 

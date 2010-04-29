@@ -33,9 +33,7 @@
 				</div>
 				<!-- 正文 -->
 				<div>
-					<table border="0" align="center" cellpadding="0" cellspacing="0"
-						width="704"
-						style="padding-top: 30px; padding-left: 5px; padding-right: 5px;">
+					<table align="center" cellpadding="0" cellspacing="0" class="table-news-list">
 						<s:iterator value="achievementList" status="achievement">
 							<tr>
 								<td>

@@ -41,30 +41,30 @@
 						</tr>
 						<tr height="19">
 							<td class="timefont">
-								<font class="timefont"><s:property value="scorestring" /><a
-									 style="float: right;"
-									href="<s:url action="tDetailEvaluateAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-								<s:param name="number"> 
-                       			 	<s:property value="2"/> 
-                    			</s:param>
+								<font class="timefont"><span style="float: left;"><s:property value="scorestring" />  | 平均得分：<s:property
+										value="teaAvgScore" />分  | 评价人数: <s:property
+										value="teaCount" />人</span>
+								</font>
+								<a	style="float: right;"
+									href="<s:url action="reTeaEvaluationAction"> 
+                     				<s:param name="evaluationId"> 
+                       			 	<s:property value="evaluation.id"/> 
+                    			</s:param>								
                 					</s:url>"
-									>我要重新评价</a> </font>
+									>我要重新评价</a> 
 							</td>
 						</tr>
-						<tr height="1" class="tr-title">
+						<tr height="1" class="tr-title" align="center">
 							<td></td>
 						</tr>
 						<tr>
 							<td>
 
 								<table cellpadding="0" cellspacings="0" align="center"
-									width="704" style="padding: 10px;">
+									width="100%" >
 
 									<tr>
-										<td>
+										<td style="padding: 10px;">
 											<s:text name="">${evaluation.content}</s:text>
 										</td>
 									</tr>								

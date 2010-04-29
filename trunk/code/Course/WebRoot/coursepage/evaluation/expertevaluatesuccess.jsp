@@ -30,6 +30,7 @@
 				</div>
 				<!-- 正文 -->
 				<div>
+<s:hidden name="evaluation.id"></s:hidden>
 					<table border="0" cellpadding="0" cellspacing="0"
 						class="table-info">
 						<tr height="29">
@@ -40,17 +41,17 @@
 						</tr>
 						<tr height="19">
 							<td class="timefont">
-								<font class="timefont"><s:property value="scorestring" /><a
+								<font class="timefont"><span style="float: left;"><s:property value="scorestring" />  | 平均得分：<s:property
+										value="expertAvgScore" />分  | 评价人数: <s:property
+										value="expertCount" />人 </span></font>
+								<a
 									 style="float: right;"
-									href="<s:url action="eDetailEvaluateAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-								<s:param name="number"> 
-                       			 	<s:property value="2"/> 
-                    			</s:param>
+									href="<s:url action="reExpertEvaluationAction"> 
+                     			<s:param name="evaluationId"> 
+                       			 	<s:property value="evaluation.id"/> 
+                    			</s:param>								
                 					</s:url>"
-									>我要重新评价</a> </font>
+									>我要重新评价</a>
 							</td>
 						</tr>
 						<tr height="1" class="tr-title">
@@ -58,9 +59,9 @@
 						</tr>
 						<tr>
 							<td>
-								<table cellpadding="0" cellspacing="0" align="center" width="704" style="padding:10px;">
+								<table cellpadding="0" cellspacing="0" align="center" width="100%" >
 									<tr>
-										<td>											
+										<td style="padding:10px;">											
 												<s:text name="">${evaluation.content}</s:text>
 										</td>
 									</tr>				

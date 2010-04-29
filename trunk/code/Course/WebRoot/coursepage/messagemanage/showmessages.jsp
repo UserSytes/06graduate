@@ -120,7 +120,7 @@ $(document).ready(function(){
 				</div>
 				<!-- 正文 -->
 				<div>
-					<table border="0" cellpadding="0" cellspacing="0" bgcolor="#F6F9FA">
+					<table border="0" cellpadding="0" cellspacing="0" class="table-message">
 						<tr>
 							<td width="724" align="center">
 								<table border="0" cellpadding="0" cellspacing="0" width="724">
@@ -254,7 +254,7 @@ $(document).ready(function(){
 															value="userInfo.mobile" /> </font>
 												</td>
 												<td height="40" width="514" align="right"
-													style="border-top: 1px solid #E7EEF6; border-bottom: thin solid #9db350; padding: 0px; float: right;">
+													style="border-top: 1px solid #E7EEF6; border-bottom: thin solid #9db350; padding-top: 5px; float: right;">
 													<a class="fastreply" rel="facebox"
 														href="<s:url action="goReplyWithQuoteAction">
                      										<s:param name="topicId"> 

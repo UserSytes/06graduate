@@ -42,8 +42,8 @@
 						<tr height="19">
 							<td>
 								<font class="timefont">评分：<s:property
-										value="evaluation.score" />|评价人：<s:property
-										value="evaluation.name" />| 职称：<s:property
+										value="evaluation.score" />&nbsp;| &nbsp;评价人：<s:property
+										value="evaluation.name" />&nbsp;| &nbsp;职称：<s:property
 										value="evaluation.position" />
 								</font>
 							</td>

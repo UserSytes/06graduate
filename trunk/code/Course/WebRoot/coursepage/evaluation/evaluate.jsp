@@ -24,159 +24,110 @@
 				<div class="pages">
 					<h2>
 						<a href="goIndexQueryAction.action">首页</a>&gt;
-						<a href="<s:url action="evaluateAction"> 
+						<a
+							href="<s:url action="evaluateAction"> 
                 					</s:url>">课程评价</a>&gt;详细浏览
 					</h2>
 					<br class="clear" />
 				</div>
-		<!-- 正文 -->
+				<!-- 正文 -->
 				<div>
-					<table border="0" cellpadding="0" cellspacing="0">
+					<table align="center" cellpadding="0" cellspacing="0"
+						class="table-news-list">
 						<tr>
-							<td width="724" align="center">
-								<table border="0" cellpadding="0" cellspacing="0" width="724"
-									height="94"
-									background="${ctx}/coursepage/style/green/titlebg.gif"
-									style="background-repeat: no-repeat">
-									<tr>
-										<td width="724" valign="top" align="right">
-											<font style="font-size: 12px; color: #574434"></font>
-										</td>
-									</tr>
-									<tr height="69">
-										<td valign="bottom" align="left">
-											<table border="0" cellpadding="0" cellspacing="0">
-												<tr>
-													<td align="center">
-														<font color="#966f48"
-															style="font-size: 18px; font-weight: bold">请选择评价方式</font>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<font color="#92a35d" style="font-size: 12px;"></font>
-													</td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-									<tr height="1">
-										<td width="724" bgcolor="#c4ae86" valign="top"></td>
-									</tr>
-								</table>
+							<td>
+								<div class="newslist">
+									<dl>
+										<dt class="topic">
+											学生评价
+										</dt>
+
+										<dd class="author" style="margin-top: -20px;">
+											<span>&nbsp;</span>
+										</dd>
+										<dd class="desc">
+											<span><font style="font-size: 16px;">&nbsp;&nbsp;&nbsp;平均得分:
+													<s:property value="stuAvgScore" /> 分 <br /> </font> <font
+												style="font-size: 16px;">&nbsp;&nbsp;&nbsp;评价人数: <s:property
+														value="stuCount" /> 人 </font> </span>
+										</dd>
+									</dl>
+
+									<dl>
+										<dd class="detail">
+											<span><a href="#">详细内容</a> | <a
+												href="<s:url action="sDetailEvaluateAction"></s:url>">我要评价</a>
+											</span>
+										</dd>
+
+									</dl>
+								</div>
 							</td>
 						</tr>
 						<tr>
 							<td>
-<br />
-<table cellSpacing=1 cellPadding=0 width="100%"
-			align=center border=0>
-			<tr class="tr-title">
-				<td colSpan=7>
-					<font color="#74582f" style="font-size:16px;font-weight:bold;">学生评价</font>
-				</td>
-			</tr>
-			<tr class="tr-content">
-				<td>
-					<div align="left">
-						<font style="font-size:16px;">&nbsp;&nbsp;&nbsp;平均得分: <s:property
-								value="stuAvgScore" />
-							<br> </font>
-						<font style="font-size:16px;">&nbsp;&nbsp;&nbsp;评价人数: <s:property
-								value="stuCount" />
-							<br> </font>
-<a href="<s:url action="sDetailEvaluateAction"></s:url>"> <font
-								color="green" style="font-size:14px;font-weight:bold;">【进入评价】<br></font> </a>
-					</div>
-				</td>
-			</tr>
-		</table>
+								<div class="newslist">
+									<dl>
+										<dt class="topic">
+											同行评价
+										</dt>
 
-		<table cellSpacing=1 cellPadding=0 width="100%"
-			align=center border=0>
-			<tr class="tr-title">
-				<td colSpan=7>
-					<font color="#74582f" style="font-size:16px;font-weight:bold;">同行评价</font>
-				</td>
-			</tr>
-			<tr class="tr-content">
-				<td>
-					<div align="left">
-						<font style="font-size:16px;">&nbsp;&nbsp;&nbsp;平均得分: <s:property
-								value="teaAvgScore" /> <a
-							href="teacherEvaluateResultAction.action"> <font
-								color="green">【查看详情】</font> </a> <br> </font>
-						<font style="font-size:16px;">&nbsp;&nbsp;&nbsp;评价人数: <s:property
-								value="teaCount" />
-							<br> </font>
-						&nbsp;&nbsp;&nbsp;<a
-							href="<s:url action="tDetailEvaluateAction"> 
-                					</s:url>"><font
-								color="green" style="font-size:14px;font-weight:bold;">【进入评价】</font></a><br>
+										<dd class="author" style="margin-top: -20px;">
+											<span>&nbsp;</span>
+										</dd>
+										<dd class="desc">
+											<span><font style="font-size: 16px;">&nbsp;&nbsp;&nbsp;平均得分:
+													<s:property value="teaAvgScore" /> 分 <br /> </font> <font
+												style="font-size: 16px;">&nbsp;&nbsp;&nbsp;评价人数: <s:property
+														value="teaCount" /> 人 </font> </span>
+										</dd>
+									</dl>
 
-					</div>
-				</td>
-			</tr>
-		</table>
-		<table cellSpacing=1 cellPadding=0 width="100%"
-			align=center border=0>
-			<tr class="tr-title">
-				<td colSpan=7>
-					<font color="#74582f" style="font-size:16px;font-weight:bold;">专家评价</font>
-				</td>
-			</tr>
-			<tr class="tr-content">
-				<td>
-					<div align="left">
-						<font style="font-size:16px;">&nbsp;&nbsp;&nbsp;平均得分: <s:property
-								value="expertAvgScore" /> <a
-							href="expertEvaluateResultAction.action"> <font
-								color="green">【查看详情】</font> </a> <br> </font>
-						<font style="font-size:16px;">&nbsp;&nbsp;&nbsp;评价人数: <s:property
-								value="expertCount" />
-							<br> </font>
-					&nbsp;&nbsp;&nbsp;<a
-							href="<s:url action="expertEvaluateResultAction"></s:url>"><font
-								color="green" style="font-size:14px;font-weight:bold;">【进入评价】</font></a><br>
-					</div>
-				</td>
-			</tr>
-		</table><!--
-								<table border="0" cellpadding="0" cellspacing="0" width="100%">
-									<tr>
-										<td width="24"></td>
-										<td><br />
-												<table cellpadding="0" cellspacing="0" align="center">
-					<tr>
-						<td>
-							<a href="<s:url action="studentEvaluateResultAction"> 
-                					</s:url>"><font color="#74582f" style="font-size:16px;font-weight:bold;">&gt;&gt;学生对课程的评价</font></a>
+									<dl>
+										<dd class="detail">
+											<span><a href="teacherEvaluateResultAction.action">详细内容</a>
+												| <a
+												href="<s:url action="tDetailEvaluateAction"> 
+                					</s:url>">我要评价</a>
+											</span>
+										</dd>
 
-						</td>
-					</tr>
-					<tr>
-						<td><br />
-							<a
-								href="<s:url action="expertEvaluateResultAction"> 
-                					</s:url>"><font color="#74582f" style="font-size:16px;font-weight:bold;">&gt;&gt;专家对课程的评价</font></a>
-						</td>
-					</tr>
-					<tr>
-						<td><br />
-							<a
-								href="<s:url action="teacherEvaluateResultAction"> 
-                     			
-                					</s:url>"><font color="#74582f" style="font-size:16px;font-weight:bold;">&gt;&gt;同行教师对课程的评价</font></a>
+									</dl>
+								</div>
+							</td>
+						</tr>
+<tr>
+							<td>
+								<div class="newslist">
+									<dl>
+										<dt class="topic">
+											专家评价
+										</dt>
 
-						</td>
-					</tr>
-				</table>
-										</td>
-										<td width="24"></td>
-									</tr>
-								</table>
-							--></td>
-						</tr>	
+										<dd class="author" style="margin-top: -20px;">
+											<span>&nbsp;</span>
+										</dd>
+										<dd class="desc">
+											<span><font style="font-size: 16px;">&nbsp;&nbsp;&nbsp;平均得分:
+													<s:property value="expertAvgScore" /> 分 <br /> </font> <font
+												style="font-size: 16px;">&nbsp;&nbsp;&nbsp;评价人数: <s:property
+														value="expertCount" /> 人 </font> </span>
+										</dd>
+									</dl>
+
+									<dl>
+										<dd class="detail">
+											<span><a href="expertEvaluateResultAction.action">详细内容</a>
+												| <a
+												href="<s:url action="eDetailEvaluateAction"> 
+                					</s:url>">我要评价</a>
+											</span>
+										</dd>
+
+									</dl>
+								</div>
+							</td>
+						</tr>
 					</table>
 				</div>
 				<br class="clear" />

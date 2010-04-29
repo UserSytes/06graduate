@@ -150,6 +150,7 @@
 }
 
 #left-nav-bar {
+	margin-top:5PX;
 	PADDING-RIGHT: 5px;
 	PADDING-LEFT: 5px;
 	FLOAT: left;
@@ -228,6 +229,7 @@
 	FLOAT: right;
 	WIDTH: 724px;
 	min-height: 508px;
+	margin-top:5PX;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
 }
@@ -273,6 +275,10 @@
 	padding-right: 10px;
 }
 
+.table-info tr td{
+	padding-left: 10px;
+}
+
 .table-msg {
 	width: 500px;
 	margin: 30px auto;
@@ -289,6 +295,15 @@
 	margin-bottom: 20px;
 	margin-left: 5px;
 	margin-right: 5px;
+}
+
+.table-news-list{
+	width:704px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	margin-left: 5px;
+	margin-right: 5px;
+	border: 0px;
 }
 
 .table-title {
@@ -544,7 +559,7 @@ DIV.col_center UL LI {
 .newslist DL DD.author SPAN {
 	PADDING-BOTTOM: 6px;
 	PADDING-LEFT: 0px;
-	PADDING-RIGHT: 450px;
+	PADDING-RIGHT: 500px;
 	FONT-WEIGHT: normal;
 	PADDING-TOP: 0px
 }
