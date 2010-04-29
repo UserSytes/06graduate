@@ -40,7 +40,6 @@ public class MessageAction extends BaseAction {
 	private String keyword="";
 	private String authorName="";
 	private Date keydate;
-	private int searchFlag;
 	private String replyString="";
 	private int replyGrade;
 	private String replyContent="";
@@ -396,14 +395,6 @@ public class MessageAction extends BaseAction {
 
 	public String getAuthorName() {
 		return authorName;
-	}
-
-	public void setSearchFlag(int searchFlag) {
-		this.searchFlag = searchFlag;
-	}
-
-	public int getSearchFlag() {
-		return searchFlag;
 	}
 
 	public void setReplyString(String replyString) {
