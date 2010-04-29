@@ -68,7 +68,7 @@ public class MessageAction extends BaseAction {
 				super.getSession().put(USERINFO, student.getUserInfo());				
 			}
 		}
-		topicList = getTopicService().getAllTopics(course);
+		topicList = getTopicService().getAllTopics(super.getCourse());
 		return SUCCESS;
 	}
 
