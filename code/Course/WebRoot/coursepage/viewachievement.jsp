@@ -51,8 +51,8 @@
 						</tr>
 						<tr>
 							<td width="704">
-								<table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding: 10px;">
-									<tr><td>
+								<table border="0" cellpadding="0" cellspacing="0" width="100%" >
+									<tr><td style="padding: 10px;">
 											<s:property
 													value="achievement.content" escape="false" /><font style="font-size: 14px; color: #74582f"> <br /> 附件：<a
 												href="<s:url action="download"> 

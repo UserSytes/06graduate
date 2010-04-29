@@ -40,17 +40,13 @@
 						</tr>
 						<tr height="19">
 							<td class="timefont">
-								<font class="timefont">学生评价平均分为：<s:property value="stuAvgScore" /><a
+								<font class="timefont"><span style="float: left;">当前平均得分：<s:property
+										value="stuAvgScore" />分  | 评价人数: <s:property
+										value="stuCount" />人</span>
+								</font><a
 									style="float: right;"
-									href="<s:url action="sDetailEvaluateAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-								<s:param name="number"> 
-                       			 	<s:property value="2"/> 
-                    			</s:param>
-                					</s:url>">我要重新评价</a>
-								</font>
+									href="${ctx}/coursepage/evaluation/studentevaluate.jsp">我要重新评价</a>
+								
 							</td>
 						</tr>
 						<tr height="1" class="tr-title">

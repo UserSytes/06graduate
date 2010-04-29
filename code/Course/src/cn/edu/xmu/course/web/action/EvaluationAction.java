@@ -35,7 +35,7 @@ public class EvaluationAction extends BaseAction {
 	private Object expertAvgScore = 0;
 	private Object stuCount;
 	private Object expertCount;
-	private Object teaAvgScore=0;
+	private Object teaAvgScore = 0;
 	private Object teaCount;
 	private List<Evaluation> evaluationList;
 	private Teacher teacher;
@@ -43,46 +43,54 @@ public class EvaluationAction extends BaseAction {
 	private int flag;
 	private ILoginService loginService;
 	private String userName, password;
-	private String number;
 	private boolean result;
-	
+
 	private List<Course> courseList;
 	private List<String> courseIds;
-	private List<CourseEvaluate> courseEvaluateList = new ArrayList<CourseEvaluate>() ;
+	private List<CourseEvaluate> courseEvaluateList = new ArrayList<CourseEvaluate>();
 
 	public String loginFromEvaluation() {
 		course = super.getCourse();
 		if (getFlag() == 0) {
-			evaluation = getLoginService().expertLogin(userName, getPassword(),0);
+			evaluation = getLoginService().expertLogin(userName, getPassword(),
+					0);
 			System.out.println(userName);
 			if (null == evaluation) {
 				addActionError("用户名获密码错误！请返回重试！");
 				return ERROR;
 			} else {
 				System.out.println(evaluation.getPassword());
+				super.getSession().remove(EVALUATION);
 				super.getSession().put(EVALUATION, evaluation);
-				return "expert";
+				getExpertAverage(evaluation.getCourse().getId());
+				score = evaluation.getScore();
+				if (score == null) {
+					return "expert";
+				} else {
+					scorestring = "您已经评价过，你上一次对该课程的评分是：" + score.intValue()
+							+ "分";
+					return "exsuccess";
+				}
 			}
 		} else if (getFlag() == 1) {
-			evaluation = getLoginService().expertLogin(userName, getPassword(),1);
+			evaluation = getLoginService().expertLogin(userName, getPassword(),
+					1);
 			System.out.println(userName);
 			if (null == evaluation) {
 				addActionError("用户名获密码错误！请返回重试！");
 				return ERROR;
 			} else {
 				System.out.println(evaluation.getPassword());
+				super.getSession().remove(EVALUATION);
 				super.getSession().put(EVALUATION, evaluation);
+				getTeaAverage(course.getId());
 				score = evaluation.getScore();
 				if (score == null) {
 					return "teacher";
 				} else {
-					if(number==null)
-					{
-						scorestring = "您已经评价过，你上一次对该课程的评分是："+ score.intValue() + "分";
-						return "tesuccess";
-					}
-					else
-						return "teacher";				
+					scorestring = "您已经评价过，你上一次对该课程的评分是：" + score.intValue()
+							+ "分";
+					return "tesuccess";
 				}
 			}
 		} else {
@@ -94,53 +102,19 @@ public class EvaluationAction extends BaseAction {
 				userInfo = student.getUserInfo();
 				super.getSession().put(STUDENT, student);
 				super.getSession().put(USERINFO, student.getUserInfo());
-
-				studentCourse = evaluateService.findByStudentAndCourse(course,student).get(0);
+				getStuAverage(evaluation.getCourse().getId());
+				studentCourse = evaluateService.findByStudentAndCourse(course,
+						student).get(0);
 				score = studentCourse.getScore();
 				if (score == null) {
-					return "student";				
+					return "student";
 				} else {
-					if(number==null)
-					{
-						scorestring = "您已经评价过，你上一次对该课程的评分是："+ score.intValue() + "分";
-						return SUCCESS;
-					}
-					else
-						return "student";
+					scorestring = "您已经评价过，你上一次对该课程的评分是：" + score.intValue()
+							+ "分";
+					return SUCCESS;
 				}
 			}
 		}
-	}
-
-	/**
-	 * 进入课程评价
-	 * 
-	 * @return
-	 */
-
-	public String evaluate() {
-		course = super.getCourse();
-		return SUCCESS;
-	}
-
-	/**
-	 * 学生课程评价结果
-	 * 
-	 * @return
-	 */
-	public String studentEvaluateResult() {
-		course = super.getCourse();
-		viewScore = evaluateService.calculatStudent(1);
-		if (viewScore == null) {
-			scorestring = "该课程还没有学生评价";
-			return SUCCESS;
-		}
-		if (viewScore != null) {			
-			int i = viewScore.toString().lastIndexOf(".");
-			scorestring = viewScore.toString().substring(0, i) + "分";
-			return SUCCESS;
-		} else
-			return ERROR;
 	}
 
 	/**
@@ -149,12 +123,10 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String expertEvaluateResult() {
-		course = super.getCourse();	
-		evaluationList=evaluateService.findByCourseAndSortAndStatus(course, 0,1);
-		if (evaluationList == null) {
-			return ERROR;
-		} else
-			return SUCCESS;
+		course = super.getCourse();
+		evaluationList = evaluateService.findByCourseAndSortAndStatus(course,
+				0, 1);
+		return SUCCESS;
 	}
 
 	/**
@@ -163,12 +135,10 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String teacherEvaluateResult() {
-		course = super.getCourse();	
-		evaluationList=evaluateService.findByCourseAndSortAndStatus(course, 1,1);
-		if (evaluationList == null) {
-			return ERROR;
-		} else
-			return SUCCESS;
+		course = super.getCourse();
+		evaluationList = evaluateService.findByCourseAndSortAndStatus(course,
+				1, 1);
+		return SUCCESS;
 	}
 
 	/**
@@ -179,10 +149,7 @@ public class EvaluationAction extends BaseAction {
 	public String enterEvaluation() {
 		course = super.getCourse();
 		evaluation = evaluateService.findById(evaluationId);
-		if (evaluation == null) {
-			return ERROR;
-		} else
-			return SUCCESS;
+		return SUCCESS;
 	}
 
 	/**
@@ -193,10 +160,7 @@ public class EvaluationAction extends BaseAction {
 	public String enterTeaEvaluation() {
 		course = super.getCourse();
 		evaluation = evaluateService.findById(evaluationId);
-		if (evaluation == null) {
-			return ERROR;
-		} else
-			return SUCCESS;
+		return SUCCESS;
 	}
 
 	/**
@@ -205,17 +169,20 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String studentEvaluate() {
-		student = (Student) super.getSession().get(STUDENT);
+		student = super.getStudent();
 		course = super.getCourse();
-    	studentCourse = evaluateService.findByStudentAndCourse(course, student).get(0);
+		studentCourse = evaluateService.findByStudentAndCourse(course, student)
+				.get(0);
 		studentCourse.setScore(score);
 		result = evaluateService.updateStudentCourse(studentCourse);
 		if (result) {
-			scorestring = "评价成功，你的评分是：" + score.intValue()
-					+ "分";
+			scorestring = "评价成功，你的评分是：" + score.intValue() + "分";
+			getStuAverage(course.getId());
 			return SUCCESS;
-		} else
+		} else {
+			addActionError("评价失败，请重新操作！");
 			return ERROR;
+		}
 	}
 
 	/**
@@ -224,16 +191,18 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String expertEvaluate() {
-		course=super.getCourse();
-		score=evaluation.getScore();
+		course = super.getCourse();
+		score = evaluation.getScore();
 		evaluation.setStatus(1);
 		result = evaluateService.updateEvaluation(evaluation);
 		if (result) {
-			scorestring = "评价成功，你的评分是：" + score.intValue()
-			+ "分";
+			scorestring = "评价成功，你的评分是：" + score.intValue() + "分";
+			getExpertAverage(course.getId());
 			return SUCCESS;
-		} else
+		} else {
+			addActionError("评价失败，请重新操作！");
 			return ERROR;
+		}
 	}
 
 	/**
@@ -244,31 +213,36 @@ public class EvaluationAction extends BaseAction {
 	public String teacherEvaluate() {
 		teacher = super.getTeacher();
 		course = super.getCourse();
-		score=evaluation.getScore();
+		score = evaluation.getScore();
 		evaluation.setStatus(1);
 		result = evaluateService.updateEvaluation(evaluation);
-    	if (result) {
-			scorestring = "评价成功，你的评分是：" + score.intValue()
-			+ "分";
+		if (result) {
+			scorestring = "评价成功，你的评分是：" + score.intValue() + "分";
+			getTeaAverage(course.getId());
 			return SUCCESS;
-		} else
+		} else {
+			addActionError("评价失败，请重新操作！");
 			return ERROR;
+		}
 	}
+
 	/**
 	 * 专家课程评价（草稿）
 	 * 
 	 * @return
 	 */
 	public String expertEvaluateDraft() {
-		course=super.getCourse();
-		score=evaluation.getScore();
+		course = super.getCourse();
+		score = evaluation.getScore();
 		evaluation.setStatus(0);
 		result = evaluateService.updateEvaluation(evaluation);
 		if (result) {
 			scorestring = "保存草稿成功！";
 			return SUCCESS;
-		} else
+		} else {
+			addActionError("保存草稿失败，请重新操作！");
 			return ERROR;
+		}
 	}
 
 	/**
@@ -279,94 +253,84 @@ public class EvaluationAction extends BaseAction {
 	public String teacherEvaluateDraft() {
 		teacher = super.getTeacher();
 		course = super.getCourse();
-		score=evaluation.getScore();
+		score = evaluation.getScore();
 		evaluation.setStatus(0);
 		result = evaluateService.updateEvaluation(evaluation);
-    	if (result) {
+		if (result) {
 			scorestring = "保存草稿成功！";
 			return SUCCESS;
-		} else
+		} else {
+			addActionError("保存草稿失败，请重新操作！");
 			return ERROR;
+		}
+	}
+
+	public String reExpertEvaluation() {
+		evaluation = evaluateService.findById(evaluationId);
+		getExpertAverage(evaluation.getCourse().getId());
+		return SUCCESS;
+	}
+
+	public String reTeaEvaluation() {
+		evaluation = evaluateService.findById(evaluationId);
+		getTeaAverage(evaluation.getCourse().getId());
+		return SUCCESS;
 	}
 	
+	public String reStuEvaluation(){
+		getStuAverage(super.getCourse().getId());
+		return SUCCESS;
+	}
+
 	public String eDetailEvaluate() {
-		course=super.getCourse();
-		// evaluation = evaluateService.findById(1);
+		course = super.getCourse();
 		evaluation = (Evaluation) super.getSession().get(EVALUATION);
-		if (null == evaluation||evaluation.getSort()==1) {
-			addActionError("您还未登录，请先登录！");
+		if (null == evaluation || evaluation.getSort() == 1) {
 			return "login";
 		} else {
-			course = super.getCourse();
+			getExpertAverage(course.getId());
 			score = evaluation.getScore();
 			if (score == null) {
 				return "evluate";
 			} else {
-				if(number==null)
-				{
-					scorestring = "您已经评价过，你上一次对该课程的评分是："
-						+ score.intValue() + "分";
-					return SUCCESS;
-				}
-				else
-					return "evluate";			
+				scorestring = "您已经评价过，你上一次对该课程的评分是：" + score.intValue() + "分";
+				return SUCCESS;
 			}
 		}
 	}
 
 	public String tDetailEvaluate() {
-		course=super.getCourse();
+		course = super.getCourse();
 		evaluation = (Evaluation) super.getSession().get(EVALUATION);
-		if (null == evaluation||evaluation.getSort()==0) {
-			addActionError("您还未登录，请先登录！");
+		if (null == evaluation || evaluation.getSort() == 0) {
 			return "login";
 		} else {
-			course = super.getCourse();		
-           score = evaluation.getScore();
+			getTeaAverage(course.getId());
+			score = evaluation.getScore();
 			if (score == null) {
 				return "evluate";
 			} else {
-				if(number==null)
-				{
-					scorestring = "您已经评价过，你上一次对该课程的评分是："
-						+ score.intValue() + "分";
-					return SUCCESS;
-				}
-				else
-					return "evluate";			
+				scorestring = "您已经评价过，你上一次对该课程的评分是：" + score.intValue() + "分";
+				return SUCCESS;
 			}
 		}
 	}
 
 	public String sDetailEvaluate() {
-		course=super.getCourse();
-		student = (Student) super.getSession().get(STUDENT);
-		if (null == student && null == teacher) {
-			addActionError("您还未登录，请先登录！");
+		course = super.getCourse();
+		student = super.getStudent();
+		if (null == student) {
 			return "login";
 		} else {
-			userInfo = student.getUserInfo();
-			if(course != null){			
-				course = courseService.getCourseById(course.getId());
-				super.getSession().put(COURSE,course);
-			}else{
-				course = super.getCourse();
-			}
-
+			getStuAverage(course.getId());
 			studentCourse = evaluateService.findByStudentAndCourse(course,
 					student).get(0);
 			score = studentCourse.getScore();
 			if (score == null) {
-				return "evluate";			
+				return "evluate";
 			} else {
-				if(number==null)
-				{
-					scorestring = "您已经评价过，你上一次对该课程的评分是："
-						+ score.intValue() + "分";
-					return SUCCESS;
-				}
-				else
-					return "evluate";
+				scorestring = "您已经评价过，你上一次对该课程的评分是：" + score.intValue() + "分";
+				return SUCCESS;
 			}
 		}
 	}
@@ -377,19 +341,19 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String getEvaluationListByCourse() {
-		evaluationList = evaluateService.findByCourseAndSort(super
-				.getCourse(),0);
+		evaluationList = evaluateService.findByCourseAndSort(super.getCourse(),
+				0);
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * 获得该课程同行评价列表（教师）
 	 * 
 	 * @return
 	 */
 	public String getEvaTeacherListByCourse() {
-		evaluationList = evaluateService.findByCourseAndSort(super
-				.getCourse(),1);
+		evaluationList = evaluateService.findByCourseAndSort(super.getCourse(),
+				1);
 		return SUCCESS;
 	}
 
@@ -399,23 +363,35 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String getEvaluationResult() {
-		course=super.getCourse();
+		course = super.getCourse();
+		getExpertAverage(course.getId());
+		getTeaAverage(course.getId());
+		getStuAverage(course.getId());
+		return SUCCESS;
+	}
+	
+	public void getExpertAverage(int courseId){
 		Object[] evaluationResult = evaluateService
-				.getEvaluationCalculateResult(course.getId(), 0);
-		Object[] teaResult = evaluateService
-		.getEvaluationCalculateResult(course.getId(), 1);
-		Object[] scResult = evaluateService
-				.getStudentCourseCalculateResult(course.getId());
-		stuCount = scResult[0];
+		.getEvaluationCalculateResult(courseId, 0);
 		expertCount = evaluationResult[0];
-		teaCount = teaResult[0];
-		if(teaResult[1] !=null)
-			teaAvgScore = teaResult[1];
-		if (scResult[1] != null)
-			stuAvgScore = scResult[1];
 		if (evaluationResult[1] != null)
 			expertAvgScore = evaluationResult[1];
-		return SUCCESS;
+	}
+	
+	public void getTeaAverage(int courseId){
+		Object[] teaResult = evaluateService.getEvaluationCalculateResult(
+				courseId, 1);
+		teaCount = teaResult[0];
+		if (teaResult[1] != null)
+			teaAvgScore = teaResult[1];
+	}
+	
+	public void getStuAverage(int courseId){
+		Object[] scResult = evaluateService
+		.getStudentCourseCalculateResult(courseId);
+		stuCount = scResult[0];
+		if (scResult[1] != null)
+			stuAvgScore = scResult[1];
 	}
 
 	/**
@@ -432,6 +408,7 @@ public class EvaluationAction extends BaseAction {
 			return ERROR;
 		}
 	}
+
 	/**
 	 * 邀请新的同行进行评价（教师)
 	 * 
@@ -446,15 +423,14 @@ public class EvaluationAction extends BaseAction {
 			return ERROR;
 		}
 	}
-	
+
 	/**
 	 * 获取学院课程列表
 	 * 
 	 * @return
 	 */
 	public String findCourse() {
-		Administrator admin = (Administrator) super.getSession().get(
-				ADMIN);
+		Administrator admin = (Administrator) super.getSession().get(ADMIN);
 		School school = admin.getSchool();
 		courseList = courseService.findBySchool(school);
 		if (courseList.size() == 0) {
@@ -464,39 +440,41 @@ public class EvaluationAction extends BaseAction {
 			return SUCCESS;
 		}
 	}
-	
+
 	/**
 	 * 获取选择的课程
+	 * 
 	 * @return
 	 */
 	public String showEvaluateCourses() {
 		courseList = new ArrayList<Course>();
-		for(int i = 0; i< courseIds.size(); i++){
-			Course course = courseService.getCourseById( Integer.parseInt(courseIds.get(i)) );
+		for (int i = 0; i < courseIds.size(); i++) {
+			Course course = courseService.getCourseById(Integer
+					.parseInt(courseIds.get(i)));
 			courseList.add(course);
 		}
-		if(courseList.size()==0){
+		if (courseList.size() == 0) {
 			addActionError("您未选择任何课程！");
 			return ERROR;
-		}else{
-			courseEvaluateList = evaluateService.getEvaluateByCourseList(courseList);
+		} else {
+			courseEvaluateList = evaluateService
+					.getEvaluateByCourseList(courseList);
 			super.getSession().put("data", courseEvaluateList);
 			return SUCCESS;
 		}
 	}
-	
+
 	/**
 	 * 生成课程柱形图
+	 * 
 	 * @return
 	 */
 	public String genrEvaluateChart() {
 		try {
-			Administrator admin = (Administrator) super.getSession().get(
-					ADMIN);
+			Administrator admin = (Administrator) super.getSession().get(ADMIN);
 			School school = admin.getSchool();
 			Date currentDate = new Date();
-			super.getSession().put(
-					"title", school.getName()+ "课程评价对比柱形图");
+			super.getSession().put("title", school.getName() + "课程评价对比柱形图");
 			super.getSession().put("abscissa", "课程");
 			super.getSession().put("ordinate", "平均分");
 
@@ -507,7 +485,7 @@ public class EvaluationAction extends BaseAction {
 			return ERROR;
 		}
 	}
-	
+
 	public String getEvaluationDetail() {
 		evaluation = evaluateService.findById(evaluationId);
 		return SUCCESS;
@@ -687,14 +665,6 @@ public class EvaluationAction extends BaseAction {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getNumber() {
-		return number;
-	}
-
-	public void setNumber(String number) {
-		this.number = number;
 	}
 
 	public boolean isResult() {

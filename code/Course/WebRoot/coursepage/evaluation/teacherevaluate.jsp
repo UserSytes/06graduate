@@ -49,7 +49,10 @@
 						</tr>
 						<tr height="19">
 							<td>
-								<font class="timefont">当前同行平均得分为： </font>
+								<font class="timefont">当前平均得分：<s:property
+										value="teaAvgScore" />分  | 评价人数: <s:property
+										value="teaCount" />人
+								</font>
 							</td>
 						</tr>
 						<tr height="1" class="tr-title">

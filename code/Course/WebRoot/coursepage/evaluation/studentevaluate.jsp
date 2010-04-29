@@ -19,8 +19,7 @@
 		<div class="content">
 			<!-- 左侧 -->
 			<s:include value="../style/left.jsp"></s:include>
-			<div id="right-cnt">
-				<br class="clear" />
+			<div id="right-cnt">			
 				<!-- 正文部分 -->
 				<div class="pages">
 					<h2>
@@ -28,8 +27,7 @@
 						<a
 							href="<s:url action="evaluateAction"> 
                 					</s:url>">课程评价</a>&gt;学生评价
-					</h2>
-					<br class="clear" />
+					</h2>					
 				</div>
 				<!-- 正文 -->
 				<div>
@@ -39,6 +37,14 @@
 							<td align="center">
 								<font style="font-size: 16px; font-weight: bold">
 									我对该课程的评价</font>
+							</td>
+						</tr>
+						<tr height="19">
+							<td>
+								<font class="timefont">当前平均得分：<s:property
+										value="stuAvgScore" />分  | 评价人数: <s:property
+										value="stuCount" />人
+								</font>
 							</td>
 						</tr>
 						<tr height="1" class="tr-title">

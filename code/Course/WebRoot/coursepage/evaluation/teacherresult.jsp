@@ -66,7 +66,7 @@
 										</td>
 									</tr>
 									<s:iterator value="evaluationList" status="evaluation">
-										<tr class="tr-content"
+										<tr height="33"  class="tr-content"
 											<s:if test="#evaluation.odd">style="background-color:#fFF"</s:if>>
 											<td align="center">
 												<s:property value="#evaluation.count" />

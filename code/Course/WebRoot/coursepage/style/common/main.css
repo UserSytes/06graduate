@@ -48,20 +48,6 @@ label {
 	padding: 6px 40px 5px;
 }
 
-a {
-	color: #46c5ec;
-	border-bottom: 1px solid #294e5a;
-}
-
-a:hover,a:focus {
-	color: #ededed;
-	border-bottom-color: #595959;
-}
-
-a:active {
-	position: relative;
-	top: 1px;
-}
 
 del {
 	text-decoration: line-through;
@@ -85,12 +71,6 @@ ul li {
 	list-style: none;
 }
 
-strong {
-	font-size: 14;
-	font-weight: normal;
-	color: #FFFFFF;
-	text-shadow: rgba(255, 255, 255, 0.85) 0 0 3px;
-}
 
 .header {
 	font: normal 24px/ 1 "Myriad Pro", "Myriad", "Gill Sans",
@@ -160,6 +140,11 @@ strong {
 
 .image-grid li img,.image-grid li strong {
 	display: block;
+}
+
+.image-grid li strong {
+	font-weight: normal;
+	text-shadow: rgba(255, 255, 255, 0.85) 0 0 3px;
 }
 
 .image-grid li span {
