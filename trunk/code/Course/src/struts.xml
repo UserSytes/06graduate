@@ -1421,8 +1421,7 @@
 		</action>
 		<action name="changeHeaderAction" method="changeHeader"
 			class="enterCourseAction">
-			<result name="success">/coursepage/index.jsp
-			</result>
+				<result name="success" type="redirect-action">goIndexQueryAction</result>
 		</action>
 		<action name="getLeftNoticeAction" method="getLeftNotice"
 			class="enterCourseAction">
@@ -1549,9 +1548,8 @@
 			<result name="success">/coursepage/messagemanage/showtopics.jsp</result>
 			<result name="error">/coursepage/prompt.jsp</result>
 			</action>
-		<action name="logoutFromMessageBoardAction" method="loginFromMessageBoard" class="messageAction">
-			<result name="success">/coursepage/logoutsuccess.jsp</result>
-			<result name="error">/coursepage/prompt.jsp</result>
+		<action name="logoutFromMessageBoardAction" method="logoutFromMessageBoard" class="messageAction">
+			<result name="success" type="redirect-action">goIndexQueryAction</result>
 			</action>
 		<action name="enterPersionalSpaceAction" method="enterPersionalSpace" class="messageAction">
 			<result name="teacher">/teacher/main.jsp</result>

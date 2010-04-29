@@ -44,13 +44,7 @@ public class EnterCourseAction extends BaseAction {
 	private String result;
 	
 	public String goIndexQuery(){
-		course=super.getCourse();
-		super.getSession().put("style", course.getStyle());
-		super.getSession().put("header", course.getHeader());
-		if(course.getHeader().equals("header_sand.jsp")){
-			super.getSession().put("sort", "sorttype");
-			super.getSession().put("filtercon", "allcon");
-		}
+		course=super.getCourse();		
 		setCourseInfo(courseInfoService.getCourseInfo(course.getId(),
 				1));
 		setAchievementList(getAchievementService().getAllAchievements(course));
@@ -58,8 +52,7 @@ public class EnterCourseAction extends BaseAction {
 			setCourseInfo(new CourseInfo());
 			getCourseInfo().setContent("暂无任何内容！");
 		}		
-		setNoticeList(noticeService.findLastestFiveNews(course,0));	
-		
+		setNoticeList(noticeService.findLastestFiveNews(course,0));			
 		return SUCCESS;
 	}
 	
@@ -88,15 +81,7 @@ public class EnterCourseAction extends BaseAction {
 		if(header.equals("header_sand.jsp")){
 			super.getSession().put("sort", "sorttype");
 			super.getSession().put("filtercon", "allcon");
-		}
-		setCourseInfo(courseInfoService.getCourseInfo(course.getId(),
-				1));
-		setAchievementList(getAchievementService().getAllAchievements(course));
-		if (null == getCourseInfo()) {
-			setCourseInfo(new CourseInfo());
-			getCourseInfo().setContent("暂无任何内容！");
-		}		
-		setNoticeList(noticeService.findLastestFiveNews(course,0));			
+		}				
 		return SUCCESS;
 	}
 	
