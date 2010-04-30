@@ -67,7 +67,7 @@ public class MessageAction extends BaseAction {
 				super.getSession().put(USERINFO, student.getUserInfo());				
 			}
 		}
-		topicList = getTopicService().getAllTopics(super.getCourse());
+		topicList = getTopicService().getAllTopicsOrderByTime(super.getCourse());
 		return SUCCESS;
 	}
 
@@ -100,7 +100,7 @@ public class MessageAction extends BaseAction {
 				message, super.getUserInfo());
 		if (result) {
 			userInfo = super.getUserInfo();
-			topicList = getTopicService().getAllTopics(course);
+			topicList = getTopicService().getAllTopicsOrderByTime(course);
 			message = null;
 			return SUCCESS;
 		} else {
@@ -167,7 +167,7 @@ public class MessageAction extends BaseAction {
 		} else {
 
 				userInfo = super.getUserInfo();
-				topicList = getTopicService().getAllTopics(course);
+				topicList = getTopicService().getAllTopicsOrderByTime(course);
 			if (topicList.size()> 0) {
 				return "topics";
 			} else {
