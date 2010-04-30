@@ -12,9 +12,13 @@
 			rel="stylesheet" />
 		<link type="text/css" href="${ctx}/coursepage/style/common/easyui.css"
 			rel="stylesheet" />
+		<link href="${ctx}/facebox/facebox.css" media="screen"
+			rel="stylesheet" type="text/css" />	
 		<link id="cssfile"
 			href="${ctx}/coursepage/style/<s:property value="#session.style"/>/color.css"
 			rel="stylesheet" type="text/css" />
+		<script src="${ctx}/facebox/facebox.js" type="text/javascript"></script>
+
 		<style type="text/css">
 .active {
 	background-position: right 12px;
@@ -37,6 +41,10 @@
 </style>
 		<script type="text/javascript">
 	$( function() {
+		$('a[rel*=facebox]').facebox( {
+			loading_image :'${ctx}/facebox/loading.gif',
+			close_image :'${ctx}/facebox/closelabel.gif'
+		})
 		var de = document.documentElement;
 		var db = document.body;
 		var viewW = de.clientWidth == 0 ? db.clientWidth : de.clientWidth;
@@ -353,7 +361,7 @@
 					</li>
 
 					<li>
-						<a href="#">加入收藏</a>
+						<a href="addCollectionAction.action" rel="facebox" />加入收藏</a>
 					</li>
 					<li>
 						<a href="#" style="margin-top: -5px" id="mb1"
@@ -361,10 +369,8 @@
 
 					</li>
 				</ul>
-				<img
-					src="${ctx}/coursepage/style/<s:property value="#session.style"/>/logo.gif"
-					alt="居然之家" name="logo" width="200" height="75" id="logo" />
-				<br class="clear" />
+				<img src="${ctx}/coursepage/style/common/logo.png" 
+				name="logo" width="950" height="155" />
 
 			</div>
 

@@ -114,13 +114,7 @@
 														<font color="red">点此下载</font> </a>
 													</td>
 										</tr>
-									</s:iterator>
-									<tr height="4">
-										<td></td>
-									</tr>								
-									<tr height="3" class="tr-foot">
-										<td colspan="14" width="630"></td>
-									</tr>
+									</s:iterator>									
 								</table>
 								<!--/게시판 -->
 							</td>

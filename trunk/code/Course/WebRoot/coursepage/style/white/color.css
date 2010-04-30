@@ -12,23 +12,23 @@ body {
 }
 
 #sub_nav li {
-	color: #000;
+	color: #282828;
 }
 
 #sub_nav li a:link {
-	color: #000;
+	color: #282828;
 }
 
 #sub_nav li a:visited {
-	color: #FFF;
+	color: #282828;
 }
 
 #sub_nav li a:hover {
-	color: #FFF;
+	color: #282828;
 }
 
 .image-grid li strong {
-	color: #FFF;
+	color: #000;
 }
 
 .dgreen-bg {
@@ -72,10 +72,6 @@ body {
 	border-bottom: 4px solid #D1D1D1;
 }
 
-#top-contact-info {
-	color: #565615;
-}
-
 #left-nav-bar {
 	background: #EAE9E9;
 	color: #605D5D;
@@ -91,25 +87,18 @@ body {
 	border-bottom: 1px solid #cdcdcd;
 }
 
-#left-nav-bar h3 {
-	border-top: 1px solid #D8CECD;
-	border-bottom: 1px solid #D8CECD;
-	color: #5E6068;
-}
-
-#left-nav-bar h3 a {
-	border-top: 1px solid #D8CECD;
-	border-bottom: 1px solid #D8CECD;
-}
-
 #right-cnt {
 	background: #FFF;
 }
 
-#right-cnt p {
-	color: #DA1358;
-}
 
+.main_con {
+	border: 1px solid #D1D1D1;
+}
+#right-cnt {
+	background-color:#F6F9FA;
+	border: 1px solid #D1D1D1;
+}
 .pages {
 	background-color: #F0F0F0;
 	border-bottom: 3px solid #EAE9E9;
@@ -118,23 +107,18 @@ body {
 .pages h2 {
 	color: #282828;
 }
+.pages h2 a{
+	color: #282828;
+}
 
 #tags {
 	background-color: #F6F6F6;
 }
 
-#products-list li ul li {
-	border-top: 1px dashed #000;
-	color: #6F6F6F;
-}
-
-#products-list li ul li span {
-	color: #C80000;
-}
-
 div.col_center {
+	background-color:#F6F9FA;
 	margin-top: 0px;
-	border: 1px solid #E3E3E3;
+	border: 1px solid #D1D1D1;
 }
 
 .sub-title {
@@ -181,5 +165,169 @@ div.col_center ul li a:hover {
 	border-top: 3px solid #EAE9E9;
 	text-align: left;
 	color: #000;
+}
+
+
+.table-app {
+	border: 1px solid #666;
+	background-color: #F6F9FA;
+}
+
+.timefont {
+	font-size: 12px;
+	color: #5D5F62;
+}
+
+.timefont a{
+	font-size: 12px;
+	color: #5D5F62;
+}
+
+.trborder td{
+	background-color: #DDDDDD;
+}
+
+.alertmsg a{
+	font-size: 14px;
+	color: #336699;
+}
+
+.newslist {
+	BORDER: #7AA7BC 1px solid;
+}
+
+.newslist DL DD.author SPAN {
+	BORDER-BOTTOM: #7AA7BC 1px solid;
+	COLOR: #7AA7BC;
+}
+
+.newslist DL DT.topic{
+	COLOR: #2C7D7D;
+}
+
+.newslist DL DT.topic a{
+	COLOR: #2C7D7D;
+}
+
+.newslist DL DD.detail {
+	BACKGROUND: #FFF;
+}
+
+.newslist DL DD.detail SPAN {
+	COLOR: #2C7D7D;
+}
+
+.newslist DL DD.detail EM {
+	COLOR: #2C7D7D;
+}
+
+.newslist DL DD.detail A:link {
+	COLOR: #2C7D7D;
+}
+
+.newslist DL DD.detail A:visited {
+	COLOR: #2C7D7D;
+}
+
+.newslist DL DD.detail A:hover {
+	COLOR: #2C7D7D;
+}
+
+.table-list {
+	border: 1px solid #336699;
+	background-color: #EBF4FD;
+}
+
+.table-title {
+	color: #036;
+}
+
+.table-message{
+	background-color: #F0F8FF;	
+}
+
+.tr-head {
+	background-color: #58ACFA;
+}
+
+.tr-foot {
+	background-color: #b1ceee;
+}
+
+.td-foot {
+	background-color: #58ACFA;
+}
+
+.tr-title td {
+	background-color: #D3E8EB;
+}
+.tr-content {
+	background-color: #EFF4F7;
+}
+
+.tr-content td {
+	color: #036;
+}
+
+.titlea {
+	color: #5D5F62;
+}
+
+a.titlea:link {
+	color: #5D5F62;
+}
+
+a.titlea:visited {
+	color: #5D5F62;
+}
+
+a.titlea:hover {
+	color: #0000CD;
+}
+
+.ui-widget-header {
+	border: 1px solid #aaaaaa;
+	background: #D3E8EB;
+	color: #222222;
+	font-weight: bold;
+}
+
+.ui-state-default{
+	background: none;
+}
+
+tr.odd {
+	background-color: #EFF4F7;
+}
+
+tr.even {
+	background-color: white;
+}
+
+tr.odd td.sorting_1 {
+	background-color: #D8EBEF;
+}
+
+tr.odd td.sorting_2 {
+	background-color: #D8EBEF;
+}
+
+tr.odd td.sorting_3 {
+	background-color: #D8EBEF;
+}
+
+tr.even td.sorting_1 {
+	background-color: #EBF5F6;
+}
+
+tr.even td.sorting_2 {
+	background-color: #EBF5F6;
+}
+
+tr.even td.sorting_3 {
+	background-color: #EBF5F6;
+}
+.dock-container {
+	background-color: #F6F9FA;
 }
 -->

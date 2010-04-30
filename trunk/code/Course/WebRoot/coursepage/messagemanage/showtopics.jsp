@@ -11,8 +11,6 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
-		<link href="${ctx}/facebox/facebox.css" media="screen"
-			rel="stylesheet" type="text/css" />
 
 		<style type="text/css" title="currentStyle">
 @import "${ctx}/css/demo_page.css";
@@ -20,14 +18,6 @@
 @import "${ctx}/css/demo_table_jui.css";
 
 @import "${ctx}/css/jquery-ui-1.7.2.custom.css";
-</style>
-		<style type="text/css">
-.ui-widget-header {
-	border: 1px solid #aaaaaa;
-	background: #b1ceee;
-	color: #222222;
-	font-weight: bold;
-}
 </style>
 	</head>
 	<body id="dt_example">
@@ -43,11 +33,6 @@
 			"bJQueryUI" :true,
 			"sPaginationType" :"full_numbers"
 		});
-		$('a[rel*=facebox]').facebox( {
-			loading_image :'${ctx}/css/images/loading.gif',
-			close_image :'${ctx}/css/images/closelabel.gif'
-		})
-
 	});
 </script>
 		<div class="content">

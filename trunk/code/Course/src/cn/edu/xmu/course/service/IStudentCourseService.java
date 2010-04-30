@@ -16,6 +16,20 @@ import cn.edu.xmu.course.pojo.StudentCourse;
 public interface IStudentCourseService {
 
 	/**
+	 * 查找是否学生已经收藏该课程
+	 * @param student
+	 * @param course
+	 * @return
+	 */
+	public Collection findCollectionByStu(Student student, Course course);
+	/**
+	 * 学生添加课程
+	 * @param student
+	 * @param course
+	 * @return
+	 */
+	public boolean addCollection(Student student, Course course);
+	/**
 	 * 通过课程查找学生课程表
 	 * @param course
 	 * @return

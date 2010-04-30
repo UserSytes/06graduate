@@ -37,10 +37,11 @@
 <h2>
 	任课教师
 </h2>
+
 <ul>
-	&nbsp;&nbsp;
-	<img width="48" src="<s:property value="userInfo.photo" />" />
-	<li>
+	<li><img width="80"  style="max-height: 120;max-width: 100;" src="${ctx}/upload/<s:property value="userInfo.photo"/>" />
+	</li>	
+<li>
 		姓名：
 		<s:property value="userInfo.name" />
 	</li>
@@ -58,6 +59,6 @@
 	</li>
 
 </ul>
-
+<br>
 <span id="hits">现在已经有[<s:property value="course.count" />]次点击</span>
 

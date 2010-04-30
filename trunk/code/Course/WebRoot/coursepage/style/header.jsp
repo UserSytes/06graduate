@@ -6,17 +6,23 @@
 	<head>
 		<link type="text/css" href="${ctx}/coursepage/style/common/easyui.css"
 			rel="stylesheet" />
+		<link href="${ctx}/facebox/facebox.css" media="screen"
+			rel="stylesheet" type="text/css" />		
 		<link id="cssfile"
 			href="${ctx}/coursepage/style/<s:property value="#session.style"/>/color.css"
 			rel="stylesheet" type="text/css" />
 		<script src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"
 			type="text/javascript"></script>
 		<script src="${ctx}/js/jquery.easyui.min.js" type="text/javascript"></script>
-
+		<script src="${ctx}/facebox/facebox.js" type="text/javascript"></script>
 
 	</head>
 	<script type="text/javascript">
 	$( function() {
+		$('a[rel*=facebox]').facebox( {
+			loading_image :'${ctx}/facebox/loading.gif',
+			close_image :'${ctx}/facebox/closelabel.gif'
+		})
 		var de = document.documentElement;
 		var db = document.body;
 		var viewW = de.clientWidth == 0 ? db.clientWidth : de.clientWidth;
@@ -164,15 +170,15 @@
 
 				<li>
 					<a
-						href="javascript:window.external.addFavorite('http://www.yoursite.com','<s:property value="course.name" />-厦门大学课程网络平台')">加入收藏</a>
+						href="addCollectionAction.action" rel="facebox" />加入收藏</a>
 				</li>
 				<li>
 					<a href="#" style="margin-top: -5px" id="mb1"
 						class="easyui-menubutton" menu="#mm1">风格设置</a>
 				</li>
 			</ul>
-			<img src="${ctx}/coursepage/style/green/logo.gif" alt="居然之家"
-				name="logo" width="200" height="75" id="logo" />
+			<img src="${ctx}/coursepage/style/common/logo.png" alt="居然之家"
+				name="logo" width="950" height="155" />
 
 			<br class="clear" />
 
@@ -349,8 +355,6 @@
 
 			</div>
 		</div>
-		<div class="content" id="top-adv">
-			<img src="${ctx}/coursepage/style/green/top-adv.gif" alt="" />
-		</div>
+
 	</body>
 </html>

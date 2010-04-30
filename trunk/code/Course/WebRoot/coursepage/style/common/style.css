@@ -13,7 +13,6 @@ img {
 .dock-container {
 	position: absolute;
 	height: 60px;
-	background-color: #F0F8FF;
 	padding-left: 20px;
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;

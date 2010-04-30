@@ -83,7 +83,7 @@ public class EvaluationAction extends BaseAction {
 				System.out.println(evaluation.getPassword());
 				super.getSession().remove(EVALUATION);
 				super.getSession().put(EVALUATION, evaluation);
-				getTeaAverage(course.getId());
+				getTeaAverage(evaluation.getCourse().getId());
 				score = evaluation.getScore();
 				if (score == null) {
 					return "teacher";
@@ -98,14 +98,18 @@ public class EvaluationAction extends BaseAction {
 			if (null == student) {
 				addActionError("用户名获密码错误！请返回重试！");
 				return ERROR;
-			} else {
+			} else {				
+				List<StudentCourse> scList = evaluateService
+						.findByStudentAndCourse(course, student);
+				if (scList.size() == 0) {
+					addActionError("你所登录的帐号不是该课程的学生，无法进行评价！");
+					return ERROR;
+				}
 				userInfo = student.getUserInfo();
 				super.getSession().put(STUDENT, student);
 				super.getSession().put(USERINFO, student.getUserInfo());
-				getStuAverage(evaluation.getCourse().getId());
-				studentCourse = evaluateService.findByStudentAndCourse(course,
-						student).get(0);
-				score = studentCourse.getScore();
+				getStuAverage(course.getId());
+				score = scList.get(0).getScore();
 				if (score == null) {
 					return "student";
 				} else {
@@ -276,8 +280,8 @@ public class EvaluationAction extends BaseAction {
 		getTeaAverage(evaluation.getCourse().getId());
 		return SUCCESS;
 	}
-	
-	public String reStuEvaluation(){
+
+	public String reStuEvaluation() {
 		getStuAverage(super.getCourse().getId());
 		return SUCCESS;
 	}
@@ -323,9 +327,13 @@ public class EvaluationAction extends BaseAction {
 			return "login";
 		} else {
 			getStuAverage(course.getId());
-			studentCourse = evaluateService.findByStudentAndCourse(course,
-					student).get(0);
-			score = studentCourse.getScore();
+			List<StudentCourse> scList = evaluateService
+					.findByStudentAndCourse(course, student);
+			if (scList.size() == 0) {
+				addActionError("你所登录的帐号不是该课程的学生，无法进行评价！");
+				return ERROR;
+			}
+			score = scList.get(0).getScore();
 			if (score == null) {
 				return "evluate";
 			} else {
@@ -369,26 +377,26 @@ public class EvaluationAction extends BaseAction {
 		getStuAverage(course.getId());
 		return SUCCESS;
 	}
-	
-	public void getExpertAverage(int courseId){
+
+	public void getExpertAverage(int courseId) {
 		Object[] evaluationResult = evaluateService
-		.getEvaluationCalculateResult(courseId, 0);
+				.getEvaluationCalculateResult(courseId, 0);
 		expertCount = evaluationResult[0];
 		if (evaluationResult[1] != null)
 			expertAvgScore = evaluationResult[1];
 	}
-	
-	public void getTeaAverage(int courseId){
+
+	public void getTeaAverage(int courseId) {
 		Object[] teaResult = evaluateService.getEvaluationCalculateResult(
 				courseId, 1);
 		teaCount = teaResult[0];
 		if (teaResult[1] != null)
 			teaAvgScore = teaResult[1];
 	}
-	
-	public void getStuAverage(int courseId){
+
+	public void getStuAverage(int courseId) {
 		Object[] scResult = evaluateService
-		.getStudentCourseCalculateResult(courseId);
+				.getStudentCourseCalculateResult(courseId);
 		stuCount = scResult[0];
 		if (scResult[1] != null)
 			stuAvgScore = scResult[1];

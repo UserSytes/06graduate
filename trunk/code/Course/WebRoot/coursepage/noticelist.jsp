@@ -20,14 +20,6 @@
 
 @import "${ctx}/css/jquery-ui-1.7.2.custom.css";
 </style>
-		<style type="text/css">
-.ui-widget-header {
-	border: 1px solid #aaaaaa;
-	background: #b1ceee;
-	color: #222222;
-	font-weight: bold;
-}
-</style>
 	</head>
 
 	<body id="dt_example">

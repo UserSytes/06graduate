@@ -10,10 +10,7 @@
 		<link href="${ctx}/coursepage/style/common/common.css"
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
-			rel="stylesheet" type="text/css" />
-		<link
-			href="${ctx}/coursepage/style/<s:property value="course.style"/>/color.css"
-			rel="stylesheet" type="text/css" />
+			rel="stylesheet" type="text/css" />		
 	</head>
 	<body>
 		<!-- 头部 -->

@@ -18,7 +18,7 @@
 		<div class="content">
 			<!-- 左侧 -->
 			<s:include value="style/left.jsp"></s:include>
-			<div id="right-cnt" style="height: 508px">
+			<div id="right-cnt2" style="height: 508px">
 				<div class="col_center">
 					<div class="sub-title">
 						<h2>

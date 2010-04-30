@@ -97,6 +97,21 @@ public class LoginAction extends BaseAction {
 		
 	}
 	
+	public String studentLoginForCol(){
+		student = loginService.studentLogin(userName, password);
+		if(student == null){
+			addActionError("用户名或密码错误，请重新操作！");
+			return ERROR;
+		}
+		else {
+			super.getSession().put(STUDENT, student);
+			super.getSession().put("user", student.getUserInfo().getName()+"同学");
+			super.getSession().put(USERINFO, student.getUserInfo());
+			return SUCCESS;
+		}
+			
+	}
+	
 	/**
 	 * 教师、学生退出系统
 	 */

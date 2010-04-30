@@ -46,7 +46,7 @@
 										value="evaluation.position" /> </font>
 							</td>
 						</tr>
-						<tr height="1" class="tr-title">
+						<tr height="1" class="trborder">
 							<td valign="top"></td>
 						</tr>
 						<tr>
