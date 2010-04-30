@@ -110,7 +110,7 @@ public class TopicDAO extends HibernateDaoSupport {
 	 */
 	public List getTopicByShcool(School school) {
 		try {
-			String queryString = "from Topic as model where model.course.department.school = ?";
+			String queryString = "from Topic as model where model.course.department.school = ? order by model.lastUpdate DESC";
 			return getHibernateTemplate().find(queryString, school);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
@@ -126,7 +126,7 @@ public class TopicDAO extends HibernateDaoSupport {
 	 */
 	public List getTopicByTeacher(Teacher teacher) {
 		try {
-			String queryString = "from Topic as model where model.course.teacher = ?";
+			String queryString = "from Topic as model where model.course.teacher = ? order by model.lastUpdate DESC";
 			return getHibernateTemplate().find(queryString, teacher);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
@@ -137,7 +137,7 @@ public class TopicDAO extends HibernateDaoSupport {
 	public List getTopicByDate(Teacher teacher, String date) {
 		try {
 			String queryString = "from Topic as model where model.lastUpdate > "
-					+ date + " and model.course.teacher.id =" + teacher.getId();
+					+ date + " and model.course.teacher.id =" + teacher.getId()+" order by model.lastUpdate DESC";
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
@@ -155,7 +155,7 @@ public class TopicDAO extends HibernateDaoSupport {
 	public List<Topic> searchTopicByKey(String key, School school) {
 		try {
 			String queryString = "from Topic as model where model.name like '%"
-					+ key + "%' and model.course.department.school = ?";
+					+ key + "%' and model.course.department.school = ? order by model.lastUpdate DESC";
 			return getHibernateTemplate().find(queryString, school);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
@@ -177,7 +177,7 @@ public class TopicDAO extends HibernateDaoSupport {
 	public List<Topic> findByName(Course course, Object name) {
 		try {
 			String queryString = "from Topic as model where model.name like '%"
-					+ name + "%' and model.course.id=" + course.getId();
+					+ name + "%' and model.course.id=" + course.getId()+" order by model.lastUpdate DESC";
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find by key name failed", re);
@@ -188,7 +188,7 @@ public class TopicDAO extends HibernateDaoSupport {
 	public List<Topic> findByAuthorName(Course course, Object authorName) {
 		try {
 			String queryString = "from Topic as model where model.authorName like '%"
-					+ authorName + "%' and model.course.id=" + course.getId();
+					+ authorName + "%' and model.course.id=" + course.getId()+" order by model.lastUpdate DESC";
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find by key authorName failed", re);
@@ -201,7 +201,7 @@ public class TopicDAO extends HibernateDaoSupport {
 		try {
 			String queryString = "from Topic as model where model.name like '%"
 					+ name + "%' and model.authorName like '%" + authorName
-					+ "%' and model.course.id=" + course.getId();
+					+ "%' and model.course.id=" + course.getId()+" order by model.lastUpdate DESC";
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find by property name and authorName failed", re);
