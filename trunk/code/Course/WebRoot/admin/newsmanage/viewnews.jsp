@@ -10,16 +10,9 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
 		<title>新闻政策</title>
-		<style type="text/css">
-<!--
-.STYLE1 {
-	color: #000000
-}
--->
-</style>
 	</head>
-
 	<body>
+	<div align="center">
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
@@ -120,5 +113,6 @@
 				</tr>
 			</table>
 		</s:form>
+	</div>
 	</body>
 </html>

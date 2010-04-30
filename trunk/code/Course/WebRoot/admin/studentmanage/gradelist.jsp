@@ -10,25 +10,18 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
 		<title>年级列表</title>
-		<style type="text/css">
-<!--
-.STYLE1 {
-	color: #000000
-}
--->
-</style>
 	</head>
 	<body>
-		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
-			align=center border=0>
-			<tr class=position bgcolor="#ECF3FD">
-				<td>
-					当前位置: 学生管理 -&gt; 年级列表
-				</td>
-			</tr>
-		</table>
-
 		<div align="center">
+			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+				align=center border=0>
+				<tr class=position bgcolor="#ECF3FD">
+					<td>
+						当前位置: 学生管理 -&gt; 年级列表
+					</td>
+				</tr>
+			</table>
+
 			<table class="listTable">
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>

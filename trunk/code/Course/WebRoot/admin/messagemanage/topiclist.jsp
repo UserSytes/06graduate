@@ -14,7 +14,7 @@
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
 		<script type="text/javascript" src="${ctx}/js/jquery.pagination.js"></script>
 		<title>留言列表</title>
-<script type="text/javascript">
+		<script type="text/javascript">
 $(document).ready(function(){
 	//这是一个非常简单的demo实例，让列表元素分页显示
 	//回调函数的作用是显示对应分页的列表项内容
@@ -40,16 +40,17 @@ $(document).ready(function(){
 </script>
 	</head>
 	<body>
-<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
-			align=center border=0>
-			<tr class=position bgcolor="#ECF3FD">
-				<td>
-					当前位置: 留言管理 -&gt; 留言列表 
-				</td>
-			</tr>
-		</table>
+		<div align="center">
+			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+				align=center border=0>
+				<tr class=position bgcolor="#ECF3FD">
+					<td>
+						当前位置: 留言管理 -&gt; 留言列表
+					</td>
+				</tr>
+			</table>
 
-<div align="center">
+
 			<s:form action="searchSchoolTopicByKeyAction" method="post">
 				<table class="listTable">
 					<tr>
@@ -60,8 +61,8 @@ $(document).ready(function(){
 						</td>
 						<td colspan="3" bgcolor="#FFFFFF">
 							&nbsp;&nbsp;&nbsp;
-							<s:textfield cssClass="INPUT" id="topicKey"
-							name="topicKey" label="关键字"  size="40"></s:textfield>
+							<s:textfield cssClass="INPUT" id="topicKey" name="topicKey"
+								label="关键字" size="40"></s:textfield>
 						</td>
 					</tr>
 					<tr bgcolor="#ECF3FD">
@@ -77,7 +78,7 @@ $(document).ready(function(){
 		</div>
 
 		<div align="center">
-			<table  id="table" class="listTable" style="">
+			<table id="table" class="listTable" style="">
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 					<th>
@@ -98,51 +99,51 @@ $(document).ready(function(){
 					<th>
 						最后回复
 					</th>
-                    <th>
+					<th>
 						操作
 					</th>
 				</tr>
 				<tbody id="tbody" style="display: none;">
-				<s:iterator value="topicList" status="topic">
-					<tr class="listTr">
-						<td width="8%">
-							<s:property value="countPerson" />
-						</td>
-						<td width="5%">
-							<s:property value="countReply" />
-						</td>
-						<td width="15%">
-							<s:property value="course.name" />
-						</td>
-                        <td width="25%">
-							<s:property value="name" />
-						</td>
-						<td width="12%">
-							<s:property value="authorName" />
-						</td>
-						<td width="15%">
-							<s:date name="lastUpdate" format="yy-MM-dd hh:mm" /><s:property value="lastAnswer" />
-						</td>
-						<td width="20%">
-							<a
-								href="<s:url action="viewTopicAction"> 
+					<s:iterator value="topicList" status="topic">
+						<tr class="listTr">
+							<td width="8%">
+								<s:property value="countPerson" />
+							</td>
+							<td width="5%">
+								<s:property value="countReply" />
+							</td>
+							<td width="15%">
+								<s:property value="course.name" />
+							</td>
+							<td width="25%">
+								<s:property value="name" />
+							</td>
+							<td width="12%">
+								<s:property value="authorName" />
+							</td>
+							<td width="15%">
+								<s:date name="lastUpdate" format="yy-MM-dd hh:mm" />
+								<s:property value="lastAnswer" />
+							</td>
+							<td width="20%">
+								<a
+									href="<s:url action="viewTopicAction"> 
                      			<s:param name="topicId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
-								<font color="green">【查看】</font>
-							</a>
-							<a
-								href="<s:url action="deleteTopicAction"> 
+									<font color="green">【查看】</font> </a>
+								<a
+									href="<s:url action="deleteTopicAction"> 
                      			<s:param name="topicId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
-                					</s:url>"  onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
-								<font color="red">【删除】</font>
-							</a>
-						</td>
-					</tr>
-				</s:iterator>
+                					</s:url>"
+									onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
+									<font color="red">【删除】</font> </a>
+							</td>
+						</tr>
+					</s:iterator>
 				</tbody>
 				<tr class="listFooterTr">
 				</tr>
