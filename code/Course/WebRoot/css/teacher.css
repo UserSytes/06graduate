@@ -7,7 +7,7 @@ P {
 BODY {
 	COLOR: #000; BACKGROUND-COLOR: #fff
 }
-ul li {
+#Pagination ul li {
 float:left;
 position:relative;
 }
