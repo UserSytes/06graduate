@@ -163,5 +163,41 @@ public class AdminService implements IAdminService {
 			return false;
 		}
 	}
+	
+	/*
+	 * 根据帐号获取校管理员(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IAdminService#getSuperAdminByAccount(java.lang.String)
+	 */
+	public SuperAdmin getSuperAdminByAccount(String account){
+		List<SuperAdmin> superAdmins = superAdminDAO.findByAccount(account);
+		if (superAdmins.size() == 0) {
+			return null;
+		} else
+			return superAdmins.get(0);
+	}
+
+	/*
+	 * 删除校管理员(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IAdminService#deleteSuperAmdin(cn.edu.xmu.course.pojo.SuperAdmin)
+	 */
+	public boolean deleteSuperAmdin(SuperAdmin superAdmin) {
+		// TODO Auto-generated method stub
+		try {
+			superAdminDAO.delete(superAdmin);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/*
+	 * 查找所有校管理员(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IAdminService#findAllSuperAdmin()
+	 */
+	public List findAllSuperAdmin() {
+		// TODO Auto-generated method stub
+		return superAdminDAO.findAll();
+	}
+	
 
 }
