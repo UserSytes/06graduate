@@ -26,6 +26,13 @@
 			<param name="include" value="id,name" />
 		</convert>
 		
+		<create creator="spring" javascript="SuperAdminDAO" >
+			<param name="beanName" value="SuperAdminDAO" />
+		</create>
+		<convert converter="bean" match="cn.edu.xmu.course.pojo.SuperAdmin">
+			<param name="include" value="id,name" />
+		</convert>
+		
 		<create creator="spring" javascript="StudentInfoService" >
 			<param name="beanName" value="studentInfoService" />
 		</create>

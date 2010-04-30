@@ -82,10 +82,9 @@ public class LoginService implements ILoginService {
 	 */
 	public SuperAdmin superAdminLogin(String account, String password) {
 		// TODO Auto-generated method stub
-		List<SuperAdmin> superAdmins = superAdminDAO.findByAccount(account);
-		if (0 == superAdmins.size())
+		SuperAdmin a = superAdminDAO.findByAccount(account);
+		if (a == null)
 			return null;
-		SuperAdmin a = superAdmins.get(0);
 		if (password.equals(a.getPassword()))
 			return a;
 		else

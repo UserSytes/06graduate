@@ -98,8 +98,17 @@ public class SuperAdminDAO extends HibernateDaoSupport {
 		return findByProperty(NAME, name);
 	}
 
-	public List findByAccount(Object account) {
-		return findByProperty(ACCOUNT, account);
+	/**
+	 * 根据帐号获取校管理员
+	 * @param account
+	 * @return
+	 */
+	public SuperAdmin findByAccount(String account) {
+		List<SuperAdmin> superAdmins = findByProperty(ACCOUNT, account);
+		if (superAdmins.size() == 0) {
+			return null;
+		} else
+			return superAdmins.get(0);
 	}
 
 	public List findByPassword(Object password) {

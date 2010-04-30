@@ -12,7 +12,7 @@
 		<title>添加校管理员</title>
 		<script type="text/javascript" src="/dwr/engine.js"></script>
 		<script type="text/javascript" src="/dwr/util.js"></script>
-		<script type="text/javascript" src="/dwr/interface/AdminService.js"></script>
+		<script type="text/javascript" src="/dwr/interface/SuperAdminDAO.js"></script>
 		<SCRIPT language=javascript>
 	function check(form) {
 		if (form.account.value == "") {
@@ -40,7 +40,7 @@
 			DWRUtil.setValue('result', "账号不能为空！");
 			return false;
 		}
-		AdminService.getSuperAdminByAccount(account, callBack);
+		SuperAdminDAO.findByAccount(account, callBack);
 	}
 	function callBack(data) {
 		if (data != null){

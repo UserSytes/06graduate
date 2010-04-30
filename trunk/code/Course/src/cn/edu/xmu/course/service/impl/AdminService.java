@@ -169,11 +169,7 @@ public class AdminService implements IAdminService {
 	 * @see cn.edu.xmu.course.service.IAdminService#getSuperAdminByAccount(java.lang.String)
 	 */
 	public SuperAdmin getSuperAdminByAccount(String account){
-		List<SuperAdmin> superAdmins = superAdminDAO.findByAccount(account);
-		if (superAdmins.size() == 0) {
-			return null;
-		} else
-			return superAdmins.get(0);
+		return superAdminDAO.findByAccount(account);
 	}
 
 	/*
