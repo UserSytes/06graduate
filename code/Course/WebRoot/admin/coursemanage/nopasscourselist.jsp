@@ -21,41 +21,44 @@
 }
 -->
 </style>
-<script type="text/javascript">
-$(document).ready(function(){
-	//这是一个非常简单的demo实例，让列表元素分页显示
-	//回调函数的作用是显示对应分页的列表项内容
-	//回调函数在用户每次点击分页链接的时候执行
-	//参数page_index{int整型}表示当前的索引页
-	var $table = $('#table');
-	$("#tbody tr:gt(" + 9+ ")").hide().end();
-	$("#tbody").css("display","");  
-		var num_entries = $("#tbody tr").length;
-		// 创建分页
-		$("#Pagination").pagination( {
-				count:num_entries,
-				pageCount:10,
-				imagePath:"${ctx}/commons/images",
-				callback:function(page_index){							
-		 			$table.find("#tbody tr").show();               
-          			$("#tbody tr:lt(" + (page_index-1) * 10 + ")").hide().end();                  
-       				$("#tbody tr:gt(" + ((page_index) * 10 -1) + ")").hide().end();
-			}
-		});
+		<script type="text/javascript">
+	$(document).ready( function() {
+		//这是一个非常简单的demo实例，让列表元素分页显示
+			//回调函数的作用是显示对应分页的列表项内容
+			//回调函数在用户每次点击分页链接的时候执行
+			//参数page_index{int整型}表示当前的索引页
+			var $table = $('#table');
+			$("#tbody tr:gt(" + 9 + ")").hide().end();
+			$("#tbody").css("display", "");
+			var num_entries = $("#tbody tr").length;
+			// 创建分页
+			$("#Pagination").pagination(
+					{
+						count :num_entries,
+						pageCount :10,
+						imagePath :"${ctx}/commons/images",
+						callback : function(page_index) {
+							$table.find("#tbody tr").show();
+							$("#tbody tr:lt(" + (page_index - 1) * 10 + ")")
+									.hide().end();
+							$("#tbody tr:gt(" + ((page_index) * 10 - 1) + ")")
+									.hide().end();
+						}
+					});
 
-});
+		});
 </script>
 	</head>
 	<body>
-<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
-			align=center border=0>
-			<tr class=position bgcolor="#ECF3FD">
-				<td>
-					当前位置: 课程管理 -&gt; 审核退回课程列表 
-				</td>
-			</tr>
-		</table>
 		<div align="center">
+			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+				align=center border=0>
+				<tr class=position bgcolor="#ECF3FD">
+					<td>
+						当前位置: 课程管理 -&gt; 审核退回课程列表
+					</td>
+				</tr>
+			</table>
 			<table id="table" class="listTable" style="">
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
@@ -76,31 +79,31 @@ $(document).ready(function(){
 					</th>
 				</tr>
 				<tbody id="tbody" style="display: none;">
-				<s:iterator value="applicationCourseList" status="course">
-					<tr class="listTr">
-						<td width="5%">
-							<s:property value="#course.count" />
-						</td>
-						<td width="20%">
-							<s:property value="name" />
-						</td>
-						<td width="10%">
-							<s:property value="teacher.userInfo.name" />
-						</td>
-						<td width="35%">
-							<s:property value="remark" />
-						</td>
-						<td width="30%">
-							<s:property value="refuseReason" />
-						</td>
-					</tr>
-				</s:iterator>
-</tbody>
+					<s:iterator value="applicationCourseList" status="course">
+						<tr class="listTr">
+							<td width="5%">
+								<s:property value="#course.count" />
+							</td>
+							<td width="20%">
+								<s:property value="name" />
+							</td>
+							<td width="10%">
+								<s:property value="teacher.userInfo.name" />
+							</td>
+							<td width="35%">
+								<s:property value="remark" />
+							</td>
+							<td width="30%">
+								<s:property value="refuseReason" />
+							</td>
+						</tr>
+					</s:iterator>
+				</tbody>
 				<tr class="listFooterTr">
 
 				</tr>
 			</table>
-<div id="Pagination" class="pagination"></div>
+			<div id="Pagination" class="pagination"></div>
 		</div>
 	</body>
 </html>

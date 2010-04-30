@@ -62,17 +62,10 @@
 				return true;
 			}
 		</SCRIPT>
-
-		<style type="text/css">
-<!--
-.STYLE1 {
-	color: #000000
-}
--->
-</style>
 	</head>
 
 	<body>
+	<div align="center">
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
@@ -179,5 +172,6 @@
 				</tr>
 			</table>
 		</s:form>
+	</div>
 	</body>
 </html>

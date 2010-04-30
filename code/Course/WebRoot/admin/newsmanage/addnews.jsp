@@ -56,17 +56,9 @@ conditionTable.deleteRow(o.parentElement.rowIndex*1);
 
 }
 </script>
-
-		<style type="text/css">
-<!--
-.STYLE1 {
-	color: #000000
-}
--->
-</style>
 	</head>
-
 	<body>
+		<div align="center">
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
@@ -144,5 +136,6 @@ conditionTable.deleteRow(o.parentElement.rowIndex*1);
 				</tr>
 			</table>
 		</s:form>
+	</div>
 	</body>
 </html>

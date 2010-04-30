@@ -30,6 +30,7 @@
 		</script>
 	</head>
 	<body id="dt_example">
+	<div align="center">
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
@@ -38,7 +39,6 @@
 				</td>
 			</tr>
 		</table>
-
 
 		<div class="demo_jui">
 			<s:hidden name="studentList" />

@@ -14,7 +14,7 @@
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
 		<script type="text/javascript" src="${ctx}/js/jquery.pagination.js"></script>
 		<title>学院列表</title>
-<script type="text/javascript">
+		<script type="text/javascript">
 $(document).ready(function(){
 	//这是一个非常简单的demo实例，让列表元素分页显示
 	//回调函数的作用是显示对应分页的列表项内容
@@ -40,15 +40,15 @@ $(document).ready(function(){
 </script>
 	</head>
 	<body>
-<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
-			align=center border=0>
-			<tr class=position bgcolor="#ECF3FD">
-				<td>
-					当前位置: 院系管理 -&gt; 学院列表 
-				</td>
-			</tr>
-		</table>
 		<div align="center">
+			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+				align=center border=0>
+				<tr class=position bgcolor="#ECF3FD">
+					<td>
+						当前位置: 院系管理 -&gt; 学院列表
+					</td>
+				</tr>
+			</table>
 			<table id="table" class="listTable" style="">
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
@@ -66,44 +66,43 @@ $(document).ready(function(){
 					</th>
 				</tr>
 				<tbody id="tbody" style="display: none;">
-				<s:iterator value="allSchoolList" status="school">
-					<tr class="listTr">
-						<td width="8%">
-							<s:property value="#school.count" />
-						</td>
-						<td width="47%">
-							<s:property value="name" />
-						</td>
-						<td width="25%">
-							<a
-								href="<s:url action="findDepartmentAction"> 
+					<s:iterator value="allSchoolList" status="school">
+						<tr class="listTr">
+							<td width="8%">
+								<s:property value="#school.count" />
+							</td>
+							<td width="47%">
+								<s:property value="name" />
+							</td>
+							<td width="25%">
+								<a
+									href="<s:url action="findDepartmentAction"> 
                      			<s:param name="schoolId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
-								<font color="green">【查看】</font>
-							</a>
-							<a
-								href="<s:url action="goAddDepartmentAction"> 
+									<font color="green">【查看】</font> </a>
+								<a
+									href="<s:url action="goAddDepartmentAction"> 
                      			<s:param name="schoolId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
-								<font color="green">【添加系】</font>
-							</a>
-						</td>
-						<td width="20%">
-							<a
-								href="<s:url action="deleteSchoolAction"> 
+									<font color="green">【添加系】</font> </a>
+							</td>
+							<td width="20%">
+								<a
+									href="<s:url action="deleteSchoolAction"> 
                      			<s:param name="schoolId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
-                					</s:url>"  onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
-								<font color="red">【删除】</font>
-							</a>
-						</td>
-					</tr>
-				</s:iterator></tbody>
+                					</s:url>"
+									onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
+									<font color="red">【删除】</font> </a>
+							</td>
+						</tr>
+					</s:iterator>
+				</tbody>
 				<tr class="listFooterTr">
 
 				</tr>

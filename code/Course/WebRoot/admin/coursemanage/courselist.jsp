@@ -38,9 +38,9 @@ $(document).ready(function(){
 
 });
 </script>
-</style>
 	</head>
 	<body>
+	<div align="center">
 <table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
@@ -49,7 +49,6 @@ $(document).ready(function(){
 				</td>
 			</tr>
 		</table>
-		<div align="center">
 			<table id="table" class="listTable" style="">
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
@@ -117,7 +116,6 @@ $(document).ready(function(){
 				</tr>
 			</table>
 			<div id="Pagination" class="pagination"></div>
-		</div>
 
 	  <table bgcolor="white" class=editTable cellSpacing=1 cellPadding=0
 			width="90%" align=center border=0>
@@ -147,5 +145,6 @@ $(document).ready(function(){
 				</td>
 			</TR>
 		</table>
+	</div>
 	</body>
 </html>

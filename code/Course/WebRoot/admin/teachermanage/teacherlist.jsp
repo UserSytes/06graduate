@@ -14,7 +14,7 @@
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
 		<script type="text/javascript" src="${ctx}/js/jquery.pagination.js"></script>
 		<title>教师列表</title>
-<script type="text/javascript">
+		<script type="text/javascript">
 $(document).ready(function(){
 	//这是一个非常简单的demo实例，让列表元素分页显示
 	//回调函数的作用是显示对应分页的列表项内容
@@ -40,15 +40,15 @@ $(document).ready(function(){
 </script>
 	</head>
 	<body>
-<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
-			align=center border=0>
-			<tr class=position bgcolor="#ECF3FD">
-				<td>
-					当前位置: 教师管理 -&gt; 教师列表 
-				</td>
-			</tr>
-		</table>
 		<div align="center">
+			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+				align=center border=0>
+				<tr class=position bgcolor="#ECF3FD">
+					<td>
+						当前位置: 教师管理 -&gt; 教师列表
+					</td>
+				</tr>
+			</table>
 			<table id="table" class="listTable" style="">
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
@@ -75,46 +75,46 @@ $(document).ready(function(){
 					</th>
 				</tr>
 				<tbody id="tbody" style="display: none;">
-				<s:iterator value="teacherList" status="teacher">
-					<tr class="listTr">
-						<td width="5%">
-							<s:property value="#teacher.count" />
-						</td>
-						<td width="15%">
-							<s:property value="userInfo.name" />
-						</td>
-						<td width="5%">
-							<s:property value="userInfo.sex" />
-						</td>
-						<td width="20%">
-							<s:property value="teacherNo" />
-						</td>
-						<td width="15%">
-							<s:property value="position" />
-						</td>
-						<td width="20%">
-							<s:property value="userInfo.department.name" />
-						</td>
-						<td width="20%">
-							<a
-								href="<s:url action="goEditTeacherAction"> 
+					<s:iterator value="teacherList" status="teacher">
+						<tr class="listTr">
+							<td width="5%">
+								<s:property value="#teacher.count" />
+							</td>
+							<td width="15%">
+								<s:property value="userInfo.name" />
+							</td>
+							<td width="5%">
+								<s:property value="userInfo.sex" />
+							</td>
+							<td width="20%">
+								<s:property value="teacherNo" />
+							</td>
+							<td width="15%">
+								<s:property value="position" />
+							</td>
+							<td width="20%">
+								<s:property value="userInfo.department.name" />
+							</td>
+							<td width="20%">
+								<a
+									href="<s:url action="goEditTeacherAction"> 
                      			<s:param name="teacherId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
-								<font color="green">【修改】</font>
-							</a>
-							<a
-								href="<s:url action="deleteTeacherAction"> 
+									<font color="green">【修改】</font> </a>
+								<a
+									href="<s:url action="deleteTeacherAction"> 
                      			<s:param name="teacherId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
-                					</s:url>"  onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
-								<font color="red">【删除】</font>
-							</a>
-						</td>
-					</tr>
-				</s:iterator></tbody>
+                					</s:url>"
+									onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
+									<font color="red">【删除】</font> </a>
+							</td>
+						</tr>
+					</s:iterator>
+				</tbody>
 				<tr class="listFooterTr">
 
 				</tr>

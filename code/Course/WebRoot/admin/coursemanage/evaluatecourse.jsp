@@ -35,15 +35,15 @@
 </style>
 	</head>
 	<body>
-		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
-			align=center border=0>
-			<tr class=position bgcolor="#ECF3FD">
-				<td>
-					当前位置: 课程管理 -&gt; 课程评价
-				</td>
-			</tr>
-		</table>
 		<div align="center">
+			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+				align=center border=0>
+				<tr class=position bgcolor="#ECF3FD">
+					<td>
+						当前位置: 课程管理 -&gt; 课程评价
+					</td>
+				</tr>
+			</table>
 			<s:form action="showEvaluateCoursesAction" method="post"
 				onsubmit="return check(this);">
 				<table class="listTable">
@@ -88,9 +88,6 @@
 				</table>
 			</s:form>
 
-
-		</div>
-
 		<table bgcolor="white" class=editTable cellSpacing=1 cellPadding=0
 			width="90%" align=center border=0>
 			<TR>
@@ -110,5 +107,6 @@
 				</td>
 			</TR>
 		</table>
+	</div>
 	</body>
 </html>

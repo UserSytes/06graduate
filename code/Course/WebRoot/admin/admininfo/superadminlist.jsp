@@ -40,6 +40,7 @@ $(document).ready(function(){
 </script>
 	</head>
 	<body>
+	<div align="center">
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
@@ -48,7 +49,6 @@ $(document).ready(function(){
 				</td>
 			</tr>
 		</table>
-		<div align="center">
 			<table id="table" class="listTable" style="">
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>

@@ -31,6 +31,7 @@
 	</head>
 
 	<body>
+	<div align="center">
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
@@ -124,5 +125,6 @@
 				</tr>
 			</table>
 		</s:form>
+	</div>
 	</body>
 </html>

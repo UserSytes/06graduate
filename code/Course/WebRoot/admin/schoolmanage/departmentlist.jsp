@@ -40,15 +40,17 @@ $(document).ready(function(){
 </script>
 	</head>
 	<body>
-<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
-			align=center border=0>
-			<tr class=position bgcolor="#ECF3FD">
-				<td>
-					当前位置: 院系管理 -&gt; <s:text name="">${school.name}</s:text>  -&gt; 系列表
-				</td>
-			</tr>
-		</table>
 		<div align="center">
+			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+				align=center border=0>
+				<tr class=position bgcolor="#ECF3FD">
+					<td>
+						当前位置: 院系管理 -&gt;
+						<s:text name="">${school.name}</s:text>
+						-&gt; 系列表
+					</td>
+				</tr>
+			</table>
 			<table id="table" class="listTable" style="">
 				<tr class="listHeaderTr"
 					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
@@ -66,29 +68,30 @@ $(document).ready(function(){
 					</th>
 				</tr>
 				<tbody id="tbody" style="display: none;">
-				<s:iterator value="departmentList" status="department">
-					<tr class="listTr">
-						<td width="10%">
-							<s:property value="#department.count" />
-						</td>
-						<td width="40%">
-							<s:property value="name" />
-						</td>
-						<td width="35%">
-							<s:property value="school.name" />
-						</td>
-						<td width="15%">
-							<a
-								href="<s:url action="deleteDepartmentAction"> 
+					<s:iterator value="departmentList" status="department">
+						<tr class="listTr">
+							<td width="10%">
+								<s:property value="#department.count" />
+							</td>
+							<td width="40%">
+								<s:property value="name" />
+							</td>
+							<td width="35%">
+								<s:property value="school.name" />
+							</td>
+							<td width="15%">
+								<a
+									href="<s:url action="deleteDepartmentAction"> 
                      			<s:param name="departmentId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
-                					</s:url>"  onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
-								<font color="red">【删除】</font>
-							</a>
-						</td>
-					</tr>
-				</s:iterator></tbody>
+                					</s:url>"
+									onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
+									<font color="red">【删除】</font> </a>
+							</td>
+						</tr>
+					</s:iterator>
+				</tbody>
 				<tr class="listFooterTr">
 
 				</tr>

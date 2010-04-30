@@ -17,6 +17,16 @@
 
  </script>
 	<BODY>
+	<div align="center">
+		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+			align=center border=0>
+			<tr class=position bgcolor="#ECF3FD">
+				<td>
+					当前位置: 课程评价-&gt; 评价柱形图 
+				</td>
+			</tr>
+		</table>
+
 		<P align="center">
 			<IMG SRC="../servlet/ServletChartGenerator" BORDER=1 WIDTH=800
 				HEIGHT=600 />
@@ -39,6 +49,7 @@
 				</td>
 			</TR>
 		</table>
+	</div>
 	</BODY>
 </HTML>
 <%
