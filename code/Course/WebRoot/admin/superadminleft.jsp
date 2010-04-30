@@ -212,6 +212,72 @@ eval("submenu" + sid + ".style.display=\"none\";");
 					bgcolor="#9BC2ED"></td>
 			</tr>
 			<tr>
+				<td>
+					<TABLE class=leftframetable cellSpacing=0 cellPadding=0 width="97%"
+						align=right border=0>
+						<TBODY>
+							<TR>
+								<TD height="25"
+									style="background: url(Images/left_tt.gif) no-repeat">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<TD width="20"></TD>
+											<TD class=STYLE1 style="CURSOR: hand" onclick=showsubmenu(4);
+												height=25>
+												管理员管理
+											</TD>
+										</tr>
+									</table>
+								</TD>
+							</TR>
+							<TR>
+								<TD>
+									<TABLE id=submenu4 cellSpacing=0 cellPadding=0 width="100%"
+										border=0>
+										<TBODY>
+											<TR>
+												<TD width="2%">
+													<IMG src="Images/closed.gif">
+												</TD>
+												<TD height=23>
+													<a href="admininfo/changepwd.jsp"
+														target="main">修改个人密码</A>
+												</TD>
+											</TR>
+											<TR>
+												<TD>
+													<IMG src="Images/closed.gif">
+												</TD>
+												<TD height=23>
+													<a href="<s:url action='findAllSuperAdminAction'> </s:url>"
+														target="main">校管理员列表</A>
+												</TD>
+											</TR>
+											<TR>
+												<TD>
+													<IMG src="Images/closed.gif">
+												</TD>
+												<TD height=23>
+													<A href="admininfo/addsuperadmin.jsp" target=main>添加校管理员</A>
+												</TD>
+											</TR>
+										</TBODY>
+									</TABLE>
+								</TD>
+							</TR>
+						</TBODY>
+					</TABLE>
+				</td>
+			</tr>
+			<tr>
+				<td height="5" background="Images/tableline_bottom.gif"
+					bgcolor="#9BC2ED"></td>
+			</tr>
+			<tr>
+				<td height="5" background="Images/tableline_top.gif"
+					bgcolor="#9BC2ED"></td>
+			</tr>
+			<tr>
 				<td height="8">
 
 					<TABLE class=leftframetable cellSpacing=1 cellPadding=1 width="97%"

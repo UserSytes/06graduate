@@ -75,4 +75,24 @@ public interface IAdminService {
 	 * @return
 	 */
 	public SuperAdmin findSuperAdminById(int id);
+	
+	/**
+	 * 根据帐号查找校管理员
+	 * @param account
+	 * @return
+	 */
+	public SuperAdmin getSuperAdminByAccount(String account);
+	
+	/**
+	 * 查找所有的校管理员
+	 * @return
+	 */
+	public List findAllSuperAdmin();
+	
+	/**
+	 * 删除校管理员
+	 * @param superAdmin
+	 * @return
+	 */
+	public boolean deleteSuperAmdin(SuperAdmin superAdmin);
 }

@@ -49,13 +49,13 @@
 				</td>
 			</tr>
 		</table>
-		<s:form action="changeSuperPwdAction" method="post" onsubmit="return check(this);">
+		<s:form action="changeSuperAdminPwdAction" method="post" enctype="multipart/form-data" onsubmit="return check(this);">
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
 						修改密码：
-					</td>
+					</td> 
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
