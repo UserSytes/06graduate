@@ -66,7 +66,6 @@ $(document).ready(function(){
 				<td width="40"> 
 					<div align="right">
 						<input type="button" onclick="goToAddExercise()" value="添加习题" />
-						&nbsp;&nbsp;&nbsp;&nbsp;
 					</div>
 				</td>
 			</tr>

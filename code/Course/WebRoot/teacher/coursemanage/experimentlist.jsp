@@ -62,11 +62,9 @@ $(document).ready(function(){
 						listKey="id" listValue="number+name" headerValue="所有"
 						headerKey="-1" onchange="chapterChange(this.value)" />
 				</td>
-				<td width="40">
+				<td width="100">
 					<div align="right">
-
 						<input type="button" onclick="goToAddExperiment()" value="添加实验指导" />
-						&nbsp;&nbsp;&nbsp;&nbsp;
 					</div>
 				</td>
 			</tr>

@@ -45,17 +45,14 @@
 		});
 	}
 </script>
+	<div align="center">
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
 					当前位置: 课程申报 -&gt; 课程申报
 				</td>
-			</tr>
-		</table>
-		<table class=listTable align="center">
-			<tr>
-				<td>
+				<td width="250">
 					请选择查询条件：&nbsp;&nbsp;&nbsp;
 					<s:select name="type" list="#{3:'全部课程',2:'审核未通过',1:'己审核',0:'未审核'}"
 						listKey="key" listValue="value"
@@ -93,5 +90,6 @@
 				</div>
 			</div>
 		</table>
+	</div>
 	</body>
 </html>

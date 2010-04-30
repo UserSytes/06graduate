@@ -52,7 +52,7 @@ $(document).ready(function(){
 					<td>
 						当前位置: 我的课程 -&gt; 教学成果列表
 					</td>
-					<td width="40">
+					<td width="80">
 						<div align="right">
 							<input type="button" onclick="goToAddAchievement()"
 								value="添加教学成果" />
