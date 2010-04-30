@@ -47,7 +47,7 @@
 										name="courseInfo.time" format="yyyy-MM-dd hh:mm:ss" /> </font>
 							</td>
 						</tr>
-						<tr height="1" class="tr-title">
+						<tr height="1" class="trborder">
 							<td></td>
 						</tr>
 						<tr>

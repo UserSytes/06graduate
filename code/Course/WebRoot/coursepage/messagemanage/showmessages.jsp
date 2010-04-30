@@ -11,8 +11,6 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
-		<link href="${ctx}/facebox/facebox.css" media="screen"
-			rel="stylesheet" type="text/css" />
 		<LINK href="${ctx}/css/pagination.css" type=text/css rel=stylesheet>
 		<script type="text/javascript">
 	function check(form) {
@@ -97,11 +95,6 @@ $(document).ready(function(){
        				$("#tbody tr:gt(" + ((page_index) * 40 -1) + ")").hide().end();
 			}
 		});
-		$('a[rel*=facebox]').facebox({
-        loading_image : '${ctx}/facebox/loading.gif',
-        close_image   : '${ctx}/facebox/closelabel.gif'
-      }) 
-
 });
 </script>
 		<div class="content">
@@ -120,7 +113,7 @@ $(document).ready(function(){
 				</div>
 				<!-- 正文 -->
 				<div>
-					<table border="0" cellpadding="0" cellspacing="0" class="table-message">
+					<table border="0" cellpadding="0" cellspacing="0" >
 						<tr>
 							<td width="724" align="center">
 								<table border="0" cellpadding="0" cellspacing="0" width="724">
@@ -181,11 +174,11 @@ $(document).ready(function(){
 											<tr style="height: 100%">
 												<td width="200" valign="top"
 													style="border-right: thin dotted #60B7DE; border-bottom: 0px;">
-													&nbsp;&nbsp;
+													&nbsp;
 													<img width="120"
 														src="${ctx}/upload/<s:property value="userInfo.photo"/>" />
 													<br>
-													<font style="font-weight: bold; font-size: 14px">&nbsp;&nbsp;<s:property
+													<font style="font-weight: bold; font-size: 14px;text-align: left;">&nbsp;<s:property
 															value="userInfo.name" /> </font>
 													<div>
 

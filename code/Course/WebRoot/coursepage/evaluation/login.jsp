@@ -11,22 +11,11 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
-		<link href="${ctx}/facebox/facebox.css" media="screen"
-			rel="stylesheet" type="text/css" />			
+	
 	</head>
 	<body>
 		<!-- 头部 -->
-		<s:include value="../style/%{#session.header}"></s:include>
-		<script src="${ctx}/facebox/facebox.js" type="text/javascript"></script>
-		<script type="text/javascript">
-	$(document).ready( function() {
-		$('a[rel*=facebox]').facebox( {
-			loading_image :'${ctx}/facebox/loading.gif',
-			close_image :'${ctx}/facebox/closelabel.gif'
-		})
-
-	});
-</script>
+		<s:include value="../style/%{#session.header}"></s:include>		
 		<div class="content">
 			<!-- 左侧 -->
 			<s:include value="../style/left.jsp"></s:include>

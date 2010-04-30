@@ -12,6 +12,8 @@
 			rel="stylesheet" />
 		<link type="text/css" href="${ctx}/coursepage/style/common/easyui.css"
 			rel="stylesheet" />
+		<link href="${ctx}/facebox/facebox.css" media="screen"
+			rel="stylesheet" type="text/css" />	
 		<script src="${ctx}/js/jquery.easyui.min.js" type="text/javascript"></script>
 		<script type="text/javascript"
 			src="${ctx}/coursepage/style/common/fisheye-iutil.min.js"></script>
@@ -20,6 +22,7 @@
 		<link id="cssfile"
 			href="${ctx}/coursepage/style/<s:property value="#session.style"/>/color.css"
 			rel="stylesheet" type="text/css" />
+		<script src="${ctx}/facebox/facebox.js" type="text/javascript"></script>
 	</head>
 
 	<style type="text/css">
@@ -42,6 +45,10 @@
 
 	<script type="text/javascript">
 	$( function() {
+		$('a[rel*=facebox]').facebox( {
+			loading_image :'${ctx}/facebox/loading.gif',
+			close_image :'${ctx}/facebox/closelabel.gif'
+		})
 		var de = document.documentElement;
 		var db = document.body;
 		var viewW = de.clientWidth == 0 ? db.clientWidth : de.clientWidth;
@@ -242,6 +249,9 @@
 					</div>
 				</div>
 			</div>
+			<div>
+				<a href="addCollectionAction.action" rel="facebox" >加入收藏</a>
+			</div>
 			<div id="goindex">
 				返回首页
 			</div>
@@ -354,15 +364,9 @@
 
 			<div class="content border_bottom">
 
-				<img
-					src="${ctx}/coursepage/style/<s:property value="#session.style"/>/logo.gif"
-					alt="居然之家" name="logo" width="200" height="75" id="logo" />
-
-				<br class="clear" />
-			</div>
-			<div class="content" id="top-adv">
-				<img src="${ctx}/coursepage/style/green/top-adv.gif" alt="" />
-			</div>
+				<img src="${ctx}/coursepage/style/common/logo.png" alt="居然之家"
+				name="logo" width="950" height="155" />
+			</div>			
 		</div>
 	</body>
 </html>

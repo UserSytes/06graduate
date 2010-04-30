@@ -54,7 +54,7 @@
 									>我要重新评价</a> 
 							</td>
 						</tr>
-						<tr height="1" class="tr-title" align="center">
+						<tr height="1" class="trborder" align="center">
 							<td></td>
 						</tr>
 						<tr>

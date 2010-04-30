@@ -28,7 +28,7 @@ public class HomePageAction extends BaseAction{
 	 */
 	private static final long serialVersionUID = 1L;
 	private List<News> newsList;
-	private List<News> tempList;
+	private List<News> tempList;//没用的。。。应该要删除掉
 	private List<News> getTempList() {
 		return tempList;
 	}
@@ -50,7 +50,7 @@ public class HomePageAction extends BaseAction{
 	private ILoginService loginService;
 	private int courseId;
 	private String level="country";
-	private List<String> times=null;
+	private List<String> times=null;//没用的。。。应该要删除掉
 	private int country;
 	private int province;
 	private int school;
@@ -163,6 +163,7 @@ public class HomePageAction extends BaseAction{
 				userInfo = teacher.getUserInfo();
 				super.getSession().put(TEACHER, teacher);
 				super.getSession().put("user", teacher.getUserInfo().getName()+"老师");
+				super.getSession().put(USERINFO, userInfo);
 				return "teacher";
 			}
 		} else {
@@ -176,6 +177,7 @@ public class HomePageAction extends BaseAction{
 				super.getSession().put(STUDENT, student);
 				super.getSession().put("user", student.getUserInfo().getName()+"同学");
 				userInfo = student.getUserInfo();
+				super.getSession().put(USERINFO, userInfo);
 				return "student";
 			}
 		}

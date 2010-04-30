@@ -199,7 +199,33 @@ public class StudentInfoAction extends BaseAction {
 			return ERROR;
 
 	}
+	
+	/**
+	 * 添加收藏课程
+	 * @return
+	 */
+	public String addCollection(){
+		student = super.getStudent();
+		if(student == null)
+			return "login";
+		course = super.getCourse();
+		Collection col =studentCourseService.findCollectionByStu(student, course);
+		if(col == null){
+			if(studentCourseService.addCollection(student, course)){
+				addActionMessage("恭喜您，收藏"+course.getName()+"课程成功!");
+			}
+			else{
+				addActionError("收藏"+course.getName()+"课程失败，请重新操作!");
+				return ERROR;
+			}
+		}
+		else{
+			addActionError("您已经收藏过了"+course.getName()+"这门课程。");
+		}
+		return SUCCESS;
+	}
 
+	
 	public IStudentInfoService getStudentInfoService() {
 		return studentInfoService;
 	}

@@ -1193,6 +1193,16 @@
 			<result name="success">/student/collectionlist.jsp</result>
 			<result name="error">/student/prompt.jsp</result>
 		</action>
+		<action name="loginFromColAction" method="studentLoginForCol"
+			class="loginAction">			
+			<result name="success" type="redirect-action">goIndexQueryAction</result>
+			<result name="error">/coursepage/prompt.jsp</result>
+		</action>
+		<action name="addCollectionAction" method="addCollection" class="studentInfoAction">
+			<result name="success">/coursepage/colsuccess.jsp</result>
+			<result name="error">/coursepage/colprompt.jsp</result>
+			<result name="login">/coursepage/collogin.jsp</result>
+		</action>
 		<action name="myTopicAction" method="myTopics" class="studentInfoAction">
 			<result name="success">/student/topiclist.jsp</result>
 			<result name="error">/student/prompt.jsp</result>

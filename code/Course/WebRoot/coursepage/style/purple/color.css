@@ -1,6 +1,6 @@
 body {
 	color: #000;
-	background: #A58BDA url(bg3.png) 0 0 repeat-x;
+	background: #E6DEF6 url(bg3.png) 0 0 repeat-x;
 }
 
 .border_bottom3 {
@@ -24,10 +24,6 @@ body {
 }
 
 #sub_nav li a:hover {
-	color: #FFF;
-}
-
-.image-grid li strong {
 	color: #FFF;
 }
 
@@ -72,10 +68,6 @@ body {
 	border-bottom: 4px solid #B6B683;
 }
 
-#top-contact-info {
-	color: #565615;
-}
-
 #left-nav-bar {
 	background: #473C8B;
 	color: #FFF;
@@ -91,23 +83,12 @@ body {
 	border-bottom: 1px solid #ABABAB;
 }
 
-#left-nav-bar h3 {
-	border-top: 1px solid #D8CECD;
-	border-bottom: 1px solid #D8CECD;
-	color: #6E1920;
+.main_con {
+	border: 1px solid #BE77FF;
 }
-
-#left-nav-bar h3 a {
-	border-top: 1px solid #D8CECD;
-	border-bottom: 1px solid #D8CECD;
-}
-
 #right-cnt {
-	background: #A58BDA;
-}
-
-#right-cnt p {
-	color: #DCB5FF;
+	background-color:#E6DEF6;
+	border: 1px solid #BE77FF;
 }
 
 .pages {
@@ -119,20 +100,16 @@ body {
 	color: #d3a4ff;
 }
 
+.pages h2 a{
+	color: #d3a4ff;
+}
+
 #tags {
 	background-color: #F6F6F6;
 }
 
-#products-list li ul li {
-	border-top: 1px dashed #000;
-	color: #6F6F6F;
-}
-
-#products-list li ul li span {
-	color: #C80000;
-}
-
 div.col_center {
+	background-color:#E6DEF6;
 	margin-top: 0px;
 	border: 1px solid #BE77FF;
 }
@@ -177,5 +154,152 @@ div.col_center ul li a:hover {
 	border-top: 3px solid #8A2BE2;
 	text-align: left;
 	color: #000;
+}
+
+
+.image-grid li strong {
+	color: #000000;
+}
+
+.table-app {
+	border: 1px solid #666;
+	background-color: #EBF4FD;
+}
+
+.timefont {
+	font-size: 12px;
+	color: #336699;
+}
+
+.timefont a{
+	font-size: 12px;
+	color: #336699;
+}
+
+.alertmsg a{
+	font-size: 14px;
+	color: #336699;
+}
+
+.newslist {
+	BORDER-BOTTOM: #369 1px solid;
+	BORDER-LEFT: #369 1px solid;
+	BORDER-TOP: #369 1px solid;
+	BORDER-RIGHT: #369 1px solid;
+}
+
+.newslist DL DD.author SPAN {
+	BORDER-BOTTOM: #369 1px solid;
+	COLOR: #369;
+}
+
+.newslist DL DT.topic{
+	COLOR: #036;
+}
+
+.newslist DL DT.topic a{
+	COLOR: #036;
+}
+
+.newslist DL DD.detail {
+	BACKGROUND: #FDFDFE;
+}
+
+.newslist DL DD.detail SPAN {
+	COLOR: #369;
+}
+
+.newslist DL DD.detail EM {
+	COLOR: #369;
+}
+
+.newslist DL DD.detail A:link {
+	COLOR: #036;
+}
+
+.newslist DL DD.detail A:visited {
+	COLOR: #036;
+}
+
+.newslist DL DD.detail A:hover {
+	COLOR: #036;
+}
+
+.table-list {
+	border: 1px solid #336699;
+	background-color: #EBF4FD;
+}
+
+.table-title {
+	color: #036;
+}
+
+.table-message{
+	background-color: #F0F8FF;	
+}
+
+.tr-head {
+	background-color: #58ACFA;
+}
+
+.tr-foot {
+	background-color: #b1ceee;
+}
+
+.td-foot {
+	background-color: #58ACFA;
+}
+
+.tr-title td {
+	background-color: #b1ceee;
+}
+.trborder td{
+	background-color: #b1ceee;
+}
+
+.tr-content {
+	background-color: #ECF3FD;
+}
+
+.tr-content td {
+	color: #036;
+}
+
+.titlea {
+	color: #369;
+}
+
+a.titlea:link {
+	color: #369;
+}
+
+a.titlea:visited {
+	color: #369;
+}
+
+a.titlea:hover {
+	color: #0000CD;
+}
+
+.ui-widget-header {
+	border: 1px solid #aaaaaa;
+	background: #b1ceee;
+	color: #222222;
+	font-weight: bold;
+}
+
+.ui-state-default{
+	background: none;
+}
+
+tr.odd {
+	background-color: #ebf4fd;
+}
+
+tr.even {
+	background-color: white;
+}
+.dock-container {
+	background-color: #E6DEF6;
 }
 -->

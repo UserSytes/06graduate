@@ -68,11 +68,6 @@ body {
 	border-bottom: 4px solid #5F9EA0;
 }
 
-#top-contact-info {
-	color: #565615;
-	background: transparent url(../img/contact-bg.gif) 0 2px no-repeat;
-}
-
 #left-nav-bar {
 	background: #B0C4DE;
 }
@@ -83,45 +78,7 @@ body {
 	border-bottom: 1px solid #ABABAB;
 }
 
-#left-nav-bar h3 {
-	border-top: 1px solid #BBB;
-	border-bottom: 1px solid #BBB;
-	color: #6E1920;
-}
 
-#left-nav-bar h3 a {
-	border-top: 1px solid #BBB;
-	border-bottom: 1px solid #BBB;
-}
-
-#left-nav-bar ul li a:hover {
-	color: #0000CD;
-}
-
-#left-nav-bar ul li a {
-	
-}
-
-#h3a1 {
-	color: #1874CD;
-}
-
-#h3a2 {
-	color: #104E8B;
-}
-
-#h3a3 {
-	color: #121212;
-}
-
-#right-cnt {
-	border: 1px solid #b1ceee;
-	border-top: 0px;
-}
-
-#right-cnt p {
-	color: #4D4D4D;
-}
 .pages {
 	background-color: #58ACFA;
 	border-bottom: 3px solid #5F9EA0;
@@ -139,13 +96,13 @@ body {
 	background-color: #F6F6F6;
 }
 
-#products-list li ul li {
-	border-top: 1px dashed #000;
-	color: #6F6F6F;
-}
 
-#products-list li ul li span {
-	color: #C80000;
+.main_con {
+	border: 1px solid #b1ceee;
+}
+#right-cnt {
+	background-color:#F0F8FF;
+	border: 1px solid #b1ceee;
 }
 
 div.col_center {
@@ -196,7 +153,6 @@ div.col_center ul li a:hover {
 	color: #000000;
 }
 
-
 .table-app {
 	border: 1px solid #666;
 	background-color: #EBF4FD;
@@ -238,7 +194,7 @@ div.col_center ul li a:hover {
 }
 
 .newslist DL DD.detail {
-	BACKGROUND: url(bg_newlist_op.png) repeat-x;
+	BACKGROUND: #FDFDFE;
 }
 
 .newslist DL DD.detail SPAN {
@@ -289,6 +245,9 @@ div.col_center ul li a:hover {
 .tr-title td {
 	background-color: #b1ceee;
 }
+.trborder td{
+	background-color: #b1ceee;
+}
 
 .tr-content {
 	background-color: #ECF3FD;
@@ -321,6 +280,10 @@ a.titlea:hover {
 	font-weight: bold;
 }
 
+.ui-state-default{
+	background: none;
+}
+
 tr.odd {
 	background-color: #ebf4fd;
 }
@@ -328,5 +291,7 @@ tr.odd {
 tr.even {
 	background-color: white;
 }
-
+.dock-container {
+	background-color: #F0F8FF;
+}
 -->
