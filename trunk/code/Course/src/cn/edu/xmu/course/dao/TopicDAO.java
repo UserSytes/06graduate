@@ -167,6 +167,16 @@ public class TopicDAO extends HibernateDaoSupport {
 		return findByProperty("course", course);
 	}
 
+	public List<Topic> findByCourseOrderByTime(Course course) {
+		try {
+			String queryString = "from Topic as model where model.course.id=" + course.getId()+" order by model.lastUpdate DESC";
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find by key name failed", re);
+			throw re;
+		}
+	}
+	
 	public List<Topic> findByName(Course course, Object name) {
 		try {
 			String queryString = "from Topic as model where model.name like '%"
