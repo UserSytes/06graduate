@@ -8,16 +8,29 @@
 		<META http-equiv=Pragma content=no-cache>
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
-		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<LINK href="${ctx}/css/pagination.css" type=text/css rel=stylesheet>
 		<link rel="stylesheet" href="${ctx}/css/thickbox.css" type="text/css"
 			media="screen" />
-
 		<script type="text/javascript"
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
 		<script type="text/javascript" src="${ctx}/js/thickbox2.js"></script>
-		<script type="text/javascript" src="${ctx}/js/jquery.pagination.js"></script>
 		<title>学生列表</title>
+<style type="text/css" title="currentStyle">
+@import "${ctx}/css/demo_page.css";
+@import "${ctx}/css/demo_table_jui.css";
+@import "${ctx}/css/jquery-ui-1.7.2.custom.css";
+</style>
+		<script type="text/javascript" language="javascript"
+			src="${ctx}/js/jquery.js"></script>
+		<script type="text/javascript" language="javascript"
+			src="${ctx}/js/jquery.dataTables.js" charset="gb2312"></script>
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				oTable = $('#example').dataTable({
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers"
+				});
+			} );
+		</script>
 		<style type="text/css">
 <!--
 .STYLE1 {
@@ -34,32 +47,8 @@
 }
 -->
 </style>
-		<script type="text/javascript">
-$(document).ready(function(){
-	//这是一个非常简单的demo实例，让列表元素分页显示
-	//回调函数的作用是显示对应分页的列表项内容
-	//回调函数在用户每次点击分页链接的时候执行
-	//参数page_index{int整型}表示当前的索引页
-	var $table = $('#table');
-	$("#tbody tr:gt(" + 9+ ")").hide().end();
-	$("#tbody").css("display","");  
-		var num_entries = $("#tbody tr").length;
-		// 创建分页
-		$("#Pagination").pagination( {
-				count:num_entries,
-				pageCount:10,
-				imagePath:"${ctx}/commons/images",
-				callback:function(page_index){							
-		 			$table.find("#tbody tr").show();               
-          			$("#tbody tr:lt(" + (page_index-1) * 10 + ")").hide().end();                  
-       				$("#tbody tr:gt(" + ((page_index) * 10 -1) + ")").hide().end();
-			}
-		});
-
-});
-</script>
 	</head>
-	<body>
+	<body id="dt_example">
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
@@ -70,10 +59,11 @@ $(document).ready(function(){
 				</td>
 			</tr>
 		</table>
-		<div align="center">
-			<table id="table" class="listTable" style="">
-				<tr class="listHeaderTr"
-					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
+		<div class="demo_jui">
+			<table cellpadding="0" cellspacing="0" border="0" class="display"
+				id="example">
+				<thead>
+				<tr>
 					<th>
 						序号
 					</th>
@@ -96,9 +86,10 @@ $(document).ready(function(){
 						操作
 					</th>
 				</tr>
-				<tbody id="tbody" style="display: none;">
+				</thead>
+				<tbody>
 					<s:iterator value="studentList" status="student">
-						<tr class="listTr">
+						<tr <s:if test="#student.odd">style="background-color:ebf4fd"</s:if>>
 							<td width="5%">
 								<s:property value="#student.count" />
 							</td>
@@ -158,9 +149,6 @@ $(document).ready(function(){
 				</tbody>
 				</div>
 			</table>
-			<div id="Pagination" class="pagination">
-				<!-- 这里显示分页 -->
-			</div>
 		</div>
 	</body>
 </html>
