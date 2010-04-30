@@ -163,11 +163,7 @@ public class TopicDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByCourse(Object course) {
-		return findByProperty("course", course);
-	}
-
-	public List<Topic> findByCourseOrderByTime(Course course) {
+	public List findByCourse(Course course) {
 		try {
 			String queryString = "from Topic as model where model.course.id=" + course.getId()+" order by model.lastUpdate DESC";
 			return getHibernateTemplate().find(queryString);
@@ -176,6 +172,7 @@ public class TopicDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
+
 	
 	public List<Topic> findByName(Course course, Object name) {
 		try {
@@ -212,7 +209,7 @@ public class TopicDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List<Topic> findByTime(Object course, Date time) {
+	public List<Topic> findByTime(Course course, Date time) {
 		String dftime = df.format(time);
 		System.out.println("´«Èë" + dftime);
 		List<Topic> list = findByCourse(course);
