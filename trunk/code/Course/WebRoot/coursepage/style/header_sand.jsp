@@ -357,7 +357,7 @@
 			<div class="content border_bottom">
 				<ul id="sub_nav">
 					<li>
-						<a href="#">首页</a>
+						<a href="${ctx}/homepage/index.jsp">首页</a>
 					</li>
 
 					<li>

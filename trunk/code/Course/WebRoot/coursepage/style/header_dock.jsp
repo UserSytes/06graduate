@@ -253,13 +253,13 @@
 				<a href="addCollectionAction.action" rel="facebox" >加入收藏</a>
 			</div>
 			<div id="goindex">
-				返回首页
+				<a href="${ctx}/homepage/index.jsp">返回首页</a>
 			</div>
 		</div>
 		<div id="header">
 			<div class="dock" id="dock">
 				<div class="dock-container" id="dock-container">
-					<a class="dock-item" href="${ctx}/homepage/index.jsp"><img
+					<a class="dock-item" href="goIndexQueryAction.action"><img
 							id="home-img"
 							src="${ctx}/coursepage/style/<s:property value="#session.style"/>/home.png"
 							alt="首页" /><span>首页</span> </a>
