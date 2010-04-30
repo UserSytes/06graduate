@@ -43,7 +43,10 @@ public class TopicService implements ITopicService {
 		// TODO Auto-generated method stub
 		return topicDAO.findByCourse(course);
 	}
-
+	public List getAllTopicsOrderByTime(Course course){
+		return topicDAO.findByCourseOrderByTime(course);
+		
+	}
 	public Topic getTopicById(Integer id) {
 		// TODO Auto-generated method stub
 		return topicDAO.findById(id);
