@@ -67,7 +67,6 @@ $(document).ready(function(){
 				<td width="40">
 					<div align="right">
 						<input type="button" onclick="goToAddCourseware()" value="添加课件" />
-						&nbsp;&nbsp;&nbsp;&nbsp;
 					</div>
 				</td>
 			</tr>

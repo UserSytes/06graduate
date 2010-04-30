@@ -38,7 +38,7 @@ $(document).ready(function(){
 
 });
 </script>
-<script language="javascript">
+		<script language="javascript">
 	function getNoticeByCourse(courseId) {
 	   window.location.href="getNoticeListByCourseAction.action?courseId="+courseId;
 	}
@@ -48,51 +48,49 @@ $(document).ready(function(){
 </script>
 	</head>
 	<body>
-		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
-			align=center border=0>
-			<tr class=position bgcolor="#ECF3FD">
-				<td>
-					当前位置: 课程通知管理 -&gt; 通知列表
-				</td>
-			</tr>
-		</table>
+		<div align="center">
+			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+				align=center border=0>
+				<tr class=position bgcolor="#ECF3FD">
+					<td>
+						当前位置: 课程通知管理 -&gt; 通知列表
+					</td>
+					<td width="300">
+						请选择要查询的课程：&nbsp;&nbsp;&nbsp;
+						<s:select id="courseId" name="courseId" list="courseList"
+							listKey="id" listValue="name" headerValue="全部" headerKey="-1"
+							onchange="getNoticeByCourse(this.value)" />
 
-      <table class=listTable align="center">
-			<tr>
-				<td>
-					请选择要查询的课程：&nbsp;&nbsp;&nbsp;
-					<s:select id="courseId" name="courseId" list="courseList"
-							listKey="id" listValue="name" headerValue="全部"
-							headerKey="-1" onchange="getNoticeByCourse(this.value)"/>
-
-				</td><td><div align="right">
+					</td>
+					<td width="50">
 						<input type="button" onclick="goAddNotice()" value="添加课程通知" />
-					</div></td>
-			</tr>
-		</table>
-		<div align="center">		
-				<table id="table" class="listTable" style="">
-					<tr class="listHeaderTr"
-						<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
-						<th>
-							序号
-						</th>	
-						<th>
-							标题
-						</th>
-						<th>
-							类别
-						</th>
-						<th>
-							所属课程
-						</th>
-						<th>
-							发布时间
-						</th>			
-						<th>
-							操作
-						</th>
-					</tr>
+					</td>
+				</tr>
+			</table>
+
+
+			<table id="table" class="listTable" style="">
+				<tr class="listHeaderTr"
+					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
+					<th>
+						序号
+					</th>
+					<th>
+						标题
+					</th>
+					<th>
+						类别
+					</th>
+					<th>
+						所属课程
+					</th>
+					<th>
+						发布时间
+					</th>
+					<th>
+						操作
+					</th>
+				</tr>
 				<tbody id="tbody" style="display: none;">
 					<s:iterator value="noticeList" status="notice">
 						<tr class="listTr">
@@ -110,7 +108,7 @@ $(document).ready(function(){
 							</td>
 							<td width="25%">
 								<s:date name="time" format="yyyy-MM-dd hh:mm:ss" />
-							</td>							
+							</td>
 							<td width="15%">
 								<a
 									href="<s:url action="goEditNoticeAction"> 
@@ -129,8 +127,9 @@ $(document).ready(function(){
 									<font color="red">【删除】</font> </a>
 							</td>
 						</tr>
-					</s:iterator></tbody>
-				</table>
+					</s:iterator>
+				</tbody>
+			</table>
 			<div id="Pagination" class="pagination"></div>
 		</div>
 	</body>
