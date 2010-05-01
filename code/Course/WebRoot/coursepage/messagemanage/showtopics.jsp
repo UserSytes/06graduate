@@ -153,23 +153,7 @@
 			</div>
 
 			<br class="clear" />
-		</div>
-		<div id="info" style="display: none;">
-			<p>
-				Hey, I'm the 'info' div!
-			</p>
-			<p>
-				I look like this:
-			</p>
-
-			<code>
-				&lt;div id="info" style="display:none;"&gt;
-				<br />
-				&nbsp;&nbsp;text
-				<br />
-				&lt;/div&gt;
-			</code>
-		</div>
+		</div>	
 
 		<s:include value="../style/bottom.jsp"></s:include>
 	</body>

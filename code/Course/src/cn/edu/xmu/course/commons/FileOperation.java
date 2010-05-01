@@ -35,6 +35,7 @@ public class FileOperation {
 			InputStream in = null;
 			OutputStream out = null;
 			try {
+				System.out.println("the path is"+src.getPath());
 				in = new BufferedInputStream(new FileInputStream(src),
 						BUFFER_SIZE);
 				out = new BufferedOutputStream(new FileOutputStream(dst),

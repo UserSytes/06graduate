@@ -68,6 +68,7 @@ public class CoursewareAction extends BaseAction {
 		courseware.setFilename(uploadFileName);
 		courseware.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);
+		System.out.println("the  path1 is "+upload.getPath());
 		if (coursewareService.addCourseware(courseware, chapter, upload))
 			return SUCCESS;
 		else {

@@ -99,8 +99,7 @@ public class MessageAction extends BaseAction {
 		boolean result = messageService.addMessage(super.getCourse(), topic,
 				message, super.getUserInfo());
 		if (result) {
-			userInfo = super.getUserInfo();
-			topicList = getTopicService().getAllTopics(course);
+			userInfo = super.getUserInfo();			
 			message = null;
 			return SUCCESS;
 		} else {
@@ -178,7 +177,7 @@ public class MessageAction extends BaseAction {
 		}
 
 	}
-	public String showMessages2() {
+	public String showMessages() {
 		course = super.getCourse();
 		userInfo=super.getUserInfo();
 		topic = topicService.getTopicById(topicId);
@@ -203,6 +202,7 @@ public class MessageAction extends BaseAction {
 		// topic = topicService.getTopicById(topicId);
 		course=super.getCourse();
 		System.out.println("ACTION正在加入帖子为：" + topic.getId() + "的留言2");
+		topicId = topic.getId();
 		topic = topicService.getTopicById(topic.getId());
 		// topic.setCountReply(topic.getCountReply()+1);
 		// topic.setLastUpdate(new Date());
@@ -212,8 +212,7 @@ public class MessageAction extends BaseAction {
 		// message.setGrade(topic.getCountReply()+2);
 		boolean result = messageService.addReplyMessage(topic, message, super
 				.getUserInfo());
-		if (result) {
-			messageList = messageService.getMessageByTopic(topic);
+		if (result) {			
 			message = null;
 			return SUCCESS;
 		} else {
