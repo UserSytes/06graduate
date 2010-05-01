@@ -10,9 +10,9 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
 		<title>添加学院</title>
-		<script type="text/javascript" src="/dwr/engine.js"></script>
-		<script type="text/javascript" src="/dwr/util.js"></script>
-		<script type="text/javascript" src="/dwr/interface/SuperAdminService.js"></script>
+		<script type="text/javascript" src="/course/dwr/engine.js"></script>
+		<script type="text/javascript" src="/course/dwr/util.js"></script>
+		<script type="text/javascript" src="/course/dwr/interface/SuperAdminService.js"></script>
 		<SCRIPT language=javascript>
 		function checkSchool(name) {
 			if (name == "") {
