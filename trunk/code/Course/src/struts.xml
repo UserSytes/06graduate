@@ -1535,8 +1535,7 @@
 			</result>
 			</action>
 		<action name="addNewMessageAction" method="addNewMessage" class="messageAction">
-			<result name="success">/coursepage/messagemanage/showtopics.jsp
-			</result>
+			<result name="success" type="redirect-action">showTopicsAction</result>
 			<result name="error">/coursepage/prompt.jsp</result>
 			</action>
 		<action name="showTopicsAction" method="showTopics" class="messageAction">
@@ -1545,7 +1544,7 @@
 			<result name="error">/coursepage/prompt.jsp</result>
 			<result name="login">/coursepage/login.jsp</result>
 			</action>
-		<action name="showMessagesAction" method="showMessages2" class="messageAction">
+		<action name="showMessagesAction" method="showMessages" class="messageAction">
 			<result name="messages">/coursepage/messagemanage/showmessages.jsp
 			</result>
 			<result name="error">/coursepage/prompt.jsp</result>
@@ -1567,8 +1566,7 @@
 		</action>
 		
 		<action name="addReplyAction" method="addReply" class="messageAction">
-			<result name="success">/coursepage/messagemanage/showmessages.jsp
-			</result>
+			<result name="success" type="redirect-action">showMessagesAction?topicId=${topic.id}&amp;</result>
 			<result name="error">/coursepage/prompt.jsp</result>
 		</action>				
 		<action name="loginFromMessageBoardAction" method="loginFromMessageBoard" class="messageAction">

@@ -65,7 +65,7 @@
 		</div>
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
-			<div style="border: 1px solid #ccc;">
+			<div align="left" style="border: 1px solid #ccc;padding: 10px;">
 				<img src="${ctx}/teacher/images/icon_1.png" width="16" height="16" />
 				<strong><font color="red" size="3"> 提示</font> </strong>
 				<div id="content_note">
