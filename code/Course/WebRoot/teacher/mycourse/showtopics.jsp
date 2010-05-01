@@ -8,128 +8,150 @@
 		<META http-equiv=Pragma content=no-cache>
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
-		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<LINK href="${ctx}/css/pagination.css" type=text/css rel=stylesheet>
+		<link href="${ctx}/facebox/facebox.css" media="screen"
+			rel="stylesheet" type="text/css" />
 		<script type="text/javascript"
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
-		<script type="text/javascript" src="${ctx}/js/jquery.pagination.js"></script>
+		<script type="text/javascript" language="javascript"
+			src="${ctx}/js/jquery.dataTables.js" charset="gb2312"></script>
+		<script src="${ctx}/facebox/facebox.js" type="text/javascript"></script>
+
 		<title>留言列表</title>
+
+		<style type="text/css" title="currentStyle">
+@import "${ctx}/css/demo_page.css";
+
+@import "${ctx}/css/demo_table_jui.css";
+
+@import "${ctx}/css/jquery-ui-1.7.2.custom.css";
+
+div,span,p,ul,li {
+	text-align: left;
+}
+
+a {
+	text-decoration: none;
+}
+
+a,a:link,a:visited {
+	color: #036;
+}
+
+a:hover {
+	color: #0000cd;
+}
+
+.tr-content td {
+	color: #036;
+}
+</style>
 		<script type="text/javascript">
 	$(document).ready( function() {
-		//这是一个非常简单的demo实例，让列表元素分页显示
-			//回调函数的作用是显示对应分页的列表项内容
-			//回调函数在用户每次点击分页链接的时候执行
-			//参数page_index{int整型}表示当前的索引页
-			var $table = $('#table');
-			$("#tbody tr:gt(" + 9 + ")").hide().end();
-			$("#tbody").css("display", "");
-			var num_entries = $("#tbody tr").length;
-			// 创建分页
-			$("#Pagination").pagination(
-					{
-						count :num_entries,
-						pageCount :10,
-						imagePath :"${ctx}/commons/images",
-						callback : function(page_index) {
-							$table.find("#tbody tr").show();
-							$("#tbody tr:lt(" + (page_index - 1) * 10 + ")")
-									.hide().end();
-							$("#tbody tr:gt(" + ((page_index) * 10 - 1) + ")")
-									.hide().end();
-						}
-					});
+			oTable = $('#example').dataTable( {
+			"bJQueryUI" :true,
+			"sPaginationType" :"full_numbers"
+		});
+		$('a[rel*=facebox]').facebox( {
+			loading_image :'${ctx}/facebox/loading.gif',
+			close_image :'${ctx}/facebox/closelabel.gif'
+		})
 
 		});
 </script>
-		<SCRIPT language=javascript>
-	function showTopicsByTime(time) {
-		window.location.href = "showTopicsByTeacherAction.action?time=" + time;
-	}
-</SCRIPT>
 	</head>
-	<body>
-		<div id="content" align="center">
-			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+	<body id="dt_example">
+		<div align="center"
+			style="padding-left: 5px; padding-right: 5px; width: 98%">
+			<table cellSpacing=1 cellPadding=0 width="100%"
+				style="margin: 20px 0 20px 0; color: #000; BACKGROUND-COLOR: #87ceeb; border: 1px solid #666;"
 				align=center border=0>
-				<tr class=position bgcolor="#ECF3FD">
+				<tr bgcolor="#B0E0E6" height="25">
 					<td>
 						当前位置: 课程管理 -&gt; 留言管理
 					</td>
-					<td width="200">
-						请选择查询时间：&nbsp;&nbsp;&nbsp;
-						<s:select name="time"
-							list="#{0:'全部',1:'最近一天',3:'最近三天',7:'最近七天',30:'最近一月'}"
-							listKey="key" listValue="value"
-							onchange="javascript:showTopicsByTime(this.value)" />
-
-					</td>
 				</tr>
 			</table>
 
+			<div class="demo_jui" style="margin-top: 10px;">
+				<a href="${ctx}/teacher/mycourse/newtopic.jsp" rel="facebox"><img
+						src="${ctx}/coursepage/classical/image/newtopic.gif" alt="新帖"
+						border="0" /> </a>
 
-			<table id="table" class="listTable" style="">
-				<tr class="listHeaderTr"
-					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
+				<table border="0" cellpadding="0" cellspacing="0" width="100%"
+					class="display" id="example">
+					<thead>
+						<tr>
+							<th>
 
-					<th width="4%">
-						&nbsp;
-					</th>
-					<th width="40%" align="left">
-						标题
-					</th>
-					<th width="12%" align="center">
-						所属课程
-					</th>
-
-					<th width="18%" align="center">
-						作者
-					</th>
-					<th width="8%" align="center">
-						回复/查看
-					</th>
-					<th width="18%" align="center">
-						最后发表
-					</th>
-				</tr>
-				<tbody id="tbody" style="display: none;">
-					<s:iterator value="topicList" status="topic">
-						<tr class="listTr">
-							<td align="center">
-								<img src="${ctx}/coursepage/images/folder_new.gif" border="0"
-									alt="新帖" />
-							</td>
-
-							<td align="left">
-								<a
-									href="<s:url action="showMessagesByTeaAction"> 
-		<s:param name="topicId"> 
-		<s:property value="id"/> 
-		</s:param>
-		</s:url>">
-									<font color="green"> <s:property value="name" /> </font> </a>
-
-							</td>
-							<td align="center">
-								<s:property value="course.name" />
-							</td>
-							<td align="center">
-								<s:property value="authorName" />
-								<s:date name="time" format="yyyy-MM-dd" />
-							</td>
-							<td align="center">
-								<s:property value="countReply" />
-								/
-								<s:property value="countPerson" />
-							</td>
-							<td align="center">
-								<s:property value="lastAnswer" />
-								<s:date name="lastUpdate" format="yyyy-MM-dd" />
-							</td>
+							</th>
+							<th width="480">
+								标题
+							</th>
+							<th width="130">
+								作者
+							</th>
+							<th width="100">
+								回复/查看
+							</th>
+							<th width="130">
+								最后发表
+							</th>
+							<th>
+								操作
+							</th>
 						</tr>
-					</s:iterator>
-				</tbody>
-			</table>
-			<div id="Pagination" class="pagination"></div>
+					</thead>
+					<tbody>
+						<s:iterator value="topicList" status="topic">
+							<tr height="33" class="tr-content">
+								<td width="30">
+									<s:property value="#topic.count" />
+									</div>
+								</td>
+								<td width="480" align="left" style="font-weight: bold">
+
+									<a class="titlea"
+										href="<s:url action="showMessagesByTeaAction">		
+																<s:param name="topicId"> 
+																	<s:property value="id"/> 
+																	</s:param>
+																</s:url>">
+										<s:property value="name" /> </a>
+								</td>
+								<td width="130" align="center">
+									<s:property value="authorName" />
+									<br>
+									<s:date name="time" format="yyyy-MM-dd hh:mm" />
+								</td>
+								<td width="100" align="center">
+									<s:property value="countReply" />
+									/
+									<font color="#444444"><s:property value="countPerson" />
+									</font>&nbsp;&nbsp;&nbsp;
+								</td>
+								<td width="130" align="center">
+									<s:property value="lastAnswer" />
+									<br>
+									<s:date name="lastUpdate" format="yyyy-MM-dd hh:mm" />
+								</td>
+								<td width="80" align="center">
+									<a
+										href="<s:url action="deleteTopicByTeaAction"> 
+                     			<s:param name="topicId"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param> 
+                					</s:url>"
+										onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
+										<font color="red">【删除】</font> </a>
+								</td>
+							</tr>
+						</s:iterator>
+					</tbody>
+
+				</table>
+				<!--/게시판 -->
+			</div>
 		</div>
+		<br>
 	</body>
 </html>

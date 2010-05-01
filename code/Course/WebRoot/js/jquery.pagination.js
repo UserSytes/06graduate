@@ -11,7 +11,7 @@ $.fn.pagination=function(opts){
 		}
 		function render(){
 			var strHtml=new String();
-			strHtml+="<ul id='pagination'><li id='text'>共有"+opts.count+"条记录,当前第"+currPage+"页,共"+pages+"页</li>";
+			strHtml+="<ul id='pagination'><li id='text'>共有"+opts.count+"条记录,当前第 "+currPage+"页,共 "+pages+ "页</li>";
 			strHtml+="<li><img alt='首页' id='first' /></li>";
 			strHtml+="<li><img alt='上一页' id='prev' /></li>";
 			strHtml+="<li><img alt='下一页' id='next' /></li>";

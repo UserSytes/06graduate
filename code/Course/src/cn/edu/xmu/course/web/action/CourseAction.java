@@ -54,7 +54,6 @@ public class CourseAction extends BaseAction {
 	private String studentFileContentType;	//学生帐号文件类型
 	private String studentFileName;	//学生帐号文件名
 	
-	private final String userName = "123";
 	
 
 	/**
@@ -63,9 +62,8 @@ public class CourseAction extends BaseAction {
 	 */
 	public String addNewCourse() {
 		Department dept = departmentService.getDepartmentById(Integer
-				.parseInt(departmentId));
-		Teacher tea = teacherInfoService.getTeacher(userName);
-		if (getCourseService().addCourse(course, dept, tea)) {
+				.parseInt(departmentId));		
+		if (getCourseService().addCourse(course, dept, super.getTeacher())) {
 			addActionMessage("申报课程成功！");
 			return SUCCESS;
 		} else
@@ -76,9 +74,8 @@ public class CourseAction extends BaseAction {
 	 * 获取某教师的课程
 	 * @return
 	 */
-	public String findMyCoursesList() {
-		Teacher tea = teacherInfoService.getTeacher(userName);
-		myCoursesList = courseService.findCoursesByTeacher(tea.getId(), type);
+	public String findMyCoursesList() {		
+		myCoursesList = courseService.findCoursesByTeacher(super.getTeacher().getId(), type);
 		return SUCCESS;
 	}
 	
@@ -110,8 +107,7 @@ public class CourseAction extends BaseAction {
 	 * @return
 	 */
 	public String findMyCoursesListInLeft() {
-		Teacher tea = teacherInfoService.getTeacher(userName);
-		myCoursesList = courseService.findCoursesByTeacher(tea.getId(), type);
+		myCoursesList = courseService.findCoursesByTeacher(super.getTeacher().getId(), type);
 		if (myCoursesList.size() == 0) {
 			return null;
 		} else
@@ -440,10 +436,6 @@ public class CourseAction extends BaseAction {
 
 	public int getCourseId() {
 		return courseId;
-	}
-
-	public String getUserName() {
-		return userName;
 	}
 
 	public String getRefuseReason() {

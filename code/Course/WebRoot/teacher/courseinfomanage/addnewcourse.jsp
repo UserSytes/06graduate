@@ -13,18 +13,11 @@
 	</head>
 
 	<body onload="getSchool()">
-		<script type="text/javascript" src="/dwr/engine.js"></script>
-		<script type="text/javascript" src="/dwr/util.js"></script>
-		<script type="text/javascript" src="/dwr/interface/DepartmentDAO.js"></script>
-		<script type="text/javascript" src="/dwr/interface/SchoolDAO.js"></script>
-		<script language="javascript">
-	function callbackorgcus(data) {
-		if (data) {
-			DWRUtil.setValue("check", "该用户已存在");
-		} else {
-			DWRUtil.setValue("check", "可用用户名");
-		}
-	}
+		<script type="text/javascript" src="/course/dwr/engine.js"></script>
+		<script type="text/javascript" src="/course/dwr/util.js"></script>
+		<script type="text/javascript" src="/course/dwr/interface/DepartmentDAO.js"></script>
+		<script type="text/javascript" src="/course/dwr/interface/SchoolDAO.js"></script>
+		<script language="javascript">	
 
 	function getSchool() {
 
@@ -65,7 +58,7 @@
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 课程申报-&gt; 课程申报
+					当前位置: 课程管理-&gt; 课程申报
 				</td>
 			</tr>
 		</table>

@@ -78,7 +78,7 @@ $(document).ready(function(){
 						研究领域
 					</th>
 					<th>
-						链接
+						个人主页
 					</th>
 					<th>
 						备注

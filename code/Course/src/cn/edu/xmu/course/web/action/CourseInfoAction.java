@@ -42,21 +42,49 @@ public class CourseInfoAction extends BaseAction {
 	 */
 	public String addNewCourseInfo() {
 		Course currentCourse = super.getCourse();
-		courseInfo.setSort(sort);
-		courseInfo.setTime(Calendar.getInstance().getTime());
+		courseInfo.setSort(1);
 		if (null == courseInfo.getId()) {
-			if (courseInfoService.addCoureseInfo(courseInfo, currentCourse))
+			if (courseInfoService.addCoureseInfo(courseInfo, currentCourse)){
+				addActionError("添加课程简介成功！");
 				return SUCCESS;
+			}				
 			else {
-				addActionError("添加课程信息失败，请重新添加");
+				addActionError("添加课程简介失败，请重新添加！");
 				return ERROR;
 			}
 
 		} else {
-			if (courseInfoService.updateCourseInfo(courseInfo))
+			if (courseInfoService.updateCourseInfo(courseInfo)){
+				addActionError("更新课程简介成功！");
 				return SUCCESS;
+			}				
 			else
-				addActionError("更新课程信息失败，请重新确认");
+				addActionError("更新课程简介失败，请重新操作！");
+			return ERROR;
+
+		}
+	}
+	
+	public String addNewCourseOutline() {
+		Course currentCourse = super.getCourse();
+		courseInfo.setSort(2);
+		if (null == courseInfo.getId()) {
+			if (courseInfoService.addCoureseInfo(courseInfo, currentCourse)){
+				addActionError("添加教学大纲成功！");
+				return SUCCESS;
+			}
+			else {
+				addActionError("添加教学大纲失败，请重新添加！");
+				return ERROR;
+			}
+
+		} else {
+			if (courseInfoService.updateCourseInfo(courseInfo)){
+				addActionError("更新教学大纲成功！");
+				return SUCCESS;
+			}
+			else
+				addActionError("更新教学大纲失败，请重新操作！");
 			return ERROR;
 
 		}
@@ -104,13 +132,25 @@ public class CourseInfoAction extends BaseAction {
 	public String findCourseInfo() {
 		Course currentCourse = super.getCourse();
 		courseInfo = courseInfoService.getCourseInfo(currentCourse.getId(),
-				sort);
+				1);
 		if (null == courseInfo) {
 			courseInfo = new CourseInfo();
 			courseInfo.setContent("暂无任何内容！");
 		}
 		return SUCCESS;
 	}
+	
+	public String findCourseOutline() {
+		Course currentCourse = super.getCourse();
+		courseInfo = courseInfoService.getCourseInfo(currentCourse.getId(),
+				2);
+		if (null == courseInfo) {
+			courseInfo = new CourseInfo();
+			courseInfo.setContent("暂无任何内容！");
+		}
+		return SUCCESS;
+	}
+	
 	/**
 	 * 课程页面获取当前课程信息
 	 * 
@@ -129,22 +169,6 @@ public class CourseInfoAction extends BaseAction {
 		else
 			return "courseinfo2";
 	}
-	/**
-	 * 首页获取当前课程信息
-	 * 
-	 * @return
-	 */
-	public String getCourseintroFromIndex(){
-		Course currentCourse = super.getCourse();
-		courseInfo = courseInfoService.getCourseInfo(currentCourse.getId(),
-				1);
-		if (null == courseInfo) {
-			courseInfo = new CourseInfo();
-			courseInfo.setContent("暂无任何内容！");
-		}
-		return SUCCESS;
-	}
-	
 	
 
 	public void setCourseInfo(CourseInfo courseInfo) {

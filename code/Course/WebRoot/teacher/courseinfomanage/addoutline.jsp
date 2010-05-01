@@ -24,11 +24,11 @@
 			align=center border=0>
 			<tr class=position>
 				<td>
-					当前位置: 我的课程 -&gt; 课程简介
+					当前位置: 我的课程 -&gt; 教学大纲
 				</td>
 			</tr>
 		</table>
-		<s:form action="addNewCourseInfoAction" method="post"
+		<s:form action="addNewCourseOutlineAction" method="post"
 			onsubmit="return check(this);">
 			<s:hidden name="courseInfo.id"></s:hidden>
 			<s:hidden name="courseInfo.course.id"></s:hidden>
@@ -37,7 +37,7 @@
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						添加课程简介：
+						添加课程信息：
 					</td>
 				</tr>				
 				<tr>

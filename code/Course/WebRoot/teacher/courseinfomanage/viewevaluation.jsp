@@ -108,7 +108,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:property value="evaluation.name" escape="false"/>
+						<s:property value="evaluation.content" escape="false"/>
 					</td>
 				</tr>
 			</table>

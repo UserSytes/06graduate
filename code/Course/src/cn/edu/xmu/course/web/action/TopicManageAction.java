@@ -31,9 +31,7 @@ public class TopicManageAction extends BaseAction{
 	 * @return
 	 */
 	public String getTopicBySchool(){
-		Administrator admin = (Administrator) super.getSession().get(
-				ADMIN);
-		School school = admin.getSchool();
+		School school = super.getAdmin().getSchool();
 		topicList = topicService.getTopicByShcool(school);
 		if(topicList.size()==0){
 			addActionMessage("本学院课程目前还无留言！");
@@ -54,6 +52,22 @@ public class TopicManageAction extends BaseAction{
 			this.getTopicBySchool();
 			return SUCCESS;
 		}else{
+			return ERROR;
+		}
+	}
+	
+
+	/**
+	 * 老师删除留言主题
+	 * @return
+	 */
+	public String deleteTopicByTea(){
+		topic = topicService.getTopicById(topicId);
+		boolean result = topicService.deleteTopic(topic);
+		if(result){
+			return SUCCESS;
+		}else{
+			addActionError("删除留言板主题失败，请重新操作！");
 			return ERROR;
 		}
 	}
@@ -86,6 +100,24 @@ public class TopicManageAction extends BaseAction{
 			messageList = messageService.getMessageByTopic(topic);
 			return SUCCESS;
 		}else{
+			addActionError("删除留言失败，请重新操作！");
+			return ERROR;
+		}
+	}
+	
+
+	/**
+	 * 教师删除留言
+	 * @return
+	 */
+	public String deleteMessageByTea(){
+		message = messageService.getMessageById(messageId);
+		topic = message.getTopic();
+		boolean result = messageService.deleteMessage(message);
+		if(result){			
+			return SUCCESS;
+		}else{
+			addActionError("删除留言失败，请重新操作！");
 			return ERROR;
 		}
 	}
