@@ -71,8 +71,7 @@ quote\:msgborder {
 	</head>
 	<body>
 		<!-- 头部 -->
-		<s:include value="../style/%{#session.header}"></s:include>
-		<script src="${ctx}/facebox/facebox.js" type="text/javascript"></script>
+		<s:include value="../style/%{#session.header}"></s:include>		
 		<script type="text/javascript" src="${ctx}/js/jquery.pagination.js"></script>
 		<script type="text/javascript">
 $(document).ready(function(){
@@ -230,7 +229,7 @@ $(document).ready(function(){
 													</table>
 												</td>
 											</tr>
-											<tr height="40">
+											<tr height="31">
 												<td width="200" align="left"
 													style="border-bottom: thin solid #9db350; border-right: thin dotted #60B7DE; border-top: 0px solid #E7EEF6;">
 													<img src="${ctx}/coursepage/classical/image/icon_9.gif">
@@ -246,7 +245,7 @@ $(document).ready(function(){
 													<font color="#003366"><s:property
 															value="userInfo.mobile" /> </font>
 												</td>
-												<td height="40" width="514" align="right"
+												<td width="514" height="31" align="right"
 													style="border-top: 1px solid #E7EEF6; border-bottom: thin solid #9db350; padding-top: 5px; float: right;">
 													<a class="fastreply" rel="facebox"
 														href="<s:url action="goReplyWithQuoteAction">

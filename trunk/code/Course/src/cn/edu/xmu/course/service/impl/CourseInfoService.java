@@ -1,6 +1,6 @@
 package cn.edu.xmu.course.service.impl;
 
-import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import cn.edu.xmu.course.dao.CourseInfoDAO;
@@ -14,7 +14,7 @@ public class CourseInfoService implements ICourseInfoService {
 	public boolean addCoureseInfo(CourseInfo courseInfo, Course course) {
 		// TODO Auto-generated method stub
 		courseInfo.setCourse(course);
-		courseInfo.setTime(Calendar.getInstance().getTime());
+		courseInfo.setTime(new Date());
 		try {
 			courseInfoDAO.save(courseInfo);
 			return true;
@@ -45,6 +45,7 @@ public class CourseInfoService implements ICourseInfoService {
 
 	public boolean updateCourseInfo(CourseInfo courseInfo) {
 		// TODO Auto-generated method stub
+		courseInfo.setTime(new Date());
 		try {
 			courseInfoDAO.merge(courseInfo);
 			return true;

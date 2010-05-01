@@ -25,8 +25,6 @@
 		<s:include value="../style/%{#session.header}"></s:include>
 		<script type="text/javascript" language="javascript"
 			src="${ctx}/js/jquery.dataTables.js" charset="gb2312"></script>
-		<script src="${ctx}/facebox/facebox.js" type="text/javascript"></script>
-
 		<script type="text/javascript" charset="utf-8">
 	$(document).ready( function() {
 		oTable = $('#example').dataTable( {

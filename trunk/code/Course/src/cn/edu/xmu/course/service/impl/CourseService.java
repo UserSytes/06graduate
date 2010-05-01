@@ -1,6 +1,7 @@
 package cn.edu.xmu.course.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import cn.edu.xmu.course.dao.CourseDAO;
 import cn.edu.xmu.course.pojo.ApplicationForm;
@@ -35,6 +36,9 @@ public class CourseService implements ICourseService {
 		course.setTeacher(teacher);
 		course.setVisible(1);
 		course.setCount(0);
+		course.setStyle("blue");
+		course.setHeader("header.jsp");
+		course.setTime(new Date());
 		try {
 			courseDAO.save(course);
 			return true;

@@ -102,6 +102,22 @@ a.v1:visited {
 											</table>
 										</td>
 										<td width="75">
+											<table width=73 border="0" align="center" cellpadding="0"
+												cellspacing="0">
+												<tr>
+													<td height="25"
+														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
+														<div align="center">
+
+															<span class="STYLE1"><A
+																href="findCurrentCourseOutlineAction.action"
+																target=mainFrame class="v1">教学大纲</A> </span>
+														</div>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td width="75">
 											<table width="73" border="0" align="center" cellpadding="0"
 												cellspacing="0">
 												<tr>
@@ -259,27 +275,7 @@ a.v1:visited {
 													</td>
 												</tr>
 											</table>
-										</td>
-										<td width="75">
-											<table width="73" border="0" align="center" cellpadding="0"
-												cellspacing="0">
-												<tr>
-													<td height="25"
-														style="background: url(images/right_06.gif); border-left: solid 1px #10637b; border-top: solid 1px #10637b; border-right: solid 1px #10637b;">
-														<div align="center">
-
-															<span class="STYLE1"><A
-																href="showTopicsByTeacherAction.action?time=0"
-																target=mainFrame class="v1">师生留言</A> </span>
-														</div>
-													</td>
-												</tr>
-											</table>
-										</td>
-
-										<td>
-											&nbsp;
-										</td>
+										</td><td>&nbsp;</td>
 									</tr>
 								</table>
 							</td>

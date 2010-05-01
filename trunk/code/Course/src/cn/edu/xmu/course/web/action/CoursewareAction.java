@@ -15,6 +15,10 @@ import cn.edu.xmu.course.service.ICoursewareService;
 
 public class CoursewareAction extends BaseAction {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1786518150476463775L;
 	private List<Chapter> chapterList;
 	private Chapter chapter;
 	private Integer chapterId;
@@ -68,7 +72,6 @@ public class CoursewareAction extends BaseAction {
 		courseware.setFilename(uploadFileName);
 		courseware.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);
-		System.out.println("the  path1 is "+upload.getPath());
 		if (coursewareService.addCourseware(courseware, chapter, upload))
 			return SUCCESS;
 		else {

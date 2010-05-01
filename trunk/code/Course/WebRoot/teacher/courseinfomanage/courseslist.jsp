@@ -6,7 +6,7 @@
 	<tr class="listHeaderTr"
 		<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
 		<th>
-			课程id
+			序号
 		</th>
 		<th>
 			课程名称
@@ -21,13 +21,16 @@
 			系
 		</th>
 		<th>
+			状态
+		</th>
+		<th>
 			操作
 		</th>
 	</tr>
 	<s:iterator value="myCoursesList" status="course">
 		<tr class="listTr">
 			<td>
-				<s:property value="id" />
+				<s:property value="#course.count" />
 			</td>
 			<td>
 				<s:property value="name" />
@@ -41,15 +44,22 @@
 			<td>
 				<s:property value="department.name" />
 			</td>
-			<td>	
-						<a
-								href="<s:url action="goEidtCourseAction"> 
+			<td>
+				<s:if test="status==1">已审核</s:if>
+				<s:if test="status==0">未审核</s:if>
+				<s:if test="status==2">未通过</s:if>
+			</td>
+			<td>
+				<a
+					href="<s:url action="goEidtCourseAction"> 
                      			<s:param name="courseId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
-								<font color="green">【详情】</font> </a>
-				<s:a onclick="JAVAscript:if(!confirm('如果删除该课程，将会删除该课程下的所有内容，请谨慎操作？')) return false;" href="javascript:deleteCourse(%{id})" value="id">
+					<font color="green">【详情】</font> </a>
+				<s:a
+					onclick="JAVAscript:if(!confirm('如果删除该课程，将会删除该课程下的所有内容，请谨慎操作？')) return false;"
+					href="javascript:deleteCourse(%{id})" value="id">
 					<s:param name="courseId">
 						<s:property value="id" />
 					</s:param>

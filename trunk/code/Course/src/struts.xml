@@ -302,16 +302,14 @@
 		<!-- 课程信息管理 (教师)-->
 		<action name="addNewCourseInfoAction" method="addNewCourseInfo"
 			class="courseInfoAction">
-			<result name="success" type="redirect-action">findCurrentCourseInfoAction
-			</result>
+			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="deleteCourseInfoAction" method="deleteCourseInfo"
+		<action name="addNewCourseOutlineAction" method="addNewCourseOutline"
 			class="courseInfoAction">
-			<result name="success" type="redirect-action">findCurrentCourseInfoAction
-			</result>
+			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
-		</action>
+		</action>		
 		<action name="saveCurrentCourseAction" method="saveCurrentCourse"
 			class="courseAction">
 			<result name="success">/teacher/right.jsp</result>
@@ -325,19 +323,14 @@
 		</action>
 		<action name="findCurrentCourseInfoAction" method="findCourseInfo"
 			class="courseInfoAction">
-			<result name="success">/teacher/courseinfomanage/viewcourseinfo.jsp
-			</result>
-		</action>
-		<action name="getCourseInfoDetailAction" method="getCourseInfoDetail"
-			class="courseInfoAction">
-			<result name="success">/teacher/courseinfomanage/viewcourseinfo.jsp
-			</result>
-		</action>
-		<action name="updateCourseInfoAction" method="updateCourseInfo"
-			class="courseInfoAction">
 			<result name="success">/teacher/courseinfomanage/addcourseinfo.jsp
 			</result>
 		</action>
+		<action name="findCurrentCourseOutlineAction" method="findCourseOutline"
+			class="courseInfoAction">
+			<result name="success">/teacher/courseinfomanage/addoutline.jsp
+			</result>
+		</action>	
 		<action name="addApplicationFormAction" method="addApplicationForm"
 			class="applicationFormAction">
 			<result name="success">/commons/prompt.jsp</result>
@@ -570,19 +563,39 @@
 			class="messageAction">
 			<result name="messages">/teacher/mycourse/showmessages.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="goReplyByTeacherAction" method="goReply" class="messageAction">
+		<action name="addNewMessageByTeaAction" method="addNewMessage" class="messageAction">
+			<result name="success" type="redirect-action">showTopicsByTeacherAction</result>
+			<result name="error">/commons/prompt.jsp</result>
+			</action>
+		<action name="addReplyByTeaAction" method="addReply" class="messageAction">
+			<result name="success" type="redirect-action">showMessagesByTeaAction?topicId=${topic.id}&amp;</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>	
+		<action name="goReplyByTeaAction" method="goReply" class="messageAction">
 			<result name="success">/teacher/mycourse/newreply.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="addReplyByTeacherAction" method="addReply" class="messageAction">
-			<result name="success" type="redirect-action">showTopicsByTeacherAction
+		<action name="goReplyToSomeoneByTeaAction" method="goReplyToSomeone" class="messageAction">
+			<result name="success">/teacher/mycourse/newreply.jsp
 			</result>
-			<result name="error">/commons/prompt1.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		
+		<action name="goReplyWithQuoteByTeaAction" method="goReplyWithQuote" class="messageAction">
+			<result name="success">/teacher/mycourse/newreply.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteTopicByTeaAction" method="deleteTopic" class="topicManageAction">
+			<result name="success" type="redirect-action">showTopicsByTeacherAction</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteMessageByTeaAction" method="deleteMessage" class="topicManageAction">
+			<result name="success" type="redirect-action">showMessagesByTeaAction?topicId=${topic.id}&amp;</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		<!-- 课程管理-教学成果部分 (教师)-->
 		<action name="getAchievementListByCourseAction" method="getAchievementListByCourse"
 			class="achievementAction">
@@ -1454,14 +1467,7 @@
 			class="enterCourseAction">
 			<result name="success">/coursepage/style/leftinfo.jsp
 			</result>
-		</action>
-		
-		<action name="getcourseintroAction" method="getCourseintroFromIndex"
-			class="courseInfoAction">
-			<result name="success">/coursepage/index.jsp
-			</result>
-			<result name="error">/coursepage/prompt.jsp</result>
-		</action>
+		</action>	
 		<action name="findApplicationFormAction" method="findApplicationForm"
 			class="applicationFormAction">
 			<result name="applicationForm">/coursepage/applicationform.jsp

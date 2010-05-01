@@ -50,7 +50,7 @@
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 课程申报 -&gt; 课程申报
+					当前位置: 课程管理-&gt; 我的课程
 				</td>
 				<td width="250">
 					请选择查询条件：&nbsp;&nbsp;&nbsp;
