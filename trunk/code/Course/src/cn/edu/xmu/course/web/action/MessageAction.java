@@ -188,8 +188,7 @@ public class MessageAction extends BaseAction {
 		if (getMessageList().size() > 0) {
 			return "messages";
 		} else {
-			System.out.println("查看留言出错！");
-			addActionError("查看留言出错！");
+			addActionError("该贴已无任何留言！");
 			return ERROR;
 		}
 	}

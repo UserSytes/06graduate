@@ -14,7 +14,7 @@
 			rel="stylesheet" type="text/css" />
 		<script type="text/javascript"
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
-		<script type="text/javascript" src="${ctx}/js/jquery.pagination.js"></script>			
+		<script type="text/javascript" src="${ctx}/js/jquery.pagination.js"></script>
 		<script src="${ctx}/facebox/facebox.js" type="text/javascript"></script>
 		<script type="text/javascript">
 	function check(form) {
@@ -25,7 +25,7 @@
 		return true;
 
 	}
-</script>		
+</script>
 		<script type="text/javascript">
 $(document).ready(function(){
 	//这是一个非常简单的demo实例，让列表元素分页显示
@@ -98,77 +98,88 @@ quote\:msgborder {
 	padding: 5px 10px 5px 25px;
 	color: #999;
 }
-div, span, p, ul, li{
-text-align: left;
+.delete {
+	background: url(${ctx}/teacher/img/del.png) no-repeat
+		0 50%;
+	padding: 5px 10px 5px 25px;
+	color: #999;
 }
-a{
+
+div,span,p,ul,li {
+	text-align: left;
+}
+
+a {
 	text-decoration: none;
 }
 </style>
 	</head>
 	<body>
-		<div align="center" style="padding-left:5px; padding-right: 5px;width: 98% ">
-			<table cellSpacing=1 cellPadding=0 width="100%" style="margin: 20px 0 20px 0; color: #000;BACKGROUND-COLOR: #87ceeb;
-	border: 1px solid #666;"
+		<div align="center"
+			style="padding-left: 5px; padding-right: 5px; width: 98%">
+			<table cellSpacing=1 cellPadding=0 width="100%"
+				style="margin: 20px 0 20px 0; color: #000; BACKGROUND-COLOR: #87ceeb; border: 1px solid #666;"
 				align=center border=0>
 				<tr bgcolor="#B0E0E6" height="25">
 					<td>
-						当前位置: 课程管理 -&gt; 留言管理 
-					</td>					
+						当前位置: 课程管理 -&gt; 留言管理
+					</td>
 				</tr>
 			</table>
-		<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border: 1px solid #B6B683;">
-						<tr>
-							<td align="left">
-								<table border="0" cellpadding="0" cellspacing="0" width="100%">
-									<tr height="39">
-										<td valign="bottom" align="left">
-											&nbsp;&nbsp;
-											<a href="${ctx}/teacher/mycourse/newtopic.jsp"
-												rel="facebox"><img
-													src="${ctx}/coursepage/classical/image/newtopic.gif"
-													alt="新帖" border="0" /> </a>
-											<a
-												href="<s:url action="goReplyByTeaAction">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%"
+				style="border: 1px solid #B6B683;">
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tr height="39">
+								<td valign="bottom" align="left">
+									&nbsp;&nbsp;
+									<a href="${ctx}/teacher/mycourse/newtopic.jsp" rel="facebox"><img
+											src="${ctx}/coursepage/classical/image/newtopic.gif" alt="新帖"
+											border="0" /> </a>
+									<a
+										href="<s:url action="goReplyByTeaAction">
 															<s:param name="topicId"> 
 															<s:property value="topic.id"/> 
                     										</s:param>
                 											</s:url>"
-												rel="facebox"> <img
-													src="${ctx}/coursepage/classical/image/reply.gif" alt="回复"
-													border="0" /> </a>
-										</td>										
-									</tr>
-								</table>
-							</td>
-						</tr>
-						<tr>
-							<td align="left">
-								<!--게시판 -->
-								<table border="0" cellpadding="0" cellspacing="0" width="100%"
-									height="31"
-									background=""
-									style="background:#FFF url(${ctx}/teacher/images/pro_titlebg.gif) no-repeat; ">
-									<tr>
-										<td align="left">
-											<font style="font-size: 14px; font-weight: 700">
-												&nbsp;&nbsp;&nbsp;主题： <s:property value="topic.name" /> </font>
+										rel="facebox"> <img
+											src="${ctx}/coursepage/classical/image/reply.gif" alt="回复"
+											border="0" /> </a>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td align="left">
+						<!--게시판 -->
+						<table border="0" cellpadding="0" cellspacing="0" width="100%"
+							height="31" background=""
+							style="background:#FFF url(${ctx}/teacher/images/pro_titlebg.gif) no-repeat; ">
+							<tr>
+								<td align="left">
+									<font style="font-size: 14px; font-weight: 700">
+									&nbsp;&nbsp;&nbsp;主题：
+									<s:property value="topic.name" /> </font>
 										</td>
-									</tr>
-								</table>
-								<table id="table" frame="below" ellspacing="0" cellpadding="4"
-									width="100%" align="center"
-									style="border-bottom: thin solid #9db350;">
-									<tbody id="tbody" style="display: none;">
-										<s:iterator value="messageList" status="message">
-											<tr style="height: 100%">
-												<td width="200" valign="top"
-													style="border-right: thin dotted #60B7DE; border-bottom: 0px;">
-													&nbsp;
-													<img width="120"
-														src="${ctx}/upload/<s:property value="userInfo.photo"/>" />
-													<br>
-													<font style="font-weight: bold; font-size: 14px;text-align: left;">&nbsp;<s:property
+							</tr>
+						</table>
+						<table id="table" frame="below" ellspacing="0" cellpadding="4"
+							width="100%" align="center"
+							style="border-bottom: thin solid #9db350;">
+							<tbody id="tbody" style="display: none;">
+								<s:iterator value="messageList" status="message">
+									<tr style="height: 100%">
+										<td width="200" valign="top"
+											style="border-right: thin dotted #60B7DE; border-bottom: 0px;">
+											&nbsp;
+											<img width="120"
+												src="${ctx}/upload/<s:property value="userInfo.photo"/>" />
+											<br>
+											<font
+												style="font-weight: bold; font-size: 14px;text-align: left;">&nbsp;
+											<s:property
 															value="userInfo.name" /> </font>
 													<div>
 
@@ -193,53 +204,54 @@ a{
 
 													</div>
 												</td>
-												<td width="514" valign="top" height="100%">
-													<table border="0" cellspacing="0" cellpadding="4"
-														height="100%" width="100%">
-														<tr>
-															<td>
-																<div
-																	style="padding-top: 4px; padding-left: 10px; border-bottom: 1px solid #9db350; color: #999999">
-																	第
-																	<s:property value="grade" />
-																	楼&nbsp;&nbsp;&nbsp;发表于
-																	<s:date name="time" format="yyyy-MM-dd hh:mm:ss" />
-																	&nbsp;
-																</div>
-															</td>
-														</tr>
-														<tr height="100%">
-															<td valign="top" height="100%"
-																style="padding: 10px 10px 10px 10px;">
-																<div>
-																	<s:text name="">${content}</s:text>
-																</div>
-															</td>
-														</tr>
+										<td width="514" valign="top" height="100%">
+											<table border="0" cellspacing="0" cellpadding="4"
+												height="100%" width="100%">
+												<tr>
+													<td>
+														<div
+															style="padding-top: 4px; padding-left: 10px; border-bottom: 1px solid #9db350; color: #999999">
+															第
+															<s:property value="grade" />
+															楼&nbsp;&nbsp;&nbsp;发表于
+															<s:date name="time" format="yyyy-MM-dd hh:mm:ss" />
+															&nbsp;
+														</div>
+													</td>
+												</tr>
+												<tr height="100%">
+													<td valign="top" height="100%"
+														style="padding: 10px 10px 10px 10px;">
+														<div>
+															<s:text name="">${content}</s:text>
+														</div>
+													</td>
+												</tr>
 
-													</table>
-												</td>
-											</tr>
-											<tr height="31">
-												<td width="200" align="left"
-													style="border-bottom: thin solid #9db350; border-right: thin dotted #60B7DE; border-top: 0px solid #E7EEF6;">
-													<img src="${ctx}/coursepage/classical/image/icon_9.gif">
-														邮箱： 
-													<a
-														href="mailto:<s:property value="userInfo.email"/>?subject=[厦门大学课程网络平台]"><font
-														color="#003366"><s:property value="userInfo.email" />
-													</font> </a>
-													<br />
-													<img src="${ctx}/coursepage/classical/image/icon_6.gif"
-														width="13" height="13">
-														联系电话： 
-													<font color="#003366"><s:property
-															value="userInfo.mobile" /> </font>
-												</td>
-												<td height="31" width="514" align="right"
-													style="border-top: 1px solid #E7EEF6; border-bottom: thin solid #9db350; padding-top: 5px; float: right;">
-													<a class="fastreply" rel="facebox"
-														href="<s:url action="goReplyWithQuoteByTeaAction">
+											</table>
+										</td>
+									</tr>
+									<tr height="31">
+										<td width="200" align="left"
+											style="border-bottom: thin solid #9db350; border-right: thin dotted #60B7DE; border-top: 0px solid #E7EEF6;">
+											<img src="${ctx}/coursepage/classical/image/icon_9.gif">
+											邮箱：
+											<a
+												href="mailto:<s:property value="userInfo.email"/>?subject=[厦门大学课程网络平台]"><font
+												color="#003366">
+											<s:property value="userInfo.email" /> </font> </a>
+											<br />
+											<img src="${ctx}/coursepage/classical/image/icon_6.gif"
+												width="13" height="13">
+											联系电话：
+											<font color="#003366">
+											<s:property value="userInfo.mobile" />
+											</font>
+										</td>
+										<td height="31" width="514" align="right"
+											style="border-top: 1px solid #E7EEF6; border-bottom: thin solid #9db350; padding-top: 5px; float: right;">
+											<a class="fastreply" rel="facebox"
+												href="<s:url action="goReplyWithQuoteByTeaAction">
                      										<s:param name="topicId"> 
                        			 								<s:property value="topic.id"/> 
                     										</s:param>
@@ -250,9 +262,9 @@ a{
 															<s:param name="replyContent" value="content"> 
                     										</s:param>
                 											</s:url>"><font
-														color="#999">引用</font> </a>
-													<a class="repquote" rel="facebox"
-														href="<s:url action="goReplyToSomeoneByTeaAction">
+												color="#999">引用</font> </a>
+											<a class="repquote" rel="facebox"
+												href="<s:url action="goReplyToSomeoneByTeaAction">
                      										<s:param name="topicId"> 
                        			 								<s:property value="topic.id"/> 
                     										</s:param>
@@ -263,59 +275,66 @@ a{
                        			 								<s:property value="grade"/>
                     										</s:param>
                 											</s:url>"><font
-														color="#999">回复</font> </a>
-													<a href="###" onclick="scroll(0,0)"><img
-															src="${ctx}/coursepage/classical/image/top.gif"
-															border="0" alt="顶部" /> </a>&nbsp;
-												</td>
-											</tr>
-										</s:iterator>
-									</tbody>
+												color="#999">回复</font> </a>
+												<a class="delete"
+												href="<s:url action="deleteMessageByTeaAction">
+                     										<s:param name="messageId"> 
+                       			 								<s:property value="id"/> 
+                    										</s:param>
+                											</s:url>"><font
+												color="#999">删除</font> </a>
+											<a href="###" onclick="scroll(0,0)"><img
+													src="${ctx}/coursepage/classical/image/top.gif" border="0"
+													alt="顶部" /> </a>&nbsp;
+										</td>
+									</tr>
+								</s:iterator>
+							</tbody>
 
-								</table>
+						</table>
+						<br>
+						<div id="Pagination" class="pagination">
+							<!-- 这里显示分页 -->
+						</div>
+						<!--/게시판 -->
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<!-- 페지검색 -->
+						<table border="0" cellpadding="0" cellspacing="0">
+
+						</table>
+						<s:form action="addReplyAction" method="post"
+							onsubmit="return check(this);">
+							<s:hidden name="topic.id"></s:hidden>
+							<table cellspacing="0" cellpadding="4" border="0" width="100%"
+								align="center">
 								<br>
-								<div id="Pagination" class="pagination">
-									<!-- 这里显示分页 -->
-								</div>
-								<!--/게시판 -->
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<!-- 페지검색 -->
-								<table border="0" cellpadding="0" cellspacing="0">
+								<tr>
+									<td width="200" align="center" valign="top">
+										<span class="bold"
+											style="padding-left: 10px; font-size: 15px; font-weight: bold;">快速回复主题</span>
+									</td>
+									<td width="500" valign="top"
+										style="padding-right: 20px; padding-left: 20px;">
+										<div style="width: 500" align="left">
+											<s:textarea rows="7" cols="60" id="messagecontent"
+												name="message.content"></s:textarea>
+											<div class="left">
+												<s:submit cssClass="label" value="发表回复"></s:submit>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</s:form>
+						<!-- /페지검색 -->
+					</td>
+				</tr>
 
-								</table>
-								<s:form action="addReplyAction" method="post"
-									onsubmit="return check(this);">
-									<s:hidden name="topic.id"></s:hidden>
-									<table cellspacing="0" cellpadding="4" border="0" width="100%"
-										align="center">
-										<br>
-										<tr>
-											<td width="200" align="center" valign="top">
-												<span class="bold"
-													style="padding-left: 10px; font-size: 15px; font-weight: bold;">快速回复主题</span>
-											</td>
-											<td width="500" valign="top"
-												style="padding-right: 20px; padding-left: 20px;">
-												<div style="width: 500" align="left">
-													<s:textarea rows="7" cols="60" id="messagecontent"
-														name="message.content"></s:textarea>
-													<div class="left">
-														<s:submit cssClass="label" value="发表回复"></s:submit>
-													</div>
-												</div>
-											</td>
-										</tr>
-									</table>
-								</s:form>
-								<!-- /페지검색 -->
-							</td>
-						</tr>
-
-					</table>
-<br>
+			</table>
+			<br>
 		</div>
 	</body>
 </html>

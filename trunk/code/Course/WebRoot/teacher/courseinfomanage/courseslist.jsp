@@ -57,6 +57,13 @@
                     			</s:param> 
                 					</s:url>">
 					<font color="green">【详情】</font> </a>
+					<a
+					href="<s:url action="goSetCourseStyleAction"> 
+                     			<s:param name="courseId"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param> 
+                					</s:url>">
+					<font color="blue">【设置风格】</font> </a>
 				<s:a
 					onclick="JAVAscript:if(!confirm('如果删除该课程，将会删除该课程下的所有内容，请谨慎操作？')) return false;"
 					href="javascript:deleteCourse(%{id})" value="id">
