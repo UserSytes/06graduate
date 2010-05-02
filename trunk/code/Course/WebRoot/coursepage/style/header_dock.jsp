@@ -130,6 +130,9 @@
 		$("#sand").click( function() {
 			changeHeader('header_sand.jsp');
 		});
+		$("#goindex").click( function() {
+			window.location.href="${ctx}/homepage/index.jsp";
+		});
 		var hovermouse = function() {
 			$('#corner img').stop().animate( {
 				width :'200px',
@@ -253,7 +256,7 @@
 				<a href="addCollectionAction.action" rel="facebox" >加入收藏</a>
 			</div>
 			<div id="goindex">
-				<a href="${ctx}/homepage/index.jsp">返回首页</a>
+				返回首页
 			</div>
 		</div>
 		<div id="header">
