@@ -270,7 +270,6 @@ public class StudentCourseService implements IStudentCourseService {
 
 	/**
 	 * 更新学生课程信息
-	 * 
 	 * @param studentCourse
 	 * @return
 	 */
