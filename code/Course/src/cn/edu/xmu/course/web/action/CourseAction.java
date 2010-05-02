@@ -33,6 +33,7 @@ public class CourseAction extends BaseAction {
 	private Course course;	//课程
 	private List<Course> myCoursesList;	//我（教师）的课程列表
 	private int type = 3;	//课程状态标识，3:通过审核的课程
+	private String style; //课程风格颜色 
 
 	private ISuperAdminService superAdminService;	//负责管理校方管理员的接口
 	private ITeacherInfoService teacherInfoService;	//管理教师信息的接口
@@ -53,8 +54,7 @@ public class CourseAction extends BaseAction {
 	private File studentFile;	//学生帐号文件
 	private String studentFileContentType;	//学生帐号文件类型
 	private String studentFileName;	//学生帐号文件名
-	
-	
+		
 
 	/**
 	 * 申报课程
@@ -123,8 +123,46 @@ public class CourseAction extends BaseAction {
 		Course deleteCourse = courseService.getCourseById(courseId);
 		if (courseService.deleteCourse(deleteCourse)) {
 			return SUCCESS;
-		} else
+		} else{
+			addActionError("删除课程失败,请重新操作！");
+			return ERROR;}
+	}
+	
+	/**
+	 * 设置课程风格
+	 * @return
+	 */
+	public String setCourseStyle(){
+		Course course = courseService.getCourseById(courseId);
+		int length = style.length();
+		course.setStyle(style.substring(0,length-1));
+		String str = style.substring(length-1);
+		if(str.equals("t"))
+			course.setHeader("header.jsp");
+		else if(str.equals("d"))
+			course.setHeader("header_dock.jsp");
+		else course.setHeader("header_sand.jsp");
+		if(courseService.updateCourse(course)){
+			addActionMessage("设置风格成功！");
+			return SUCCESS;
+		}
+		else {
+			addActionError("设置课程风格失败，请重新操作！");
 			return ERROR;
+		}
+	}
+	
+	/**
+	 * 跳转到设置课程风格页面
+	 * @return
+	 */
+	public String goSetCourseStyle(){
+		Course course = courseService.getCourseById(courseId);
+		if(course.getStatus()==2){
+			addActionError("您的课程暂未通过审核，目前无法设置课程风格！");
+			return ERROR;
+		}
+		return SUCCESS;
 	}
 
 	/**
@@ -541,6 +579,14 @@ public class CourseAction extends BaseAction {
 
 	public void setDepartmentList(List<Department> departmentList) {
 		this.departmentList = departmentList;
+	}
+
+	public void setStyle(String style) {
+		this.style = style;
+	}
+
+	public String getStyle() {
+		return style;
 	}
 
 }

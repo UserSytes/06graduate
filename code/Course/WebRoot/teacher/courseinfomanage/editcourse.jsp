@@ -9,16 +9,10 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<title>课程申报</title>
+		<title>课程修改</title>
 	</head>
 
-	<body onload="getSchool()">
-		<script type="text/javascript" src="/dwr/engine.js"></script>
-		<script type="text/javascript" src="/dwr/util.js"></script>
-		<script type="text/javascript" src="/dwr/interface/DepartmentDAO.js"></script>
-		<script type="text/javascript" src="/dwr/interface/SchoolDAO.js"></script>
-		<script language="javascript">
-</script>
+	<body>		
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">

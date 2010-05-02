@@ -293,6 +293,16 @@
 			<result>/teacher/courseinfomanage/editcourse.jsp
 			</result>
 		</action>
+		<action name="goSetCourseStyleAction" method="goSetCourseStyle" class="courseAction">
+			<result name="success" >/teacher/courseinfomanage/editcoursestyle.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="setCourseStyleAction" method="setCourseStyle" class="courseAction">
+			<result name="success" >/commons/prompt.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		<action name="updateCourseAction" method="updateCourseVisible"
 			class="courseAction">
 			<result name="success" type="redirect-action">getMyCourseAction
@@ -570,7 +580,7 @@
 			<result name="error">/commons/prompt.jsp</result>
 			</action>
 		<action name="addReplyByTeaAction" method="addReply" class="messageAction">
-			<result name="success" type="redirect-action">showMessagesByTeaAction?topicId=${topic.id}&amp;</result>
+			<result name="success" type="redirect-action">showMessagesByTeaAction?topicId=${topic.id}</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>	
 		<action name="goReplyByTeaAction" method="goReply" class="messageAction">
@@ -593,7 +603,7 @@
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="deleteMessageByTeaAction" method="deleteMessage" class="topicManageAction">
-			<result name="success" type="redirect-action">showMessagesByTeaAction?topicId=${topic.id}&amp;</result>
+			<result name="success" type="redirect-action">showMessagesByTeaAction?topicId=${topic.id}</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<!-- 课程管理-教学成果部分 (教师)-->
@@ -960,7 +970,7 @@
 		</action>
 		<action name="deleteStudentFromCourseAction" method="deleteStudent"
 			class="courseAction">
-			<result name="success" type="redirect">viewCourseStudentByTeaAction.action?courseId=${courseId}&amp;
+			<result name="success" type="redirect">viewCourseStudentByTeaAction.action?courseId=${courseId}
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
@@ -1047,11 +1057,11 @@
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="deleteTopicAction" method="deleteTopic" class="topicManageAction">
-			<result name="success">/admin/messagemanage/topiclist.jsp</result>
+			<result name="success" type="redirect-action">goSchoolTopicAction</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="deleteMessageAction" method="deleteMessage" class="topicManageAction">
-			<result name="success">/admin/messagemanage/messagelist.jsp</result>
+			<result name="success" type="redirect-action">viewTopicAction?topicId=${topic.id}</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		
@@ -1572,7 +1582,7 @@
 		</action>
 		
 		<action name="addReplyAction" method="addReply" class="messageAction">
-			<result name="success" type="redirect-action">showMessagesAction?topicId=${topic.id}&amp;</result>
+			<result name="success" type="redirect-action">showMessagesAction?topicId=${topic.id}</result>
 			<result name="error">/coursepage/prompt.jsp</result>
 		</action>				
 		<action name="loginFromMessageBoardAction" method="loginFromMessageBoard" class="messageAction">

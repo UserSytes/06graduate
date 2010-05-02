@@ -34,7 +34,7 @@
         <property name="countReply" type="java.lang.Integer">
             <column name="count_reply" />
         </property>
-        <set name="messages" inverse="true">
+        <set name="messages" inverse="true" cascade="delete">
             <key>
                 <column name="topic_id" />
             </key>

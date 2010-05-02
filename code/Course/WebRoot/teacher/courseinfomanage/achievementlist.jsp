@@ -93,10 +93,10 @@ $(document).ready(function(){
                        			 	<s:property value="fileLink"/> 
                     			</s:param> 
 								<s:param name="originalFileName"> 
-                       			 	<s:property value="filename"/> 
+                       			 	<s:property value="fileName"/> 
                     			</s:param> 
                 					</s:url>">
-									<font color="blue"><s:property value="filename" /> </font> </a>
+									<font color="blue"><s:property value="fileName" /> </font> </a>
 							</td>
 							<td>
 								<a

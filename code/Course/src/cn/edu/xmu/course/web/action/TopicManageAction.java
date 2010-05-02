@@ -49,7 +49,6 @@ public class TopicManageAction extends BaseAction{
 		topic = topicService.getTopicById(topicId);
 		boolean result = topicService.deleteTopic(topic);
 		if(result){
-			this.getTopicBySchool();
 			return SUCCESS;
 		}else{
 			return ERROR;
@@ -96,8 +95,7 @@ public class TopicManageAction extends BaseAction{
 		message = messageService.getMessageById(messageId);
 		topic = message.getTopic();
 		boolean result = messageService.deleteMessage(message);
-		if(result){
-			messageList = messageService.getMessageByTopic(topic);
+		if(result){			
 			return SUCCESS;
 		}else{
 			addActionError("É¾³ýÁôÑÔÊ§°Ü£¬ÇëÖØÐÂ²Ù×÷£¡");
