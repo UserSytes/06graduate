@@ -64,16 +64,6 @@ public class StudentInfoService implements IStudentInfoService {
 	}
 
 	/*
-	 * 批量添加学生(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.IStudentInfoService#batchAddStudents(java.util.List, java.util.List)
-	 */
-	public boolean batchAddStudents(List<Student> studentList,
-			List<UserInfo> userInfoList) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	/*
 	 * 删除学生(non-Javadoc)
 	 * @see cn.edu.xmu.course.service.IStudentInfoService#deleteStudent(cn.edu.xmu.course.pojo.Student)
 	 */

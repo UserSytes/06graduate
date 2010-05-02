@@ -62,14 +62,6 @@ public interface IStudentInfoService {
 	public Student findByUserInfo(UserInfo userInfo);
 	
 	/**
-	 * 批量添加学生
-	 * @param studentList
-	 * @param userInfoList
-	 * @return
-	 */
-	public boolean batchAddStudents(List<Student> studentList, List<UserInfo> userInfoList);
-	
-	/**
 	 * 根据学号查找学生
 	 * @param studentNo
 	 * @return
