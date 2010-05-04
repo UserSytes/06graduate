@@ -3,7 +3,7 @@
 <html>
   <head> 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>厦门大学课程中心-后台登录</title>
+    <title>厦门大学课程中心-评价登录</title>
 	<SCRIPT language=javascript>
 	function check(form) {
 		if (form.userName.value == "") {
@@ -30,7 +30,7 @@
     </table></td>
     <td width="195" background="${ctx}/admin/Images/login_2.gif">
 	<table width="190" height="106" border="0" align="center" cellpadding="2" cellspacing="0">
-      <s:form action="adminLoginAction" method="post" onsubmit="return check(this);" name="NETSJ_Login">
+      <s:form action="evaluationLoginAction" method="post" onsubmit="return check(this);" name="NETSJ_Login">
             <tr>
               <td height="50" colspan="4" align="left">&nbsp;</td>
             </tr>
@@ -45,7 +45,7 @@
             </tr>
             <tr>
               <td height="30"><strong><font size="2" face="宋体" color="gray"> 权限</font></strong> </td>
-			  <td><s:select name="flag" list="# {'0':'学院管理员','1':'校管理员'}"
+			  <td><s:select name="flag" list="# {'0':'专家','1':'同行'}"
 							headerKey="-1" headerValue="请选择"/>
 		      </td>
             </tr>
