@@ -15,7 +15,7 @@
 	<td valign="top">
 		<table border="0" cellpadding="0" cellspacing="0">
 		<tr>
-			<td valign="top"><a href="index.htm"><img src="${ctx}/homepage/image/bottom_logo.gif" border="0" alt="로고"></a></td>
+			<td valign="top"><img src="${ctx}/homepage/image/bottom_logo.gif" border="0"></td>
 		</tr>
 		</table>
 	</td>
