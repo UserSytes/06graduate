@@ -77,6 +77,12 @@
 			</result>
 			<result name="error">/admin/login.jsp</result>
 		</action>
+		<action name="evaluationLoginAction" method="evaluationLogin"
+			class="cn.edu.xmu.course.web.action.LoginAction">
+			<result name="success" type="redirect-action">goIndexQueryAction
+			</result>			
+			<result name="error">/homepage/login.jsp</result>
+		</action>
 		<action name="adminLogoutAction" method="adminLogout"
 			class="cn.edu.xmu.course.web.action.LoginAction">
 			<result name="success">/admin/login.jsp</result>

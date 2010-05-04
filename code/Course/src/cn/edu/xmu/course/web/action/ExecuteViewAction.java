@@ -196,6 +196,8 @@ public class ExecuteViewAction extends BaseAction {
 		}
 		return "course";
 	}
+	
+	
 
 	/**
 	 * 查找最新三天课程

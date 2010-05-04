@@ -21,11 +21,8 @@
 	MARGIN-BOTTOM: 5px
 }
 
-#logo {
-	FLOAT: left;
-	MARGIN: 23px 0px 10px 18px;
-	WIDTH: 200px;
-	HEIGHT: 75px
+#logo {	
+	MARGIN: 23px 0px 10px 18px;	
 }
 
 #sub_nav {

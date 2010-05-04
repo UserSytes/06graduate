@@ -171,7 +171,7 @@ a {
 							<tbody id="tbody" style="display: none;">
 								<s:iterator value="messageList" status="message">
 									<tr style="height: 100%">
-										<td width="200" valign="top"
+										<td width="25%" valign="top"
 											style="border-right: thin dotted #60B7DE; border-bottom: 0px;">
 											&nbsp;
 											<img width="120"
@@ -204,7 +204,7 @@ a {
 
 													</div>
 												</td>
-										<td width="514" valign="top" height="100%">
+										<td width="75%" valign="top" height="100%">
 											<table border="0" cellspacing="0" cellpadding="4"
 												height="100%" width="100%">
 												<tr>
@@ -232,7 +232,7 @@ a {
 										</td>
 									</tr>
 									<tr height="31">
-										<td width="200" align="left"
+										<td width="25%" align="left"
 											style="border-bottom: thin solid #9db350; border-right: thin dotted #60B7DE; border-top: 0px solid #E7EEF6;">
 											<img src="${ctx}/coursepage/classical/image/icon_9.gif">
 											邮箱：
@@ -248,7 +248,7 @@ a {
 											<s:property value="userInfo.mobile" />
 											</font>
 										</td>
-										<td height="31" width="514" align="right"
+										<td width="75%" height="31" align="right"
 											style="border-top: 1px solid #E7EEF6; border-bottom: thin solid #9db350; padding-top: 5px; float: right;">
 											<a class="fastreply" rel="facebox"
 												href="<s:url action="goReplyWithQuoteByTeaAction">
@@ -281,7 +281,7 @@ a {
                      										<s:param name="messageId"> 
                        			 								<s:property value="id"/> 
                     										</s:param>
-                											</s:url>"><font
+                											</s:url>" onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;"><font
 												color="#999">删除</font> </a>
 											<a href="###" onclick="scroll(0,0)"><img
 													src="${ctx}/coursepage/classical/image/top.gif" border="0"

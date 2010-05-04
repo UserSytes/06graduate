@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<script src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"
 			type="text/javascript"></script>
 		<script src="${ctx}/js/jquery.easyui.min.js" type="text/javascript"></script>
@@ -369,9 +370,13 @@
 
 					</li>
 				</ul>
-				<img src="${ctx}/coursepage/style/common/logo.png" 
-				name="logo" width="950" height="155" />
-
+			<div
+				style="width: 950px; height: 125px;background: transparent url(${ctx}/coursepage/style/common/logo.png) no-repeat; padding-left:400px;padding-top:30px;">
+				<h1
+					style="font-family: '隶书'; font-size: 40px; linfont-weight: lighter; color: #4B4E5B; line-height: 50px;">
+					<s:property value="course.name"/>
+				</h1>
+			</div>
 			</div>
 
 			<div id="mm" class="easyui-menu" style="width: 100px;">
