@@ -91,7 +91,7 @@ $(document).ready(function(){
 												<tr>
 													<td width="11" background=""></td>
 													<td width="172" align="center">
-														<a href="<s:url action="forwardToSearchAction"></s:url>">
+														<a href="${ctx}/homepage/search.jsp">
 															<img src="${ctx}/homepage/image/left_menu_04.gif"
 																border="0"> </a>
 													</td>

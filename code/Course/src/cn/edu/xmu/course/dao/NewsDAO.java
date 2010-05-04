@@ -97,21 +97,18 @@ public class NewsDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findLastestTenNews () {
-	  	List list = new ArrayList() ;
-	  	try {
-	  	  
+	public List findLastestTenNews () {	  	
+	  	try {	  	  
 	  		String queryString = 
 	  			"select news from News news order by news.time DESC";
 	  		Query queryObject = getSession().createQuery(queryString);
 	  		queryObject.setFirstResult(0); 
 	  		queryObject.setMaxResults(10); 
-	  		list=queryObject.list();
+	  		return queryObject.list();
 	  	} catch(RuntimeException re) {
 	  		log.error("find News failed", re);
-	  		re.printStackTrace() ;
+	  		throw re;
 	  	}
-	  	return list ;
 	  }
 	
 	public List findByTitle(Object title) {

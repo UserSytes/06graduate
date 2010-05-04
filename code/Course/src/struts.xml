@@ -1235,28 +1235,10 @@
 			<result name="error">/student/prompt.jsp</result>
 		</action>
 		
-		<!-- 前台 -->
-		<action name="findCourseByDepartmentAction" method="findCourseByDepartment"
-			class="executeViewAction">
-			<result name="courses">/homepage/courseList.jsp
-			</result>
-			<result name="error">/commons/error.jsp</result>
-		</action>
-		<action name="findCourseByNameAction" method="findCourseByName"
-			class="executeViewAction">
-			<result name="courses">/homepage/courseList.jsp
-			</result>
-			<result name="error">/commons/prompt.jsp</result>
-		</action>
+		<!-- 前台 -->	
 		<action name="enterCourseAction" method="enterCourse" class="executeViewAction">
-			<result name="course">/coursepage/redirect.jsp
-			</result>
-			<result name="error">/commons/prompt.jsp</result>
-		</action>
-		<action name="goCourseIndexAction" method="goCourseIndex" class="executeViewAction">
-			<result name="success">/coursepage/index.jsp
-			</result>
-			<result name="error">/commons/prompt.jsp</result>
+			<result name="course" type="redirect-action">goIndexQueryAction</result>
+			<result name="error">/homepage/prompt.jsp</result>
 		</action>
 		<action name="getCourseMovieListAction" method="getCourseMovieListByCourse2" class="courseMovieAction">
 			<result name="movies">/coursepage/coursemovielist.jsp
@@ -1274,19 +1256,18 @@
 		
 		<!-- 首页显示新闻公告 -->
 		<action name="homepageNewsAction" method="homepageDisplay" class="homePageAction">
-			<result name="success">/homepage/homepage.jsp</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="success">/homepage/homepage.jsp</result>			
 		</action>
 		<!-- 点击新闻公告 -->
 		<action name="newsAction" method="newsDisplay" class="homePageAction">
 			<result name="news">/homepage/news.jsp</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/homepage/prompt.jsp</result>
 		</action>
 		<!-- 显示新闻内容 -->
 		<action name="enterNewsAction" method="enterNews" class="homePageAction">
 			<result name="newsdetail">/homepage/newsdetail.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/homepage/prompt.jsp</result>
 		</action>
 		<!-- 从首页登录 -->
 		<action name="loginFromHomePageAction" method="loginFromHomePage"
@@ -1295,18 +1276,12 @@
 			<result name="error">/homepage/homepage.jsp</result>
 			<result name="student">/student/studentinfo.jsp</result>
 		</action>
-        <!-- 首页精品课程列表 -->
-		<action name="courseDisplayAction" method="courseDisplay"
-			class="homePageAction">
-			<result name="courseList">/homepage/courseList.jsp
-			</result>
-			<result name="error">/commons/error.jsp</result>
-		</action>
           <!-- 首页建设成果 -->
 		<action name="achievementAction" method="achievementDisplay"
 			class="homePageAction">
 			<result name="success">/homepage/searchbyachievement.jsp
 			</result>
+			<result name="error">/homepage/prompt.jsp</result>
 		</action>
       
 <!-- 跳转 -->	
@@ -1315,23 +1290,17 @@
 			class="homePageAction">
 			<result name="success">/homepage/searchbyschool.jsp</result>
 		</action>
-		<action name="forwardToSearchAction" method="forwardToSearch"
-			class="homePageAction">
-			<result name="searchbyschool">/homepage/search.jsp</result>
-		</action>
 		<action name="forwardToSuperSearchAction" method="forwardToSuperSearch"
 			class="homePageAction">
 			<result name="success">/homepage/supersearch.jsp</result>
 		</action>
 		<action name="forwardToIndexAction" method="forwardToIndex"
 			class="homePageAction">
-			<result name="index">/homepage/index.jsp</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="index">/homepage/index.jsp</result>			
 		</action>
 		<action name="forwardToContactAction" method="forwardToContact"
 			class="homePageAction">
-			<result name="contact">/homepage/search.jsp</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="contact">/homepage/search.jsp</result>			
 		</action>
 		<action name="lastCourseAction" method="lastThreeDaysCourse"
 			class="executeViewAction">
