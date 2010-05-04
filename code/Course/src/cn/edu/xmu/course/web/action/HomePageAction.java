@@ -5,7 +5,6 @@ import java.sql.Date;
 import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
-
 import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Attachment;
 import cn.edu.xmu.course.pojo.Course;
@@ -22,40 +21,41 @@ import cn.edu.xmu.course.service.ISearchCourseService;
 import cn.edu.xmu.course.service.impl.LoginService;
 import cn.edu.xmu.course.service.impl.NewsService;
 
+/**
+ * 负责首页的类
+ * @author 赵海虹 郑冰凌
+ * 
+ */
 public class HomePageAction extends BaseAction{
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
-	private List<News> newsList;
-    private UserInfo userInfo;
-	private List<Course> courseList;
+	private List<News> newsList;// 新闻列表
+  private UserInfo userInfo;// 用户信息
+	private List<Course> courseList;// 课程列表
 	private IApplicationFormService applicationFormService;
-	private ICourseService courseService;
-	private INewsService newsService;
-	private ISearchCourseService searchCourseService;
-	
-	private int newsId;
-	private News news;
-	private int flag;
-	private String userName,password;
-	private ILoginService loginService;
-	private int courseId;
-	private String level="country";
+	private ICourseService courseService;// 课程管理方法的接口
+	private INewsService newsService;// 新闻管理方法的接口
+	private ISearchCourseService searchCourseService;// 查找课程方法的接口	
+	private int newsId;// 新闻ID
+	private News news;// 新闻
+	private int flag;// 标志
+	private String userName,password;// 用户名，密码
+	private ILoginService loginService;// 登陆管理方法的接口
+	private int courseId;// 课程ID
+	private String level="country";// 课程等级
 	private List<String> times=null;//没用的。。。应该要删除掉
-	private int country;
-	private int province;
-	private int school;
-	private String levelNow;
+	private int country;// 国家级课程的数目
+	private int province;// 省级课程的数目
+	private int school;// 市级课程的数目
+	private String levelNow;// 课程级别	
+	private Student student;// 学生	
+	private List<Attachment> attachmentList;// 附件列表
+	private List<Course> achievementList;// 课程列表
+	private String ifAttachment;// 附件
+	private String idLogin;// 登陆
+	private String afterLogin;// 登陆后
+	private String user;// 用户
 	
-	private Student student;
-	
-	private List<Attachment> attachmentList;
-	private List<Course> achievementList;
-	private String ifAttachment;
-	private String idLogin;
-	private String afterLogin;
-	private String user;
 	/**
 	 * 首页数据载入
 	 * @return
@@ -81,8 +81,7 @@ public class HomePageAction extends BaseAction{
 		}    	
 		return SUCCESS;
 	}
-
-    
+ 
     /**
      * 计算级别课程数
      */
@@ -130,7 +129,6 @@ public class HomePageAction extends BaseAction{
 		}
     }
     
-
     /**
      * 首页登录
      * @return
