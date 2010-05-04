@@ -28,14 +28,6 @@ public class HomePageAction extends BaseAction{
 	 */
 	private static final long serialVersionUID = 1L;
 	private List<News> newsList;
-	private List<News> tempList;//没用的。。。应该要删除掉
-	private List<News> getTempList() {
-		return tempList;
-	}
-
-	private void setTempList(List<News> tempList) {
-		this.tempList = tempList;
-	}
     private UserInfo userInfo;
 	private List<Course> courseList;
 	private IApplicationFormService applicationFormService;
@@ -86,17 +78,8 @@ public class HomePageAction extends BaseAction{
 		courseList = searchCourseService.findCourseByDate(30);
     	if(courseList == null){
 			addActionMessage("最近一个月未发布新课程！");
-		}else{
-			for(int i=10;i<courseList.size();i++)
-			{
-				courseList.remove(i);
-			}
-		}
-    	
-		if (newsList == null) {
-			return ERROR;
-		} else
-			return SUCCESS;
+		}    	
+		return SUCCESS;
 	}
 
     
@@ -119,6 +102,7 @@ public class HomePageAction extends BaseAction{
     public String newsDisplay(){
     	newsList=newsService.findAllNews();
 		if (newsList == null) {
+			addActionError("对不起，目前尚无任何新闻，请重新操作！");
 			return ERROR;
 		} else
 			return "news";
@@ -131,6 +115,7 @@ public class HomePageAction extends BaseAction{
     public String enterNews(){
     	news=newsService.findNewsById(newsId);
 		if (news == null) {
+			addActionError("对不起，该新闻不存在，请重新操作！");
 			return ERROR;
 		} else{
 			news.setCount( news.getCount() +1 );
@@ -182,19 +167,7 @@ public class HomePageAction extends BaseAction{
 			}
 		}
 	}
-    
-	/**
-	 * 根据级别查找课程
-	 * @return
-	 */
-    public String courseDisplay(){
-    	courseList = courseService.findCourseListByLevel(level);
-		if (courseList == null) {
-			return ERROR;
-		} else
-			return "courseList";
-    }
-    
+       
     /**
 	 * 根据级别查找课程
 	 * @return
@@ -209,17 +182,14 @@ public class HomePageAction extends BaseAction{
     		levelNow = "校级";
     	}
 		if (achievementList == null) {
+			addActionError("对不起，没有符合条件的课程信息，请重新操作！");
 			return ERROR;
 		} else{
 			return SUCCESS;
 		}
     }
     
-    
-    public String forwardToSearch(){
-			return "searchbyschool";
-    }
-    
+
     public String forwardToSuperSearch(){
     	return SUCCESS;
     }

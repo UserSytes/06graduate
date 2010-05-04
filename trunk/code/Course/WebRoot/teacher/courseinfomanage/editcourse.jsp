@@ -104,12 +104,12 @@
 					<tr>
 						<td bgcolor="#FFFDF0">
 							<div align="center">
-								公开访问：
+								公开对象：
 							</div>
 						</td>
 						<td colspan="3" bgcolor="#FFFFFF">
 							&nbsp;&nbsp;&nbsp;
-							<s:select name="course.visible" list="#{1:'是',0:'否'}" listKey="key"
+							<s:select name="course.visible" list="#{0:'所有用户',1:'学生、同行和专家',2:'同行和专家',3:'仅专家',4:'仅自己'}" listKey="key"
 								listValue="value" />
 						</td>
 					</tr>

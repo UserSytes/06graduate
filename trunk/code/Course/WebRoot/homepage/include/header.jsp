@@ -67,7 +67,7 @@
 													<a href="<s:url action="newsAction"> </s:url>">新闻公告</a>
 												</li>
 												<li>
-													<a href="<s:url action="forwardToSearchAction"> </s:url>">搜索课程</a>
+													<a href="${ctx}/homepage/search.jsp">搜索课程</a>
 												</li>
 												<li>
 													<a href="<s:url action="achievementAction"> </s:url>">建设成果</a>

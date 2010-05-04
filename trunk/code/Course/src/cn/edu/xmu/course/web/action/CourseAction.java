@@ -32,7 +32,7 @@ public class CourseAction extends BaseAction {
 	private Teacher teacher;	//教师
 	private Course course;	//课程
 	private List<Course> myCoursesList;	//我（教师）的课程列表
-	private int type = 3;	//课程状态标识，3:通过审核的课程
+	private int type = 3;	//课程状态标识，3:所有课程
 	private String style; //课程风格颜色 
 
 	private ISuperAdminService superAdminService;	//负责管理校方管理员的接口
@@ -93,7 +93,8 @@ public class CourseAction extends BaseAction {
 	 * @return
 	 */
 	public String updateCourseVisible(){
-		int visible = course.getVisible();
+		//0:所有用户,1:学生、同行和专家,2:同行和专家,3:仅专家,4:仅自己
+		int visible = course.getVisible(); 
 		course=courseService.getCourseById(course.getId());
 		course.setVisible(visible);
 		if(courseService.updateCourse(course))
@@ -171,8 +172,7 @@ public class CourseAction extends BaseAction {
 	 * @return
 	 */
 	public String findApplicationCourse() {
-		Administrator admin = (Administrator) super.getSession().get(
-				ADMIN);
+		Administrator admin = super.getAdmin();
 		School school = admin.getSchool();
 		applicationCourseList = courseService.findApplicationCourse(school);
 		if (applicationCourseList.size() == 0) {

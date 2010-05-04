@@ -5,6 +5,7 @@ import java.util.Set;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
+import org.hibernate.Query;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -266,7 +267,10 @@ public class CourseDAO extends HibernateDaoSupport {
 	public List findCourseByDate(String date){
 		try {
 			String queryString = "from Course as model where model.status = 1 and model.time >"+date;
-			return getHibernateTemplate().find(queryString);
+			Query queryObject = getSession().createQuery(queryString);
+	  		queryObject.setFirstResult(0); 
+	  		queryObject.setMaxResults(10); 
+	  		return queryObject.list();
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
 			throw re;
