@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.ListIterator;
 
 import cn.edu.xmu.course.commons.CourseEvaluate;
-import cn.edu.xmu.course.dao.CourseDAO;
 import cn.edu.xmu.course.dao.EvaluationDAO;
 import cn.edu.xmu.course.dao.StudentCourseDAO;
 import cn.edu.xmu.course.pojo.Course;
@@ -14,6 +13,11 @@ import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.StudentCourse;
 import cn.edu.xmu.course.service.IEvaluateService;
 
+/**
+ * 负责评价的类
+ * @author 赵海虹 何申密
+ *
+ */
 public class EvaluateService implements IEvaluateService {
 
 	private StudentCourseDAO studentCourseDAO;
@@ -22,6 +26,10 @@ public class EvaluateService implements IEvaluateService {
 	private Object score;
 	private List<Evaluation> evaluation;
 
+	/*
+	 * 更新学生评价(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IEvaluateService#updateStudentCourse(cn.edu.xmu.course.pojo.StudentCourse)
+	 */
 	public boolean updateStudentCourse(StudentCourse studentCourse) {
 		try {
 			studentCourseDAO.merge(studentCourse);
@@ -31,16 +39,28 @@ public class EvaluateService implements IEvaluateService {
 		}
 	}
 
+	/*
+	 * 根据学生ID查找学生评价(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IEvaluateService#findStudentCourseByStudentId(java.lang.Integer)
+	 */
 	public StudentCourse findStudentCourseByStudentId(Integer id) {
 		return studentCourseDAO.findById(id);
 	}
 
+	/*
+	 * 根据课程和学生查找学生评价(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IEvaluateService#findByStudentAndCourse(cn.edu.xmu.course.pojo.Course, cn.edu.xmu.course.pojo.Student)
+	 */
 	public List<StudentCourse> findByStudentAndCourse(Course course,
 			Student student) {
 		return studentCourse = studentCourseDAO.findByStudentAndCourse(course,
 				student);
 	}
 
+	/*
+	 * 更新专家和老师的评价(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IEvaluateService#updateEvaluation(cn.edu.xmu.course.pojo.Evaluation)
+	 */
 	public boolean updateEvaluation(Evaluation evaluation) {
 		try {
 			evaluationDAO.merge(evaluation);
@@ -50,19 +70,18 @@ public class EvaluateService implements IEvaluateService {
 		}
 	}
 
+	/*
+	 *  根据ID查找专家和老师的评价(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IEvaluateService#findById(java.lang.Integer)
+	 */
 	public Evaluation findById(Integer id) {
 		return evaluationDAO.findById(id);
 	}
 
-	/**
-	 * 查询学生对课程的平均评分
-	 * 
+	/*
+	 * 计算专家或者老师的评价结果(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IEvaluateService#getEvaluationCalculateResult(int, int)
 	 */
-	public Object calculatStudent(int courseId) {
-		Object result = getStudentCourseCalculateResult(courseId)[1];
-		return result;
-	}
-
 	public Object[] getEvaluationCalculateResult(int courseId, int sort) {
 		List result = evaluationDAO.findCountAndScoreAvg(courseId, sort);
 		ListIterator iterator = result.listIterator();
@@ -71,10 +90,9 @@ public class EvaluateService implements IEvaluateService {
 		return rows;
 	}
 
-	/**
-	 * 根据课程列表获取评价信息
-	 * @param courseList
-	 * @return
+	/*
+	 * 根据课程列表获取评价信息(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IEvaluateService#getEvaluateByCourseList(java.util.List)
 	 */
 	public List<CourseEvaluate> getEvaluateByCourseList(List<Course> courseList){
 		List<CourseEvaluate> courseEvaluateList = new ArrayList<CourseEvaluate>() ;
@@ -100,15 +118,21 @@ public class EvaluateService implements IEvaluateService {
 		return courseEvaluateList;
 	}
 
+	/*
+	 * 查询学生对课程的平均评分(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IEvaluateService#getStudentCourseCalculateResult(int)
+	 */
 	public Object[] getStudentCourseCalculateResult(int courseId) {
 		List result = studentCourseDAO.findCountAndScoreAvg(courseId);
 		ListIterator iterator = result.listIterator();
 		Object[] rows = (Object[]) iterator.next();
 		return rows;
 	}
-
-
-	// 根据课程和用户名找Evaluation
+	
+	/*
+	 * 根据课程，用户名和分类查找专家或者老师的评价(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IEvaluateService#findByCourseAndUsernameAndSort(cn.edu.xmu.course.pojo.Course, java.lang.String, int)
+	 */
 	public List<Evaluation> findByCourseAndUsernameAndSort(Course course,
 			String username, int sort) {
 		System.out.println("findByCourseAndUsername");
@@ -119,16 +143,28 @@ public class EvaluateService implements IEvaluateService {
 
 	}
 
-	// 根据课程和分类找Evaluation
+	/*
+	 * 根据课程和分类查找专家或者老师的评价(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IEvaluateService#findByCourseAndSort(cn.edu.xmu.course.pojo.Course, int)
+	 */
 	public List<Evaluation> findByCourseAndSort(Course course, int sort) {
 		return evaluationDAO.findByCourseAndSort(course, sort);
 
 	}
-	// 根据课程和分类找Evaluation
+	
+	/*
+	 * 根据课程，分类和状态专家或者老师的评价(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IEvaluateService#findByCourseAndSortAndStatus(cn.edu.xmu.course.pojo.Course, int, int)
+	 */
 	public List<Evaluation> findByCourseAndSortAndStatus(Course course, int sort,int status) {
 		return evaluationDAO.findByCourseAndSortAndStatus(course, sort,status);
 
 	}
+	
+	/*
+	 * 邀请专家评价(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IEvaluateService#addEvaluation(cn.edu.xmu.course.pojo.Evaluation, cn.edu.xmu.course.pojo.Course)
+	 */
 	public boolean addEvaluation(Evaluation evaluation, Course course) {
 		// TODO Auto-generated method stub
 		evaluation.setCourse(course);
@@ -136,18 +172,6 @@ public class EvaluateService implements IEvaluateService {
 
 		try {
 			evaluationDAO.save(evaluation);
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
-	}
-
-	public boolean addStudentCourse(StudentCourse studentCourse, Course course) {
-		// TODO Auto-generated method stub
-		studentCourse.setCourse(course);
-		studentCourse.setStatus(0);
-		try {
-			studentCourseDAO.save(studentCourse);
 			return true;
 		} catch (Exception e) {
 			return false;
