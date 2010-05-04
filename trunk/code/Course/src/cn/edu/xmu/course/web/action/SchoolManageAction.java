@@ -99,8 +99,10 @@ public class SchoolManageAction extends BaseAction {
 		if (result) {
 			this.findAllSchools();
 			return SUCCESS;
-		} else
+		} else{
+			addActionMessage("该学院还有系，请先删除系再删除学院！");
 			return ERROR;
+		}
 	}
 
 	/**
@@ -145,8 +147,10 @@ public class SchoolManageAction extends BaseAction {
 		if (result) {
 			addActionMessage("添加年级成功！");
 			return SUCCESS;
-		} else
+		} else{
+			addActionMessage("所添加的年级已经存在！");
 			return ERROR;
+		}
 	}
 
 	/**
@@ -160,8 +164,10 @@ public class SchoolManageAction extends BaseAction {
 		if (result) {
 			this.findDepartmentBySchool();
 			return SUCCESS;
-		} else
+		} else{
+			addActionMessage("该系还有学生，请先删除学生再删除系！");
 			return ERROR;
+		}
 	}
 
 	/**
@@ -253,8 +259,10 @@ public class SchoolManageAction extends BaseAction {
 		if (result) {
 			allGradeList = superAdminService.findAllGrade();
 			return SUCCESS;
-		} else
+		} else{
+			addActionMessage("该年级还有学生，请先删除学生再删除年级！");
 			return ERROR;
+		}
 	}
 
 	public ISuperAdminService getSuperAdminService() {
