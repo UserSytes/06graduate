@@ -18,39 +18,47 @@ import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.IEvaluateService;
 import cn.edu.xmu.course.service.ILoginService;
 
+/**
+ * 负责评价的类
+ * @author 赵海虹 何申密 许子彦
+ *
+ */
 public class EvaluationAction extends BaseAction {
 
-	private IEvaluateService evaluateService;
-	private ICourseService courseService;
-	private StudentCourse studentCourse;
-	private Float score;
-	private Object viewScore;
-	private String scorestring;
-	private Student student;
-	private Evaluation evaluation;
-	private String content;
-	private Course course;
-	private int courseId;
-	private int evaluationId;
-	private Object stuAvgScore = 0;
-	private Object expertAvgScore = 0;
-	private Object stuCount;
-	private Object expertCount;
-	private Object teaAvgScore = 0;
-	private Object teaCount;
-	private List<Evaluation> evaluationList;
-	private Teacher teacher;
-	private UserInfo userInfo;
-	private int flag;
-	private ILoginService loginService;
-	private String userName, password;
-	private boolean result;
+	private IEvaluateService evaluateService;// 评价管理方法的接口
+	private ICourseService courseService;//课程管理方法的接口
+	private StudentCourse studentCourse;// 学生管理方法的接口
+	private Float score;// 评价分数
+	private Object viewScore;// 评价分数
+	private String scorestring;//评价结果
+	private Student student;//学生
+	private Evaluation evaluation;//评价
+	private String content;//评价内容
+	private Course course;//课程
+	private int courseId;//课程ID
+	private int evaluationId;//评价ID
+	private Object stuAvgScore = 0;//学生评价平均分数
+	private Object expertAvgScore = 0;//专家评价平均分数
+	private Object stuCount;//学生数目
+	private Object expertCount;//专家数目
+	private Object teaAvgScore = 0;//教师评价分数
+	private Object teaCount;//教师数目
+	private List<Evaluation> evaluationList;//评价列表
+	private Teacher teacher;//教师
+	private UserInfo userInfo;//用户信息
+	private int flag;//标志
+	private ILoginService loginService;//登陆管理方法的接口
+	private String userName, password;//用户名，密码
+	private boolean result;//结果
 
-	private List<Course> courseList;
-	private List<String> courseIds;
-	private List<CourseEvaluate> courseEvaluateList = new ArrayList<CourseEvaluate>();
+	private List<Course> courseList;//课程列表
+	private List<String> courseIds;//课程ID
+	private List<CourseEvaluate> courseEvaluateList = new ArrayList<CourseEvaluate>();//课程评价列表
 
-		
+	/**
+	 * 从评价页面登陆
+	 * @return
+	 */	
 	public String loginFromEvaluation() {
 		course = super.getCourse();
 		if (getFlag() == 0) {
@@ -270,24 +278,40 @@ public class EvaluationAction extends BaseAction {
 			return ERROR;
 		}
 	}
-
+              
+  /**
+	 * 专家评价结果
+	 * @return
+	 */
 	public String reExpertEvaluation() {
 		evaluation = evaluateService.findById(evaluationId);
 		getExpertAverage(evaluation.getCourse().getId());
 		return SUCCESS;
 	}
 
+  /**
+	 * 教师评价结果
+	 * @return
+	 */
 	public String reTeaEvaluation() {
 		evaluation = evaluateService.findById(evaluationId);
 		getTeaAverage(evaluation.getCourse().getId());
 		return SUCCESS;
 	}
 
+  /**
+	 * 学生评价结果
+	 * @return
+	 */
 	public String reStuEvaluation() {
 		getStuAverage(super.getCourse().getId());
 		return SUCCESS;
 	}
 
+  /**
+	 * 专家进入评价
+	 * @return
+	 */
 	public String eDetailEvaluate() {
 		course = super.getCourse();
 		evaluation = (Evaluation) super.getSession().get(EVALUATION);
@@ -305,6 +329,10 @@ public class EvaluationAction extends BaseAction {
 		}
 	}
 
+  /**
+	 * 教师进入评价
+	 * @return
+	 */
 	public String tDetailEvaluate() {
 		course = super.getCourse();
 		evaluation = (Evaluation) super.getSession().get(EVALUATION);
@@ -322,6 +350,10 @@ public class EvaluationAction extends BaseAction {
 		}
 	}
 
+  /**
+	 * 学生进入评价
+	 * @return
+	 */
 	public String sDetailEvaluate() {
 		course = super.getCourse();
 		student = super.getStudent();
@@ -380,6 +412,10 @@ public class EvaluationAction extends BaseAction {
 		return SUCCESS;
 	}
 
+  /**
+	 * 获得专家评价平均分数
+	 * @param courseId
+	 */
 	public void getExpertAverage(int courseId) {
 		Object[] evaluationResult = evaluateService
 				.getEvaluationCalculateResult(courseId, 0);
@@ -388,6 +424,10 @@ public class EvaluationAction extends BaseAction {
 			expertAvgScore = evaluationResult[1];
 	}
 
+/**
+	 * 获得教师评价平均分数
+	 * @param courseId
+	 */
 	public void getTeaAverage(int courseId) {
 		Object[] teaResult = evaluateService.getEvaluationCalculateResult(
 				courseId, 1);
@@ -396,6 +436,10 @@ public class EvaluationAction extends BaseAction {
 			teaAvgScore = teaResult[1];
 	}
 
+/**
+	 * 获得学生评价平均分数
+	 * @param courseId
+	 */
 	public void getStuAverage(int courseId) {
 		Object[] scResult = evaluateService
 				.getStudentCourseCalculateResult(courseId);
