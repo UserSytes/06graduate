@@ -19,7 +19,7 @@
 					alert("学院名不能为空！");
 					return false;
 				}
-				if (form.anthor.value == "")
+				if (form.author.value == "")
 				{
 					alert("作者不能为空！");
 					return false;
