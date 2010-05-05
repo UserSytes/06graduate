@@ -262,25 +262,25 @@
 		
 		<!-- 课程管理（教师） -->
 		<action name="viewCourseStudentByTeaAction" method="getStudentByCourse"
-			class="courseAction">
+			class="studentCourseAction">
 			<result name="success">/teacher/mycourse/studentlist.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="deleteStudentFromCourseByTeaAction" method="deleteStudent"
-			class="courseAction">
+			class="studentCourseAction">
 			<result name="success" type="redirect-action">viewCourseStudentByTeaAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="goAddCourseStudentByTeaAction" method="courseDetail"
-			class="courseAction">
+			class="studentCourseAction">
 			<result name="success">/teacher/mycourse/addstudent.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="goAddCourseStudentBatchByTeaAction" method="courseDetail"
-			class="courseAction">
+			class="studentCourseAction">
 			<result name="success">/teacher/mycourse/addstudentbatch.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
@@ -1024,45 +1024,45 @@
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="viewCourseStudentAction" method="getStudentByCourse"
-			class="courseAction">
+			class="studentCourseAction">
 			<result name="success">/admin/coursemanage/studentlist.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="goDeleteMoreStudentCourseAction" method="goDeleteMoreStudentCourse"
-			class="courseAction">
+			class="studentCourseAction">
 			<result name="success">/admin/coursemanage/deletestudent.jsp
 			</result>
 		</action>
 		<action name="deleteMoreStudentCourseAction" method="deleteMoreStudent"
-			class="courseAction">
+			class="studentCourseAction">
 			<result name="success">/commons/prompt.jsp</result>
 		</action>
 		<action name="deleteStudentFromCourseAction" method="deleteStudent"
-			class="courseAction">
+			class="studentCourseAction">
 			<result name="success" type="redirect">
 				viewCourseStudentByTeaAction.action?courseId=${courseId}</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="goAddCourseStudentAction" method="courseDetail"
-			class="courseAction">
+			class="studentCourseAction">
 			<result name="success">/admin/coursemanage/addstudent.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="goAddCourseStudentBatchAction" method="courseDetail"
-			class="courseAction">
+			class="studentCourseAction">
 			<result name="success">/admin/coursemanage/addstudentbatch.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="addCourseStudentAction" method="addStudentCourse"
-			class="courseAction">
+			class="studentCourseAction">
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="addMoreCourseStudentAction" method="addMoreStudentCourse"
-			class="courseAction">
+			class="studentCourseAction">
 			<result name="success">/commons/prompt.jsp</result>
 		</action>
 		
@@ -1284,7 +1284,7 @@
 			<result name="input">/homepage/prompt.jsp</result>
 			<interceptor-ref name="fileImgStack" />
 		</action>
-		<action name="myCoursesAction" method="findMyCourses" class="studentInfoAction">
+		<action name="myCoursesAction" method="findMyCourses" class="studentCourseAction">
 			<result name="success">/student/courselist.jsp
 			</result>
 			<result name="error">/student/prompt.jsp</result>
@@ -1313,13 +1313,13 @@
 			<result name="error">/student/error.jsp</result>
 		</action>
 		<action name="myCollectionAction" method="findMyCollection"
-			class="studentInfoAction">
+			class="studentCourseAction">
 			<result name="success">/student/collectionlist.jsp
 			</result>
 			<result name="error">/student/prompt.jsp</result>
 		</action>
 		<action name="deleteCollectionAction" method="deleteCollection"
-			class="studentInfoAction">
+			class="studentCourseAction">
 			<result name="success">/student/collectionlist.jsp
 			</result>
 			<result name="error">/student/prompt.jsp</result>
@@ -1332,7 +1332,7 @@
 			</result>
 		</action>
 		<action name="addCollectionAction" method="addCollection"
-			class="studentInfoAction">
+			class="studentCourseAction">
 			<result name="success">/coursepage/colsuccess.jsp
 			</result>
 			<result name="error">/coursepage/colprompt.jsp
@@ -1340,15 +1340,10 @@
 			<result name="login">/coursepage/collogin.jsp
 			</result>
 		</action>
-		<action name="myTopicAction" method="myTopics" class="studentInfoAction">
+		<action name="myTopicAction" method="myTopics" class="messageAction">
 			<result name="success">/student/topiclist.jsp
 			</result>
-			<result name="error">/student/prompt.jsp</result>
-		</action>
-		<action name="myReplyTopicAction" method="myReplyTopics" class="studentInfoAction">
-			<result name="success">/student/replytopiclist.jsp
-			</result>
-			<result name="error">/student/prompt.jsp</result>
+			<result name="error">/homepage/prompt.jsp</result>
 		</action>
 		
 		<!-- 前台 -->
@@ -1724,17 +1719,9 @@
 			<result name="error">/coursepage/prompt.jsp
 			</result>
 		</action>
-		<action name="logoutFromMessageBoardAction" method="logoutFromMessageBoard"
-			class="messageAction">
+		<action name="logoutFromMessageBoardAction" method="logout"
+			class="loginAction">
 			<result name="success" type="redirect-action">goIndexQueryAction
-			</result>
-		</action>
-		<action name="enterPersionalSpaceAction" method="enterPersionalSpace"
-			class="messageAction">
-			<result name="teacher">/teacher/main.jsp</result>
-			<result name="student">/student/studentinfo.jsp
-			</result>
-			<result name="error">/coursepage/prompt.jsp
 			</result>
 		</action>
 	</package>
