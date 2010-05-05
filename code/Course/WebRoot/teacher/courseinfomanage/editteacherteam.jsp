@@ -40,7 +40,7 @@
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						添加教师队伍：
+						编辑教师队伍：
 					</td>
 				</tr>
 				<tr>
@@ -95,7 +95,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="teacherTeam.remark" cssClass="INPUT" />
+						<s:textarea name="teacherTeam.remark" cssClass="TEXTAREA" />
 					</td>
 				</tr>
 				<tr class=editHeaderTr>

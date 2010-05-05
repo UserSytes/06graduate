@@ -108,6 +108,27 @@
 						<s:file id="upload" name="upload"></s:file>
 					</td>
 				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							查看原来附件：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<a
+							href="<s:url action="download"> 
+                     			<s:param name="fileName"> 
+                       			 	<s:property value="achievement.fileLink"/> 
+                    			</s:param> 
+								<s:param name="originalFileName"> 
+                       			 	<s:property value="achievement.fileName"/> 
+                    			</s:param> 
+                					</s:url>">
+							<font color="red"><s:property value="achievement.fileName" />
+						</font> </a>
+					</td>
+				</tr>
 				<tr class=editHeaderTr>
 					<td width="10%" class=editFooterTd>
 						&nbsp;

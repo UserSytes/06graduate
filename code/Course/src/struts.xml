@@ -38,14 +38,39 @@
 				<param name="root">color</param>
 			</result>
 		</action>
-		<action name="sortSandAction" class="enterCourseAction"
-			method="sortSand">
+		<action name="sortSandAction" class="enterCourseAction" method="sortSand">
 			<result type="json">
 				<param name="root">result</param>
 			</result>
 		</action>
 	</package>
 	<package name="struts" extends="struts-default">
+		<interceptors>  
+        <!-- 定义拦截器栈 -->
+			<interceptor-stack name="fileTextStack">
+				<interceptor-ref name="fileUpload">
+					<param name="allowedTypes">
+						application/msword,application/vnd.ms-powerpoint,application/pdfW</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			<interceptor-stack name="fileImgStack">
+				<interceptor-ref name="fileUpload">
+					<param name="allowedTypes">
+						image/x-ms-bmp,image/jpeg,image/gif,image/png,image/pjpeg,image/x-png</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			<interceptor-stack name="fileMovieStack">
+				<interceptor-ref name="fileUpload">
+					<param name="allowedTypes">
+						video/x-msvideo,video/x-sgi-movie,video/mpeg,application/x-pn-realaudio,audio/x-wav</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		
+		
 		<action name="download" class="cn.edu.xmu.course.web.action.DownloadAction">
 			 <!-- 设置文件名参数，由页面上传入 -->
 			<param name="fileName"></param>
@@ -80,7 +105,7 @@
 		<action name="evaluationLoginAction" method="evaluationLogin"
 			class="cn.edu.xmu.course.web.action.LoginAction">
 			<result name="success" type="redirect-action">goIndexQueryAction
-			</result>			
+			</result>
 			<result name="error">/homepage/login.jsp</result>
 		</action>
 		<action name="adminLogoutAction" method="adminLogout"
@@ -129,6 +154,8 @@
 			<result name="success">/teacher/changephoto.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileImgStack" />
 		</action>
 		<!--教师管理-->
 		<action name="goAddTeacherAction" method="getDepartmentBySchool"
@@ -165,8 +192,7 @@
 		</action>
 		<action name="restoreTeacherPasswordAction" method="restorePassword"
 			class="teacherInfoAction">
-			<result name="success">/commons/prompt.jsp
-			</result>
+			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		
@@ -230,8 +256,7 @@
 		</action>
 		<action name="restoreStudentPasswordAction" method="restorePassword"
 			class="studentAction">
-			<result name="success">/commons/prompt.jsp
-			</result>
+			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		
@@ -299,14 +324,15 @@
 			<result>/teacher/courseinfomanage/editcourse.jsp
 			</result>
 		</action>
-		<action name="goSetCourseStyleAction" method="goSetCourseStyle" class="courseAction">
-			<result name="success" >/teacher/courseinfomanage/editcoursestyle.jsp
+		<action name="goSetCourseStyleAction" method="goSetCourseStyle"
+			class="courseAction">
+			<result name="success"> /teacher/courseinfomanage/editcoursestyle.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="setCourseStyleAction" method="setCourseStyle" class="courseAction">
-			<result name="success" >/commons/prompt.jsp
-			</result>
+		<action name="setCourseStyleAction" method="setCourseStyle"
+			class="courseAction">
+			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="updateCourseAction" method="updateCourseVisible"
@@ -317,15 +343,19 @@
 		</action>
 		<!-- 课程信息管理 (教师)-->
 		<action name="addNewCourseInfoAction" method="addNewCourseInfo"
-			class="courseInfoAction">
+			class="courseInfoAction">			
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
 		</action>
 		<action name="addNewCourseOutlineAction" method="addNewCourseOutline"
 			class="courseInfoAction">
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
-		</action>		
+		</action>
 		<action name="saveCurrentCourseAction" method="saveCurrentCourse"
 			class="courseAction">
 			<result name="success">/teacher/right.jsp</result>
@@ -346,9 +376,11 @@
 			class="courseInfoAction">
 			<result name="success">/teacher/courseinfomanage/addoutline.jsp
 			</result>
-		</action>	
+		</action>
 		<action name="addApplicationFormAction" method="addApplicationForm"
 			class="applicationFormAction">
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
@@ -527,7 +559,7 @@
 		</action>
 		<action name="goSendNewMailAction" method="goSendNewMailByTea"
 			class="mailAction">
-			<result name="success">/teacher/mycourse/newmail.jsp
+			<result name="success">/teacher/mycourse/draftdetail.jsp
 			</result>
 		</action>
 		<action name="deleteMailsAction" method="deleteMails" class="mailAction">
@@ -581,35 +613,44 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="addNewMessageByTeaAction" method="addNewMessage" class="messageAction">
-			<result name="success" type="redirect-action">showTopicsByTeacherAction</result>
+		<action name="addNewMessageByTeaAction" method="addNewMessage"
+			class="messageAction">
+			<result name="success" type="redirect-action">showTopicsByTeacherAction
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
-			</action>
+		</action>
 		<action name="addReplyByTeaAction" method="addReply" class="messageAction">
-			<result name="success" type="redirect-action">showMessagesByTeaAction?topicId=${topic.id}</result>
+			<result name="success" type="redirect-action">
+				showMessagesByTeaAction?topicId=${topic.id}</result>
 			<result name="error">/commons/prompt.jsp</result>
-		</action>	
+		</action>
 		<action name="goReplyByTeaAction" method="goReply" class="messageAction">
 			<result name="success">/teacher/mycourse/newreply.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="goReplyToSomeoneByTeaAction" method="goReplyToSomeone" class="messageAction">
+		<action name="goReplyToSomeoneByTeaAction" method="goReplyToSomeone"
+			class="messageAction">
 			<result name="success">/teacher/mycourse/newreply.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="goReplyWithQuoteByTeaAction" method="goReplyWithQuote" class="messageAction">
+		<action name="goReplyWithQuoteByTeaAction" method="goReplyWithQuote"
+			class="messageAction">
 			<result name="success">/teacher/mycourse/newreply.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="deleteTopicByTeaAction" method="deleteTopic" class="topicManageAction">
-			<result name="success" type="redirect-action">showTopicsByTeacherAction</result>
+		<action name="deleteTopicByTeaAction" method="deleteTopic"
+			class="topicManageAction">
+			<result name="success" type="redirect-action">showTopicsByTeacherAction
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="deleteMessageByTeaAction" method="deleteMessage" class="topicManageAction">
-			<result name="success" type="redirect-action">showMessagesByTeaAction?topicId=${topic.id}</result>
+		<action name="deleteMessageByTeaAction" method="deleteMessage"
+			class="topicManageAction">
+			<result name="success" type="redirect-action">
+				showMessagesByTeaAction?topicId=${topic.id}</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<!-- 课程管理-教学成果部分 (教师)-->
@@ -623,12 +664,16 @@
 			<result name="success" type="redirect-action">getAchievementListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
 		</action>
 		<action name="updateAchievementAction" method="updateAchievement"
 			class="achievementAction">
 			<result name="success" type="redirect-action">getAchievementListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
 		</action>
 		<action name="deleteAchievementAction" method="deleteAchievement"
 			class="achievementAction">
@@ -644,7 +689,7 @@
 		
 		<!-- 课程管理-课程评价部分 (教师)-->
 		<action name="getEvaluationResultByCourseAction" method="getEvaluationResult"
-	class="evaluationAction">
+			class="evaluationAction">
 			<result name="success">/teacher/courseinfomanage/evaluationresult.jsp
 			</result>
 		</action>
@@ -663,13 +708,13 @@
 			<result name="success" type="redirect-action">getEvaluationListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
-		</action>		
+		</action>
 		<action name="addEvaTeacherAction" method="addEvaTeacher"
 			class="evaluationAction">
 			<result name="success" type="redirect-action">getEvaTeacherListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
-		</action>				
+		</action>
 		<action name="getEvaTeacherListByCourseAction" method="getEvaTeacherListByCourse"
 			class="evaluationAction">
 			<result name="success">/teacher/courseinfomanage/evaluationlist.jsp
@@ -717,12 +762,16 @@
 			<result name="success" type="redirect-action">getCoursewareListByChapterAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
 		</action>
 		<action name="updateCoursewareAction" method="updateCourseware"
 			class="coursewareAction">
 			<result name="success" type="redirect-action">getCoursewareListByChapterAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
 		</action>
 		<action name="deleteCoursewareAction" method="deleteCourseware"
 			class="coursewareAction">
@@ -752,12 +801,16 @@
 			<result name="success" type="redirect-action">getExerciseListByChapterAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
 		</action>
 		<action name="updateExerciseAction" method="updateExercise"
 			class="exerciseAction">
 			<result name="success" type="redirect-action">getExerciseListByChapterAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
 		</action>
 		<action name="deleteExerciseAction" method="deleteExercise"
 			class="exerciseAction">
@@ -784,23 +837,20 @@
 			</result>
 		</action>
 		<action name="addExperimentAction" method="addExperiment"
-			class="experimentAction">
-			<interceptor-ref name="fileUpload">
-				<param name="allowedTypes">
-					image/bmp,image/png,image/gif,image/jpeg </param>
-			</interceptor-ref>
-			<interceptor-ref name="defaultStack" />
-			<result name="input">/commons/prompt.jsp
-			</result>
+			class="experimentAction">			
 			<result name="success" type="redirect-action">getExperimentListByChapterAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
 		</action>
 		<action name="updateExperimentAction" method="updateExperiment"
-			class="experimentAction">
+			class="experimentAction">			
 			<result name="success" type="redirect-action">getExperimentListByChapterAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
 		</action>
 		<action name="deleteExperimentAction" method="deleteExperiment"
 			class="experimentAction">
@@ -826,16 +876,20 @@
 			</result>
 		</action>
 		<action name="addCourseMovieAction" method="addCourseMovie"
-			class="courseMovieAction">
+			class="courseMovieAction">			
 			<result name="success" type="redirect-action">getCourseMovieListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileMovieStack" />
 		</action>
 		<action name="updateCourseMovieAction" method="updateCourseMovie"
-			class="courseMovieAction">
+			class="courseMovieAction">			
 			<result name="success" type="redirect-action">getCourseMovieListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileMovieStack" />
 		</action>
 		<action name="deleteCourseMovieAction" method="deleteCourseMovie"
 			class="courseMovieAction">
@@ -847,7 +901,7 @@
 			class="courseMovieAction">
 			<result name="success">/teacher/coursemanage/editcoursemovie.jsp
 			</result>
-		</action>	
+		</action>		
 		
 		
 		<!-- 课程管理-课程试卷部分 (教师)-->
@@ -858,15 +912,19 @@
 		</action>
 		<action name="addExaminationAction" method="addExamination"
 			class="examinationAction">
+			<result name="input">/commons/prompt.jsp</result>
 			<result name="success" type="redirect-action">getExaminationListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
 		</action>
 		<action name="updateExaminationAction" method="updateExamination"
 			class="examinationAction">
 			<result name="success" type="redirect-action">getExaminationListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
 		</action>
 		<action name="deleteExaminationAction" method="deleteExamination"
 			class="examinationAction">
@@ -890,11 +948,15 @@
 			<result name="success" type="redirect-action">getBookListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />			
 		</action>
 		<action name="updateBookAction" method="updateBook" class="bookAction">
 			<result name="success" type="redirect-action">getBookListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
 		</action>
 		<action name="deleteBookAction" method="deleteBook" class="bookAction">
 			<result name="success" type="redirect-action">getBookListByCourseAction
@@ -924,12 +986,14 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="evaluateChartAction" method="genrEvaluateChart" class="evaluationAction">
+		<action name="evaluateChartAction" method="genrEvaluateChart"
+			class="evaluationAction">
 			<result name="success">/admin/coursemanage/chart.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="showEvaluateCoursesAction" method="showEvaluateCourses" class="evaluationAction">
+		<action name="showEvaluateCoursesAction" method="showEvaluateCourses"
+			class="evaluationAction">
 			<result name="success">/admin/coursemanage/evaluateshow.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
@@ -976,8 +1040,8 @@
 		</action>
 		<action name="deleteStudentFromCourseAction" method="deleteStudent"
 			class="courseAction">
-			<result name="success" type="redirect">viewCourseStudentByTeaAction.action?courseId=${courseId}
-			</result>
+			<result name="success" type="redirect">
+				viewCourseStudentByTeaAction.action?courseId=${courseId}</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="goAddCourseStudentAction" method="courseDetail"
@@ -997,7 +1061,8 @@
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="addMoreCourseStudentAction" method="addMoreStudentCourse" class="courseAction">
+		<action name="addMoreCourseStudentAction" method="addMoreStudentCourse"
+			class="courseAction">
 			<result name="success">/commons/prompt.jsp</result>
 		</action>
 		
@@ -1007,19 +1072,25 @@
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="addSuperAdminAction" method="addSuperAdmin" class="adminAction">
+		<action name="addSuperAdminAction" method="addSuperAdmin"
+			class="adminAction">
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="findAllSuperAdminAction" method="findAllSuperAdmin" class="adminAction">
-			<result name="success">/admin/admininfo/superadminlist.jsp</result>
+		<action name="findAllSuperAdminAction" method="findAllSuperAdmin"
+			class="adminAction">
+			<result name="success">/admin/admininfo/superadminlist.jsp
+			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="deleteSuperAdminAction" method="deleteSuperAdmin" class="adminAction">
-			<result name="success">/admin/admininfo/superadminlist.jsp</result>
+		<action name="deleteSuperAdminAction" method="deleteSuperAdmin"
+			class="adminAction">
+			<result name="success">/admin/admininfo/superadminlist.jsp
+			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="restoreSuperAdminPasswordAction" method="restoreSuperAdminPassword" class="adminAction">
+		<action name="restoreSuperAdminPasswordAction" method="restoreSuperAdminPassword"
+			class="adminAction">
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
@@ -1050,24 +1121,33 @@
 		</action>
 		
 		<!--学院留言管理模块-->
-		<action name="goSchoolTopicAction" method="getTopicBySchool" class="topicManageAction">
-			<result name="success">/admin/messagemanage/topiclist.jsp</result>
+		<action name="goSchoolTopicAction" method="getTopicBySchool"
+			class="topicManageAction">
+			<result name="success">/admin/messagemanage/topiclist.jsp
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="searchSchoolTopicByKeyAction" method="searchTopic" class="topicManageAction">
-			<result name="success">/admin/messagemanage/topiclist.jsp</result>
+		<action name="searchSchoolTopicByKeyAction" method="searchTopic"
+			class="topicManageAction">
+			<result name="success">/admin/messagemanage/topiclist.jsp
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="viewTopicAction" method="getMessageByTopic" class="topicManageAction">
-			<result name="success">/admin/messagemanage/messagelist.jsp</result>
+		<action name="viewTopicAction" method="getMessageByTopic"
+			class="topicManageAction">
+			<result name="success">/admin/messagemanage/messagelist.jsp
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="deleteTopicAction" method="deleteTopic" class="topicManageAction">
-			<result name="success" type="redirect-action">goSchoolTopicAction</result>
+			<result name="success" type="redirect-action">goSchoolTopicAction
+			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="deleteMessageAction" method="deleteMessage" class="topicManageAction">
-			<result name="success" type="redirect-action">viewTopicAction?topicId=${topic.id}</result>
+		<action name="deleteMessageAction" method="deleteMessage"
+			class="topicManageAction">
+			<result name="success" type="redirect-action">
+				viewTopicAction?topicId=${topic.id}</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		
@@ -1133,7 +1213,8 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="restoreAdminPasswordAction" method="restoreAdminPassword" class="schoolManageAction">
+		<action name="restoreAdminPasswordAction" method="restoreAdminPassword"
+			class="schoolManageAction">
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
@@ -1153,6 +1234,8 @@
 			<result name="success">/admin/newsmanage/addnews.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
 		</action>
 		<action name="addNewsAction" method="addNews" class="newsAction">
 			<result name="success">/commons/prompt.jsp</result>
@@ -1184,85 +1267,119 @@
 		</action>
 		
 		<!-- 学生主页 -->
-		<action name="goChangeStudentPwdAction" method="findStudentInfo" class="studentInfoAction">
-			<result name="success">/student/changepassword.jsp</result>
+		<action name="goChangeStudentPwdAction" method="findStudentInfo"
+			class="studentInfoAction">
+			<result name="success">/student/changepassword.jsp
+			</result>
 		</action>
-		<action name="goChangeHeadAction" method="findStudentInfo" class="studentInfoAction">
-			<result name="success">/student/changehead.jsp</result>
+		<action name="goChangeHeadAction" method="findStudentInfo"
+			class="studentInfoAction">
+			<result name="success">/student/changehead.jsp
+			</result>
 		</action>
 		<action name="changeHeadAction" method="changeHead" class="studentInfoAction">
-			<result name="success">/student/changehead.jsp</result>
+			<result name="success">/student/changehead.jsp
+			</result>
 			<result name="error">/student/prompt.jsp</result>
+			<result name="input">/homepage/prompt.jsp</result>
+			<interceptor-ref name="fileImgStack" />
 		</action>
 		<action name="myCoursesAction" method="findMyCourses" class="studentInfoAction">
-			<result name="success">/student/courselist.jsp</result>
+			<result name="success">/student/courselist.jsp
+			</result>
 			<result name="error">/student/prompt.jsp</result>
 		</action>
-		<action name="myInfoAsStudentAction" method="findStudentInfo" class="studentInfoAction">
-			<result name="success">/student/studentinfo.jsp</result>
+		<action name="myInfoAsStudentAction" method="findStudentInfo"
+			class="studentInfoAction">
+			<result name="success">/student/studentinfo.jsp
+			</result>
 			<result name="error">/student/prompt.jsp</result>
 		</action>
-		<action name="goChangeMyInfoAction" method="findStudentInfo" class="studentInfoAction">
-			<result name="success">/student/changeinfo.jsp</result>
+		<action name="goChangeMyInfoAction" method="findStudentInfo"
+			class="studentInfoAction">
+			<result name="success">/student/changeinfo.jsp
+			</result>
 			<result name="error">/student/error.jsp</result>
 		</action>
-		<action name="changeMyInfoAction" method="changeStudentInfo" class="studentInfoAction">
-			<result name="success">/student/studentinfo.jsp</result>
+		<action name="changeMyInfoAction" method="changeStudentInfo"
+			class="studentInfoAction">
+			<result name="success">/student/studentinfo.jsp
+			</result>
 			<result name="error">/student/error.jsp</result>
 		</action>
-		<action name="changeStudentPwdAction" method="changePassword" class="studentInfoAction">
+		<action name="changeStudentPwdAction" method="changePassword"
+			class="studentInfoAction">
 			<result name="success">/student/prompt.jsp</result>
 			<result name="error">/student/error.jsp</result>
 		</action>
-		<action name="myCollectionAction" method="findMyCollection" class="studentInfoAction">
-			<result name="success">/student/collectionlist.jsp</result>
+		<action name="myCollectionAction" method="findMyCollection"
+			class="studentInfoAction">
+			<result name="success">/student/collectionlist.jsp
+			</result>
 			<result name="error">/student/prompt.jsp</result>
 		</action>
-		<action name="deleteCollectionAction" method="deleteCollection" class="studentInfoAction">
-			<result name="success">/student/collectionlist.jsp</result>
+		<action name="deleteCollectionAction" method="deleteCollection"
+			class="studentInfoAction">
+			<result name="success">/student/collectionlist.jsp
+			</result>
 			<result name="error">/student/prompt.jsp</result>
 		</action>
 		<action name="loginFromColAction" method="studentLoginForCol"
-			class="loginAction">			
-			<result name="success" type="redirect-action">goIndexQueryAction</result>
-			<result name="error">/coursepage/prompt.jsp</result>
+			class="loginAction">
+			<result name="success" type="redirect-action">goIndexQueryAction
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
-		<action name="addCollectionAction" method="addCollection" class="studentInfoAction">
-			<result name="success">/coursepage/colsuccess.jsp</result>
-			<result name="error">/coursepage/colprompt.jsp</result>
-			<result name="login">/coursepage/collogin.jsp</result>
+		<action name="addCollectionAction" method="addCollection"
+			class="studentInfoAction">
+			<result name="success">/coursepage/colsuccess.jsp
+			</result>
+			<result name="error">/coursepage/colprompt.jsp
+			</result>
+			<result name="login">/coursepage/collogin.jsp
+			</result>
 		</action>
 		<action name="myTopicAction" method="myTopics" class="studentInfoAction">
-			<result name="success">/student/topiclist.jsp</result>
+			<result name="success">/student/topiclist.jsp
+			</result>
 			<result name="error">/student/prompt.jsp</result>
 		</action>
 		<action name="myReplyTopicAction" method="myReplyTopics" class="studentInfoAction">
-			<result name="success">/student/replytopiclist.jsp</result>
+			<result name="success">/student/replytopiclist.jsp
+			</result>
 			<result name="error">/student/prompt.jsp</result>
 		</action>
 		
-		<!-- 前台 -->	
+		<!-- 前台 -->
 		<action name="enterCourseAction" method="enterCourse" class="executeViewAction">
-			<result name="course" type="redirect-action">goIndexQueryAction</result>
+			<result name="course" type="redirect-action">goIndexQueryAction
+			</result>
 			<result name="error">/homepage/prompt.jsp</result>
 		</action>
-		<action name="getCourseMovieListAction" method="getCourseMovieListByCourse2" class="courseMovieAction">
+		<action name="getCourseMovieListAction" method="getCourseMovieListByCourse2"
+			class="courseMovieAction">
 			<result name="movies">/coursepage/coursemovielist.jsp
 			</result>
-			<result name="error">/coursepage/prompt.jsp</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
-		<action name="watchMovieAction" method="getCourseMovieById2" class="courseMovieAction">
+		<action name="watchMovieAction" method="getCourseMovieById2"
+			class="courseMovieAction">
 			<result name="movie">/coursepage/watchmovie.jsp
 			</result>
-			<result name="error">/coursepage/prompt.jsp</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
 
 		
 		<!-- 首页 -->
 		
 		<!-- 首页显示新闻公告 -->
-		<action name="homepageNewsAction" method="homepageDisplay" class="homePageAction">
-			<result name="success">/homepage/homepage.jsp</result>			
+		<action name="homepageNewsAction" method="homepageDisplay"
+			class="homePageAction">
+			<result name="success">/homepage/homepage.jsp
+			</result>
 		</action>
 		<!-- 点击新闻公告 -->
 		<action name="newsAction" method="newsDisplay" class="homePageAction">
@@ -1279,8 +1396,10 @@
 		<action name="loginFromHomePageAction" method="loginFromHomePage"
 			class="homePageAction">
 			<result name="teacher">/teacher/main.jsp</result>
-			<result name="error">/homepage/homepage.jsp</result>
-			<result name="student">/student/studentinfo.jsp</result>
+			<result name="error">/homepage/homepage.jsp
+			</result>
+			<result name="student">/student/studentinfo.jsp
+			</result>
 		</action>
           <!-- 首页建设成果 -->
 		<action name="achievementAction" method="achievementDisplay"
@@ -1290,36 +1409,40 @@
 			<result name="error">/homepage/prompt.jsp</result>
 		</action>
       
-<!-- 跳转 -->	
-
+<!-- 跳转 -->
 		<action name="schoolCourseAction" method="forwardToSchoolSearch"
 			class="homePageAction">
-			<result name="success">/homepage/searchbyschool.jsp</result>
+			<result name="success">/homepage/searchbyschool.jsp
+			</result>
 		</action>
 		<action name="forwardToSuperSearchAction" method="forwardToSuperSearch"
 			class="homePageAction">
-			<result name="success">/homepage/supersearch.jsp</result>
+			<result name="success">/homepage/supersearch.jsp
+			</result>
 		</action>
 		<action name="forwardToIndexAction" method="forwardToIndex"
 			class="homePageAction">
-			<result name="index">/homepage/index.jsp</result>			
+			<result name="index">/homepage/index.jsp</result>
 		</action>
 		<action name="forwardToContactAction" method="forwardToContact"
 			class="homePageAction">
-			<result name="contact">/homepage/search.jsp</result>			
+			<result name="contact">/homepage/search.jsp</result>
 		</action>
 		<action name="lastCourseAction" method="lastThreeDaysCourse"
 			class="executeViewAction">
-			<result name="success">/homepage/lastcourse.jsp</result>
+			<result name="success">/homepage/lastcourse.jsp
+			</result>
 		</action>
 		<action name="lastWeekCourseAction" method="lastWeekCourse"
 			class="executeViewAction">
-			<result name="success">/homepage/lastcourse.jsp</result>
+			<result name="success">/homepage/lastcourse.jsp
+			</result>
 		</action>
 		<action name="lastMonthCourseAction" method="lastMonthCourse"
 			class="executeViewAction">
-			<result name="success">/homepage/lastcourse.jsp</result>
-		</action>	
+			<result name="success">/homepage/lastcourse.jsp
+			</result>
+		</action>
 		<action name="superSearchCourseAction" method="superSearchCourse"
 			class="executeViewAction">
 			<result name="success">/homepage/supersearch.jsp
@@ -1327,98 +1450,119 @@
 		</action>
 		<action name="searchCourseByKeywordAction" method="searchCourseByKeyword"
 			class="executeViewAction">
-			<result name="success">/homepage/search.jsp
+			<result name="success">/homepage/search.jsp</result>
+		</action>
+<!-- 课程评价 -->
+		<action name="loginFromEvaluationAction" method="loginFromEvaluation"
+			class="evaluationAction">
+			<result name="expert">/coursepage/evaluation/expertevaluate.jsp
+			</result>
+			<result name="teacher">/coursepage/evaluation/teacherevaluate.jsp
+			</result>
+			<result name="student">/coursepage/evaluation/studentevaluate.jsp
+			</result>
+			<result name="success">/coursepage/evaluation/evaluatesuccess.jsp
+			</result>
+			<result name="tesuccess">/coursepage/evaluation/tevaluatesuccess.jsp
+			</result>
+			<result name="exsuccess">/coursepage/evaluation/expertevaluatesuccess.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
 			</result>
 		</action>
-<!-- 课程评价 -->	
-<action name="loginFromEvaluationAction" method="loginFromEvaluation"
-			class="evaluationAction">
-			<result name="expert">/coursepage/evaluation/expertevaluate.jsp</result>
-			<result name="teacher">/coursepage/evaluation/teacherevaluate.jsp</result>
-			<result name="student">/coursepage/evaluation/studentevaluate.jsp</result>
-			<result name="success">/coursepage/evaluation/evaluatesuccess.jsp</result>
-			<result name="tesuccess">/coursepage/evaluation/tevaluatesuccess.jsp</result>
-			<result name="exsuccess">/coursepage/evaluation/expertevaluatesuccess.jsp</result>
-			<result name="error">/coursepage/prompt.jsp</result>
-		</action>
-<action name="evaluateAction" method="getEvaluationResult"
+		<action name="evaluateAction" method="getEvaluationResult"
 			class="evaluationAction">
 			<result name="success">/coursepage/evaluation/evaluate.jsp
 			</result>
-		</action>	
-<action name="expertEvaluateResultAction" method="expertEvaluateResult"
+		</action>
+		<action name="expertEvaluateResultAction" method="expertEvaluateResult"
 			class="evaluationAction">
 			<result name="success">/coursepage/evaluation/expevaluateresult.jsp
 			</result>
-		</action>	
-<action name="teacherEvaluateResultAction" method="teacherEvaluateResult"
-	class="evaluationAction">
+		</action>
+		<action name="teacherEvaluateResultAction" method="teacherEvaluateResult"
+			class="evaluationAction">
 			<result name="success">/coursepage/evaluation/teacherresult.jsp
 			</result>
 		</action>
-<action name="enterEvaluationAction" method="enterEvaluation"
+		<action name="enterEvaluationAction" method="enterEvaluation"
 			class="evaluationAction">
 			<result name="success">/coursepage/evaluation/enterexpevaluation.jsp
 			</result>
-		</action>	
-<action name="enterTeaEvaluationAction" method="enterTeaEvaluation"
+		</action>
+		<action name="enterTeaEvaluationAction" method="enterTeaEvaluation"
 			class="evaluationAction">
 			<result name="success">/coursepage/evaluation/enterteaevaluation.jsp
 			</result>
-		</action>	
+		</action>
 		<action name="reExpertEvaluationAction" method="reExpertEvaluation"
 			class="evaluationAction">
 			<result name="success">/coursepage/evaluation/expertevaluate.jsp
 			</result>
-		</action>	
+		</action>
 		<action name="reTeaEvaluationAction" method="reTeaEvaluation"
 			class="evaluationAction">
 			<result name="success">/coursepage/evaluation/teacherevaluate.jsp
 			</result>
-		</action>	
+		</action>
 		<action name="reStuEvaluationAction" method="reStuEvaluation"
 			class="evaluationAction">
 			<result name="success">/coursepage/evaluation/studentevaluate.jsp
 			</result>
-		</action>	
-<action name="studentEvaluateAction" method="studentEvaluate"
+		</action>
+		<action name="studentEvaluateAction" method="studentEvaluate"
 			class="evaluationAction">
 			<result name="success">/coursepage/evaluation/evaluatesuccess.jsp
 			</result>
-			<result name="error">/coursepage/prompt.jsp</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
-<action name="expertEvaluateAction" class="evaluationAction">
+		<action name="expertEvaluateAction" class="evaluationAction">
 			<result name="success">/coursepage/evaluation/expertevaluatesuccess.jsp
 			</result>
-			<result name="error">/coursepage/prompt.jsp</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
-<action name="teacherEvaluateAction" class="evaluationAction">
+		<action name="teacherEvaluateAction" class="evaluationAction">
 			<result name="success">/coursepage/evaluation/tevaluatesuccess.jsp
 			</result>
-			<result name="error">/coursepage/prompt.jsp</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
-<action name="eDetailEvaluateAction" method="eDetailEvaluate"
+		<action name="eDetailEvaluateAction" method="eDetailEvaluate"
 			class="evaluationAction">
-			<result name="login">/coursepage/evaluation/login.jsp</result>
-			<result name="evluate">/coursepage/evaluation/expertevaluate.jsp</result>
-			<result name="success">/coursepage/evaluation/expertevaluatesuccess.jsp</result>
-			<result name="error">/coursepage/prompt.jsp</result>
+			<result name="login">/coursepage/evaluation/login.jsp
+			</result>
+			<result name="evluate">/coursepage/evaluation/expertevaluate.jsp
+			</result>
+			<result name="success">/coursepage/evaluation/expertevaluatesuccess.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
-<action name="tDetailEvaluateAction" method="tDetailEvaluate"
+		<action name="tDetailEvaluateAction" method="tDetailEvaluate"
 			class="evaluationAction">
-			<result name="login">/coursepage/evaluation/login.jsp</result>
-			<result name="evluate">/coursepage/evaluation/teacherevaluate.jsp</result>
-			<result name="success">/coursepage/evaluation/tevaluatesuccess.jsp</result>
-			<result name="error">/coursepage/prompt.jsp</result>
-		</action>			
-<action name="sDetailEvaluateAction" method="sDetailEvaluate"
-			class="evaluationAction">
-			<result name="login">/coursepage/evaluation/login.jsp</result>
-			<result name="evluate">/coursepage/evaluation/studentevaluate.jsp</result>
-			<result name="success">/coursepage/evaluation/evaluatesuccess.jsp</result>
-			<result name="error">/coursepage/prompt.jsp</result>
+			<result name="login">/coursepage/evaluation/login.jsp
+			</result>
+			<result name="evluate">/coursepage/evaluation/teacherevaluate.jsp
+			</result>
+			<result name="success">/coursepage/evaluation/tevaluatesuccess.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
-		<!-- 课程首页公告 -->		
+		<action name="sDetailEvaluateAction" method="sDetailEvaluate"
+			class="evaluationAction">
+			<result name="login">/coursepage/evaluation/login.jsp
+			</result>
+			<result name="evluate">/coursepage/evaluation/studentevaluate.jsp
+			</result>
+			<result name="success">/coursepage/evaluation/evaluatesuccess.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<!-- 课程首页公告 -->
 		<action name="getNoticeBySortAction" method="getNoticeBySort2"
 			class="noticeAction">
 			<result name="success">/coursepage/noticelist.jsp
@@ -1429,8 +1573,7 @@
 			<result name="success">/coursepage/noticelist.jsp
 			</result>
 		</action>
-		<action name="viewNoticeAction" method="findNoticeById"
-			class="noticeAction">
+		<action name="viewNoticeAction" method="findNoticeById" class="noticeAction">
 			<result name="success">/coursepage/viewnotice.jsp
 			</result>
 		</action>
@@ -1439,25 +1582,25 @@
 			<result name="success">/coursepage/viewnotice.jsp
 			</result>
 		</action>
-		<action name="goIndexQueryAction" method="goIndexQuery"
-			class="enterCourseAction">
+		<action name="goIndexQueryAction" method="goIndexQuery" class="enterCourseAction">
 			<result name="success">/coursepage/index.jsp
 			</result>
 		</action>
-		<action name="changeHeaderAction" method="changeHeader"
-			class="enterCourseAction">
-				<result name="success" type="redirect-action">goIndexQueryAction</result>
+		<action name="changeHeaderAction" method="changeHeader" class="enterCourseAction">
+			<result name="success" type="redirect-action">goIndexQueryAction
+			</result>
 		</action>
 		<action name="getLeftNoticeAction" method="getLeftNotice"
 			class="enterCourseAction">
 			<result name="success">/coursepage/style/leftinfo.jsp
 			</result>
-		</action>	
+		</action>
 		<action name="findApplicationFormAction" method="findApplicationForm"
 			class="applicationFormAction">
 			<result name="applicationForm">/coursepage/applicationform.jsp
 			</result>
-			<result name="error">/coursepage/prompt.jsp</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
 		<action name="findCourseInfoAction" method="findCourseInfo2"
 			class="courseInfoAction">
@@ -1471,14 +1614,15 @@
 			class="teacherTeamAction">
 			<result name="teachers">/coursepage/teacherteam.jsp
 			</result>
-			<result name="error">/coursepage/prompt.jsp</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
 		<action name="findAchievementAction" method="getAchievementListByCourse"
 			class="achievementAction">
 			<result name="success">/coursepage/achievement.jsp
 			</result>
 		</action>
-				<action name="viewAchievementAction" method="getAchievementById"
+		<action name="viewAchievementAction" method="getAchievementById"
 			class="achievementAction">
 			<result name="success">/coursepage/viewachievement.jsp
 			</result>
@@ -1505,72 +1649,93 @@
 		</action>
 		<action name="getAllBookAction" method="getBookListByCourse"
 			class="bookAction">
-			<result name="success">/coursepage/book.jsp
-			</result>
+			<result name="success">/coursepage/book.jsp</result>
 		</action>
-			<action name="downloadExperimentAction" method="downloadExperiment"
+		<action name="downloadExperimentAction" method="downloadExperiment"
 			class="experimentAction">
 			<result name="experiment">/coursepage/downloadexperiment.jsp
 			</result>
-			<result name="error">/coursepage/prompt.jsp</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
 		<action name="downloadExerciseAction" method="downloadExercise"
 			class="exerciseAction">
 			<result name="exercise">/coursepage/downloadexercise.jsp
 			</result>
-			<result name="error">/coursepage/prompt.jsp</result>
-			</action>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
 			<!-- 留言板 -->
-			<action name="goNewTopicAction" method="goNewTopic" class="messageAction">
+		<action name="goNewTopicAction" method="goNewTopic" class="messageAction">
 			<result name="success">/coursepage/messagemanage/newtopic.jsp
 			</result>
-			</action>
-		<action name="addNewMessageAction" method="addNewMessage" class="messageAction">
-			<result name="success" type="redirect-action">showTopicsAction</result>
-			<result name="error">/coursepage/prompt.jsp</result>
-			</action>
+		</action>
+		<action name="addNewMessageAction" method="addNewMessage"
+			class="messageAction">
+			<result name="success" type="redirect-action">showTopicsAction
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
 		<action name="showTopicsAction" method="showTopics" class="messageAction">
 			<result name="topics">/coursepage/messagemanage/showtopics.jsp
 			</result>
-			<result name="error">/coursepage/prompt.jsp</result>
-			<result name="login">/coursepage/login.jsp</result>
-			</action>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+			<result name="login">/coursepage/login.jsp
+			</result>
+		</action>
 		<action name="showMessagesAction" method="showMessages" class="messageAction">
 			<result name="messages">/coursepage/messagemanage/showmessages.jsp
 			</result>
-			<result name="error">/coursepage/prompt.jsp</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
 		<action name="goReplyAction" method="goReply" class="messageAction">
 			<result name="success">/coursepage/messagemanage/newreply.jsp
 			</result>
-			<result name="error">/coursepage/prompt.jsp</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
-		<action name="goReplyToSomeoneAction" method="goReplyToSomeone" class="messageAction">
+		<action name="goReplyToSomeoneAction" method="goReplyToSomeone"
+			class="messageAction">
 			<result name="success">/coursepage/messagemanage/newreply.jsp
 			</result>
-			<result name="error">/coursepage/prompt.jsp</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
-		<action name="goReplyWithQuoteAction" method="goReplyWithQuote" class="messageAction">
+		<action name="goReplyWithQuoteAction" method="goReplyWithQuote"
+			class="messageAction">
 			<result name="success">/coursepage/messagemanage/newreply.jsp
 			</result>
-			<result name="error">/coursepage/prompt.jsp</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
-		
 		<action name="addReplyAction" method="addReply" class="messageAction">
-			<result name="success" type="redirect-action">showMessagesAction?topicId=${topic.id}</result>
-			<result name="error">/coursepage/prompt.jsp</result>
-		</action>				
-		<action name="loginFromMessageBoardAction" method="loginFromMessageBoard" class="messageAction">
-			<result name="success">/coursepage/messagemanage/showtopics.jsp</result>
-			<result name="error">/coursepage/prompt.jsp</result>
-			</action>
-		<action name="logoutFromMessageBoardAction" method="logoutFromMessageBoard" class="messageAction">
-			<result name="success" type="redirect-action">goIndexQueryAction</result>
-			</action>
-		<action name="enterPersionalSpaceAction" method="enterPersionalSpace" class="messageAction">
+			<result name="success" type="redirect-action">
+				showMessagesAction?topicId=${topic.id}</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="loginFromMessageBoardAction" method="loginFromMessageBoard"
+			class="messageAction">
+			<result name="success">/coursepage/messagemanage/showtopics.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="logoutFromMessageBoardAction" method="logoutFromMessageBoard"
+			class="messageAction">
+			<result name="success" type="redirect-action">goIndexQueryAction
+			</result>
+		</action>
+		<action name="enterPersionalSpaceAction" method="enterPersionalSpace"
+			class="messageAction">
 			<result name="teacher">/teacher/main.jsp</result>
-			<result name="student">/student/studentinfo.jsp</result>
-			<result name="error">/coursepage/prompt.jsp</result>
-			</action>
+			<result name="student">/student/studentinfo.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
 	</package>
 </struts>

@@ -90,42 +90,42 @@ a.v1:visited {
                         <td width="56"><table width="45" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                               <td width="21"><div align="center"><img src="images/top_2.gif" width="14" height="14" /></div></td>
-                              <td width="35"><div align="center" class="STYLE1"><a href="#">首页</a></div></td>
+                              <td width="35"><div align="center" class="STYLE1"><a href="javascript:parent.location.href='${ctx}/homepage/index.jsp'">首页</a></div></td>
                             </tr>
                         </table></td>
                         <td width="10"><img src="images/main_11.gif" width="6" height="26" /></td>
                         <td width="56"><table width="45" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                               <td width="21"><div align="center"><img src="images/top_3.gif" width="14" height="14" /></div></td>
-                              <td width="24"><div align="center" class="STYLE1"><a href="#">后退</a></div></td>
+                              <td width="24"><div align="center" class="STYLE1"><a href="javascript:history.back()">后退</a></div></td>
                             </tr>
                         </table></td>
                         <td width="10"><img src="images/main_11.gif" width="6" height="26" /></td>
                         <td width="56"><table width="45" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                               <td width="21"><div align="center"><img src="images/top_4.gif" width="14" height="14" /></div></td>
-                              <td width="24"><div align="center" class="STYLE1"><a href="#">前进</a></div></td>
+                              <td width="24"><div align="center" class="STYLE1"><a href="javascript:history.forward()">前进</a></div></td>
                             </tr>
                         </table></td>
                         <td width="10"><img src="images/main_11.gif" width="6" height="26" /></td>
                         <td width="56"><table width="45" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                               <td width="21"><div align="center"><img src="images/top_5.gif" width="14" height="14" /></div></td>
-                              <td width="24"><div align="center" class="STYLE1"><a href="#">刷新</a></div></td>
+                              <td width="24"><div align="center" class="STYLE1"><a href="javascript:history.go(0)">刷新</a></div></td>
                             </tr>
                         </table></td>
                         <td width="10"><img src="images/main_11.gif" width="6" height="26" /></td>
                         <td width="102"><table width="102" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                               <td width="22"><div align="center"><img src="images/top_6.gif" width="14" height="14" /></div></td>
-                              <td width="80"><div align="center" class="STYLE1"><a href="#">个人信息修改</a></div></td>
+                              <td width="80"><div align="center" class="STYLE1"><a href="getTeacherInfoAction.action" target="I2">个人信息修改</a></div></td>
                             </tr>
                         </table></td>
                         <td width="10"><img src="images/main_11.gif" width="6" height="26" /></td>
                         <td width="56"><table width="45" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                               <td width="21"><div align="center"><img src="images/top_7.gif" width="14" height="14" /></div></td>
-                              <td width="24"><div align="center" class="STYLE1"><a href="#">退出</a></div></td>
+                              <td width="24"><div align="center" class="STYLE1"><a href="javascript:parent.location.href='logoutAction.action'">退出</a></div></td>
                             </tr>
                         </table></td>
                         </tr>
