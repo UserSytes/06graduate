@@ -66,7 +66,7 @@
 											<s:property value="userInfo.name" />
 											&nbsp;
 											<span style="color: #CBCBCB">|</span><a class="titlea"
-												href="<s:url action="enterPersionalSpaceAction"> 
+												href="<s:url action="myPageAction"> 
                 					</s:url>">&nbsp;个人空间&nbsp;
 											</a><span style="color: #CBCBCB">|</span><a class="titlea"
 												href="<s:url action="logoutFromMessageBoardAction"> 

@@ -53,7 +53,8 @@ public class MessageAction extends BaseAction {
 			} else {
 				userInfo = teacher.getUserInfo();				
 				super.getSession().put(TEACHER, teacher);
-				super.getSession().put(USERINFO, teacher.getUserInfo());				
+				super.getSession().put(USERINFO, userInfo);
+				super.getSession().put("user", userInfo.getName()+"老师");
 			}
 		} else {
 			Student student = getLoginService().studentLogin(userName,
@@ -64,34 +65,12 @@ public class MessageAction extends BaseAction {
 			} else {
 				userInfo = student.getUserInfo();			
 				super.getSession().put(STUDENT, student);
-				super.getSession().put(USERINFO, student.getUserInfo());				
+				super.getSession().put(USERINFO, userInfo);		
+				super.getSession().put("user",userInfo.getName()+"同学");
 			}
 		}
 		topicList = getTopicService().getAllTopics(super.getCourse());
 		return SUCCESS;
-	}
-
-	public String logoutFromMessageBoard() {
-		super.getSession().remove(STUDENT);
-		super.getSession().remove(USERINFO);
-		super.getSession().remove(TEACHER);
-		return SUCCESS;
-
-	}
-
-	public String enterPersionalSpace() {
-		student = (Student) super.getSession().get(STUDENT);
-		teacher = (Teacher) super.getSession().get(TEACHER);
-		if (null != student) {
-			System.out.println("正在进入空间的是" + student.getStudentNo());
-			return "student";
-		} else if (null != teacher) {
-			System.out.println("正在进入空间的是" + teacher.getTeacherNo());
-			return "teacher";
-
-		} else
-			return ERROR;
-
 	}
 
 	public String addNewMessage() {		
@@ -175,8 +154,21 @@ public class MessageAction extends BaseAction {
 				return ERROR;
 			}
 		}
+	}
+	
+	/**
+	 * 查找学生个人留言主题
+	 * @return
+	 */
+	public String myTopics() {		
+		messageList = messageService.getMessageByUserInfo(super.getUserInfo());
+		if (messageList.size() == 0) {
+			addActionMessage("您目前还未发表帖子留言！");
+		}
+		return SUCCESS;
 
 	}
+	
 	public String showMessages() {
 		course = super.getCourse();
 		userInfo=super.getUserInfo();
@@ -196,19 +188,11 @@ public class MessageAction extends BaseAction {
 		userInfo=super.getUserInfo();
 		return SUCCESS;
 	}
-	public String addReply() {
-		// System.out.println("ACTION正在加入帖子为："+topicId+"的留言1");
-		// topic = topicService.getTopicById(topicId);
+	public String addReply() {	
 		course=super.getCourse();
 		System.out.println("ACTION正在加入帖子为：" + topic.getId() + "的留言2");
 		topicId = topic.getId();
-		topic = topicService.getTopicById(topic.getId());
-		// topic.setCountReply(topic.getCountReply()+1);
-		// topic.setLastUpdate(new Date());
-		// topic.setLastAnswer(super.getUserInfo().getName());
-		// topicService.updateTopic(topic);
-		// System.out.println(message.getContent());
-		// message.setGrade(topic.getCountReply()+2);
+		topic = topicService.getTopicById(topic.getId());		
 		boolean result = messageService.addReplyMessage(topic, message, super
 				.getUserInfo());
 		if (result) {			

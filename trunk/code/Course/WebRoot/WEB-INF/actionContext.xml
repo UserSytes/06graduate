@@ -51,28 +51,22 @@
 		class="cn.edu.xmu.course.web.action.StudentInfoAction">
 		<property name="studentInfoService">
 			<ref bean="studentInfoService" />
-		</property>
-		<property name="studentCourseService">
-			<ref bean="studentCourseService" />
-		</property>
-		<property name="courseService">
-			<ref bean="courseService" />
-		</property>
-		<property name="messageService">
-			<ref bean="messageService" />
-		</property>
+		</property>		
 	</bean>
 	<bean id="courseAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.CourseAction">
 		<property name="courseService">
 			<ref bean="courseService" />
 		</property>
-		<property name="teacherInfoService">
-			<ref bean="teacherInfoService" />
-		</property>
 		<property name="departmentService">
 			<ref bean="departmentService" />
-		</property>
+		</property>	
+	</bean>
+	<bean id="studentCourseAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.StudentCourseAction">
+		<property name="courseService">
+			<ref bean="courseService" />
+		</property>	
 		<property name="studentCourseService">
 			<ref bean="studentCourseService" />
 		</property>
@@ -128,10 +122,7 @@
 		</property>
 		<property name="loginService">
 			<ref bean="loginService" />
-		</property>
-		<property name="applicationFormService">
-			<ref bean="applicationFormService" />
-		</property>
+		</property>	
 		<property name="courseService">
 			<ref bean="courseService" />
 		</property>

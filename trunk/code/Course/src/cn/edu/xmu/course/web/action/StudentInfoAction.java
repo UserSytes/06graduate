@@ -33,40 +33,16 @@ public class StudentInfoAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = 6085308815177983503L;
 	private IStudentInfoService studentInfoService;	//管理学生信息的接口
-	private IStudentCourseService studentCourseService;	//管理学生课程信息的接口
-	private ICourseService courseService;	//管理课程信息的接口
 
 	private Student student;	//学生
 	private UserInfo userInfo;	//用户信息
-	private List<Course> courseList;	//课程列表
-	private Course course;	//课程
-	private int courseId;	//课程id
 	private String oldPassword;	//原密码
 	private String newPassword;	//新密码
-
-
-	private IMessageService messageService;	//管理留言信息的接口
-	private List<Message> messageList;	//留言列表
 
 	private File upload;	//头像文件
 	private String uploadContentType;	//头像文件类型
 	private String uploadFileName;	//头像文件名称
 	private String photoPath;	//头像路径
-
-	/**
-	 * 查找学生个人留言主题
-	 * @return
-	 */
-	public String myTopics() {
-		student = (Student) super.getSession().get(STUDENT);
-		userInfo = student.getUserInfo();
-		messageList = messageService.getMessageByUserInfo(userInfo);
-		if (messageList.size() == 0) {
-			addActionMessage("您目前还未发表帖子留言！");
-		}
-		return SUCCESS;
-
-	}
 
 	/**
 	 * 修改头像
@@ -141,89 +117,7 @@ public class StudentInfoAction extends BaseAction {
 			addActionError("原密码错误！");
 			return SUCCESS;
 		}
-	}
-
-	/**
-	 * 查找我的课程
-	 * 
-	 * @return
-	 */
-	public String findMyCourses() {
-		student = (Student) super.getSession().get(STUDENT);
-		List<StudentCourse> studentCourses = new ArrayList<StudentCourse>();
-		studentCourses = studentCourseService.findByStudent(student);
-		if (studentCourses.size() == 0) {
-			addActionError("您暂无课程！");
-			return SUCCESS;
-		}
-		courseList = new ArrayList<Course>();
-		for (StudentCourse sc : studentCourses) {
-			courseList.add(sc.getCourse());
-		}
-		return SUCCESS;
-	}
-
-	/**
-	 * 查找我的收藏课程
-	 * 
-	 * @return
-	 */
-	public String findMyCollection() {
-		student = (Student) super.getSession().get(STUDENT);
-		List<Collection> collections = new ArrayList<Collection>();
-		collections = studentCourseService.findCollectionByStudent(student);
-		if (collections.size() == 0) {
-			addActionError("您暂未收藏任何课程！");
-			return SUCCESS;
-		}
-		courseList = new ArrayList<Course>();
-		for (Collection c : collections) {
-			courseList.add(c.getCourse());
-		}
-		return SUCCESS;
-	}
-
-	/**
-	 * 删除收藏课程
-	 * 
-	 * @return
-	 */
-	public String deleteCollection() {
-		student = (Student) super.getSession().get(STUDENT);
-		course = courseService.getCourseById(courseId);
-		boolean result = studentCourseService.deleteCollection(student, course);
-		if (result) {
-			this.findMyCollection();
-			return SUCCESS;
-		} else
-			return ERROR;
-
-	}
-	
-	/**
-	 * 添加收藏课程
-	 * @return
-	 */
-	public String addCollection(){
-		student = super.getStudent();
-		if(student == null)
-			return "login";
-		course = super.getCourse();
-		Collection col =studentCourseService.findCollectionByStu(student, course);
-		if(col == null){
-			if(studentCourseService.addCollection(student, course)){
-				addActionMessage("恭喜您，收藏"+course.getName()+"课程成功!");
-			}
-			else{
-				addActionError("收藏"+course.getName()+"课程失败，请重新操作!");
-				return ERROR;
-			}
-		}
-		else{
-			addActionError("您已经收藏过了"+course.getName()+"这门课程。");
-		}
-		return SUCCESS;
-	}
+	}	
 
 	
 	public IStudentInfoService getStudentInfoService() {
@@ -232,15 +126,6 @@ public class StudentInfoAction extends BaseAction {
 
 	public void setStudentInfoService(IStudentInfoService studentInfoService) {
 		this.studentInfoService = studentInfoService;
-	}
-
-	public IStudentCourseService getStudentCourseService() {
-		return studentCourseService;
-	}
-
-	public void setStudentCourseService(
-			IStudentCourseService studentCourseService) {
-		this.studentCourseService = studentCourseService;
 	}
 
 	public Student getStudent() {
@@ -258,39 +143,7 @@ public class StudentInfoAction extends BaseAction {
 	public void setUserInfo(UserInfo userInfo) {
 		this.userInfo = userInfo;
 	}
-
-	public List<Course> getCourseList() {
-		return courseList;
-	}
-
-	public void setCourseList(List<Course> courseList) {
-		this.courseList = courseList;
-	}
-
-	public int getCourseId() {
-		return courseId;
-	}
-
-	public void setCourseId(int courseId) {
-		this.courseId = courseId;
-	}
-
-	public ICourseService getCourseService() {
-		return courseService;
-	}
-
-	public void setCourseService(ICourseService courseService) {
-		this.courseService = courseService;
-	}
-
-	public Course getCourse() {
-		return course;
-	}
-
-	public void setCourse(Course course) {
-		this.course = course;
-	}
-
+	
 	public String getOldPassword() {
 		return oldPassword;
 	}
@@ -307,22 +160,6 @@ public class StudentInfoAction extends BaseAction {
 		this.newPassword = newPassword;
 	}
 	
-	public IMessageService getMessageService() {
-		return messageService;
-	}
-
-	public void setMessageService(IMessageService messageService) {
-		this.messageService = messageService;
-	}
-
-	public List<Message> getMessageList() {
-		return messageList;
-	}
-
-	public void setMessageList(List<Message> messageList) {
-		this.messageList = messageList;
-	}
-
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
 	}

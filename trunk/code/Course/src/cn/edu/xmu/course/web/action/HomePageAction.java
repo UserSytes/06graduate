@@ -32,7 +32,6 @@ public class HomePageAction extends BaseAction{
 	private List<News> newsList;// 新闻列表
   private UserInfo userInfo;// 用户信息
 	private List<Course> courseList;// 课程列表
-	private IApplicationFormService applicationFormService;
 	private ICourseService courseService;// 课程管理方法的接口
 	private INewsService newsService;// 新闻管理方法的接口
 	private ISearchCourseService searchCourseService;// 查找课程方法的接口	
@@ -142,10 +141,10 @@ public class HomePageAction extends BaseAction{
 				this.homepageDisplay();
 				return ERROR;
 			}
-			else {
+			else {				
 				userInfo = teacher.getUserInfo();
 				super.getSession().put(TEACHER, teacher);
-				super.getSession().put("user", teacher.getUserInfo().getName()+"老师");
+				super.getSession().put("user", userInfo.getName()+"老师");
 				super.getSession().put(USERINFO, userInfo);
 				return "teacher";
 			}
@@ -157,9 +156,9 @@ public class HomePageAction extends BaseAction{
 				return ERROR;
 			}
 			else {
-				super.getSession().put(STUDENT, student);
-				super.getSession().put("user", student.getUserInfo().getName()+"同学");
 				userInfo = student.getUserInfo();
+				super.getSession().put(STUDENT, student);
+				super.getSession().put("user",userInfo.getName()+"同学");				
 				super.getSession().put(USERINFO, userInfo);
 				return "student";
 			}
@@ -279,14 +278,6 @@ public class HomePageAction extends BaseAction{
 		this.courseList = courseList;
 	}
 
-	public IApplicationFormService getApplicationFormService() {
-		return applicationFormService;
-	}
-
-	public void setApplicationFormService(
-			IApplicationFormService applicationFormService) {
-		this.applicationFormService = applicationFormService;
-	}
 
 	public ICourseService getCourseService() {
 		return courseService;

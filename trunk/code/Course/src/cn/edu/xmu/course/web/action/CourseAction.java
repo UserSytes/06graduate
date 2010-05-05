@@ -28,33 +28,18 @@ public class CourseAction extends BaseAction {
 	private static final long serialVersionUID = -1435933948873647769L;
 	private String departmentId;	//系的id
 	private int courseId;	//课程id
-	private Department department;	//系
-	private Teacher teacher;	//教师
 	private Course course;	//课程
 	private List<Course> myCoursesList;	//我（教师）的课程列表
 	private int type = 3;	//课程状态标识，3:所有课程
 	private String style; //课程风格颜色 
 
-	private ISuperAdminService superAdminService;	//负责管理校方管理员的接口
-	private ITeacherInfoService teacherInfoService;	//管理教师信息的接口
-	private IStudentCourseService studentCourseService;	//管理学生课程信息的接口
 	private ICourseService courseService;	//管理课程的接口
 	private IDepartmentService departmentService;	//管理系的接口
 
 	private List<Course> applicationCourseList;	//申报课程列表
-	private List<Student> studentList;	//学生列表
-	private Student student;	//学生
-	private int studentId;	//学生id
-	private String studentNo;	//学生学号、帐号
 	private String refuseReason;	//审核课程退回时填写的理由
-	private String gradeId;	//学生年级id
-	private List<Grade> gradeList;	//学生年级列表
-	private List<Department> departmentList;	//系列表
 
-	private File studentFile;	//学生帐号文件
-	private String studentFileContentType;	//学生帐号文件类型
-	private String studentFileName;	//学生帐号文件名
-		
+	
 
 	/**
 	 * 申报课程
@@ -182,110 +167,6 @@ public class CourseAction extends BaseAction {
 			return SUCCESS;
 		}
 	}
-
-	/**
-	 * 获取某课程的所有学生
-	 * 
-	 * @return
-	 */
-	public String getStudentByCourse() {
-		course = courseService.getCourseById(courseId);
-		System.out.println("the courseId is"+courseId);
-		List<StudentCourse> scList = studentCourseService.findByCourse(course);
-		if (scList.size() == 0) {
-			addActionError("此课程暂未添加学生！");
-			return ERROR;
-		}
-		studentList = new ArrayList<Student>();
-		for (StudentCourse sc : scList) {
-			studentList.add(sc.getStudent());
-		}
-		return SUCCESS;
-	}
-
-	/**
-	 * 删除course的某位学生关系
-	 * 
-	 * @return
-	 */
-	public String deleteStudent() {
-		student = studentCourseService.findStudentById(studentId);
-		course = courseService.getCourseById(courseId);
-		boolean result = studentCourseService.delete(course, student);
-		if (result) {
-			return SUCCESS;
-		} else{
-			addActionError("删除学生失败，请重新操作！");
-			return ERROR;}
-	}
-
-	/**
-	 * 跳转到批量删除学生课程
-	 * @return
-	 */
-	public String goDeleteMoreStudentCourse(){
-		course = courseService.getCourseById(course.getId());
-		Administrator admin = (Administrator) super.getSession().get(
-				ADMIN);
-		School school = admin.getSchool();
-		gradeList = superAdminService.findAllGrade();
-		departmentList = superAdminService.findDepartmentBySchool(school);
-		return SUCCESS;
-	}
-	
-	/**
-	 * 批量删除学生课程
-	 * @return
-	 */
-	public String deleteMoreStudent(){
-		course = courseService.getCourseById(course.getId());
-		boolean result = studentCourseService.deleteMoreSudentCourse(course, departmentId, gradeId);
-		if(result){
-			addActionMessage("成功从"+course.getName()+"课程中删除选定学生！");
-		}else{
-			addActionError("从"+course.getName()+"课程中删除学生失败，请重新删除！");
-		}
-		return SUCCESS;
-	}
-	
-	/**
-	 * 为course添加学生
-	 * 
-	 * @return
-	 */
-	public String addStudentCourse() {
-		StudentCourse studentCourse = new StudentCourse();
-		course = courseService.getCourseById(course.getId());
-		student = studentCourseService.findStudentByStudentNo(studentNo);
-		boolean check = studentCourseService.checkStudent(course, student);
-		if (!check) {
-			addActionError("学生"+student.getUserInfo().getName()+"("+studentNo+") 已经加入该课程！不能重复加入。");
-			return SUCCESS;
-		}
-		studentCourse.setCourse(course);
-		studentCourse.setStudent(student);
-		studentCourse.setStatus(0);
-		boolean result = studentCourseService.addStudentCourse(studentCourse);
-		if (result) {
-			addActionError("添加学生成功！");
-			return SUCCESS;
-		} else{
-			addActionError("添加学生失败，请重新操作！");
-			return ERROR;
-		}
-	}
-
-	/**
-	 * 为course批量添加学生
-	 * 
-	 * @return
-	 */
-	public String addMoreStudentCourse() {
-		course = courseService.getCourseById(course.getId());
-		String result = studentCourseService.addMoreStudentCourse(course, studentFile);
-		addActionError(result);
-		return SUCCESS;
-	}
 	
 	/**
 	 * 查看课程详细信息
@@ -329,8 +210,7 @@ public class CourseAction extends BaseAction {
 		course.setRefuseReason(refuseReason);
 		boolean result = courseService.updateCourse(course);
 		if (result) {
-			addActionError(course.getName() + "课程审核后退回！");
-			// this.findApplicationCourse();
+			addActionError(course.getName() + "课程审核后退回！");			
 			return SUCCESS;
 		} else
 			return ERROR;
@@ -388,68 +268,36 @@ public class CourseAction extends BaseAction {
 		}
 	}
 
-	public Teacher getTeacher() {
-		return teacher;
-	}
-
-	public void setTeacher(Teacher teacher) {
-		this.teacher = teacher;
+	public String getDepartmentId() {
+		return departmentId;
 	}
 
 	public void setDepartmentId(String departmentId) {
 		this.departmentId = departmentId;
 	}
 
-	public String getDepartmentId() {
-		return departmentId;
+	public int getCourseId() {
+		return courseId;
 	}
 
-	public void setDepartment(Department department) {
-		this.department = department;
-	}
-
-	public Department getDepartment() {
-		return department;
-	}
-
-	public void setCourse(Course course) {
-		this.course = course;
+	public void setCourseId(int courseId) {
+		this.courseId = courseId;
 	}
 
 	public Course getCourse() {
 		return course;
 	}
 
-	public void setDepartmentService(IDepartmentService departmentService) {
-		this.departmentService = departmentService;
-	}
-
-	public IDepartmentService getDepartmentService() {
-		return departmentService;
-	}
-
-	public void setTeacherInfoService(ITeacherInfoService teacherInfoService) {
-		this.teacherInfoService = teacherInfoService;
-	}
-
-	public ITeacherInfoService getTeacherInfoService() {
-		return teacherInfoService;
-	}
-
-	public void setCourseService(ICourseService courseService) {
-		this.courseService = courseService;
-	}
-
-	public ICourseService getCourseService() {
-		return courseService;
-	}
-
-	public void setMyCoursesList(List<Course> myCoursesList) {
-		this.myCoursesList = myCoursesList;
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 	public List<Course> getMyCoursesList() {
 		return myCoursesList;
+	}
+
+	public void setMyCoursesList(List<Course> myCoursesList) {
+		this.myCoursesList = myCoursesList;
 	}
 
 	public int getType() {
@@ -460,8 +308,28 @@ public class CourseAction extends BaseAction {
 		this.type = type;
 	}
 
-	public void setCourseId(int courseId) {
-		this.courseId = courseId;
+	public String getStyle() {
+		return style;
+	}
+
+	public void setStyle(String style) {
+		this.style = style;
+	}
+
+	public ICourseService getCourseService() {
+		return courseService;
+	}
+
+	public void setCourseService(ICourseService courseService) {
+		this.courseService = courseService;
+	}
+
+	public IDepartmentService getDepartmentService() {
+		return departmentService;
+	}
+
+	public void setDepartmentService(IDepartmentService departmentService) {
+		this.departmentService = departmentService;
 	}
 
 	public List<Course> getApplicationCourseList() {
@@ -472,121 +340,12 @@ public class CourseAction extends BaseAction {
 		this.applicationCourseList = applicationCourseList;
 	}
 
-	public int getCourseId() {
-		return courseId;
-	}
-
 	public String getRefuseReason() {
 		return refuseReason;
 	}
 
 	public void setRefuseReason(String refuseReason) {
 		this.refuseReason = refuseReason;
-	}
-
-	public IStudentCourseService getStudentCourseService() {
-		return studentCourseService;
-	}
-
-	public void setStudentCourseService(
-			IStudentCourseService studentCourseService) {
-		this.studentCourseService = studentCourseService;
-	}
-
-	public List<Student> getStudentList() {
-		return studentList;
-	}
-
-	public void setStudentList(List<Student> studentList) {
-		this.studentList = studentList;
-	}
-
-	public Student getStudent() {
-		return student;
-	}
-
-	public void setStudent(Student student) {
-		this.student = student;
-	}
-
-	public int getStudentId() {
-		return studentId;
-	}
-
-	public void setStudentId(int studentId) {
-		this.studentId = studentId;
-	}
-
-	public String getStudentNo() {
-		return studentNo;
-	}
-
-	public void setStudentNo(String studentNo) {
-		this.studentNo = studentNo;
-	}
-
-	public File getStudentFile() {
-		return studentFile;
-	}
-
-	public void setStudentFile(File studentFile) {
-		this.studentFile = studentFile;
-	}
-
-	public String getStudentFileContentType() {
-		return studentFileContentType;
-	}
-
-	public void setStudentFileContentType(String studentFileContentType) {
-		this.studentFileContentType = studentFileContentType;
-	}
-
-	public String getStudentFileName() {
-		return studentFileName;
-	}
-
-	public void setStudentFileName(String studentFileName) {
-		this.studentFileName = studentFileName;
-	}
-
-	public ISuperAdminService getSuperAdminService() {
-		return superAdminService;
-	}
-
-	public void setSuperAdminService(ISuperAdminService superAdminService) {
-		this.superAdminService = superAdminService;
-	}
-
-	public String getGradeId() {
-		return gradeId;
-	}
-
-	public void setGradeId(String gradeId) {
-		this.gradeId = gradeId;
-	}
-
-	public List<Grade> getGradeList() {
-		return gradeList;
-	}
-
-	public void setGradeList(List<Grade> gradeList) {
-		this.gradeList = gradeList;
-	}
-
-	public List<Department> getDepartmentList() {
-		return departmentList;
-	}
-
-	public void setDepartmentList(List<Department> departmentList) {
-		this.departmentList = departmentList;
-	}
-
-	public void setStyle(String style) {
-		this.style = style;
-	}
-
-	public String getStyle() {
-		return style;
-	}
+	}	
 
 }
