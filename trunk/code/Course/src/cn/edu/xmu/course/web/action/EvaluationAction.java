@@ -20,7 +20,9 @@ import cn.edu.xmu.course.service.ILoginService;
 
 /**
  * 负责评价的类
- * @author 赵海虹 何申密 许子彦
+ * @author 赵海虹
+ * @author 何申密 
+ * @author 许子彦
  *
  */
 public class EvaluationAction extends BaseAction {
