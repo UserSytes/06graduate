@@ -64,12 +64,10 @@ public class EvaluationAction extends BaseAction {
 		if (getFlag() == 0) {
 			evaluation = getLoginService().expertLogin(userName, getPassword(),
 					0);
-			System.out.println(userName);
 			if (null == evaluation) {
 				addActionError("用户名获密码错误！请返回重试！");
 				return ERROR;
 			} else {
-				System.out.println(evaluation.getPassword());
 				super.getSession().remove(EVALUATION);
 				super.getSession().put(EVALUATION, evaluation);
 				getExpertAverage(evaluation.getCourse().getId());
@@ -85,12 +83,10 @@ public class EvaluationAction extends BaseAction {
 		} else if (getFlag() == 1) {
 			evaluation = getLoginService().expertLogin(userName, getPassword(),
 					1);
-			System.out.println(userName);
 			if (null == evaluation) {
 				addActionError("用户名获密码错误！请返回重试！");
 				return ERROR;
 			} else {
-				System.out.println(evaluation.getPassword());
 				super.getSession().remove(EVALUATION);
 				super.getSession().put(EVALUATION, evaluation);
 				getTeaAverage(evaluation.getCourse().getId());
