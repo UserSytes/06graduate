@@ -50,7 +50,7 @@
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
-						<div align="left">
+						<div align="left"  style="padding: 5px;">
 							<font size="3">&nbsp;&nbsp;&nbsp;平均得分: <s:property
 									value="stuAvgScore" /> <br> </font>
 							<font size="3">&nbsp;&nbsp;&nbsp;评价人数: <s:property
@@ -69,7 +69,7 @@
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
-						<div align="left">
+						<div align="left" style="padding: 5px;">
 							<font size="3">&nbsp;&nbsp;&nbsp;平均得分: <s:property
 									value="teaAvgScore" /> <a
 								href="getEvaTeacherListByCourseAction.action"> <font
@@ -77,7 +77,7 @@
 							<font size="3">&nbsp;&nbsp;&nbsp;评价人数: <s:property
 									value="teaCount" /> <br> </font>
 							<font size="3">&nbsp;&nbsp;&nbsp;点击<a
-								href="${ctx}/teacher/courseinfomanage/addevateacher.jsp">这里</a>邀请新的同行进行课程评价<br>
+								href="${ctx}/teacher/courseinfomanage/addevateacher.jsp" style="color: #008000;font-weight: 700">【这里】</a>邀请新的同行进行课程评价<br>
 							</font>
 						</div>
 					</td>
@@ -92,15 +92,15 @@
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
-						<div align="left">
+						<div align="left"  style="padding: 5px;">
 							<font size="3">&nbsp;&nbsp;&nbsp;平均得分: <s:property
 									value="expertAvgScore" /> <a
 								href="getEvaluationListByCourseAction.action"> <font
 									color="green">【查看详情】</font> </a> <br> </font>
 							<font size="3">&nbsp;&nbsp;&nbsp;评价人数: <s:property
-									value="expertAvgScore" /> <br> </font>
+									value="expertCount" /> <br> </font>
 							<font size="3">&nbsp;&nbsp;&nbsp;点击<a
-								href="${ctx}/teacher/courseinfomanage/addevaluation.jsp">这里</a>邀请专家新的专家进行课程评价<br>
+								href="${ctx}/teacher/courseinfomanage/addevaluation.jsp" style="color: #008000;font-weight: 700">【这里】</a>邀请专家新的专家进行课程评价<br>
 							</font>
 						</div>
 					</td>

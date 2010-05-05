@@ -19,12 +19,14 @@ body {
 	font-weight: bold;
 	font-size: 12px;
 }
+
 .STYLE3 {
 	color: #FFFFFF;
 	font-weight: bold;
 	font-size: 12px;
 	margin: 0px auto;
 }
+
 .STYLE2 {
 	font-size: 12px;
 	color: #03515d;
@@ -40,6 +42,12 @@ a:visited {
 	font-size: 12px;
 	text-decoration: none;
 	color: #03515d;
+}
+
+.titlea:link,.titlea:visited {
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 12px;
 }
 -->
 </style>
@@ -99,7 +107,7 @@ a:visited {
 														<td valign="middle" style="CURSOR: hand"
 															onclick=showsubmenu(1);>
 															<div align="center" class="STYLE1">
-																教师信息
+																<a href="#" class="titlea">教师信息</a>
 															</div>
 														</td>
 													</tr>
@@ -163,7 +171,7 @@ a:visited {
 														</table>
 													</td>
 												</tr>
-<tr>
+												<tr>
 													<td width="41" height="35">
 														<div align="center">
 															<img src="images/left_3.gif" width="31" height="31">
@@ -177,14 +185,14 @@ a:visited {
 																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
 																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
 																	<span class="STYLE2">&nbsp;<a
-																		href="getReceiveMailByTeaAction.action"
-																		target=I2>消息管理</a> </span>
+																		href="getReceiveMailByTeaAction.action" target=I2>消息管理</a>
+																	</span>
 																</td>
 															</tr>
 														</table>
 													</td>
 												</tr>
-<tr>
+												<tr>
 													<td width="41" height="35">
 														<div align="center">
 															<img src="images/left_3.gif" width="31" height="31">
@@ -231,7 +239,7 @@ a:visited {
 														<td valign="middle" style="CURSOR: hand"
 															onClick="showsubmenu(2);">
 															<div align="center">
-																<span class="STYLE1">课程管理</span>
+																<a href="#" class="titlea">课程管理</a>
 															</div>
 														</td>
 													</tr>
@@ -338,7 +346,7 @@ a:visited {
 															</tr>
 														</table>
 													</td>
-												</tr>										
+												</tr>
 
 											</table>
 										</td>
@@ -366,7 +374,7 @@ a:visited {
 														<td valign="middle" style="CURSOR: hand"
 															onclick="showsubmenu(3)">
 															<div align="center">
-																<span class="STYLE1">我的课程</span>
+																<a href="#" class="titlea">我的课程</a>
 															</div>
 														</td>
 													</tr>
@@ -406,7 +414,7 @@ a:visited {
 														</td>
 														<td valign="middle">
 															<div align="center" class="STYLE1">
-																系统信息
+																<a href="#" class="titlea">系统信息</a>
 															</div>
 														</td>
 													</tr>

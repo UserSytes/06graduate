@@ -22,8 +22,10 @@ public class DownloadAction extends ActionSupport {
 			 * 这里使用request.setCharacterEncoding解码无效.
 			 * 只有解码了getDownloadFile()方法才能在下载目录下正确找到请求的文件
 			 */
-			fname = new String(fname.getBytes("ISO-8859-1"), "UTF-8");
-			forginalFileName =new String(forginalFileName.getBytes("ISO-8859-1"), "UTF-8");
+			System.out.println(fname);
+//			fname = new String(fname.getBytes("ISO-8859-1"), "UTF-8");
+//			System.out.println(fname);
+//			forginalFileName =new String(forginalFileName.getBytes("ISO-8859-1"), "UTF-8");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -48,6 +50,9 @@ public class DownloadAction extends ActionSupport {
 	// 从下载文件原始存放路径读取得到文件输出流
 	public InputStream getDownloadFile() {
 		this.setFileName();
+		String path = ServletActionContext.getServletContext().getRealPath(
+		"/upload/");
+		System.out.println("the file is "+path+ fileName);
 		return ServletActionContext.getServletContext().getResourceAsStream(
 				DOWNLOADFILEPATH+ fileName);
 	}

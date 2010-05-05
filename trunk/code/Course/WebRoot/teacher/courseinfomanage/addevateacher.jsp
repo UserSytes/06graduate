@@ -41,7 +41,7 @@
 			align=center border=0>
 			<tr class=position>
 				<td>
-					当前位置: 我的课程 -&gt; 邀请专家评价
+					当前位置: 我的课程 -&gt; 邀请同行评价
 				</td>
 			</tr>
 		</table>
@@ -51,7 +51,7 @@
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						邀请专家：
+						邀请同行：
 					</td>
 				</tr>
 				<tr>
