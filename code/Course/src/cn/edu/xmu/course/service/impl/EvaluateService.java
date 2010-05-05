@@ -15,7 +15,8 @@ import cn.edu.xmu.course.service.IEvaluateService;
 
 /**
  * 负责评价的类
- * @author 赵海虹 何申密
+ * @author 赵海虹
+ * @author 何申密
  *
  */
 public class EvaluateService implements IEvaluateService {
@@ -86,7 +87,6 @@ public class EvaluateService implements IEvaluateService {
 		List result = evaluationDAO.findCountAndScoreAvg(courseId, sort);
 		ListIterator iterator = result.listIterator();
 		Object[] rows = (Object[]) iterator.next();
-		System.out.println("資料筆數:" + rows[0] + "\n平均年齡:" + rows[1]);
 		return rows;
 	}
 
@@ -135,9 +135,6 @@ public class EvaluateService implements IEvaluateService {
 	 */
 	public List<Evaluation> findByCourseAndUsernameAndSort(Course course,
 			String username, int sort) {
-		System.out.println("findByCourseAndUsername");
-		System.out.println("course:" + course.getName());
-		System.out.println("username:" + username);
 		return evaluationDAO.findByCourseAndUsernameAndSort(course, username,
 				sort);
 
