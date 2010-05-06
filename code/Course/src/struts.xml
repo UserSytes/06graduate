@@ -1171,7 +1171,7 @@
 		<action name="deleteSchoolAction" method="deleteSchool" class="schoolManageAction">
 			<result name="success">/admin/schoolmanage/schoollist.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="goAddAdminAction" method="findAllSchools" class="schoolManageAction">
 			<result name="allSchools">/admin/schoolmanage/addadmin.jsp
@@ -1190,7 +1190,7 @@
 			class="schoolManageAction">
 			<result name="success">/admin/schoolmanage/departmentlist.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="goAddDepartmentAction" method="goAddDepartment"
 			class="schoolManageAction">
@@ -1226,7 +1226,7 @@
 		<action name="deleteGradeAction" method="deleteGrade" class="schoolManageAction">
 			<result name="success">/admin/schoolmanage/gradelist.jsp
 			</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		
 		<!--新闻政策管理-->

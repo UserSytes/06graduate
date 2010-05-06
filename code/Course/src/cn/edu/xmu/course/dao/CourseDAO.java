@@ -135,8 +135,12 @@ public class CourseDAO extends HibernateDaoSupport {
 			return findByProperty(LEVEL, "国家级");
 		} else if (level.equals("province")) {
 			return findByProperty(LEVEL, "省级");
+		} else if (level.equals("city")) {
+			return findByProperty(LEVEL, "市级");
 		} else if (level.equals("school")) {
 			return findByProperty(LEVEL, "校级");
+		} else if (level.equals("other")) {
+			return findByProperty(LEVEL, "其它");
 		} else {
 			return null;
 		}
