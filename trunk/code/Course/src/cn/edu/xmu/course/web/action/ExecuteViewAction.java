@@ -13,6 +13,7 @@ import cn.edu.xmu.course.service.IApplicationFormService;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.IDepartmentService;
 import cn.edu.xmu.course.service.ISearchCourseService;
+import cn.edu.xmu.course.service.ISuperAdminService;
 
 /**
  * 查找课程
@@ -37,42 +38,54 @@ public class ExecuteViewAction extends BaseAction {
 	private ICourseService courseService;
 	private ISearchCourseService searchCourseService;
 	private IDepartmentService departmentService;
+	private ISuperAdminService superAdminService;
 	private int flag;
 	private String keyword;
 	private int imageNum = 1;
+	
+	private String schoolName; //学院名字
+	private String deptName; //系名字
 
 	/**
-	 * 通过院系查找
-	 * 
+	 * 根据学院名字查找课程，学院树用到的方法
 	 * @return
 	 */
-
-	public String findCourseByDepartment() {
-		Department dept = departmentService.getDepartmentById(Integer
-				.parseInt(departmentId));
-		setCourseList(searchCourseService.findCourseByDepartment(dept));
-		if (getCourseList().size() == 0) {
-			addActionError("未找到该课程，请返回重新搜索！");
-			return ERROR;
-		} else
-			return "courses";
+	public String findCourseListBySchoolName(){
+		System.out.println("the schoolName is "+schoolName);
+		School school = superAdminService.findSchoolByName(schoolName);		
+		if(school==null){
+			addActionMessage("该学院不存在，请重新操作！");
+		}
+		else {
+			courseList = courseService.findBySchool(school);
+			if (courseList == null) {
+				addActionMessage("一共找到 0 门相关课程！");
+			} else
+				addActionMessage("一共找到 " + courseList.size() + " 门相关课程！");
+		}
+		return SUCCESS;
 	}
-
+	
 	/**
-	 * 通过名称查找
-	 * 
+	 * 根据系别名字查找课程，学院树用到的方法
 	 * @return
 	 */
-	public String findCourseByName() {
-		courseList = searchCourseService.findCourseByName(courseName);
-		System.out.println("查找课程" + courseName);
-		if (courseList.size() == 0) {
-			addActionError("未找到该课程，请返回重新搜索！");
-			return ERROR;
-		} else
-			return "courses";
+	public String findCourseListByDeptName(){
+		Department dept = departmentService.getDepartmentByName(deptName);
+		if(dept == null){
+			addActionMessage("该系别不存在，请重新操作！");
+		}
+		else {
+			courseList = searchCourseService.findCourseByDepartment(dept);
+			if (courseList == null) {
+				addActionMessage("一共找到 0 门相关课程！");
+			} else
+				addActionMessage("一共找到 " + courseList.size() + " 门相关课程！");
+		}
+		return SUCCESS;
 	}
-
+	
+	
 	/**
 	 * 根据课程名称或者教师姓名的关键字查找
 	 * 
@@ -162,25 +175,26 @@ public class ExecuteViewAction extends BaseAction {
 		if (course == null) {
 			addActionError("未找到该课程！");
 			return ERROR;
-		} else if (course.getVisible() == 1) {
-			if (null == super.getEvaluation() && null == super.getStudent()) {
-				addActionError("对不起，该课程目前仅对学生、同行和专家开放。已有帐号请先登录！");
-				return ERROR;
-			}
-		} else if (course.getVisible() == 2) {
-			if (null == super.getEvaluation()) {
-				addActionError("对不起，该课程目前仅对同行和专家开放。己有帐户请先登录 ！");
-				return ERROR;
-			}
-		} else if (course.getVisible() == 3) {
-			Evaluation eva = super.getEvaluation();
-			if (eva == null || eva.getSort() == 0) {
-				addActionError("对不起，该课程目前仅对专家开放。己有帐户请先登录 ！");
-				return ERROR;
-			}
-		} else if (course.getVisible() == 4) {
-			if (super.getTeacher() == null
-					|| super.getTeacher() != course.getTeacher()) {
+		}
+		if (super.getTeacher() == null
+				|| super.getTeacher() != course.getTeacher()) {
+			if (course.getVisible() == 1) {
+				if (null == super.getEvaluation() && null == super.getStudent()) {
+					addActionError("对不起，该课程目前仅对学生、同行和专家开放。已有帐号请先登录！");
+					return ERROR;
+				}
+			} else if (course.getVisible() == 2) {
+				if (null == super.getEvaluation()) {
+					addActionError("对不起，该课程目前仅对同行和专家开放。己有帐户请先登录 ！");
+					return ERROR;
+				}
+			} else if (course.getVisible() == 3) {
+				Evaluation eva = super.getEvaluation();
+				if (eva == null || eva.getSort() == 0) {
+					addActionError("对不起，该课程目前仅对专家开放。己有帐户请先登录 ！");
+					return ERROR;
+				}
+			} else if (course.getVisible() == 4) {
 				addActionError("对不起，该课程目前不对用户开放!");
 				return ERROR;
 			}
@@ -196,8 +210,6 @@ public class ExecuteViewAction extends BaseAction {
 		}
 		return "course";
 	}
-	
-	
 
 	/**
 	 * 查找最新三天课程
@@ -347,5 +359,30 @@ public class ExecuteViewAction extends BaseAction {
 	public void setCourseService(ICourseService courseService) {
 		this.courseService = courseService;
 	}
+
+	public void setSuperAdminService(ISuperAdminService superAdminService) {
+		this.superAdminService = superAdminService;
+	}
+
+	public ISuperAdminService getSuperAdminService() {
+		return superAdminService;
+	}
+
+	public String getSchoolName() {
+		return schoolName;
+	}
+
+	public void setSchoolName(String schoolName) {
+		this.schoolName = schoolName;
+	}
+
+	public String getDeptName() {
+		return deptName;
+	}
+
+	public void setDeptName(String deptName) {
+		this.deptName = deptName;
+	}
+
 
 }

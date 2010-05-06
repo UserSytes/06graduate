@@ -1,39 +1,36 @@
 package cn.edu.xmu.course.test;
 
-import static org.junit.Assert.*;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
-import org.junit.Test;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
-import cn.edu.xmu.course.pojo.Course;
+
 import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.service.ISearchCourseService;
 import cn.edu.xmu.course.service.ISuperAdminService;
 
-public class SearchCourseServiceTest {
-	String[] locations = { "WebRoot/WEB-INF/actionContext.xml",
-			"WebRoot/WEB-INF/applicationContext.xml",
-			"WebRoot/WEB-INF/daoContext.xml",
-			"WebRoot/WEB-INF/serviceContext.xml" };
-	FileSystemXmlApplicationContext factory = new FileSystemXmlApplicationContext(
-			locations);
-	private ISearchCourseService service = (ISearchCourseService) factory
-			.getBean("searchCourseService");
-	public ISuperAdminService superAdmin=(ISuperAdminService) factory
-	.getBean("superAdminService");
+public class TEst2 {
 
-	@Test
-	public void testExportCustomersList() {
-
-		String path = ServletActionContext.getServletContext().getRealPath(
-				"/depttree");
-		File file = new File(path + "/" + "dept_data.txt");
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String[] locations = { "WebRoot/WEB-INF/actionContext.xml",
+				"WebRoot/WEB-INF/applicationContext.xml",
+				"WebRoot/WEB-INF/daoContext.xml",
+				"WebRoot/WEB-INF/serviceContext.xml" };
+		FileSystemXmlApplicationContext factory = new FileSystemXmlApplicationContext(
+				locations);
+		ISearchCourseService service = (ISearchCourseService) factory
+				.getBean("searchCourseService");
+		ISuperAdminService superAdmin=(ISuperAdminService) factory
+		.getBean("superAdminService");		
+		File file = new File("D:" + "/" + "dept_data.txt");
 		System.out.println(file.getPath());
 		List<School> schools = superAdmin.findAllSchool();
 		try {
@@ -51,14 +48,14 @@ public class SearchCourseServiceTest {
 				sb.append("\"text\":\"" + schools.get(i).getName() + "\",");
 				sb.append("\"state\":\"closed\",");
 				sb.append("\"children\":[");
-				List<Department> depts = superAdmin.findDepartmentBySchool(schools
-						.get(i));
+				List<Department> depts = superAdmin
+						.findDepartmentBySchool(schools.get(i));
 				int dlength = depts.size();
 				if (dlength > 0) {
 					for (int j = 0; j < dlength; j++) {
 						sb.append("{");
 						sb.append("\"sort\":3,");
-						sb.append("\"id\":" + depts.get(i).getId() + ",");
+						sb.append("\"id\":" + depts.get(j).getId() + ",");
 						sb
 								.append("\"text\":\"" + depts.get(j).getName()
 										+ "\"");
@@ -79,7 +76,6 @@ public class SearchCourseServiceTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 }

@@ -29,35 +29,8 @@
 					alert("账号不能为空！");
 					return false;
 				}
-			}
-			
-			function ajax()
-			{
-				var xhr = false;
-				function ajax() {//创建对象
-				if (window.ActiveXObject) {//IE浏览器
- 				  xhr = new ActiveXObject("Microsoft.XMLHTTP");
-				} else {
-  				if (window.XMLHttpRequest) {//fireFOX浏览
-    			xhr = new XMLHttpRequest();
-   					}
-				}
-				if (!xhr) {
-  				alert("浏览器不支持，请换成其他浏览器再进行操作！");
-  				return false;
-				}
-				//发送请求
-				xhr.open("post", "/addMoreStudentAction.action?studentFileName=" + document.getElementById("fileName").value , "true");
-				xhr.send(null);
-				xhr.onreadystatechange = ok;
-			}
-			function ok() {//成功后调用此方法
-				if (xhr.readyState == 4 && xhr.status == 200) {
-   				alert("成功了");
-				}
-				return false;
-			 }
-			}
+			}		
+		
 		</SCRIPT>
 	</head>
 
