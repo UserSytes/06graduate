@@ -45,7 +45,9 @@ public class HomePageAction extends BaseAction{
 	private List<String> times=null;//没用的。。。应该要删除掉
 	private int country;// 国家级课程的数目
 	private int province;// 省级课程的数目
+	private int city;// 市级课程的数目
 	private int school;// 市级课程的数目
+	private int other;// 其他级别课程的数目
 	private String levelNow;// 课程级别	
 	private Student student;// 学生	
 	private List<Attachment> attachmentList;// 附件列表
@@ -89,8 +91,12 @@ public class HomePageAction extends BaseAction{
     	country=courseList.size();
     	courseList = courseService.findCourseListLevel("province");
     	province=courseList.size();
+    	courseList = courseService.findCourseListLevel("city");
+    	city=courseList.size();
     	courseList = courseService.findCourseListLevel("school");
     	school=courseList.size();
+    	courseList = courseService.findCourseListLevel("other");
+    	other=courseList.size();
     }
     
     /**
@@ -175,8 +181,12 @@ public class HomePageAction extends BaseAction{
     		levelNow = "国家级";
     	}else if(level.equals("province")){
     		levelNow = "省级";
-    	}else{
+    	}else if(level.equals("city")){
+    		levelNow = "市级";
+    	}else if(level.equals("school")){
     		levelNow = "校级";
+    	}else{
+    		levelNow = "其他";
     	}
 		if (achievementList == null) {
 			addActionError("对不起，没有符合条件的课程信息，请重新操作！");
@@ -413,6 +423,22 @@ public class HomePageAction extends BaseAction{
 
 	public void setStudent(Student student) {
 		this.student = student;
+	}
+
+	public int getCity() {
+		return city;
+	}
+
+	public void setCity(int city) {
+		this.city = city;
+	}
+
+	public int getOther() {
+		return other;
+	}
+
+	public void setOther(int other) {
+		this.other = other;
 	}
 
 }

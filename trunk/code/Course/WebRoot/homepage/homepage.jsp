@@ -6,8 +6,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>厦门大学课程中心</title>
 		<link rel="stylesheet" href="${ctx}/homepage/link.css">
-	<script src="${ctx}/js/MSClass.js" language="javascript"></script>	
-	<script src="${ctx}/js/jquery.tools.min.js" language="javascript"></script>	
+		<script src="${ctx}/js/MSClass.js" language="javascript"></script>
+		<script src="${ctx}/js/jquery.tools.min.js" language="javascript"></script>
 		<SCRIPT language=javascript>
 	function check(form) {
 		if (form.userName.value == "") {
@@ -25,22 +25,23 @@
 		return true;
 	}
 </SCRIPT>
-<script>
+		<script>
+	// execute your scripts when the DOM is ready. this is a good habit
+	$( function() {
 
-// execute your scripts when the DOM is ready. this is a good habit
-$(function() {
+		// assign a click event to the exposed element, using normal jQuery coding
+		$("#login").click( function() {
 
-	// assign a click event to the exposed element, using normal jQuery coding
-	$("#login").click(function() {
+			// perform exposing for the clicked element
+				$(this).expose( {
+					api :true
+				}).load();
 
-		// perform exposing for the clicked element
-		$(this).expose({api: true}).load();
-
+			});
 	});
-});
 </script>
-<style type="text/css">
-.inputstyle{
+		<style type="text/css">
+.inputstyle {
 	width: 120px;
 }
 </style>
@@ -61,7 +62,8 @@ $(function() {
 							<td valign="top">
 								<!-- 登录 -->
 								<table border="0" cellpadding="0" cellspacing="0" align="center"
-									id="login" style="display:<s:property value="idLogin" />;background-color:#fff;">
+									id="login"
+									style="display:<s:property value="idLogin" />;background-color:#fff;">
 									<tr>
 										<td>
 											<img src="${ctx}/homepage/image/login_title.gif" border="0"
@@ -143,8 +145,7 @@ $(function() {
 													<tr>
 														<td width="2" bgcolor="#e7e7e7"></td>
 														<td colspan="6" align="center">
-															<font color="red"><s:actionerror />
-															</font>
+															<font color="red"><s:actionerror /> </font>
 														</td>
 														<td width="2" bgcolor="#e7e7e7"></td>
 													</tr>
@@ -239,8 +240,12 @@ $(function() {
 												<tr>
 													<td width="2" bgcolor="#e7e7e7"></td>
 													<td width="10"></td>
-													<td width="170"> 
-														跳转到 <font color="#8080c0"><strong><a href='<s:url action="myPageAction"></s:url>'>我的主页</a></strong></font>
+													<td width="170">
+														跳转到
+														<font color="#8080c0"><strong><a
+																href='<s:url action="myPageAction"></s:url>'>我的主页</a>
+														</strong>
+														</font>
 													</td>
 													<td width="10"></td>
 													<td width="2" bgcolor="#e7e7e7"></td>
@@ -428,38 +433,41 @@ $(function() {
 																		<tr>
 																			<td width="358" align="center" colspan="6">
 																				<!-- news -->
-																				<div id="marqueediv5" style="height:232px;width:358px; border:0px solid #dde5bc;overflow:hidden;"> 
-																						<table border="0" cellpadding="0" cellspacing="0">
-																							<s:iterator value="newsList" status="new">
-																								<tr height="25">
-																									<td width="266">
-																										&nbsp;&nbsp;
-																										<img src="${ctx}/homepage/image/but.jpg"
-																											border="0" alt="">
-																										&nbsp;&nbsp;
-																										<a
-																											href="<s:url action="enterNewsAction"> <s:param name="newsId"> 
-	                       			 									<s:property value="id"/> </s:param> </s:url>" title="<s:property value="title" />">
-																											<s:if test="title.length()>16"> 
-      																											<s:property value="title.substring(0, 16)+'...'" />
-																											</s:if> <s:else>
-																												<s:property value="title" />
-																											</s:else> </a> &nbsp;&nbsp;
-																									</td>
-																									<td width="65">
-																										<s:date name="time" format="yyyy.MM.dd" />											
-																									</td>
-																								</tr>
-																								<tr height="1">
-																									<td width="331" colspan="2"
-																										background="${ctx}/homepage/image/main_line.gif"></td>
-																								</tr>
-																							</s:iterator>
-																						</table>
+																				<div id="marqueediv5"
+																					style="height: 232px; width: 358px; border: 0px solid #dde5bc; overflow: hidden;">
+																					<table border="0" cellpadding="0" cellspacing="0">
+																						<s:iterator value="newsList" status="new">
+																							<tr height="25">
+																								<td width="266">
+																									&nbsp;&nbsp;
+																									<img src="${ctx}/homepage/image/but.jpg"
+																										border="0" alt="">
+																									&nbsp;&nbsp;
+																									<a
+																										href="<s:url action="enterNewsAction"> <s:param name="newsId"> 
+	                       			 									<s:property value="id"/> </s:param> </s:url>"
+																										title="<s:property value="title" />"> <s:if
+																											test="title.length()>16">
+																											<s:property
+																												value="title.substring(0, 16)+'...'" />
+																										</s:if> <s:else>
+																											<s:property value="title" />
+																										</s:else> </a> &nbsp;&nbsp;
+																								</td>
+																								<td width="65">
+																									<s:date name="time" format="yyyy.MM.dd" />
+																								</td>
+																							</tr>
+																							<tr height="1">
+																								<td width="331" colspan="2"
+																									background="${ctx}/homepage/image/main_line.gif"></td>
+																							</tr>
+																						</s:iterator>
+																					</table>
 
 																				</div>
 																				<script defer>
-new Marquee("marqueediv5",0,1,null,null,50,0,0)
+	new Marquee("marqueediv5", 0, 1, null, null, 50, 0, 0)
 </script>
 																				<!--/new -->
 																			</td>
@@ -477,7 +485,8 @@ new Marquee("marqueediv5",0,1,null,null,50,0,0)
 																		bgcolor="#f7f7f0">
 																		<tr>
 																			<td colspan="3">
-																				&nbsp;
+																				<img src="${ctx}/homepage/image/issue_top.png"
+																					border="0" alt="">
 																			</td>
 																		</tr>
 																		<tr>
@@ -488,49 +497,26 @@ new Marquee("marqueediv5",0,1,null,null,50,0,0)
 																			</td>
 																			<td width="1" bgcolor="#e4e3de"></td>
 																		</tr>
-																		<tr height="13">
-																			<td width="1" bgcolor="#e4e3de"></td>
-																			<td width="346"></td>
-																			<td width="1" bgcolor="#e4e3de"></td>
-																		</tr>
-																		<tr>
-																			<td width="1" bgcolor="#e4e3de"></td>
-																			<td width="346">
-																				<table border="0" cellpadding="0" cellspacing="0"
-																					width="100%">
-																					<tr>
-																						<td width="23"></td>
-																						<td width="135">
-																							<img src="${ctx}/homepage/image/issue_cont.gif"
-																								alt="" height="84" border="0">
-																						</td>
-																						<td width="185">
-																							厦门大学优秀课程
-																						</td>
-																					</tr>
-																				</table>
-																			</td>
-																			<td width="1" bgcolor="#e4e3de"></td>
-																		</tr>
+
 																		<tr height="18">
 																			<td width="1" bgcolor="#e4e3de"></td>
-																			<td width="346"></td>
+																			<td width="340"></td>
 																			<td width="1" bgcolor="#e4e3de"></td>
 																		</tr>
 																		<tr>
 																			<td width="1" bgcolor="#e4e3de"></td>
-																			<td width="346" align="center">
+																			<td width="340" align="center">
 																				<!-- 国家级精品课程-->
 																				<table border="0" cellpadding="0" cellspacing="0">
 																					<tr height="25">
 																						<td width="23"></td>
-																						<td width="224">
+																						<td width="218">
 																							&nbsp;&nbsp;
 																							<a
 																								href="<s:url action="achievementAction">  <s:param name="level"> 
                                                                    country</s:param></s:url>">国家级精品课程</a>
 																						</td>
-																						<td width="78">
+																						<td width="68">
 																							[
 																							<s:property value="country" />
 																							&nbsp;门 ]
@@ -538,20 +524,20 @@ new Marquee("marqueediv5",0,1,null,null,50,0,0)
 																						<td width="31"></td>
 																					</tr>
 																					<tr>
-																						<td width="23"></td>
-																						<td width="346" colspan="2"
+																						<td width="2"></td>
+																						<td width="340" colspan="2"
 																							background="${ctx}/homepage/image/main_line.gif"
 																							align="center"></td>
 																					</tr>
 																					<tr height="25">
 																						<td width="23"></td>
-																						<td width="224">
+																						<td width="218">
 																							&nbsp;&nbsp;
 																							<a
 																								href="<s:url action="achievementAction">  <s:param name="level"> 
                                                                    country</s:param></s:url>">省级精品课程</a>
 																						</td>
-																						<td width="78">
+																						<td width="68">
 																							[
 																							<s:property value="province" />
 																							&nbsp;门 ]
@@ -559,23 +545,64 @@ new Marquee("marqueediv5",0,1,null,null,50,0,0)
 																						<td width="31"></td>
 																					</tr>
 																					<tr>
-																						<td width="23"></td>
-																						<td width="346" colspan="2"
+																						<td width="2"></td>
+																						<td width="340" colspan="2"
 																							background="${ctx}/homepage/image/main_line.gif"
 																							align="center"></td>
 																					</tr>
-																					</tr>
 																					<tr height="25">
 																						<td width="23"></td>
-																						<td width="224">
+																						<td width="218">
 																							&nbsp;&nbsp;
 																							<a
 																								href="<s:url action="achievementAction">  <s:param name="level"> 
-                                                                   country</s:param></s:url>">校级精品课程</a>
+                                                                   city</s:param></s:url>">市级精品课程</a>
 																						</td>
-																						<td width="78">
+																						<td width="68">
+																							[
+																							<s:property value="city" />
+																							&nbsp;门 ]
+																						</td>
+																						<td width="31"></td>
+																					</tr>
+																					<tr>
+																						<td width="2"></td>
+																						<td width="340" colspan="2"
+																							background="${ctx}/homepage/image/main_line.gif"
+																							align="center"></td>
+																					</tr>
+																					<tr height="25">
+																						<td width="23"></td>
+																						<td width="218">
+																							&nbsp;&nbsp;
+																							<a
+																								href="<s:url action="achievementAction">  <s:param name="level"> 
+                                                                   school</s:param></s:url>">校级精品课程</a>
+																						</td>
+																						<td width="68">
 																							[
 																							<s:property value="school" />
+																							&nbsp;门 ]
+																						</td>
+																						<td width="31"></td>
+																					</tr>
+																					<tr>
+																						<td width="2"></td>
+																						<td width="340" colspan="2"
+																							background="${ctx}/homepage/image/main_line.gif"
+																							align="center"></td>
+																					</tr>
+																					<tr height="25">
+																						<td width="23"></td>
+																						<td width="218">
+																							&nbsp;&nbsp;
+																							<a
+																								href="<s:url action="achievementAction">  <s:param name="level"> 
+                                                                   other</s:param></s:url>">其他精品课程</a>
+																						</td>
+																						<td width="68">
+																							[
+																							<s:property value="other" />
 																							&nbsp;门 ]
 																						</td>
 																						<td width="31"></td>
@@ -588,7 +615,7 @@ new Marquee("marqueediv5",0,1,null,null,50,0,0)
 																		</tr>
 																		<tr>
 																			<td colspan="3">
-																				&nbsp;
+																				<img src="${ctx}/homepage/image/issue_bottom.gif" border="0" alt="">
 																			</td>
 																		</tr>
 																	</table>
@@ -649,32 +676,27 @@ new Marquee("marqueediv5",0,1,null,null,50,0,0)
 																			<td width="96" align="right">
 																				<a href="http://www.xmu.edu.cn/"><img
 																						src="${ctx}/homepage/image/utility_cont1.gif"
-																						border="0">
-																				</a>
+																						border="0"> </a>
 																			</td>
 																			<td width="97" align="right">
 																				<a href="http://jwc.xmu.edu.cn/"><img
-																						src="${ctx}/homepage/image/jiaowu.gif"
-																						alt="" border="0">
-																				</a>
+																						src="${ctx}/homepage/image/jiaowu.gif" alt=""
+																						border="0"> </a>
 																			</td>
 																			<td width="97" align="right">
 																				<a href="http://210.34.4.20/cn/"><img
 																						src="${ctx}/homepage/image/utility_cont3.GIF"
-																						alt="" border="0">
-																				</a>
+																						alt="" border="0"> </a>
 																			</td>
 																			<td width="97" align="right">
 																				<a href="http://zsb.xmu.edu.cn/"><img
 																						src="${ctx}/homepage/image/utility_cont4.GIF"
-																						alt="" border="0">
-																				</a>
+																						alt="" border="0"> </a>
 																			</td>
 																			<td width="97" align="right">
 																				<a href="http://xsc.xmu.edu.cn/"><img
 																						src="${ctx}/homepage/image/utility_cont5.GIF"
-																						alt="" border="0">
-																				</a>
+																						alt="" border="0"> </a>
 																			</td>
 																		</tr>
 																	</table>

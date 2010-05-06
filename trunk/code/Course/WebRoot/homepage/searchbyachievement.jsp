@@ -81,9 +81,29 @@ $(document).ready(function(){
 												<tr>
 													<td width="11" background=""></td>
 													<td width="172" align="center">
+														<a href="<s:url action="achievementAction"><s:param name="level">city</s:param></s:url>">
+															<img
+																src="${ctx}/homepage/image/left_menu_9.gif" border="0">
+														</a>
+													</td>
+													<td width="11" background=""></td>
+												</tr>
+												<tr>
+													<td width="11" background=""></td>
+													<td width="172" align="center">
 														<a href="<s:url action="achievementAction"><s:param name="level">school</s:param></s:url>">
 															<img
 																src="${ctx}/homepage/image/left_menu_03.gif" border="0">
+														</a>
+													</td>
+													<td width="11" background=""></td>
+												</tr>
+												<tr>
+													<td width="11" background=""></td>
+													<td width="172" align="center">
+														<a href="<s:url action="achievementAction"><s:param name="level">other</s:param></s:url>">
+															<img
+																src="${ctx}/homepage/image/left_menu_10.gif" border="0">
 														</a>
 													</td>
 													<td width="11" background=""></td>
