@@ -102,4 +102,11 @@ public interface ISuperAdminService {
 	 * @return
 	 */
 	public Grade findGradeById(int id);
+	
+	/**
+	 * 根据名字查找学院
+	 * @param name
+	 * @return
+	 */
+	public School findSchoolByName(String name);
 }

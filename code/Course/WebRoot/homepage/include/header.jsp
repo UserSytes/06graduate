@@ -73,7 +73,7 @@
 													<a href="<s:url action="achievementAction"> </s:url>">建设成果</a>
 												</li>
 												<li>
-													<a href="<s:url action="schoolCourseAction"> </s:url>">院系课程</a>
+													<a href="${ctx}/homepage/searchbyschool.jsp">院系课程</a>
 												</li>
 												<li class="last">
 													<a href="<s:url action="lastCourseAction"> </s:url>">最新课程</a>

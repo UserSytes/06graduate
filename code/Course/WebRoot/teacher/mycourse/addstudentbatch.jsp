@@ -12,12 +12,12 @@
 		<title>添加学生</title>
 		<SCRIPT language=javascript>
 	function check(form) {
-		if (form.studentNo.value == "") {
-			alert("学号不能为空！");
+		if (form.fileName.value == "") {
+			alert("上传文件不能为空！");
 			return false;
 		}
 		return true;
-	}		
+	}
 </SCRIPT>
 		<style type="text/css">
 <!--
@@ -39,7 +39,8 @@
 				</td>
 			</tr>
 		</table>
-		<s:form action="addMoreCourseStudentAction" method="post" enctype="multipart/form-data">
+		<s:form action="addMoreCourseStudentAction" method="post"
+			enctype="multipart/form-data" onsubmit="return check(this);">
 			<s:hidden name="course.id" />
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
@@ -61,7 +62,7 @@
 						&nbsp;*
 					</td>
 				</tr>
-				
+
 				<tr bgcolor="#ECF3FD">
 					<td width="20%">
 						&nbsp;
@@ -72,5 +73,27 @@
 				</tr>
 			</table>
 		</s:form>
+		<table bgcolor="white" class=editTable cellSpacing=1 cellPadding=0
+			width="90%" align=center border=0>
+			<TR>
+				<td bgcolor="white">
+					<img src="${ctx}/teacher/images/icon_1.png" width="16" height="16" />
+					<strong><font color="red" size="3"> 提示</font> </strong>
+					<div id="content_note">
+						<ul>
+							<li>
+								您可以上传学生信息文件添加该文件中的学生到该课程中。
+							</li>
+							<li>
+								文件中的学生必须已经在本系统中有自己的帐号。
+							</li>
+							<li>
+								上传文件格式为“Excel”，且文件第一列为学生学号既可，其他列不要求。
+							</li>
+						</ul>
+					</div>
+				</td>
+			</TR>
+		</table>
 	</body>
 </html>

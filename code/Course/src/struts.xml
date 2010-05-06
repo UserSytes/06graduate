@@ -274,13 +274,13 @@
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="goAddCourseStudentByTeaAction" method="courseDetail"
-			class="studentCourseAction">
+			class="courseAction">
 			<result name="success">/teacher/mycourse/addstudent.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="goAddCourseStudentBatchByTeaAction" method="courseDetail"
-			class="studentCourseAction">
+			class="courseAction">
 			<result name="success">/teacher/mycourse/addstudentbatch.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
@@ -1446,6 +1446,14 @@
 		<action name="searchCourseByKeywordAction" method="searchCourseByKeyword"
 			class="executeViewAction">
 			<result name="success">/homepage/search.jsp</result>
+		</action>
+		<action name="findCourseListBySchoolNameAction" method="findCourseListBySchoolName"
+			class="executeViewAction">
+			<result name="success">/homepage/courselist.jsp</result>
+		</action>
+		<action name="findCourseListByDeptNameAction" method="findCourseListByDeptName"
+			class="executeViewAction">
+			<result name="success">/homepage/courselist.jsp</result>
 		</action>
 <!-- 课程评价 -->
 		<action name="loginFromEvaluationAction" method="loginFromEvaluation"

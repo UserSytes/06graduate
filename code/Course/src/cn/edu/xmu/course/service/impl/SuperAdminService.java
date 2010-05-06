@@ -1,6 +1,11 @@
 package cn.edu.xmu.course.service.impl;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
+
+import org.apache.struts2.ServletActionContext;
 
 import cn.edu.xmu.course.dao.DepartmentDAO;
 import cn.edu.xmu.course.dao.GradeDAO;
@@ -12,8 +17,9 @@ import cn.edu.xmu.course.service.ISuperAdminService;
 
 /**
  * 此类是负责超级管理员业务的service接口，主要包括院系管理、新闻管理、年级管理模块
+ * 
  * @author 郑冰凌
- *
+ * 
  */
 public class SuperAdminService implements ISuperAdminService {
 
@@ -23,25 +29,32 @@ public class SuperAdminService implements ISuperAdminService {
 
 	/*
 	 * 验证学院名称(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ISuperAdminService#checkSchool(java.lang.String)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ISuperAdminService#checkSchool(java.lang.String
+	 * )
 	 */
-	public School checkSchool(String name){
+	public School checkSchool(String name) {
 		List<School> schools = schoolDAO.findByName(name);
-		if(schools.size()==0){
+		if (schools.size() == 0) {
 			return null;
-		}else
+		} else
 			return schools.get(0);
 	}
-	
+
 	/*
 	 * 添加系(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ISuperAdminService#addDepartment(cn.edu.xmu.course.pojo.School, cn.edu.xmu.course.pojo.Department)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ISuperAdminService#addDepartment(cn.edu.xmu
+	 * .course.pojo.School, cn.edu.xmu.course.pojo.Department)
 	 */
 	public boolean addDepartment(School school, Department department) {
 		// TODO Auto-generated method stub
-		//department.setSchool(school);
+		// department.setSchool(school);
 		try {
 			departmentDAO.save(department);
+			this.createTreeData();
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -50,12 +63,15 @@ public class SuperAdminService implements ISuperAdminService {
 
 	/*
 	 * 添加年级(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ISuperAdminService#addGrade(cn.edu.xmu.course.pojo.Grade)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ISuperAdminService#addGrade(cn.edu.xmu.course
+	 * .pojo.Grade)
 	 */
 	public boolean addGrade(Grade grade) {
 		// TODO Auto-generated method stub
 		List<Grade> gradeList = gradeDAO.findByGrade(grade);
-		if(gradeList.size()!=0){
+		if (gradeList.size() != 0) {
 			return false;
 		}
 		try {
@@ -69,12 +85,16 @@ public class SuperAdminService implements ISuperAdminService {
 
 	/*
 	 * 添加学院(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ISuperAdminService#addSchool(cn.edu.xmu.course.pojo.School)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ISuperAdminService#addSchool(cn.edu.xmu.course
+	 * .pojo.School)
 	 */
 	public boolean addSchool(School school) {
 		// TODO Auto-generated method stub
 		try {
 			schoolDAO.save(school);
+			this.createTreeData();
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -83,12 +103,16 @@ public class SuperAdminService implements ISuperAdminService {
 
 	/*
 	 * 删除系(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ISuperAdminService#deleteDepartment(cn.edu.xmu.course.pojo.Department)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ISuperAdminService#deleteDepartment(cn.edu.
+	 * xmu.course.pojo.Department)
 	 */
 	public boolean deleteDepartment(Department department) {
 		// TODO Auto-generated method stub
 		try {
 			departmentDAO.delete(department);
+			this.createTreeData();
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -97,7 +121,10 @@ public class SuperAdminService implements ISuperAdminService {
 
 	/*
 	 * 删除年级(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ISuperAdminService#deleteGrade(cn.edu.xmu.course.pojo.Grade)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ISuperAdminService#deleteGrade(cn.edu.xmu.course
+	 * .pojo.Grade)
 	 */
 	public boolean deleteGrade(Grade grade) {
 		// TODO Auto-generated method stub
@@ -111,12 +138,16 @@ public class SuperAdminService implements ISuperAdminService {
 
 	/*
 	 * 删除学院(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ISuperAdminService#deleteSchool(cn.edu.xmu.course.pojo.School)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ISuperAdminService#deleteSchool(cn.edu.xmu.
+	 * course.pojo.School)
 	 */
 	public boolean deleteSchool(School school) {
 		// TODO Auto-generated method stub
 		try {
 			schoolDAO.delete(school);
+			this.createTreeData();
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -125,6 +156,7 @@ public class SuperAdminService implements ISuperAdminService {
 
 	/*
 	 * 查找所有年级(non-Javadoc)
+	 * 
 	 * @see cn.edu.xmu.course.service.ISuperAdminService#findAllGrade()
 	 */
 	public List findAllGrade() {
@@ -134,6 +166,7 @@ public class SuperAdminService implements ISuperAdminService {
 
 	/*
 	 * 查找所有学院(non-Javadoc)
+	 * 
 	 * @see cn.edu.xmu.course.service.ISuperAdminService#findAllSchool()
 	 */
 	public List findAllSchool() {
@@ -143,11 +176,60 @@ public class SuperAdminService implements ISuperAdminService {
 
 	/*
 	 * 根据学院查找年级(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ISuperAdminService#findDepartmentBySchool(cn.edu.xmu.course.pojo.School)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ISuperAdminService#findDepartmentBySchool(cn
+	 * .edu.xmu.course.pojo.School)
 	 */
 	public List findDepartmentBySchool(School school) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub		
 		return departmentDAO.findByProperty("school", school);
+	}
+
+	public void createTreeData() {
+		String path = ServletActionContext.getServletContext().getRealPath(
+				"/depttree");
+		File file = new File(path +"/"+ "dept_data.txt");
+		System.out.println(file.getPath());
+		List<School> schools = this.findAllSchool();
+		try {
+			if (file.exists())
+				file.delete();
+			file.createNewFile();
+			FileOutputStream out = new FileOutputStream(file, true);
+			StringBuffer sb = new StringBuffer();
+			sb.append("[");
+			int slength = schools.size();
+			for (int i=0;i<slength;i++) {				
+				sb.append("{");
+				sb.append("\"id\":2,");
+				sb.append("\"text\":\""+schools.get(i).getName()+"\",");	
+				sb.append("\"state\":\"closed\",");
+				sb.append("\"children\":[");
+				List<Department> depts = this.findDepartmentBySchool(schools.get(i));
+				int dlength = depts.size();
+				if(dlength>0){									
+					for(int j=0;j<dlength;j++){
+						sb.append("{");	
+						sb.append("\"id\":3,");						
+						sb.append("\"text\":\""+depts.get(j).getName()+"\"");						
+						sb.append("}");
+						if(j<(dlength-1))
+							sb.append(",");
+					}				
+				}				
+				sb.append("]}");
+				if(i<(slength-1))
+					sb.append(",");
+			}	
+			sb.append("]");
+			out.write(sb.toString().getBytes("utf-8"));
+			out.close();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public SchoolDAO getSchoolDAO() {
@@ -183,9 +265,21 @@ public class SuperAdminService implements ISuperAdminService {
 		// TODO Auto-generated method stub
 		return schoolDAO.findById(id);
 	}
-	
-	public Department findDepartmentById(int id){
+
+	public Department findDepartmentById(int id) {
 		return departmentDAO.findById(id);
+	}
+	
+	/*
+	 * 根据学院名字查找
+	 * @see cn.edu.xmu.course.service.ISuperAdminService#findSchoolByName(java.lang.String)
+	 */
+	public School findSchoolByName(String name) {
+		// TODO Auto-generated method stub
+		List<School> schools =schoolDAO.findByName(name);
+		if(schools.size()>0)
+			return schools.get(0);
+		else return null;
 	}
 
 }

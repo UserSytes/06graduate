@@ -45,13 +45,7 @@ public interface ICourseService {
 	 * @return
 	 */
 	public List findCourseListLevel(String level);
-	/**
-	 * 根据时间和级别查找课程
-	 * @param time
-	 * @return
-	 */
-	public List findCourseListByTimeAndLevel(String time, String level);
-	
+
 	/**
 	 * 根据级别查找课程
 	 * @param time

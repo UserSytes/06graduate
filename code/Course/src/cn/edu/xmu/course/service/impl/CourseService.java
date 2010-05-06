@@ -81,33 +81,8 @@ public class CourseService implements ICourseService {
 	public List findCourseListLevel(String level) {
 		courses=courseDAO.findByLevel(level);
 		return courses;		
-	}
+	}	
 	
-	/*
-	 * (non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ICourseService#findCourseListByTimeAndLevel(java.lang.String, java.lang.String)
-	 */
-	public List findCourseListByTimeAndLevel(String time, String level) {
-		courses = courseDAO.findAll();
-		tempList = new ArrayList();
-		for (int i = 0; i < courses.size(); i++)
-		{
-			Course course = courses.get(i);
-			boolean result = course.getLevel().equals(level);
-			if (result) {
-				tempList.add(course);
-			}
-		}
-		
-		for (int i = 0; i <tempList.size(); i++) {
-			applicationForm=(ApplicationForm)tempList.get(i)
-			.getApplicationForms().iterator().next();
-			if (!applicationForm.getTime().toString().substring(0, 4)
-					.equals(time))
-				tempList.remove(i);
-		}
-		return tempList;
-	}
 
 	/*
 	 * (non-Javadoc)
