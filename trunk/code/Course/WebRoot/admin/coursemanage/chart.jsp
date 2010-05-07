@@ -1,14 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	response.setCharacterEncoding("UTF-8");
-	request.setCharacterEncoding("UTF-8");
-	try
-	{
-		response.setContentType("text/html");
-%>
+<%@ include file="../../commons/taglibs.jsp"%>
+
 <HTML>
 	<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<LINK href="${ctx}/css/admin.css" type=text/css rel=stylesheet>
 		<TITLE>JFreeChart Demo</TITLE>
 		<meta http-equiv='content-type' content='text/html; charset=UTF-8'>
@@ -28,7 +24,7 @@
 		</table>
 
 		<P align="center">
-			<IMG SRC="../servlet/ServletChartGenerator" BORDER=1 WIDTH=800
+			<IMG SRC="${ctx}/servlet/ServletChartGenerator" BORDER=1 WIDTH=800
 				HEIGHT=600 />
 
 		<table bgcolor="white" class=editTable cellSpacing=1 cellPadding=0
@@ -52,11 +48,4 @@
 	</div>
 	</BODY>
 </HTML>
-<%
-	}
-	catch (Exception e)
-	{
-		System.err.println(e.toString());
-	}
-%>
 
