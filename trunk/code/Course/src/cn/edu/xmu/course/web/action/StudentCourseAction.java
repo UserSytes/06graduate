@@ -12,13 +12,15 @@ import cn.edu.xmu.course.pojo.Grade;
 import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.StudentCourse;
-import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.service.ICourseService;
-import cn.edu.xmu.course.service.IDepartmentService;
 import cn.edu.xmu.course.service.IStudentCourseService;
 import cn.edu.xmu.course.service.ISuperAdminService;
-import cn.edu.xmu.course.service.ITeacherInfoService;
-
+/**
+ * 负责管理员、教师管理课程学生的类
+ * @author 何申密
+ * @author 郑冰凌
+ * 
+ */
 public class StudentCourseAction extends BaseAction{
 	
 	/**
