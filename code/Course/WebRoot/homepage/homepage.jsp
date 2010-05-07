@@ -485,7 +485,7 @@
 																		bgcolor="#f7f7f0">
 																		<tr>
 																			<td colspan="3">
-																				<img src="${ctx}/homepage/image/issue_top.png"
+																				<img src="${ctx}/homepage/image/issue_top.gif"
 																					border="0" alt="">
 																			</td>
 																		</tr>
@@ -622,15 +622,6 @@
 																	<!--/ ??? ??? -->
 																</td>
 															</tr>
-															<tr>
-																<td height="11"></td>
-															</tr>
-															<tr>
-																<td>
-
-																	<!--/ ??? ? ???? -->
-																</td>
-															</tr>
 														</table>
 														<!--/ ???? -->
 													</td>
@@ -640,19 +631,6 @@
 										</td>
 									</tr>
 
-									<tr>
-										<td height="10"></td>
-									</tr>
-									<tr>
-										<td align="center" width="750">
-
-
-											<!--/ 链接-->
-										</td>
-									</tr>
-									<tr>
-										<td height="9"></td>
-									</tr>
 									<tr>
 										<td colspan="2" valign="top" width="800">
 											<!-- ???? -->
