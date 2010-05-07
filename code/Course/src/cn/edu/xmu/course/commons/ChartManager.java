@@ -10,20 +10,20 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class ChartManager {
 	public JFreeChart createBarChart(List<CourseEvaluate> param, String title,
 			String abscissa, String ordinate) {
-		// Öù×´Í¼Í¼µÄÉú³Éº¯Êı
+		// æŸ±çŠ¶å›¾å›¾çš„ç”Ÿæˆå‡½æ•°
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
 		for (int i = 0; i < param.size(); i++) {
 			CourseEvaluate c = param.get(i);
-			dataset.addValue(Double.parseDouble(c.getStuAvgScore().toString()), "Ñ§ÉúÆÀ¼Û" , c.getCourseName()+"_"+c.getTeacherName());
-			dataset.addValue(Double.parseDouble(c.getExpertAvgScore().toString()), "×¨¼ÒÆÀ¼Û" , c.getCourseName()+"_"+c.getTeacherName());
-			dataset.addValue(Double.parseDouble(c.getTeacherAvgScore().toString()), "½ÌÊ¦ÆÀ¼Û" , c.getCourseName()+"_"+c.getTeacherName());
+			dataset.addValue(Double.parseDouble(c.getStuAvgScore().toString()), "å­¦ç”Ÿè¯„ä»·" , c.getCourseName()+"_"+c.getTeacherName());
+			dataset.addValue(Double.parseDouble(c.getExpertAvgScore().toString()), "ä¸“å®¶è¯„ä»·" , c.getCourseName()+"_"+c.getTeacherName());
+			dataset.addValue(Double.parseDouble(c.getTeacherAvgScore().toString()), "æ•™å¸ˆè¯„ä»·" , c.getCourseName()+"_"+c.getTeacherName());
 		}
 		
-		JFreeChart chart = ChartFactory.createBarChart3D(title,// Í¼µÄÃû³Æ
-				abscissa,// ºá×ø±ê
-				ordinate,// ×İ×ø±ê
-				dataset,// ½á¹û¼¯
+		JFreeChart chart = ChartFactory.createBarChart3D(title,// å›¾çš„åç§°
+				abscissa,// æ¨ªåæ ‡
+				ordinate,// çºµåæ ‡
+				dataset,// ç»“æœé›†
 				PlotOrientation.VERTICAL, true, true, false);
 		return chart;
 	}

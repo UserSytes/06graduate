@@ -4,13 +4,13 @@ import java.util.Comparator;
 
 import cn.edu.xmu.course.pojo.Message;
 /**
- * ¸Ã¸¨ÖúÀàÓÃÓÚÅÅĞòÁôÑÔµÄÊ±¼ä
+ * è¯¥è¾…åŠ©ç±»ç”¨äºæ’åºç•™è¨€çš„æ—¶é—´
  * @author Rossi
  *
  */
 public class CompareTime implements Comparator <Object>{
 	/**
-	 * ·´ÏòÅÅĞò£¬ÁôÑÔÊ±¼ä½ÏĞÂµÄÔÚÇ°
+	 * åå‘æ’åºï¼Œç•™è¨€æ—¶é—´è¾ƒæ–°çš„åœ¨å‰
 	 */
 	public int compare(Object arg0, Object arg1) {
 		Message m1=(Message)arg0;

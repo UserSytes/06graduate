@@ -5,10 +5,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * ¸ÃÀàÊµÏÖÓĞ¹ØÈÕÆÚµÄ¼Ó¼õ¼°±ä»»ÔËËã
+ * è¯¥ç±»å®ç°æœ‰å…³æ—¥æœŸçš„åŠ å‡åŠå˜æ¢è¿ç®—
  * 
- * @author Ö£±ùÁè
- * @author ÒüÁÕ
+ * @author éƒ‘å†°å‡Œ
  * @version Version 2.00
  */
 public class CalculateDate {
@@ -23,34 +22,34 @@ public class CalculateDate {
 	}
 
 	/**
-	 * »ñÈ¡ÔÚÄ³ÈÕÆÚÉÏ¼ÓÉÏdaysÌìÊıºóµÄÈÕÆÚ
+	 * è·å–åœ¨æŸæ—¥æœŸä¸ŠåŠ ä¸Šdayså¤©æ•°åçš„æ—¥æœŸ
 	 * 
 	 * @param now
-	 *            ÈÕÆÚ
+	 *            æ—¥æœŸ
 	 * @param days
-	 *            Òª¼ÓµÄÌìÊı
-	 * @return Calendar Ïà¼ÓºóµÄÈÕÆÚ
+	 *            è¦åŠ çš„å¤©æ•°
+	 * @return Calendar ç›¸åŠ åçš„æ—¥æœŸ
 	 */
 	public static Calendar addDate(Calendar now, int days) {
 		Calendar calendar = Calendar.getInstance();
 		int day = now.get(Calendar.DAY_OF_YEAR);
-		calendar.set(Calendar.DAY_OF_YEAR, day + days); // µ±Ç°Ê±¼ä¼ÓdaysÌì
-		return calendar;// ·µ»ØdaysÌìºóµÄÈÕÆÚ
+		calendar.set(Calendar.DAY_OF_YEAR, day + days); // å½“å‰æ—¶é—´åŠ dayså¤©
+		return calendar;// è¿”å›dayså¤©åçš„æ—¥æœŸ
 	}
 
 	public static Calendar addMonth(Calendar now, int months) {
-		now.add(Calendar.MONTH, months); // µ±Ç°Ê±¼ä¼ÓdaysÌì
-		return now;// ·µ»ØdaysÌìºóµÄÈÕÆÚ
+		now.add(Calendar.MONTH, months); // å½“å‰æ—¶é—´åŠ dayså¤©
+		return now;// è¿”å›dayså¤©åçš„æ—¥æœŸ
 	}
 
 	/**
-	 * ÈÕÆÚÏà¼õ
+	 * æ—¥æœŸç›¸å‡
 	 * 
 	 * @param dateStart
-	 *            ÈÕÆÚ1
+	 *            æ—¥æœŸ1
 	 * @param dateEnd
-	 *            ÈÕÆÚ2
-	 * @return ÈÕÆÚÏà¼õºóµÄÌìÊı
+	 *            æ—¥æœŸ2
+	 * @return æ—¥æœŸç›¸å‡åçš„å¤©æ•°
 	 */
 	public int minusDate(Calendar dateStart, Calendar dateEnd) {
 		int days = 0;
@@ -63,22 +62,22 @@ public class CalculateDate {
 	}
 
 	/**
-	 * DateÀàĞÍ×ª»»³ÉStringÀàĞÍ
+	 * Dateç±»å‹è½¬æ¢æˆStringç±»å‹
 	 * 
 	 * @param date
-	 *            Òª×ª»»µÄdateĞÍÈÕÆÚ
-	 * @return Ò»¸öStringÀàĞÍµÄÊ±¼ä
+	 *            è¦è½¬æ¢çš„dateå‹æ—¥æœŸ
+	 * @return ä¸€ä¸ªStringç±»å‹çš„æ—¶é—´
 	 */
 	public static String dateToString(Calendar date) {
 		return form.format(date.getTime());
 	}
 
 	/**
-	 * StringÀàĞÍµÄÊ±¼ä×ª»»³ÉCalendarÀàĞÍ
+	 * Stringç±»å‹çš„æ—¶é—´è½¬æ¢æˆCalendarç±»å‹
 	 * 
 	 * @param d
-	 *            Òª×ª»»µÄStringÀàĞÍµÄÈÕÆÚ
-	 * @return Ò»¸öCalendarÀàĞÍµÄÈÕÆÚ
+	 *            è¦è½¬æ¢çš„Stringç±»å‹çš„æ—¥æœŸ
+	 * @return ä¸€ä¸ªCalendarç±»å‹çš„æ—¥æœŸ
 	 */
 	public static Calendar getCalendar(String d) {
 		Calendar c = Calendar.getInstance();
@@ -88,14 +87,14 @@ public class CalculateDate {
 	}
 
 	/**
-	 * ½«ÈÕÆÚ×ª»¯³É oracle µÄ to_date('xxx','xxx') ¸ñÊ½ *
+	 * å°†æ—¥æœŸè½¬åŒ–æˆ oracle çš„ to_date('xxx','xxx') æ ¼å¼ *
 	 * 
 	 * @param d
-	 *            ÈÕÆÚ
+	 *            æ—¥æœŸ
 	 * @param format
-	 *            ÈÕÆÚ¸ñÊ½£¬ÀıÈç "yyyy-MM-dd HH:mm"
+	 *            æ—¥æœŸæ ¼å¼ï¼Œä¾‹å¦‚ "yyyy-MM-dd HH:mm"
 	 * @param hqlFormat
-	 *            oracleµÄÈÕÆÚ¸ñÊ½£¬ÀıÈç£º"yyyy-mm-dd hh24:mi"
+	 *            oracleçš„æ—¥æœŸæ ¼å¼ï¼Œä¾‹å¦‚ï¼š"yyyy-mm-dd hh24:mi"
 	 * @return
 	 */
 	public static String toDate(Date d) {
@@ -107,12 +106,12 @@ public class CalculateDate {
 	}
 
 	/**
-	 * ½«ÈÕÆÚ×ª»¯³ÉÖ¸¶¨¸ñÊ½µÄ×Ö·û´®
+	 * å°†æ—¥æœŸè½¬åŒ–æˆæŒ‡å®šæ ¼å¼çš„å­—ç¬¦ä¸²
 	 * 
 	 * @param d
-	 *            ÈÕÆÚ
+	 *            æ—¥æœŸ
 	 * @param formatStr
-	 *            ×Ö·û´®¸ñÊ½
+	 *            å­—ç¬¦ä¸²æ ¼å¼
 	 * @return
 	 */
 	private static String dateFormat(Date d, String formatStr) {
