@@ -116,6 +116,7 @@ public class AdminAction extends BaseAction {
 	 * 查获所有校管理员
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String findAllSuperAdmin(){
 		superAdminList = adminService.findAllSuperAdmin();
 		if (superAdminList.size() != 0) {			
@@ -129,6 +130,7 @@ public class AdminAction extends BaseAction {
 	 * 删除校管理员
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String deleteSuperAdmin(){
 		superAdminList = adminService.findAllSuperAdmin();
 		if (superAdminList.size() == 1) {

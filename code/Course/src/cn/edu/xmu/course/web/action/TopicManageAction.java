@@ -15,6 +15,10 @@ import cn.edu.xmu.course.service.ITopicService;
  */
 public class TopicManageAction extends BaseAction{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3629833816313676853L;
 	private ITopicService topicService;	//负责管理留言主题的接口
 	private IMessageService messageService;	//负责管理留言的接口
 	
@@ -75,6 +79,7 @@ public class TopicManageAction extends BaseAction{
 	 * 获取某主题的所有留言
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String getMessageByTopic(){
 		topic = topicService.getTopicById(topicId);
 		messageList = messageService.getMessageByTopic(topic);

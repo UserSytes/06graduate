@@ -1,13 +1,7 @@
 package cn.edu.xmu.course.web.action;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import net.sf.json.JSONObject;
-
-import com.googlecode.jsonplugin.annotations.JSON;
 
 import cn.edu.xmu.course.pojo.Mail;
 import cn.edu.xmu.course.pojo.Student;
@@ -16,6 +10,8 @@ import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.IMailService;
 import cn.edu.xmu.course.service.IStudentInfoService;
 import cn.edu.xmu.course.service.ITeacherInfoService;
+
+import com.googlecode.jsonplugin.annotations.JSON;
 
 public class MailAction extends BaseAction {
 
@@ -40,6 +36,7 @@ public class MailAction extends BaseAction {
 	private String[] pmitemid;
 	private String savetosentbox;
 	private String result;
+	@SuppressWarnings("unchecked")
 	private List rows = new ArrayList();
 
 	/**
@@ -291,6 +288,7 @@ public class MailAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String getReceiveMailByStu() {
 		mailList = mailService.getMailsByReceiver(super.getStudent()
 				.getUserInfo());
@@ -303,6 +301,7 @@ public class MailAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String getReceiveMailByTea() {
 		mailList = mailService.getMailsByReceiver(super.getTeacher()
 				.getUserInfo());
@@ -315,6 +314,7 @@ public class MailAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String getSendMailByStu() {
 		mailList = mailService.getMailsBySender(super.getStudent()
 				.getUserInfo(), 1);
@@ -327,6 +327,7 @@ public class MailAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String getSendMailByTea() {
 		mailList = mailService.getMailsBySender(super.getTeacher()
 				.getUserInfo(), 1);
@@ -339,6 +340,7 @@ public class MailAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String getDraftByStu() {
 		mailList = mailService.getMailsBySender(super.getStudent()
 				.getUserInfo(), 2);
@@ -351,6 +353,7 @@ public class MailAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String getDraftByTea() {
 		mailList = mailService.getMailsBySender(super.getTeacher()
 				.getUserInfo(), 2);
@@ -545,10 +548,12 @@ public class MailAction extends BaseAction {
 		return result;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void setRows(List rows) {
 		this.rows = rows;
 	}
 
+	@SuppressWarnings("unchecked")
 	@JSON(name = "rows")
 	public List getRows() {
 		return rows;

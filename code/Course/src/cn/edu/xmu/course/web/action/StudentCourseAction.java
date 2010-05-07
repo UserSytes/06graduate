@@ -88,6 +88,7 @@ public class StudentCourseAction extends BaseAction{
 	 * 跳转到批量删除学生课程
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String goDeleteMoreStudentCourse(){
 		course = courseService.getCourseById(course.getId());
 		Administrator admin = (Administrator) super.getSession().get(

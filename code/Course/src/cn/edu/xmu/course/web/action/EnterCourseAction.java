@@ -13,7 +13,12 @@ import cn.edu.xmu.course.service.ICourseInfoService;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.INoticeService;
 import cn.edu.xmu.course.service.ITeacherInfoService;
-
+/**
+ * 负责进入课程初始化的类
+ * @author 何申密
+ * @author 许子彦
+ *
+ */
 public class EnterCourseAction extends BaseAction {
 
 	/**
@@ -21,76 +26,104 @@ public class EnterCourseAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = -7104728441652536429L;
 
-	private INoticeService noticeService;
-	private ICourseService courseService;
-	private ICourseInfoService courseInfoService;
-	private ITeacherInfoService teacherInfoService;
-	private IAchievementService achievementService;
-	private UserInfo userInfo;
-	private Integer sort;
-	private Notice notice;
-	private CourseInfo courseInfo;
-	private Course course;
-	private Integer noticeId;
-	private List<Notice> noticeList;
-	private List<Notice> noticeList2;
-	private Integer count;
-	private Teacher teacher;
-	private List<Achievement> achievementList;
-	private String color;
-	private String header;
-	private String sortname;
-	private String filtercon;
-	private String result;
-	
-	public String goIndexQuery(){
-		course=super.getCourse();		
-		setCourseInfo(courseInfoService.getCourseInfo(course.getId(),
-				1));
+	private INoticeService noticeService; // 负责通知公告的接口
+	private ICourseService courseService; // 负责课程的接口
+	private ICourseInfoService courseInfoService; // 负责课程信息的接口
+	private ITeacherInfoService teacherInfoService; // 负责教师信息的接口
+	private IAchievementService achievementService; // 负责教学成果的接口
+	private UserInfo userInfo; // 用户信息
+	private Integer sort; // 导航栏类型
+	private Notice notice; // 通知公告
+	private CourseInfo courseInfo; // 课程信息
+	private Course course; // 课程
+	private Integer noticeId; // 通知公告ID
+	private List<Notice> noticeList; // 通知列表
+	private List<Notice> noticeList2; // 公告列表
+	private Integer count; // 课程访问量
+	private Teacher teacher; // 教师
+	private List<Achievement> achievementList; // 教学成果列表
+	private String color; // 颜色
+	private String header; // 导航栏
+	private String sortname; // 导航栏类型名称
+	private String filtercon; // 导航栏图标
+	private String result; // 导航栏设置结果
+
+	/**
+	 * 进入课程首页查询
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public String goIndexQuery() {
+		course = super.getCourse();
+		setCourseInfo(courseInfoService.getCourseInfo(course.getId(), 1));
 		setAchievementList(getAchievementService().getAllAchievements(course));
 		if (null == getCourseInfo()) {
 			setCourseInfo(new CourseInfo());
 			getCourseInfo().setContent("暂无任何内容！");
-		}		
-		setNoticeList(noticeService.findLastestFiveNews(course,0));			
+		}
+		setNoticeList(noticeService.findLastestFiveNews(course, 0));
 		return SUCCESS;
 	}
-	
-	
 
-	public String getLeftNotice(){
-		course=super.getCourse();
+	/**
+	 * 查找左边栏公告
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public String getLeftNotice() {
+		course = super.getCourse();
 		setTeacher(course.getTeacher());
 		setUserInfo(getTeacher().getUserInfo());
-		setNoticeList2(noticeService.findLastestFiveNews(course,1));
-		setCount(course.getCount());	
+		setNoticeList2(noticeService.findLastestFiveNews(course, 1));
+		setCount(course.getCount());
 		return SUCCESS;
 	}
-	
-	public String changeColor(){
-		if(color.equals(super.getSession().get("style")))
-			color=null;
+
+	/**
+	 * 更换风格
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public String changeColor() {
+		if (color.equals(super.getSession().get("style")))
+			color = null;
 		else
-			super.getSession().put("style",color);
+			super.getSession().put("style", color);
 		return SUCCESS;
 	}
-	
-	public String changeHeader(){
+
+	/**
+	 * 更换导航栏
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public String changeHeader() {
 		super.getSession().put("header", header);
-		course=super.getCourse();
-		if(header.equals("header_sand.jsp")){
+		course = super.getCourse();
+		if (header.equals("header_sand.jsp")) {
 			super.getSession().put("sort", "sorttype");
 			super.getSession().put("filtercon", "allcon");
-		}				
+		}
 		return SUCCESS;
 	}
-	
-	public String sortSand(){
-		if(sortname != null)
+
+	/**
+	 * 导航栏排列
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public String sortSand() {
+		if (sortname != null)
 			super.getSession().put("sort", sortname);
-		if(filtercon != null)
+		if (filtercon != null)
 			super.getSession().put("filtercon", filtercon);
-		 result = "{sort:'" +super.getSession().get("sort")+ "',filtercon:'"+super.getSession().get("filtercon")+"'}"; 
+		result = "{sort:'" + super.getSession().get("sort") + "',filtercon:'"
+				+ super.getSession().get("filtercon") + "'}";
 		return SUCCESS;
 	}
 
@@ -254,15 +287,12 @@ public class EnterCourseAction extends BaseAction {
 		this.filtercon = filtercon;
 	}
 
-
 	public void setResult(String result) {
 		this.result = result;
 	}
 
-
 	public String getResult() {
 		return result;
 	}
-	
 
 }

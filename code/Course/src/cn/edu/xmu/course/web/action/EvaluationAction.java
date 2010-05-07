@@ -27,6 +27,10 @@ import cn.edu.xmu.course.service.ILoginService;
  */
 public class EvaluationAction extends BaseAction {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4926852401033424156L;
 	private IEvaluateService evaluateService;// 评价管理方法的接口
 	private ICourseService courseService;//课程管理方法的接口
 	private StudentCourse studentCourse;// 学生管理方法的接口
@@ -61,6 +65,7 @@ public class EvaluationAction extends BaseAction {
 	 * 从评价页面登陆
 	 * @return
 	 */	
+	@SuppressWarnings("unchecked")
 	public String loginFromEvaluation() {
 		course = super.getCourse();
 		if (getFlag() == 0) {
@@ -321,7 +326,10 @@ public class EvaluationAction extends BaseAction {
 			if (score == null) {
 				return "evluate";
 			} else {
-				scorestring = "您已经评价过，你上一次对该课程的评分是：" + score.intValue() + "分";
+				if(evaluation.getStatus()==1)
+					scorestring = "您已经评价过，你上一次对该课程的评分是：" + score.intValue() + "分";
+				else
+					scorestring = "您保存过草稿，你上一次对该课程的评分是：" + score.intValue() + "分";
 				return SUCCESS;
 			}
 		}
@@ -342,7 +350,10 @@ public class EvaluationAction extends BaseAction {
 			if (score == null) {
 				return "evluate";
 			} else {
-				scorestring = "您已经评价过，你上一次对该课程的评分是：" + score.intValue() + "分";
+				if(evaluation.getStatus()==1)
+					scorestring = "您已经评价过，你上一次对该课程的评分是：" + score.intValue() + "分";
+				else
+					scorestring = "您保存过草稿，你上一次对该课程的评分是：" + score.intValue() + "分";
 				return SUCCESS;
 			}
 		}
@@ -498,6 +509,7 @@ public class EvaluationAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String showEvaluateCourses() {
 		courseList = new ArrayList<Course>();
 		for (int i = 0; i < courseIds.size(); i++) {
@@ -521,6 +533,7 @@ public class EvaluationAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String genrEvaluateChart() {
 		try {
 			Administrator admin = (Administrator) super.getSession().get(ADMIN);
@@ -532,7 +545,6 @@ public class EvaluationAction extends BaseAction {
 
 			return SUCCESS;
 		} catch (RuntimeException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return ERROR;
 		}

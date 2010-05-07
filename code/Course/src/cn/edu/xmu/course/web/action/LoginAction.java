@@ -1,14 +1,13 @@
 package cn.edu.xmu.course.web.action;
 
-import cn.edu.xmu.course.service.ILoginService;
 import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Evaluation;
-import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.SuperAdmin;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.pojo.UserInfo;
+import cn.edu.xmu.course.service.ILoginService;
 
 /**
  * 此类负责 用户的登录、退出、及权限分配
@@ -37,6 +36,7 @@ public class LoginAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String login() {
 		Teacher teacher = loginService.teacherLogin(userName, password);
 		if (null == teacher)
@@ -52,6 +52,7 @@ public class LoginAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String adminLogin() {
 		if (flag == 0) {
 			Administrator admin = loginService.adminLogin(userName, password);
@@ -72,11 +73,11 @@ public class LoginAction extends BaseAction {
 				super.getSession().put(SUPERADMIN, superAdmin);
 				return "superAdmin";
 			}
-		}
-		else
+		} else
 			return ERROR;
 	}
 
+	@SuppressWarnings("unchecked")
 	public String evaluationLogin() {
 		Evaluation evaluation = getLoginService().expertLogin(userName,
 				getPassword(), flag);
@@ -121,6 +122,7 @@ public class LoginAction extends BaseAction {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public String studentLoginForCol() {
 		student = loginService.studentLogin(userName, password);
 		if (student == null) {

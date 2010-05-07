@@ -1,17 +1,7 @@
 package cn.edu.xmu.course.web.action;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
-import java.util.regex.Pattern;
-
-import jxl.Cell;
-import jxl.Sheet;
-import jxl.Workbook;
-import jxl.read.biff.BiffException;
 
 import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Department;
@@ -62,6 +52,7 @@ public class StudentAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String getDepartmentBySchool() {
 		Administrator admin = (Administrator) super.getSession().get(ADMIN);
 		School school = admin.getSchool();
@@ -79,6 +70,7 @@ public class StudentAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String goAddStudent() {
 		gradeList = superAdminService.findAllGrade();
 		if (gradeList.size() == 0) {
@@ -123,6 +115,7 @@ public class StudentAction extends BaseAction {
 	 * 跳转到批量添加学生
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String goAddMoreStudent() {
 		gradeList = superAdminService.findAllGrade();
 		if (gradeList.size() == 0) {
@@ -183,6 +176,7 @@ public class StudentAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String findAllGrade() {
 		gradeList = superAdminService.findAllGrade();
 		if (gradeList.size() == 0) {
@@ -198,6 +192,7 @@ public class StudentAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String findStudentBySchool() {
 		this.goAddStudent();
 		Administrator admin = (Administrator) super.getSession().get(ADMIN);

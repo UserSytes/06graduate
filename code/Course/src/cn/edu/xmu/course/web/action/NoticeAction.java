@@ -7,7 +7,12 @@ import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.INoticeService;
-
+/**
+ * 负责通知公告的类
+ * @author 何申密
+ * @author 许子彦
+ *
+ */
 public class NoticeAction extends BaseAction {
 
 	/**
@@ -15,18 +20,17 @@ public class NoticeAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = -7104728441652536429L;
 
-	private INoticeService noticeService;
-	private ICourseService courseService;
-	private Integer sort;
-	private Notice notice;
-	private Course course;
-	private Integer courseId;
-	private Teacher teacher;
-	private Integer noticeId;
-	private List<Notice> noticeList;
-	private List<Course> courseList;
-	private String keyword;
-	private int searchFlag;
+	private INoticeService noticeService; // 负责通知公告的接口
+	private ICourseService courseService; // 负责课程的接口
+	private Integer sort; // 通知公告类型
+	private Notice notice; // 通知公告
+	private Course course; // 课程
+	private Integer courseId; // 课程ID
+	private Teacher teacher; // 教师
+	private Integer noticeId; // 通知公告ID
+	private List<Notice> noticeList; // 通知公告列表
+	private List<Course> courseList; // 课程列表
+
 	/**
 	 * 添加新的课程通知
 	 * 
@@ -41,8 +45,8 @@ public class NoticeAction extends BaseAction {
 			addActionError("添加课程通知失败，请重新添加！");
 			return ERROR;
 		}
-	}	
-	
+	}
+
 	/**
 	 * 删除课程通知
 	 * 
@@ -64,6 +68,7 @@ public class NoticeAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String getNoticeListByCourse() {
 		courseList = courseService.findCoursesByTeacher(super.getTeacher()
 				.getId(), 1);
@@ -81,6 +86,7 @@ public class NoticeAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String getNoticeListByTeacher() {
 		courseList = courseService.findCoursesByTeacher(super.getTeacher()
 				.getId(), 1);
@@ -89,35 +95,37 @@ public class NoticeAction extends BaseAction {
 
 	}
 
-	
 	/**
 	 * 根据类别查找课程通知
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String getNoticeBySort2() {
 		course = super.getCourse();
 		noticeList = getNoticeService().getNoticeBySort(course, sort);
-//		noticeList = noticeService.getNoticeBySort(course, getSort());
+		// noticeList = noticeService.getNoticeBySort(course, getSort());
 		setSort(getSort());
 		return SUCCESS;
 	}
-	
+
 	public String findNoticeById() {
 		course = super.getCourse();
-		notice=noticeService.getNoticeById(noticeId);
+		notice = noticeService.getNoticeById(noticeId);
 		if (getNotice() == null) {
 			addActionError("新闻或通告已不存在！");
 			return ERROR;
 		} else
 			return SUCCESS;
-		
+
 	}
-	public String findLastestNotice(){
-		course=super.getCourse();
-		notice=noticeService.findLastestNotice(course);
+
+	public String findLastestNotice() {
+		course = super.getCourse();
+		notice = noticeService.findLastestNotice(course);
 		return SUCCESS;
 	}
+
 	/**
 	 * 更新课程通知
 	 * 
@@ -125,7 +133,7 @@ public class NoticeAction extends BaseAction {
 	 */
 	public String updateNotice() {
 		course = courseService.getCourseById(courseId);
-		if (noticeService.updateNotice(notice,course)) {
+		if (noticeService.updateNotice(notice, course)) {
 			addActionMessage("更新课程通知成功！");
 			return SUCCESS;
 		} else {
@@ -139,6 +147,7 @@ public class NoticeAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String goAddNotice() {
 		courseList = courseService.findCoursesByTeacher(super.getTeacher()
 				.getId(), 1);
@@ -150,11 +159,12 @@ public class NoticeAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String goEditNotice() {
 		courseList = courseService.findCoursesByTeacher(super.getTeacher()
 				.getId(), 1);
 		notice = noticeService.getNoticeById(noticeId);
-		courseId= notice.getCourse().getId();
+		courseId = notice.getCourse().getId();
 		return SUCCESS;
 	}
 
@@ -236,22 +246,6 @@ public class NoticeAction extends BaseAction {
 
 	public Integer getSort() {
 		return sort;
-	}
-
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-	}
-
-	public String getKeyword() {
-		return keyword;
-	}
-
-	public void setSearchFlag(int searchFlag) {
-		this.searchFlag = searchFlag;
-	}
-
-	public int getSearchFlag() {
-		return searchFlag;
 	}
 
 }

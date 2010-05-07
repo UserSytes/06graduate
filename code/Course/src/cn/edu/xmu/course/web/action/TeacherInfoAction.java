@@ -41,6 +41,7 @@ public class TeacherInfoAction extends BaseAction{
 	 * 修改密码
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String changePassword(){
 		teacher = super.getTeacher();
 		if(teacher.getPassword().equals(password)){
@@ -76,6 +77,7 @@ public class TeacherInfoAction extends BaseAction{
 	 * 修改教师信息
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String changeTeacherInfo(){
 		if(teacherInfoService.updateTeacher(teacher, userInfo)){
 			teacher = teacherInfoService.findTeacherById(super.getTeacher().getId());
@@ -118,6 +120,7 @@ public class TeacherInfoAction extends BaseAction{
 	 * 根据学院查找所有教师
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String findTeacherBySchool(){
 		Administrator admin = (Administrator) super.getSession().get(ADMIN);
 		School school = admin.getSchool();
@@ -133,6 +136,7 @@ public class TeacherInfoAction extends BaseAction{
 	 * 获取某学院的所有系
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String getDepartmentBySchool(){
 		Administrator admin = (Administrator) super.getSession().get(ADMIN);
 		School school = admin.getSchool();

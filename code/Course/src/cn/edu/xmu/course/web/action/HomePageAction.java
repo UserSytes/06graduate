@@ -1,29 +1,23 @@
 package cn.edu.xmu.course.web.action;
 
 
-import java.sql.Date;
 import java.util.List;
 
-import org.apache.struts2.ServletActionContext;
-import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Attachment;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.News;
 import cn.edu.xmu.course.pojo.Student;
-import cn.edu.xmu.course.pojo.SuperAdmin;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.pojo.UserInfo;
-import cn.edu.xmu.course.service.IApplicationFormService;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.ILoginService;
 import cn.edu.xmu.course.service.INewsService;
 import cn.edu.xmu.course.service.ISearchCourseService;
-import cn.edu.xmu.course.service.impl.LoginService;
-import cn.edu.xmu.course.service.impl.NewsService;
 
 /**
  * 负责首页的类
- * @author 赵海虹 郑冰凌
+ * @author 赵海虹
+ * @author 郑冰凌
  * 
  */
 public class HomePageAction extends BaseAction{
@@ -86,7 +80,8 @@ public class HomePageAction extends BaseAction{
     /**
      * 计算级别课程数
      */
-    public void countCourseByLevel(){
+    @SuppressWarnings("unchecked")
+	public void countCourseByLevel(){
     	courseList = courseService.findCourseListLevel("country");
     	country=courseList.size();
     	courseList = courseService.findCourseListLevel("province");
@@ -103,7 +98,8 @@ public class HomePageAction extends BaseAction{
      * 查找所有课程
      * @return
      */
-    public String newsDisplay(){
+    @SuppressWarnings("unchecked")
+	public String newsDisplay(){
     	newsList=newsService.findAllNews();
 		if (newsList == null) {
 			addActionError("对不起，目前尚无任何新闻，请重新操作！");
@@ -138,6 +134,7 @@ public class HomePageAction extends BaseAction{
      * 首页登录
      * @return
      */
+	@SuppressWarnings("unchecked")
 	public String loginFromHomePage() {
 		
 		if (getFlag() == 0) {
@@ -175,7 +172,8 @@ public class HomePageAction extends BaseAction{
 	 * 根据级别查找课程
 	 * @return
 	 */
-    public String achievementDisplay(){
+    @SuppressWarnings("unchecked")
+	public String achievementDisplay(){
     	achievementList=courseService.findCourseListLevel(level);
     	if(level.equals("country")){
     		levelNow = "国家级";

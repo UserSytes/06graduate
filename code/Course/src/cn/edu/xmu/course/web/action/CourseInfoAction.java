@@ -1,39 +1,35 @@
 package cn.edu.xmu.course.web.action;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
-import org.apache.struts2.ServletActionContext;
-
-import cn.edu.xmu.course.commons.FileOperation;
 import cn.edu.xmu.course.pojo.ApplicationForm;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.CourseInfo;
-import cn.edu.xmu.course.pojo.Teacher;
-import cn.edu.xmu.course.service.IApplicationFormService;
 import cn.edu.xmu.course.service.ICourseInfoService;
-
+/**
+ * 负责课程信息的类
+ * @author 何申密
+ * @author 许子彦
+ *
+ */
 public class CourseInfoAction extends BaseAction {
 
-	private CourseInfo courseInfo;
-	private ApplicationForm applicationForm;
-	private List<CourseInfo> courseInfoList;
-	private Integer courseInfoId;
-	private Integer sort = 1;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8520468160026179099L;
+	private CourseInfo courseInfo; // 课程信息
+	private ApplicationForm applicationForm; // 申报表格
+	private List<CourseInfo> courseInfoList; // 课程信息列表
+	private Integer courseInfoId; // 课程信息ID
+	private Integer sort = 1; // 课程信息类别
 
-	private File upload;
-	private String uploadContentType;
-	private String uploadFileName;
+	private File upload; // 附件
+	private String uploadContentType; // 文件类型
+	private String uploadFileName; // 文件名称
 
-	private ICourseInfoService courseInfoService;
+	private ICourseInfoService courseInfoService; // 负责课程信息的接口
 
 	/**
 	 * 添加课程信息
@@ -44,46 +40,47 @@ public class CourseInfoAction extends BaseAction {
 		Course currentCourse = super.getCourse();
 		courseInfo.setSort(1);
 		if (null == courseInfo.getId()) {
-			if (courseInfoService.addCoureseInfo(courseInfo, currentCourse)){
+			if (courseInfoService.addCoureseInfo(courseInfo, currentCourse)) {
 				addActionError("添加课程简介成功！");
 				return SUCCESS;
-			}				
-			else {
+			} else {
 				addActionError("添加课程简介失败，请重新添加！");
 				return ERROR;
 			}
 
 		} else {
-			if (courseInfoService.updateCourseInfo(courseInfo)){
+			if (courseInfoService.updateCourseInfo(courseInfo)) {
 				addActionError("更新课程简介成功！");
 				return SUCCESS;
-			}				
-			else
+			} else
 				addActionError("更新课程简介失败，请重新操作！");
 			return ERROR;
 
 		}
 	}
-	
+
+	/**
+	 * 添加教学大纲
+	 * 
+	 * @return
+	 */
 	public String addNewCourseOutline() {
 		Course currentCourse = super.getCourse();
 		courseInfo.setSort(2);
 		if (null == courseInfo.getId()) {
-			if (courseInfoService.addCoureseInfo(courseInfo, currentCourse)){
+			if (courseInfoService.addCoureseInfo(courseInfo, currentCourse)) {
 				addActionError("添加教学大纲成功！");
 				return SUCCESS;
-			}
-			else {
+			} else {
 				addActionError("添加教学大纲失败，请重新添加！");
 				return ERROR;
 			}
 
 		} else {
-			if (courseInfoService.updateCourseInfo(courseInfo)){
+			if (courseInfoService.updateCourseInfo(courseInfo)) {
 				addActionError("更新教学大纲成功！");
 				return SUCCESS;
-			}
-			else
+			} else
 				addActionError("更新教学大纲失败，请重新操作！");
 			return ERROR;
 
@@ -122,8 +119,6 @@ public class CourseInfoAction extends BaseAction {
 		return SUCCESS;
 	}
 
-
-
 	/**
 	 * 获取当前课程信息
 	 * 
@@ -131,26 +126,29 @@ public class CourseInfoAction extends BaseAction {
 	 */
 	public String findCourseInfo() {
 		Course currentCourse = super.getCourse();
-		courseInfo = courseInfoService.getCourseInfo(currentCourse.getId(),
-				1);
+		courseInfo = courseInfoService.getCourseInfo(currentCourse.getId(), 1);
 		if (null == courseInfo) {
 			courseInfo = new CourseInfo();
 			courseInfo.setContent("暂无任何内容！");
 		}
 		return SUCCESS;
 	}
-	
+
+	/**
+	 * 查找教学大纲
+	 * 
+	 * @return
+	 */
 	public String findCourseOutline() {
 		Course currentCourse = super.getCourse();
-		courseInfo = courseInfoService.getCourseInfo(currentCourse.getId(),
-				2);
+		courseInfo = courseInfoService.getCourseInfo(currentCourse.getId(), 2);
 		if (null == courseInfo) {
 			courseInfo = new CourseInfo();
 			courseInfo.setContent("暂无任何内容！");
 		}
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * 课程页面获取当前课程信息
 	 * 
@@ -164,12 +162,11 @@ public class CourseInfoAction extends BaseAction {
 			courseInfo = new CourseInfo();
 			courseInfo.setContent("暂无任何内容！");
 		}
-		if(sort==1)
+		if (sort == 1)
 			return "courseinfo1";
 		else
 			return "courseinfo2";
 	}
-	
 
 	public void setCourseInfo(CourseInfo courseInfo) {
 		this.courseInfo = courseInfo;

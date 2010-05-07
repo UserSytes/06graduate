@@ -4,48 +4,58 @@ import java.io.File;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.struts2.ServletActionContext;
-
 import cn.edu.xmu.course.pojo.Achievement;
-import cn.edu.xmu.course.pojo.Book;
-import cn.edu.xmu.course.pojo.Chapter;
 import cn.edu.xmu.course.pojo.Course;
-import cn.edu.xmu.course.pojo.CourseMovie;
-import cn.edu.xmu.course.pojo.Courseware;
-import cn.edu.xmu.course.pojo.Examination;
-import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.service.IAchievementService;
-import cn.edu.xmu.course.service.IBookService;
-import cn.edu.xmu.course.service.IChapterService;
-import cn.edu.xmu.course.service.ICourseMovieService;
-import cn.edu.xmu.course.service.ICoursewareService;
-import cn.edu.xmu.course.service.IExaminationService;
-
+/**
+ * 负责教学成果的类
+ * @author 何申密
+ * @author 许子彦
+ *
+ */
 public class AchievementAction extends BaseAction {
 
-	private List<Achievement> achievementList;
-	private Achievement achievement;
-	private Integer achievementId;
-	private Course course;
-	private int courseId;
-	private File upload;
-	private String uploadContentType;
-	private String uploadFileName;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 390526433485524738L;
+	private List<Achievement> achievementList; // 成果列表
+	private Achievement achievement; // 成果
+	private Integer achievementId; // 成果ID
+	private Course course; // 课程
+	private int courseId; // 课程ID
+	private File upload; // 附件
+	private String uploadContentType; // 文件类型
+	private String uploadFileName; // 文件名称
 
-	private IAchievementService achievementService;
+	private IAchievementService achievementService; // 负责教学成果的接口
 
+	/**
+	 * 根据课程查找成果
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
 	public String getAchievementListByCourse() {
 		course = super.getCourse();
-		achievementList = achievementService.getAllAchievements(super.getCourse());
+		achievementList = achievementService.getAllAchievements(super
+				.getCourse());
 		return SUCCESS;
 	}
-	
+
+	/**
+	 * 增加课程成果
+	 * 
+	 * @return
+	 */
 	public String addAchievement() {
 		String fileLink = super.getTeacher().getUserInfo().getName() + "/"
-		+ new Date().getTime()+"_"+super.getCourse().getName() + "_" + uploadFileName;
+				+ new Date().getTime() + "_" + super.getCourse().getName()
+				+ "_" + uploadFileName;
 		achievement.setFileName(uploadFileName);
 		achievement.setFileLink(fileLink);
-		if (achievementService.addAchievement( super.getCourse(),achievement, upload))
+		if (achievementService.addAchievement(super.getCourse(), achievement,
+				upload))
 			return SUCCESS;
 		else {
 			addActionError("添加教学成果失败，请重新添加！");
@@ -53,16 +63,26 @@ public class AchievementAction extends BaseAction {
 		}
 	}
 
+	/**
+	 * 跳转到编辑成果
+	 * 
+	 * @return
+	 */
 	public String goEditAchievement() {
-		achievement = achievementService.getAchievementById(achievementId);		
+		achievement = achievementService.getAchievementById(achievementId);
 		return SUCCESS;
 	}
 
+	/**
+	 * 更新成果
+	 * 
+	 * @return
+	 */
 	public String updateAchievement() {
 		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
 		achievement.setFileName(uploadFileName);
 		achievement.setFileLink(fileLink);
-		if (achievementService.updateAchievement(achievement,upload))
+		if (achievementService.updateAchievement(achievement, upload))
 			return SUCCESS;
 		else {
 			addActionError("更新教学成果失败，请重新操作！");
@@ -70,8 +90,14 @@ public class AchievementAction extends BaseAction {
 		}
 	}
 
+	/**
+	 * 删除成果
+	 * 
+	 * @return
+	 */
 	public String deleteAchievement() {
-		Achievement delAchievement = achievementService.getAchievementById(achievementId);
+		Achievement delAchievement = achievementService
+				.getAchievementById(achievementId);
 		if (achievementService.deleteAchievement(delAchievement))
 			return SUCCESS;
 		else {
@@ -80,15 +106,21 @@ public class AchievementAction extends BaseAction {
 		}
 	}
 
-	public String getAchievementById(){
+	/**
+	 * 根据ID查找成果
+	 * 
+	 * @return
+	 */
+	public String getAchievementById() {
 		course = super.getCourse();
 		achievement = achievementService.getAchievementById(achievementId);
-		if (achievement==null)
+		if (achievement == null)
 			return ERROR;
 		else {
 			return SUCCESS;
 		}
 	}
+
 	public File getUpload() {
 		return upload;
 	}
@@ -144,20 +176,21 @@ public class AchievementAction extends BaseAction {
 	public void setAchievementService(IAchievementService achievementService) {
 		this.achievementService = achievementService;
 	}
+
 	public void setCourseId(int courseId) {
 		this.courseId = courseId;
 	}
+
 	public int getCourseId() {
 		return courseId;
 	}
+
 	public void setCourse(Course course) {
 		this.course = course;
 	}
+
 	public Course getCourse() {
 		return course;
 	}
-
-	
-	
 
 }

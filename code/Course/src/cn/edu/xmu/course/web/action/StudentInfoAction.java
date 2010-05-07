@@ -1,25 +1,11 @@
 package cn.edu.xmu.course.web.action;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-import org.apache.struts2.ServletActionContext;
-
-import cn.edu.xmu.course.pojo.Administrator;
-import cn.edu.xmu.course.pojo.Collection;
-import cn.edu.xmu.course.pojo.Course;
-import cn.edu.xmu.course.pojo.Message;
 import cn.edu.xmu.course.pojo.Student;
-import cn.edu.xmu.course.pojo.StudentCourse;
-import cn.edu.xmu.course.pojo.Topic;
 import cn.edu.xmu.course.pojo.UserInfo;
-import cn.edu.xmu.course.service.ICourseService;
-import cn.edu.xmu.course.service.IMessageService;
-import cn.edu.xmu.course.service.IStudentCourseService;
 import cn.edu.xmu.course.service.IStudentInfoService;
-import cn.edu.xmu.course.service.ITopicService;
 
 /**
  * 负责管理学生主页的类
@@ -87,6 +73,7 @@ public class StudentInfoAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String changeStudentInfo() {
 		boolean result = studentInfoService.updateStudent(student, userInfo);
 		if (result) {

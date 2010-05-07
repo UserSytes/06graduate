@@ -2,23 +2,19 @@ package cn.edu.xmu.course.web.action;
 
 import java.util.List;
 
-import org.apache.struts2.config.Namespace;
-
-import cn.edu.xmu.course.pojo.ApplicationForm;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.Evaluation;
 import cn.edu.xmu.course.pojo.School;
-import cn.edu.xmu.course.service.IApplicationFormService;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.IDepartmentService;
 import cn.edu.xmu.course.service.ISearchCourseService;
 import cn.edu.xmu.course.service.ISuperAdminService;
 
 /**
- * 查找课程
- * 
- * @author
+ * 查找课程和执行查看操作的类
+ * @author 许子彦
+ * @author 何申密
  * 
  */
 public class ExecuteViewAction extends BaseAction {
@@ -27,36 +23,36 @@ public class ExecuteViewAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Department department;
-	private String departmentId;
-	private String courseName;
-	private int courseId;
-	private List<Course> courseList;
-	private Course course;
-	private String teacherName;
+	private Department department; // 系
+	private String departmentId; // 系ID
+	private String courseName; // 课程名称
+	private int courseId; // 课程ID
+	private List<Course> courseList; // 课程列表
+	private Course course; // 课程
+	private String teacherName; // 教师名称
 
-	private ICourseService courseService;
-	private ISearchCourseService searchCourseService;
-	private IDepartmentService departmentService;
-	private ISuperAdminService superAdminService;
-	private int flag;
-	private String keyword;
-	private int imageNum = 1;
-	
-	private String schoolName; //学院名字
-	private String deptName; //系名字
+	private ICourseService courseService; // 负责课程的接口
+	private ISearchCourseService searchCourseService; // 负责搜索课程的接口
+	private IDepartmentService departmentService; // 负责院系的接口
+	private ISuperAdminService superAdminService; // 负责超级管理员的接口
+	private int flag; // 搜索类型
+	private String keyword; // 搜索关键字
+	private int imageNum = 1; // 图片标示
+
+	private String schoolName; // 学院名字
+	private String deptName; // 系名字
 
 	/**
 	 * 根据学院名字查找课程，学院树用到的方法
+	 * 
 	 * @return
 	 */
-	public String findCourseListBySchoolName(){
-		System.out.println("the schoolName is "+schoolName);
-		School school = superAdminService.findSchoolByName(schoolName);		
-		if(school==null){
+	public String findCourseListBySchoolName() {
+		System.out.println("the schoolName is " + schoolName);
+		School school = superAdminService.findSchoolByName(schoolName);
+		if (school == null) {
 			addActionMessage("该学院不存在，请重新操作！");
-		}
-		else {
+		} else {
 			courseList = courseService.findBySchool(school);
 			if (courseList == null) {
 				addActionMessage("一共找到 0 门相关课程！");
@@ -65,17 +61,17 @@ public class ExecuteViewAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * 根据系别名字查找课程，学院树用到的方法
+	 * 
 	 * @return
 	 */
-	public String findCourseListByDeptName(){
+	public String findCourseListByDeptName() {
 		Department dept = departmentService.getDepartmentByName(deptName);
-		if(dept == null){
+		if (dept == null) {
 			addActionMessage("该系别不存在，请重新操作！");
-		}
-		else {
+		} else {
 			courseList = searchCourseService.findCourseByDepartment(dept);
 			if (courseList == null) {
 				addActionMessage("一共找到 0 门相关课程！");
@@ -84,8 +80,7 @@ public class ExecuteViewAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
-	
-	
+
 	/**
 	 * 根据课程名称或者教师姓名的关键字查找
 	 * 
@@ -170,6 +165,7 @@ public class ExecuteViewAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String enterCourse() {
 		course = searchCourseService.findCourseById(courseId);
 		if (course == null) {
@@ -383,6 +379,5 @@ public class ExecuteViewAction extends BaseAction {
 	public void setDeptName(String deptName) {
 		this.deptName = deptName;
 	}
-
 
 }

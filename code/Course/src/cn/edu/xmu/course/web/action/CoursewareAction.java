@@ -1,70 +1,97 @@
 package cn.edu.xmu.course.web.action;
 
 import java.io.File;
-import java.util.Date;
 import java.util.List;
-
-import org.apache.struts2.ServletActionContext;
 
 import cn.edu.xmu.course.pojo.Chapter;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Courseware;
-import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.service.IChapterService;
 import cn.edu.xmu.course.service.ICoursewareService;
 
+/**
+ * 负责课程教案的类
+ * 
+ * @author 何申密
+ * @author 许子彦
+ * 
+ */
 public class CoursewareAction extends BaseAction {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1786518150476463775L;
-	private List<Chapter> chapterList;
-	private Chapter chapter;
-	private Integer chapterId;
+	private List<Chapter> chapterList; // 章节列表
+	private Chapter chapter; // 章节
+	private Integer chapterId; // 章节ID
 
-	private List<Courseware> coursewareList;
-	private Courseware courseware;
-	private Integer coursewareId;
+	private List<Courseware> coursewareList; // 课件列表
+	private Courseware courseware; // 课件
+	private Integer coursewareId; // 课件ID
 
-	private File upload;
-	private String uploadContentType;
-	private String uploadFileName;
+	private File upload; // 附件
+	private String uploadContentType; // 文件类型
+	private String uploadFileName; // 文件名称
 
-	private IChapterService chapterService;
-	private ICoursewareService coursewareService;
+	private IChapterService chapterService; // 负责章节的接口
+	private ICoursewareService coursewareService; // 负责课件的接口
 
+	/**
+	 * 根据章节查找课件
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
 	public String getCoursewareListByChapter() {
 		Course course = super.getCourse();
 		chapterList = chapterService.getAllChapter(super.getCourse());
-		if(chapterId ==null ||chapterId== -1)
+		if (chapterId == null || chapterId == -1)
 			coursewareList = coursewareService.getAllCoursewares(course);
-		else{
-			chapter=chapterService.getChapter(chapterId);
+		else {
+			chapter = chapterService.getChapter(chapterId);
 			coursewareList = coursewareService.getCoursewaresByChapter(chapter);
 		}
 		return SUCCESS;
 	}
-	public String getAllCourseware(){
+
+	/**
+	 * 查找所有课件
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public String getAllCourseware() {
 		Course course = super.getCourse();
 		coursewareList = coursewareService.getAllCoursewares(course);
 		return SUCCESS;
 	}
+
+	/**
+	 * 下载课件
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
-	public String downloadCourseware(){
-		Chapter currentChapter=chapterService.getChapter(chapterId);
-		coursewareList=coursewareService.getCoursewaresByChapter(currentChapter);
-		if(getCoursewareList()==null)
-			{
+	public String downloadCourseware() {
+		Chapter currentChapter = chapterService.getChapter(chapterId);
+		coursewareList = coursewareService
+				.getCoursewaresByChapter(currentChapter);
+		if (getCoursewareList() == null) {
 			System.out.println("本章节无课件！");
 			addActionError("本章节无课件！");
 			return ERROR;
-			}
-		else
+		} else
 			return "courseware";
 	}
+
+	/**
+	 * 添加课件
+	 * 
+	 * @return
+	 */
 	public String addCourseware() {
-		if(upload.length()>=new Long(10485760L)){
+		if (upload.length() >= new Long(10485760L)) {
 			addActionError("上传课件大小不能超过10M,请重新上传！");
 			return ERROR;
 		}
@@ -80,6 +107,12 @@ public class CoursewareAction extends BaseAction {
 		}
 	}
 
+	/**
+	 * 跳转到编辑课件
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
 	public String goEditCourseware() {
 		courseware = coursewareService.getCoursewareById(coursewareId);
 		chapterList = chapterService.getAllChapter(super.getCourse());
@@ -87,13 +120,24 @@ public class CoursewareAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	/**
+	 * 跳转到增加课件
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
 	public String goAddCourseware() {
 		chapterList = chapterService.getAllChapter(super.getCourse());
 		return SUCCESS;
 	}
 
+	/**
+	 * 更新课件
+	 * 
+	 * @return
+	 */
 	public String updateCourseware() {
-		if(upload.length()>=new Long(10485760L)){
+		if (upload.length() >= new Long(10485760L)) {
 			addActionError("上传课件大小不能超过10M,请重新上传！");
 			return ERROR;
 		}
@@ -101,7 +145,7 @@ public class CoursewareAction extends BaseAction {
 		courseware.setFilename(uploadFileName);
 		courseware.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);
-		if (coursewareService.updateCourseware(courseware, chapter,upload))
+		if (coursewareService.updateCourseware(courseware, chapter, upload))
 			return SUCCESS;
 		else {
 			addActionError("更新课件失败，请重新操作！");
@@ -109,6 +153,11 @@ public class CoursewareAction extends BaseAction {
 		}
 	}
 
+	/**
+	 * 删除课件
+	 * 
+	 * @return
+	 */
 	public String deleteCourseware() {
 		Courseware delCourseware = coursewareService
 				.getCoursewareById(coursewareId);
