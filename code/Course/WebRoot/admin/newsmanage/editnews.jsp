@@ -24,6 +24,12 @@
 					alert("作者不能为空！");
 					return false;
 				}
+				var oEditor = FCKeditorAPI.GetInstance("news.content");
+   				if(oEditor.GetXHTML(true) == "")
+   				{
+   					alert("内容不能为空！");
+					return false;
+   				}
 				return true;
 				
 			}
