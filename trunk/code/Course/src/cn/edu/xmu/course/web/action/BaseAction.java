@@ -26,6 +26,7 @@ public class BaseAction extends ActionSupport {
 	public String USERINFO= "userInfo";
 	public String EVALUATION="evaluation";
 	private ActionContext ctx ;
+	@SuppressWarnings("unchecked")
 	Map session ;
 	
 	public BaseAction() {
@@ -61,6 +62,7 @@ public class BaseAction extends ActionSupport {
 		return (UserInfo) this.getSession().get(USERINFO);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public Map getSession() {
 		ctx = ActionContext.getContext();
 		session = ctx.getSession(); 

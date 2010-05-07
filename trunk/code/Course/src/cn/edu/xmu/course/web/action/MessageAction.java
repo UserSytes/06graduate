@@ -1,12 +1,7 @@
 package cn.edu.xmu.course.web.action;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import com.opensymphony.xwork2.Action;
-
-import cn.edu.xmu.course.commons.MessageInfo;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Message;
 import cn.edu.xmu.course.pojo.Student;
@@ -16,33 +11,43 @@ import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.ILoginService;
 import cn.edu.xmu.course.service.IMessageService;
 import cn.edu.xmu.course.service.ITopicService;
-
+/**
+ * 负责留言板的类
+ * @author 何申密
+ * @author 许子彦
+ *
+ */
 public class MessageAction extends BaseAction {
 
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
-	private Course course;
-	private List<Topic> topicList;
-	private List<Message> messageList;
-	private List<MessageInfo> messageInfoList = new ArrayList<MessageInfo>();
-	private List<MessageInfo> showMessageList = new ArrayList<MessageInfo>();
-	private Topic topic;
-	private Message message;
-	private UserInfo userInfo;
-	private Integer topicId;
-	private ITopicService topicService;
-	private IMessageService messageService;
-	private ILoginService loginService;
-	private Student student;
-	private Teacher teacher;
-	private int flag;
-	private String userName, password;
-	private int time = 0;
-	private String keyword="";
-	private String authorName="";
-	private Date keydate;
-	private String replyString="";
-	private int replyGrade;
-	private String replyContent="";
+	private Course course; // 课程
+	private List<Topic> topicList; // 主题列表
+	private List<Message> messageList; // 留言列表
+	private Topic topic; // 主题
+	private Message message; // 留言
+	private UserInfo userInfo; // 用户信息
+	private Integer topicId; // 主题ID
+	private ITopicService topicService; // 负责主题的接口
+	private IMessageService messageService; // 负责留言的接口
+	private ILoginService loginService; // 负责登陆的接口
+	private Student student; // 学生
+	private Teacher teacher; // 老师
+	private int flag; // 登陆类型
+	private String userName, password; // 用户名、密码
+	private int time = 0; // 次数
+	private String replyString = ""; // 回复、引用标题
+	private int replyGrade; // 回复楼层
+	private String replyContent = ""; // 回复、引用内容
+
+	/**
+	 * 从留言板登陆
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
 	public String loginFromMessageBoard() {
 		if (getFlag() == 0) {
 			Teacher teacher = getLoginService().teacherLogin(userName,
@@ -51,10 +56,10 @@ public class MessageAction extends BaseAction {
 				addActionError("用户名获密码错误！请返回重试！");
 				return ERROR;
 			} else {
-				userInfo = teacher.getUserInfo();				
+				userInfo = teacher.getUserInfo();
 				super.getSession().put(TEACHER, teacher);
 				super.getSession().put(USERINFO, userInfo);
-				super.getSession().put("user", userInfo.getName()+"老师");
+				super.getSession().put("user", userInfo.getName() + "老师");
 			}
 		} else {
 			Student student = getLoginService().studentLogin(userName,
@@ -63,22 +68,27 @@ public class MessageAction extends BaseAction {
 				addActionError("用户名获密码错误！请返回重试！");
 				return ERROR;
 			} else {
-				userInfo = student.getUserInfo();			
+				userInfo = student.getUserInfo();
 				super.getSession().put(STUDENT, student);
-				super.getSession().put(USERINFO, userInfo);		
-				super.getSession().put("user",userInfo.getName()+"同学");
+				super.getSession().put(USERINFO, userInfo);
+				super.getSession().put("user", userInfo.getName() + "同学");
 			}
 		}
 		topicList = getTopicService().getAllTopics(super.getCourse());
 		return SUCCESS;
 	}
 
-	public String addNewMessage() {		
-		course=super.getCourse();
+	/**
+	 * 添加新留言
+	 * 
+	 * @return
+	 */
+	public String addNewMessage() {
+		course = super.getCourse();
 		boolean result = messageService.addMessage(super.getCourse(), topic,
 				message, super.getUserInfo());
 		if (result) {
-			userInfo = super.getUserInfo();			
+			userInfo = super.getUserInfo();
 			message = null;
 			return SUCCESS;
 		} else {
@@ -87,8 +97,13 @@ public class MessageAction extends BaseAction {
 		}
 	}
 
+	/**
+	 * 跳转到回复页面
+	 * 
+	 * @return
+	 */
 	public String goReply() {
-		course=super.getCourse();
+		course = super.getCourse();
 		topic = topicService.getTopicById(topicId);
 		userInfo = (UserInfo) super.getSession().get(USERINFO);
 		if (getTopic() == null) {
@@ -99,11 +114,19 @@ public class MessageAction extends BaseAction {
 		}
 
 	}
+
+	/**
+	 * 跳转到回复给某人页面
+	 * 
+	 * @return
+	 */
 	public String goReplyToSomeone() {
-		course=super.getCourse();
+		course = super.getCourse();
 		topic = topicService.getTopicById(topicId);
 		System.out.println(getReplyString());
-		setReplyString(""+"<b>回复 第"+getReplyGrade()+"楼<i> "+getReplyString()+"</i> 的帖子：</b><br />------------------------------");
+		setReplyString("" + "<b>回复 第" + getReplyGrade() + "楼<i> "
+				+ getReplyString()
+				+ "</i> 的帖子：</b><br />------------------------------");
 		System.out.println(getReplyString());
 		userInfo = (UserInfo) super.getSession().get(USERINFO);
 		if (getTopic() == null) {
@@ -114,11 +137,21 @@ public class MessageAction extends BaseAction {
 		}
 
 	}
+
+	/**
+	 * 跳转到引用某人页面
+	 * 
+	 * @return
+	 */
 	public String goReplyWithQuote() {
-		course=super.getCourse();
+		course = super.getCourse();
 		System.out.println(getReplyString());
 		topic = topicService.getTopicById(topicId);
-		setReplyString("<quote:msgheader>"+"QUOTE:原帖由第"+getReplyGrade()+"楼<i> "+getReplyString()+"</i> 的帖子：</quote:msgheader><br /><br />"+"<quote:msgborder>"+getReplyContent()+"</quote:msgborder>");
+		setReplyString("<quote:msgheader>" + "QUOTE:原帖由第" + getReplyGrade()
+				+ "楼<i> " + getReplyString()
+				+ "</i> 的帖子：</quote:msgheader><br /><br />"
+				+ "<quote:msgborder>" + getReplyContent()
+				+ "</quote:msgborder>");
 		System.out.println(getReplyString());
 		userInfo = (UserInfo) super.getSession().get(USERINFO);
 		if (getTopic() == null) {
@@ -129,6 +162,7 @@ public class MessageAction extends BaseAction {
 		}
 
 	}
+
 	/**
 	 * 显示课程留言主题
 	 * 
@@ -139,14 +173,14 @@ public class MessageAction extends BaseAction {
 		student = (Student) super.getSession().get(STUDENT);
 		teacher = (Teacher) super.getSession().get(TEACHER);
 		course = super.getCourse();
-		if (null == student && null == teacher) {		
+		if (null == student && null == teacher) {
 			addActionError("您还未登录，请先登录！");
 			return "login";
 		} else {
 
-				userInfo = super.getUserInfo();
-				topicList = getTopicService().getAllTopics(course);
-			if (topicList.size()> 0) {
+			userInfo = super.getUserInfo();
+			topicList = getTopicService().getAllTopics(course);
+			if (topicList.size() > 0) {
 				return "topics";
 			} else {
 				System.out.println("本课程尚未有留言！");
@@ -155,12 +189,14 @@ public class MessageAction extends BaseAction {
 			}
 		}
 	}
-	
+
 	/**
 	 * 查找学生个人留言主题
+	 * 
 	 * @return
 	 */
-	public String myTopics() {		
+	@SuppressWarnings("unchecked")
+	public String myTopics() {
 		messageList = messageService.getMessageByUserInfo(super.getUserInfo());
 		if (messageList.size() == 0) {
 			addActionMessage("您目前还未发表帖子留言！");
@@ -168,13 +204,19 @@ public class MessageAction extends BaseAction {
 		return SUCCESS;
 
 	}
-	
+
+	/**
+	 * 显示所有留言
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
 	public String showMessages() {
 		course = super.getCourse();
-		userInfo=super.getUserInfo();
+		userInfo = super.getUserInfo();
 		topic = topicService.getTopicById(topicId);
 		messageList = messageService.getMessageByTopic(topic);
-		System.out.println("查找到：" + messageList.size()+"个留言");
+		System.out.println("查找到：" + messageList.size() + "个留言");
 		topic.setCountPerson(topic.getCountPerson() + 1);
 		topicService.updateTopic(topic);
 		if (getMessageList().size() > 0) {
@@ -184,18 +226,30 @@ public class MessageAction extends BaseAction {
 			return ERROR;
 		}
 	}
-	public String goNewTopic(){
-		userInfo=super.getUserInfo();
+
+	/**
+	 * 跳转到新主题页面
+	 * 
+	 * @return
+	 */
+	public String goNewTopic() {
+		userInfo = super.getUserInfo();
 		return SUCCESS;
 	}
-	public String addReply() {	
-		course=super.getCourse();
+
+	/**
+	 * 添加新主题
+	 * 
+	 * @return
+	 */
+	public String addReply() {
+		course = super.getCourse();
 		System.out.println("ACTION正在加入帖子为：" + topic.getId() + "的留言2");
 		topicId = topic.getId();
-		topic = topicService.getTopicById(topic.getId());		
+		topic = topicService.getTopicById(topic.getId());
 		boolean result = messageService.addReplyMessage(topic, message, super
 				.getUserInfo());
-		if (result) {			
+		if (result) {
 			message = null;
 			return SUCCESS;
 		} else {
@@ -203,6 +257,13 @@ public class MessageAction extends BaseAction {
 			return ERROR;
 		}
 	}
+
+	/**
+	 * 根据教师查看主题
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
 	public String showTopicsByTeacher() {
 		topicList = getTopicService().getTopicsByTeacher(super.getTeacher(),
 				getTime());
@@ -274,23 +335,6 @@ public class MessageAction extends BaseAction {
 		return userInfo;
 	}
 
-	public void setMessageInfoList(List<MessageInfo> messageInfoList) {
-		this.messageInfoList = messageInfoList;
-	}
-
-	public List<MessageInfo> getMessageInfoList() {
-		return messageInfoList;
-	}
-
-	public List<MessageInfo> getShowMessageList() {
-		return showMessageList;
-	}
-
-	public void setShowMessageList(List<MessageInfo> showMessageList) {
-		this.showMessageList = showMessageList;
-	}
-
-
 	public Student getStudent() {
 		return student;
 	}
@@ -353,30 +397,6 @@ public class MessageAction extends BaseAction {
 
 	public int getTime() {
 		return time;
-	}
-
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-	}
-
-	public String getKeyword() {
-		return keyword;
-	}
-
-	public void setKeydate(Date keydate) {
-		this.keydate = keydate;
-	}
-
-	public Date getKeydate() {
-		return keydate;
-	}
-
-	public void setAuthorName(String authorName) {
-		this.authorName = authorName;
-	}
-
-	public String getAuthorName() {
-		return authorName;
 	}
 
 	public void setReplyString(String replyString) {

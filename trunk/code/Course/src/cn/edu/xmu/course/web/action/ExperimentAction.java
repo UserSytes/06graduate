@@ -1,70 +1,88 @@
 package cn.edu.xmu.course.web.action;
 
 import java.io.File;
-import java.util.Date;
 import java.util.List;
-
-import org.apache.struts2.ServletActionContext;
-
-import com.sun.org.apache.bcel.internal.generic.DLOAD;
 
 import cn.edu.xmu.course.pojo.Chapter;
 import cn.edu.xmu.course.pojo.Course;
-import cn.edu.xmu.course.pojo.Courseware;
-import cn.edu.xmu.course.pojo.Exercise;
 import cn.edu.xmu.course.pojo.Experiment;
-import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.service.IChapterService;
-import cn.edu.xmu.course.service.ICoursewareService;
-import cn.edu.xmu.course.service.IExerciseService;
 import cn.edu.xmu.course.service.IExperimentService;
 
 public class ExperimentAction extends BaseAction {
 
-	private List<Chapter> chapterList;
-	private Chapter chapter;
-	private Integer chapterId;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -575628690307801300L;
+	private List<Chapter> chapterList; // 章节列表
+	private Chapter chapter; // 章节
+	private Integer chapterId; // 章节ID
 
-	private List<Experiment> experimentList;
-	private Experiment experiment;
-	private Integer experimentId;
+	private List<Experiment> experimentList; // 实验指导列表
+	private Experiment experiment; // 实验指导
+	private Integer experimentId; // 实验指导ID
 
-	private File upload;
-	private String uploadContentType;
-	private String uploadFileName;
+	private File upload; // 附件
+	private String uploadContentType; // 文件类型
+	private String uploadFileName; // 文件名称
 
-	private IChapterService chapterService;
-	private IExperimentService experimentService;
+	private IChapterService chapterService; // 负责章节的接口
+	private IExperimentService experimentService; // 负责实验指导的接口
 
+	/**
+	 * 根据章节查找实验指导
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
 	public String getExperimentListByChapter() {
 		Course course = super.getCourse();
 		chapterList = chapterService.getAllChapter(super.getCourse());
-		if(chapterId ==null ||chapterId== -1)
-		experimentList = experimentService.getAllExperiments(course);
-		else{
+		if (chapterId == null || chapterId == -1)
+			experimentList = experimentService.getAllExperiments(course);
+		else {
 			chapter = chapterService.getChapterById(chapterId);
 			experimentList = experimentService.getExperimentsByChapter(chapter);
 		}
 		return SUCCESS;
 	}
-	public String getAllExperiment(){
+
+	/**
+	 * 根据章节查找实验指导
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public String getAllExperiment() {
 		Course course = super.getCourse();
 		experimentList = experimentService.getAllExperiments(course);
 		return SUCCESS;
 	}
+
+	/**
+	 * 下载实验指导
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
-	public String downloadExperiment(){
-		Chapter currentChapter=chapterService.getChapter(chapterId);
-		experimentList=experimentService.getExperimentsByChapter(currentChapter);
-		if(getExperimentList()==null)
-		{
-		System.out.println("本章节无实验！");
-		addActionError("本章节无实验！");
-		return ERROR;
-		}
-	else
-		return "experiment";
+	public String downloadExperiment() {
+		Chapter currentChapter = chapterService.getChapter(chapterId);
+		experimentList = experimentService
+				.getExperimentsByChapter(currentChapter);
+		if (getExperimentList() == null) {
+			System.out.println("本章节无实验！");
+			addActionError("本章节无实验！");
+			return ERROR;
+		} else
+			return "experiment";
 	}
+
+	/**
+	 * 添加实验指导
+	 * 
+	 * @return
+	 */
 	public String addExperiment() {
 		if (upload.length() >= new Long(10485760L)) {
 			addActionError("上传习题大小不能超过10M,请重新上传！");
@@ -82,6 +100,12 @@ public class ExperimentAction extends BaseAction {
 		}
 	}
 
+	/**
+	 * 跳转到编辑实验指导
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
 	public String goEditExperiment() {
 		experiment = experimentService.getExperimentById(experimentId);
 		chapterList = chapterService.getAllChapter(super.getCourse());
@@ -89,11 +113,22 @@ public class ExperimentAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	/**
+	 * 跳转到添加实验指导
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
 	public String goAddExperiment() {
 		chapterList = chapterService.getAllChapter(super.getCourse());
 		return SUCCESS;
 	}
 
+	/**
+	 * 更新实验指导
+	 * 
+	 * @return
+	 */
 	public String updateExperiment() {
 		if (upload.length() >= new Long(10485760L)) {
 			addActionError("上传习题大小不能超过10M,请重新上传！");
@@ -111,6 +146,11 @@ public class ExperimentAction extends BaseAction {
 		}
 	}
 
+	/**
+	 * 删除实验指导
+	 * 
+	 * @return
+	 */
 	public String deleteExperiment() {
 		Experiment delExperiment = experimentService
 				.getExperimentById(experimentId);

@@ -6,19 +6,23 @@ import cn.edu.xmu.course.pojo.ApplicationForm;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.service.IApplicationFormService;
-
+/**
+ * 负责申报表格的类
+ * @author 何申密
+ * @author 许子彦
+ *
+ */
 public class ApplicationFormAction extends BaseAction {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int courseId;
-	private Integer sort = 1;
-	private File upload;
-	private String uploadContentType;
-	private String uploadFileName;
-	private ApplicationForm applicationForm;
-	private IApplicationFormService applicationFormService;
+	private int courseId; // 课程ID
+	private File upload; // 附件
+	private String uploadContentType; // 文件类型
+	private String uploadFileName; // 文件名称
+	private ApplicationForm applicationForm; // 申报表格
+	private IApplicationFormService applicationFormService; // 负责申报表格的接口
 
 	/**
 	 * 获取当前课程，首次点击课程时加载的方法
@@ -147,14 +151,6 @@ public class ApplicationFormAction extends BaseAction {
 
 	public int getCourseId() {
 		return courseId;
-	}
-
-	public void setSort(Integer sort) {
-		this.sort = sort;
-	}
-
-	public Integer getSort() {
-		return sort;
 	}
 
 	public void setUpload(File upload) {

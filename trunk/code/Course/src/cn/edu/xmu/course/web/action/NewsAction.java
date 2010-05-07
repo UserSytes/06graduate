@@ -1,22 +1,10 @@
 package cn.edu.xmu.course.web.action;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import javax.servlet.ServletContext;
-
-import org.apache.struts2.ServletActionContext;
 import cn.edu.xmu.course.pojo.Attachment;
 import cn.edu.xmu.course.pojo.News;
-import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.service.INewsService;
 
 /**
@@ -25,6 +13,11 @@ import cn.edu.xmu.course.service.INewsService;
  * 
  */
 public class NewsAction extends BaseAction {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5013181121384776084L;
 
 	private INewsService newsService;	//管理新闻的接口
 
@@ -72,6 +65,7 @@ public class NewsAction extends BaseAction {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String findAllNews() {
 		newsList = newsService.findAllNews();
 		if (newsList.size() == 0) {
