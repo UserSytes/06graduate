@@ -8,6 +8,15 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>发布主题-师生留言-厦门大学课程网络平台</title>
+<SCRIPT language=javascript>
+	function check(form) {
+		if (form.title.value == "") {
+			alert("标题不能为空！");
+			return false;
+		}
+		return true;
+	}
+</SCRIPT>
 		<style type="text/css">
 .txt,.txtarea {
 	padding: 2px; *
