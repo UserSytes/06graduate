@@ -82,15 +82,6 @@ public class MessageService implements IMessageService {
 			return false;
 		}
 	}
-
-	public List getAllMessages(Topic topic, int pageSize, int pageNow) {
-		List list = messageDAO.queryByPage(topic, pageSize, pageNow);
-		if (list.size() > 0) {
-			return list;
-		} else
-			return null;
-	}
-
 	public Message getMessageById(Integer id) {
 
 		return messageDAO.findById(id);
