@@ -40,17 +40,13 @@ public class ServletChartGenerator extends HttpServlet{
 			String title=(String)session.getAttribute("title");
 			String abscissa=(String)session.getAttribute("abscissa");
 			String ordinate=(String)session.getAttribute("ordinate");
-			System.out.println("The title is "+title);
-            if(session.getAttribute("data")==null)
-            	System.out.println("Session获得参数list为空！");
+			System.out.println("The title is "+title);           
 
 			JFreeChart chart = null;
 		
 			if(list!=null)
 
-				chart = cm.createBarChart(list,title,abscissa,ordinate);
-			else 
-				System.out.println("参数Param为空！");
+				chart = cm.createBarChart(list,title,abscissa,ordinate);			
 		
 			if (chart != null)
 			{
