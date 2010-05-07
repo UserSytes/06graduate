@@ -49,11 +49,11 @@
 										<td align="center">
 											<object classid=clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA
 												height=480 id=RAOCX name=rmplay width=600>
-												<param name="SRC" value="01.rm">
+												<param name="SRC" value="${ctx}/upload/<s:property value="courseMovie.fileLink"/>">
 												<param name="CONSOLE" value="Clip1">
 												<param name="CONTROLS" value="imagewindow">
 												<param name="AUTOSTART" value="true">
-												<embed src="01.rm" autostart="true" controls="ImageWindow"
+												<embed src="${ctx}/upload/<s:property value="courseMovie.fileLink"/>" autostart="true" controls="ImageWindow"
 													console="Clip1" pluginspage="http://www.real.com"
 													/’ target="_blank">
 												http://www.real.com"; width="356" height="285">

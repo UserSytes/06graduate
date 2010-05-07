@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<SCRIPT language=javascript>
+<script type="text/javascript">
 	function check(form) {
 		if (form.userName.value == "") {
 			alert("账号不能为空！");
@@ -15,14 +15,10 @@
 		if (form.password.value == "") {
 			alert("密码不能为空！");
 			return false;
-		}
-		if (form.flag.value == -1) {
-			alert("请选择权限！");
-			return false;
-		}
+		}		
 		return true;
 	}
-</SCRIPT>
+</script>
 		<style type="text/css">
 .inputstyle {
 	width: 120px;
