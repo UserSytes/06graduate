@@ -8,6 +8,22 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>发布主题-师生留言-厦门大学课程网络平台</title>
+<script type="text/javascript">
+function check(form) {
+		if (form.title.value == "") {
+			alert("标题不能为空！");	
+			form.title.focus();	
+			return false;
+		}	
+		var oEditor = FCKeditorAPI.GetInstance("message.content");
+   		if(oEditor.GetXHTML(true) == "")
+   		{
+   			alert("内容不能为空！");
+			return false;
+   		}		
+		return true;
+}
+</script>
 		<style type="text/css">
 .txt,.txtarea {
 	padding: 2px; *
@@ -25,9 +41,8 @@
 	<body style="width: 600">
 		<div
 			style="padding-left: 10px; padding-right: 10px; padding-top:5px; background-color: #F1F5FA">
-			<s:form action="addNewMessageByTeaAction" method="post" id="myform"
-				name="myform" namespace="/upLoadFile" target="_self"
-				enctype="multipart/form-data" onsubmit="return check(this);">
+			<s:form action="addNewMessageByTeaAction" method="post" id="myform"				
+				onsubmit="return check(this);">
 				<table cellpadding="0" cellspacing="0" width="600" align=center>
 					<tr>
 						<td>
