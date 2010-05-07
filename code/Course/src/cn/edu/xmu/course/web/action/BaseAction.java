@@ -71,7 +71,7 @@ public class BaseAction extends ActionSupport {
 	
 	public String getPreFileNameByTeacher(){
 		String preFileName = this.getTeacher().getUserInfo().getName() + "/"
-		+ new Date().getTime()+"_"+this.getCourse().getName() + "_";
+		+ new Date().getTime()+"_";
 		return preFileName;
 	}
 

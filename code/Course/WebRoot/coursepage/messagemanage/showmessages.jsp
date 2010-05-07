@@ -252,12 +252,8 @@ $(document).ready(function(){
                      										<s:param name="topicId"> 
                        			 								<s:property value="topic.id"/> 
                     										</s:param>
-															<s:param name="replyString" value="userInfo.name"> 
-                    										</s:param>
-															<s:param name="replyGrade" value="grade"> 
-                    										</s:param>
-															<s:param name="replyContent" value="content"> 
-                    										</s:param>
+															<s:param name="messageId" value="id"> 
+                    										</s:param>															
                 											</s:url>"><font
 														color="#999">引用</font> </a>
 													<a class="repquote" rel="facebox"
@@ -265,12 +261,8 @@ $(document).ready(function(){
                      										<s:param name="topicId"> 
                        			 								<s:property value="topic.id"/> 
                     										</s:param>
-															<s:param name="replyString"> 
-                       			 								<s:property value="userInfo.name"/>
-                    										</s:param>
-															<s:param name="replyGrade"> 
-                       			 								<s:property value="grade"/>
-                    										</s:param>
+															<s:param name="messageId" value="id"> 
+                    										</s:param>					
                 											</s:url>"><font
 														color="#999">回复</font> </a>
 													<a href="###" onclick="scroll(0,0)"><img

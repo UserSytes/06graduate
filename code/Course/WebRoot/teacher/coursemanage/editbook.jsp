@@ -38,12 +38,7 @@
 				{
 					alert("上传书籍不能为空！");
 					return false;
-				}	
-				if(true)
-				{
-					alert("上传书籍不能为空！");
-					return false;
-				}
+				}					
 				
 			}
 		</SCRIPT>

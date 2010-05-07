@@ -41,9 +41,7 @@ public class BookAction extends BaseAction {
 	 * @return
 	 */
 	public String addBook() {
-		String fileLink = super.getTeacher().getUserInfo().getName() + "/"
-				+ new Date().getTime() + "_" + super.getCourse().getName()
-				+ "_" + uploadFileName;
+		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
 		book.setFilename(uploadFileName);
 		book.setFileLink(fileLink);
 		if (bookService.addBook(book, super.getCourse(), upload))

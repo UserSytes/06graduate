@@ -46,7 +46,7 @@
 			</tr>
 		</table>
 		<s:form action="updateAchievementAction" method="post"
-			onsubmit="return check(this);">
+			onsubmit="return check(this);" enctype="multipart/form-data">
 			<s:hidden name="achievement.id"></s:hidden>
 			<s:hidden name="achievement.course.id"></s:hidden>
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"

@@ -188,8 +188,8 @@ public class SuperAdminService implements ISuperAdminService {
 
 	public void createTreeData() {
 		String path = ServletActionContext.getServletContext().getRealPath(
-				"/depttree");
-		File file = new File(path +"/"+ "dept_data.txt");
+				"");
+		File file = new File(path +"/"+ "dept_data.properties");
 		System.out.println(file.getPath());
 		List<School> schools = this.findAllSchool();
 		try {
