@@ -20,6 +20,20 @@
 			media="screen" />
 		<script type="text/javascript" src="${ctx}/js/mail.js"></script>
 		<script type="text/javascript" src="${ctx}/js/prototype.js"></script>
+<SCRIPT language=javascript>
+	function check(form) {
+		if (form.expertName.value == "") {
+			alert("姓名不能为空！");
+			return false;
+		}
+		var   filter=/0-100/; 
+		if (!filter.test(form.score.value)) {
+			alert("要输入0-100的数字");
+			return false;
+		}		
+		return true;
+	}
+</SCRIPT>
 	</head>
 	<body>
 		<!-- 头部 -->
@@ -44,7 +58,7 @@
 						class="table-info">
 						<tr height="29">
 							<td align="center">
-								<font style="font-size: 16px; font-weight: bold">专家评价课程</font>
+								<font style="font-size: 16px; font-weight: bold">同行教师评价课程</font>
 							</td>
 						</tr>
 						<tr height="19">
@@ -60,7 +74,7 @@
 						</tr>
 						<tr>
 							<td width="704">
-								<s:form action="teacherEvaluateAction" method="post">
+								<s:form action="teacherEvaluateAction" method="post" onsubmit="return check(this);">
 									<s:hidden name="evaluation.id"></s:hidden>
 									<s:hidden name="evaluation.course.id"></s:hidden>
 									<s:hidden name="evaluation.username"></s:hidden>
@@ -92,7 +106,6 @@
 												&nbsp;&nbsp;&nbsp;
 												<s:textfield cssClass="INPUT" id="expertCompany"
 													name="evaluation.company" label="单位"></s:textfield>
-												&nbsp;*
 											</td>
 										</tr>
 										<tr>
@@ -105,7 +118,6 @@
 												&nbsp;&nbsp;&nbsp;
 												<s:textfield cssClass="INPUT" id="expertPosition"
 													name="evaluation.position" label="职位"></s:textfield>
-												&nbsp;*
 											</td>
 										</tr>
 										<tr>
@@ -145,6 +157,7 @@
 												&nbsp;&nbsp;&nbsp;
 												<s:textfield cssClass="INPUT" id="score"
 													name="evaluation.score" label="分数"></s:textfield>
+&nbsp;*
 											</td>
 										</tr>
 										<tr>

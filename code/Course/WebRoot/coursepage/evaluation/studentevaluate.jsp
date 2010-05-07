@@ -11,7 +11,16 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
-
+<SCRIPT language=javascript>
+	function check(form) {
+		var   filter=/0-100/; 
+		if (!filter.test(form.score.value)) {
+			alert("要输入0-100的数字");
+			return false;
+		}		
+		return true;
+	}
+</SCRIPT>
 	</head>
 	<body>
 		<!-- 头部 -->
@@ -52,7 +61,7 @@
 						</tr>
 						<tr>
 							<td>
-								<s:form action="studentEvaluateAction" method="post">
+								<s:form action="studentEvaluateAction" method="post" onsubmit="return check(this);">
 &nbsp;&nbsp; 
 			<table cellpadding="0" cellspacing="0" align="center">
 										<tr>
