@@ -47,9 +47,7 @@ public class CourseMovieAction extends BaseAction {
 	 * @return
 	 */
 	public String addCourseMovie() {
-		String fileLink = super.getTeacher().getUserInfo().getName() + "/"
-				+ new Date().getTime() + "_" + super.getCourse().getName()
-				+ "_" + uploadFileName;
+		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
 		courseMovie.setFilename(uploadFileName);
 		courseMovie.setFileLink(fileLink);
 		if (courseMovieService.addCourseMovie(courseMovie, super.getCourse(),

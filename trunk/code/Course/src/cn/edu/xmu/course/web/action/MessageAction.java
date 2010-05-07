@@ -30,6 +30,7 @@ public class MessageAction extends BaseAction {
 	private Message message; // 留言
 	private UserInfo userInfo; // 用户信息
 	private Integer topicId; // 主题ID
+	private Integer messageId; //留言id
 	private ITopicService topicService; // 负责主题的接口
 	private IMessageService messageService; // 负责留言的接口
 	private ILoginService loginService; // 负责登陆的接口
@@ -121,13 +122,10 @@ public class MessageAction extends BaseAction {
 	 * @return
 	 */
 	public String goReplyToSomeone() {
-		course = super.getCourse();
+		course=super.getCourse();
 		topic = topicService.getTopicById(topicId);
-		System.out.println(getReplyString());
-		setReplyString("" + "<b>回复 第" + getReplyGrade() + "楼<i> "
-				+ getReplyString()
-				+ "</i> 的帖子：</b><br />------------------------------");
-		System.out.println(getReplyString());
+		Message rMsg = messageService.getMessageById(getMessageId());		
+		setReplyString(""+"<b>回复 第"+rMsg.getGrade()+"楼<i> "+rMsg.getUserInfo().getName()+"</i> 的帖子：</b><br />--------------------------------------");
 		userInfo = (UserInfo) super.getSession().get(USERINFO);
 		if (getTopic() == null) {
 			addActionError("该贴已经不存在！");
@@ -137,22 +135,16 @@ public class MessageAction extends BaseAction {
 		}
 
 	}
-
+	
 	/**
-	 * 跳转到引用某人页面
-	 * 
+	 * 引用回复留言
 	 * @return
 	 */
 	public String goReplyWithQuote() {
-		course = super.getCourse();
-		System.out.println(getReplyString());
+		course=super.getCourse();
 		topic = topicService.getTopicById(topicId);
-		setReplyString("<quote:msgheader>" + "QUOTE:原帖由第" + getReplyGrade()
-				+ "楼<i> " + getReplyString()
-				+ "</i> 的帖子：</quote:msgheader><br /><br />"
-				+ "<quote:msgborder>" + getReplyContent()
-				+ "</quote:msgborder>");
-		System.out.println(getReplyString());
+		Message rMsg = messageService.getMessageById(getMessageId());
+		setReplyString("<quote:msgheader>"+"QUOTE:原帖由第"+rMsg.getGrade()+"楼<i> "+rMsg.getUserInfo().getName()+"</i> 的帖子：</quote:msgheader><br /><br />"+rMsg.getContent()+"</b><br />--------------------------------------");
 		userInfo = (UserInfo) super.getSession().get(USERINFO);
 		if (getTopic() == null) {
 			addActionError("该贴已经不存在！");
@@ -421,6 +413,14 @@ public class MessageAction extends BaseAction {
 
 	public int getReplyGrade() {
 		return replyGrade;
+	}
+
+	public void setMessageId(Integer messageId) {
+		this.messageId = messageId;
+	}
+
+	public Integer getMessageId() {
+		return messageId;
 	}
 
 }

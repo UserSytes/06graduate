@@ -60,9 +60,7 @@ public class ExaminationAction extends BaseAction {
 	 * @return
 	 */
 	public String addExamination() {
-		String fileLink = super.getTeacher().getUserInfo().getName() + "/"
-				+ new Date().getTime() + "_" + super.getCourse().getName()
-				+ "_" + uploadFileName;
+		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
 		examination.setFilename(uploadFileName);
 		examination.setFileLink(fileLink);
 		if (examinationService.addExamination(examination, super.getCourse(),

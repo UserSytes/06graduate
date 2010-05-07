@@ -25,12 +25,11 @@ public class DownloadAction extends ActionSupport {
 			 * 对参数进行UTF-8解码,注意:实际进行UTF-8解码时会使用本地编码，本机为GBK。
 			 * 这里使用request.setCharacterEncoding解码无效.
 			 * 只有解码了getDownloadFile()方法才能在下载目录下正确找到请求的文件
-			 */
-			System.out.println(fname);
-			// fname = new String(fname.getBytes("ISO-8859-1"), "UTF-8");
-			// System.out.println(fname);
-			// forginalFileName =new
-			// String(forginalFileName.getBytes("ISO-8859-1"), "UTF-8");
+			 */			
+			 fname = new String(fname.getBytes("ISO-8859-1"), "UTF-8");
+			 System.out.println(fname);
+			 forginalFileName =new
+			 String(forginalFileName.getBytes("ISO-8859-1"), "UTF-8");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -61,20 +60,6 @@ public class DownloadAction extends ActionSupport {
 		return ServletActionContext.getServletContext().getResourceAsStream(
 				DOWNLOADFILEPATH + fileName);
 	}
-
-	// 如果下载文件名为中文，进行字符编码转换
-	// public String getDownloadChineseFileName() {
-	// String downloadChineseFileName = getFileName();
-	//
-	// try {
-	// downloadChineseFileName = new String(downloadChineseFileName
-	// .getBytes(), "ISO8859-1");
-	// } catch (UnsupportedEncodingException e) {
-	// e.printStackTrace();
-	// }
-	//
-	// return downloadChineseFileName;
-	// }
 
 	@Override
 	public String execute() {

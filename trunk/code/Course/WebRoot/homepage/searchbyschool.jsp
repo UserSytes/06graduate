@@ -16,7 +16,7 @@
 	$(document).ready( function() {
 		$('#tt').tree( {
 			animate :true,
-			url :'${ctx}/depttree/dept_data.txt',
+			url :'${ctx}/dept_data.properties',
 			onClick : function(node) {				
 				if(node.id == 2){				
 					var url  = "findCourseListBySchoolNameAction.action";
