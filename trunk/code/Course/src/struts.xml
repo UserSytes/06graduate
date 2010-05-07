@@ -880,8 +880,7 @@
 			<result name="success" type="redirect-action">getCourseMovieListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
-			<result name="input">/commons/prompt.jsp</result>
-			<interceptor-ref name="fileMovieStack" />
+			<result name="input">/commons/prompt.jsp</result>			
 		</action>
 		<action name="updateCourseMovieAction" method="updateCourseMovie"
 			class="courseMovieAction">			
@@ -889,7 +888,7 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 			<result name="input">/commons/prompt.jsp</result>
-			<interceptor-ref name="fileMovieStack" />
+			
 		</action>
 		<action name="deleteCourseMovieAction" method="deleteCourseMovie"
 			class="courseMovieAction">
