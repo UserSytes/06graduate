@@ -6,9 +6,13 @@ import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Message;
 import cn.edu.xmu.course.pojo.Topic;
 import cn.edu.xmu.course.pojo.UserInfo;
-
+/**
+ * 负责留言板中留言的接口
+ * @author 许子彦
+ * @author 何申密
+ *
+ */
 public interface IMessageService {
-	public List getAllMessages(Topic topic,int pageSize, int pageNow);
 	public Message getMessageById(Integer id);
 	/**
 	 * 添加新的主题和留言
