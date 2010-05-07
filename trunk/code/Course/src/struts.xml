@@ -1059,13 +1059,13 @@
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="goAddCourseStudentAction" method="courseDetail"
-			class="studentCourseAction">
+			class="courseAction">
 			<result name="success">/admin/coursemanage/addstudent.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="goAddCourseStudentBatchAction" method="courseDetail"
-			class="studentCourseAction">
+			class="courseAction">
 			<result name="success">/admin/coursemanage/addstudentbatch.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
