@@ -31,7 +31,20 @@
 			alert("E-mail不能为空！");
 			return false;
 		}
-
+		var re2 = /^[0-9]*$/;
+		var re = /^([a-zA-Z0-9_-])+@+([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+		var email = form.email.value;
+		var phone = form.mobile.value;
+		if (!re2.test(phone)) {
+			alert("电话号码应全为数字，请输入正确电话号码");
+			return false;
+		}
+		
+		if (!re.test(email)) {
+			alert("E_mail格式错误，请输入正确邮箱！");
+			return false;
+		}
+		
 		return true;
 	}
 
