@@ -45,7 +45,7 @@
 										value="stuCount" />人</span>
 								</font><a
 									style="float: right;"
-									href="${ctx}/coursepage/evaluation/studentevaluate.jsp">我要重新评价</a>
+									href="reStuEvaluationAction.action">我要重新评价</a>
 								
 							</td>
 						</tr>

@@ -21,18 +21,55 @@
 		<script type="text/javascript" src="${ctx}/js/mail.js"></script>
 		<script type="text/javascript" src="${ctx}/js/prototype.js"></script>
 <SCRIPT language=javascript>
-	function check(form) {
+	function check(form) {		
 		if (form.expertName.value == "") {
 			alert("姓名不能为空！");
 			return false;
 		}
+		if (form.expertCompany.value == "") {
+			alert("单位不能为空！");
+			return false;
+		}
+		if (form.expertPosition.value == "") {
+			alert("职位不能为空！");
+			return false;
+		}
+		if (form.expertPhone.value == "") {
+			alert("电话不能为空！");
+			return false;
+		}
+		var re2 = /^[0-9]*$/;
+		if (!re2.test(form.expertPhone.value)) {
+			alert("电话格式错误，请输入正确电话！");
+			return false;
+		}
+		if (form.expertEmail.value == "") {
+			alert("邮箱不能为空！");
+			return false;
+		}
+		var re = /^([a-zA-Z0-9_-])+@+([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+		if (!re.test(form.expertEmail.value)) {
+			alert("Email格式错误，请输入正确邮箱！");
+			return false;
+		}
+		if (form.score.value == "") {
+			alert("分数不能为空！");	
+			form.score.focus();	
+			return false;
+		}			
 		var   filter=/0-100/; 
 		if (!filter.test(form.score.value)) {
 			alert("要输入0-100的数字");
 			return false;
-		}		
+		}
+		var oEditor = FCKeditorAPI.GetInstance("evaluation.content");
+   		if(oEditor.GetXHTML(true) == "")
+   		{
+   			alert("内容不能为空！");
+			return false;
+   		}		
 		return true;
-	}
+		}
 </SCRIPT>
 	</head>
 	<body>
