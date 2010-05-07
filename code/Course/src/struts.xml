@@ -1049,6 +1049,12 @@
 		<action name="deleteStudentFromCourseAction" method="deleteStudent"
 			class="studentCourseAction">
 			<result name="success" type="redirect">
+				viewCourseStudentAction.action?courseId=${courseId}</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="deleteStudentFromCourseByTeacherAction" method="deleteStudent"
+			class="studentCourseAction">
+			<result name="success" type="redirect">
 				viewCourseStudentByTeaAction.action?courseId=${courseId}</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
@@ -1192,7 +1198,7 @@
 		</action>
 		<action name="addGradeAction" method="addGrade" class="schoolManageAction">
 			<result name="success">/commons/prompt.jsp</result>
-			<result name="error">/commons/error.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="deleteDepartmentAction" method="deleteDepartment"
 			class="schoolManageAction">

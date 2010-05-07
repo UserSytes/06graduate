@@ -137,7 +137,7 @@ a{
 									<font color="green">【发站内信】</font> </a>
 								<br>
 								<a
-									href="<s:url action="deleteStudentFromCourseAction"> 
+									href="<s:url action=""deleteStudentFromCourseByTeacherAction""> 
                      			<s:param name="studentId"> 
                        			 	<s:property value="id"/> 
                     			</s:param>

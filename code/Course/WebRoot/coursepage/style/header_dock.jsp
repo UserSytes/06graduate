@@ -209,6 +209,7 @@
 	<body>
 		<a id="corner" href="#"><img
 				src="${ctx}/coursepage/style/common/corner.png" /> </a>
+<div style="display: none;">
 		<div id="mm" class="easyui-menu" style="width: 100px;">
 			<div>
 				<span>风格</span>
@@ -260,6 +261,7 @@
 				返回首页
 			</div>
 		</div>
+</div>
 		<div id="header">
 			<div class="dock" id="dock">
 				<div class="dock-container" id="dock-container">
