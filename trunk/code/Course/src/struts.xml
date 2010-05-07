@@ -49,6 +49,7 @@
         <!-- 定义拦截器栈 -->
 			<interceptor-stack name="fileTextStack">
 				<interceptor-ref name="fileUpload">
+					<param name="maximumSize">10485760</param> 
 					<param name="allowedTypes">
 						application/msword,application/vnd.ms-powerpoint,application/pdfW</param>
 				</interceptor-ref>
@@ -56,6 +57,7 @@
 			</interceptor-stack>
 			<interceptor-stack name="fileImgStack">
 				<interceptor-ref name="fileUpload">
+					<param name="maximumSize">10485760</param> 
 					<param name="allowedTypes">
 						image/x-ms-bmp,image/jpeg,image/gif,image/png,image/pjpeg,image/x-png</param>
 				</interceptor-ref>
@@ -63,6 +65,7 @@
 			</interceptor-stack>
 			<interceptor-stack name="fileMovieStack">
 				<interceptor-ref name="fileUpload">
+				<param name="maximumSize">104857600</param> 
 					<param name="allowedTypes">
 						video/x-msvideo,video/x-sgi-movie,video/mpeg,application/x-pn-realaudio,audio/x-wav</param>
 				</interceptor-ref>
@@ -947,15 +950,21 @@
 			<result name="success" type="redirect-action">getBookListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
-			<result name="input">/commons/prompt.jsp</result>
-			<interceptor-ref name="fileTextStack" />			
+			<result name="input">/commons/prompt.jsp</result>	
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">10485760</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/> 				
 		</action>
 		<action name="updateBookAction" method="updateBook" class="bookAction">
 			<result name="success" type="redirect-action">getBookListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 			<result name="input">/commons/prompt.jsp</result>
-			<interceptor-ref name="fileTextStack" />
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">10485760</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/> 			
 		</action>
 		<action name="deleteBookAction" method="deleteBook" class="bookAction">
 			<result name="success" type="redirect-action">getBookListByCourseAction
