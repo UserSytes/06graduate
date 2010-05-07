@@ -16,7 +16,7 @@
 			{
 				if(form.title.value == "")
 				{
-					alert("课程通知标题不能为空！");
+					alert("标题不能为空！");
 					return false;
 				}				
 				if (form.courseId.value == -1)
@@ -25,11 +25,11 @@
 					return false;
 				}
 				  var oEditor = FCKeditorAPI.GetInstance("achievement.content");
-   				if(oEditor.(true) == "")
+   				if(oEditor.GetXHTML(true) == "")
    				{
    					alert("内容不能为空！");
 					return false;
-   				}			
+   				}				
 									
 			}
 		</SCRIPT>
