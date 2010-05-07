@@ -1,20 +1,20 @@
 package cn.edu.xmu.course.commons;
 
 /**
- * è¯¾ç¨‹è¯„ä»·ä¿¡æ¯
- * @author éƒ‘å†°å‡Œ
+ * ¿Î³ÌÆÀ¼ÛĞÅÏ¢
+ * @author Ö£±ùÁè
  *
  */
 public class CourseEvaluate implements java.io.Serializable{
 
-	private String courseName; //è¯¾ç¨‹åç§°
-	private String teacherName; //æ•™å¸ˆå§“å
-	private Object stuAvgScore = 0; //å­¦ç”Ÿè¯„ä»·
-	private Object expertAvgScore = 0; //ä¸“å®¶è¯„ä»·
-	private Object teacherAvgScore = 0; //æ•™å¸ˆè¯„ä»·
-	private Object stuCount; //å­¦ç”Ÿè¯„ä»·äººæ•°
-	private Object expertCount; //ä¸“å®¶è¯„ä»·äººæ•°
-	private Object teacherCount; //æ•™å¸ˆè¯„ä»·äººæ•°
+	private String courseName; //¿Î³ÌÃû³Æ
+	private String teacherName; //½ÌÊ¦ĞÕÃû
+	private Object stuAvgScore = 0; //Ñ§ÉúÆÀ¼Û
+	private Object expertAvgScore = 0; //×¨¼ÒÆÀ¼Û
+	private Object teacherAvgScore = 0; //½ÌÊ¦ÆÀ¼Û
+	private Object stuCount; //Ñ§ÉúÆÀ¼ÛÈËÊı
+	private Object expertCount; //×¨¼ÒÆÀ¼ÛÈËÊı
+	private Object teacherCount; //½ÌÊ¦ÆÀ¼ÛÈËÊı
 	
 	public String getCourseName() {
 		return courseName;
