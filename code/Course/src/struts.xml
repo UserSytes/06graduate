@@ -712,7 +712,19 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
+		<action name="deleteEvaluationAction" method="deleteEvaluation"
+			class="evaluationAction">
+			<result name="success" type="redirect-action">getEvaluationListByCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		<action name="addEvaTeacherAction" method="addEvaTeacher"
+			class="evaluationAction">
+			<result name="success" type="redirect-action">getEvaTeacherListByCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteEvaTeacherAction" method="deleteEvaluation"
 			class="evaluationAction">
 			<result name="success" type="redirect-action">getEvaTeacherListByCourseAction
 			</result>

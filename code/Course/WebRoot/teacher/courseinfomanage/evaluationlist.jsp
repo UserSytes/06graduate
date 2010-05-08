@@ -14,7 +14,7 @@
 		<script type="text/javascript"
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
 		<script type="text/javascript" src="${ctx}/js/jquery.pagination.js"></script>
-<script type="text/javascript">
+		<script type="text/javascript">
 $(document).ready(function(){
 	//这是一个非常简单的demo实例，让列表元素分页显示
 	//回调函数的作用是显示对应分页的列表项内容
@@ -41,14 +41,14 @@ $(document).ready(function(){
 	</head>
 	<body>
 		<div align="center">
-		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
-			align=center border=0>
-			<tr class=position bgcolor="#ECF3FD">
-				<td>
-					当前位置: 我的课程 -&gt; 课程评价列表
-				</td>
-			</tr>
-		</table>
+			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+				align=center border=0>
+				<tr class=position bgcolor="#ECF3FD">
+					<td>
+						当前位置: 我的课程 -&gt; 课程评价列表
+					</td>
+				</tr>
+			</table>
 		</div>
 		<div align="center">
 			<table id="table" class="listTable" style="">
@@ -66,42 +66,64 @@ $(document).ready(function(){
 					<th>
 						评分
 					</th>
-<th>
-状态
-</th>
+					<th>
+						状态
+					</th>
 					<th>
 						操作
 					</th>
 				</tr>
 				<tbody id="tbody" style="display: none;">
-				<s:iterator value="evaluationList" status="evaluation">
-					<tr class="listTr">
-						<td>
-							<s:property value="name" />
-						</td>
-						<td>
-							<s:property value="position" />
-						</td>
-						<td>
-							<s:property value="company" />
-						</td>
-						<td>
-							<s:property value="score" />
-						</td>
-<td>
-							<s:if test="status==1">己评</s:if>
-						<s:if test="status==0">未评</s:if>
-						<td>
-							<a
-								href="<s:url action="getEvaluationDetailAction"> 
+					<s:iterator value="evaluationList" status="evaluation">
+						<tr class="listTr">
+							<td>
+								<s:property value="name" />
+							</td>
+							<td>
+								<s:property value="position" />
+							</td>
+							<td>
+								<s:property value="company" />
+							</td>
+							<td>
+								<s:property value="score" />
+							</td>
+							<td>
+								<s:if test="status==1">己评</s:if>
+								<s:if test="status==0">未评</s:if>
+							<td>
+								<a
+									href="<s:url action="getEvaluationDetailAction"> 
                      			<s:param name="evaluationId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
-								<font color="green">【查看详情】</font> </a>
-						</td>
-					</tr>
-				</s:iterator></tbody>
+									<font color="green">【查看详情】</font> </a>
+								<s:if test="sort==0">
+									<a
+										href="<s:url action="deleteEvaluationAction"> 
+                     			<s:param name="evaluationId"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param> 
+                					</s:url>"
+										onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
+										<font color="red">【删除】</font> </a>
+								</s:if>
+								<s:if test="sort==1">
+									<a
+										href="<s:url action="deleteEvaTeacherAction"> 
+                     			<s:param name="evaluationId"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param> 
+                					</s:url>"
+										onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
+										<font color="red">【删除】</font> </a>
+								</s:if>
+
+							</td>
+						</tr>
+					</s:iterator>
+				</tbody>
 			</table>
 			<div id="Pagination" class="pagination"></div>
 		</div>

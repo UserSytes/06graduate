@@ -45,7 +45,7 @@
 		});
 	}
 </script>
-	<div align="center">
+	<div align="center" width="98%">
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
@@ -62,10 +62,8 @@
 		</table>
 		<div id="courseListMain" align="center">
 			<s:include value="courseslist.jsp"></s:include>
-		</div>
-		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
-			align=center border=0>
-			<div align="left" style="border: 1px solid #ccc;padding: 10px;">
+		</div>		
+			<div align="left" style="border: 1px solid #ccc;padding: 10px; width: 98%">
 				<img src="${ctx}/teacher/images/icon_1.png" width="16" height="16" />
 				<strong><font color="red" size="3"> 提示</font> </strong>
 				<div id="content_note">
@@ -83,13 +81,12 @@
 							删除某课程会把与该课程所有有关的信息全部删除，请谨慎选择。
 						</li>
 						<li>
-							如果您希望课程不被公开访问，请点击课程详情，选择公开访问为否。
+							如果您希望课程不被公开访问，请点击课程详情，选择开放对象。
 						</li>
 					</ul>
 
 				</div>
-			</div>
-		</table>
+			</div>		
 	</div>
 	</body>
 </html>
