@@ -17,6 +17,7 @@
 				if(form.title.value == "")
 				{
 					alert("成果标题不能为空！");
+					form.title.focus();
 					return false;
 				}
 				var time= dojo.widget.byId("time");
@@ -31,6 +32,7 @@
    					alert("内容不能为空！");
 					return false;
    				}			
+   				form.submit.disabled = true;
 									
 			}
 		</SCRIPT>
@@ -110,7 +112,7 @@
 						&nbsp;
 					</td>
 					<td width="90%">
-						<s:submit cssClass="label" value="确认" />
+						<s:submit id="submit" cssClass="label" value="确认" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>

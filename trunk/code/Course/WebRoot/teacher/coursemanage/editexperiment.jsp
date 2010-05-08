@@ -9,7 +9,7 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<title>编辑习题</title>
+		<title>编辑实验指导</title>
 		<SCRIPT language=javascript>
 			function check(form)
 			{
@@ -21,18 +21,21 @@
 				if(form.title.value == "")
 				{
 					alert("实验标题不能为空！");
+					form.title.focus();
 					return false;
 				}
 				if(form.author.value == "")
 				{
-					alert("实验指导作者不能为空！");
+					alert("实验作者不能为空！");
+					form.author.focus();
 					return false;
 				}
 				if(form.upload.value == "")
 				{
 					alert("上传附件不能为空！");
 					return false;
-				}
+				}			
+				form.submit.disabled = true;	
 			}
 		</SCRIPT>
 	</head>
@@ -130,7 +133,7 @@
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit cssClass="label" value="修改" />
+						<s:submit id="submit" cssClass="label" value="修改" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>

@@ -118,6 +118,32 @@
 				</tr>
 			</table>
 			<div id="Pagination" class="pagination"></div>
+  <table bgcolor="white" class=editTable cellSpacing=1 cellPadding=0
+			width="90%" align=center border=0>
+			<TR>
+				<td bgcolor="white">
+					<img src="${ctx}/teacher/images/icon_1.png" width="16" height="16" />
+					<strong><font color="red" size="3"> 提示</font> </strong>
+					<div id="content_note">
+						<ul>							
+							<li>
+								您可以管理各门课程的学生，主要是为课程添加和删除学生。
+							</li>
+							<li>
+								您可以点击对应课程学生列的“查看”链接去查看该课程的所有学生。
+							</li>
+							<li>
+								您可以通过点击列表中对应课程的“添加”操作来添加学生到改课程中。
+							</li>
+							<li>
+								您也可以点击“批量添加”，一次性添加大量学生到课程中。
+							</li>
+						</ul>
+					</div>
+				</td>
+			</TR>
+		</table>
 		</div>
+
 	</body>
 </html>

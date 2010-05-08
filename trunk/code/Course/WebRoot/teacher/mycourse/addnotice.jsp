@@ -14,23 +14,25 @@
 		<SCRIPT language=javascript>
 			function check(form)
 			{
-				if(form.title.value == "")
-				{
-					alert("标题不能为空！");
-					return false;
-				}				
 				if (form.courseId.value == -1)
 				{
 					alert("请先选择一门课程！");
 					return false;
 				}
+				if(form.title.value == "")
+				{
+					alert("标题不能为空！");
+					form.title.focus();
+					return false;
+				}				
+				
 				  var oEditor = FCKeditorAPI.GetInstance("achievement.content");
    				if(oEditor.GetXHTML(true) == "")
    				{
    					alert("内容不能为空！");
 					return false;
    				}				
-									
+				form.submit.disabled = true;						
 			}
 		</SCRIPT>
 	</head>
@@ -110,7 +112,7 @@
 						&nbsp;
 					</td>
 					<td width="90%">
-						<s:submit cssClass="label" value="确认" />
+						<s:submit id="submit" cssClass="label" value="确认" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>

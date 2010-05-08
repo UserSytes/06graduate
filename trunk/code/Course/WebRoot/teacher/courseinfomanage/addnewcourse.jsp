@@ -15,43 +15,39 @@
 	<body onload="getSchool()">
 		<script type="text/javascript" src="/course/dwr/engine.js"></script>
 		<script type="text/javascript" src="/course/dwr/util.js"></script>
-		<script type="text/javascript" src="/course/dwr/interface/DepartmentDAO.js"></script>
-		<script type="text/javascript" src="/course/dwr/interface/SchoolDAO.js"></script>
-		<script language="javascript">	
-
+		<script type="text/javascript"
+			src="/course/dwr/interface/DepartmentDAO.js"></script>
+		<script type="text/javascript"
+			src="/course/dwr/interface/SchoolDAO.js"></script>
+		<script language="javascript">
 	function getSchool() {
-
 		SchoolDAO.findAll(callbackorg);
-
 	}
-
 	function callbackorg(data) {
 		DWRUtil.addOptions("School", data, "id", "name");
-
 	}
 	function getDepartment(prvid) {
-
 		if (prvid == -1) {
 		} else {
 			DepartmentDAO.findBySchool(prvid, callbackorg2);
-
 		}
 	}
 	function callbackorg2(data) { //显示出二级类别
-
 		DWRUtil.removeAllOptions("Department");
 		DWRUtil.addOptions("Department", data, "id", "name");
 	}
-		function check(form) {
+	function check(form) {
 		if (form.Department.value == -1) {
-			alert("请选择院系！");
+			alert("请先选择申报的院系！");
 			return false;
 		}
 		if (form.name.value == "") {
-			alert("课程名称不能为空！");
+			alert("名字不能为空！");
+			form.name.focus();
 			return false;
 		}
-	
+		form.submit.disabled = true;
+
 	}
 </script>
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
@@ -113,7 +109,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="course.name" cssClass="input" />
+						<s:textfield id="name" name="course.name" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -132,7 +128,7 @@
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit loadingText="正在提交，请稍候……" cssClass="label" value="确认" />
+						<s:submit id="submit" cssClass="label" value="确认" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>

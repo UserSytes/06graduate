@@ -16,15 +16,44 @@
 		<script>jQuery.noConflict();</script>
 		<title>修改密码</title>
 		<SCRIPT language=javascript>
-			function check(form)
-			{
-				if (form.userName.value == "")
-				{
-					alert("名字不能为空！");
-					return false;
-				}
-			}
-		</SCRIPT>
+	function check(form) {		
+		if (form.name.value == "") {
+			alert("名字不能为空！");
+			form.name.focus();
+			return false;
+		}
+		if (form.position.value == "") {
+			alert("职称不能为空！");
+			form.position.focus();
+			return false;
+		}	
+		if (form.email.value == "") {
+			alert("E-mail不能为空！");
+			form.email.focus();
+			return false;
+		}	
+		if (form.mobile.value == "") {
+			alert("电话不能为空！");
+			form.mobile.focus();
+			return false;
+		}		
+		var re2 = /^[0-9]*$/;
+		var re = /^([a-zA-Z0-9_-])+@+([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+		
+		var email = form.email.value;
+		var phone = form.mobile.value;
+		if (!re.test(email)) {
+			alert("E_mail格式错误，请输入正确邮箱！");
+			return false;
+		}
+		if (!re2.test(phone)) {
+			alert("电话号码应全为数字，请输入正确电话号码");
+			return false;
+		}
+		form.submit.disabled = true;	
+		return true;
+	}
+</SCRIPT>
 		<style type="text/css">
 form {
 	margin: 0;
@@ -257,7 +286,7 @@ TR.position {
 								</td>
 								<td colspan="3" bgcolor="#FFFFFF">
 									&nbsp;&nbsp;&nbsp;
-									<s:textfield id="userName" name="userInfo.name"
+									<s:textfield id="name" name="userInfo.name"
 										cssClass="input" />
 								</td>
 							</tr>
@@ -269,7 +298,7 @@ TR.position {
 								</td>
 								<td colspan="3" bgcolor="#FFFFFF">
 									&nbsp;&nbsp;&nbsp;
-									<s:textfield name="teacher.position" cssClass="input" />
+									<s:textfield id="position" name="teacher.position" cssClass="input" />
 								</td>
 							</tr>
 							<tr>
@@ -291,7 +320,7 @@ TR.position {
 								</td>
 								<td colspan="3" bgcolor="#FFFFFF">
 									&nbsp;&nbsp;&nbsp;
-									<s:textfield name="userInfo.email" cssClass="INPUT" />
+									<s:textfield id="email" name="userInfo.email" cssClass="INPUT" />
 								</td>
 							</tr>
 							<tr>
@@ -302,7 +331,7 @@ TR.position {
 								</td>
 								<td colspan="3" bgcolor="#FFFFFF">
 									&nbsp;&nbsp;&nbsp;
-									<s:textfield name="userInfo.mobile" cssClass="INPUT" />
+									<s:textfield id="mobile" name="userInfo.mobile" cssClass="INPUT" />
 								</td>
 							</tr>
 							<tr class=editHeaderTr>
@@ -310,7 +339,7 @@ TR.position {
 									&nbsp;
 								</td>
 								<td width="70%">
-									<s:submit cssClass="label" value="确认" />
+									<s:submit id="submit" cssClass="label" value="确认" />
 									<s:reset cssClass="label" value="取消" />
 								</td>
 							</tr>

@@ -10,7 +10,23 @@
 		<META http-equiv=Expires content=-1000>
 		<link type=text/css rel=stylesheet href="${ctx}/homepage/link.css">
 		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
-		<title></title>
+		<title>回复邮件</title>
+<script type="text/javascript">
+function check(form) {		
+		if (form.title.value == "") {
+			alert("消息标题不能为空！");
+			form.title.focus();
+			return false;
+		}
+		if (form.content.value == "") {
+			alert("消息内容不能为空！");
+			form.content.focus();
+			return false;
+		}
+		form.sendmsg.disabled = true;	
+		form.saveDraft.disabled = true;	
+	}
+</script>
 	</head>
 	<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0"
 		background="${ctx}/homepage/image/back_img.gif"
@@ -136,7 +152,7 @@
 													<td>
 														<s:submit id="sendmsg" method="addReplyMailByStu"
 															value="立即发送"></s:submit>
-														<s:submit method="addReplyDraftByStu" value="存为草稿" />
+														<s:submit id="saveDraft" method="addReplyDraftByStu" value="存为草稿" />
 													</td>
 												</tr>
 

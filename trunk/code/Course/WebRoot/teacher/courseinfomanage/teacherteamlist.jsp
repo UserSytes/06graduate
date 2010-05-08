@@ -44,7 +44,7 @@ $(document).ready(function(){
 			window.open(url);
 			}
 			function goToAddteacherTeam(){
-			 window.location.href="courseinfomanage/addteacherteam.jsp";
+			 window.location.href="${ctx}/teacher/courseinfomanage/addteacherteam.jsp";
 			}
 
 		</SCRIPT>

@@ -10,10 +10,12 @@
 	function check(form) {
 		if (form.userName.value == "") {
 			alert("账号不能为空！");
+			form.userName.focus();
 			return false;
 		}
 		if (form.password.value == "") {
 			alert("密码不能为空！");
+			form.password.focus();
 			return false;
 		}
 		if (form.flag.value == -1) {

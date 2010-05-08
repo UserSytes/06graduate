@@ -26,9 +26,9 @@
 		<script type="text/javascript">
 	var flag = true;
 	function check(form) {
-		
 		if (form.receiverid.value == "") {
 			alert("收件人不能为空！");
+			form.receiverid.focus();
 			return false;
 		}
 		if (flag == false) {
@@ -37,12 +37,16 @@
 		}
 		if (form.title.value == "") {
 			alert("消息标题不能为空！");
+			form.title.focus();
 			return false;
 		}
 		if (form.content.value == "") {
 			alert("消息内容不能为空！");
+			form.content.focus();
 			return false;
 		}
+		form.sendmsg.disabled = true;	
+		form.saveDraft.disabled = true;	
 	}
 	
 	function validateTeacher() {
@@ -204,7 +208,7 @@
 								<th></th>
 								<td>
 									<s:submit id="sendmsg" method="addNewMailByStu" value="立即发送"></s:submit>
-									<s:submit method="addDraftByStu" value="存为草稿" />
+									<s:submit id="saveDraft" method="addDraftByStu" value="存为草稿" />
 								</td>
 							</tr>
 

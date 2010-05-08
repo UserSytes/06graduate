@@ -16,16 +16,19 @@
 				if (form.evaname.value == "")
 				{
 					alert("名字不能为空！");
+					form.evaname.focus();
 					return false;
 				}
 				if (form.evapassword.value == "")
 				{
 					alert("密码不能为空！");
+					for.evapassword.focus();
 					return false;
 				}
 				if (form.confirmPwd.value == "")
 				{
 					alert("确认密码不能为空！");
+					focus.confirmPwd.focus();
 					return false;
 				}
 				if (form.password.value != form.confirmPwd.value)
@@ -33,6 +36,7 @@
 					alert("两次输入的密码不一致，请重新输入！");
 					return false;
 				}
+				form.submit.disabled = true;
 			}
 		</SCRIPT>
 	</head>
@@ -92,7 +96,7 @@
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit cssClass="label" value="确认" />
+						<s:submit id="submit" cssClass="label" value="确认" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>

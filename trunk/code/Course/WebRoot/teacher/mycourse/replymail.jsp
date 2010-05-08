@@ -12,6 +12,22 @@
 		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
 		<script>jQuery.noConflict();</script>
 		<title></title>
+<script type="text/javascript">
+function check(form) {		
+		if (form.title.value == "") {
+			alert("消息标题不能为空！");
+			form.title.focus();
+			return false;
+		}
+		if (form.content.value == "") {
+			alert("消息内容不能为空！");
+			form.content.focus();
+			return false;
+		}
+		form.sendmsg.disabled = true;	
+		form.saveDraft.disabled = true;	
+	}
+</script>
 	</head>
 	<body>
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
@@ -93,7 +109,7 @@
 							<th></th>
 							<td>
 								<s:submit id="sendmsg" method="addReplyMailByTea" value="立即发送"></s:submit>
-								<s:submit method="addReplyDraftByTea" value="存为草稿" />
+								<s:submit id="saveDraft" method="addReplyDraftByTea" value="存为草稿" />
 							</td>
 						</tr>
 

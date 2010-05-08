@@ -23,7 +23,7 @@
 		</table>
 
 		<s:form action="updateCourseAction" method="post"
-			onsubmit="return check(this);">
+			onsubmit="submit.disabled=1">
 			<s:hidden name="course.id"></s:hidden>
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
@@ -118,7 +118,7 @@
 							&nbsp;
 						</td>
 						<td width="70%">
-							<s:submit loadingText="正在提交，请稍候……" cssClass="label" value="确认" />
+							<s:submit id="submit" cssClass="label" value="确认" />
 							<s:reset cssClass="lable" value="取消"></s:reset>
 						</td>
 					</tr>

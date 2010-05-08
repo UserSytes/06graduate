@@ -10,15 +10,16 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
 		<title>添加学生</title>
-		<script type="text/javascript" src="/dwr/engine.js"></script>
-		<script type="text/javascript" src="/dwr/util.js"></script>
-		<script type="text/javascript" src="/dwr/interface/StudentInfoService.js"></script>
+		<script type="text/javascript" src="${ctx}/dwr/engine.js"></script>
+		<script type="text/javascript" src="${ctx}/dwr/util.js"></script>
+		<script type="text/javascript" src="${ctx}/dwr/interface/StudentInfoService.js"></script>
 		<SCRIPT language=javascript>
 	function check(form) {
 		if (form.studentNo.value == "") {
 			alert("学号不能为空！");
+			form.studentNo.focus();
 			return false;
-		}
+		}		
 		return true;
 	}
 	function getStudentName(stuNo) {
@@ -102,7 +103,7 @@
 						&nbsp;
 					</td>
 					<td width="80%">
-						<s:submit id="button" cssClass="label" value="确定添加"></s:submit>
+						<s:submit id="button" disabled="true" cssClass="label" value="确定添加"></s:submit>
 					</td>
 				</tr>
 			</table>

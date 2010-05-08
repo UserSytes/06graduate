@@ -16,8 +16,10 @@
 		var   filter=/0-100/; 
 		if (!filter.test(form.score.value)) {
 			alert("要输入0-100的数字");
+			form.score.focus();
 			return false;
 		}		
+		form.submit.disabled = true;	
 		return true;
 	}
 </SCRIPT>
@@ -75,7 +77,7 @@
 											<td width="20"></td>
 											</td>
 											<td>
-												<s:submit cssClass="label" value="确认" />
+												<s:submit id="submit" cssClass="label" value="确认" />
 												<s:reset cssClass="label" value="取消" />
 											</td>
 										</tr>

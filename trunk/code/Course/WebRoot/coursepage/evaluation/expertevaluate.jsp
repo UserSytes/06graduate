@@ -12,36 +12,43 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
-<SCRIPT language=javascript>
+<script type="text/javascript">
 	function check(form) {		
 		if (form.expertName.value == "") {
 			alert("姓名不能为空！");
+			form.expertName.focus();
 			return false;
 		}
 		if (form.expertCompany.value == "") {
 			alert("单位不能为空！");
+			form.expertCompany.focus();
 			return false;
 		}
 		if (form.expertPosition.value == "") {
 			alert("职位不能为空！");
+			form.expertPosition.focus();
 			return false;
 		}
 		if (form.expertPhone.value == "") {
 			alert("电话不能为空！");
+			form.expertPhone.focus();
 			return false;
 		}
 		var re2 = /^[0-9]*$/;
 		if (!re2.test(form.expertPhone.value)) {
 			alert("电话格式错误，请输入正确电话！");
+			form.expertPhone.focus();
 			return false;
 		}
 		if (form.expertEmail.value == "") {
 			alert("邮箱不能为空！");
+			form.expertEmail.focus();
 			return false;
 		}
 		var re = /^([a-zA-Z0-9_-])+@+([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
 		if (!re.test(form.expertEmail.value)) {
 			alert("Email格式错误，请输入正确邮箱！");
+			form.expertEmail.focus();
 			return false;
 		}
 		if (form.score.value == "") {
@@ -52,6 +59,7 @@
 		var   filter=/0-100/; 
 		if (!filter.test(form.score.value)) {
 			alert("要输入0-100的数字");
+			form.score.focus();	
 			return false;
 		}
 		var oEditor = FCKeditorAPI.GetInstance("evaluation.content");
@@ -60,6 +68,8 @@
    			alert("内容不能为空！");
 			return false;
    		}		
+   		form.submit1.disabled = true;
+   		form.submit2.disabled = true;		
 		return true;
 		}
 </SCRIPT>
@@ -210,10 +220,10 @@
 										</tr>
 									</table>
 									<div style="margin-left: 200px;">
-										<s:submit cssClass="label" name="expertEvaluate" value="确定添加"
+										<s:submit id="submit1" cssClass="label" name="expertEvaluate" value="确定添加"
 											method="expertEvaluate">
 										</s:submit>
-										<s:submit cssClass="label" name="expertEvaluateDraft"
+										<s:submit id="submit2" cssClass="label" name="expertEvaluateDraft"
 											value="保存草稿" method="expertEvaluateDraft" />
 										<s:reset cssClass="label" value="取消" />
 									</div>

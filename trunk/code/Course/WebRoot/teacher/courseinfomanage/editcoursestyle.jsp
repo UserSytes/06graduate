@@ -46,6 +46,7 @@
 			}).filter(":first").click();
 			$("#setstyle").click( function() {
 			var courseId = $("#courseId").val();
+			this.disabled=1;
 				window.location.href="setCourseStyleAction.action?courseId="+courseId+"&style="+style;
 			});
 			

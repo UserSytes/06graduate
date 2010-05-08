@@ -16,23 +16,28 @@
 				if (form.password.value == "")
 				{
 					alert("原密码不能为空！");
+					form.password.focus();
 					return false;
 				}
 				if (form.newPassword.value == "")
 				{
 					alert("新密码不能为空！");
+					form.newPassword.focus();
 					return false;
 				}
 				if (form.confirmPassword.value == "")
 				{
 					alert("确认密码不能为空！");
+					form.confirmPassword.focus();
 					return false;
 				}
 				if (form.confirmPassword.value != form.newPassword.value)
 				{
 					alert("两次输入的新密码不一致，请重新输入！");
+					form.confirmPassword.focus();
 					return false;
 				}
+				form.submit.disabled = true;	
 			}
 		</SCRIPT>
 		<style type="text/css">
@@ -106,7 +111,7 @@
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit cssClass="label" value="确认" />
+						<s:submit id="submit" cssClass="label" value="确认" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>

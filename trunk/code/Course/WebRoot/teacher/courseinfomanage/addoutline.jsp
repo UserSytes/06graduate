@@ -14,6 +14,19 @@
 		<SCRIPT language=javascript>
 			function check(form)
 			{
+				if(form.title.value == "")
+				{
+					alert("标题不能为空！");
+					form.title.focus();
+					return false;
+				}				
+				var oEditor = FCKeditorAPI.GetInstance("courseInfo.content");
+   				if(oEditor.GetXHTML(true) == "")
+   				{
+   					alert("内容不能为空！");
+					return false;
+   				}		
+   				form.submit.disabled = true;	
 			}
 		</SCRIPT>
 	</head>
@@ -48,7 +61,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="courseInfo.title" cssClass="input" size="100"/>
+						<s:textfield id="title" name="courseInfo.title" cssClass="input" size="100"/>
 					</td>
 				</tr>
 				<tr>
@@ -77,7 +90,7 @@
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit cssClass="label" value="确认" />
+						<s:submit id="submit" cssClass="label" value="确认" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>

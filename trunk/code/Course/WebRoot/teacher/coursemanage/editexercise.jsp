@@ -21,13 +21,21 @@
 				if(form.title.value == "")
 				{
 					alert("习题标题不能为空！");
+					form.title.focus();
 					return false;
 				}
+				if (form.author.value == "")
+				{
+					alert("习题作者不能为空！");
+					form.author.focus();
+					return false;
+				}	
 				if(form.upload.value == "")
 				{
 					alert("上传习题不能为空！");
 					return false;
 				}
+				form.submit.disabled = true;
 			}
 		</SCRIPT>
 	</head>
@@ -80,6 +88,17 @@
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
+							作者：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<s:textfield id="author" name="exercise.author" cssClass="input" />
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
 							上传课件：
 						</div>
 					</td>
@@ -114,7 +133,7 @@
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit cssClass="label" value="修改" />
+						<s:submit id="submit" cssClass="label" value="修改" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>
