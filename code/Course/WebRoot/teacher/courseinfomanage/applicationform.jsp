@@ -10,15 +10,40 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
 		<title>申报表格</title>
-		<SCRIPT language=javascript>
-			function check(form)
-			{
-				if (form.userName.value == "")
-				{
-					alert("名字不能为空！");
-					return false;
-				}
-			}
+		<script type="text/javascript">
+		function check(form)
+		{
+		if (form.userName.value == "")
+		{
+			alert("名字不能为空！");
+			form.userName.focus();
+			return false;
+		}
+		if (form.position.value == "") {
+			alert("职位不能为空！");
+			form.position.focus();
+			return false;
+		}		
+		if (form.email.value == "") {
+			alert("邮箱不能为空！");
+			return false;
+		}
+		var re = /^([a-zA-Z0-9_-])+@+([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+		if (!re.test(form.email.value)) {
+			alert("Email格式错误，请输入正确邮箱！");
+			return false;
+		}
+		if (form.mobile.value == "") {
+			alert("电话不能为空！");
+			return false;
+		}
+		var re2 = /^[0-9]*$/;
+		if (!re2.test(form.expertPhone.value)) {
+			alert("电话格式错误，请输入正确电话！");
+			return false;
+		}
+		form.submit.disabled = true;
+		}
 		</SCRIPT>
 	</head>
 
@@ -67,13 +92,14 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="teacher.position" cssClass="input" />
+						<s:textfield id="position" name="teacher.position"
+							cssClass="input" />
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							性别:
+							性别：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
@@ -89,7 +115,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="userInfo.email" cssClass="INPUT" />
+						<s:textfield id="email" name="userInfo.email" cssClass="INPUT" />
 					</td>
 				</tr>
 				<tr>
@@ -100,7 +126,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="userInfo.mobile" cssClass="INPUT" />
+						<s:textfield id="mobile" name="userInfo.mobile" cssClass="INPUT" />
 					</td>
 				</tr>
 				<tr class=editHeaderTr>
@@ -108,7 +134,7 @@
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit cssClass="label" value="确认" />
+						<s:submit id="submit" cssClass="label" value="确认" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>

@@ -16,21 +16,25 @@
 				if(form.title.value == "")
 				{
 					alert("录像标题不能为空！");
+					form.title.focus();
 					return false;
 				}
-				if (form.author.value =="")
+				if (form.author.value == "")
 				{
 					alert("主讲人不能为空！");
+					form.author.focus();
 					return false;
 				}
 				if (form.position.value == "")
 				{
 					alert("职称不能为空！");
+					form.position.focus();
 					return false;
 				}
 				if (form.content.value == "")
 				{
 					alert("内容不能为空！");
+					form.content.focus();
 					return false;
 				}
 				var time= dojo.widget.byId("time");
@@ -44,7 +48,7 @@
 					alert("上传录像不能为空！");
 					return false;
 				}
-				
+				form.submit.disabled = true;
 			}
 		</SCRIPT>
 	</head>
@@ -163,7 +167,7 @@
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit cssClass="label" value="修改" />
+						<s:submit id="submit" cssClass="label" value="修改" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>

@@ -13,11 +13,31 @@
 		<SCRIPT language=javascript>
 			function check(form)
 			{
-				if (form.userName.value == "")
+				if (form.name.value == "")
 				{
 					alert("名字不能为空！");
+					form.name.focus();
 					return false;
 				}
+				if (form.position.value == "")
+				{
+					alert("职称不能为空！");
+					form.position.focus();
+					return false;
+				}
+				if (form.field.value == "")
+				{
+					alert("研究领域不能为空！");
+					form.field.focus();
+					return false;
+				}
+				if (form.link.value == "")
+				{
+					alert("个人链接不能为空！");
+					form.link.focus();
+					return false;
+				}
+				form.submit.disabled = true;
 			}
 		</SCRIPT>
 	</head>
@@ -62,7 +82,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="teacherTeam.position" cssClass="input" />
+						<s:textfield id="position" name="teacherTeam.position" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -73,7 +93,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="teacherTeam.field" cssClass="input" />
+						<s:textfield id="field" name="teacherTeam.field" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -84,7 +104,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="teacherTeam.link" cssClass="INPUT" />
+						<s:textfield id="link" name="teacherTeam.link" cssClass="INPUT" />
 					</td>
 				</tr>
 				<tr>
@@ -103,7 +123,7 @@
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit cssClass="label" value="修改" />
+						<s:submit id="submit" cssClass="label" value="修改" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>

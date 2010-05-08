@@ -12,20 +12,23 @@
 		<title>编辑参考书籍</title>
 		<SCRIPT language=javascript>
 			function check(form)
-			{		
+			{				
 				if(form.name.value == "")
 				{
 					alert("书名不能为空！");
+					form.name.focus();
 					return false;
 				}
 				if (form.author.value == "")
 				{
 					alert("作者不能为空！");
+					form.author.focus();
 					return false;
-				}	
+				}
 				if (form.publication.value == "")
 				{
 					alert("出版社不能为空！");
+					form.publication.focus();
 					return false;
 				}				
 				var time= dojo.widget.byId("time");
@@ -34,12 +37,12 @@
 					alert("出版时间不能为空！");
 					return false;
 				}
-				if(form.file.value == "")
+				if(form.upload.value == "")
 				{
-					alert("上传书籍不能为空！");
+					alert("上传书籍不能为空！");					
 					return false;
-				}					
-				
+				}
+				form.submit.disabled = true;				
 			}
 		</SCRIPT>
 	</head>
@@ -114,7 +117,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:file id="file" name="upload"></s:file>
+						<s:file id="upload" name="upload"></s:file>
 					</td>
 				</tr>
 				<tr>
@@ -142,7 +145,7 @@
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit cssClass="label" value="修改" />
+						<s:submit id="submit" cssClass="label" value="修改" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>

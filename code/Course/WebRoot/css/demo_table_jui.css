@@ -3,6 +3,10 @@
  * jQuery UI specific styling
  */
 
+div, span, p, ul, li {
+text-align:left;
+}
+
 .paging_two_button .fg-button {
 	float: left;
 	cursor: pointer;

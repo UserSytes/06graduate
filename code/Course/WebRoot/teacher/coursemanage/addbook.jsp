@@ -16,16 +16,19 @@
 				if(form.name.value == "")
 				{
 					alert("书名不能为空！");
+					form.name.focus();
 					return false;
 				}
 				if (form.author.value == "")
 				{
 					alert("作者不能为空！");
+					form.author.focus();
 					return false;
 				}
 				if (form.publication.value == "")
 				{
 					alert("出版社不能为空！");
+					form.publication.focus();
 					return false;
 				}				
 				var time= dojo.widget.byId("time");
@@ -36,10 +39,10 @@
 				}
 				if(form.upload.value == "")
 				{
-					alert("上传书籍不能为空！");
+					alert("上传书籍不能为空！");					
 					return false;
 				}
-				
+				form.submit.disabled = true;				
 			}
 		</SCRIPT>
 	</head>
@@ -128,7 +131,7 @@
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit cssClass="label" value="确定" />
+						<s:submit id="submit" cssClass="label" value="确定" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>

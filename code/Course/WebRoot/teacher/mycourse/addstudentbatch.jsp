@@ -16,6 +16,7 @@
 			alert("上传文件不能为空！");
 			return false;
 		}
+		form.submit.disabled = true;	
 		return true;
 	}
 </SCRIPT>
@@ -68,7 +69,7 @@
 						&nbsp;
 					</td>
 					<td width="80%">
-						<s:submit cssClass="label" value="确定添加"></s:submit>
+						<s:submit id="submit" cssClass="label" value="确定添加"></s:submit>
 					</td>
 				</tr>
 			</table>

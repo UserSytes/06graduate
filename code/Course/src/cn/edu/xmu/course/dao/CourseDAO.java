@@ -160,7 +160,15 @@ public class CourseDAO extends HibernateDaoSupport {
 	}
 
 	public List findByTeacherId(Object teacherId) {
-		return findByProperty("teacher.id", teacherId);
+		log.debug("finding Course instance with property: teacher.id"
+				+ ", value: " + teacherId);
+		try {
+			String queryString = "from Course as model where model.teacher.id= ?";
+			return getHibernateTemplate().find(queryString, teacherId);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
 	}
 
 	public List findByDepartment(Object department) {

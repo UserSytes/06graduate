@@ -16,6 +16,7 @@ function check(form) {
    			alert("内容不能为空！");
 			return false;
    		}		
+   		form.submit.disabled = true;	
 		return true;
 }
 </script>
@@ -49,7 +50,7 @@ function check(form) {
 					</tr>
 					<tr>
 						<td>
-							<s:submit cssClass="label" value="发表回复"></s:submit>
+							<s:submit id="submit" cssClass="label" value="发表回复"></s:submit>
 						</td>
 					</tr>
 				</table>

@@ -9,30 +9,33 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<title>修改密码</title>
+		<title>编辑课件</title>
 		<SCRIPT language=javascript>
 			function check(form)
-			{
-				if (form.chapterId.value == -1)
+			{	
+				if(form.chapterId.value == -1)
 				{
 					alert("请先选择章节目录！");
 					return false;
-				}
+				}		
 				if(form.title.value == "")
 				{
 					alert("课件标题不能为空！");
+					form.title.focus();
 					return false;
 				}
 				if(form.author.value == "")
 				{
 					alert("课件作者不能为空！");
+					form.author.focus();
 					return false;
 				}
-				if(form.file.value == "")
+				if(form.upload.value == "")
 				{
 					alert("上传课件不能为空！");
 					return false;
 				}
+				form.submit.disabled = true;
 			}
 		</SCRIPT>
 	</head>
@@ -129,7 +132,7 @@
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit cssClass="label" value="确认" />
+						<s:submit id="submit" cssClass="label" value="确认" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>

@@ -51,25 +51,25 @@ $(document).ready(function(){
 	</head>
 	<body>
 		<div align="center">
-		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
-			align=center border=0>
-			<tr class=position bgcolor="#ECF3FD">
-				<td>
-					当前位置: 我的课程 -&gt; 习题列表
-				</td>
-				<td width="200">
-					筛选：&nbsp;&nbsp;&nbsp;
-					<s:select id="chapterId" name="chapterId" list="chapterList"
-						listKey="id" listValue="number+name" headerValue="所有"
-						headerKey="-1" onchange="chapterChange(this.value)" />
-				</td>
-				<td width="40"> 
-					<div align="right">
-						<input type="button" onclick="goToAddExercise()" value="添加习题" />
-					</div>
-				</td>
-			</tr>
-		</table>
+			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+				align=center border=0>
+				<tr class=position bgcolor="#ECF3FD">
+					<td>
+						当前位置: 我的课程 -&gt; 习题列表
+					</td>
+					<td width="200">
+						筛选：&nbsp;&nbsp;&nbsp;
+						<s:select id="chapterId" name="chapterId" list="chapterList"
+							listKey="id" listValue="number+name" headerValue="所有"
+							headerKey="-1" onchange="chapterChange(this.value)" />
+					</td>
+					<td width="40">
+						<div align="right">
+							<input type="button" onclick="goToAddExercise()" value="添加习题" />
+						</div>
+					</td>
+				</tr>
+			</table>
 
 			<table id="table" class="listTable" style="">
 				<tr class="listHeaderTr"
@@ -79,6 +79,9 @@ $(document).ready(function(){
 					</th>
 					<th>
 						标题
+					</th>
+					<th>
+						作者
 					</th>
 					<th>
 						时间
@@ -91,22 +94,25 @@ $(document).ready(function(){
 					</th>
 				</tr>
 				<tbody id="tbody" style="display: none;">
-				<s:iterator value="exerciseList" status="exercise">
-					<tr class="listTr">
-						<td>
-							<s:property value="chapter.number" />
-							---
-							<s:property value="chapter.name" />
-						</td>
-						<td>
-							<s:property value="title" />
-						</td>
-						<td>
-							<s:date format="yyyy-MM-dd" name="time" />
-						</td>
-						<td>
-							<a
-								href="<s:url action="download"> 
+					<s:iterator value="exerciseList" status="exercise">
+						<tr class="listTr">
+							<td>
+								<s:property value="chapter.number" />
+								---
+								<s:property value="chapter.name" />
+							</td>
+							<td>
+								<s:property value="title" />
+							</td>
+							<td>
+								<s:property value="author" />
+							</td>
+							<td>
+								<s:date format="yyyy-MM-dd" name="time" />
+							</td>
+							<td>
+								<a
+									href="<s:url action="download"> 
                      			<s:param name="fileName"> 
                        			 	<s:property value="fileLink"/> 
                     			</s:param> 
@@ -114,27 +120,27 @@ $(document).ready(function(){
                        			 	<s:property value="filename"/> 
                     			</s:param> 
                 					</s:url>">
-								<font color="blue"><s:property value="filename" /> </font> </a>
-						</td>
-						<td>
-							<a
-								href="<s:url action="goEditExerciseAction"> 
+									<font color="blue"><s:property value="filename" /> </font> </a>
+							</td>
+							<td>
+								<a
+									href="<s:url action="goEditExerciseAction"> 
                      			<s:param name="exerciseId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>">
-								<font color="green">【编辑】</font> </a>
-							<a
-								href="<s:url action="deleteExerciseAction"> 
+									<font color="green">【编辑】</font> </a>
+								<a
+									href="<s:url action="deleteExerciseAction"> 
                      			<s:param name="exerciseId"> 
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>"
-								onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
-								<font color="red">【删除】</font> </a>
-						</td>
-					</tr>
-				</s:iterator>
+									onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
+									<font color="red">【删除】</font> </a>
+							</td>
+						</tr>
+					</s:iterator>
 				</tbody>
 			</table>
 			<div id="Pagination" class="pagination"></div>

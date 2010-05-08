@@ -10,15 +10,54 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
 		<title>修改密码</title>
-		<SCRIPT language=javascript>
-			function check(form)
-			{
-				if (form.userName.value == "")
-				{
-					alert("名字不能为空！");
-					return false;
-				}
-			}
+		<script type="text/javascript">		
+		function check(form)
+		{
+		if (form.province.value == "")
+		{
+			alert("推荐省市不能为空！");
+			form.province.focus();
+			return false;
+		}
+		if (form.school.value == "") {
+			alert("推荐学校不能为空！");
+			form.school.focus();
+			return false;
+		}		
+		if (form.recommender.value == "") {
+			alert("推荐单位不能为空！");
+			form.recommender.focus();
+			return false;
+		}
+		
+		if (form.name.value == "") {
+			alert("课程名称不能为空！");
+			form.name.focus();
+			return false;
+		}
+		if (form.firstSub.value == "") {
+			alert("所属一级学科名称不能为空！");
+			form.firstSub.focus();
+			return false;
+		}
+		if (form.secondSub.value == "") {
+			alert("所属二级学科名称不能为空！");
+			form.secondSub.focus();
+			return false;
+		}
+		if (form.responser.value == "") {
+			alert("课程负责人不能为空！");
+			form.responser.focus();
+			return false;
+		}
+		var time= dojo.widget.byId("time");
+		if (time.getValue() == "")
+		{
+			alert("申报时间不能为空！");			
+			return false;
+		}		
+		form.submit.disabled = true;
+		}
 		</SCRIPT>
 	</head>
 	<body>
@@ -51,7 +90,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="applicationForm.province" cssClass="input" />
+						<s:textfield id="province" name="applicationForm.province" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -62,7 +101,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="applicationForm.school" cssClass="input" />
+						<s:textfield id="school" name="applicationForm.school" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -73,7 +112,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="applicationForm.recommender" cssClass="input" />
+						<s:textfield id="recommender" name="applicationForm.recommender" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -84,7 +123,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="applicationForm.name" cssClass="input" />
+						<s:textfield id="name" name="applicationForm.name" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -120,7 +159,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="applicationForm.firstSubject" cssClass="input" />
+						<s:textfield id="firstSub" name="applicationForm.firstSubject" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -131,7 +170,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="applicationForm.secondSubject" cssClass="input" />
+						<s:textfield id="secondSub" name="applicationForm.secondSubject" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -142,7 +181,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield name="applicationForm.responser" cssClass="input" />
+						<s:textfield id="responser" name="applicationForm.responser" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -154,7 +193,7 @@
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<s:head />
-						<s:datetimepicker displayFormat="yyyy-MM-dd"
+						<s:datetimepicker id="time" displayFormat="yyyy-MM-dd"
 							name="applicationForm.time" />
 					</td>
 				</tr>
@@ -166,7 +205,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:file name="upload"></s:file>
+						<s:file id="upload" name="upload"></s:file>
 					</td>
 				</tr>
 				<tr>
@@ -195,7 +234,7 @@
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit cssClass="label" value="确认" />
+						<s:submit id="submit" cssClass="label" value="确认" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>

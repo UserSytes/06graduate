@@ -15,15 +15,16 @@
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
 		<script type="text/javascript" src="${ctx}/js/thickbox.js"></script>
 		<script>jQuery.noConflict();</script>
-		<title>修改密码</title>
+		<title>修改图片</title>
 		<SCRIPT language=javascript>
 			function check(form)
 			{
-				if (form.userName.value == "")
+				if (form.upload.value == "")
 				{
-					alert("名字不能为空！");
+					alert("上传头像不能为空！");
 					return false;
 				}
+				form.submit.disabled = true;	
 			}
 		</SCRIPT>
 		<style type="text/css">
@@ -104,7 +105,7 @@ TR.position {
 							</tr>
 							<tr height="30">
 								<td align="left">
-									<s:submit cssClass="label" value="确认" />
+									<s:submit id="submit" cssClass="label" value="确认" />
 									<s:reset cssClass="label" value="取消" />
 								</td>
 							</tr>
