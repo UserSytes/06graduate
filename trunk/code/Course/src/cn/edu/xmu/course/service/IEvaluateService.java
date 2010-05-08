@@ -106,4 +106,11 @@ public interface IEvaluateService {
 	 * @return
 	 */
 	public List<CourseEvaluate> getEvaluateByCourseList(List<Course> courseList);
+	
+	/**
+	 * …æ≥˝∆¿º€’ ∫≈
+	 * @param evaluation
+	 * @return
+	 */
+	public boolean deleteEvaluation(Evaluation evaluation);
 }

@@ -549,6 +549,20 @@ public class EvaluationAction extends BaseAction {
 			return ERROR;
 		}
 	}
+	
+	/**
+	 * 删除课程评价
+	 * @return
+	 */
+	public String deleteEvaluation(){
+		Evaluation eva = evaluateService.findById(evaluationId);
+		if(evaluateService.deleteEvaluation(eva))
+			return SUCCESS;
+		else{
+			addActionError("删除课程评价失败，请重新操作！");
+			return ERROR;
+		}
+	}
 
 	public String getEvaluationDetail() {
 		evaluation = evaluateService.findById(evaluationId);
