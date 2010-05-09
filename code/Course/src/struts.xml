@@ -902,7 +902,7 @@
 			class="courseMovieAction">			
 			<result name="success" type="redirect-action">getCourseMovieListByCourseAction
 			</result>
-			<result name="error">/commons/prompt.jsp</result>			<
+			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="updateCourseMovieAction" method="updateCourseMovie"
 			class="courseMovieAction">			
