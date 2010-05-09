@@ -51,13 +51,21 @@
 				<interceptor-ref name="fileUpload">
 					<param name="maximumSize">10485760</param> 
 					<param name="allowedTypes">
-						application/msword,application/vnd.ms-powerpoint,application/pdfW</param>
+						application/msword,application/vnd.ms-powerpoint,application/pdfW,text/plain</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			<interceptor-stack name="fileExcelStack">
+				<interceptor-ref name="fileUpload">
+					<param name="maximumSize">10485760</param> 
+					<param name="allowedTypes">
+						application/excel,application/vnd.ms-excel</param>
 				</interceptor-ref>
 				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
 			<interceptor-stack name="fileImgStack">
 				<interceptor-ref name="fileUpload">
-					<param name="maximumSize">10485760</param> 
+					<param name="maximumSize">1048576</param> 
 					<param name="allowedTypes">
 						image/x-ms-bmp,image/jpeg,image/gif,image/png,image/pjpeg,image/x-png</param>
 				</interceptor-ref>
@@ -894,8 +902,7 @@
 			class="courseMovieAction">			
 			<result name="success" type="redirect-action">getCourseMovieListByCourseAction
 			</result>
-			<result name="error">/commons/prompt.jsp</result>
-			<result name="input">/commons/prompt.jsp</result>			
+			<result name="error">/commons/prompt.jsp</result>			<
 		</action>
 		<action name="updateCourseMovieAction" method="updateCourseMovie"
 			class="courseMovieAction">			
@@ -1090,6 +1097,8 @@
 		<action name="addMoreCourseStudentAction" method="addMoreStudentCourse"
 			class="studentCourseAction">
 			<result name="success">/commons/prompt.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileExcelStack" />
 		</action>
 		
 		<!--校管理员修改密码-->
