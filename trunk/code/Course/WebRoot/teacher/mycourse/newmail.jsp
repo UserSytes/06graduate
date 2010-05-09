@@ -14,41 +14,14 @@
 			href="${ctx}/css/jquery.autocomplete.css" />
 		<script type="text/javascript"
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
-		<script type="text/javascript" src="${ctx}/js/thickbox-compressed.js"></script>
 		<script type='text/javascript' src='${ctx}/js/jquery.bgiframe.min.js'></script>
 		<script type='text/javascript' src='${ctx}/js/jquery.ajaxQueue.js'></script>
-		<script type='text/javascript' src='${ctx}/js/thickbox-compressed.js'></script>
 		<script type='text/javascript' src='${ctx}/js/jquery.autocomplete.js'></script>
 		<script>
 	jQuery.noConflict();
 </script>
 		<title></title>
 		<script type="text/javascript">
-	var flag = false;
-	function check(form) {
-
-		if (form.receiverid.value == "") {
-			alert("收件人不能为空！");
-			form.receiverid.focus();
-			return false;
-		}
-		if (flag == false) {
-			alert("该学生不存在，请重新输入！");
-			return false;
-		}
-		if (form.title.value == "") {
-			alert("消息标题不能为空！");
-			form.title.focus();
-			return false;
-		}
-		if (form.content.value == "") {
-			alert("消息内容不能为空！");
-			form.content.focus();
-			return false;
-		}
-		form.sendmsg.disabled = true;	
-		form.saveDraft.disabled = true;	
-	}
 
 	function validateStudent() {
 		jQuery.post("findStudentJsonAction.action", {
@@ -79,6 +52,28 @@
 		jQuery("#receiverid").result( function(event, data, formatted) {
 			jQuery("#receiverIdError").html("");
 		});
+	}
+	var flag = false;
+	function check(form) {
+		if (form.receiverid.value == "") {
+			alert("收件人不能为空！");
+			form.receiverid.focus();
+			return false;
+		}
+		if (flag == false) {
+			alert("该学生不存在，请重新输入！");
+			return false;
+		}
+		if (form.title.value == "") {
+			alert("消息标题不能为空！");
+			form.title.focus();
+			return false;
+		}
+		if (form.content.value == "") {
+			alert("消息内容不能为空！");
+			form.content.focus();
+			return false;
+		}		
 	}
 </script>
 
