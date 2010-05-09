@@ -10,7 +10,6 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
 		<LINK href="${ctx}/css/mail.css" type=text/css rel=stylesheet>
-		<script>jQuery.noConflict();</script>
 		<title></title>
 <script type="text/javascript">
 function check(form) {		

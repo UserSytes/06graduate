@@ -13,11 +13,9 @@
 		<link rel="stylesheet" type="text/css"
 			href="${ctx}/css/jquery.autocomplete.css" />
 		<script type="text/javascript"
-			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
-		<script type="text/javascript" src="${ctx}/js/thickbox-compressed.js"></script>
+			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>		
 		<script type='text/javascript' src='${ctx}/js/jquery.bgiframe.min.js'></script>
 		<script type='text/javascript' src='${ctx}/js/jquery.ajaxQueue.js'></script>
-		<script type='text/javascript' src='${ctx}/js/thickbox-compressed.js'></script>
 		<script type='text/javascript' src='${ctx}/js/jquery.autocomplete.js'></script>
 		<script>
 	jQuery.noConflict();
@@ -46,8 +44,6 @@
 			form.content.focus();
 			return false;
 		}
-		form.sendmsg.disabled = true;	
-		form.saveDraft.disabled = true;	
 	}
 
 	function validateStudent() {
