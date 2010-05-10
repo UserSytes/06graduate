@@ -22,4 +22,5 @@ public interface ISearchCourseService {
 	public List<Course> findCourseByNameAndDepartmentAndTeacher(String courseName, Department department,  String teacherName);
 	
 	public List<Course> findCourseByDate(int day);
+	public List<Course> findLatestTenCourse();
 }

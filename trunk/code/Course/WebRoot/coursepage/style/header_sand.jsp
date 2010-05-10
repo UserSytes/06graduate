@@ -371,7 +371,7 @@
 					</li>
 				</ul>
 			<div
-				style="width: 950px; height: 125px;background: transparent url(${ctx}/coursepage/style/common/logo.png) no-repeat; padding-left:400px;padding-top:30px;">
+				style=" height: 125px;background: transparent url(${ctx}/coursepage/style/common/logo.png) no-repeat; padding-left:400px;padding-top:30px;">
 				<h1
 					style="font-family: '隶书'; font-size: 40px; linfont-weight: lighter; color: #4B4E5B; line-height: 50px;">
 					<s:property value="course.name"/>

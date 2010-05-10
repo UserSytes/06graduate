@@ -11,8 +11,7 @@
 				<tr>
 					<td width="210">
 						&nbsp;&nbsp;
-						<img src="${ctx}/homepage/image/but.jpg" border="0" alt="">
-						&nbsp;&nbsp;
+						<img src="${ctx}/homepage/image/but.jpg" border="0" alt="">						
 						<a
 							href="<s:url action="viewNoticeAction"> <s:param name="noticeId"> 
 	                       			 									<s:property value="id"/> </s:param> </s:url>"
@@ -22,7 +21,7 @@
 							</s:if> <s:else>
 								<s:property value="title" />
 							</s:else> </a> &nbsp;
-						<s:date name="time" format="yyyy.MM.dd" />
+						<s:date name="time" format="MM.dd" />
 					</td>
 				</tr>
 				<tr height="1">

@@ -70,10 +70,7 @@ public class HomePageAction extends BaseAction{
     	
     	newsList=newsService.findLastestTenNews();
 		this.countCourseByLevel();
-		courseList = searchCourseService.findCourseByDate(30);
-    	if(courseList == null){
-			addActionMessage("最近一个月未发布新课程！");
-		}    	
+		courseList = searchCourseService.findLatestTenCourse();    	
 		return SUCCESS;
 	}
  

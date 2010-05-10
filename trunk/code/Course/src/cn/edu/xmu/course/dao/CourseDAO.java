@@ -372,6 +372,21 @@ public class CourseDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
+	
+	public List findLatestTenCourses() {
+		log.debug("finding all Course instances");
+		try {
+			String queryString = 
+	  			"select course from Course course order by course.time DESC";
+	  		Query queryObject = getSession().createQuery(queryString);
+	  		queryObject.setFirstResult(0); 
+	  		queryObject.setMaxResults(10); 
+	  		return queryObject.list();
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
 
 	public Course merge(Course detachedInstance) {
 		log.debug("merging Course instance");
