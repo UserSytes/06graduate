@@ -36,29 +36,35 @@
 			{
 			if (form.studentNo.value == "")
 				{
+					form.studentNo.focus();
 					alert("账号不能为空！");
 					return false;
 				}
 				if (form.name.value == "")
 				{
+					form.name.focus();
 					alert("姓名不能为空！");
 					return false;
 				}
 				if (form.sex.value == -1)
 				{
+					form.sex.focus();
 					alert("性别不能为空！");
 					return false;
 				}
 				if (form.departmentId.value == -1)
 				{
+					form.departmentId.focus();
 					alert("所属系不能为空！");
 					return false;
 				}
 				if (form.gradeId.value == -1)
 				{
+					form.gradeId.focus();
 					alert("年级不能为空！");
 					return false;
 				}
+				form.button.disabled = true;
 				return true;
 			}
 		</SCRIPT>

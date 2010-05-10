@@ -15,10 +15,11 @@
 		<SCRIPT language=javascript>
 	function check(form) {
 		if (form.upload.value == "") {
+			form.upload.focus();
 			alert("照片不能为空！");
 			return false;
 		}
-
+		form.button.disabled = true;
 		return true;
 	}
 	</script>
@@ -122,7 +123,7 @@
 													</tr>
 													<tr height="30">
 														<td align="left">
-															<s:submit cssClass="label" value="确认" />
+															<s:submit id="button" cssClass="label" value="确认" />
 															<s:reset cssClass="label" value="取消" />
 														</td>
 													</tr>

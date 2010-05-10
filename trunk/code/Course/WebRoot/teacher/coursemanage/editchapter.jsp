@@ -56,12 +56,12 @@
 					<tr>
 						<td bgcolor="#FFFDF0">
 							<div align="center">
-								序号：
+								章号：
 							</div>
 						</td>
 						<td colspan="3" bgcolor="#FFFFFF">
 							&nbsp;&nbsp;&nbsp;
-							<s:textfield id="number" name="chapter.number" cssClass="input" />
+							<s:textfield id="number"  size="50" name="chapter.number" cssClass="input" />
 						</td>
 					</tr>
 					<tr>
@@ -72,7 +72,7 @@
 						</td>
 						<td colspan="3" bgcolor="#FFFFFF">
 							&nbsp;&nbsp;&nbsp;
-							<s:textfield name="chapter.name" cssClass="input" />
+							<s:textfield name="chapter.name"  size="50" cssClass="input" />
 						</td>
 					</tr>
 					<tr>

@@ -13,9 +13,11 @@
 		<SCRIPT language=javascript>
 	function check(form) {
 		if (form.studentNo.value == "") {
+			form.studentNo.focus();
 			alert("学号不能为空！");
 			return false;
 		}
+		form.button.disabled = true;
 		return true;
 	}
 		
@@ -69,7 +71,7 @@
 						&nbsp;
 					</td>
 					<td width="80%">
-						<s:submit cssClass="label" value="确定添加"></s:submit>
+						<s:submit id="button" cssClass="label" value="确定添加"></s:submit>
 					</td>
 				</tr>
 			</table>

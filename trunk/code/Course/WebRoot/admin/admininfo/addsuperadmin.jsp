@@ -16,18 +16,22 @@
 		<SCRIPT language=javascript>
 	function check(form) {
 		if (form.account.value == "") {
+			form.account.focus();
 			alert("账号不能为空！");
 			return false;
 		}
 		if (form.name.value == "") {
+			form.name.focus();
 			alert("姓名不能为空！");
 			return false;
 		}
 		if (form.mobile.value == "") {
+			form.mobile.focus();
 			alert("电话不能为空！");
 			return false;
 		}
 		if (form.email.value == "") {
+			form.email.focus();
 			alert("E-mail不能为空！");
 			return false;
 		}
@@ -36,15 +40,17 @@
 		var email = form.email.value;
 		var phone = form.mobile.value;
 		if (!re2.test(phone)) {
+			form.phone.focus();
 			alert("电话号码应全为数字，请输入正确电话号码");
 			return false;
 		}
 		
 		if (!re.test(email)) {
+			form.email.focus();
 			alert("E_mail格式错误，请输入正确邮箱！");
 			return false;
 		}
-		
+		form.button.disabled = true;
 		return true;
 	}
 

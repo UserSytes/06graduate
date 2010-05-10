@@ -18,9 +18,11 @@
 			{
 				if (form.name.value == "")
 				{
+					form.name.focus();
 					alert("系名不能为空！");
 					return false;
 				}else{
+					form.button.disabled = true;
 					return true;
 				}
 			}

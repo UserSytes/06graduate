@@ -76,7 +76,7 @@ TR.position {
 								<td align="center">
 									<strong><a
 										href="${ctx}/upload/<s:property value="userInfo.photo"/>"
-										title="" class="thickbox"><img width="180"
+										title="" class="thickbox"><img width="180" border="0"
 												src="${ctx}/upload/<s:property value="userInfo.photo"/>" />
 									</a> </strong>
 								</td>

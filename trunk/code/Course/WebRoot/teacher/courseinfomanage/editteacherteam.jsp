@@ -71,7 +71,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="name" name="teacherTeam.name" cssClass="input" />
+						<s:textfield id="name" size="50" name="teacherTeam.name" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -82,7 +82,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="position" name="teacherTeam.position" cssClass="input" />
+						<s:textfield id="position" size="50" name="teacherTeam.position" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -93,7 +93,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="field" name="teacherTeam.field" cssClass="input" />
+						<s:textfield id="field" size="50" name="teacherTeam.field" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -104,7 +104,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="link" name="teacherTeam.link" cssClass="INPUT" />
+						<s:textfield id="link" size="50" name="teacherTeam.link" cssClass="INPUT" />
 					</td>
 				</tr>
 				<tr>
