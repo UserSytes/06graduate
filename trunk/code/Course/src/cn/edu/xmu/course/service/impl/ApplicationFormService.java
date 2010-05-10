@@ -18,11 +18,8 @@ public class ApplicationFormService implements IApplicationFormService {
 	public boolean addApplicationForm(ApplicationForm applicationForm,
 			Course course, File upload) {
 		// TODO Auto-generated method stub
-
 		applicationForm.setCourse(course);
-		try {
-
-			applicationFormDAO.save(applicationForm);
+		try {			
 			if (upload != null) {
 				String path = ServletActionContext.getServletContext()
 						.getRealPath("/upload");
@@ -31,6 +28,7 @@ public class ApplicationFormService implements IApplicationFormService {
 				if (!FileOperation.copy(upload, file))
 					return false;
 			}
+			applicationFormDAO.save(applicationForm);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -54,8 +52,7 @@ public class ApplicationFormService implements IApplicationFormService {
 	public boolean updateApplicationForm(ApplicationForm applicationForm,
 			File upload) {
 		// TODO Auto-generated method stub
-		try {
-			applicationFormDAO.merge(applicationForm);
+		try {			
 			if (upload != null) {
 				String path = ServletActionContext.getServletContext()
 						.getRealPath("/upload");
@@ -64,6 +61,7 @@ public class ApplicationFormService implements IApplicationFormService {
 				if (!FileOperation.copy(upload, file))
 					return false;
 			}
+			applicationFormDAO.merge(applicationForm);
 			return true;
 		} catch (Exception e) {
 			return false;

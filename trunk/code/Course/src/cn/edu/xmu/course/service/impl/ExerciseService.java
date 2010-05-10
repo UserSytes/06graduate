@@ -27,10 +27,11 @@ public class ExerciseService implements IExerciseService {
 		File file = new File(fileName);
 		exercise.setChapter(chapter);
 		exercise.setTime(Calendar.getInstance().getTime());
-		try {
-			exerciseDAO.save(exercise);
-			if (FileOperation.copy(upload, file))
+		try {			
+			if (FileOperation.copy(upload, file)){
+				exerciseDAO.save(exercise);
 				return true;
+			}				
 			else
 				return false;
 		} catch (Exception e) {
@@ -76,10 +77,11 @@ public class ExerciseService implements IExerciseService {
 		File file = new File(fileName);
 		exercise.setChapter(chapter);
 		exercise.setTime(Calendar.getInstance().getTime());
-		try {
-			exerciseDAO.merge(exercise);
-			if (FileOperation.copy(upload, file))
-				return true;
+		try {			
+			if (FileOperation.copy(upload, file)){
+				exerciseDAO.merge(exercise);
+				return true;			
+			}
 			else
 				return false;
 		} catch (Exception e) {

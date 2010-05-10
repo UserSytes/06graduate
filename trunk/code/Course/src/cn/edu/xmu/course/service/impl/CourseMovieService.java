@@ -24,10 +24,11 @@ public class CourseMovieService implements ICourseMovieService {
 		String fileName = path + "/" + courseMovie.getFileLink();
 		File file = new File(fileName);
 		courseMovie.setCourse(course);
-		try {
-			courseMovieDAO.save(courseMovie);
-			if (FileOperation.copy(upload, file))
+		try {			
+			if (FileOperation.copy(upload, file)){
+				courseMovieDAO.save(courseMovie);
 				return true;
+			}				
 			else
 				return false;
 		} catch (Exception e) {
@@ -61,10 +62,11 @@ public class CourseMovieService implements ICourseMovieService {
 				"/upload");
 		String fileName = path + "/" + courseMovie.getFileLink();
 		File file = new File(fileName);
-		try {
-			courseMovieDAO.merge(courseMovie);
-			if (FileOperation.copy(upload, file))
+		try {			
+			if (FileOperation.copy(upload, file)){
+				courseMovieDAO.merge(courseMovie);
 				return true;
+			}			
 			else
 				return false;
 		} catch (Exception e) {

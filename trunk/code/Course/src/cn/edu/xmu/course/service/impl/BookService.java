@@ -22,10 +22,11 @@ public class BookService implements IBookService {
 		String fileName = path + "/" + book.getFileLink();
 		File file = new File(fileName);
 		book.setCourse(course);
-		try {
-			bookDAO.save(book);
-			if (FileOperation.copy(upload, file))
+		try {			
+			if (FileOperation.copy(upload, file)){
+				bookDAO.save(book);
 				return true;
+			}				
 			else
 				return false;
 		} catch (Exception e) {
@@ -59,10 +60,11 @@ public class BookService implements IBookService {
 				"/upload");
 		String fileName = path + "/" + book.getFileLink();
 		File file = new File(fileName);
-		try {
-			bookDAO.merge(book);
-			if (FileOperation.copy(upload, file))
+		try {			
+			if (FileOperation.copy(upload, file)){
+				bookDAO.merge(book);
 				return true;
+			}				
 			else
 				return false;
 		} catch (Exception e) {

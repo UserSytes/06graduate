@@ -23,10 +23,11 @@ public class ExaminationService implements IExaminationService {
 		String fileName = path + "/" + examination.getFileLink();
 		File file = new File(fileName);
 		examination.setCourse(course);
-		try {
-			examinationDAO.save(examination);
-			if (FileOperation.copy(upload, file))
+		try {			
+			if (FileOperation.copy(upload, file)){
+				examinationDAO.save(examination);
 				return true;
+			}				
 			else
 				return false;
 		} catch (Exception e) {
@@ -60,10 +61,11 @@ public class ExaminationService implements IExaminationService {
 				"/upload");
 		String fileName = path + "/" + examination.getFileLink();
 		File file = new File(fileName);
-		try {
-			examinationDAO.merge(examination);
-			if (FileOperation.copy(upload, file))
+		try {			
+			if (FileOperation.copy(upload, file)){
+				examinationDAO.merge(examination);
 				return true;
+			}
 			else
 				return false;
 		} catch (Exception e) {

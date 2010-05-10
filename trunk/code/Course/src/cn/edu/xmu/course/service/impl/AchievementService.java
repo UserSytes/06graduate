@@ -19,18 +19,16 @@ public class AchievementService implements IAchievementService {
 			File upload) {
 		// TODO Auto-generated method stub
 		achievement.setCourse(course);
-		try {
-			achievementDAO.save(achievement);
+		try {			
 			if (upload != null) {
 				String path = ServletActionContext.getServletContext()
 						.getRealPath("/upload");
 				String fileName = path + "/" + achievement.getFileLink();
 				File file = new File(fileName);
-				if (FileOperation.copy(upload, file))
-					return true;
-				else
+				if (!FileOperation.copy(upload, file))
 					return false;
 			}
+			achievementDAO.save(achievement);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -70,19 +68,16 @@ public class AchievementService implements IAchievementService {
 
 	public boolean updateAchievement(Achievement achievement, File upload) {
 		// TODO Auto-generated method stub
-
-		try {
-			achievementDAO.merge(achievement);
+		try {			
 			if (upload != null) {
 				String path = ServletActionContext.getServletContext()
 						.getRealPath("/upload");
 				String fileName = path + "/" + achievement.getFileLink();
 				File file = new File(fileName);
-				if (FileOperation.copy(upload, file))
-					return true;
-				else
+				if (!FileOperation.copy(upload, file))
 					return false;
 			}
+			achievementDAO.merge(achievement);
 			return true;
 		} catch (Exception e) {
 			return false;
