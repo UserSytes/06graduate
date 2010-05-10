@@ -26,10 +26,11 @@ public class ExperimentService implements IExperimentService {
 		File file = new File(fileName);
 		experiment.setChapter(chapter);
 		experiment.setTime(Calendar.getInstance().getTime());
-		try {
-			experimentDAO.save(experiment);
-			if (FileOperation.copy(upload, file))
+		try {			
+			if (FileOperation.copy(upload, file)){
+				experimentDAO.save(experiment);
 				return true;
+			}				
 			else
 				return false;
 		} catch (Exception e) {
@@ -74,10 +75,11 @@ public class ExperimentService implements IExperimentService {
 		File file = new File(fileName);
 		experiment.setChapter(chapter);
 		experiment.setTime(Calendar.getInstance().getTime());
-		try {
-			experimentDAO.merge(experiment);
-			if (FileOperation.copy(upload, file))
+		try {			
+			if (FileOperation.copy(upload, file)){
+				experimentDAO.merge(experiment);
 				return true;
+			}				
 			else
 				return false;
 		} catch (Exception e) {

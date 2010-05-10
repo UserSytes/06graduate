@@ -26,10 +26,11 @@ public class CoursewareService implements ICoursewareService {
 		File file = new File(fileName);
 		courseware.setChapter(chapter);
 		courseware.setTime(Calendar.getInstance().getTime());
-		try {
-			coursewareDAO.save(courseware);
-			if (FileOperation.copy(upload, file))
+		try {			
+			if (FileOperation.copy(upload, file)){
+				coursewareDAO.save(courseware);
 				return true;
+			}				
 			else
 				return false;
 		} catch (Exception e) {
@@ -75,10 +76,11 @@ public class CoursewareService implements ICoursewareService {
 		File file = new File(fileName);
 		courseware.setChapter(chapter);
 		courseware.setTime(Calendar.getInstance().getTime());
-		try {
-			coursewareDAO.merge(courseware);
-			if (FileOperation.copy(upload, file))
+		try {			
+			if (FileOperation.copy(upload, file)){
+				coursewareDAO.merge(courseware);
 				return true;
+			}
 			else
 				return false;
 		} catch (Exception e) {
