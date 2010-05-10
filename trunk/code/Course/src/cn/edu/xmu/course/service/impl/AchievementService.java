@@ -1,24 +1,31 @@
 package cn.edu.xmu.course.service.impl;
 
 import java.io.File;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
 
 import cn.edu.xmu.course.commons.FileOperation;
 import cn.edu.xmu.course.dao.AchievementDAO;
+import cn.edu.xmu.course.dao.NoticeDAO;
 import cn.edu.xmu.course.pojo.Achievement;
 import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.service.IAchievementService;
 
 public class AchievementService implements IAchievementService {
 	private AchievementDAO achievementDAO;
+	private NoticeDAO noticeDAO;
 
 	public boolean addAchievement(Course course, Achievement achievement,
 			File upload) {
 		// TODO Auto-generated method stub
 		achievement.setCourse(course);
+		String title = "添加最新成果《"+achievement.getTitle()+"》";
+		String content = "<p>添加最新成果《"+achievement.getTitle()+"》，请同学们注意查阅。</p>";
+		Notice notice = new Notice(course,title,content,new Date(),1);
 		try {			
 			if (upload != null) {
 				String path = ServletActionContext.getServletContext()
@@ -27,8 +34,9 @@ public class AchievementService implements IAchievementService {
 				File file = new File(fileName);
 				if (!FileOperation.copy(upload, file))
 					return false;
-			}
-			achievementDAO.save(achievement);
+			}	
+			achievementDAO.save(achievement);	
+			noticeDAO.save(notice);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -68,6 +76,9 @@ public class AchievementService implements IAchievementService {
 
 	public boolean updateAchievement(Achievement achievement, File upload) {
 		// TODO Auto-generated method stub
+		String title = "修改已有成果《"+achievement.getTitle()+"》";
+		String content = "<p>修改已有成果《"+achievement.getTitle()+"》，请同学们注意查阅。</p>";
+		Notice notice = new Notice(achievement.getCourse(),title,content,new Date(),1);
 		try {			
 			if (upload != null) {
 				String path = ServletActionContext.getServletContext()
@@ -76,8 +87,9 @@ public class AchievementService implements IAchievementService {
 				File file = new File(fileName);
 				if (!FileOperation.copy(upload, file))
 					return false;
-			}
+			}			
 			achievementDAO.merge(achievement);
+			noticeDAO.save(notice);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -90,6 +102,14 @@ public class AchievementService implements IAchievementService {
 
 	public AchievementDAO getAchievementDAO() {
 		return achievementDAO;
+	}
+
+	public void setNoticeDAO(NoticeDAO noticeDAO) {
+		this.noticeDAO = noticeDAO;
+	}
+
+	public NoticeDAO getNoticeDAO() {
+		return noticeDAO;
 	}
 
 }

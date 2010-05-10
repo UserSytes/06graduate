@@ -2,20 +2,24 @@ package cn.edu.xmu.course.service.impl;
 
 import java.io.File;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
 
 import cn.edu.xmu.course.commons.FileOperation;
 import cn.edu.xmu.course.dao.CourseMovieDAO;
+import cn.edu.xmu.course.dao.NoticeDAO;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.CourseMovie;
+import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.service.ICourseMovieService;
 
 public class CourseMovieService implements ICourseMovieService {
 
 	private CourseMovieDAO courseMovieDAO;
-
+	private NoticeDAO noticeDAO;
+	
 	public boolean addCourseMovie(CourseMovie courseMovie, Course course,
 			File upload) {
 		// TODO Auto-generated method stub
@@ -24,9 +28,13 @@ public class CourseMovieService implements ICourseMovieService {
 		String fileName = path + "/" + courseMovie.getFileLink();
 		File file = new File(fileName);
 		courseMovie.setCourse(course);
+		String title = "添加最新教学录像《"+courseMovie.getTitle()+"》";
+		String content = "<p>添加最新教学录像《"+courseMovie.getTitle()+"》，请同学们注意查阅。</p>";
+		Notice notice = new Notice(course,title,content,new Date(),1);		
 		try {			
 			if (FileOperation.copy(upload, file)){
 				courseMovieDAO.save(courseMovie);
+				noticeDAO.save(notice);
 				return true;
 			}				
 			else
@@ -62,9 +70,13 @@ public class CourseMovieService implements ICourseMovieService {
 				"/upload");
 		String fileName = path + "/" + courseMovie.getFileLink();
 		File file = new File(fileName);
+		String title = "修改己有教学录像《"+courseMovie.getTitle()+"》";
+		String content = "<p>修改己有教学录像《"+courseMovie.getTitle()+"》，请同学们注意查阅。</p>";
+		Notice notice = new Notice(courseMovie.getCourse(),title,content,new Date(),1);	
 		try {			
 			if (FileOperation.copy(upload, file)){
 				courseMovieDAO.merge(courseMovie);
+				noticeDAO.save(notice);
 				return true;
 			}			
 			else
@@ -80,6 +92,14 @@ public class CourseMovieService implements ICourseMovieService {
 
 	public CourseMovieDAO getCourseMovieDAO() {
 		return courseMovieDAO;
+	}
+
+	public void setNoticeDAO(NoticeDAO noticeDAO) {
+		this.noticeDAO = noticeDAO;
+	}
+
+	public NoticeDAO getNoticeDAO() {
+		return noticeDAO;
 	}
 
 }

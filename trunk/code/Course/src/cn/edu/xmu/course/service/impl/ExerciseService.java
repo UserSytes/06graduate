@@ -2,22 +2,26 @@ package cn.edu.xmu.course.service.impl;
 
 import java.io.File;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
 
 import cn.edu.xmu.course.commons.FileOperation;
 import cn.edu.xmu.course.dao.ExerciseDAO;
+import cn.edu.xmu.course.dao.NoticeDAO;
 import cn.edu.xmu.course.pojo.Chapter;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Courseware;
 import cn.edu.xmu.course.pojo.Exercise;
 import cn.edu.xmu.course.pojo.Experiment;
+import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.service.IExerciseService;
 
 public class ExerciseService implements IExerciseService {
 
 	private ExerciseDAO exerciseDAO;
+	private NoticeDAO noticeDAO;
 
 	public boolean addExercise(Exercise exercise, Chapter chapter, File upload) {
 		// TODO Auto-generated method stub
@@ -27,9 +31,13 @@ public class ExerciseService implements IExerciseService {
 		File file = new File(fileName);
 		exercise.setChapter(chapter);
 		exercise.setTime(Calendar.getInstance().getTime());
+		String title = "添加最新作业习题《"+exercise.getTitle()+"》";
+		String content = "<p>添加最新作业习题《"+exercise.getTitle()+"》，请同学们注意查阅。</p>";
+		Notice notice = new Notice(chapter.getCourse(),title,content,new Date(),1);	
 		try {			
 			if (FileOperation.copy(upload, file)){
 				exerciseDAO.save(exercise);
+				getNoticeDAO().save(notice);
 				return true;
 			}				
 			else
@@ -77,9 +85,13 @@ public class ExerciseService implements IExerciseService {
 		File file = new File(fileName);
 		exercise.setChapter(chapter);
 		exercise.setTime(Calendar.getInstance().getTime());
+		String title = "修改已有作业习题《"+exercise.getTitle()+"》";
+		String content = "<p>修改已有作业习题《"+exercise.getTitle()+"》，请同学们注意查阅。</p>";
+		Notice notice = new Notice(chapter.getCourse(),title,content,new Date(),1);	
 		try {			
 			if (FileOperation.copy(upload, file)){
 				exerciseDAO.merge(exercise);
+				getNoticeDAO().save(notice);
 				return true;			
 			}
 			else
@@ -95,6 +107,14 @@ public class ExerciseService implements IExerciseService {
 
 	public ExerciseDAO getExerciseDAO() {
 		return exerciseDAO;
+	}
+
+	public void setNoticeDAO(NoticeDAO noticeDAO) {
+		this.noticeDAO = noticeDAO;
+	}
+
+	public NoticeDAO getNoticeDAO() {
+		return noticeDAO;
 	}
 
 }

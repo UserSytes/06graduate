@@ -54,7 +54,7 @@
 				</td>
 				<td width="250">
 					请选择查询条件：&nbsp;&nbsp;&nbsp;
-					<s:select name="type" list="#{3:'全部课程',2:'审核未通过',1:'己审核',0:'未审核'}"
+					<s:select name="type" list="#{3:'全部课程',2:'审核未通过',1:'已审核',0:'未审核'}"
 						listKey="key" listValue="value"
 						onchange="javascript:getCourseByType(this.value)" />
 				</td>
@@ -72,7 +72,7 @@
 							申请新的课程后需要等待教学秘书审核通过才能进行上传课件等操作。
 						</li>
 						<li>
-							己审核的课程可以通过选择左边导航菜单中"我的课程"进行相关操作。
+							已审核的课程可以通过选择左边导航菜单中"我的课程"进行相关操作。
 						</li>
 						<li>
 							如果您的课程长时间未审核通过，请向教学秘书反映相关情况。

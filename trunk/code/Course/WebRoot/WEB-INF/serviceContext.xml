@@ -6,7 +6,7 @@
 		<property name="teacherDAO">
 			<ref bean="TeacherDAO" />
 		</property>
-			<property name="studentDAO">
+		<property name="studentDAO">
 			<ref bean="StudentDAO" />
 		</property>
 		<property name="administratorDAO">
@@ -60,27 +60,39 @@
 	<!-- 课程管理 -->
 	<bean id="chapterServiceTarget" class="cn.edu.xmu.course.service.impl.ChapterService">
 		<property name="chapterDAO">
-			<ref bean="ChapterDAO"/>
+			<ref bean="ChapterDAO" />
 		</property>
 	</bean>
 	<bean id="coursewareServiceTarget" class="cn.edu.xmu.course.service.impl.CoursewareService">
 		<property name="coursewareDAO">
-			<ref bean="CoursewareDAO"/>
+			<ref bean="CoursewareDAO" />
+		</property>
+		<property name="noticeDAO">
+			<ref bean="NoticeDAO" />
 		</property>
 	</bean>
 	<bean id="exerciseServiceTarget" class="cn.edu.xmu.course.service.impl.ExerciseService">
 		<property name="exerciseDAO">
-			<ref bean="ExerciseDAO"/>
+			<ref bean="ExerciseDAO" />
+		</property>
+		<property name="noticeDAO">
+			<ref bean="NoticeDAO" />
 		</property>
 	</bean>
 	<bean id="examinationServiceTarget" class="cn.edu.xmu.course.service.impl.ExaminationService">
-	<property name="examinationDAO">
+		<property name="examinationDAO">
 			<ref bean="ExaminationDAO" />
+		</property>
+		<property name="noticeDAO">
+			<ref bean="NoticeDAO" />
 		</property>
 	</bean>
 	<bean id="bookServiceTarget" class="cn.edu.xmu.course.service.impl.BookService">
-	<property name="bookDAO">
+		<property name="bookDAO">
 			<ref bean="BookDAO" />
+		</property>
+		<property name="noticeDAO">
+			<ref bean="NoticeDAO" />
 		</property>
 	</bean>
 	
@@ -148,24 +160,33 @@
 		<property name="achievementDAO">
 			<ref bean="AchievementDAO" />
 		</property>
+		<property name="noticeDAO">
+			<ref bean="NoticeDAO" />
+		</property>
 	</bean>
-		<bean id="experimentServiceTarget" class="cn.edu.xmu.course.service.impl.ExperimentService">
-	<property name="experimentDAO">
+	<bean id="experimentServiceTarget" class="cn.edu.xmu.course.service.impl.ExperimentService">
+		<property name="experimentDAO">
 			<ref bean="ExperimentDAO" />
+		</property>
+		<property name="noticeDAO">
+			<ref bean="NoticeDAO" />
 		</property>
 	</bean>
 	<bean id="courseMovieServiceTarget" class="cn.edu.xmu.course.service.impl.CourseMovieService">
-	<property name="courseMovieDAO">
+		<property name="courseMovieDAO">
 			<ref bean="CourseMovieDAO" />
+		</property>
+		<property name="noticeDAO">
+			<ref bean="NoticeDAO" />
 		</property>
 	</bean>
 	<bean id="topicServiceTarget" class="cn.edu.xmu.course.service.impl.TopicService">
-	<property name="topicDAO">
+		<property name="topicDAO">
 			<ref bean="TopicDAO" />
 		</property>
 	</bean>
-		<bean id="messageServiceTarget" class="cn.edu.xmu.course.service.impl.MessageService">
-	<property name="messageDAO">
+	<bean id="messageServiceTarget" class="cn.edu.xmu.course.service.impl.MessageService">
+		<property name="messageDAO">
 			<ref bean="MessageDAO" />
 		</property>
 		<property name="topicDAO">
@@ -173,20 +194,20 @@
 		</property>
 	</bean>
 	<bean id="evaluateServiceTarget" class="cn.edu.xmu.course.service.impl.EvaluateService">
-	<property name="studentCourseDAO">
+		<property name="studentCourseDAO">
 			<ref bean="StudentCourseDAO" />
 		</property>
-			<property name="evaluationDAO">
+		<property name="evaluationDAO">
 			<ref bean="EvaluationDAO" />
 		</property>
 	</bean>
 	<bean id="noticeServiceTarget" class="cn.edu.xmu.course.service.impl.NoticeService">
-	<property name="noticeDAO">
+		<property name="noticeDAO">
 			<ref bean="NoticeDAO" />
 		</property>
 	</bean>
 	<bean id="mailServiceTarget" class="cn.edu.xmu.course.service.impl.MailService">
-	<property name="mailDAO">
+		<property name="mailDAO">
 			<ref bean="MailDAO" />
 		</property>
 	</bean>
