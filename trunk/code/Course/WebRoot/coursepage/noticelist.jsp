@@ -62,9 +62,9 @@
 									<table border="0" cellpadding="0" cellspacing="0" width="684"
 										class="display" id="example">
 										<thead>
-											<tr height="33">
+											<tr>
 												<th width="60">
-													序号
+													
 												</th>
 												<th width="464">
 													标题
