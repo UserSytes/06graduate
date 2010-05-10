@@ -173,7 +173,7 @@ public class ExecuteViewAction extends BaseAction {
 			return ERROR;
 		}
 		if (super.getTeacher() == null
-				|| super.getTeacher() != course.getTeacher()) {
+				|| !super.getTeacher().getId().equals(course.getTeacher().getId())) {
 			if (course.getVisible() == 1) {
 				if (null == super.getEvaluation() && null == super.getStudent()) {
 					addActionError("对不起，该课程目前仅对学生、同行和专家开放。已有帐号请先登录！");
