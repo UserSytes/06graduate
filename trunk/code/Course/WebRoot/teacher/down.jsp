@@ -35,15 +35,9 @@ body {
 							<td width="200" height="30">
 								&nbsp;
 							</td>
-							<td>
-								<div align="center" class="STYLE1">
-									版权所有：免费后台模板下载 2009
-								</div>
-							</td>
+							
 							<td width="200">
-								<div align="right" class="STYLE1">
-									今天是：2009年04月15日 星期三
-								</div>
+								
 							</td>
 						</tr>
 					</table>
