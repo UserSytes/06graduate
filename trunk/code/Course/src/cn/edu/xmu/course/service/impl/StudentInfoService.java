@@ -281,6 +281,7 @@ public class StudentInfoService implements IStudentInfoService {
 			UserInfo userInfo = new UserInfo();
 			userInfo.setDepartment(department);
 			userInfo.setName(sh.getCell(1, j).getContents());
+			userInfo.setPhoto("photo/defaultPhoto.jpg");
 			stu.setUserInfo(userInfo);
 			studentDAO.save(stu);
 		}
