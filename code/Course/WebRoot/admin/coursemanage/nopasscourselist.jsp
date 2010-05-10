@@ -14,13 +14,6 @@
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
 		<script type="text/javascript" src="${ctx}/js/jquery.pagination.js"></script>
 		<title>未通过审核的课程列表</title>
-		<style type="text/css">
-<!--
-.STYLE1 {
-	color: #000000
-}
--->
-</style>
 		<script type="text/javascript">
 	$(document).ready( function() {
 		//这是一个非常简单的demo实例，让列表元素分页显示

@@ -15,24 +15,29 @@
 			{
 				if (form.teacherName.value == "")
 				{
+					form.teacherName.focus();
 					alert("姓名不能为空！");
 					return false;
 				}
 				if (form.sex.value == -1)
 				{
+					form.sex.focus();
 					alert("性别不能为空！");
 					return false;
 				}
 				if (form.departmentId.value == -1)
 				{
+					form.departmentId.focus();
 					alert("所属系不能为空！");
 					return false;
 				}
 				if (form.teacherNo.value == "")
 				{
+					form.teacherNo.focus();
 					alert("账号不能为空！");
 					return false;
 				}
+				form.button.disabled = true;
 				return true;
 			}
 		</SCRIPT>
@@ -148,7 +153,7 @@
 						&nbsp;
 					</td>
 					<td width="80%">
-						<s:submit cssClass="label" value="确定修改"></s:submit>
+						<s:submit id="button" cssClass="label" value="确定修改"></s:submit>
 					</td>
 				</tr>
 			</table>

@@ -13,10 +13,12 @@
 		<SCRIPT language=javascript>
 	function check(form) {
 		if (form.mobile.value == "") {
+			form.mobile.focus();
 			alert("电话不能为空！");
 			return false;
 		}
 		if (form.email.value == "") {
+			form.email.focus();
 			alert("E-mail不能为空！");
 			return false;
 		}
@@ -32,6 +34,7 @@
 			alert("电话号码应全为数字，请输入正确电话号码");
 			return false;
 		}
+		form.button.disabled = true;
 		return true;
 	}
 </SCRIPT>
@@ -91,7 +94,7 @@
 						&nbsp;
 					</td>
 					<td width="80%">
-						<s:submit cssClass="label" value="确定修改"></s:submit>
+						<s:submit id="button" cssClass="label" value="确定修改"></s:submit>
 					</td>
 				</tr>
 			</table>

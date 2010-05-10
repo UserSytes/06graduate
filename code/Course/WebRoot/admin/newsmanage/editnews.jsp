@@ -16,11 +16,13 @@
 			{
 				if (form.title.value == "")
 				{
+					form.title.focus();
 					alert("学院名不能为空！");
 					return false;
 				}
 				if (form.author.value == "")
 				{
+					form.author.focus();
 					alert("作者不能为空！");
 					return false;
 				}
@@ -30,6 +32,7 @@
    					alert("内容不能为空！");
 					return false;
    				}
+   				form.button.disabled = true;
 				return true;
 				
 			}
@@ -186,7 +189,7 @@ conditionTable.deleteRow(o.parentElement.rowIndex*1);
 						&nbsp;
 					</td>
 					<td width="85%">
-						<s:submit cssClass="label" value="确定修改"></s:submit>
+						<s:submit id="button" cssClass="label" value="确定修改"></s:submit>
 					</td>
 				</tr>
 			</table>

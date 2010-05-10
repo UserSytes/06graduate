@@ -16,18 +16,21 @@
 		<SCRIPT language=javascript>
 	function check(form) {
 		if (form.account.value == "") {
+			form.account.focus();
 			alert("账号不能为空！");
 			return false;
 		}
 		if (form.adminName.value == "") {
+			form.adminName.focus();
 			alert("姓名不能为空！");
 			return false;
 		}
 		if (form.adminSchoolId.value == -1) {
 			alert("所属学院不能为空！");
+			form.adminSchoolId.focus();
 			return false;
 		}
-
+		form.button.disabled = true;
 		return true;
 	}
 

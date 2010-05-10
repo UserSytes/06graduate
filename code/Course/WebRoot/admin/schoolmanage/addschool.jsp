@@ -35,22 +35,17 @@
 			{
 				if (form.schoolName.value == "")
 				{
+					form.schoolName.focus();
 					alert("学院名不能为空！");
 					return false;
 				}else{
+					form.button.disabled = true;
 					return true;
 				}
 			}
 			
 			
 		</SCRIPT>
-		<style type="text/css">
-<!--
-.STYLE1 {
-	color: #000000
-}
--->
-</style>
 	</head>
 
 	<body>

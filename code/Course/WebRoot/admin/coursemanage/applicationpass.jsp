@@ -15,9 +15,11 @@
 			{
 				if (form.refuseReason.value == "")
 				{
+					form.refuseReason.focus();
 					alert("反馈信息不能为空！");
 					return false;
 				}
+				form.button.disabled = true;
 				return true;
 			}
 		</SCRIPT>
@@ -125,7 +127,7 @@
 						&nbsp;
 					</td>
 					<td width="80%">						
-						<s:submit cssClass="label" value="审核通过"></s:submit>
+						<s:submit id="button" cssClass="label" value="审核通过"></s:submit>
 					</td>
 				</tr>
 			</table>

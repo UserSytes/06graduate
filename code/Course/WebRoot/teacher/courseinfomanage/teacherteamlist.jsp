@@ -78,9 +78,6 @@ $(document).ready(function(){
 						研究领域
 					</th>
 					<th>
-						个人主页
-					</th>
-					<th>
 						备注
 					</th>
 					<th>
@@ -90,23 +87,21 @@ $(document).ready(function(){
 				<tbody id="tbody" style="display: none;">
 				<s:iterator value="teacherTeamList" status="teacherTeam">
 					<tr class="listTr">
-						<td>
+						<td width="10%">
 							<s:property value="name" />
 						</td>
-						<td>
+						<td width="20%">
 							<s:property value="position" />
 						</td>
-						<td>
+						<td width="25%">
 							<s:property value="field" />
 						</td>
-						<td>
-							<a href="javascript:popwin('${link}')"><s:property id="link"
-									value="link" /> </a>
-						</td>
-						<td>
+						<td width="20%">
 							<s:property value="remark" />
 						</td>
-						<td>
+						<td width="25%">
+							<a href="javascript:popwin('${link}')">
+								<font color="green">【个人主页】</font> </a>
 							<a
 								href="<s:url action="goEidtTeacherTeamAction"> 
                      			<s:param name="teacherTeamId"> 

@@ -56,7 +56,7 @@ $(document).ready(function(){
 				<td>
 					当前位置: 我的课程 -&gt; 实验指导列表
 				</td>
-				<td width="200">
+				<td width="300">
 					筛选：&nbsp;&nbsp;&nbsp;
 					<s:select id="chapterId" name="chapterId" list="chapterList"
 						listKey="id" listValue="number+name" headerValue="所有"

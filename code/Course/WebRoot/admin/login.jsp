@@ -7,17 +7,21 @@
 	<SCRIPT language=javascript>
 	function check(form) {
 		if (form.userName.value == "") {
+			form.userName.focus();
 			alert("账号不能为空！");
 			return false;
 		}
 		if (form.password.value == "") {
+			form.password.focus();
 			alert("密码不能为空！");
 			return false;
 		}
 		if (form.flag.value == -1) {
 			alert("请选择权限！");
+			form.flag.focus();
 			return false;
 		}
+		form.submit.disabled = true;
 		return true;
 	}
 </SCRIPT>
@@ -53,7 +57,7 @@
               <td height="40" colspan="2" align="center">
 						<font size="2" color="red"><s:actionerror /></font></td>
           <tr>
-              <td colspan="2" align="center"><input type="submit" name="submit"  value=" 登  陆 "> 
+              <td colspan="2" align="center"><input id="submit" type="submit" name="submit"  value=" 登  陆 "> 
 			  <input type="reset" name="Submit"  value=" 取  消 "></td>
             <tr>
               <td height="5" colspan="2"></td>

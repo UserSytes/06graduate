@@ -15,14 +15,18 @@
 			{	
 				if (form.departmentId.value == -1)
 				{
+					form.departmentId.focus();
 					alert("所属系不能为空！");
 					return false;
 				}
 				if (form.gradeId.value == -1)
 				{
+					form.gradeId.focus();
 					alert("年级不能为空！");
 					return false;
 				}
+				form.button.disabled = true;
+				return true;
 			}
 			
 			function ajax()
@@ -114,7 +118,7 @@
 						&nbsp;
 					</td>
 					<td width="80%">
-						<s:submit cssClass="label" onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;" value="删除学生"></s:submit>
+						<s:submit id="button"  cssClass="label" onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;" value="删除学生"></s:submit>
 					</td>
 				</tr>
 			</table>

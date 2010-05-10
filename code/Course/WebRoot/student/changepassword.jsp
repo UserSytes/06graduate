@@ -13,20 +13,25 @@
 	function check(form) {
 		if (form.oldPassword.value == "") {
 			alert("原密码不能为空！");
+			form.oldPassword.focus();
 			return false;
 		}
 		if (form.newPassword.value == "") {
 			alert("新密码不能为空！");
+			form.newPassword.focus();
 			return false;
 		}
 		if (form.newPasswordAgain.value == "") {
 			alert("请再次输入新密码！");
+			form.newPasswordAgain.focus();
 			return false;
 		}
 		if (form.newPassword.value != form.newPasswordAgain.value) {
 			alert("两次输入的新密码不一致，请重新输入！");
+			form.newPassword.focus();
 			return false;
 		}
+		form.button.disabled = true;
 		return true;
 	}
 	</SCRIPT>
@@ -130,7 +135,7 @@
 										<tr  height="30">
 											<th colspan="2">
 												<div align="right">
-													<s:submit value="确定修改" />
+													<s:submit id="button" value="确定修改" />
 												</div>
 											</th>
 										</tr>

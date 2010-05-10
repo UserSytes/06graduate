@@ -13,21 +13,26 @@
 		<SCRIPT language=javascript>
 	function check(form) {
 		if (form.oldPassword.value == "") {
+			form.oldPassword.focus();
 			alert("原密码不能为空！");
 			return false;
 		}
 		if (form.newPassword.value == "") {
+			form.newPassword.focus();
 			alert("新密码不能为空！");
 			return false;
 		}
 		if (form.newPasswordAgain.value == "") {
+			form.newPasswordAgain.focus();
 			alert("请再次输入新密码！");
 			return false;
 		}
 		if (form.newPassword.value != form.newPasswordAgain.value) {
+			form.newPassword.focus();
 			alert("两次输入的新密码不一致，请重新输入！");
 			return false;
 		}
+		form.button.disabled = true;
 		return true;
 	}
 </SCRIPT>
@@ -95,7 +100,7 @@
 						&nbsp;
 					</td>
 					<td width="80%">
-						<s:submit cssClass="label" value="确定修改"></s:submit>
+						<s:submit id="button" cssClass="label" value="确定修改"></s:submit>
 					</td>
 				</tr>
 			</table>

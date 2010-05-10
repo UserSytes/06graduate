@@ -15,9 +15,11 @@
 			{
 				if (form.refuseReason.value == "")
 				{
+					form.refuseReason.focus();
 					alert("退回原因不能为空！");
 					return false;
 				}
+				form.button.disabled = true;
 				return true;
 			}
 		</SCRIPT>
@@ -120,7 +122,7 @@
 						&nbsp;
 					</td>
 					<td width="80%">						
-						<s:submit onclick="return check(this);JAVAscript:if(!confirm('确认退回？')) return false;return true;" cssClass="label" value="退回"></s:submit>
+						<s:submit id="button" onclick="return check(this);JAVAscript:if(!confirm('确认退回？')) return false;return true;" cssClass="label" value="退回"></s:submit>
 					</td>
 				</tr>
 			</table>

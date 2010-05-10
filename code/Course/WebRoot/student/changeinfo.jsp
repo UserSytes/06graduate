@@ -10,24 +10,29 @@
 	function check(form) {
 		if (form.mobile.value == "") {
 			alert("电话不能为空！");
+			form.mobile.focus();
 			return false;
 		}
 		if (form.email.value == "") {
 			alert("E-mail不能为空！");
+			form.email.focus();
 			return false;
 		}
 		var re2 = /^[0-9]*$/;
 		var re = /^([a-zA-Z0-9_-])+@+([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
 		var email = form.email.value;
 		var phone = form.mobile.value;
-		if (!re.test(email)) {
-			alert("E_mail格式错误，请输入正确邮箱！");
-			return false;
-		}
 		if (!re2.test(phone)) {
 			alert("电话号码应全为数字，请输入正确电话号码");
+			form.mobile.focus();
 			return false;
 		}
+		if (!re.test(email)) {
+			alert("E_mail格式错误，请输入正确邮箱！");
+			form.email.focus();
+			return false;
+		}
+		form.button.disabled = true;
 		return true;
 	}
 </SCRIPT>
@@ -166,7 +171,7 @@
 										<tr  height="30">
 											<th colspan="2">
 												<div align="right">
-													<s:submit value="修改信息" />
+													<s:submit id="button" value="修改信息" />
 												</div>
 											</th>
 										</tr>

@@ -14,10 +14,12 @@
 		<SCRIPT language=javascript>
 	function check(form) {
 		if (form.title.value == "") {
+			form.title.focus();
 			alert("新闻标题不能为空！");
 			return false;
 		}
 		if (form.author.value == "") {
+			form.author.focus();
 			alert("作者不能为空！");
 			return false;
 		}
@@ -27,6 +29,7 @@
    			alert("内容不能为空！");
 			return false;
    		}
+   		form.button.disabled = true;
 		return true;
 
 	}
@@ -137,7 +140,7 @@ conditionTable.deleteRow(o.parentElement.rowIndex*1);
 						&nbsp;
 					</td>
 					<td width="85%">
-						<s:submit cssClass="label" value="确定添加"></s:submit>
+						<s:submit id="button" cssClass="label" value="确定添加"></s:submit>
 					</td>
 				</tr>
 			</table>

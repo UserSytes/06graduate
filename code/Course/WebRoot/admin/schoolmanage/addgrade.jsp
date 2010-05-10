@@ -15,11 +15,13 @@
 			{
 				if (form.gradeName.value == -1)
 				{
+					form.gradeName.focus();
 					alert("学籍类型不能为空！");
 					return false;
 				}
 				if (form.gradeNum.value == "")
 				{
+					form.gradeNum.focus();
 					alert("年级不能为空！");
 					return false;
 				}
@@ -27,9 +29,11 @@
 				var re2 = /^[0-9]*$/;
 				var gradeNum = form.gradeNum.value;
 				if (!re2.test(gradeNum)) {
+					form.gradeNum.focus();
 					alert("年级格式不正确，请输入数字！");
 					return false;
 				}
+				form.button.disabled = true;
 				return true;
 			}
 		</SCRIPT>
@@ -90,7 +94,7 @@
 						&nbsp;
 					</td>
 					<td width="80%">
-						<s:submit cssClass="label" value="确定添加"></s:submit>
+						<s:submit id="button" cssClass="label" value="确定添加"></s:submit>
 					</td>
 				</tr>
 			</table>

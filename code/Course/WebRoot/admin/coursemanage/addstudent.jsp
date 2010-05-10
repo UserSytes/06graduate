@@ -16,9 +16,11 @@
 		<SCRIPT language=javascript>
 	function check(form) {
 		if (form.studentNo.value == "") {
+			form.studentNo.focus();
 			alert("学号不能为空！");
 			return false;
 		}
+		form.button.disabled = true;
 		return true;
 	}
 	function getStudentName(stuNo) {

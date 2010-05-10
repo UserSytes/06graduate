@@ -81,7 +81,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="title" name="courseMovie.title" cssClass="input" />
+						<s:textfield id="title" size="50"  name="courseMovie.title" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -92,7 +92,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="author" name="courseMovie.author"
+						<s:textfield id="author"  size="50" name="courseMovie.author"
 							cssClass="input" />
 					</td>
 				</tr>
@@ -104,7 +104,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="position" name="courseMovie.position"
+						<s:textfield id="position"  size="50" name="courseMovie.position"
 							cssClass="input" />
 					</td>
 				</tr>
@@ -141,7 +141,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:file id="upload" name="upload"></s:file>
+						<s:file id="upload" size="50"  name="upload"></s:file>
 					</td>
 				</tr>
 				<tr class=editHeaderTr>

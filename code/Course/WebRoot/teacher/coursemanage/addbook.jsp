@@ -75,7 +75,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="name" name="book.name" cssClass="input" />
+						<s:textfield id="name" size="50"  name="book.name" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -86,7 +86,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="author" name="book.author"
+						<s:textfield id="author" size="50"  name="book.author"
 							cssClass="input" />
 					</td>
 				</tr>
@@ -98,7 +98,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="publication" name="book.publication"
+						<s:textfield id="publication" size="50"  name="book.publication"
 							cssClass="input" />
 					</td>
 				</tr>
@@ -123,7 +123,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:file id="upload" name="upload"></s:file>
+						<s:file id="upload" size="50"  name="upload"></s:file>
 					</td>
 				</tr>
 				<tr class=editHeaderTr>
