@@ -286,7 +286,7 @@ TR.position {
 								</td>
 								<td colspan="3" bgcolor="#FFFFFF">
 									&nbsp;&nbsp;&nbsp;
-									<s:textfield id="name" name="userInfo.name"
+									<s:textfield id="name"  size="40"  name="userInfo.name"
 										cssClass="input" />
 								</td>
 							</tr>
@@ -298,7 +298,7 @@ TR.position {
 								</td>
 								<td colspan="3" bgcolor="#FFFFFF">
 									&nbsp;&nbsp;&nbsp;
-									<s:textfield id="position" name="teacher.position" cssClass="input" />
+									<s:textfield id="position" size="40" name="teacher.position" cssClass="input" />
 								</td>
 							</tr>
 							<tr>
@@ -320,7 +320,7 @@ TR.position {
 								</td>
 								<td colspan="3" bgcolor="#FFFFFF">
 									&nbsp;&nbsp;&nbsp;
-									<s:textfield id="email" name="userInfo.email" cssClass="INPUT" />
+									<s:textfield id="email" size="40" name="userInfo.email" cssClass="INPUT" />
 								</td>
 							</tr>
 							<tr>
@@ -331,7 +331,7 @@ TR.position {
 								</td>
 								<td colspan="3" bgcolor="#FFFFFF">
 									&nbsp;&nbsp;&nbsp;
-									<s:textfield id="mobile" name="userInfo.mobile" cssClass="INPUT" />
+									<s:textfield id="mobile" size="40" name="userInfo.mobile" cssClass="INPUT" />
 								</td>
 							</tr>
 							<tr class=editHeaderTr>

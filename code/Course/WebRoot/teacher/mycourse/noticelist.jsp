@@ -97,7 +97,7 @@ $(document).ready(function(){
 							<td width="5%">
 								<s:property value="#notice.count" />
 							</td>
-							<td width="30%">
+							<td width="40%">
 								<s:property value="title" />
 							</td>
 							<td width="10%">
@@ -106,7 +106,7 @@ $(document).ready(function(){
 							<td width="15%">
 								<s:property value="course.name" />
 							</td>
-							<td width="25%">
+							<td width="15%">
 								<s:date name="time" format="yyyy-MM-dd hh:mm:ss" />
 							</td>
 							<td width="15%">

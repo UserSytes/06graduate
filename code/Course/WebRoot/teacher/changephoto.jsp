@@ -100,7 +100,7 @@ TR.position {
 							</tr>
 							<tr height="30">
 								<td align="left">
-									<s:file id="upload" name="upload"></s:file>
+									<s:file id="upload" size="40"  name="upload"></s:file>
 								</td>
 							</tr>
 							<tr height="30">

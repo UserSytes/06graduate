@@ -85,19 +85,19 @@ $(document).ready(function(){
 				<tbody id="tbody" style="display: none;">
 				<s:iterator value="bookList" status="book">
 					<tr class="listTr">
-						<td>
+						<td width="25%">
 							<s:property value="name" />
 						</td>
-						<td>
+						<td width="20%">
 							<s:property value="author" />
 						</td>	
-<td>
+						<td width="15%">
 							<s:property value="publication" />
 						</td>					
-						<td>
+						<td width="10%">
 							<s:date format="yyyy-MM-dd" name="time" />
 						</td>
-						<td>
+						<td width="15%">
 							<a
 								href="<s:url action="download"> 
                      			<s:param name="fileName"> 
@@ -109,7 +109,7 @@ $(document).ready(function(){
                 					</s:url>">
 								<font color="blue"><s:property value="filename" /> </font> </a>
 						</td>
-						<td>
+						<td width="15%">
 							<a
 								href="<s:url action="goEditBookAction"> 
                      			<s:param name="bookId"> 

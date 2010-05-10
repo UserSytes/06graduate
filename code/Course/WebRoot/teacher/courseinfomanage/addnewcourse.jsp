@@ -110,7 +110,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="name" name="course.name" cssClass="input" />
+						<s:textfield id="name" size="50" name="course.name" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
