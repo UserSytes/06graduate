@@ -76,22 +76,22 @@ $(document).ready(function(){
 				<tbody id="tbody" style="display: none;">
 					<s:iterator value="evaluationList" status="evaluation">
 						<tr class="listTr">
-							<td>
+							<td width="20%">
 								<s:property value="name" />
 							</td>
-							<td>
+							<td width="15%">
 								<s:property value="position" />
 							</td>
-							<td>
+							<td width="20%">
 								<s:property value="company" />
 							</td>
-							<td>
+							<td width="15%">
 								<s:property value="score" />
 							</td>
-							<td>
+							<td width="10%">
 								<s:if test="status==1">已评</s:if>
 								<s:if test="status==0">未评</s:if>
-							<td>
+							<td width="20%">
 								<a
 									href="<s:url action="getEvaluationDetailAction"> 
                      			<s:param name="evaluationId"> 

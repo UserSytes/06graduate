@@ -94,21 +94,21 @@ $(document).ready(function(){
 				<tbody id="tbody" style="display: none;">
 				<s:iterator value="experimentList" status="experiment">
 					<tr class="listTr">
-						<td>
+						<td width="25%">
 							<s:property value="chapter.number" />
 							---
 							<s:property value="chapter.name" />
 						</td>
-						<td>
+						<td width="25%">
 							<s:property value="title" />
 						</td>
-						<td>
+						<td width="10%">
 							<s:property value="author" />
 						</td>
-						<td>
+						<td width="10%">
 							<s:date format="yyyy-MM-dd" name="time" />
 						</td>
-						<td>
+						<td width="15%">
 							<a
 								href="<s:url action="download"> 
                      			<s:param name="fileName"> 
@@ -120,7 +120,7 @@ $(document).ready(function(){
                 					</s:url>">
 								<font color="blue"><s:property value="filename" /> </font> </a>
 						</td>
-						<td>
+						<td width="15%">
 							<a
 								href="<s:url action="goEditExperimentAction"> 
                      			<s:param name="experimentId"> 

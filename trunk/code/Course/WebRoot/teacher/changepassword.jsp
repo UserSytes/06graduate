@@ -75,7 +75,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:password name="password" cssClass="input" />
+						<s:password name="password" size="50" cssClass="input" />
 						&nbsp;*
 					</td>
 				</tr>
@@ -87,7 +87,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:password name="newPassword" cssClass="input" />
+						<s:password name="newPassword"  size="50" cssClass="input" />
 						&nbsp;*
 					</td>
 				</tr>
@@ -99,7 +99,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:password name="confirmPassword" cssClass="INPUT" />
+						<s:password name="confirmPassword"  size="50" cssClass="INPUT" />
 						&nbsp;*
 
 

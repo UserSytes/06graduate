@@ -29,27 +29,27 @@
 	</tr>
 	<s:iterator value="myCoursesList" status="course">
 		<tr class="listTr">
-			<td>
+			<td width="5%">
 				<s:property value="#course.count" />
 			</td>
-			<td>
+			<td  width="22%">
 				<s:property value="name" />
 			</td>
-			<td>
+			<td  width="10%">
 				<s:property value="level" />
 			</td>
-			<td>
+			<td width="15%">
 				<s:property value="department.school.name" />
 			</td>
-			<td>
+			<td width="15%">
 				<s:property value="department.name" />
 			</td>
-			<td>
+			<td width="8%">
 				<s:if test="status==1">已审核</s:if>
 				<s:if test="status==0">未审核</s:if>
 				<s:if test="status==2">未通过</s:if>
 			</td>
-			<td>
+			<td width="25%">
 				<a
 					href="<s:url action="goEidtCourseAction"> 
                      			<s:param name="courseId"> 

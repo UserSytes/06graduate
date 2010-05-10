@@ -81,16 +81,16 @@ $(document).ready(function(){
 				<tbody id="tbody" style="display: none;">
 				<s:iterator value="chapterList" status="chapter">
 					<tr class="listTr">
-						<td>
+						<td width="15%">
 							<s:property value="number" />
 						</td>
-						<td>
+						<td width="40%">
 							<s:property value="name" />
 						</td>
-						<td>
+						<td width="30%">
 							<s:property value="remark" />
 						</td>
-						<td>
+						<td width="15%">
 							<a
 								href="<s:url action="goEditChapterAction"> 
                      			<s:param name="chapterId"> 

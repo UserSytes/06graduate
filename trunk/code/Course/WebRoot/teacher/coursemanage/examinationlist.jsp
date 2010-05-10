@@ -82,16 +82,16 @@ $(document).ready(function(){
 				<tbody id="tbody" style="display: none;">
 				<s:iterator value="examinationList" status="examination">
 					<tr class="listTr">
-						<td>
+						<td width="35%">
 							<s:property value="title" />
 						</td>
-						<td>
+						<td width="10%">
 							<s:property value="author" />
 						</td>						
-						<td>
+						<td width="10%">
 							<s:date format="yyyy-MM-dd" name="time" />
 						</td>
-						<td>
+						<td width="30%">
 							<a
 								href="<s:url action="download"> 
                      			<s:param name="fileName"> 
@@ -103,7 +103,7 @@ $(document).ready(function(){
                 					</s:url>">
 								<font color="blue"><s:property value="filename" /> </font> </a>
 						</td>
-						<td>
+						<td width="15%">
 							<a
 								href="<s:url action="goEditExaminationAction"> 
                      			<s:param name="examinationId"> 
