@@ -181,13 +181,13 @@ public class ExecuteViewAction extends BaseAction {
 				}
 			} else if (course.getVisible() == 2) {
 				if (null == super.getEvaluation()) {
-					addActionError("对不起，该课程目前仅对同行和专家开放。己有帐户请先登录 ！");
+					addActionError("对不起，该课程目前仅对同行和专家开放。已有帐户请先登录 ！");
 					return ERROR;
 				}
 			} else if (course.getVisible() == 3) {
 				Evaluation eva = super.getEvaluation();
 				if (eva == null || eva.getSort() == 0) {
-					addActionError("对不起，该课程目前仅对专家开放。己有帐户请先登录 ！");
+					addActionError("对不起，该课程目前仅对专家开放。已有帐户请先登录 ！");
 					return ERROR;
 				}
 			} else if (course.getVisible() == 4) {

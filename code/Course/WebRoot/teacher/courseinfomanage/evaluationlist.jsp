@@ -89,7 +89,7 @@ $(document).ready(function(){
 								<s:property value="score" />
 							</td>
 							<td>
-								<s:if test="status==1">己评</s:if>
+								<s:if test="status==1">已评</s:if>
 								<s:if test="status==0">未评</s:if>
 							<td>
 								<a
