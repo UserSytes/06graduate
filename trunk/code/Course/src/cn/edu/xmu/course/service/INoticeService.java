@@ -57,19 +57,20 @@ public interface INoticeService {
 	 * @return
 	 */
 	public List getNoticeBySort(Course course,Integer sort);
+
 	/**
-	 * 查找最新的课程公告
+	 * 查找最新的7个课程新闻
 	 * @param course
 	 * @return
 	 */
+	public List findLastestSevenNotices(Course course,int sort);
 	
-	public Notice findLastestNotice(Course course);
 	/**
-	 * 查找最新的5个课程新闻
+	 * 查找最新的10个课程通知
 	 * @param course
 	 * @return
 	 */
-	public List findLastestFiveNews(Course course,int sort);
+	public List findLastestLeftNotices(Course course);
 	
 
 }

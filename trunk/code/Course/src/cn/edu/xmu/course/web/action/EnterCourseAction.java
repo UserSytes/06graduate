@@ -57,12 +57,12 @@ public class EnterCourseAction extends BaseAction {
 	public String goIndexQuery() {
 		course = super.getCourse();
 		setCourseInfo(courseInfoService.getCourseInfo(course.getId(), 1));
-		setAchievementList(getAchievementService().getAllAchievements(course));
+		setAchievementList(getAchievementService().findLastestSevenAchievements(course));
 		if (null == getCourseInfo()) {
 			setCourseInfo(new CourseInfo());
 			getCourseInfo().setContent("暂无任何内容！");
 		}
-		setNoticeList(noticeService.findLastestFiveNews(course, 0));
+		setNoticeList(noticeService.findLastestSevenNotices(course, 0));
 		return SUCCESS;
 	}
 
@@ -76,7 +76,7 @@ public class EnterCourseAction extends BaseAction {
 		course = super.getCourse();
 		setTeacher(course.getTeacher());
 		setUserInfo(getTeacher().getUserInfo());
-		setNoticeList2(noticeService.findLastestFiveNews(course, 1));
+		setNoticeList2(noticeService.findLastestLeftNotices(course));
 		setCount(course.getCount());
 		return SUCCESS;
 	}

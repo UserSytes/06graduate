@@ -56,4 +56,11 @@ public interface IAchievementService {
 	 * @return
 	 */
 	public boolean updateAchievement(Achievement achievement,File upload);
+	
+	/**
+	 * 查找最新教学成果
+	 * @param course
+	 * @return
+	 */
+	public List findLastestSevenAchievements(Course course);
 }

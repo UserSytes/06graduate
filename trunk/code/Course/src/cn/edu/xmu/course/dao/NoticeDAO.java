@@ -95,8 +95,7 @@ public class NoticeDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-	public List findLastestFiveNews (Object course,int sort) {
-	  	List list = new ArrayList() ;
+	public List findLastestSevenNotices (Object course,int sort) {	  	
 	  	try {
 	  	  
 	  		String queryString = 
@@ -105,15 +104,27 @@ public class NoticeDAO extends HibernateDaoSupport {
 	  		queryObject.setParameter(0, course);
 	  		queryObject.setParameter(1, sort);
 	  		queryObject.setFirstResult(0); 
-	  		queryObject.setMaxResults(5); 
-	  		list=queryObject.list();
-
-	  	  
+	  		queryObject.setMaxResults(7); 
+	  		return queryObject.list();	  	  
 	  	} catch(RuntimeException re) {
 	  		log.error("find Message by page failed", re);
-	  		re.printStackTrace() ;
-	  	}
-	  	return list ;
+	  		throw re;
+	  	}			
+	  }
+	public List findLastestLeftNotices (Object course) {	  	
+	  	try {
+	  	  
+	  		String queryString = 
+	  			"select notice from Notice notice where notice.course=? and sort=1 order by notice.time DESC";
+	  		Query queryObject = getSession().createQuery(queryString);
+	  		queryObject.setParameter(0, course);	  		
+	  		queryObject.setFirstResult(0); 
+	  		queryObject.setMaxResults(10); 
+	  		return queryObject.list();	  	  
+	  	} catch(RuntimeException re) {
+	  		log.error("find Message by page failed", re);
+	  		throw re;
+	  	}			
 	  }
 	public List findByCourseAndSort(Object courseId,Object sort){
 		log.debug("finding Notice instance by course and sort");

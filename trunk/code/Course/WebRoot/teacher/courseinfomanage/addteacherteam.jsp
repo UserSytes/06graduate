@@ -24,10 +24,15 @@
 					alert("职称不能为空！");
 					form.position.focus();
 					return false;
-				}
+				}				
 				if (form.field.value == "")
 				{
 					alert("研究领域不能为空！");
+					form.field.focus();
+					return false;
+				}
+				if (form.field.value.length>50)				{
+					alert("研究领域长度不能超过50！");
 					form.field.focus();
 					return false;
 				}

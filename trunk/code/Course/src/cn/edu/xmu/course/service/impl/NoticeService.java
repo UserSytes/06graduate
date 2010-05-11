@@ -39,13 +39,6 @@ public class NoticeService implements INoticeService {
 		return noticeDAO.findByCourseAndSort(course.getId(), sort);
 	}
 	
-	public Notice findLastestNotice(Course course) {
-		List<Notice> list=noticeDAO.findByCourseAndSort(course.getId(), 1);
-		if(list.size()==0)
-			return null;
-		else 
-			return list.get(0);
-	}
 	public List getNoticeListByCourse(Course course) {
 		// TODO Auto-generated method stub
 		return noticeDAO.findByCourse(course);
@@ -81,10 +74,13 @@ public class NoticeService implements INoticeService {
 		return noticeDAO;
 	}
 
-	public List findLastestFiveNews(Course course,int sort) {
-		return noticeDAO.findLastestFiveNews(course,sort);
+	public List findLastestSevenNotices(Course course,int sort) {
+		return noticeDAO.findLastestSevenNotices(course,sort);
 	}
 
-
+	public List findLastestLeftNotices(Course course) {
+		// TODO Auto-generated method stub
+		return noticeDAO.findLastestLeftNotices(course);
+	}
 
 }

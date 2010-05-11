@@ -33,7 +33,12 @@
 	$(document).ready( function() {
 		oTable = $('#example').dataTable( {
 			"bJQueryUI" :true,
-			"sPaginationType" :"full_numbers"
+			"sPaginationType" :"full_numbers",
+			"aoColumns": [
+			{ "sSortDataType": "dom-text", "sType": "numeric" },
+			null,
+			null,
+			null]	
 		});
 	});
 </script>
@@ -81,7 +86,7 @@
 											<s:iterator value="noticeList" status="notice">
 												<tr height="33" class="tr-content">
 													<td style="text-align: left;" width="60">
-														&nbsp;<s:property value="#notice.count" />
+														<s:property value="#notice.count" />
 													</td>
 													<td width="464" align="center" style="font-weight: bold">
 														<a class="titlea"
