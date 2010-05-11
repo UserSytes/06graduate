@@ -29,7 +29,12 @@
 	$(document).ready( function() {
 		oTable = $('#example').dataTable( {
 			"bJQueryUI" :true,
-			"sPaginationType" :"full_numbers"
+			"sPaginationType" :"full_numbers",
+			"aoColumns": [
+			{ "sSortDataType": "dom-text", "sType": "numeric" },
+			null,null,
+			null,	
+			null]	
 		});
 	});
 </script>

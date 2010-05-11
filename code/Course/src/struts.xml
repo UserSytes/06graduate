@@ -1612,12 +1612,7 @@
 		<action name="viewNoticeAction" method="findNoticeById" class="noticeAction">
 			<result name="success">/coursepage/viewnotice.jsp
 			</result>
-		</action>
-		<action name="findLastestNoticeAction" method="findLastestNotice"
-			class="noticeAction">
-			<result name="success">/coursepage/viewnotice.jsp
-			</result>
-		</action>
+		</action>	
 		<action name="goIndexQueryAction" method="goIndexQuery" class="enterCourseAction">
 			<result name="success">/coursepage/index.jsp
 			</result>

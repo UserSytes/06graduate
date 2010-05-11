@@ -120,4 +120,13 @@ public class AchievementService implements IAchievementService {
 		return noticeDAO;
 	}
 
+	/*
+	 * 查找 最新教学成果(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IAchievementService#findLastestSevenAchievements(cn.edu.xmu.course.pojo.Course)
+	 */
+	public List findLastestSevenAchievements(Course course) {
+		// TODO Auto-generated method stub
+		return achievementDAO.findLastestSevenAchievements();
+	}
+
 }

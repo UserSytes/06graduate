@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
+import org.hibernate.Query;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -117,6 +118,20 @@ public class AchievementDAO extends HibernateDaoSupport {
 	public List findByFileLink(Object fileLink) {
 		return findByProperty(FILE_LINK, fileLink);
 	}
+	
+	public List findLastestSevenAchievements () {	 
+	  	try {	  	  
+	  		String queryString = 
+	  			"select achievement from Achievement achievement order by achievement.time DESC";
+	  		Query queryObject = getSession().createQuery(queryString);
+	  		queryObject.setFirstResult(0); 
+	  		queryObject.setMaxResults(7); 
+	  		return queryObject.list();
+	  	} catch(RuntimeException re) {
+	  		log.error("find News failed", re);
+	  		throw re;
+	  	}
+	  }
 
 	public List findAll() {
 		log.debug("finding all Achievement instances");

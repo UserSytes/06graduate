@@ -232,6 +232,18 @@ public class EvaluateService implements IEvaluateService {
 			return false;
 		}
 	}
+	
+	/**
+	 * 根据用户名查找该评价
+	 * @param username
+	 * @return
+	 */
+	public Evaluation getEvaluationByUsername(String username){
+		List<Evaluation> el = evaluationDAO.findByUsername(username);
+		if(el.size()==0)
+			return null;
+		else return el.get(0);
+	}
 
 	public void setStudentCourseDAO(StudentCourseDAO studentCourseDAO) {
 		this.studentCourseDAO = studentCourseDAO;

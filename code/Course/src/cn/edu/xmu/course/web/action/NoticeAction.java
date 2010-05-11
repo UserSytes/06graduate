@@ -103,9 +103,7 @@ public class NoticeAction extends BaseAction {
 	@SuppressWarnings("unchecked")
 	public String getNoticeBySort2() {
 		course = super.getCourse();
-		noticeList = getNoticeService().getNoticeBySort(course, sort);
-		// noticeList = noticeService.getNoticeBySort(course, getSort());
-		setSort(getSort());
+		noticeList = getNoticeService().getNoticeBySort(course, sort);	
 		return SUCCESS;
 	}
 
@@ -118,12 +116,6 @@ public class NoticeAction extends BaseAction {
 		} else
 			return SUCCESS;
 
-	}
-
-	public String findLastestNotice() {
-		course = super.getCourse();
-		notice = noticeService.findLastestNotice(course);
-		return SUCCESS;
 	}
 
 	/**

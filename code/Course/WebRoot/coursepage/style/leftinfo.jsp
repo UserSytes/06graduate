@@ -16,7 +16,7 @@
 							href="<s:url action="viewNoticeAction"> <s:param name="noticeId"> 
 	                       			 									<s:property value="id"/> </s:param> </s:url>"
 							title="<s:property value="title" />"> <s:if
-								test="title.length()>16">
+								test="title.length()>12">
 								<s:property value="title.substring(0, 12)+'...'" />
 							</s:if> <s:else>
 								<s:property value="title" />
