@@ -10,12 +10,12 @@
 <body bgcolor="#03A8F6">
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td width="194" height="60" align="center" background="Images/top_logo.jpg"></td>
+    <td width="270" height="60" align="center" background="Images/top_logo.gif"></td>
     <td align="center" style="background:url(Images/top_bg.jpg) no-repeat"><table cellspacing="0" cellpadding="0" border="0" width="100%" height="33">
       <tbody>
         <tr>
           <td width="30" align="left">
-          <img src="Images/on-of.gif" onClick="switchBar(this)" height="15" alt="关闭左边管理菜单" width="15" border="0" /></td>
+          </td>
           <td width="300" align="left"></td>
           <td width="100" align="right" nowrap="nowrap" class="topbar">课程中心：</td>
           <td class="topbar"><a href="../homepage/index.jsp" 
