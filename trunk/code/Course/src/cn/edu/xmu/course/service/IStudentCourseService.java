@@ -111,4 +111,13 @@ public interface IStudentCourseService {
 	 * @return
 	 */
 	public boolean deleteMoreSudentCourse(Course course, String departmentId, String gradeId);
+	
+	/**
+	 * 查找学生是否存在于该课程
+	 * @param course
+	 * @param student
+	 * @return
+	 */
+	public List<StudentCourse> findByStudentAndCourse(Course course,
+			Student student);
 }

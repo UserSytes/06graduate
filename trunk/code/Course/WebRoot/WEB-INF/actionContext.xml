@@ -213,6 +213,9 @@
 		<property name="loginService">
 			<ref bean="loginService" />
 		</property>	
+		<property name="studentCourseService">
+			<ref bean="studentCourseService" />
+		</property>
 	</bean>
 	<!--课程评价 -->
 		<bean id="evaluationAction" scope="prototype"

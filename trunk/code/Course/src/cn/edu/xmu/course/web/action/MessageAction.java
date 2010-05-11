@@ -5,17 +5,21 @@ import java.util.List;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Message;
 import cn.edu.xmu.course.pojo.Student;
+import cn.edu.xmu.course.pojo.StudentCourse;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.pojo.Topic;
 import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.ILoginService;
 import cn.edu.xmu.course.service.IMessageService;
+import cn.edu.xmu.course.service.IStudentCourseService;
 import cn.edu.xmu.course.service.ITopicService;
+
 /**
  * 负责留言板的类
+ * 
  * @author 何申密
  * @author 许子彦
- *
+ * 
  */
 public class MessageAction extends BaseAction {
 
@@ -30,18 +34,17 @@ public class MessageAction extends BaseAction {
 	private Message message; // 留言
 	private UserInfo userInfo; // 用户信息
 	private Integer topicId; // 主题ID
-	private Integer messageId; //留言id
+	private Integer messageId; // 留言id
 	private ITopicService topicService; // 负责主题的接口
 	private IMessageService messageService; // 负责留言的接口
 	private ILoginService loginService; // 负责登陆的接口
+	private IStudentCourseService studentCourseService;
 	private Student student; // 学生
 	private Teacher teacher; // 老师
 	private int flag; // 登陆类型
 	private String userName, password; // 用户名、密码
 	private int time = 0; // 次数
 	private String replyString = ""; // 回复、引用标题
-	private int replyGrade; // 回复楼层
-	private String replyContent = ""; // 回复、引用内容
 
 	/**
 	 * 从留言板登陆
@@ -69,6 +72,11 @@ public class MessageAction extends BaseAction {
 				addActionError("用户名获密码错误！请返回重试！");
 				return ERROR;
 			} else {
+				if (studentCourseService
+						.findByStudentAndCourse(super.getCourse(), student).size() == 0) {
+					addActionError("你所登录的帐号不是该课程的学生，无法进入留言板！");
+					return ERROR;
+				}
 				userInfo = student.getUserInfo();
 				super.getSession().put(STUDENT, student);
 				super.getSession().put(USERINFO, userInfo);
@@ -122,10 +130,12 @@ public class MessageAction extends BaseAction {
 	 * @return
 	 */
 	public String goReplyToSomeone() {
-		course=super.getCourse();
+		course = super.getCourse();
 		topic = topicService.getTopicById(topicId);
-		Message rMsg = messageService.getMessageById(getMessageId());		
-		setReplyString(""+"<b>回复 第"+rMsg.getGrade()+"楼<i> "+rMsg.getUserInfo().getName()+"</i> 的帖子：</b><br />--------------------------------------");
+		Message rMsg = messageService.getMessageById(getMessageId());
+		setReplyString("" + "<b>回复 第" + rMsg.getGrade() + "楼<i> "
+				+ rMsg.getUserInfo().getName()
+				+ "</i> 的帖子：</b><br />--------------------------------------");
 		userInfo = (UserInfo) super.getSession().get(USERINFO);
 		if (getTopic() == null) {
 			addActionError("该贴已经不存在！");
@@ -135,16 +145,20 @@ public class MessageAction extends BaseAction {
 		}
 
 	}
-	
+
 	/**
 	 * 引用回复留言
+	 * 
 	 * @return
 	 */
 	public String goReplyWithQuote() {
-		course=super.getCourse();
+		course = super.getCourse();
 		topic = topicService.getTopicById(topicId);
 		Message rMsg = messageService.getMessageById(getMessageId());
-		setReplyString("<quote:msgheader>"+"QUOTE:原帖由第"+rMsg.getGrade()+"楼<i> "+rMsg.getUserInfo().getName()+"</i> 的帖子：</quote:msgheader><br /><br />"+rMsg.getContent()+"</b><br />--------------------------------------");
+		setReplyString("<quote:msgheader>" + "QUOTE:原帖由第" + rMsg.getGrade()
+				+ "楼<i> " + rMsg.getUserInfo().getName()
+				+ "</i> 的帖子：</quote:msgheader><br /><br />" + rMsg.getContent()
+				+ "</b><br />--------------------------------------");
 		userInfo = (UserInfo) super.getSession().get(USERINFO);
 		if (getTopic() == null) {
 			addActionError("该贴已经不存在！");
@@ -165,21 +179,21 @@ public class MessageAction extends BaseAction {
 		student = (Student) super.getSession().get(STUDENT);
 		teacher = (Teacher) super.getSession().get(TEACHER);
 		course = super.getCourse();
-		if (null == student && null == teacher) {
-			addActionError("您还未登录，请先登录！");
-			return "login";
-		} else {
-
-			userInfo = super.getUserInfo();
-			topicList = getTopicService().getAllTopics(course);
-			if (topicList.size() > 0) {
-				return "topics";
+		if (null == teacher) {
+			if (null == student) {
+				addActionError("您还未登录，请先登录！");
+				return "login";
 			} else {
-				System.out.println("本课程尚未有留言！");
-				addActionError("本课程尚未有留言！");
-				return ERROR;
+				if (studentCourseService
+						.findByStudentAndCourse(course, student).size() == 0) {
+					addActionError("你所登录的帐号不是该课程的学生，无法进入留言板！");
+					return ERROR;
+				}
 			}
 		}
+		userInfo = super.getUserInfo();
+		topicList = getTopicService().getAllTopics(course);
+		return "topics";
 	}
 
 	/**
@@ -263,68 +277,100 @@ public class MessageAction extends BaseAction {
 		return SUCCESS;
 	}
 
-	public void setCourse(Course course) {
-		this.course = course;
-	}
-
 	public Course getCourse() {
 		return course;
 	}
 
-	public void setTopicList(List<Topic> topicList) {
-		this.topicList = topicList;
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 	public List<Topic> getTopicList() {
 		return topicList;
 	}
 
-	public void setTopicService(ITopicService topicService) {
-		this.topicService = topicService;
-	}
-
-	public ITopicService getTopicService() {
-		return topicService;
-	}
-
-	public void setTopic(Topic topic) {
-		this.topic = topic;
-	}
-
-	public Topic getTopic() {
-		return topic;
-	}
-
-	public void setTopicId(Integer topicId) {
-		this.topicId = topicId;
-	}
-
-	public Integer getTopicId() {
-		return topicId;
-	}
-
-	public void setMessageList(List<Message> messageList) {
-		this.messageList = messageList;
+	public void setTopicList(List<Topic> topicList) {
+		this.topicList = topicList;
 	}
 
 	public List<Message> getMessageList() {
 		return messageList;
 	}
 
-	public void setMessageService(IMessageService messageService) {
-		this.messageService = messageService;
+	public void setMessageList(List<Message> messageList) {
+		this.messageList = messageList;
 	}
 
-	public IMessageService getMessageService() {
-		return messageService;
+	public Topic getTopic() {
+		return topic;
+	}
+
+	public void setTopic(Topic topic) {
+		this.topic = topic;
+	}
+
+	public Message getMessage() {
+		return message;
+	}
+
+	public void setMessage(Message message) {
+		this.message = message;
+	}
+
+	public UserInfo getUserInfo() {
+		return userInfo;
 	}
 
 	public void setUserInfo(UserInfo userInfo) {
 		this.userInfo = userInfo;
 	}
 
-	public UserInfo getUserInfo() {
-		return userInfo;
+	public Integer getTopicId() {
+		return topicId;
+	}
+
+	public void setTopicId(Integer topicId) {
+		this.topicId = topicId;
+	}
+
+	public Integer getMessageId() {
+		return messageId;
+	}
+
+	public void setMessageId(Integer messageId) {
+		this.messageId = messageId;
+	}
+
+	public ITopicService getTopicService() {
+		return topicService;
+	}
+
+	public void setTopicService(ITopicService topicService) {
+		this.topicService = topicService;
+	}
+
+	public IMessageService getMessageService() {
+		return messageService;
+	}
+
+	public void setMessageService(IMessageService messageService) {
+		this.messageService = messageService;
+	}
+
+	public ILoginService getLoginService() {
+		return loginService;
+	}
+
+	public void setLoginService(ILoginService loginService) {
+		this.loginService = loginService;
+	}
+
+	public IStudentCourseService getStudentCourseService() {
+		return studentCourseService;
+	}
+
+	public void setStudentCourseService(IStudentCourseService studentCourseService) {
+		this.studentCourseService = studentCourseService;
 	}
 
 	public Student getStudent() {
@@ -335,28 +381,20 @@ public class MessageAction extends BaseAction {
 		this.student = student;
 	}
 
-	public void setTeacher(Teacher teacher) {
-		this.teacher = teacher;
-	}
-
 	public Teacher getTeacher() {
 		return teacher;
 	}
 
-	public void setFlag(int flag) {
-		this.flag = flag;
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
 	}
 
 	public int getFlag() {
 		return flag;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getPassword() {
-		return password;
+	public void setFlag(int flag) {
+		this.flag = flag;
 	}
 
 	public String getUserName() {
@@ -367,60 +405,30 @@ public class MessageAction extends BaseAction {
 		this.userName = userName;
 	}
 
-	public void setLoginService(ILoginService loginService) {
-		this.loginService = loginService;
+	public String getPassword() {
+		return password;
 	}
 
-	public ILoginService getLoginService() {
-		return loginService;
-	}
-
-	public void setMessage(Message message) {
-		this.message = message;
-	}
-
-	public Message getMessage() {
-		return message;
-	}
-
-	public void setTime(int time) {
-		this.time = time;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public int getTime() {
 		return time;
 	}
 
-	public void setReplyString(String replyString) {
-		this.replyString = replyString;
+	public void setTime(int time) {
+		this.time = time;
 	}
 
 	public String getReplyString() {
 		return replyString;
 	}
 
-	public void setReplyContent(String replyContent) {
-		this.replyContent = replyContent;
+	public void setReplyString(String replyString) {
+		this.replyString = replyString;
 	}
 
-	public String getReplyContent() {
-		return replyContent;
-	}
-
-	public void setReplyGrade(int replyGrade) {
-		this.replyGrade = replyGrade;
-	}
-
-	public int getReplyGrade() {
-		return replyGrade;
-	}
-
-	public void setMessageId(Integer messageId) {
-		this.messageId = messageId;
-	}
-
-	public Integer getMessageId() {
-		return messageId;
-	}
+	
 
 }

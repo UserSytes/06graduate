@@ -293,6 +293,12 @@ public class StudentCourseService implements IStudentCourseService {
 	public List<StudentCourse> findByStudent(Student student) {
 		return studentCourseDAO.findByProperty("student", student);
 	}
+	
+	public List<StudentCourse> findByStudentAndCourse(Course course,
+			Student student) {
+		return getStudentCourseDAO().findByStudentAndCourse(course,
+				student);
+	}
 
 	public StudentCourseDAO getStudentCourseDAO() {
 		return studentCourseDAO;
