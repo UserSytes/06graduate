@@ -35,6 +35,10 @@ public class AchievementService implements IAchievementService {
 				if (!FileOperation.copy(upload, file))
 					return false;
 			}	
+			else{
+				achievement.setFileLink("");
+				achievement.setFileName("");
+			}
 			achievementDAO.save(achievement);	
 			noticeDAO.save(notice);
 			return true;
@@ -87,7 +91,11 @@ public class AchievementService implements IAchievementService {
 				File file = new File(fileName);
 				if (!FileOperation.copy(upload, file))
 					return false;
-			}			
+			}		
+			else{
+				achievement.setFileLink("");
+				achievement.setFileName("");
+			}
 			achievementDAO.merge(achievement);
 			noticeDAO.save(notice);
 			return true;

@@ -100,6 +100,9 @@
 											</td>
 											<td></td>
 											<td width="68" align="center">
+											<s:if test="fileLink==''">
+															暂无附件</s:if>
+														<s:else>
 												<a
 													href="<s:url action="download"> 
                      			<s:param name="fileName"> 
@@ -110,7 +113,7 @@
                     			</s:param> 
                 					</s:url>"
 													onclick="JAVAscript:if(!confirm('确认下载附件？')) return false;return true;">
-													<font color="red">点此下载</font> </a>
+													<font color="red">点此下载</font> </a></s:else>
 											</td>
 										</tr>
 									</s:iterator>

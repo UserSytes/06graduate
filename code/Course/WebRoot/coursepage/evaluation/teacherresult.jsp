@@ -49,19 +49,22 @@
 										<td width="34" height="40" align="center">
 											序号
 										</td>
-										<td width="100" height="40" align="center">
+										<td width="80" height="40" align="center">
 											姓名
 										</td>
-										<td width="100" height="40" align="center">
+										<td width="80" height="40" align="center">
 											职称
 										</td>
-										<td width="90" height="40" align="center">
+										<td width="120" height="40" align="center">
+											单位
+										</td>
+										<td width="70" height="40" align="center">
 											得分
 										</td>
-										<td width="290" height="40" align="center">
+										<td width="250" height="40" align="center">
 											评语
 										</td>
-										<td width="100" height="40" align="center">
+										<td width="60" height="40" align="center">
 											详细
 										</td>
 									</tr>
@@ -76,6 +79,9 @@
 											</td>
 											<td align="center">
 												<s:property value="position" />
+											</td>
+											<td align="center">
+												<s:property value="company" />
 											</td>
 											<td align="center">
 												<s:property value="score" />
@@ -97,7 +103,7 @@
 	                    											</s:param> 
 	                													</s:url>">
 													<font color="green"
-													style="font-size: 14px; font-weight: bold;">【查看详细】</font>
+													style="font-size: 14px; font-weight: bold;">【详情】</font>
 												</a>
 												<br />
 											</td>

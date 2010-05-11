@@ -143,7 +143,7 @@
                     			</s:param> 
                 					</s:url>"
 												onclick="JAVAscript:if(!confirm('确认下载附件？')) return false;return true;">
-												<font color="red">点此下载</font> </a>
+												<font color="red"><s:property value="applicationForm.filename" /></font> </a>
 										</td>
 									</tr>
 									<tr height="3" class="tr-title">

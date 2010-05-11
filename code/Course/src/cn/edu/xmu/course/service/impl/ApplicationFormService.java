@@ -28,6 +28,10 @@ public class ApplicationFormService implements IApplicationFormService {
 				if (!FileOperation.copy(upload, file))
 					return false;
 			}
+			else {
+				applicationForm.setFileLink("");
+				applicationForm.setFilename("");
+			}
 			applicationFormDAO.save(applicationForm);
 			return true;
 		} catch (Exception e) {
@@ -60,6 +64,10 @@ public class ApplicationFormService implements IApplicationFormService {
 				File file = new File(fileName);
 				if (!FileOperation.copy(upload, file))
 					return false;
+			}
+			else {
+				applicationForm.setFileLink("");
+				applicationForm.setFilename("");
 			}
 			applicationFormDAO.merge(applicationForm);
 			return true;
