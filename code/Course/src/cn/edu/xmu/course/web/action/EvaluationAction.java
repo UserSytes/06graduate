@@ -20,10 +20,11 @@ import cn.edu.xmu.course.service.ILoginService;
 
 /**
  * 负责评价的类
+ * 
  * @author 赵海虹
- * @author 何申密 
+ * @author 何申密
  * @author 许子彦
- *
+ * 
  */
 public class EvaluationAction extends BaseAction {
 
@@ -32,39 +33,40 @@ public class EvaluationAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = -4926852401033424156L;
 	private IEvaluateService evaluateService;// 评价管理方法的接口
-	private ICourseService courseService;//课程管理方法的接口
+	private ICourseService courseService;// 课程管理方法的接口
 	private StudentCourse studentCourse;// 学生管理方法的接口
 	private Float score;// 评价分数
 	private Object viewScore;// 评价分数
-	private String scorestring;//评价结果
-	private Student student;//学生
-	private Evaluation evaluation;//评价
-	private String content;//评价内容
-	private Course course;//课程
-	private int courseId;//课程ID
-	private int evaluationId;//评价ID
-	private Object stuAvgScore = 0;//学生评价平均分数
-	private Object expertAvgScore = 0;//专家评价平均分数
-	private Object stuCount;//学生数目
-	private Object expertCount;//专家数目
-	private Object teaAvgScore = 0;//教师评价分数
-	private Object teaCount;//教师数目
-	private List<Evaluation> evaluationList;//评价列表
-	private Teacher teacher;//教师
-	private UserInfo userInfo;//用户信息
-	private int flag;//标志
-	private ILoginService loginService;//登陆管理方法的接口
-	private String userName, password;//用户名，密码
-	private boolean result;//结果
+	private String scorestring;// 评价结果
+	private Student student;// 学生
+	private Evaluation evaluation;// 评价
+	private String content;// 评价内容
+	private Course course;// 课程
+	private int courseId;// 课程ID
+	private int evaluationId;// 评价ID
+	private Object stuAvgScore = 0;// 学生评价平均分数
+	private Object expertAvgScore = 0;// 专家评价平均分数
+	private Object stuCount;// 学生数目
+	private Object expertCount;// 专家数目
+	private Object teaAvgScore = 0;// 教师评价分数
+	private Object teaCount;// 教师数目
+	private List<Evaluation> evaluationList;// 评价列表
+	private Teacher teacher;// 教师
+	private UserInfo userInfo;// 用户信息
+	private int flag;// 标志
+	private ILoginService loginService;// 登陆管理方法的接口
+	private String userName, password;// 用户名，密码
+	private boolean result;// 结果
 
-	private List<Course> courseList;//课程列表
-	private List<String> courseIds;//课程ID
-	private List<CourseEvaluate> courseEvaluateList = new ArrayList<CourseEvaluate>();//课程评价列表
+	private List<Course> courseList;// 课程列表
+	private List<String> courseIds;// 课程ID
+	private List<CourseEvaluate> courseEvaluateList = new ArrayList<CourseEvaluate>();// 课程评价列表
 
 	/**
 	 * 从评价页面登陆
+	 * 
 	 * @return
-	 */	
+	 */
 	@SuppressWarnings("unchecked")
 	public String loginFromEvaluation() {
 		course = super.getCourse();
@@ -73,6 +75,9 @@ public class EvaluationAction extends BaseAction {
 					0);
 			if (null == evaluation) {
 				addActionError("用户名获密码错误！请返回重试！");
+				return ERROR;
+			} else if (!evaluation.getCourse().getId().equals(course.getId())) {
+				addActionError("对不起，该专家帐号不适用于该课程！请返回重试！");
 				return ERROR;
 			} else {
 				super.getSession().remove(EVALUATION);
@@ -93,6 +98,9 @@ public class EvaluationAction extends BaseAction {
 			if (null == evaluation) {
 				addActionError("用户名获密码错误！请返回重试！");
 				return ERROR;
+			} else if (!evaluation.getCourse().getId().equals(course.getId())) {
+				addActionError("对不起，该同行帐号不适用于该课程！请返回重试！");
+				return ERROR;
 			} else {
 				super.getSession().remove(EVALUATION);
 				super.getSession().put(EVALUATION, evaluation);
@@ -111,7 +119,7 @@ public class EvaluationAction extends BaseAction {
 			if (null == student) {
 				addActionError("用户名获密码错误！请返回重试！");
 				return ERROR;
-			} else {				
+			} else {
 				List<StudentCourse> scList = evaluateService
 						.findByStudentAndCourse(course, student);
 				if (scList.size() == 0) {
@@ -281,9 +289,10 @@ public class EvaluationAction extends BaseAction {
 			return ERROR;
 		}
 	}
-              
-  /**
+
+	/**
 	 * 专家评价结果
+	 * 
 	 * @return
 	 */
 	public String reExpertEvaluation() {
@@ -292,8 +301,9 @@ public class EvaluationAction extends BaseAction {
 		return SUCCESS;
 	}
 
-  /**
+	/**
 	 * 教师评价结果
+	 * 
 	 * @return
 	 */
 	public String reTeaEvaluation() {
@@ -302,8 +312,9 @@ public class EvaluationAction extends BaseAction {
 		return SUCCESS;
 	}
 
-  /**
+	/**
 	 * 学生评价结果
+	 * 
 	 * @return
 	 */
 	public String reStuEvaluation() {
@@ -311,8 +322,9 @@ public class EvaluationAction extends BaseAction {
 		return SUCCESS;
 	}
 
-  /**
+	/**
 	 * 专家进入评价
+	 * 
 	 * @return
 	 */
 	public String eDetailEvaluate() {
@@ -320,23 +332,30 @@ public class EvaluationAction extends BaseAction {
 		evaluation = (Evaluation) super.getSession().get(EVALUATION);
 		if (null == evaluation || evaluation.getSort() == 1) {
 			return "login";
-		} else {
+		}
+		else if (!evaluation.getCourse().getId().equals(course.getId())) {
+			addActionError("对不起，该专家帐号不适用于该课程！请返回重试！");
+			return ERROR;
+		}else {
 			getExpertAverage(course.getId());
 			score = evaluation.getScore();
 			if (score == null) {
 				return "evluate";
 			} else {
-				if(evaluation.getStatus()==1)
-					scorestring = "您已经评价过，你上一次对该课程的评分是：" + score.intValue() + "分";
+				if (evaluation.getStatus() == 1)
+					scorestring = "您已经评价过，你上一次对该课程的评分是：" + score.intValue()
+							+ "分";
 				else
-					scorestring = "您保存过草稿，你上一次对该课程的评分是：" + score.intValue() + "分";
+					scorestring = "您保存过草稿，你上一次对该课程的评分是：" + score.intValue()
+							+ "分";
 				return SUCCESS;
 			}
 		}
 	}
 
-  /**
+	/**
 	 * 教师进入评价
+	 * 
 	 * @return
 	 */
 	public String tDetailEvaluate() {
@@ -344,23 +363,27 @@ public class EvaluationAction extends BaseAction {
 		evaluation = (Evaluation) super.getSession().get(EVALUATION);
 		if (null == evaluation || evaluation.getSort() == 0) {
 			return "login";
-		} else {
+		} else if (!evaluation.getCourse().getId().equals(course.getId())) {
+			addActionError("对不起，该同行帐号不适用于该课程！请返回重试！");
+			return ERROR;
+		}else {
 			getTeaAverage(course.getId());
 			score = evaluation.getScore();
 			if (score == null) {
 				return "evluate";
 			} else {
-				if(evaluation.getStatus()==1)
-					scorestring = "您已经评价过，你上一次对该课程的评分是：" + score.intValue() + "分";
+				if (evaluation.getStatus() == 1)
+					scorestring = "您已经评价过，你上一次对该课程的评分是：" + score.intValue()+ "分";
 				else
-					scorestring = "您保存过草稿，你上一次对该课程的评分是：" + score.intValue() + "分";
+					scorestring = "您保存过草稿，你上一次对该课程的评分是：" + score.intValue()+ "分";
 				return SUCCESS;
 			}
 		}
 	}
 
-  /**
+	/**
 	 * 学生进入评价
+	 * 
 	 * @return
 	 */
 	public String sDetailEvaluate() {
@@ -369,13 +392,13 @@ public class EvaluationAction extends BaseAction {
 		if (null == student) {
 			return "login";
 		} else {
-			getStuAverage(course.getId());
 			List<StudentCourse> scList = evaluateService
 					.findByStudentAndCourse(course, student);
 			if (scList.size() == 0) {
 				addActionError("你所登录的帐号不是该课程的学生，无法进行评价！");
 				return ERROR;
 			}
+			getStuAverage(course.getId());
 			score = scList.get(0).getScore();
 			if (score == null) {
 				return "evluate";
@@ -421,8 +444,9 @@ public class EvaluationAction extends BaseAction {
 		return SUCCESS;
 	}
 
-  /**
+	/**
 	 * 获得专家评价平均分数
+	 * 
 	 * @param courseId
 	 */
 	public void getExpertAverage(int courseId) {
@@ -433,8 +457,9 @@ public class EvaluationAction extends BaseAction {
 			expertAvgScore = evaluationResult[1];
 	}
 
-/**
+	/**
 	 * 获得教师评价平均分数
+	 * 
 	 * @param courseId
 	 */
 	public void getTeaAverage(int courseId) {
@@ -445,8 +470,9 @@ public class EvaluationAction extends BaseAction {
 			teaAvgScore = teaResult[1];
 	}
 
-/**
+	/**
 	 * 获得学生评价平均分数
+	 * 
 	 * @param courseId
 	 */
 	public void getStuAverage(int courseId) {
@@ -549,16 +575,17 @@ public class EvaluationAction extends BaseAction {
 			return ERROR;
 		}
 	}
-	
+
 	/**
 	 * 删除课程评价
+	 * 
 	 * @return
 	 */
-	public String deleteEvaluation(){
+	public String deleteEvaluation() {
 		Evaluation eva = evaluateService.findById(evaluationId);
-		if(evaluateService.deleteEvaluation(eva))
+		if (evaluateService.deleteEvaluation(eva))
 			return SUCCESS;
-		else{
+		else {
 			addActionError("删除课程评价失败，请重新操作！");
 			return ERROR;
 		}
