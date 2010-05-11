@@ -16,6 +16,7 @@ public class Exercise implements java.io.Serializable {
 	private String filename;
 	private Date time;
 	private String fileLink;
+	private String author;
 
 	// Constructors
 
@@ -32,12 +33,13 @@ public class Exercise implements java.io.Serializable {
 
 	/** full constructor */
 	public Exercise(Chapter chapter, String title, String filename, Date time,
-			String fileLink) {
+			String fileLink,String author) {
 		this.chapter = chapter;
 		this.title = title;
 		this.filename = filename;
 		this.time = time;
 		this.fileLink = fileLink;
+		this.author = author;
 	}
 
 	// Property accessors
@@ -88,6 +90,14 @@ public class Exercise implements java.io.Serializable {
 
 	public void setFileLink(String fileLink) {
 		this.fileLink = fileLink;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getAuthor() {
+		return author;
 	}
 
 }

@@ -66,7 +66,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="evaname" name="evaluation.name" cssClass="input" />
+						<s:textfield id="evaname" name="evaluation.username" cssClass="input" />
 					</td>
 				</tr>
 				<tr>

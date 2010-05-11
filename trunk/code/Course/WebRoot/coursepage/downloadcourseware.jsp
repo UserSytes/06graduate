@@ -11,8 +11,9 @@
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
 			rel="stylesheet" type="text/css" />
-		<link href="${ctx}/coursepage/style/<s:property value="course.style"/>/color.css" rel="stylesheet"
-			type="text/css" />
+		<link
+			href="${ctx}/coursepage/style/<s:property value="course.style"/>/color.css"
+			rel="stylesheet" type="text/css" />
 
 	</head>
 	<body>
@@ -29,29 +30,30 @@
 						<a
 							href="<s:url action="getAllCoursewareAction"> 
                 					</s:url>">课件教案</a>&gt;详细浏览
-					</h2>					
+					</h2>
 				</div>
 				<!-- 正文 -->
 				<div>
-					<table border="0" cellpadding="0" cellspacing="0">						
+					<table border="0" cellpadding="0" cellspacing="0">
 						<tr>
 							<td width="724" align="center">
 								<!--게시판 -->
-								<table border="0" cellpadding="0" cellspacing="0"  width="704" class="table-list">									
+								<table border="0" cellpadding="0" cellspacing="0" width="704"
+									class="table-list">
 									<tr class="tr-title">
-										<td width="48" height="40" align="center">
+										<td width="30" height="40" align="center">
 											序号
 										</td>
 										<td>
 											&nbsp;
 										</td>
-										<td width="150" height="40" align="center">
+										<td width="200" height="40" align="center">
 											课件名称
 										</td>
 										<td>
 											&nbsp;
 										</td>
-										<td width="100" height="40" align="center">
+										<td width="180" height="40" align="center">
 											章节
 										</td>
 										<td>
@@ -76,19 +78,19 @@
 									<s:iterator value="coursewareList" status="courseware">
 										<tr height="33" class="tr-content"
 											<s:if test="#courseware.odd">style="background-color:#fff"</s:if>>
-											<td align="center">
-												<s:property
-														value="#courseware.count" />												
+											<td align="center" width="30">
+												<s:property value="#courseware.count" />
 											</td>
 											<td></td>
 
-											<td width="150" align="center" style="font-weight: bold">
+											<td width="200" align="center" style="font-weight: bold">
 												<s:property value="title" />
 											</td>
 											<td></td>
-											<td width="100" align="center">
-												<s:property
-														value="chapter.name" />
+											<td width="180" align="center">
+												<s:property value="chapter.number" />
+												--
+												<s:property value="chapter.name" />
 											</td>
 											<td></td>
 											<td width="70" align="center">
@@ -96,8 +98,7 @@
 											</td>
 											<td></td>
 											<td width="62" align="center">
-												<s:date name="time"
-														format="yyyy-MM-dd" />
+												<s:date name="time" format="yyyy-MM-dd" />
 											</td>
 											<td></td>
 											<td width="68" align="center">
@@ -111,10 +112,10 @@
                     			</s:param> 
                 					</s:url>"
 													onclick="JAVAscript:if(!confirm('确认下载附件？')) return false;return true;">
-														<font color="red">点此下载</font> </a>
-													</td>
+													<font color="red">点此下载</font> </a>
+											</td>
 										</tr>
-									</s:iterator>									
+									</s:iterator>
 								</table>
 								<!--/게시판 -->
 							</td>

@@ -52,8 +52,8 @@ $(document).ready(function(){
 		</div>
 		<div align="center">
 			<table id="table" class="listTable" style="">
-				<tr class="listHeaderTr"
-					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
+				<tr class="listHeaderTr">
+					<th>用户名</th>
 					<th>
 						姓名
 					</th>
@@ -76,7 +76,10 @@ $(document).ready(function(){
 				<tbody id="tbody" style="display: none;">
 					<s:iterator value="evaluationList" status="evaluation">
 						<tr class="listTr">
-							<td width="20%">
+							<td width="12%">
+								<s:property value="username" />
+							</td>
+							<td width="13%">
 								<s:property value="name" />
 							</td>
 							<td width="15%">
@@ -85,7 +88,7 @@ $(document).ready(function(){
 							<td width="20%">
 								<s:property value="company" />
 							</td>
-							<td width="15%">
+							<td width="10%">
 								<s:property value="score" />
 							</td>
 							<td width="10%">

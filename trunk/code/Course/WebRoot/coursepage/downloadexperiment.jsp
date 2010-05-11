@@ -36,19 +36,19 @@
 								<!--게시판 -->
 								<table border="0" cellpadding="0" cellspacing="0" width="704" class="table-list">								
 									<tr class="tr-title">
-										<td width="48" height="40" align="center">
+										<td width="30" height="40" align="center">
 											序号
 										</td>
 										<td>
 											&nbsp;
 										</td>
-										<td width="150" height="40" align="center">
-											实验文档名称
+										<td width="200" height="40" align="center">
+											实验名称
 										</td>
 										<td>
 											&nbsp;
 										</td>
-										<td width="100" height="40" align="center">
+										<td width="180" height="40" align="center">
 											章节
 										</td>
 										<td>
@@ -73,18 +73,19 @@
 									<s:iterator value="experimentList" status="experiment">
 										<tr height="33" class="tr-content"
 											<s:if test="#experiment.odd">style="background-color:#fff"</s:if>>
-											<td align="center">
+											<td align="center" width="30">
 												<s:property
 														value="#experiment.count" />
 											</td>
 											<td></td>
-											<td width="150" align="center" style="font-weight: bold">
+											<td width="200" align="center" style="font-weight: bold">
 												<s:property value="title" />
 											</td>
 											<td></td>
-											<td width="100" align="center">
-												<s:property
-														value="chapter.name" />
+											<td width="180" align="center">
+												<s:property value="chapter.number" />
+												--
+												<s:property value="chapter.name" />
 											</td>
 											<td></td>
 											<td width="70" align="center">

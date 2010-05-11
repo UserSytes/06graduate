@@ -36,12 +36,7 @@
 				{
 					alert("出版时间不能为空！");
 					return false;
-				}
-				if(form.upload.value == "")
-				{
-					alert("上传书籍不能为空！");					
-					return false;
-				}
+				}				
 				form.submit.disabled = true;				
 			}
 		</SCRIPT>

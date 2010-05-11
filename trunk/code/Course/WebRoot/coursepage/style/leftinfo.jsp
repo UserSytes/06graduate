@@ -17,11 +17,11 @@
 	                       			 									<s:property value="id"/> </s:param> </s:url>"
 							title="<s:property value="title" />"> <s:if
 								test="title.length()>16">
-								<s:property value="title.substring(0, 16)+'...'" />
+								<s:property value="title.substring(0, 12)+'...'" />
 							</s:if> <s:else>
 								<s:property value="title" />
-							</s:else> </a> &nbsp;
-						<s:date name="time" format="MM.dd" />
+							</s:else> </a>
+					
 					</td>
 				</tr>
 				<tr height="1">

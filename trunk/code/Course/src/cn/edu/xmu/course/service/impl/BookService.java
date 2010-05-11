@@ -21,22 +21,27 @@ public class BookService implements IBookService {
 
 	public boolean addBook(Book book, Course course, File upload) {
 		// TODO Auto-generated method stub
-		String path = ServletActionContext.getServletContext().getRealPath(
-				"/upload");
-		String fileName = path + "/" + book.getFileLink();
-		File file = new File(fileName);
 		book.setCourse(course);
-		String title = "添加最新参考书籍《"+book.getName()+"》";
-		String content = "<p>添加最新参考书籍《"+book.getName()+"》，请同学们注意查阅。</p>";
-		Notice notice = new Notice(course,title,content,new Date(),1);
-		try {			
-			if (FileOperation.copy(upload, file)){
-				bookDAO.save(book);
-				noticeDAO.save(notice);
-				return true;
-			}				
-			else
-				return false;
+		String title = "添加参考书籍《" + book.getName() + "》";
+		String content = "<p>添加最新参考书籍《" + book.getName() + "》，请同学们注意查阅。</p>";
+		Notice notice = new Notice(course, title, content, new Date(), 1);
+		try {
+			if (upload != null) {
+				String path = ServletActionContext.getServletContext()
+						.getRealPath("/upload");
+				String fileName = path + "/" + book.getFileLink();
+				File file = new File(fileName);
+				if (!FileOperation.copy(upload, file))
+					return false;
+			}
+			else{
+				book.setFileLink("");
+				book.setFilename("");
+			}
+			bookDAO.save(book);
+			noticeDAO.save(notice);
+			return true;
+
 		} catch (Exception e) {
 			return false;
 		}
@@ -64,21 +69,26 @@ public class BookService implements IBookService {
 
 	public boolean updateBook(Book book, File upload) {
 		// TODO Auto-generated method stub
-		String path = ServletActionContext.getServletContext().getRealPath(
-				"/upload");
-		String fileName = path + "/" + book.getFileLink();
-		File file = new File(fileName);
-		String title = "修改已有参考书籍《"+book.getName()+"》";
-		String content = "<p>修改已有参考书籍《"+book.getName()+"》，请同学们注意查阅。</p>";
-		Notice notice = new Notice(book.getCourse(),title,content,new Date(),1);
-		try {			
-			if (FileOperation.copy(upload, file)){
-				bookDAO.merge(book);
-				noticeDAO.save(notice);
-				return true;
-			}				
-			else
-				return false;
+		String title = "修改已有参考书籍《" + book.getName() + "》";
+		String content = "<p>修改已有参考书籍《" + book.getName() + "》，请同学们注意查阅。</p>";
+		Notice notice = new Notice(book.getCourse(), title, content,
+				new Date(), 1);
+		try {
+			if (upload != null) {
+				String path = ServletActionContext.getServletContext()
+						.getRealPath("/upload");
+				String fileName = path + "/" + book.getFileLink();
+				File file = new File(fileName);
+				if (!FileOperation.copy(upload, file))
+					return false;
+			}
+			else{
+				book.setFileLink("");
+				book.setFilename("");
+			}
+			bookDAO.merge(book);
+			noticeDAO.save(notice);
+			return true;
 		} catch (Exception e) {
 			return false;
 		}
