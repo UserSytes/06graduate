@@ -30,7 +30,7 @@ public class ExperimentService implements IExperimentService {
 		File file = new File(fileName);
 		experiment.setChapter(chapter);
 		experiment.setTime(Calendar.getInstance().getTime());
-		String title = "添加最新实验指导《"+experiment.getTitle()+"》";
+		String title = "添加实验指导《"+experiment.getTitle()+"》";
 		String content = "<p>添加最新实验指导《"+experiment.getTitle()+"》，请同学们注意查阅。</p>";
 		Notice notice = new Notice(chapter.getCourse(),title,content,new Date(),1);	
 		try {			
@@ -83,7 +83,7 @@ public class ExperimentService implements IExperimentService {
 		File file = new File(fileName);
 		experiment.setChapter(chapter);
 		experiment.setTime(Calendar.getInstance().getTime());
-		String title = "修改已有实验指导《"+experiment.getTitle()+"》";
+		String title = "修改实验指导《"+experiment.getTitle()+"》";
 		String content = "<p>修改已有实验指导《"+experiment.getTitle()+"》，请同学们注意查阅。</p>";
 		Notice notice = new Notice(chapter.getCourse(),title,content,new Date(),1);	
 		try {			

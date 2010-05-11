@@ -23,7 +23,7 @@ public class AchievementService implements IAchievementService {
 			File upload) {
 		// TODO Auto-generated method stub
 		achievement.setCourse(course);
-		String title = "添加最新成果《"+achievement.getTitle()+"》";
+		String title = "添加成果《"+achievement.getTitle()+"》";
 		String content = "<p>添加最新成果《"+achievement.getTitle()+"》，请同学们注意查阅。</p>";
 		Notice notice = new Notice(course,title,content,new Date(),1);
 		try {			
@@ -80,7 +80,7 @@ public class AchievementService implements IAchievementService {
 
 	public boolean updateAchievement(Achievement achievement, File upload) {
 		// TODO Auto-generated method stub
-		String title = "修改已有成果《"+achievement.getTitle()+"》";
+		String title = "修改成果《"+achievement.getTitle()+"》";
 		String content = "<p>修改已有成果《"+achievement.getTitle()+"》，请同学们注意查阅。</p>";
 		Notice notice = new Notice(achievement.getCourse(),title,content,new Date(),1);
 		try {			

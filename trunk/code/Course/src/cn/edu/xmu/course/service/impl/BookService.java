@@ -22,7 +22,7 @@ public class BookService implements IBookService {
 	public boolean addBook(Book book, Course course, File upload) {
 		// TODO Auto-generated method stub
 		book.setCourse(course);
-		String title = "添加参考书籍《" + book.getName() + "》";
+		String title = "添加书籍《" + book.getName() + "》";
 		String content = "<p>添加最新参考书籍《" + book.getName() + "》，请同学们注意查阅。</p>";
 		Notice notice = new Notice(course, title, content, new Date(), 1);
 		try {
@@ -69,7 +69,7 @@ public class BookService implements IBookService {
 
 	public boolean updateBook(Book book, File upload) {
 		// TODO Auto-generated method stub
-		String title = "修改已有参考书籍《" + book.getName() + "》";
+		String title = "修改参考书籍《" + book.getName() + "》";
 		String content = "<p>修改已有参考书籍《" + book.getName() + "》，请同学们注意查阅。</p>";
 		Notice notice = new Notice(book.getCourse(), title, content,
 				new Date(), 1);

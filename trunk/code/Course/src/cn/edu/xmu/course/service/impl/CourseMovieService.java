@@ -28,7 +28,7 @@ public class CourseMovieService implements ICourseMovieService {
 		String fileName = path + "/" + courseMovie.getFileLink();
 		File file = new File(fileName);
 		courseMovie.setCourse(course);
-		String title = "添加最新教学录像《"+courseMovie.getTitle()+"》";
+		String title = "添加教学录像《"+courseMovie.getTitle()+"》";
 		String content = "<p>添加最新教学录像《"+courseMovie.getTitle()+"》，请同学们注意查阅。</p>";
 		Notice notice = new Notice(course,title,content,new Date(),1);		
 		try {			
@@ -70,7 +70,7 @@ public class CourseMovieService implements ICourseMovieService {
 				"/upload");
 		String fileName = path + "/" + courseMovie.getFileLink();
 		File file = new File(fileName);
-		String title = "修改己有教学录像《"+courseMovie.getTitle()+"》";
+		String title = "修改教学录像《"+courseMovie.getTitle()+"》";
 		String content = "<p>修改己有教学录像《"+courseMovie.getTitle()+"》，请同学们注意查阅。</p>";
 		Notice notice = new Notice(courseMovie.getCourse(),title,content,new Date(),1);	
 		try {			
