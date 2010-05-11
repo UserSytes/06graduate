@@ -27,7 +27,7 @@ public class ExaminationService implements IExaminationService {
 		String fileName = path + "/" + examination.getFileLink();
 		File file = new File(fileName);
 		examination.setCourse(course);
-		String title = "添加最新实验指导《"+examination.getTitle()+"》";
+		String title = "添加实验指导《"+examination.getTitle()+"》";
 		String content = "<p>添加最新实验指导《"+examination.getTitle()+"》，请同学们注意查阅。</p>";
 		Notice notice = new Notice(course,title,content,new Date(),1);	
 		try {			
@@ -69,7 +69,7 @@ public class ExaminationService implements IExaminationService {
 				"/upload");
 		String fileName = path + "/" + examination.getFileLink();
 		File file = new File(fileName);
-		String title = "修改已有实验指导《"+examination.getTitle()+"》";
+		String title = "修改实验指导《"+examination.getTitle()+"》";
 		String content = "<p>修改已有实验指导《"+examination.getTitle()+"》，请同学们注意查阅。</p>";
 		Notice notice = new Notice(examination.getCourse(),title,content,new Date(),1);	
 		try {			

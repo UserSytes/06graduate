@@ -4,10 +4,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>新闻公告——厦门大学精品课程网站</title>
+		<title>信息提示——厦门大学精品课程网站</title>
 <style type="text/css">
 .alert_info {
-	padding:0px 0 6px 20px;
+	padding:0px 0 0 20px;
 	line-height: 160%;
 	background: url() no-repeat 8px 50%;
 	font-size: 14px;
@@ -33,22 +33,13 @@ ul li {
 			<tr height="100%">
 				<td width="200" align="center" valign="top">
 					<table border="0" cellpadding="0" cellspacing="0">
+						<tr height=100>
+							<td>
+							</td>
+						</tr>
 						<tr>
-							<td valign="top">
-								<table border="0" cellpadding="0" cellspacing="0">
-									<tr>
-										<td>
-											<img src="${ctx}/homepage/image/left_menu_title6.gif"
-												border="0">
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="${ctx}/homepage/image/jiannan.jpg" border="0">
-										</td>
-									</tr>
-								</table>
-
+							<td>
+								<img src="${ctx}/homepage/image/jiannan.jpg" border="0">
 							</td>
 						</tr>
 					</table>
@@ -74,7 +65,7 @@ ul li {
 									<tr>
 										<td width="11"></td>
 										<td>
-											<img src="${ctx}/homepage/image/title_new.gif" border="0"
+											<img src="${ctx}/homepage/image/title_prompt.gif" border="0"
 												alt="">
 										</td>
 									</tr>
@@ -100,10 +91,7 @@ ul li {
 													style="background-image: url(${ctx}/coursepage/style/common/error_big.gif)">
 												
 														<font style="font-size: 14px;"><s:actionmessage />
-															<s:actionerror /> <br /> </font>
-												
-
-													
+															<s:actionerror /> </font>
 														<ul class="alertmsg"
 														style="margin-top: 8px; text-decoration: underline"><li><a href="javascript:history.back(-1)">[请点击这里返回上一页]</a></li></ul>
 													

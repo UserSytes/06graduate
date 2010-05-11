@@ -30,7 +30,7 @@ public class CoursewareService implements ICoursewareService {
 		File file = new File(fileName);
 		courseware.setChapter(chapter);
 		courseware.setTime(Calendar.getInstance().getTime());
-		String title = "添加最新课件《"+courseware.getTitle()+"》";
+		String title = "添加课件《"+courseware.getTitle()+"》";
 		String content = "<p>添加最新课件《"+courseware.getTitle()+"》，请同学们注意查阅。</p>";
 		Notice notice = new Notice(chapter.getCourse(),title,content,new Date(),1);	
 		try {			
@@ -84,7 +84,7 @@ public class CoursewareService implements ICoursewareService {
 		File file = new File(fileName);
 		courseware.setChapter(chapter);
 		courseware.setTime(Calendar.getInstance().getTime());
-		String title = "修改已有课件《"+courseware.getTitle()+"》";
+		String title = "修改课件《"+courseware.getTitle()+"》";
 		String content = "<p>修改已有课件《"+courseware.getTitle()+"》，请同学们注意查阅。</p>";
 		Notice notice = new Notice(chapter.getCourse(),title,content,new Date(),1);	
 		try {			

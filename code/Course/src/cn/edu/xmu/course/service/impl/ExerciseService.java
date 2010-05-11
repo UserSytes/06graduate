@@ -31,7 +31,7 @@ public class ExerciseService implements IExerciseService {
 		File file = new File(fileName);
 		exercise.setChapter(chapter);
 		exercise.setTime(Calendar.getInstance().getTime());
-		String title = "添加最新作业习题《"+exercise.getTitle()+"》";
+		String title = "添加作业习题《"+exercise.getTitle()+"》";
 		String content = "<p>添加最新作业习题《"+exercise.getTitle()+"》，请同学们注意查阅。</p>";
 		Notice notice = new Notice(chapter.getCourse(),title,content,new Date(),1);	
 		try {			
@@ -85,7 +85,7 @@ public class ExerciseService implements IExerciseService {
 		File file = new File(fileName);
 		exercise.setChapter(chapter);
 		exercise.setTime(Calendar.getInstance().getTime());
-		String title = "修改已有作业习题《"+exercise.getTitle()+"》";
+		String title = "修改作业习题《"+exercise.getTitle()+"》";
 		String content = "<p>修改已有作业习题《"+exercise.getTitle()+"》，请同学们注意查阅。</p>";
 		Notice notice = new Notice(chapter.getCourse(),title,content,new Date(),1);	
 		try {			
