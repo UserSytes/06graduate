@@ -24,9 +24,7 @@ public class EvaluateService implements IEvaluateService {
 
 	private StudentCourseDAO studentCourseDAO;
 	private EvaluationDAO evaluationDAO;
-	private List<StudentCourse> studentCourse;
-	private Object score;
-	private List<Evaluation> evaluation;
+
 
 	/*
 	 * 更新学生评价(non-Javadoc)
@@ -37,7 +35,7 @@ public class EvaluateService implements IEvaluateService {
 	 */
 	public boolean updateStudentCourse(StudentCourse studentCourse) {
 		try {
-			studentCourseDAO.merge(studentCourse);
+			getStudentCourseDAO().merge(studentCourse);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -52,7 +50,7 @@ public class EvaluateService implements IEvaluateService {
 	 * (java.lang.Integer)
 	 */
 	public StudentCourse findStudentCourseByStudentId(Integer id) {
-		return studentCourseDAO.findById(id);
+		return getStudentCourseDAO().findById(id);
 	}
 
 	/*
@@ -64,7 +62,7 @@ public class EvaluateService implements IEvaluateService {
 	 */
 	public List<StudentCourse> findByStudentAndCourse(Course course,
 			Student student) {
-		return studentCourse = studentCourseDAO.findByStudentAndCourse(course,
+		return getStudentCourseDAO().findByStudentAndCourse(course,
 				student);
 	}
 
@@ -77,7 +75,7 @@ public class EvaluateService implements IEvaluateService {
 	 */
 	public boolean updateEvaluation(Evaluation evaluation) {
 		try {
-			evaluationDAO.merge(evaluation);
+			getEvaluationDAO().merge(evaluation);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -91,7 +89,7 @@ public class EvaluateService implements IEvaluateService {
 	 * cn.edu.xmu.course.service.IEvaluateService#findById(java.lang.Integer)
 	 */
 	public Evaluation findById(Integer id) {
-		return evaluationDAO.findById(id);
+		return getEvaluationDAO().findById(id);
 	}
 
 	/*
@@ -102,7 +100,7 @@ public class EvaluateService implements IEvaluateService {
 	 * (int, int)
 	 */
 	public Object[] getEvaluationCalculateResult(int courseId, int sort) {
-		List result = evaluationDAO.findCountAndScoreAvg(courseId, sort);
+		List result = getEvaluationDAO().findCountAndScoreAvg(courseId, sort);
 		ListIterator iterator = result.listIterator();
 		Object[] rows = (Object[]) iterator.next();
 		return rows;
@@ -151,7 +149,7 @@ public class EvaluateService implements IEvaluateService {
 	 * (int)
 	 */
 	public Object[] getStudentCourseCalculateResult(int courseId) {
-		List result = studentCourseDAO.findCountAndScoreAvg(courseId);
+		List result = getStudentCourseDAO().findCountAndScoreAvg(courseId);
 		ListIterator iterator = result.listIterator();
 		Object[] rows = (Object[]) iterator.next();
 		return rows;
@@ -166,7 +164,7 @@ public class EvaluateService implements IEvaluateService {
 	 */
 	public List<Evaluation> findByCourseAndUsernameAndSort(Course course,
 			String username, int sort) {
-		return evaluationDAO.findByCourseAndUsernameAndSort(course, username,
+		return getEvaluationDAO().findByCourseAndUsernameAndSort(course, username,
 				sort);
 
 	}
@@ -179,7 +177,7 @@ public class EvaluateService implements IEvaluateService {
 	 * .xmu.course.pojo.Course, int)
 	 */
 	public List<Evaluation> findByCourseAndSort(Course course, int sort) {
-		return evaluationDAO.findByCourseAndSort(course, sort);
+		return getEvaluationDAO().findByCourseAndSort(course, sort);
 
 	}
 
@@ -192,7 +190,7 @@ public class EvaluateService implements IEvaluateService {
 	 */
 	public List<Evaluation> findByCourseAndSortAndStatus(Course course,
 			int sort, int status) {
-		return evaluationDAO.findByCourseAndSortAndStatus(course, sort, status);
+		return getEvaluationDAO().findByCourseAndSortAndStatus(course, sort, status);
 
 	}
 
@@ -209,7 +207,7 @@ public class EvaluateService implements IEvaluateService {
 		evaluation.setStatus(0);
 
 		try {
-			evaluationDAO.save(evaluation);
+			getEvaluationDAO().save(evaluation);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -226,7 +224,7 @@ public class EvaluateService implements IEvaluateService {
 	public boolean deleteEvaluation(Evaluation evaluation) {
 		// TODO Auto-generated method stub
 		try {
-			evaluationDAO.delete(evaluation);
+			getEvaluationDAO().delete(evaluation);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -239,7 +237,7 @@ public class EvaluateService implements IEvaluateService {
 	 */
 	public Evaluation getEvaluationByUsername(String username){
 		System.out.println("herer is "+username);
-		List<Evaluation> el = evaluationDAO.findByUsername(username);
+		List<Evaluation> el = getEvaluationDAO().findByUsername(username);
 		if(el.size()==0)
 			return null;
 		else return el.get(0);
@@ -253,36 +251,13 @@ public class EvaluateService implements IEvaluateService {
 		return studentCourseDAO;
 	}
 
-	public EvaluationDAO getEvaluationDAO() {
-		return evaluationDAO;
-	}
-
 	public void setEvaluationDAO(EvaluationDAO evaluationDAO) {
 		this.evaluationDAO = evaluationDAO;
 	}
 
-	public Object getScore() {
-		return score;
+	public EvaluationDAO getEvaluationDAO() {
+		return evaluationDAO;
 	}
 
-	public void setScore(Object score) {
-		this.score = score;
-	}
-
-	public List<Evaluation> getEvaluation() {
-		return evaluation;
-	}
-
-	public void setEvaluation(List<Evaluation> evaluation) {
-		this.evaluation = evaluation;
-	}
-
-	public List<StudentCourse> getStudentCourse() {
-		return studentCourse;
-	}
-
-	public void setStudentCourse(List<StudentCourse> studentCourse) {
-		this.studentCourse = studentCourse;
-	}
 
 }
