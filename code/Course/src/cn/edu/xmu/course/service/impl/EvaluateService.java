@@ -233,12 +233,12 @@ public class EvaluateService implements IEvaluateService {
 		}
 	}
 	
-	/**
-	 * 根据用户名查找该评价
-	 * @param username
-	 * @return
+	/*
+	 * 用dwr查询该用户名是否已经存在(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IEvaluateService#getEvaluationByUsername(java.lang.String)
 	 */
 	public Evaluation getEvaluationByUsername(String username){
+		System.out.println("herer is "+username);
 		List<Evaluation> el = evaluationDAO.findByUsername(username);
 		if(el.size()==0)
 			return null;
