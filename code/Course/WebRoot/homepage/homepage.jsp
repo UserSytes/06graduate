@@ -6,8 +6,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>厦门大学课程中心</title>
 		<link rel="stylesheet" href="${ctx}/homepage/link.css">
-		<script src="${ctx}/js/MSClass.js" language="javascript"></script>
-		<script src="${ctx}/js/jquery.tools.min.js" language="javascript"></script>
+		<script src="${ctx}/js/MSClass.js" language="javascript"></script>		
 		<SCRIPT language=javascript>
 	function check(form) {
 		if (form.userName.value == "") {
@@ -25,21 +24,7 @@
 		return true;
 	}
 </SCRIPT>
-		<script>
-	// execute your scripts when the DOM is ready. this is a good habit
-	$( function() {
-
-		// assign a click event to the exposed element, using normal jQuery coding
-		$("#login").click( function() {
-
-			// perform exposing for the clicked element
-				$(this).expose( {
-					api :true
-				}).load();
-
-			});
-	});
-</script>
+	
 		<style type="text/css">
 .inputstyle {
 	width: 120px;
