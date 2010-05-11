@@ -113,4 +113,11 @@ public interface IEvaluateService {
 	 * @return
 	 */
 	public boolean deleteEvaluation(Evaluation evaluation);
+	
+	/**
+	 * 用dwr查询该用户名是否已经存在
+	 * @param username
+	 * @return
+	 */
+	public Evaluation getEvaluationByUsername(String username);
 }

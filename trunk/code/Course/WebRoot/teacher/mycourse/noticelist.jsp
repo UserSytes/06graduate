@@ -8,33 +8,24 @@
 		<META http-equiv=Pragma content=no-cache>
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
-		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<title>公告列表</title>
-		<LINK href="${ctx}/css/pagination.css" type=text/css rel=stylesheet>
+		<title>通知公告列表</title>
 		<script type="text/javascript"
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
-		<script type="text/javascript" src="${ctx}/js/jquery.pagination.js"></script>
+		<script type="text/javascript" language="javascript"
+			src="${ctx}/js/jquery.dataTables.js" charset="gb2312"></script>
 		<script type="text/javascript">
 $(document).ready(function(){
-	//这是一个非常简单的demo实例，让列表元素分页显示
-	//回调函数的作用是显示对应分页的列表项内容
-	//回调函数在用户每次点击分页链接的时候执行
-	//参数page_index{int整型}表示当前的索引页
-	var $table = $('#table');
-	$("#tbody tr:gt(" + 9+ ")").hide().end();
-	$("#tbody").css("display","");  
-		var num_entries = $("#tbody tr").length;
-		// 创建分页
-		$("#Pagination").pagination( {
-				count:num_entries,
-				pageCount:10,
-				imagePath:"${ctx}/commons/images",
-				callback:function(page_index){							
-		 			$table.find("#tbody tr").show();               
-          			$("#tbody tr:lt(" + (page_index-1) * 10 + ")").hide().end();                  
-       				$("#tbody tr:gt(" + ((page_index) * 10 -1) + ")").hide().end();
-			}
-		});
+oTable = $('#example').dataTable( {
+			"bJQueryUI" :true,
+			"sPaginationType" :"full_numbers",
+			"aoColumns": [
+			{ "sSortDataType": "dom-text", "sType": "numeric" },
+			null,
+			null,
+			null,
+			null,
+			null]	
+		});	
 
 });
 </script>
@@ -46,12 +37,41 @@ $(document).ready(function(){
 	   window.location.href="goAddNoticeAction.action";
 	}
 </script>
+		<style type="text/css" title="currentStyle">
+@import "${ctx}/css/demo_page.css";
+
+@import "${ctx}/css/demo_table_jui.css";
+
+@import "${ctx}/css/jquery-ui-1.7.2.custom.css";
+
+div,span,p,ul,li {
+	text-align: left;
+}
+
+a {
+	text-decoration: none;
+}
+
+a,a:link,a:visited {
+	color: #036;
+}
+
+a:hover {
+	color: #0000cd;
+}
+
+.tr-content td {
+	color: #036;
+}
+</style>
 	</head>
-	<body>
-		<div align="center">
-			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
+	<body id="dt_example">
+		<div align="center"
+			style="padding-left: 5px; padding-right: 5px; width: 98%">
+			<table cellSpacing=1 cellPadding=0 width="100%"
+				style="margin: 20px 0 20px 0; color: #000; BACKGROUND-COLOR: #87ceeb; border: 1px solid #666;"
 				align=center border=0>
-				<tr class=position bgcolor="#ECF3FD">
+				<tr bgcolor="#B0E0E6" height="25">
 					<td>
 						当前位置: 课程通知管理 -&gt; 通知列表
 					</td>
@@ -68,32 +88,33 @@ $(document).ready(function(){
 				</tr>
 			</table>
 
-
-			<table id="table" class="listTable" style="">
-				<tr class="listHeaderTr"
-					<s:if test="#st.odd">style="background-color:#bbbbbb"</s:if>>
-					<th>
-						序号
-					</th>
-					<th>
-						标题
-					</th>
-					<th>
-						类别
-					</th>
-					<th>
-						所属课程
-					</th>
-					<th>
-						发布时间
-					</th>
-					<th>
-						操作
-					</th>
-				</tr>
-				<tbody id="tbody" style="display: none;">
+			<div class="demo_jui" style="margin-top: 10px;">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%"
+					class="display" id="example">
+					<thead>
+						<tr>
+							<th>
+								序号
+							</th>
+							<th>
+								标题
+							</th>
+							<th>
+								类别
+							</th>
+							<th>
+								所属课程
+							</th>
+							<th>
+								发布时间
+							</th>
+							<th>
+								操作
+							</th>
+						</tr>
+					</thead>
 					<s:iterator value="noticeList" status="notice">
-						<tr class="listTr">
+						<tr class="tr-content" height="33">
 							<td width="5%">
 								<s:property value="#notice.count" />
 							</td>
@@ -128,9 +149,8 @@ $(document).ready(function(){
 							</td>
 						</tr>
 					</s:iterator>
-				</tbody>
-			</table>
-			<div id="Pagination" class="pagination"></div>
+				</table>
+			</div>
 		</div>
 	</body>
 </html>

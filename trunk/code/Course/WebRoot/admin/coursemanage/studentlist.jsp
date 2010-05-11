@@ -13,6 +13,9 @@
 			@import "${ctx}/css/demo_page.css";
 			@import "${ctx}/css/demo_table_jui.css";
 			@import "${ctx}/css/jquery-ui-1.7.2.custom.css";
+			a{
+	text-decoration: none;
+}
 		</style>
 		<script type="text/javascript" language="javascript" src="${ctx}/js/jquery.js"></script>
 		<script type="text/javascript" language="javascript" src="${ctx}/js/jquery.dataTables.js" charset="gb2312"></script>

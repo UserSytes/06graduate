@@ -14,9 +14,11 @@
 			src="${ctx}/js/jquery-1.4.1-and-plugins.min.js"></script>
 		<script type="text/javascript" src="${ctx}/js/thickbox2.js"></script>
 		<title>学生列表</title>
-<style type="text/css" title="currentStyle">
+		<style type="text/css" title="currentStyle">
 @import "${ctx}/css/demo_page.css";
+
 @import "${ctx}/css/demo_table_jui.css";
+
 @import "${ctx}/css/jquery-ui-1.7.2.custom.css";
 </style>
 		<script type="text/javascript" language="javascript"
@@ -27,7 +29,15 @@
 			$(document).ready(function() {
 				oTable = $('#example').dataTable({
 					"bJQueryUI": true,
-					"sPaginationType": "full_numbers"
+					"sPaginationType": "full_numbers",
+					"aoColumns": [
+			{ "sSortDataType": "dom-text", "sType": "numeric" },
+			null,
+			null,
+			null,
+			null,
+			null,
+			null]	
 				});
 			} );
 		</script>
@@ -46,17 +56,18 @@
 	text-decoration: none;
 }
 
-a{
+a {
 	text-decoration: none;
 }
 -->
 </style>
 	</head>
 	<body id="dt_example">
-		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
-			align=center border=0>
-			<tr class=position bgcolor="#ECF3FD">
-				<td>
+		<table cellSpacing=1 cellPadding=0 width="100%"
+				style="margin: 20px 0 20px 0; color: #000; BACKGROUND-COLOR: #87ceeb; border: 1px solid #666;"
+				align=center border=0>
+				<tr bgcolor="#B0E0E6" height="25">
+					<td>
 					当前位置: 课程管理 -&gt; 课程列表 -&gt;
 					<s:text name="">${course.name}</s:text>
 					-&gt; 学生列表
@@ -67,45 +78,46 @@ a{
 			<table cellpadding="0" cellspacing="0" border="0" class="display"
 				id="example">
 				<thead>
-				<tr>
-					<th>
-						序号
-					</th>
-					<th>
-						照片
-					</th>
-					<th>
-						姓名 学号
-					</th>
-					<th>
-						年级
-					</th>
-					<th>
-						院系
-					</th>
-					<th>
-						联系方式
-					</th>
-					<th>
-						操作
-					</th>
-				</tr>
+					<tr>
+						<th>
+							序号
+						</th>
+						<th>
+							照片
+						</th>
+						<th>
+							学号 姓名
+						</th>
+						<th>
+							年级
+						</th>
+						<th>
+							院系
+						</th>
+						<th>
+							联系方式
+						</th>
+						<th>
+							操作
+						</th>
+					</tr>
 				</thead>
 				<tbody>
 					<s:iterator value="studentList" status="student">
-						<tr <s:if test="#student.odd">style="background-color:ebf4fd"</s:if>>
+						<tr
+							<s:if test="#student.odd">style="background-color:ebf4fd"</s:if>>
 							<td width="5%">
 								<s:property value="#student.count" />
 							</td>
-							<td width="24">
+							<td width="48">
 								<a href="${ctx}/upload/<s:property value="userInfo.photo"/>"
-									title="" class="thickbox"> <img width="48"
+									title="" class="thickbox"> <img width="48" height="48"
 										src="${ctx}/upload/<s:property value="userInfo.photo"/>" /> </a>
 							</td>
 							<td width="20%">
-								<s:property value="userInfo.name" />
-								<br>
 								<s:property value="studentNo" />
+								<br>
+								<s:property value="userInfo.name" />
 							</td>
 							<td width="15%">
 								<s:property value="grade.name" />

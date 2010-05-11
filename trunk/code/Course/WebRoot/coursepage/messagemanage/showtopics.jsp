@@ -32,8 +32,10 @@
 			"sPaginationType" :"full_numbers",
 			"aoColumns": [
 			{ "sSortDataType": "dom-text", "sType": "numeric" },
-			null,null,
-			null,	
+			null,
+			null,
+			{ "sSortDataType": "dom-text", "sType": "numeric" },
+			{ "sSortDataType": "dom-text", "sType": "numeric" },				
 			null]	
 		});
 	});
@@ -101,8 +103,11 @@
 												<th width="130">
 													作者
 												</th>
-												<th width="100">
-													回复/查看
+												<th width="60">
+													回复
+												</th>
+												<th width="50">
+													查看
 												</th>
 												<th width="130">
 													最后发表
@@ -112,7 +117,7 @@
 										<tbody>
 											<s:iterator value="topicList" status="topic">
 												<tr height="33" class="tr-content">
-													<td width="30">
+													<td width="20">
 														<s:property value="#topic.count" /></div>
 													</td>
 													<td width="280" align="left" style="font-weight: bold">
@@ -127,14 +132,14 @@
 													</td>
 													<td width="130" align="center">
 														<s:property value="authorName" />
-														<br>
+														<br/>
 														<s:date name="time" format="yyyy-MM-dd hh:mm" />
 													</td>
-													<td width="100" align="center">
+													<td width="60" align="center">
 														<s:property value="countReply" />
-														/
-														<font color="#444444"><s:property
-																value="countPerson" /> </font>&nbsp;&nbsp;&nbsp;
+													</td>
+													<td width="50" align="center">	
+														<s:property	value="countPerson" /> 
 													</td>
 													<td width="130" align="center">
 														<s:property value="lastAnswer" />

@@ -51,7 +51,15 @@ table {
 $(document).ready(function(){
 	oTable = $('#example').dataTable( {
 			"bJQueryUI" :true,
-			"sPaginationType" :"full_numbers"
+			"sPaginationType" :"full_numbers",
+			"aoColumns": [
+			{ "sSortDataType": "dom-text", "sType": "numeric" },
+			null,
+			null,
+			{ "sSortDataType": "dom-text", "sType": "numeric" },
+			{ "sSortDataType": "dom-text", "sType": "numeric" },				
+			null,
+			null]	
 		});
 		$('a[rel*=facebox]').facebox( {
 			loading_image :'${ctx}/facebox/loading.gif',
@@ -88,8 +96,11 @@ $(document).ready(function(){
 							<th width="130">
 								作者
 							</th>
-							<th width="100">
-								回复/查看
+							<th width="60">
+								回复
+							</th>
+							<th width="50">
+								查看
 							</th>
 							<th width="130">
 								最后发表
@@ -121,11 +132,11 @@ $(document).ready(function(){
 									<br>
 									<s:date name="time" format="yyyy-MM-dd hh:mm" />
 								</td>
-								<td width="100" align="center">
-									<s:property value="countReply" />
-									/
-									<font color="#444444"><s:property value="countPerson" />
-									</font>&nbsp;&nbsp;&nbsp;
+								<td width="60" align="center">
+									<s:property value="countReply" />									
+								</td>
+								<td width="50" align="center">
+									<s:property value="countPerson" />									
 								</td>
 								<td width="130" align="center">
 									<s:property value="lastAnswer" />

@@ -377,7 +377,7 @@ public class CourseDAO extends HibernateDaoSupport {
 		log.debug("finding all Course instances");
 		try {
 			String queryString = 
-	  			"select course from Course course order by course.time DESC";
+	  			"select course from Course course where course.status = 1 order by course.time DESC";
 	  		Query queryObject = getSession().createQuery(queryString);
 	  		queryObject.setFirstResult(0); 
 	  		queryObject.setMaxResults(10); 

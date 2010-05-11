@@ -10,6 +10,10 @@
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
 		<title>邀请专家</title>
+		<script type="text/javascript" src="${ctx}/dwr/engine.js"></script>
+		<script type="text/javascript" src="${ctx}/dwr/util.js"></script>
+		<script type="text/javascript"
+			src="${ctx}/dwr/interface/EvaluateService.js"></script>
 		<SCRIPT language=javascript>
 			function check(form)
 			{
@@ -22,22 +26,37 @@
 				if (form.evapassword.value == "")
 				{
 					alert("密码不能为空！");
-					for.evapassword.focus();
+					form.evapassword.focus();
 					return false;
 				}
 				if (form.confirmPwd.value == "")
 				{
 					alert("确认密码不能为空！");
-					focus.confirmPwd.focus();
+					form.confirmPwd.focus();
 					return false;
 				}
-				if (form.password.value != form.confirmPwd.value)
+				if (form.evapassword.value != form.confirmPwd.value)
 				{
 					alert("两次输入的密码不一致，请重新输入！");
 					return false;
 				}
 				form.submit.disabled = true;
 			}
+			function getEvaluationName(username) {
+		if (username == "") {
+			DWRUtil.setValue('result', "账号不能为空！");
+			return false;
+		}
+		EvaluateService.getEvaluationByUsername(username, callBack);
+	}
+	function callBack(data) {
+		if (data == null) {
+			DWRUtil.setValue('result', "该帐号可用");
+		} else {
+			DWRUtil.setValue('result', "该帐户已经存在");
+			document.getElementById("evaname").value = "";
+		}
+	}
 		</SCRIPT>
 	</head>
 	<body>
@@ -66,7 +85,9 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="evaname" name="evaluation.userame" cssClass="input" />
+						<s:textfield id="evaname" name="evaluation.userame"
+							cssClass="input"  onblur="getEvaluationName(this.value)" />
+						<span id="result"> </span>
 					</td>
 				</tr>
 				<tr>
@@ -77,9 +98,10 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:password  id="evapassword" name="evaluation.password" cssClass="input" />
+						<s:password id="evapassword" name="evaluation.password"
+							cssClass="input" />
 					</td>
-				</tr>	
+				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
@@ -90,7 +112,7 @@
 						&nbsp;&nbsp;&nbsp;
 						<s:password id="confirmPwd" cssClass="input" />
 					</td>
-				</tr>				
+				</tr>
 				<tr class=editHeaderTr>
 					<td width="30%" class=editFooterTd>
 						&nbsp;

@@ -53,6 +53,13 @@
 		<convert converter="bean" match="cn.edu.xmu.course.pojo.Teacher">
 			<param name="include" value="id,teacherNo" />
 		</convert>
+		
+		<create creator="spring" javascript="EvaluateService" >
+			<param name="beanName" value="evaluateService" />
+		</create>
+		<convert converter="bean" match="cn.edu.xmu.course.pojo.Evaluation">
+			<param name="include" value="id" />
+		</convert>
 
 		<create creator="spring" javascript="AdminService" >
 			<param name="beanName" value="adminService" />
