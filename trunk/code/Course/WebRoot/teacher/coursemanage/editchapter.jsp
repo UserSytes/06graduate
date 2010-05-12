@@ -20,6 +20,12 @@
 					form.number.focus()
 					return false;
 				}
+				if (form.number.value.length >= 50)
+				{
+					alert("章节长度不能超过50！");
+					form.number.focus()
+					return false;
+				}
 				if (form.name.value == "")
 				{
 					alert("名字不能为空！");
