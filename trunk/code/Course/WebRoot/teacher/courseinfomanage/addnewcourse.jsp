@@ -46,6 +46,11 @@
 			form.name.focus();
 			return false;
 		}
+		if (form.name.value.length >= 50) {
+			alert("名字长度不能超过50！");
+			form.name.focus();
+			return false;
+		}
 		form.submit.disabled = true;
 
 	}

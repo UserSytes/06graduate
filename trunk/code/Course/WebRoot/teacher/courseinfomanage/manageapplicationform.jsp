@@ -19,8 +19,19 @@
 			form.province.focus();
 			return false;
 		}
+		if (form.province.value.length >= 100)
+		{
+			alert("推荐省市长度不能超过100！");
+			form.province.focus();
+			return false;
+		}
 		if (form.school.value == "") {
 			alert("推荐学校不能为空！");
+			form.school.focus();
+			return false;
+		}		
+		if (form.school.value.length >= 50) {
+			alert("推荐学校长度不能超过50！");
 			form.school.focus();
 			return false;
 		}		
@@ -29,9 +40,18 @@
 			form.recommender.focus();
 			return false;
 		}
-		
+		if (form.recommender.value.length >= 50) {
+			alert("推荐单位长度不能超过50！");
+			form.recommender.focus();
+			return false;
+		}
 		if (form.name.value == "") {
 			alert("课程名称不能为空！");
+			form.name.focus();
+			return false;
+		}
+		if (form.name.value.length >= 50) {
+			alert("课程名称长度不能超过50！");
 			form.name.focus();
 			return false;
 		}
@@ -47,6 +67,11 @@
 		}
 		if (form.responser.value == "") {
 			alert("课程负责人不能为空！");
+			form.responser.focus();
+			return false;
+		}
+		if (form.responser.value.length >= 20) {
+			alert("课程负责人长度不能超过20！");
 			form.responser.focus();
 			return false;
 		}

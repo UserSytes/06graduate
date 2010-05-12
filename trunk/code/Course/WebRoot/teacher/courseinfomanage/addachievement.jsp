@@ -20,6 +20,12 @@
 					form.title.focus();
 					return false;
 				}
+				if(form.title.value.length >= 50)
+				{
+					alert("标题长度不能超过50！");
+					form.title.focus();
+					return false;
+				}	
 				var time= dojo.widget.byId("time");
 				if (time.getValue() == "")
 				{

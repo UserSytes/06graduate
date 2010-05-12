@@ -24,14 +24,21 @@
 					alert("职称不能为空！");
 					form.position.focus();
 					return false;
-				}				
+				}		
+				if (form.position.value >=50)
+				{
+					alert("职称长度不能大于50！");
+					form.position.focus();
+					return false;
+				}		
 				if (form.field.value == "")
 				{
 					alert("研究领域不能为空！");
 					form.field.focus();
 					return false;
 				}
-				if (form.field.value.length>50)				{
+				if (form.field.value.length>=50)
+				{
 					alert("研究领域长度不能超过50！");
 					form.field.focus();
 					return false;
@@ -40,6 +47,12 @@
 				{
 					alert("个人链接不能为空！");
 					form.link.focus();
+					return false;
+				}
+				if (form.remark.value.length >= 255)
+				{
+					alert("备注长度不能超过255！");
+					form.remark.focus();
 					return false;
 				}
 				form.submit.disabled = true;
@@ -118,7 +131,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textarea  name="teacherTeam.remark" cssClass="TEXTAREA" />
+						<s:textarea id="remark" name="teacherTeam.remark" cssClass="TEXTAREA" />
 					</td>
 				</tr>
 				<tr class=editHeaderTr>
