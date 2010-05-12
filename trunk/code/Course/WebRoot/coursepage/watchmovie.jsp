@@ -16,6 +16,13 @@
 	<body>
 		<!-- 头部 -->
 		<s:include value="style/%{#session.header}"></s:include>
+		<script type="text/javascript" src="${ctx}/js/jquery.metadata.v2.js"></script>
+		<script type="text/javascript" src="${ctx}/js/jquery.media.js"></script>
+		<script type="text/javascript">
+	$( function() {
+		$('a.media').media();
+	});
+</script>
 		<div class="content">
 			<!-- 左侧 -->
 			<s:include value="style/left.jsp"></s:include>
@@ -32,111 +39,67 @@
 				<!-- 正文 -->
 				<div>
 					<table border="0" cellpadding="0" cellspacing="0"
-						style="margin-top: 20px;">
+						class="table-info">
 						<tr height="29">
 							<td align="center">
 								<font style="font-size: 16px; font-weight: bold"><s:property
 										value="courseMovie.title" /> </font>
 							</td>
-						</tr>						
+						</tr>
+						<tr height="19">
+							<td>
+								<font class="timefont">发布者：<s:property
+										value="courseMovie.author" /> &nbsp;| &nbsp;职称：<s:property
+										value="courseMovie.position" /> &nbsp;| &nbsp; 发布时间：<s:date
+										name="courseMovie.time" format="yyyy-MM-dd" /> </font>
+							</td>
+						</tr>
 						<tr height="1" class="tr-title">
 							<td width="680" valign="top" style="padding-left: 10px"></td>
 						</tr>
-						<tr>
-							<td width="704">
-								<table border="0" cellpadding="0" cellspacing="0" width="100%">
-									<tr>
-										<td align="center">
-											<object classid=clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA
-												height=480 id=RAOCX name=rmplay width=600>
-												<param name="SRC" value="${ctx}/upload/<s:property value="courseMovie.fileLink"/>">
-												<param name="CONSOLE" value="Clip1">
-												<param name="CONTROLS" value="imagewindow">
-												<param name="AUTOSTART" value="true">
-												<embed src="${ctx}/upload/<s:property value="courseMovie.fileLink"/>" autostart="true" controls="ImageWindow"
-													console="Clip1" pluginspage="http://www.real.com"
-													/’ target="_blank">
-												http://www.real.com"; width="356" height="285">
-												</embed>
-											</object>
-											<br />
-											<object classid=clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA
-												height=27 id=video1 width=600>
-												<param name="_ExtentX" value="7276">
-												<param name="_ExtentY" value="1058">
-												<param name="AUTOSTART" value="0">
-												<param name="SHUFFLE" value="0">
-												<param name="PREFETCH" value="0">
-												<param name="NOLABELS" value="0">
-												<param name="CONTROLS" value="ControlPanel">
-												<param name="CONSOLE" value="Clip1">
-												<param name="LOOP" value="0">
-												<param name="NUMLOOP" value="0">
-												<param name="CENTER" value="0">
-												<param name="MAINTAINASPECT" value="0">
-												<param name="BACKGROUNDCOLOR" value="#ffffff">
-												<embed type="audio/x-pn-realaudio-plugin" console="Clip1"
-													controls="ControlPanel" height="27" width="356"
-													autostart="0" _extentx="7276" _extenty="1058" shuffle="0"
-													prefetch="0" nolabels="0" loop="0" numloop="0" center="0"
-													maintainaspect="0" backgroundcolor="#ffffff">
-												</embed>
-											</object>
-										</td>
-									</tr>
-									<tr>
-										<td width="24"></td>
-									</tr>
+						<tr height="420">
+							<td width="704" align="center">
+										<a
+												class="media {width:500, height:400, params: {controls:'imagewindow,controlpanel'}}"
+												href="${ctx}/upload/<s:property value="courseMovie.fileLink"/>"></a>
 
-								</table>
+									
 							</td>
 						</tr>
 						<tr>
 							<td align="center">
-								<table border="1" cellpadding="0" cellspacing="0" width="600">
-									<tr>
-										<td colspan="2">
-											<table border="1" cellpadding="0" cellspacing="0"
-												align="center">
-												<tr>
-													<td width="50" align="center">
-														<font style="font-size: 12px; font-weight: bold;">发布者：</font>
-													</td>
-													<td width="120" align="center">
-														<font color="#74582f"><s:property
-																value="courseMovie.author" /> </font>
-													</td>
-													<td width="80" align="center">
-														<font style="font-size: 12px; font-weight: bold;">发布时间：</font>
-													</td>
-													<td width="150" align="center">
-														<font color="#74582f"><s:date
-																name="courseMovie.time" format="yyyy-MM-dd" /> </font>
-													</td>
-													<td width="50" align="center">
-														<font style="font-size: 12px; font-weight: bold;">职称：</font>
-													</td>
-													<td width="150" align="center">
-														<s:property value="courseMovie.position" />
-													</td>
-												</tr>
-											</table>
+								<table border="1" cellpadding="0" cellspacing="0" width="700"
+									class="table-app" style="line-height: 150%;padding: 2px;">
+									<tr height="34">
+										<td width="100">
+											<font style="font-size: 14px; font-weight: bold;">视频简介</font>
+										</td>
+										<td width="600">
+											<s:property value="courseMovie.content" />
 										</td>
 									</tr>
-									<tr>
-										<td width="120">
-											<font style="font-size: 14px; font-weight: bold;">视频简介：</font>
+									<tr height="34" >
+										<td width="100">
+											<font style="font-size: 14px; font-weight: bold;">观看提示</font>
 										</td>
-										<td width="480">
-											<font color="#74582f"><s:property
-													value="courseMovie.content" /> </font>
+										<td width="600" >
+											<p style="line-height: 150%;padding: 2px;" >观看视频前请确保您的电脑已经安装Real Player插件，否则无法正常观看。</p>
+											<p style="line-height: 150%;padding: 2px;" >如果视频只有声音没有图像，请先安装Media Player解码器或<a												href="<s:url action="download"> 
+                     			<s:param name="fileName"> 
+                       			 	util/xvid.exe
+                    			</s:param> 
+						<s:param name="originalFileName"> 
+                       			 	xvid.exe
+                    			</s:param> 
+                					</s:url>">
+												<font color="green">【点击这里】</font> </a>下载安装。</p>
 										</td>
 									</tr>
-									<tr>
-										<td width="120">
-											<font style="font-size: 14px; font-weight: bold;">下载链接：</font>
+									<tr height="34">
+										<td width="100">
+											<font style="font-size: 14px; font-weight: bold;">下载链接</font>
 										</td>
-										<td width="480">
+										<td width="600">
 											<a
 												href="<s:url action="download"> 
                      			<s:param name="fileName"> 
@@ -145,22 +108,14 @@
 						<s:param name="originalFileName"> 
                        			 	<s:property value="courseMovie.filename"/> 
                     			</s:param> 
-                					</s:url>"
-												onclick="JAVAscript:if(!confirm('确认下载影片？')) return false;return true;">
-												<font color="red">点此下载</font> </a>
+                					</s:url>">
+												<font color="red"><s:property
+														value="courseMovie.filename" />
+											</font> </a>
 										</td>
 									</tr>
 								</table>
-							</td>
-						</tr>
-						<tr height="45">
-							<td width="724" align="right" valign="top">
-								<a
-									href="<s:url action="getCourseMovieListAction"> 
-                					</s:url>"><img
-										src="${ctx}/coursepage/classical/image/button.gif" border="0">
-								</a>
-							</td>
+						</td>
 						</tr>
 					</table>
 				</div>
