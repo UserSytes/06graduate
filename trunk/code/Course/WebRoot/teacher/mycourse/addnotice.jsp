@@ -24,6 +24,12 @@
 					alert("标题不能为空！");
 					form.title.focus();
 					return false;
+				}	
+				if(form.title.value.length >= 100)
+				{
+					alert("标题长度不能超过100！");
+					form.title.focus();
+					return false;
 				}				
 				
 				  var oEditor = FCKeditorAPI.GetInstance("achievement.content");
