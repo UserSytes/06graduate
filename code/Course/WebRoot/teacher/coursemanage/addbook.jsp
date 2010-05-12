@@ -25,9 +25,21 @@
 					form.author.focus();
 					return false;
 				}
+				if (form.author.value.length >=100)
+				{
+					alert("作者长度不能超过100！");
+					form.author.focus();
+					return false;
+				}
 				if (form.publication.value == "")
 				{
 					alert("出版社不能为空！");
+					form.publication.focus();
+					return false;
+				}		
+				if (form.publication.value.length >= 50)
+				{
+					alert("出版社长度不能超过50！");
 					form.publication.focus();
 					return false;
 				}				

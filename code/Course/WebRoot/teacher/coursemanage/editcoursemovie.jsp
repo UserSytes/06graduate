@@ -19,9 +19,21 @@
 					form.title.focus();
 					return false;
 				}
+				if(form.title.value.length >= 50)
+				{
+					alert("标题长度不能超过50！");
+					form.title.focus();
+					return false;
+				}	
 				if (form.author.value == "")
 				{
 					alert("主讲人不能为空！");
+					form.author.focus();
+					return false;
+				}
+				if (form.author.value.length>=40)
+				{
+					alert("作者长度不能超过40！");
 					form.author.focus();
 					return false;
 				}
@@ -31,9 +43,21 @@
 					form.position.focus();
 					return false;
 				}
+				if (form.position.value >=50)
+				{
+					alert("职称长度不能大于50！");
+					form.position.focus();
+					return false;
+				}
 				if (form.content.value == "")
 				{
 					alert("内容不能为空！");
+					form.content.focus();
+					return false;
+				}
+				if (form.content.value.length >=255)
+				{
+					alert("内容长度不能超过255！");
 					form.content.focus();
 					return false;
 				}

@@ -24,9 +24,21 @@
 					form.title.focus();
 					return false;
 				}
+				if(form.title.value.length >= 50)
+				{
+					alert("标题长度不能超过50！");
+					form.title.focus();
+					return false;
+				}	
 				if(form.author.value == "")
 				{
 					alert("课件作者不能为空！");
+					form.author.focus();
+					return false;
+				}
+				if (form.author.value.length>=40)
+				{
+					alert("作者长度不能超过40！");
 					form.author.focus();
 					return false;
 				}
