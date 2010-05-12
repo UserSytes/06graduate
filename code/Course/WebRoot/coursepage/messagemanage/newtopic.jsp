@@ -15,6 +15,12 @@ function check(form) {
 			form.title.focus();	
 			return false;
 		}	
+		if(form.title.value.length >= 255)
+		{
+			alert("标题长度不能超过255！");
+			form.title.focus();
+			return false;
+		}	
 		var oEditor = FCKeditorAPI.GetInstance("message.content");
    		if(oEditor.GetXHTML(true) == "")
    		{
