@@ -19,7 +19,13 @@
 					alert("标题不能为空！");
 					form.title.focus();
 					return false;
-				}				
+				}		
+				if(form.title.value.length >= 50)
+				{
+					alert("标题长度不能超过50！");
+					form.title.focus();
+					return false;
+				}			
 				var oEditor = FCKeditorAPI.GetInstance("courseInfo.content");
    				if(oEditor.GetXHTML(true) == "")
    				{
