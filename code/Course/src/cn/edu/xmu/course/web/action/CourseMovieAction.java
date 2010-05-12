@@ -47,7 +47,8 @@ public class CourseMovieAction extends BaseAction {
 	 * @return
 	 */
 	public String addCourseMovie() {
-		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
+		int pos = uploadFileName.lastIndexOf(".");
+		String fileLink = "movie/" + new Date().getTime()+uploadFileName.substring(pos);		
 		courseMovie.setFilename(uploadFileName);
 		courseMovie.setFileLink(fileLink);
 		if (courseMovieService.addCourseMovie(courseMovie, super.getCourse(),
@@ -75,7 +76,8 @@ public class CourseMovieAction extends BaseAction {
 	 * @return
 	 */
 	public String updateCourseMovie() {
-		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
+		int pos = uploadFileName.lastIndexOf(".");
+		String fileLink = "movie/" + new Date().getTime()+uploadFileName.substring(pos);		
 		courseMovie.setFilename(uploadFileName);
 		courseMovie.setFileLink(fileLink);
 		if (courseMovieService.updateCourseMovie(courseMovie, upload))
