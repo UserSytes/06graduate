@@ -6,17 +6,13 @@ import java.util.List;
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
-
 import cn.edu.xmu.course.dao.CollectionDAO;
-import cn.edu.xmu.course.dao.CourseDAO;
 import cn.edu.xmu.course.dao.StudentCourseDAO;
 import cn.edu.xmu.course.dao.StudentDAO;
-import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Collection;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.StudentCourse;
-import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.IStudentCourseService;
 
 /**

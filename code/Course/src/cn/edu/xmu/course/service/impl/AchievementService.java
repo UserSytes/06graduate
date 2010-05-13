@@ -12,7 +12,6 @@ import cn.edu.xmu.course.dao.NoticeDAO;
 import cn.edu.xmu.course.pojo.Achievement;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Notice;
-import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.service.IAchievementService;
 
 public class AchievementService implements IAchievementService {
@@ -23,10 +22,11 @@ public class AchievementService implements IAchievementService {
 			File upload) {
 		// TODO Auto-generated method stub
 		achievement.setCourse(course);
-		String title = "添加成果《"+achievement.getTitle()+"》";
-		String content = "<p>添加最新成果《"+achievement.getTitle()+"》，请同学们注意查阅。</p>";
-		Notice notice = new Notice(course,title,content,new Date(),1);
-		try {			
+		String title = "添加成果《" + achievement.getTitle() + "》";
+		String content = "<p>添加最新成果《" + achievement.getTitle()
+				+ "》，请同学们注意查阅。</p>";
+		Notice notice = new Notice(course, title, content, new Date(), 1);
+		try {
 			if (upload != null) {
 				String path = ServletActionContext.getServletContext()
 						.getRealPath("/upload");
@@ -34,12 +34,11 @@ public class AchievementService implements IAchievementService {
 				File file = new File(fileName);
 				if (!FileOperation.copy(upload, file))
 					return false;
-			}	
-			else{
+			} else {
 				achievement.setFileLink("");
 				achievement.setFileName("");
 			}
-			achievementDAO.save(achievement);	
+			achievementDAO.save(achievement);
 			noticeDAO.save(notice);
 			return true;
 		} catch (Exception e) {
@@ -80,10 +79,12 @@ public class AchievementService implements IAchievementService {
 
 	public boolean updateAchievement(Achievement achievement, File upload) {
 		// TODO Auto-generated method stub
-		String title = "修改成果《"+achievement.getTitle()+"》";
-		String content = "<p>修改已有成果《"+achievement.getTitle()+"》，请同学们注意查阅。</p>";
-		Notice notice = new Notice(achievement.getCourse(),title,content,new Date(),1);
-		try {			
+		String title = "修改成果《" + achievement.getTitle() + "》";
+		String content = "<p>修改已有成果《" + achievement.getTitle()
+				+ "》，请同学们注意查阅。</p>";
+		Notice notice = new Notice(achievement.getCourse(), title, content,
+				new Date(), 1);
+		try {
 			if (upload != null) {
 				String path = ServletActionContext.getServletContext()
 						.getRealPath("/upload");
@@ -91,8 +92,7 @@ public class AchievementService implements IAchievementService {
 				File file = new File(fileName);
 				if (!FileOperation.copy(upload, file))
 					return false;
-			}		
-			else{
+			} else {
 				achievement.setFileLink("");
 				achievement.setFileName("");
 			}
@@ -122,7 +122,10 @@ public class AchievementService implements IAchievementService {
 
 	/*
 	 * 查找 最新教学成果(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.IAchievementService#findLastestSevenAchievements(cn.edu.xmu.course.pojo.Course)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IAchievementService#findLastestSevenAchievements
+	 * (cn.edu.xmu.course.pojo.Course)
 	 */
 	public List findLastestSevenAchievements(Course course) {
 		// TODO Auto-generated method stub

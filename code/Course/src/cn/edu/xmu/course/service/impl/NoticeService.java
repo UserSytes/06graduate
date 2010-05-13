@@ -7,7 +7,6 @@ import cn.edu.xmu.course.dao.NoticeDAO;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.pojo.Teacher;
-import cn.edu.xmu.course.pojo.Topic;
 import cn.edu.xmu.course.service.INoticeService;
 
 public class NoticeService implements INoticeService {
