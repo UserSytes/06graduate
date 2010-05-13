@@ -28,9 +28,7 @@ function check(form) {
 			alert("消息内容不能为空！");
 			form.content.focus();
 			return false;
-		}
-		form.sendmsg.disabled = true;	
-		form.saveDraft.disabled = true;	
+		}		
 	}
 </script>
 	</head>

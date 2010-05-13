@@ -19,26 +19,31 @@ public class CourseMovieService implements ICourseMovieService {
 
 	private CourseMovieDAO courseMovieDAO;
 	private NoticeDAO noticeDAO;
-	
+
 	public boolean addCourseMovie(CourseMovie courseMovie, Course course,
 			File upload) {
 		// TODO Auto-generated method stub
-		String path = ServletActionContext.getServletContext().getRealPath(
-				"/upload");
-		String fileName = path + "/" + courseMovie.getFileLink();
-		File file = new File(fileName);
 		courseMovie.setCourse(course);
-		String title = "添加教学录像《"+courseMovie.getTitle()+"》";
-		String content = "<p>添加最新教学录像《"+courseMovie.getTitle()+"》，请同学们注意查阅。</p>";
-		Notice notice = new Notice(course,title,content,new Date(),1);		
-		try {			
-			if (FileOperation.copy(upload, file)){
-				courseMovieDAO.save(courseMovie);
-				noticeDAO.save(notice);
-				return true;
-			}				
-			else
-				return false;
+		String title = "添加教学录像《" + courseMovie.getTitle() + "》";
+		String content = "<p>添加最新教学录像《" + courseMovie.getTitle()
+				+ "》，请同学们注意查阅。</p>";
+		Notice notice = new Notice(course, title, content, new Date(), 1);
+		try {
+			if (upload != null) {
+				String path = ServletActionContext.getServletContext()
+						.getRealPath("/upload");
+				String fileName = path + "/" + courseMovie.getFileLink();
+				File file = new File(fileName);
+				courseMovie.setSrc("");
+				if (!FileOperation.copy(upload, file))
+					return false;
+			} else {
+				courseMovie.setFileLink("");
+				courseMovie.setFilename("");
+			}
+			courseMovieDAO.save(courseMovie);
+			noticeDAO.save(notice);
+			return true;
 		} catch (Exception e) {
 			return false;
 		}
@@ -66,21 +71,28 @@ public class CourseMovieService implements ICourseMovieService {
 
 	public boolean updateCourseMovie(CourseMovie courseMovie, File upload) {
 		// TODO Auto-generated method stub
-		String path = ServletActionContext.getServletContext().getRealPath(
-				"/upload");
-		String fileName = path + "/" + courseMovie.getFileLink();
-		File file = new File(fileName);
-		String title = "修改教学录像《"+courseMovie.getTitle()+"》";
-		String content = "<p>修改己有教学录像《"+courseMovie.getTitle()+"》，请同学们注意查阅。</p>";
-		Notice notice = new Notice(courseMovie.getCourse(),title,content,new Date(),1);	
-		try {			
-			if (FileOperation.copy(upload, file)){
-				courseMovieDAO.merge(courseMovie);
-				noticeDAO.save(notice);
-				return true;
-			}			
-			else
-				return false;
+
+		String title = "修改教学录像《" + courseMovie.getTitle() + "》";
+		String content = "<p>修改己有教学录像《" + courseMovie.getTitle()
+				+ "》，请同学们注意查阅。</p>";
+		Notice notice = new Notice(courseMovie.getCourse(), title, content,
+				new Date(), 1);
+		try {
+			if (upload != null) {
+				String path = ServletActionContext.getServletContext()
+						.getRealPath("/upload");
+				String fileName = path + "/" + courseMovie.getFileLink();
+				File file = new File(fileName);				
+				courseMovie.setSrc("");
+				if (!FileOperation.copy(upload, file))
+					return false;
+			} else {
+				courseMovie.setFileLink("");
+				courseMovie.setFilename("");
+			}
+			courseMovieDAO.merge(courseMovie);
+			noticeDAO.save(notice);
+			return true;
 		} catch (Exception e) {
 			return false;
 		}

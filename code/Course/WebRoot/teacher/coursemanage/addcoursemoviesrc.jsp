@@ -9,7 +9,7 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<title>编辑教学录像</title>
+		<title>添加教学录像</title>
 		<SCRIPT language=javascript>
 			function check(form)
 			{				
@@ -67,9 +67,22 @@
 					alert("录制时间不能为空！");
 					return false;
 				}
-				if(form.upload.value == "")
+				if(form.src.value == "")
 				{
-					alert("上传录像不能为空！");
+					alert("录像链接不能为空！");
+					form.src.focus();
+					return false;
+				}
+				if(form.src.value.length >= 500)
+				{
+					alert("录像链接长度不能超过500！");
+					form.src.focus();
+					return false;
+				}
+				var regExp = /^((https|http|ftp|rtsp|mms)?:)/;
+				if(!regExp.test(form.src.value)){
+					alert("你输入的不是合法的URL链接，请重新输入！");
+					form.src.focus();
 					return false;
 				}
 				form.submit.disabled = true;
@@ -87,19 +100,17 @@
 			</tr>
 		</table>
 
-		<s:form action="updateCourseMovieAction" method="post"
+		<s:form action="addCourseMovieSrcAction" method="post"
 			enctype="multipart/form-data" onsubmit="return check(this);">
 
-			<s:hidden name="courseMovie.id"></s:hidden>
-			<s:hidden name="courseMovie.course.id"></s:hidden>
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						编辑教学录像：
+						<span style="float: left;">添加教学录像：</span><span style="float: right"><a href="${ctx}/teacher/coursemanage/addcoursemovie.jsp"><font color="green">【我要自己上传录像，请点击这里】</font></a></span>
 					</td>
-				</tr>
-				<tr>
+				</tr>		
+<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
 							标题：
@@ -118,7 +129,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="author" size="50"  name="courseMovie.author"
+						<s:textfield id="author"  size="50" name="courseMovie.author"
 							cssClass="input" />
 					</td>
 				</tr>
@@ -130,7 +141,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="position" size="50"  name="courseMovie.position"
+						<s:textfield id="position"  size="50" name="courseMovie.position"
 							cssClass="input" />
 					</td>
 				</tr>
@@ -162,33 +173,12 @@
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							上传录像：
+							录像链接：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:file id="upload" size="50" name="upload"></s:file>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							查看原来录像：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-						<a
-							href="<s:url action="download"> 
-                     			<s:param name="fileName"> 
-                       			 	<s:property value="courseMovie.fileLink"/> 
-                    			</s:param> 
-								<s:param name="originalFileName"> 
-                       			 	<s:property value="courseMovie.filename"/> 
-                    			</s:param> 
-                					</s:url>">
-							<font color="red"><s:property value="courseMovie.filename" />
-						</font> </a>
+						<s:textfield id="src" size="50"  name="courseMovie.src" cssClass="input" />
 					</td>
 				</tr>
 				<tr class=editHeaderTr>
@@ -196,11 +186,27 @@
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit id="submit" cssClass="label" value="修改" />
+						<s:submit id="submit"  cssClass="label" value="确定" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>
 			</table>
 		</s:form>
+		<div align="left"
+			style="border: 1px solid #ccc; padding: 10px; width: 98%;">
+			<img src="${ctx}/teacher/images/icon_1.png" width="16" height="16" />
+			<strong><font color="red" size="3"> 提示</font> </strong>
+			<div id="content_note">
+				<ul>
+					<li>
+						引用的视频链接文件格式必须为 rm, avi, mpg, swf 和 wmv 中的一种。
+					</li>
+					<li>
+						如果想要使用本地上传录像，请单击右上角链接。
+					</li>
+				</ul>
+			</div>
+		</div>
+<br><br>
 	</body>
 </html>

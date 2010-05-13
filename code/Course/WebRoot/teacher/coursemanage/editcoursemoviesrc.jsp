@@ -9,14 +9,32 @@
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
 		<LINK href="${ctx}/css/teacher.css" type=text/css rel=stylesheet>
-		<title>修改密码</title>
+		<title>编辑教学录像</title>
 		<SCRIPT language=javascript>
 			function check(form)
-			{
-				if (form.name.value == "")
+			{				
+				if(form.title.value == "")
 				{
-					alert("名字不能为空！");
-					form.name.focus();
+					alert("录像标题不能为空！");
+					form.title.focus();
+					return false;
+				}
+				if(form.title.value.length >= 50)
+				{
+					alert("标题长度不能超过50！");
+					form.title.focus();
+					return false;
+				}	
+				if (form.author.value == "")
+				{
+					alert("主讲人不能为空！");
+					form.author.focus();
+					return false;
+				}
+				if (form.author.value.length>=40)
+				{
+					alert("作者长度不能超过40！");
+					form.author.focus();
 					return false;
 				}
 				if (form.position.value == "")
@@ -24,41 +42,47 @@
 					alert("职称不能为空！");
 					form.position.focus();
 					return false;
-				}		
+				}
 				if (form.position.value.length >=50)
 				{
 					alert("职称长度不能大于50！");
 					form.position.focus();
 					return false;
-				}		
-				if (form.field.value == "")
+				}
+				if (form.content.value == "")
 				{
-					alert("研究领域不能为空！");
-					form.field.focus();
+					alert("内容不能为空！");
+					form.content.focus();
 					return false;
 				}
-				if (form.field.value.length>=50)
+				if (form.content.value.length >=255)
 				{
-					alert("研究领域长度不能超过50！");
-					form.field.focus();
+					alert("内容长度不能超过255！");
+					form.content.focus();
 					return false;
 				}
-				if (form.link.value == "")
+				var time= dojo.widget.byId("time");
+				if (time.getValue() == "")
 				{
-					alert("个人链接不能为空！");
-					form.link.focus();
+					alert("录制时间不能为空！");
+					return false;
+				}
+				if(form.src.value == "")
+				{
+					alert("录像链接不能为空！");
+					form.src.focus();
+					return false;
+				}
+				if(form.src.value.length >= 500)
+				{
+					alert("录像链接长度不能超过500！");
+					form.src.focus();
 					return false;
 				}
 				var regExp = /^((https|http|ftp|rtsp|mms)?:)/;
-				if(!regExp.test(form.link.value)){
+				if(!regExp.test(form.src.value)){
 					alert("你输入的不是合法的URL链接，请重新输入！");
-					form.link.focus();
-					return false;
-				}
-				if (form.remark.value.length >= 255)
-				{
-					alert("备注长度不能超过255！");
-					form.remark.focus();
+					form.src.focus();
 					return false;
 				}
 				form.submit.disabled = true;
@@ -71,29 +95,42 @@
 			align=center border=0>
 			<tr class=position bgcolor="#22cc77">
 				<td>
-					当前位置: 我的课程-&gt; 教师队伍
+					当前位置: 我的课程-&gt; 编辑教学录像
 				</td>
 			</tr>
 		</table>
 
-		<s:form action="addTeacherTeamAction" method="post"
-			onsubmit="return check(this);">
+		<s:form action="addCourseMovieSrcAction" method="post"
+			enctype="multipart/form-data" onsubmit="return check(this);">
+
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						添加教师队伍：
+						编辑教学录像：
+					</td>
+				</tr>		
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							标题：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<s:textfield id="title" size="50"  name="courseMovie.title" cssClass="input" />
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							名字：
+							主讲人：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="name" size="50" name="teacherTeam.name" cssClass="input" />
+						<s:textfield id="author"  size="50" name="courseMovie.author"
+							cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -104,40 +141,44 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="position" size="50" name="teacherTeam.position" cssClass="input" />
+						<s:textfield id="position"  size="50" name="courseMovie.position"
+							cssClass="input" />
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							研究领域：
+							内容：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="field" size="50" name="teacherTeam.field" cssClass="input" />
+						<s:textarea id="content" name="courseMovie.content"
+							cssClass="textarea" />
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							个人资料链接：
+							录制时间：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="link" size="50" name="teacherTeam.link" cssClass="INPUT" />
+						<s:head />
+						<s:datetimepicker id="time" displayFormat="yyyy-MM-dd"
+							name="courseMovie.time" />
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							备注：
+							录像链接：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textarea id="remark" name="teacherTeam.remark" cssClass="TEXTAREA" />
+						<s:textfield id="src" size="50"  name="courseMovie.src" cssClass="input" />
 					</td>
 				</tr>
 				<tr class=editHeaderTr>
@@ -145,7 +186,7 @@
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit id="submit" cssClass="label" value="确认" />
+						<s:submit id="submit"  cssClass="label" value="确定" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>

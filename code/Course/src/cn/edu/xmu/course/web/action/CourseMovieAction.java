@@ -6,11 +6,13 @@ import java.util.List;
 
 import cn.edu.xmu.course.pojo.CourseMovie;
 import cn.edu.xmu.course.service.ICourseMovieService;
+
 /**
  * 负责教学录像的类
+ * 
  * @author 何申密
  * @author 许子彦
- *
+ * 
  */
 public class CourseMovieAction extends BaseAction {
 
@@ -42,17 +44,33 @@ public class CourseMovieAction extends BaseAction {
 	}
 
 	/**
-	 * 添加教学录像
+	 * 添加教学录像(自己上传录像）
 	 * 
 	 * @return
 	 */
 	public String addCourseMovie() {
 		int pos = uploadFileName.lastIndexOf(".");
-		String fileLink = "movie/" + new Date().getTime()+uploadFileName.substring(pos);		
+		String fileLink = "movie/" + new Date().getTime()
+				+ uploadFileName.substring(pos);
 		courseMovie.setFilename(uploadFileName);
 		courseMovie.setFileLink(fileLink);
 		if (courseMovieService.addCourseMovie(courseMovie, super.getCourse(),
 				upload))
+			return SUCCESS;
+		else {
+			addActionError("添加教学录像失败，请重新添加！");
+			return ERROR;
+		}
+	}
+
+	/**
+	 * 添加教学录像（使用已有链接）
+	 * 
+	 * @return
+	 */
+	public String addCourseMovieSrc() {
+		if (courseMovieService.addCourseMovie(courseMovie, super.getCourse(),
+				null))
 			return SUCCESS;
 		else {
 			addActionError("添加教学录像失败，请重新添加！");
@@ -67,7 +85,10 @@ public class CourseMovieAction extends BaseAction {
 	 */
 	public String goEditCourseMovie() {
 		courseMovie = courseMovieService.getCourseMovieById(courseMovieId);
-		return SUCCESS;
+		if (courseMovie.getSrc().equals(""))
+			return "upload";
+		else
+			return "src";
 	}
 
 	/**
@@ -77,10 +98,25 @@ public class CourseMovieAction extends BaseAction {
 	 */
 	public String updateCourseMovie() {
 		int pos = uploadFileName.lastIndexOf(".");
-		String fileLink = "movie/" + new Date().getTime()+uploadFileName.substring(pos);		
+		String fileLink = "movie/" + new Date().getTime()
+				+ uploadFileName.substring(pos);
 		courseMovie.setFilename(uploadFileName);
 		courseMovie.setFileLink(fileLink);
 		if (courseMovieService.updateCourseMovie(courseMovie, upload))
+			return SUCCESS;
+		else {
+			addActionError("更新教学录像失败，请重新操作！");
+			return ERROR;
+		}
+	}
+	
+	/**
+	 * 更新教学录像（使用已有链接）
+	 * 
+	 * @return
+	 */
+	public String updateCourseMovieSrc() {
+		if (courseMovieService.updateCourseMovie(courseMovie, null))
 			return SUCCESS;
 		else {
 			addActionError("更新教学录像失败，请重新操作！");

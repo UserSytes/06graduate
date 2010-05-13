@@ -25,7 +25,7 @@
 					form.position.focus();
 					return false;
 				}
-				if (form.position.value >=50)
+				if (form.position.value.length >=50)
 				{
 					alert("职称长度不能大于50！");
 					form.position.focus();
@@ -46,6 +46,12 @@
 				if (form.link.value == "")
 				{
 					alert("个人链接不能为空！");
+					form.link.focus();
+					return false;
+				}
+				var regExp = /^((https|http|ftp|rtsp|mms)?:)/;
+				if(!regExp.test(form.link.value)){
+					alert("你输入的不是合法的URL链接，请重新输入！");
 					form.link.focus();
 					return false;
 				}

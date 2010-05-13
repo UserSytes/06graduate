@@ -43,7 +43,7 @@
 					form.position.focus();
 					return false;
 				}
-				if (form.position.value >=50)
+				if (form.position.value.length >=50)
 				{
 					alert("职称长度不能大于50！");
 					form.position.focus();
@@ -94,9 +94,13 @@
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						添加教学录像：
+						<span style="float: left;">添加教学录像：</span><span
+							style="float: right"><a
+							href="${ctx}/teacher/coursemanage/addcoursemoviesrc.jsp"><font
+								color="green">【使用已有的网上视频链接，请点击这里】</font> </a> </span>
 					</td>
 				</tr>
+
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
@@ -105,7 +109,8 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="title" size="50"  name="courseMovie.title" cssClass="input" />
+						<s:textfield id="title" size="50" name="courseMovie.title"
+							cssClass="input" />
 					</td>
 				</tr>
 				<tr>
@@ -116,7 +121,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="author"  size="50" name="courseMovie.author"
+						<s:textfield id="author" size="50" name="courseMovie.author"
 							cssClass="input" />
 					</td>
 				</tr>
@@ -128,7 +133,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="position"  size="50" name="courseMovie.position"
+						<s:textfield id="position" size="50" name="courseMovie.position"
 							cssClass="input" />
 					</td>
 				</tr>
@@ -165,7 +170,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:file id="upload" size="50"  name="upload"></s:file>
+						<s:file id="upload" size="40" name="upload"></s:file>
 					</td>
 				</tr>
 				<tr class=editHeaderTr>
@@ -173,11 +178,36 @@
 						&nbsp;
 					</td>
 					<td width="70%">
-						<s:submit id="submit"  cssClass="label" value="确定" />
+						<s:submit id="submit" cssClass="label" value="确定" />
 						<s:reset cssClass="label" value="取消" />
 					</td>
 				</tr>
 			</table>
 		</s:form>
+
+		<div align="left"
+			style="border: 1px solid #ccc; padding: 10px; width: 98%;">
+			<img src="${ctx}/teacher/images/icon_1.png" width="16" height="16" />
+			<strong><font color="red" size="3"> 提示</font> </strong>
+			<div id="content_note">
+				<ul>
+					<li>
+						本地上传录像文件格式必须为 rm, avi, mpg, swf 和 wmv 中的一种。
+					</li>
+					<li>
+						如果想要使用网上已有的录像或视频链接，请单击左上角链接。
+					</li>
+					<li>
+						上传录像文件大小最好不要超过100M。
+					</li>
+					<li>
+						如果上传录像文件太大建议先使用其他途径上传到网站再引用该录像的网络链接。
+					</li>
+				</ul>
+
+			</div>
+		</div>
+		<br>
+		<br>
 	</body>
 </html>

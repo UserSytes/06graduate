@@ -55,7 +55,7 @@
 						<tr>
 							<td>
 								<table cellpadding="0" cellspacing="0" align="center">
-									<tr class="tr-content">
+									<tr>
 										<td>
 											<font style="font-size: 16px; font-weight: bold;">&nbsp; <br />
 												<s:property value="scorestring" />

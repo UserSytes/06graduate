@@ -13,9 +13,19 @@
 			rel="stylesheet" type="text/css" />
 <SCRIPT language=javascript>
 	function check(form) {
-		var   filter=/0-100/; 
-		if (!filter.test(form.score.value)) {
-			alert("要输入0-100的数字");
+		if (form.score.value=="") {
+			alert("评价分数不能为空！");
+			form.score.focus();
+			return false;
+		}	
+		var re = /^[0-9]*$/;
+		if (!re.test(form.score.value)) {
+			alert("评价分数的格式必须为整数！");
+			form.score.focus();
+			return false;
+		}		
+		if (form.score.value<0 ||form.score.value>100 ) {
+			alert("请输入0~100的整数");
 			form.score.focus();
 			return false;
 		}		

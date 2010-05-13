@@ -64,20 +64,22 @@
 			form.score.focus();	
 			return false;
 		}			
-		var   filter=/0-100/; 
-		if (!filter.test(form.score.value)) {
-			alert("要输入0-100的数字");
-			form.score.focus();	
+		if (!re2.test(form.score.value)) {
+			alert("评价分数的格式必须为整数！");
+			form.score.focus();
 			return false;
-		}
+		}		
+		if (form.score.value<0 ||form.score.value>100 ) {
+			alert("请输入0~100的整数");
+			form.score.focus();
+			return false;
+		}	
 		var oEditor = FCKeditorAPI.GetInstance("evaluation.content");
    		if(oEditor.GetXHTML(true) == "")
    		{
    			alert("内容不能为空！");
 			return false;
-   		}		
-   		form.submit1.disabled = true;
-   		form.submit2.disabled = true;		
+   		}	
 		return true;
 		}
 </SCRIPT>
