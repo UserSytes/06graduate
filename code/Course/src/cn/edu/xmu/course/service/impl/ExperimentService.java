@@ -12,7 +12,6 @@ import cn.edu.xmu.course.dao.ExperimentDAO;
 import cn.edu.xmu.course.dao.NoticeDAO;
 import cn.edu.xmu.course.pojo.Chapter;
 import cn.edu.xmu.course.pojo.Course;
-import cn.edu.xmu.course.pojo.Courseware;
 import cn.edu.xmu.course.pojo.Experiment;
 import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.service.IExperimentService;
