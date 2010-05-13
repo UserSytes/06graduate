@@ -34,8 +34,8 @@
         <property name="position" type="java.lang.String">
             <column name="position" length="50" />
         </property>
-        <property name="state" type="java.lang.Integer">
-            <column name="state" />
+        <property name="src" type="java.lang.String">
+            <column name="src" length="500" />
         </property>
     </class>
 </hibernate-mapping>

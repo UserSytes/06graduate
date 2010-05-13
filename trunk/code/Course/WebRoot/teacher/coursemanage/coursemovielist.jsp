@@ -38,14 +38,18 @@ $(document).ready(function(){
 
 });
 </script>
-		<SCRIPT language=javascript>		
+		<SCRIPT language=javascript>	
+		function popwin(url)
+			{
+			window.open(url);
+			}	
 			function goToAddCourseMovie(){
 			 window.location.href="${ctx}/teacher/coursemanage/addcoursemovie.jsp";
 			}
 		</SCRIPT>
 	</head>
 	<body>
-		<div align="center">
+		<div align="center" width="98%">
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
@@ -76,7 +80,7 @@ $(document).ready(function(){
 						时间
 					</th>
 					<th>
-						下载
+						链接
 					</th>
 					<th>
 						操作
@@ -98,6 +102,7 @@ $(document).ready(function(){
 							<s:date format="yyyy-MM-dd" name="time" />
 						</td>
 						<td width="25%">
+						<s:if test="src==''">
 							<a
 								href="<s:url action="download"> 
                      			<s:param name="fileName"> 
@@ -108,6 +113,8 @@ $(document).ready(function(){
                     			</s:param> 
                 					</s:url>">
 								<font color="blue"><s:property value="filename" /> </font> </a>
+								</s:if>
+														<s:else><a href="javascript:popwin('${src}')"><font color="blue"><s:property value="src" /> </font> </a></s:else>
 						</td>
 						<td width="15%">
 							<a
@@ -131,6 +138,21 @@ $(document).ready(function(){
 				</tbody>
 			</table>
 			<div id="Pagination" class="pagination"></div>
+			<div align="left" style="border: 1px solid #ccc;padding: 10px; width: 98%;margin-top: 50px;">
+				<img src="${ctx}/teacher/images/icon_1.png" width="16" height="16" />
+				<strong><font color="red" size="3"> 提示</font> </strong>
+				<div id="content_note">
+					<ul>
+						<li>
+							添加教学录像有上传本地文件和引用网上链接两种方式。
+						</li>
+						<li>
+							编辑己上传的录像时只能按照添加录像时候选择的方式修改，如果需要更换方式建议删除旧录像后再添加新录像。
+						</li>						
+					</ul>
+
+				</div>
+			</div>	
 		</div>
 	</body>
 </html>

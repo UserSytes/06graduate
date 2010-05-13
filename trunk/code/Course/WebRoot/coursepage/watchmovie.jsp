@@ -59,9 +59,12 @@
 						</tr>
 						<tr height="420">
 							<td width="704" align="center">
-										<a
-												class="media {width:500, height:400, params: {controls:'imagewindow,controlpanel'}}"
-												href="${ctx}/upload/<s:property value="courseMovie.fileLink"/>"></a>
+										<s:if test="courseMovie.src==''">
+															<a class="media {width:500, height:400, params: {controls:'imagewindow,controlpanel'}}"
+												href="${ctx}/upload/<s:property value="courseMovie.fileLink"/>"></a></s:if>
+														<s:else>
+										<a class="media {width:500, height:400, params: {controls:'imagewindow,controlpanel'}}"
+												href="<s:property value="courseMovie.src"/>"></a></s:else>
 
 									
 							</td>
