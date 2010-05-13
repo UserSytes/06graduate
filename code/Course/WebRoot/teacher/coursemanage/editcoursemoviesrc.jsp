@@ -85,6 +85,21 @@
 					form.src.focus();
 					return false;
 				}
+				var pos = form.src.value.lastIndexOf(".");
+				if(pos==-1)
+				{
+					alert("链接文件不符合视频文件格式，请重新输入！");
+					form.src.focus();
+					return false;
+				}
+				var str = form.src.value.substring(pos+1);
+				var filename="rm,RM,avi,AVI,mpg,MPG,mpeg,MPEG,swf,SWF,wmv,WMV,";				
+				if(filename.search(str+',') == -1)
+				{
+					alert("链接文件不符合视频文件格式，请重新输入！");
+					form.src.focus();
+					return false;
+				}
 				form.submit.disabled = true;
 			}
 		</SCRIPT>
@@ -100,9 +115,10 @@
 			</tr>
 		</table>
 
-		<s:form action="addCourseMovieSrcAction" method="post"
+		<s:form action="updateCourseSrcMovieAction" method="post"
 			enctype="multipart/form-data" onsubmit="return check(this);">
-
+			<s:hidden name="courseMovie.id"></s:hidden>
+			<s:hidden name="courseMovie.course.id"></s:hidden>
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>

@@ -85,6 +85,21 @@
 					form.src.focus();
 					return false;
 				}
+				var pos = form.src.value.lastIndexOf(".");
+				if(pos==-1)
+				{
+					alert("链接文件不符合视频文件格式，请重新输入！");
+					form.src.focus();
+					return false;
+				}
+				var str = form.src.value.substring(pos+1);
+				var filename="rm,RM,avi,AVI,mpg,MPG,mpeg,MPEG,swf,SWF,wmv,WMV,";				
+				if(filename.search(str+',') == -1)
+				{
+					alert("链接文件不符合视频文件格式，请重新输入！");
+					form.src.focus();
+					return false;
+				}
 				form.submit.disabled = true;
 			}
 		</SCRIPT>
