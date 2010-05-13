@@ -1,19 +1,12 @@
 package cn.edu.xmu.course.service.impl;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
-import cn.edu.xmu.course.commons.CompareTime;
-import cn.edu.xmu.course.commons.MessageInfo;
 import cn.edu.xmu.course.dao.MessageDAO;
 import cn.edu.xmu.course.dao.TopicDAO;
 import cn.edu.xmu.course.pojo.Course;
-import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.Message;
-import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Topic;
 import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.IMessageService;

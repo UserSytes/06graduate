@@ -1,8 +1,8 @@
 package cn.edu.xmu.course.service.impl;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import cn.edu.xmu.course.dao.CourseDAO;
 import cn.edu.xmu.course.pojo.ApplicationForm;
 import cn.edu.xmu.course.pojo.Course;
