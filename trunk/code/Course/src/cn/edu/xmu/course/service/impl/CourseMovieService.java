@@ -53,6 +53,11 @@ public class CourseMovieService implements ICourseMovieService {
 		// TODO Auto-generated method stub
 		try {
 			courseMovieDAO.delete(courseMovie);
+			String path = ServletActionContext.getServletContext()
+			.getRealPath("/upload");
+			String fileName = path + "/" + courseMovie.getFileLink();
+			File file = new File(fileName);
+			FileOperation.delete(file);
 			return true;
 		} catch (Exception e) {
 			return false;
