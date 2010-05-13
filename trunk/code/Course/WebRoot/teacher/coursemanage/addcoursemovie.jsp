@@ -72,7 +72,20 @@
 					alert("上传录像不能为空！");
 					return false;
 				}
-				form.submit.disabled = true;
+				var pos = form.upload.value.lastIndexOf(".");
+				if(pos==-1)
+				{
+					alert("上传录像格式错误，请重新上传！");
+					return false;
+				}
+				var str = form.upload.value.substring(pos+1);
+				var filename="rm,RM,avi,AVI,mpg,MPG,mpeg,MPEG,swf,SWF,wmv,WMV,";				
+				if(filename.search(str+',') == -1)
+				{
+					alert("上传录像格式错误，请重新上传！");
+					return false;
+				}
+				form.submit.disabled = true;				
 			}
 		</SCRIPT>
 	</head>
