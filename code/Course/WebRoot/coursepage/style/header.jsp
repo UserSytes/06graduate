@@ -239,11 +239,7 @@
 					</li>
 					<li>
 						<a
-							href="<s:url action="findApplicationFormAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-                					</s:url>">申报表格</a>
+							href="<s:url action="findApplicationFormAction"></s:url>">申报表格</a>
 					</li>
 					<li>
 						<a href="#">课程简介</a>

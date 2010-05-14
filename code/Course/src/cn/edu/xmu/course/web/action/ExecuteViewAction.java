@@ -167,43 +167,7 @@ public class ExecuteViewAction extends BaseAction {
 	 */
 	@SuppressWarnings("unchecked")
 	public String enterCourse() {
-		course = searchCourseService.findCourseById(courseId);
-		if (course == null) {
-			addActionError("未找到该课程！");
-			return ERROR;
-		}
-		if (super.getTeacher() == null
-				|| !super.getTeacher().getId().equals(course.getTeacher().getId())) {
-			if (course.getVisible() == 1) {
-				if (null == super.getEvaluation() && null == super.getStudent()) {
-					addActionError("对不起，该课程目前仅对学生、同行和专家开放。已有帐号请先登录！");
-					return ERROR;
-				}
-			} else if (course.getVisible() == 2) {
-				if (null == super.getEvaluation()) {
-					addActionError("对不起，该课程目前仅对同行和专家开放。已有帐户请先登录 ！");
-					return ERROR;
-				}
-			} else if (course.getVisible() == 3) {
-				Evaluation eva = super.getEvaluation();
-				if (eva == null || eva.getSort() == 0) {
-					addActionError("对不起，该课程目前仅对专家开放。已有帐户请先登录 ！");
-					return ERROR;
-				}
-			} else if (course.getVisible() == 4) {
-				addActionError("对不起，该课程目前不对用户开放!");
-				return ERROR;
-			}
-		}
-		course.setCount(course.getCount() + 1);
-		courseService.updateCourse(course);
-		super.getSession().put(COURSE, course);
-		super.getSession().put("style", course.getStyle());
-		super.getSession().put("header", course.getHeader());
-		if (course.getHeader().equals("header_sand.jsp")) {
-			super.getSession().put("sort", "sorttype");
-			super.getSession().put("filtercon", "allcon");
-		}
+		this.courseId = courseId;
 		return "course";
 	}
 

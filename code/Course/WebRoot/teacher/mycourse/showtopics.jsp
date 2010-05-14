@@ -135,10 +135,10 @@ a:hover {
 									<s:date name="time" format="yyyy-MM-dd hh:mm" />
 								</td>
 								<td width="60" align="center">
-									<s:property value="countReply" />
+									<s:property value="countReply" />&nbsp;
 								</td>
 								<td width="50" align="center">									
-								<s:property value="countPerson" />									
+								<s:property value="countPerson" />&nbsp;									
 								</td>
 								<td width="130" align="center">
 									<s:property value="lastAnswer" />
