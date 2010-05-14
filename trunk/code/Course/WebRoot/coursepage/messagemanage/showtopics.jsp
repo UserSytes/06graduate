@@ -34,8 +34,7 @@
 			{ "sSortDataType": "dom-text", "sType": "numeric" },
 			null,
 			null,
-			{ "sSortDataType": "dom-text", "sType": "numeric" },
-			{ "sSortDataType": "dom-text", "sType": "numeric" },				
+			{ "sSortDataType": "dom-text", "sType": "numeric" },							
 			null]	
 		});
 	});
@@ -103,11 +102,8 @@
 												<th width="130">
 													作者
 												</th>
-												<th width="60">
-													回复
-												</th>
-												<th width="50">
-													查看
+												<th width="110">
+													回复/查看
 												</th>
 												<th width="130">
 													最后发表
@@ -135,11 +131,10 @@
 														<br/>
 														<s:date name="time" format="yyyy-MM-dd hh:mm" />
 													</td>
-													<td width="60" align="center">
+													<td width="70" align="center">
 														<s:property value="countReply" />
-													</td>
-													<td width="50" align="center">	
-														<s:property	value="countPerson" /> 
+													&nbsp;/
+														<s:property	value="countPerson" />&nbsp;
 													</td>
 													<td width="130" align="center">
 														<s:property value="lastAnswer" />

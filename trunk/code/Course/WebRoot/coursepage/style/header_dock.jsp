@@ -270,11 +270,7 @@
 							src="${ctx}/coursepage/style/<s:property value="#session.style"/>/home.png"
 							alt="首页" /><span>首页</span> </a>
 					<a class="dock-item"
-						href="<s:url action="findApplicationFormAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-                					</s:url>"><img
+						href="<s:url action="findApplicationFormAction"></s:url>"><img
 							id="form-img"
 							src="${ctx}/coursepage/style/<s:property value="#session.style"/>/form.png"
 							alt="申报表格" /><span>申报表格</span> </a>

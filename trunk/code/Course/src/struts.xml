@@ -523,7 +523,7 @@
 			<result name="success">/student/newmail.jsp</result>
 		</action>
 		<action name="addReplyMailByStuAction" class="mailAction">
-			<result name="success">/tstudent/mailprompt.jsp
+			<result name="success">/student/mailprompt.jsp
 			</result>
 			<result name="error">/student/mailprompt.jsp
 			</result>
@@ -1395,7 +1395,7 @@
 		
 		<!-- 前台 -->
 		<action name="enterCourseAction" method="enterCourse" class="executeViewAction">
-			<result name="course" type="redirect-action">goIndexQueryAction
+			<result name="course" type="redirect-action">intoCourseAction?courseId=${courseId}
 			</result>
 			<result name="error">/homepage/prompt.jsp</result>
 		</action>
@@ -1627,6 +1627,12 @@
 		</action>	
 		<action name="goIndexQueryAction" method="goIndexQuery" class="enterCourseAction">
 			<result name="success">/coursepage/index.jsp
+			</result>
+		</action>
+		<action name="intoCourseAction" method="intoCourse" class="enterCourseAction">
+			<result name="success">/coursepage/index.jsp
+			</result>
+			<result name="error">/homepage/prompt.jsp
 			</result>
 		</action>
 		<action name="changeHeaderAction" method="changeHeader" class="enterCourseAction">

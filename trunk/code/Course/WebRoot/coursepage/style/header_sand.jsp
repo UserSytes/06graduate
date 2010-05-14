@@ -14,7 +14,7 @@
 		<link type="text/css" href="${ctx}/coursepage/style/common/easyui.css"
 			rel="stylesheet" />
 		<link href="${ctx}/facebox/facebox.css" media="screen"
-			rel="stylesheet" type="text/css" />	
+			rel="stylesheet" type="text/css" />
 		<link id="cssfile"
 			href="${ctx}/coursepage/style/<s:property value="#session.style"/>/color.css"
 			rel="stylesheet" type="text/css" />
@@ -24,6 +24,7 @@
 .active {
 	background-position: right 12px;
 }
+
 #corner {
 	background: transparent url(${ctx}/coursepage/style/common/2x.png)
 		no-repeat top right;
@@ -370,13 +371,13 @@
 
 					</li>
 				</ul>
-			<div
-				style=" height: 125px;background: transparent url(${ctx}/coursepage/style/common/logo.png) no-repeat; padding-left:400px;padding-top:30px;">
-				<h1
-					style="font-family: '隶书'; font-size: 40px; linfont-weight: lighter; color: #4B4E5B; line-height: 50px;">
-					<s:property value="course.name"/>
-				</h1>
-			</div>
+				<div
+					style=" height: 125px;background: transparent url(${ctx}/coursepage/style/common/logo.png) no-repeat; padding-left:400px;padding-top:30px;">
+					<h1
+						style="font-family: '隶书'; font-size: 40px; linfont-weight: lighter; color: #4B4E5B; line-height: 50px;">
+						<s:property value="course.name" />
+					</h1>
+				</div>
 			</div>
 
 			<div id="mm" class="easyui-menu" style="width: 100px;">
@@ -462,11 +463,7 @@
 					<ul id="applications" class="image-grid">
 						<li data-id="id-10" data-type="util">
 							<a
-								href="<s:url action="findApplicationFormAction"> 
-                     			<s:param name="course"> 
-                       			 	<s:property value="id"/> 
-                    			</s:param>
-                					</s:url>"><img
+								href="<s:url action="findApplicationFormAction"><s:param name="course"><s:property value="id"/></s:param></s:url>"><img
 									id="form-img"
 									src="${ctx}/coursepage/style/<s:property value="#session.style"/>/form.png"
 									width="88" height="88" alt="" /> </a>
@@ -476,11 +473,7 @@
 						</li>
 						<li data-id="id-5" data-type="util">
 							<a
-								href="<s:url action="findCourseInfoAction"> 
-                     			<s:param name="sort"> 
-                       			 	1 
-                    			</s:param>
-                					</s:url>"><img
+								href="<s:url action="findCourseInfoAction"><s:param name="sort">1</s:param></s:url>"><img
 									id="info-img"
 									src="${ctx}/coursepage/style/<s:property value="#session.style"/>/info.png"
 									width="88" height="88" alt="" /> </a>
@@ -490,11 +483,7 @@
 						</li>
 						<li data-id="id-14" data-type="util">
 							<a
-								href="<s:url action="findCourseInfoAction"> 
-                     			<s:param name="sort"> 
-                       			 	2 
-                    			</s:param>
-                					</s:url>"><img
+								href="<s:url action="findCourseInfoAction"><s:param name="sort">2</s:param></s:url>"><img
 									id="outline-img"
 									src="${ctx}/coursepage/style/<s:property value="#session.style"/>/outline.png"
 									width="88" height="88" alt="" /> </a>
@@ -504,9 +493,7 @@
 
 						</li>
 						<li data-id="id-3" data-type="util">
-							<a
-								href="<s:url action="findTeacherTeamAction"> 
-                					</s:url>"><img
+							<a href="<s:url action="findTeacherTeamAction"></s:url>"><img
 									id="teateam-img"
 									src="${ctx}/coursepage/style/<s:property value="#session.style"/>/teateam.png"
 									width="88" height="88" alt="" /> </a>
@@ -516,11 +503,7 @@
 						</li>
 						<li data-id="id-12" data-type="app">
 							<a
-								href="<s:url action="getNoticeBySortAction"> 
-                     			<s:param name="sort"> 
-                       			 	0 
-                    			</s:param>
-                					</s:url>"><img
+								href="<s:url action="getNoticeBySortAction"><s:param name="sort">0</s:param></s:url>"><img
 									id="notice-img"
 									src="${ctx}/coursepage/style/<s:property value="#session.style"/>/notice.png"
 									width="88" height="88" alt="" /> </a>
@@ -529,9 +512,7 @@
 							<span data-type="name">t</span>
 						</li>
 						<li data-id="id-4" data-type="app">
-							<a
-								href="<s:url action="getAllCoursewareAction"> 
-                					</s:url>"><img
+							<a href="<s:url action="getAllCoursewareAction"></s:url>"><img
 									id="ppt-img"
 									src="${ctx}/coursepage/style/<s:property value="#session.style"/>/ppt.png"
 									width="88" height="88" alt="" /> </a>
@@ -540,9 +521,7 @@
 							<span data-type="name">k</span>
 						</li>
 						<li data-id="id-8" data-type="app">
-							<a
-								href="<s:url action="getAllExerciseAction"> 
-                					</s:url>"><img
+							<a href="<s:url action="getAllExerciseAction"></s:url>"><img
 									id="exercise-img"
 									src="${ctx}/coursepage/style/<s:property value="#session.style"/>/exercise.png"
 									width="88" height="88" alt="" /> </a>
@@ -551,9 +530,7 @@
 							<span data-type="name">z</span>
 						</li>
 						<li data-id="id-1" data-type="app">
-							<a
-								href="<s:url action="getAllExperimentAction"> 
-                					</s:url>"><img
+							<a href="<s:url action="getAllExperimentAction"></s:url>"><img
 									id="lab-img"
 									src="${ctx}/coursepage/style/<s:property value="#session.style"/>/lab.png"
 									width="88" height="88" alt="" /> </a><strong>实验指导</strong>
@@ -562,8 +539,7 @@
 						</li>
 						<li data-id="id-9" data-type="app">
 							<a
-								href="<s:url action="getCourseMovieListAction"> 
-                					</s:url>"><img
+								href="<s:url action="getCourseMovieListAction"></s:url>"><img
 									id="ituna-img"
 									src="${ctx}/coursepage/style/<s:property value="#session.style"/>/ituna.png"
 									width="88" height="88" alt="" /> </a>
@@ -573,8 +549,7 @@
 						</li>
 						<li data-id="id-13" data-type="app">
 							<a
-								href="<s:url action="getAllExaminationAction"> 
-                					</s:url>"><img
+								href="<s:url action="getAllExaminationAction"></s:url>"><img
 									id="textedit-img"
 									src="${ctx}/coursepage/style/<s:property value="#session.style"/>/textedit.png"
 									width="88" height="88" alt="" /> </a>
@@ -584,8 +559,7 @@
 						</li>
 						<li data-id="id-2" data-type="app">
 							<a
-								href="<s:url action="getAllBookAction"> 
-                					</s:url>"><img
+								href="<s:url action="getAllBookAction"></s:url>"><img
 									id="book-img"
 									src="${ctx}/coursepage/style/<s:property value="#session.style"/>/book.png"
 									width="88" height="88" alt="" /> </a>
@@ -595,8 +569,7 @@
 						</li>
 						<li data-id="id-11" data-type="util">
 							<a
-								href="<s:url action="findAchievementAction"> 
-                					</s:url>"><img
+								href="<s:url action="findAchievementAction"></s:url>"><img
 									id="achievement-img"
 									src="${ctx}/coursepage/style/<s:property value="#session.style"/>/achievement.png"
 									width="88" height="88" alt="" /> </a>
@@ -606,8 +579,7 @@
 						</li>
 						<li data-id="id-6" data-type="util">
 							<a
-								href="<s:url action="evaluateAction"> 
-                					</s:url>"><img
+								href="<s:url action="evaluateAction"></s:url>"><img
 									id="evaluation-img"
 									src="${ctx}/coursepage/style/<s:property value="#session.style"/>/evaluation.png"
 									width="88" height="88" alt="" /> </a>
@@ -617,8 +589,7 @@
 						</li>
 						<li data-id="id-7" data-type="util">
 							<a
-								href="<s:url action="showTopicsAction"> 
-                					</s:url>"><img
+								href="<s:url action="showTopicsAction"></s:url>"><img
 									id="message-img"
 									src="${ctx}/coursepage/style/<s:property value="#session.style"/>/message.png"
 									width="88" height="88" alt="" /> </a>

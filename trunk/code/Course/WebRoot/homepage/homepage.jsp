@@ -35,7 +35,7 @@
 		width="100%" height="100%"
 		background="${ctx}/homepage/image/back_img.gif"
 		style="background-repeat: repeat-x">
-
+<a href="<c:url value="/show.do?id=111&data=rewrite"/>">click me!</a>
 		<s:include value="include/header.jsp"></s:include>
 		<table border="0" cellpadding="0" cellspacing="0" width="950"
 			align="center">
@@ -428,10 +428,7 @@
 																									<img src="${ctx}/homepage/image/but.jpg"
 																										border="0" alt="">
 																									&nbsp;&nbsp;
-																									<a
-																										href="<s:url action="enterNewsAction"> <s:param name="newsId"> 
-	                       			 									<s:property value="id"/> </s:param> </s:url>"
-																										title="<s:property value="title" />"> <s:if
+																									<a href="<s:url action="enterNewsAction"><s:param name="newsId"><s:property value="id" /></s:param></s:url>"><s:if
 																											test="title.length()>16">
 																											<s:property
 																												value="title.substring(0, 16)+'...'" />

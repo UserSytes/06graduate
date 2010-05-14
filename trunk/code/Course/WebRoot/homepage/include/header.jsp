@@ -61,19 +61,19 @@
 										<div id="menu">
 											<ul>
 												<li class="current_page_item">
-													<a href="<s:url action="homepageNewsAction"> </s:url>">首页</a>
+													<a href="<s:url action="homepageNewsAction"/>">首页</a>
 												</li>
 												<li>
 													<a href="<s:url action="newsAction"> </s:url>">新闻公告</a>
 												</li>
 												<li>
-													<a href="${ctx}/homepage/search.jsp">搜索课程</a>
+													<a href="<c:url value="/homepage/search.jsp"/>">搜索课程</a>
 												</li>
 												<li>
 													<a href="<s:url action="achievementAction"> </s:url>">建设成果</a>
 												</li>
 												<li>
-													<a href="${ctx}/homepage/searchbyschool.jsp">院系课程</a>
+													<a href="<c:url value="/homepage/searchbyschool.jsp"/>">院系课程</a>
 												</li>
 												<li class="last">
 													<a href="<s:url action="lastCourseAction"> </s:url>">最新课程</a>

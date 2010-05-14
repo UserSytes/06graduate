@@ -5,6 +5,7 @@ import java.util.List;
 import cn.edu.xmu.course.pojo.Achievement;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.CourseInfo;
+import cn.edu.xmu.course.pojo.Evaluation;
 import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.pojo.UserInfo;
@@ -47,6 +48,7 @@ public class EnterCourseAction extends BaseAction {
 	private String sortname; // 导航栏类型名称
 	private String filtercon; // 导航栏图标
 	private String result; // 导航栏设置结果
+	private int courseId;
 
 	/**
 	 * 进入课程首页查询
@@ -55,7 +57,57 @@ public class EnterCourseAction extends BaseAction {
 	 */
 	@SuppressWarnings("unchecked")
 	public String goIndexQuery() {
-		course = super.getCourse();
+		this.initCourseIndex(super.getCourse());
+		return SUCCESS;
+	}
+	
+	public String intoCourse(){
+		course = courseService.getCourseById(courseId);
+		if (course == null) {
+			addActionError("未找到该课程！");
+			return ERROR;
+		}
+		if (super.getTeacher() == null
+				|| !super.getTeacher().getId().equals(course.getTeacher().getId())) {
+			if (course.getVisible() == 1) {
+				if (null == super.getEvaluation() && null == super.getStudent()) {
+					addActionError("对不起，该课程目前仅对学生、同行和专家开放。已有帐号请先登录！");
+					return ERROR;
+				}
+			} else if (course.getVisible() == 2) {
+				if (null == super.getEvaluation()) {
+					addActionError("对不起，该课程目前仅对同行和专家开放。已有帐户请先登录 ！");
+					return ERROR;
+				}
+			} else if (course.getVisible() == 3) {
+				Evaluation eva = super.getEvaluation();
+				if (eva == null || eva.getSort() == 0) {
+					addActionError("对不起，该课程目前仅对专家开放。已有帐户请先登录 ！");
+					return ERROR;
+				}
+			} else if (course.getVisible() == 4) {
+				addActionError("对不起，该课程目前不对用户开放!");
+				return ERROR;
+			}
+		}
+		course.setCount(course.getCount() + 1);
+		courseService.updateCourse(course);
+		super.getSession().put(COURSE, course);
+		super.getSession().put("style", course.getStyle());
+		super.getSession().put("header", course.getHeader());
+		if (course.getHeader().equals("header_sand.jsp")) {
+			super.getSession().put("sort", "sorttype");
+			super.getSession().put("filtercon", "allcon");
+		}
+		initCourseIndex(course);
+		return SUCCESS;
+	}
+	
+	/**
+	 * 课程首页获取数据
+	 * @param course
+	 */
+	public void initCourseIndex(Course course){
 		setCourseInfo(courseInfoService.getCourseInfo(course.getId(), 1));
 		setAchievementList(getAchievementService().findLastestSevenAchievements(course));
 		if (null == getCourseInfo()) {
@@ -63,7 +115,6 @@ public class EnterCourseAction extends BaseAction {
 			getCourseInfo().setContent("暂无任何内容！");
 		}
 		setNoticeList(noticeService.findLastestSevenNotices(course, 0));
-		return SUCCESS;
 	}
 
 	/**
@@ -293,6 +344,14 @@ public class EnterCourseAction extends BaseAction {
 
 	public String getResult() {
 		return result;
+	}
+
+	public void setCourseId(int courseId) {
+		this.courseId = courseId;
+	}
+
+	public int getCourseId() {
+		return courseId;
 	}
 
 }
