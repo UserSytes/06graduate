@@ -3,47 +3,7 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
 	"http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<package name="aticle_ajax" extends="json-default">
-		<action name="getMailDetailJsonAction" class="mailAction"
-			method="getMailDetail">
-			<result type="json">
-				<param name="root">result</param>
-			</result>
-		</action>
-		<action name="findStudentJsonAction" class="mailAction" method="findStudentByStuNo">
-			<result type="json">
-				<param name="root">result</param>
-			</result>
-		</action>
-		<action name="findAllStudentsJsonAction" class="mailAction"
-			method="findAllStudentsByDepartment">
-			<result type="json">
-				<param name="root">rows</param>
-			</result>
-		</action>
-		<action name="findTeacherJsonAction" class="mailAction" method="findTeacherByTeaNo">
-			<result type="json">
-				<param name="root">result</param>
-			</result>
-		</action>
-		<action name="findAllTeachersJsonAction" class="mailAction"
-			method="findAllTeachersBySchool">
-			<result type="json">
-				<param name="root">rows</param>
-			</result>
-		</action>
-		<action name="changeColorAction" class="enterCourseAction"
-			method="changeColor">
-			<result type="json">
-				<param name="root">color</param>
-			</result>
-		</action>
-		<action name="sortSandAction" class="enterCourseAction" method="sortSand">
-			<result type="json">
-				<param name="root">result</param>
-			</result>
-		</action>
-	</package>
+	<include file="struts-json.xml" /> 	
 	<package name="struts" extends="struts-default">
 		<interceptors>  
         <!-- 定义拦截器栈 -->
