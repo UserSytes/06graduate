@@ -61,7 +61,7 @@
 				</td>
 			</tr>
 		</table>
-		<s:form action="addCourseStudentAction" method="post"
+		<s:form action="addCourseStudentByTeaAction" method="post"
 			onsubmit="return check(this);">
 			<s:hidden name="course.id" />
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
