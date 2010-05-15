@@ -94,6 +94,7 @@ public class BaseAction extends ActionSupport {
 
 
 
+	@SuppressWarnings("unchecked")
 	public void setSession(Map session) {
 		this.session = session;
 	}

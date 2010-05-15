@@ -31,21 +31,6 @@ public class LoginAction extends BaseAction {
 	private Teacher teacher; // 教师
 	private UserInfo userInfo; // 用户信息
 
-	/**
-	 * 教师登录
-	 * 
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public String login() {
-		Teacher teacher = loginService.teacherLogin(userName, password);
-		if (null == teacher)
-			return ERROR;
-		else {
-			super.getSession().put(TEACHER, teacher);
-			return SUCCESS;
-		}
-	}
 
 	/**
 	 * 管理员登录
@@ -77,6 +62,11 @@ public class LoginAction extends BaseAction {
 			return ERROR;
 	}
 
+	
+	/**
+	 * 专家登录
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	public String evaluationLogin() {
 		Evaluation evaluation = getLoginService().expertLogin(userName,

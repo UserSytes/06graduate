@@ -80,6 +80,8 @@ public class StudentInfoAction extends BaseAction {
 			student = studentInfoService.findById(student.getId());
 			userInfo = student.getUserInfo();
 			super.getSession().put(STUDENT, student);
+			super.getSession().put(USERINFO, userInfo);
+			super.getSession().put("user", userInfo.getName() + "ͬѧ");
 			return SUCCESS;
 		} else
 			return ERROR;

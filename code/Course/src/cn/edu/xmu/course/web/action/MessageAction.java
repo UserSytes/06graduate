@@ -203,7 +203,8 @@ public class MessageAction extends BaseAction {
 	 */
 	@SuppressWarnings("unchecked")
 	public String myTopics() {
-		messageList = messageService.getMessageByUserInfo(super.getUserInfo());
+		student = super.getStudent();
+		messageList = messageService.getMessageByUserInfo(student.getUserInfo());
 		if (messageList.size() == 0) {
 			addActionMessage("您目前还未发表帖子留言！");
 		}

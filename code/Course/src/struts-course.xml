@@ -6,8 +6,25 @@
 	<!-- 课程首页查获块 -->
 	<package name="coursepage" extends="struts-default">
 		
-		<!-- 课程模块学生收藏 -->
+		<interceptors>  
+        <!-- 定义拦截器栈 -->
+      	  <interceptor name="coursepageAuthority"
+				class="cn.edu.xmu.course.interceptor.CoursepageInterceptor" />			
+			<interceptor-stack name="coursepageStack">  
+                <!--配置内建默认拦截器-->
+				<interceptor-ref name="defaultStack" />  
+                 <!--配置自定义的拦截器-->
+				<interceptor-ref name="coursepageAuthority" />
+			</interceptor-stack>
+		</interceptors>
 		
+		 <!--定义全局Result-->
+		 <default-interceptor-ref name="coursepageStack" />  
+		<global-results>
+			<result name="login">/homepage/loginprompt.jsp</result>
+		</global-results>  
+		
+		<!-- 课程模块学生收藏 -->
 		<action name="addCollectionAction" method="addCollection"
 			class="studentCourseAction">
 			<result name="success">/coursepage/colsuccess.jsp
@@ -147,13 +164,7 @@
 		<action name="goIndexQueryAction" method="goIndexQuery" class="enterCourseAction">
 			<result name="success">/coursepage/index.jsp
 			</result>
-		</action>
-		<action name="intoCourseAction" method="intoCourse" class="enterCourseAction">
-			<result name="success">/coursepage/index.jsp
-			</result>
-			<result name="error">/homepage/prompt.jsp
-			</result>
-		</action>
+		</action>		
 		<action name="changeHeaderAction" method="changeHeader" class="enterCourseAction">
 			<result name="success" type="redirect-action">goIndexQueryAction
 			</result>
