@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 课程首页查获块 -->
+	<package name="coursepage" extends="struts-default">
+		
+		<!-- 课程模块学生收藏 -->
+		
+		<action name="addCollectionAction" method="addCollection"
+			class="studentCourseAction">
+			<result name="success">/coursepage/colsuccess.jsp
+			</result>
+			<result name="error">/coursepage/colprompt.jsp
+			</result>
+			<result name="login">/coursepage/collogin.jsp
+			</result>
+		</action>
+		
+		<!-- 课程评价 -->
+		<action name="loginFromEvaluationAction" method="loginFromEvaluation"
+			class="evaluationAction">
+			<result name="expert">/coursepage/evaluation/expertevaluate.jsp
+			</result>
+			<result name="teacher">/coursepage/evaluation/teacherevaluate.jsp
+			</result>
+			<result name="student">/coursepage/evaluation/studentevaluate.jsp
+			</result>
+			<result name="success">/coursepage/evaluation/evaluatesuccess.jsp
+			</result>
+			<result name="tesuccess">/coursepage/evaluation/tevaluatesuccess.jsp
+			</result>
+			<result name="exsuccess">/coursepage/evaluation/expertevaluatesuccess.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="evaluateAction" method="getEvaluationResult"
+			class="evaluationAction">
+			<result name="success">/coursepage/evaluation/evaluate.jsp
+			</result>
+		</action>
+		<action name="expertEvaluateResultAction" method="expertEvaluateResult"
+			class="evaluationAction">
+			<result name="success">/coursepage/evaluation/expevaluateresult.jsp
+			</result>
+		</action>
+		<action name="teacherEvaluateResultAction" method="teacherEvaluateResult"
+			class="evaluationAction">
+			<result name="success">/coursepage/evaluation/teacherresult.jsp
+			</result>
+		</action>
+		<action name="enterEvaluationAction" method="enterEvaluation"
+			class="evaluationAction">
+			<result name="success">/coursepage/evaluation/enterexpevaluation.jsp
+			</result>
+		</action>
+		<action name="enterTeaEvaluationAction" method="enterTeaEvaluation"
+			class="evaluationAction">
+			<result name="success">/coursepage/evaluation/enterteaevaluation.jsp
+			</result>
+		</action>
+		<action name="reExpertEvaluationAction" method="reExpertEvaluation"
+			class="evaluationAction">
+			<result name="success">/coursepage/evaluation/expertevaluate.jsp
+			</result>
+		</action>
+		<action name="reTeaEvaluationAction" method="reTeaEvaluation"
+			class="evaluationAction">
+			<result name="success">/coursepage/evaluation/teacherevaluate.jsp
+			</result>
+		</action>
+		<action name="reStuEvaluationAction" method="reStuEvaluation"
+			class="evaluationAction">
+			<result name="success">/coursepage/evaluation/studentevaluate.jsp
+			</result>
+		</action>
+		<action name="studentEvaluateAction" method="studentEvaluate"
+			class="evaluationAction">
+			<result name="success">/coursepage/evaluation/evaluatesuccess.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="expertEvaluateAction" class="evaluationAction">
+			<result name="success">/coursepage/evaluation/expertevaluatesuccess.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="teacherEvaluateAction" class="evaluationAction">
+			<result name="success">/coursepage/evaluation/tevaluatesuccess.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="eDetailEvaluateAction" method="eDetailEvaluate"
+			class="evaluationAction">
+			<result name="login">/coursepage/evaluation/login.jsp
+			</result>
+			<result name="evluate">/coursepage/evaluation/expertevaluate.jsp
+			</result>
+			<result name="success">/coursepage/evaluation/expertevaluatesuccess.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="tDetailEvaluateAction" method="tDetailEvaluate"
+			class="evaluationAction">
+			<result name="login">/coursepage/evaluation/login.jsp
+			</result>
+			<result name="evluate">/coursepage/evaluation/teacherevaluate.jsp
+			</result>
+			<result name="success">/coursepage/evaluation/tevaluatesuccess.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="sDetailEvaluateAction" method="sDetailEvaluate"
+			class="evaluationAction">
+			<result name="login">/coursepage/evaluation/login.jsp
+			</result>
+			<result name="evluate">/coursepage/evaluation/studentevaluate.jsp
+			</result>
+			<result name="success">/coursepage/evaluation/evaluatesuccess.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		
+		<!-- 课程首页公告 -->
+		<action name="getNoticeBySortAction" method="getNoticeBySort2"
+			class="noticeAction">
+			<result name="success">/coursepage/noticelist.jsp
+			</result>
+		</action>
+		<action name="getNoticeByNameAndSortAction" method="getNoticeByNameAndSort"
+			class="noticeAction">
+			<result name="success">/coursepage/noticelist.jsp
+			</result>
+		</action>
+		<action name="viewNoticeAction" method="findNoticeById" class="noticeAction">
+			<result name="success">/coursepage/viewnotice.jsp
+			</result>
+		</action>	
+		<action name="goIndexQueryAction" method="goIndexQuery" class="enterCourseAction">
+			<result name="success">/coursepage/index.jsp
+			</result>
+		</action>
+		<action name="intoCourseAction" method="intoCourse" class="enterCourseAction">
+			<result name="success">/coursepage/index.jsp
+			</result>
+			<result name="error">/homepage/prompt.jsp
+			</result>
+		</action>
+		<action name="changeHeaderAction" method="changeHeader" class="enterCourseAction">
+			<result name="success" type="redirect-action">goIndexQueryAction
+			</result>
+		</action>
+		<action name="getLeftNoticeAction" method="getLeftNotice"
+			class="enterCourseAction">
+			<result name="success">/coursepage/style/leftinfo.jsp
+			</result>
+		</action>
+		<action name="findApplicationFormAction" method="findApplicationForm"
+			class="applicationFormAction">
+			<result name="applicationForm">/coursepage/applicationform.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="findCourseInfoAction" method="findCourseInfo2"
+			class="courseInfoAction">
+			<param name=""></param>
+			<result name="courseinfo1">/coursepage/courseintro.jsp
+			</result>
+			<result name="courseinfo2">/coursepage/courseintro2.jsp
+			</result>
+		</action>
+		<action name="findTeacherTeamAction" method="findTeacherTeam"
+			class="teacherTeamAction">
+			<result name="teachers">/coursepage/teacherteam.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="findAchievementAction" method="getAchievementListByCourse"
+			class="achievementAction">
+			<result name="success">/coursepage/achievement.jsp
+			</result>
+		</action>
+		<action name="viewAchievementAction" method="getAchievementById"
+			class="achievementAction">
+			<result name="success">/coursepage/viewachievement.jsp
+			</result>
+		</action>
+		<action name="getAllCoursewareAction" method="getAllCourseware"
+			class="coursewareAction">
+			<result name="success">/coursepage/downloadcourseware.jsp
+			</result>
+		</action>
+		<action name="getAllExperimentAction" method="getAllExperiment"
+			class="experimentAction">
+			<result name="success">/coursepage/downloadexperiment.jsp
+			</result>
+		</action>
+		<action name="getAllExerciseAction" method="getAllExercise"
+			class="exerciseAction">
+			<result name="success">/coursepage/downloadexercise.jsp
+			</result>
+		</action>
+		<action name="getCourseMovieListAction" method="getCourseMovieListByCourse"
+			class="courseMovieAction">
+			<result name="success">/coursepage/coursemovielist.jsp
+			</result>
+		</action>
+		<action name="watchMovieAction" method="getCourseMovieById"
+			class="courseMovieAction">
+			<result name="success">/coursepage/watchmovie.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="getAllExaminationAction" method="getAllExamination"
+			class="examinationAction">
+			<result name="success">/coursepage/downloadexam.jsp
+			</result>
+		</action>
+		<action name="getAllBookAction" method="getBookListByCourse"
+			class="bookAction">
+			<result name="success">/coursepage/book.jsp</result>
+		</action>
+		<action name="downloadExperimentAction" method="downloadExperiment"
+			class="experimentAction">
+			<result name="experiment">/coursepage/downloadexperiment.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="downloadExerciseAction" method="downloadExercise"
+			class="exerciseAction">
+			<result name="exercise">/coursepage/downloadexercise.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+			<!-- 留言板 -->
+		<action name="goNewTopicAction" method="goNewTopic" class="messageAction">
+			<result name="success">/coursepage/messagemanage/newtopic.jsp
+			</result>
+		</action>
+		<action name="addNewMessageAction" method="addNewMessage"
+			class="messageAction">
+			<result name="success" type="redirect-action">showTopicsAction
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="showTopicsAction" method="showTopics" class="messageAction">
+			<result name="topics">/coursepage/messagemanage/showtopics.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+			<result name="login">/coursepage/login.jsp
+			</result>
+		</action>
+		<action name="showMessagesAction" method="showMessages" class="messageAction">
+			<result name="messages">/coursepage/messagemanage/showmessages.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="goReplyAction" method="goReply" class="messageAction">
+			<result name="success">/coursepage/messagemanage/newreply.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="goReplyToSomeoneAction" method="goReplyToSomeone"
+			class="messageAction">
+			<result name="success">/coursepage/messagemanage/newreply.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="goReplyWithQuoteAction" method="goReplyWithQuote"
+			class="messageAction">
+			<result name="success">/coursepage/messagemanage/newreply.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="addReplyAction" method="addReply" class="messageAction">
+			<result name="success" type="redirect-action">
+				showMessagesAction?topicId=${topic.id}</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		
+		
+	</package>
+</struts>
