@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 学院管理 -->
+	<package name="admin" extends="struts-default">
+		<interceptors>  
+        <!-- 定义拦截器栈 -->
+			<interceptor-stack name="fileExcelStack">
+				<interceptor-ref name="fileUpload">
+					<param name="maximumSize">10485760</param> 
+					<param name="allowedTypes">
+						application/excel,application/vnd.ms-excel</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>			
+		</interceptors>
+		
+		<!--教师管理-->
+		<action name="goAddTeacherAction" method="getDepartmentBySchool"
+			class="teacherInfoAction">
+			<result name="success">/admin/teachermanage/addteacher.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="addTeacherAction" method="addTeacher" class="teacherInfoAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="teacherListAction" method="findTeacherBySchool"
+			class="teacherInfoAction">
+			<result name="success">/admin/teachermanage/teacherlist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteTeacherAction" method="deleteTeacher"
+			class="teacherInfoAction">
+			<result name="success">/admin/teachermanage/teacherlist.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="goEditTeacherAction" method="goEditTeacher"
+			class="teacherInfoAction">
+			<result name="success">/admin/teachermanage/editteacher.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="editTeacherAction" method="editTeacher" class="teacherInfoAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="restoreTeacherPasswordAction" method="restorePassword"
+			class="teacherInfoAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		
+		<!--学生管理-->
+		<action name="goAddStudentAction" method="goAddStudent" class="studentAction">
+			<result name="success">/admin/studentmanage/addstudent.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="addStudentAction" method="addStudent" class="studentAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="allStudentAction" method="findStudentBySchool"
+			class="studentAction">
+			<result name="success">/admin/studentmanage/studentlist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteStudentAction" method="deleteStudent"
+			class="studentAction">
+			<result name="success">/admin/studentmanage/studentlist.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="goEditStudentAction" method="goEditStudent"
+			class="studentAction">
+			<result name="success">/admin/studentmanage/editstudent.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="editStudentAction" method="editStudent" class="studentAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="deleteStudentListAction" method="deleteStudentList"
+			class="studentAction">
+			<result name="success">/admin/studentmanage/studentList.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="goAddMoreStudentAction" method="goAddMoreStudent"
+			class="studentAction">
+			<result name="success">/admin/studentmanage/addmorestudent.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="addMoreStudentAction" method="addMoreStudent"
+			class="studentAction">
+			<result name="success">/commons/prompt.jsp</result>
+		</action>
+		<action name="goDeleteMoreStudentAction" method="goAddMoreStudent"
+			class="studentAction">
+			<result name="success">/admin/studentmanage/deletestudent.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteMoreStudentAction" method="deleteMoreStudent"
+			class="studentAction">
+			<result name="success">/commons/prompt.jsp</result>
+		</action>
+		<action name="restoreStudentPasswordAction" method="restorePassword"
+			class="studentAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		
+		<!-- 课程管理 (学院管理员)-->
+		<action name="noPassListAction" method="findNoPassCourse"
+			class="courseAction">
+			<result name="success">/admin/coursemanage/nopasscourselist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="courseBySchoolAction" method="findCourse" class="courseAction">
+			<result name="success">/admin/coursemanage/courselist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="evaluateCourseAction" method="findCourse" class="evaluationAction">
+			<result name="success">/admin/coursemanage/evaluatecourse.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="evaluateChartAction" method="genrEvaluateChart"
+			class="evaluationAction">
+			<result name="success">/admin/coursemanage/chart.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="showEvaluateCoursesAction" method="showEvaluateCourses"
+			class="evaluationAction">
+			<result name="success">/admin/coursemanage/evaluateshow.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="applicationCourseAction" method="findApplicationCourse"
+			class="courseAction">
+			<result name="success">/admin/coursemanage/applicationlist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="passInfoAction" method="courseDetail" class="courseAction">
+			<result name="success">/admin/coursemanage/applicationpass.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="refuseReasonAction" method="courseDetail" class="courseAction">
+			<result name="success">/admin/coursemanage/applicationdetail.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="coursePassAction" method="coursePass" class="courseAction">
+			<result name="success">/admin/coursemanage/courselist.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="courseNoPassAction" method="courseNoPass" class="courseAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="viewCourseStudentAction" method="getStudentByCourse"
+			class="studentCourseAction">
+			<result name="success">/admin/coursemanage/studentlist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="goDeleteMoreStudentCourseAction" method="goDeleteMoreStudentCourse"
+			class="studentCourseAction">
+			<result name="success">/admin/coursemanage/deletestudent.jsp
+			</result>
+		</action>
+		<action name="deleteMoreStudentCourseAction" method="deleteMoreStudent"
+			class="studentCourseAction">
+			<result name="success">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteStudentFromCourseAction" method="deleteStudent"
+			class="studentCourseAction">
+			<result name="success" type="redirect">
+				viewCourseStudentAction.action?courseId=${courseId}</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>		
+		<action name="goAddCourseStudentAction" method="courseDetail"
+			class="courseAction">
+			<result name="success">/admin/coursemanage/addstudent.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="goAddCourseStudentBatchAction" method="courseDetail"
+			class="courseAction">
+			<result name="success">/admin/coursemanage/addstudentbatch.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="addCourseStudentAction" method="addStudentCourse"
+			class="studentCourseAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="addMoreCourseStudentAction" method="addMoreStudentCourse"
+			class="studentCourseAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileExcelStack" />
+		</action>
+		
+		<!--学院管理员修改信息-->
+		<action name="changeAdminPwdAction" method="changeAdministratorPassword"
+			class="adminAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="adminInfoAction" method="getAdministratorInfo"
+			class="adminAction">
+			<result name="success">/admin/admininfo/admininfo.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="goChangeAdminInfoAction" method="getAdministratorInfo"
+			class="adminAction">
+			<result name="success">/admin/admininfo/changeadmininfo.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="changeAdminInfoAction" method="changeAdministratorInfo"
+			class="adminAction">
+			<result name="success">/admin/admininfo/admininfo.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		
+		<!--学院留言管理模块-->
+		<action name="goSchoolTopicAction" method="getTopicBySchool"
+			class="topicManageAction">
+			<result name="success">/admin/messagemanage/topiclist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="searchSchoolTopicByKeyAction" method="searchTopic"
+			class="topicManageAction">
+			<result name="success">/admin/messagemanage/topiclist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="viewTopicAction" method="getMessageByTopic"
+			class="topicManageAction">
+			<result name="success">/admin/messagemanage/messagelist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteTopicAction" method="deleteTopic" class="topicManageAction">
+			<result name="success" type="redirect-action">goSchoolTopicAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteMessageAction" method="deleteMessage"
+			class="topicManageAction">
+			<result name="success" type="redirect-action">
+				viewTopicAction?topicId=${topic.id}</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 学校管理 -->
+	<package name="superadmin" extends="struts-default">
+	<interceptors>  
+        <!-- 定义拦截器栈 -->
+			<interceptor-stack name="fileTextStack">
+				<interceptor-ref name="fileUpload">
+					<param name="maximumSize">104857600</param> 
+					<param name="allowedTypes">
+						application/msword,application/vnd.ms-powerpoint,application/pdfW,text/plain</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<!--校管理员修改密码-->
+		<action name="changeSuperAdminPwdAction" method="changeSuperAdminPassword"
+			class="adminAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="addSuperAdminAction" method="addSuperAdmin"
+			class="adminAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="findAllSuperAdminAction" method="findAllSuperAdmin"
+			class="adminAction">
+			<result name="success">/admin/admininfo/superadminlist.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="deleteSuperAdminAction" method="deleteSuperAdmin"
+			class="adminAction">
+			<result name="success">/admin/admininfo/superadminlist.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="restoreSuperAdminPasswordAction" method="restoreSuperAdminPassword"
+			class="adminAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		
+		<!--1、学院管理模块-->
+		<action name="addSchoolAction" method="addSchool" class="schoolManageAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="findAllSchoolsAction" method="findAllSchools"
+			class="schoolManageAction">
+			<result name="allSchools">/admin/schoolmanage/schoollist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="findDepartmentAction" method="findDepartmentBySchool"
+			class="schoolManageAction">
+			<result name="success">/admin/schoolmanage/departmentlist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteSchoolAction" method="deleteSchool" class="schoolManageAction">
+			<result name="success">/admin/schoolmanage/schoollist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="goAddAdminAction" method="findAllSchools" class="schoolManageAction">
+			<result name="allSchools">/admin/schoolmanage/addadmin.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="addAdminAction" method="addAdmin" class="schoolManageAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="addGradeAction" method="addGrade" class="schoolManageAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteDepartmentAction" method="deleteDepartment"
+			class="schoolManageAction">
+			<result name="success">/admin/schoolmanage/departmentlist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="goAddDepartmentAction" method="goAddDepartment"
+			class="schoolManageAction">
+			<result name="success">/admin/schoolmanage/adddepartment.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="addDepartmentAction" method="addDepartment"
+			class="schoolManageAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="allAdminAction" method="getAllAdmin" class="schoolManageAction">
+			<result name="success">/admin/schoolmanage/adminlist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteAdminAction" method="deleteAdmin" class="schoolManageAction">
+			<result name="success">/admin/schoolmanage/adminlist.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="restoreAdminPasswordAction" method="restoreAdminPassword"
+			class="schoolManageAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="allGradeAction" method="findAllGrade" class="schoolManageAction">
+			<result name="success">/admin/schoolmanage/gradelist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteGradeAction" method="deleteGrade" class="schoolManageAction">
+			<result name="success">/admin/schoolmanage/gradelist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		
+		<!--新闻政策管理-->
+		<action name="goAddNewsAction" method="goAddNews" class="newsAction">
+			<result name="success">/admin/newsmanage/addnews.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
+		</action>
+		<action name="addNewsAction" method="addNews" class="newsAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="newsListAction" method="findAllNews" class="newsAction">
+			<result name="success">/admin/newsmanage/newslist.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteNewsAction" method="deleteNews" class="newsAction">
+			<result name="success">/admin/newsmanage/newslist.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="viewNewsAction" method="viewNews" class="newsAction">
+			<result name="success">/admin/newsmanage/viewnews.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="goEditNewsAction" method="goEditNews" class="newsAction">
+			<result name="success">/admin/newsmanage/editnews.jsp
+			</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		<action name="editNewsAction" method="editNews" class="newsAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/error.jsp</result>
+		</action>
+		
+	</package>
+</struts>
