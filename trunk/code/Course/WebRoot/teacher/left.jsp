@@ -1,6 +1,5 @@
+<%@ include file="../commons/taglibs.jsp"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
-
-	<%@ include file="../commons/taglibs.jsp"%>
 	<head>
 		<%@ page language="java" contentType="text/html; charset=UTF-8"
 			pageEncoding="UTF-8"%>
@@ -77,7 +76,7 @@ a:visited {
 	}
 </script>
 		<table width="156" height="100%" border="0" cellpadding="0"
-			cellspacing="0">
+			cellspacing="0" style="margin: 0px;">
 			<tr>
 				<td align="center" valign="top">
 					<table width="100%" height="100%" border="0" cellpadding="0"
