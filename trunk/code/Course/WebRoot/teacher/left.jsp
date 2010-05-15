@@ -495,13 +495,10 @@ a:visited {
 											</table>
 										</td>
 									</tr>
-								</table>
-							</td>
+								</table></td>
 						</tr>
 						<tr>
-							<td height="39" background="images/main_37.gif">
-								&nbsp;
-							</td>
+							<td height="39" background="images/main_37.gif"></td>
 						</tr>
 					</table>
 				</td>
