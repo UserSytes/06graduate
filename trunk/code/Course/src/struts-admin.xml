@@ -7,15 +7,29 @@
 	<package name="admin" extends="struts-default">
 		<interceptors>  
         <!-- 定义拦截器栈 -->
+			<interceptor name="adminAuthority"
+				class="cn.edu.xmu.course.interceptor.AdminInterceptor" />
 			<interceptor-stack name="fileExcelStack">
-				<interceptor-ref name="fileUpload">
-					<param name="maximumSize">10485760</param> 
-					<param name="allowedTypes">
-						application/excel,application/vnd.ms-excel</param>
-				</interceptor-ref>
 				<interceptor-ref name="defaultStack" />
-			</interceptor-stack>			
+				<interceptor-ref name="adminAuthority" />
+				<interceptor-ref name="fileUpload">
+					<param name="maximumSize">10485760</param>
+					<param name="allowedTypes"> application/excel,application/vnd.ms-excel</param>
+				</interceptor-ref>
+			</interceptor-stack>
+			<interceptor-stack name="adminStack">  
+                <!--配置内建默认拦截器-->
+				<interceptor-ref name="defaultStack" />  
+                 <!--配置自定义的拦截器-->
+				<interceptor-ref name="adminAuthority" />
+			</interceptor-stack>
 		</interceptors>
+		
+		 <!--定义全局Result-->
+		<default-interceptor-ref name="adminStack" />
+		<global-results>
+			<result name="login">/admin/login.jsp</result>
+		</global-results>  
 		
 		<!--教师管理-->
 		<action name="goAddTeacherAction" method="getDepartmentBySchool"
@@ -194,7 +208,7 @@
 			<result name="success" type="redirect">
 				viewCourseStudentAction.action?courseId=${courseId}</result>
 			<result name="error">/commons/error.jsp</result>
-		</action>		
+		</action>
 		<action name="goAddCourseStudentAction" method="courseDetail"
 			class="courseAction">
 			<result name="success">/admin/coursemanage/addstudent.jsp
@@ -278,17 +292,34 @@
 	
 	<!-- 学校管理 -->
 	<package name="superadmin" extends="struts-default">
-	<interceptors>  
+		<interceptors>  
         <!-- 定义拦截器栈 -->
+         <!-- 定义权限控制拦截器 -->
+			<interceptor name="superAdminAuthority"
+				class="cn.edu.xmu.course.interceptor.SuperAdminInterceptor" />
 			<interceptor-stack name="fileTextStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="superAdminAuthority" />
 				<interceptor-ref name="fileUpload">
-					<param name="maximumSize">104857600</param> 
+					<param name="maximumSize">104857600</param>
 					<param name="allowedTypes">
 						application/msword,application/vnd.ms-powerpoint,application/pdfW,text/plain</param>
 				</interceptor-ref>
-				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			<interceptor-stack name="superAdminStack">  
+                <!--配置内建默认拦截器-->
+				<interceptor-ref name="defaultStack" />  
+                 <!--配置自定义的拦截器-->
+				<interceptor-ref name="superAdminAuthority" />
 			</interceptor-stack>
 		</interceptors>
+		
+		 <!--定义全局Result-->
+		<default-interceptor-ref name="superAdminStack" />
+		<global-results>
+			<result name="login">/admin/login.jsp</result>
+		</global-results>  
+		
 		<!--校管理员修改密码-->
 		<action name="changeSuperAdminPwdAction" method="changeSuperAdminPassword"
 			class="adminAction">
@@ -432,6 +463,5 @@
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		
 	</package>
 </struts>

@@ -2,43 +2,43 @@
 <!DOCTYPE struts PUBLIC
 	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
 	"http://struts.apache.org/dtds/struts-2.0.dtd">
-<struts>	
+<struts>
 	<package name="teacher" extends="struts-default">
 		<interceptors>  
         <!-- 定义拦截器栈 -->
-			<interceptor-stack name="fileTextStack">
-				<interceptor-ref name="fileUpload">
-					<param name="maximumSize">104857600</param> 
-					<param name="allowedTypes">
-						application/msword,application/vnd.ms-powerpoint,application/pdfW,text/plain</param>
-				</interceptor-ref>
-				<interceptor-ref name="defaultStack" />
-			</interceptor-stack>
-			<interceptor-stack name="fileExcelStack">
-				<interceptor-ref name="fileUpload">
-					<param name="maximumSize">10485760</param> 
-					<param name="allowedTypes">
-						application/excel,application/vnd.ms-excel</param>
-				</interceptor-ref>
-				<interceptor-ref name="defaultStack" />
-			</interceptor-stack>
+			<interceptor name="teacherAuthority"
+				class="cn.edu.xmu.course.interceptor.TeacherInterceptor" />
+			<interceptor-stack name="teacherStack">  
+                <!--配置内建默认拦截器-->
+				<interceptor-ref name="defaultStack" />  
+                 <!--配置自定义的拦截器-->
+				<interceptor-ref name="teacherAuthority" />
+			</interceptor-stack>			
 			<interceptor-stack name="fileImgStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="teacherAuthority" />
 				<interceptor-ref name="fileUpload">
-					<param name="maximumSize">1048576</param> 
+					<param name="maximumSize">1048576</param>
 					<param name="allowedTypes">
 						image/x-ms-bmp,image/jpeg,image/gif,image/png,image/pjpeg,image/x-png</param>
 				</interceptor-ref>
+			</interceptor-stack>			
+			<interceptor-stack name="fileExcelStack">
 				<interceptor-ref name="defaultStack" />
-			</interceptor-stack>
-			<interceptor-stack name="fileMovieStack">
+				<interceptor-ref name="teacherAuthority" />
 				<interceptor-ref name="fileUpload">
-				<param name="maximumSize">104857600</param> 
-					<param name="allowedTypes">
-						video/x-msvideo,video/x-sgi-movie,video/mpeg,application/x-pn-realaudio,audio/x-wav</param>
+					<param name="maximumSize">10485760</param>
+					<param name="allowedTypes"> application/excel,application/vnd.ms-excel</param>
 				</interceptor-ref>
-				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
 		</interceptors>
+		
+		<!--定义全局Result-->
+		<default-interceptor-ref name="teacherStack" />
+		<global-results>
+			<result name="login">/teacher/loginprompt.jsp
+			</result>
+		</global-results>  
 		
 		<!--教师子系统-->
 		<!-- 个人信息管理 -->
@@ -95,7 +95,7 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-			<action name="addCourseStudentByTeaAction" method="addStudentCourse"
+		<action name="addCourseStudentByTeaAction" method="addStudentCourse"
 			class="studentCourseAction">
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
@@ -165,83 +165,6 @@
 		<action name="updateCourseAction" method="updateCourseVisible"
 			class="courseAction">
 			<result name="success" type="redirect-action">getMyCourseAction
-			</result>
-			<result name="error">/commons/prompt.jsp</result>
-		</action>
-		
-		
-		<!-- 课程信息管理 (教师)-->
-		<action name="addNewCourseInfoAction" method="addNewCourseInfo"
-			class="courseInfoAction">			
-			<result name="success">/commons/prompt.jsp</result>
-			<result name="error">/commons/prompt.jsp</result>
-			<result name="input">/commons/prompt.jsp</result>
-			<interceptor-ref name="fileTextStack" />
-		</action>
-		<action name="addNewCourseOutlineAction" method="addNewCourseOutline"
-			class="courseInfoAction">
-			<result name="input">/commons/prompt.jsp</result>
-			<interceptor-ref name="fileTextStack" />
-			<result name="success">/commons/prompt.jsp</result>
-			<result name="error">/commons/prompt.jsp</result>
-		</action>
-		<action name="saveCurrentCourseAction" method="saveCurrentCourse"
-			class="courseAction">
-			<result name="success">/teacher/right.jsp</result>
-			<result name="error">/commons/prompt.jsp</result>
-		</action>
-		<action name="getCurrentCourseAction" method="getCurrentCourse"
-			class="applicationFormAction">
-			<result name="success">
-				/teacher/courseinfomanage/manageapplicationform.jsp</result>
-			<result name="error">/commons/prompt.jsp</result>
-		</action>
-		<action name="findCurrentCourseInfoAction" method="findCourseInfo"
-			class="courseInfoAction">
-			<result name="success">/teacher/courseinfomanage/addcourseinfo.jsp
-			</result>
-		</action>
-		<action name="findCurrentCourseOutlineAction" method="findCourseOutline"
-			class="courseInfoAction">
-			<result name="success">/teacher/courseinfomanage/addoutline.jsp
-			</result>
-		</action>
-		
-		<!-- 课程申报表格管理 (教师)-->
-		<action name="addApplicationFormAction" method="addApplicationForm"
-			class="applicationFormAction">
-			<result name="input">/commons/prompt.jsp</result>
-			<interceptor-ref name="fileTextStack" />
-			<result name="success">/commons/prompt.jsp</result>
-			<result name="error">/commons/prompt.jsp</result>
-		</action>
-		
-		<!-- 课程教师队伍管理 (教师)-->
-		<action name="getTeacherTeamByCourseAction" method="getTeacherTeamListByCourse"
-			class="teacherTeamAction">
-			<result name="success">/teacher/courseinfomanage/teacherteamlist.jsp
-			</result>
-		</action>
-		<action name="goEidtTeacherTeamAction" method="goEidtTeacherTeam"
-			class="teacherTeamAction">
-			<result name="success">/teacher/courseinfomanage/editteacherteam.jsp
-			</result>
-		</action>
-		<action name="updateTeacherTeamAction" method="updateTeacherTeam"
-			class="teacherTeamAction">
-			<result name="success" type="redirect-action">getTeacherTeamByCourseAction
-			</result>
-			<result name="error">/commons/prompt.jsp</result>
-		</action>
-		<action name="deleteTeacherTeamAction" method="deleteTeacherTeam"
-			class="teacherTeamAction">
-			<result name="success" type="redirect-action">getTeacherTeamByCourseAction
-			</result>
-			<result name="error">/commons/prompt.jsp</result>
-		</action>
-		<action name="addTeacherTeamAction" method="addTeacherTeam"
-			class="teacherTeamAction">
-			<result name="success" type="redirect-action">getTeacherTeamByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
@@ -411,6 +334,120 @@
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		
+		
+		
+	</package>
+	
+	<!-- 教师管理课程模块 -->
+	<package name="teacourse" extends="struts-default">
+		<interceptors>  
+        <!-- 定义拦截器栈 -->
+			<interceptor name="teacourseAuthority"
+				class="cn.edu.xmu.course.interceptor.TeacherInterceptor" />
+			<interceptor name="courseAuthority"
+				class="cn.edu.xmu.course.interceptor.CourseInterceptor" />
+			<interceptor-stack name="teacourseStack">  
+                <!--配置内建默认拦截器-->
+				<interceptor-ref name="defaultStack" />  
+                 <!--配置自定义的拦截器-->
+				<interceptor-ref name="teacourseAuthority" />	
+				<interceptor-ref name="courseAuthority" />			
+			</interceptor-stack>
+
+			<interceptor-stack name="fileTextStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="teacourseAuthority" />	
+				<interceptor-ref name="courseAuthority" />	
+				<interceptor-ref name="fileUpload">
+					<param name="maximumSize">104857600</param>
+					<param name="allowedTypes">
+						application/msword,application/vnd.ms-powerpoint,application/pdfW,text/plain</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<!--定义全局Result-->
+		<default-interceptor-ref name="teacourseStack" />		
+		<global-results>
+			<result name="login">/teacher/loginprompt.jsp
+			</result>
+		</global-results> 
+		
+		<!-- 课程信息管理 (教师)-->
+		<action name="addNewCourseInfoAction" method="addNewCourseInfo"
+			class="courseInfoAction">
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
+		</action>
+		<action name="addNewCourseOutlineAction" method="addNewCourseOutline"
+			class="courseInfoAction">
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="saveCurrentCourseAction" method="saveCurrentCourse"
+			class="courseAction">
+			<result name="success">/teacher/right.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="getCurrentCourseAction" method="getCurrentCourse"
+			class="applicationFormAction">
+			<result name="success">
+				/teacher/courseinfomanage/manageapplicationform.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="findCurrentCourseInfoAction" method="findCourseInfo"
+			class="courseInfoAction">
+			<result name="success">/teacher/courseinfomanage/addcourseinfo.jsp
+			</result>
+		</action>
+		<action name="findCurrentCourseOutlineAction" method="findCourseOutline"
+			class="courseInfoAction">
+			<result name="success">/teacher/courseinfomanage/addoutline.jsp
+			</result>
+		</action>
+		
+		<!-- 课程申报表格管理 (教师)-->
+		<action name="addApplicationFormAction" method="addApplicationForm"
+			class="applicationFormAction">
+			<result name="input">/commons/prompt.jsp</result>
+			<interceptor-ref name="fileTextStack" />
+			<result name="success">/commons/prompt.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		
+		<!-- 课程教师队伍管理 (教师)-->
+		<action name="getTeacherTeamByCourseAction" method="getTeacherTeamListByCourse"
+			class="teacherTeamAction">
+			<result name="success">/teacher/courseinfomanage/teacherteamlist.jsp
+			</result>
+		</action>
+		<action name="goEidtTeacherTeamAction" method="goEidtTeacherTeam"
+			class="teacherTeamAction">
+			<result name="success">/teacher/courseinfomanage/editteacherteam.jsp
+			</result>
+		</action>
+		<action name="updateTeacherTeamAction" method="updateTeacherTeam"
+			class="teacherTeamAction">
+			<result name="success" type="redirect-action">getTeacherTeamByCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="deleteTeacherTeamAction" method="deleteTeacherTeam"
+			class="teacherTeamAction">
+			<result name="success" type="redirect-action">getTeacherTeamByCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="addTeacherTeamAction" method="addTeacherTeam"
+			class="teacherTeamAction">
+			<result name="success" type="redirect-action">getTeacherTeamByCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		
 		<!-- 课程管理-教学成果部分 (教师)-->
 		<action name="getAchievementListByCourseAction" method="getAchievementListByCourse"
@@ -609,7 +646,7 @@
 			</result>
 		</action>
 		<action name="addExperimentAction" method="addExperiment"
-			class="experimentAction">			
+			class="experimentAction">
 			<result name="success" type="redirect-action">getExperimentListByChapterAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
@@ -617,7 +654,7 @@
 			<interceptor-ref name="fileTextStack" />
 		</action>
 		<action name="updateExperimentAction" method="updateExperiment"
-			class="experimentAction">			
+			class="experimentAction">
 			<result name="success" type="redirect-action">getExperimentListByChapterAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
@@ -648,28 +685,28 @@
 			</result>
 		</action>
 		<action name="addCourseMovieAction" method="addCourseMovie"
-			class="courseMovieAction">			
+			class="courseMovieAction">
 			<result name="success" type="redirect-action">getCourseMovieListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="updateCourseMovieAction" method="updateCourseMovie"
-			class="courseMovieAction">			
+			class="courseMovieAction">
 			<result name="success" type="redirect-action">getCourseMovieListByCourseAction
 			</result>
-			<result name="error">/commons/prompt.jsp</result>			
+			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="addCourseMovieSrcAction" method="addCourseMovieSrc"
-			class="courseMovieAction">			
+			class="courseMovieAction">
 			<result name="success" type="redirect-action">getCourseMovieListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="updateCourseSrcMovieAction" method="updateCourseMovieSrc"
-			class="courseMovieAction">			
+			class="courseMovieAction">
 			<result name="success" type="redirect-action">getCourseMovieListByCourseAction
 			</result>
-			<result name="error">/commons/prompt.jsp</result>			
+			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="deleteCourseMovieAction" method="deleteCourseMovie"
 			class="courseMovieAction">
@@ -730,11 +767,11 @@
 			<result name="success" type="redirect-action">getBookListByCourseAction
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
-			<result name="input">/commons/prompt.jsp</result>	
+			<result name="input">/commons/prompt.jsp</result>
 			<interceptor-ref name="fileUpload">
 				<param name="maximumSize">10485760</param>
 			</interceptor-ref>
-			<interceptor-ref name="defaultStack"/> 				
+			<interceptor-ref name="defaultStack" />
 		</action>
 		<action name="updateBookAction" method="updateBook" class="bookAction">
 			<result name="success" type="redirect-action">getBookListByCourseAction
@@ -744,7 +781,7 @@
 			<interceptor-ref name="fileUpload">
 				<param name="maximumSize">10485760</param>
 			</interceptor-ref>
-			<interceptor-ref name="defaultStack"/> 			
+			<interceptor-ref name="defaultStack" />
 		</action>
 		<action name="deleteBookAction" method="deleteBook" class="bookAction">
 			<result name="success" type="redirect-action">getBookListByCourseAction
@@ -756,59 +793,36 @@
 			</result>
 		</action>
 	</package>
-	
-	<!-- 教师管理课程模块 -->
-	<package name="teacourse" extends="struts-default">
-		<interceptors>  
-        <!-- 定义拦截器栈 -->
-			<interceptor-stack name="fileTextStack">
-				<interceptor-ref name="fileUpload">
-					<param name="maximumSize">104857600</param> 
-					<param name="allowedTypes">
-						application/msword,application/vnd.ms-powerpoint,application/pdfW,text/plain</param>
-				</interceptor-ref>
-				<interceptor-ref name="defaultStack" />
-			</interceptor-stack>
-			<interceptor-stack name="fileExcelStack">
-				<interceptor-ref name="fileUpload">
-					<param name="maximumSize">10485760</param> 
-					<param name="allowedTypes">
-						application/excel,application/vnd.ms-excel</param>
-				</interceptor-ref>
-				<interceptor-ref name="defaultStack" />
-			</interceptor-stack>
-			<interceptor-stack name="fileImgStack">
-				<interceptor-ref name="fileUpload">
-					<param name="maximumSize">1048576</param> 
-					<param name="allowedTypes">
-						image/x-ms-bmp,image/jpeg,image/gif,image/png,image/pjpeg,image/x-png</param>
-				</interceptor-ref>
-				<interceptor-ref name="defaultStack" />
-			</interceptor-stack>
-			<interceptor-stack name="fileMovieStack">
-				<interceptor-ref name="fileUpload">
-				<param name="maximumSize">104857600</param> 
-					<param name="allowedTypes">
-						video/x-msvideo,video/x-sgi-movie,video/mpeg,application/x-pn-realaudio,audio/x-wav</param>
-				</interceptor-ref>
-				<interceptor-ref name="defaultStack" />
-			</interceptor-stack>
-		</interceptors>
-		</package>
 		
 		<!-- 学生系统模块 -->
-		<package name="student" extends="struts-default">
+	<package name="student" extends="struts-default">
 		<interceptors>  
         <!-- 定义拦截器栈 -->
+			<interceptor name="studentAuthority"
+				class="cn.edu.xmu.course.interceptor.StudentInterceptor" />
+			<interceptor-stack name="studentStack">  
+                <!--配置内建默认拦截器-->
+				<interceptor-ref name="defaultStack" />  
+                 <!--配置自定义的拦截器-->
+				<interceptor-ref name="studentAuthority" />
+			</interceptor-stack>
 			<interceptor-stack name="fileImgStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="studentAuthority" />
 				<interceptor-ref name="fileUpload">
-					<param name="maximumSize">1048576</param> 
+					<param name="maximumSize">1048576</param>
 					<param name="allowedTypes">
 						image/x-ms-bmp,image/jpeg,image/gif,image/png,image/pjpeg,image/x-png</param>
-				</interceptor-ref>
-				<interceptor-ref name="defaultStack" />
+				</interceptor-ref>				
 			</interceptor-stack>
-		</interceptors>
+		</interceptors>		
+		
+		<!--定义全局Result-->
+		<default-interceptor-ref name="studentStack" />
+		<global-results>
+			<result name="login">/homepage/loginprompt.jsp
+			</result>
+		</global-results>  
 		
 		<!-- 我的消息（学生） -->
 		<action name="getReceiveMailByStuAction" method="getReceiveMailByStu"
@@ -944,11 +958,11 @@
 			<result name="success">/student/collectionlist.jsp
 			</result>
 			<result name="error">/student/prompt.jsp</result>
-		</action>		
+		</action>
 		<action name="myTopicAction" method="myTopics" class="messageAction">
 			<result name="success">/student/topiclist.jsp
 			</result>
 			<result name="error">/homepage/prompt.jsp</result>
 		</action>
-		</package>
+	</package>
 </struts>

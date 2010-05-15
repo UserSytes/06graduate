@@ -109,7 +109,7 @@ a.v1:visited {
 																							</div></td>
 																						<td width="35"><div align="center" class="STYLE1">
 																								<a
-																									href="javascript:parent.location.href='${ctx}/homepage/index.jsp'">首页</a>
+																									href="javascript:parent.location.href='${ctx}/homepage/index.jsp'" >首页</a>
 																							</div></td>
 																					</tr>
 																				</table>

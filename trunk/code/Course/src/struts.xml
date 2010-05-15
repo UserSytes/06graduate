@@ -123,6 +123,12 @@
 			</result>
 			<result name="error">/homepage/prompt.jsp</result>
 		</action>
+		<action name="intoCourseAction" method="intoCourse" class="enterCourseAction">
+			<result name="success">/coursepage/index.jsp
+			</result>
+			<result name="error">/homepage/prompt.jsp
+			</result>
+		</action>
 		<action name="schoolCourseAction" method="forwardToSchoolSearch"
 			class="homePageAction">
 			<result name="success">/homepage/searchbyschool.jsp
