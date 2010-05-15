@@ -40,7 +40,7 @@
 				</td>
 			</tr>
 		</table>
-		<s:form action="addMoreCourseStudentAction" method="post"
+		<s:form action="addMoreCourseStudentByTeaAction" method="post"
 			enctype="multipart/form-data" onsubmit="return check(this);">
 			<s:hidden name="course.id" />
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"

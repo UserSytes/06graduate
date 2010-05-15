@@ -9,9 +9,9 @@
 		<table border="0" cellpadding="0" cellspacing="0">
 			<s:iterator value="noticeList2" status="notice">
 				<tr>
-					<td width="210">
-						&nbsp;&nbsp;
-						<img src="${ctx}/homepage/image/but.jpg" border="0" alt="">						
+<td width="5"></td>
+					<td width="200">						
+						&nbsp;<img src="${ctx}/homepage/image/but.jpg" border="0" alt="">						
 						<a
 							href="<s:url action="viewNoticeAction"> <s:param name="noticeId"> 
 	                       			 									<s:property value="id"/> </s:param> </s:url>"
@@ -20,13 +20,12 @@
 								<s:property value="title.substring(0, 12)+'...'" />
 							</s:if> <s:else>
 								<s:property value="title" />
-							</s:else> </a>
-					
-					</td>
+							</s:else> </a></td>
 				</tr>
 				<tr height="1">
-					<td width="331" colspan="2"
-						background="${ctx}/homepage/image/main_line.gif"></td>
+<td width="5"></td>
+					<td width="200" colspan="2"
+						background="${ctx}/homepage/image/main_line.gif"></td>					
 				</tr>
 			</s:iterator>
 		</table>

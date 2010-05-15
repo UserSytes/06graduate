@@ -35,7 +35,6 @@
 		width="100%" height="100%"
 		background="${ctx}/homepage/image/back_img.gif"
 		style="background-repeat: repeat-x">
-<a href="<c:url value="/show.do?id=111&data=rewrite"/>">click me!</a>
 		<s:include value="include/header.jsp"></s:include>
 		<table border="0" cellpadding="0" cellspacing="0" width="950"
 			align="center">
