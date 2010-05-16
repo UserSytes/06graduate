@@ -40,6 +40,17 @@ public class CourseAction extends BaseAction {
 	private List<Course> applicationCourseList; // 申报课程列表
 	private String refuseReason; // 审核课程退回时填写的理由
 
+	
+	/**
+	 * 跳转到申报课程
+	 * 
+	 * @return
+	 */
+	public String goAddNewCourse() {
+			return SUCCESS;
+	}
+
+	
 	/**
 	 * 申报课程
 	 * 

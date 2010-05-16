@@ -105,19 +105,13 @@
 				<img src="${ctx}/teacher/images/icon_1.png" width="16" height="16" />
 				<strong><font color="red" size="3"> 提示</font> </strong>
 				<div id="content_note">
-					<ul>
-						<li>
-							每个课程必须要添加完章节目录后才能上传课件、习题和实验指导。
-						</li>
+					<ul>						
 						<li>
 							为了方便师生查阅，建议章节目录序号命名如“第一章节”或“第一部分”等。								
 						</li>
 						<li>
 							章节目录的名称命名教师可根据需要自主命名。								
-						</li>
-						<li>
-							如果您未将该课程细分为章节，那么请至少添加一个章节目录以便管理。
-						</li>
+						</li>						
 					</ul>
 
 				</div>

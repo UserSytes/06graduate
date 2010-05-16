@@ -104,7 +104,7 @@ $(document).ready(function(){
                        			 	<s:property value="id"/> 
                     			</s:param> 
                 					</s:url>"
-								onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;">
+								onclick="JAVAscript:if(!confirm('删除某一目录会把该目录下的课件、习题和实验指导全部删除，是否确认删除？')) return false;return true;">
 								<font color="red">【删除】</font> </a>
 						</td>
 					</tr>
@@ -112,6 +112,25 @@ $(document).ready(function(){
 				</tbody>
 			</table>
 			<div id="Pagination" class="pagination"></div>
+
+<div align="left" style="border: 1px solid #ccc; padding: 10px;width: 98%;">
+				<img src="${ctx}/teacher/images/icon_1.png" width="16" height="16" />
+				<strong><font color="red" size="3"> 提示</font> </strong>
+				<div id="content_note">
+					<ul>
+						<li>
+							每个课程必须要添加完章节目录后才能上传课件、习题和实验指导。
+						</li>						
+						<li>
+							如果您未将该课程细分为章节，那么请至少添加一个章节目录以便管理。
+						</li>
+						<li>
+							注意如果删除某一目录，那么该目录下的所有课件、习题和实验指导均会被删除，请谨慎操作！
+						</li>
+					</ul>
+
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

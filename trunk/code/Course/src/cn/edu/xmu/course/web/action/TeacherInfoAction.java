@@ -111,8 +111,15 @@ public class TeacherInfoAction extends BaseAction{
 	 */
 	public String getTeacherInfo(){
 		teacher = super.getTeacher();
-		userInfo = teacher.getUserInfo();
-		System.out.println(userInfo.getPhoto());
+		userInfo = teacher.getUserInfo();		
+		return SUCCESS;
+	}
+	
+	/**
+	 * Ìø×ªµ½ÐÞ¸ÄÃÜÂë
+	 * @return
+	 */
+	public String goChangePwd(){
 		return SUCCESS;
 	}
 	

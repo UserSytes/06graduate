@@ -74,7 +74,7 @@ public class EvaluationAction extends BaseAction {
 			evaluation = getLoginService().expertLogin(userName, getPassword(),
 					0);
 			if (null == evaluation) {
-				addActionError("用户名获密码错误！请返回重试！");
+				addActionError("用户名或密码错误！请返回重试！");
 				return ERROR;
 			} else if (!evaluation.getCourse().getId().equals(course.getId())) {
 				addActionError("对不起，该专家帐号不适用于该课程！请返回重试！");
@@ -96,7 +96,7 @@ public class EvaluationAction extends BaseAction {
 			evaluation = getLoginService().expertLogin(userName, getPassword(),
 					1);
 			if (null == evaluation) {
-				addActionError("用户名获密码错误！请返回重试！");
+				addActionError("用户名或密码错误！请返回重试！");
 				return ERROR;
 			} else if (!evaluation.getCourse().getId().equals(course.getId())) {
 				addActionError("对不起，该同行帐号不适用于该课程！请返回重试！");
@@ -117,7 +117,7 @@ public class EvaluationAction extends BaseAction {
 		} else {
 			student = getLoginService().studentLogin(userName, getPassword());
 			if (null == student) {
-				addActionError("用户名获密码错误！请返回重试！");
+				addActionError("用户名或密码错误！请返回重试！");
 				return ERROR;
 			} else {
 				List<StudentCourse> scList = evaluateService

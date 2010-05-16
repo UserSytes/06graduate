@@ -94,7 +94,7 @@
 			</tr>
 		</table>
 
-		<div class="with_side wrap" align="center" style="width: 95%;">
+		<div class="with_side wrap" align="center" style="width: 98%;">
 
 			<div class="cm_header itemtitle s_clear">
 				<ul>

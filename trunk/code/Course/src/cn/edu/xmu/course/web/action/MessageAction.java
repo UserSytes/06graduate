@@ -57,7 +57,7 @@ public class MessageAction extends BaseAction {
 			Teacher teacher = getLoginService().teacherLogin(userName,
 					getPassword());
 			if (null == teacher) {
-				addActionError("用户名获密码错误！请返回重试！");
+				addActionError("用户名或密码错误！请返回重试！");
 				return ERROR;
 			} else {
 				userInfo = teacher.getUserInfo();
@@ -69,7 +69,7 @@ public class MessageAction extends BaseAction {
 			Student student = getLoginService().studentLogin(userName,
 					getPassword());
 			if (null == student) {
-				addActionError("用户名获密码错误！请返回重试！");
+				addActionError("用户名或密码错误！请返回重试！");
 				return ERROR;
 			} else {
 				if (studentCourseService.findByStudentAndCourse(
