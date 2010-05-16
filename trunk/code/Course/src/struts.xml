@@ -3,10 +3,10 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
 	"http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<include file="struts-json.xml" /> 	
-	<include file="struts-user.xml" /> 	
-	<include file="struts-admin.xml" /> 	
-	<include file="struts-course.xml" /> 
+	<include file="struts-json.xml" />
+	<include file="struts-user.xml" />
+	<include file="struts-admin.xml" />
+	<include file="struts-course.xml" />
 	<package name="struts" extends="struts-default">
 		<action name="download" class="cn.edu.xmu.course.web.action.DownloadAction">
 			 <!-- 设置文件名参数，由页面上传入 -->
@@ -24,7 +24,7 @@
 			</result>
 		</action>
 	
-		<!--登陆系统-->	
+		<!--登陆系统-->
 		<action name="adminLoginAction" method="adminLogin"
 			class="cn.edu.xmu.course.web.action.LoginAction">
 			<result name="superAdmin">/admin/superadminindex.jsp
@@ -58,7 +58,6 @@
 			class="cn.edu.xmu.course.web.action.LoginAction">
 			<result name="success">/homepage/index.jsp</result>
 		</action>
-		
 		<action name="loginFromColAction" method="studentLoginForCol"
 			class="loginAction">
 			<result name="success" type="redirect-action">goIndexQueryAction
@@ -76,7 +75,6 @@
 			<result name="student">/student/studentinfo.jsp
 			</result>
 		</action>
-		
 		<action name="loginFromMessageBoardAction" method="loginFromMessageBoard"
 			class="messageAction">
 			<result name="success">/coursepage/messagemanage/showtopics.jsp
@@ -119,15 +117,14 @@
       
 		<!-- 跳转 -->
 		<action name="enterCourseAction" method="enterCourse" class="executeViewAction">
-			<result name="course" type="redirect-action">intoCourseAction?courseId=${courseId}
-			</result>
+			<result name="course" type="redirect-action">
+				intoCourseAction?courseId=${courseId}</result>
 			<result name="error">/homepage/prompt.jsp</result>
 		</action>
 		<action name="intoCourseAction" method="intoCourse" class="enterCourseAction">
 			<result name="success">/coursepage/index.jsp
 			</result>
-			<result name="error">/homepage/prompt.jsp
-			</result>
+			<result name="error">/homepage/prompt.jsp</result>
 		</action>
 		<action name="schoolCourseAction" method="forwardToSchoolSearch"
 			class="homePageAction">
@@ -173,12 +170,58 @@
 		</action>
 		<action name="findCourseListBySchoolNameAction" method="findCourseListBySchoolName"
 			class="executeViewAction">
-			<result name="success">/homepage/courselist.jsp</result>
+			<result name="success">/homepage/courselist.jsp
+			</result>
 		</action>
 		<action name="findCourseListByDeptNameAction" method="findCourseListByDeptName"
 			class="executeViewAction">
-			<result name="success">/homepage/courselist.jsp</result>
+			<result name="success">/homepage/courselist.jsp
+			</result>
 		</action>		
-	
+		
+		
+		<!-- 学生留言板 -->
+		<action name="goNewTopicAction" method="goNewTopic" class="messageAction">
+			<result name="success">/coursepage/messagemanage/newtopic.jsp
+			</result>
+		</action>
+		<action name="goReplyAction" method="goReply" class="messageAction">
+			<result name="success">/coursepage/messagemanage/newreply.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="goReplyToSomeoneAction" method="goReplyToSomeone"
+			class="messageAction">
+			<result name="success">/coursepage/messagemanage/newreply.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<action name="goReplyWithQuoteAction" method="goReplyWithQuote"
+			class="messageAction">
+			<result name="success">/coursepage/messagemanage/newreply.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+		</action>
+		<!-- 教师留言板 -->
+		<action name="goReplyByTeaAction" method="goReply" class="messageAction">
+			<result name="success">/teacher/mycourse/newreply.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="goReplyToSomeoneByTeaAction" method="goReplyToSomeone"
+			class="messageAction">
+			<result name="success">/teacher/mycourse/newreply.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="goReplyWithQuoteByTeaAction" method="goReplyWithQuote"
+			class="messageAction">
+			<result name="success">/teacher/mycourse/newreply.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 	</package>
 </struts>

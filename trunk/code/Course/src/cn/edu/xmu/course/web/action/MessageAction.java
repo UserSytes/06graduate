@@ -72,8 +72,8 @@ public class MessageAction extends BaseAction {
 				addActionError("用户名获密码错误！请返回重试！");
 				return ERROR;
 			} else {
-				if (studentCourseService
-						.findByStudentAndCourse(super.getCourse(), student).size() == 0) {
+				if (studentCourseService.findByStudentAndCourse(
+						super.getCourse(), student).size() == 0) {
 					addActionError("你所登录的帐号不是该课程的学生，无法进入留言板！");
 					return ERROR;
 				}
@@ -114,14 +114,12 @@ public class MessageAction extends BaseAction {
 	public String goReply() {
 		course = super.getCourse();
 		topic = topicService.getTopicById(topicId);
-		userInfo = (UserInfo) super.getSession().get(USERINFO);
 		if (getTopic() == null) {
 			addActionError("该贴已经不存在！");
 			return ERROR;
-		} else {
-			return SUCCESS;
 		}
-
+		userInfo = (UserInfo) super.getSession().get(USERINFO);
+		return SUCCESS;
 	}
 
 	/**
@@ -132,18 +130,16 @@ public class MessageAction extends BaseAction {
 	public String goReplyToSomeone() {
 		course = super.getCourse();
 		topic = topicService.getTopicById(topicId);
+		if (getTopic() == null) {
+			addActionError("该贴已经不存在！");
+			return ERROR;
+		}
 		Message rMsg = messageService.getMessageById(getMessageId());
 		setReplyString("" + "<b>回复 第" + rMsg.getGrade() + "楼<i> "
 				+ rMsg.getUserInfo().getName()
 				+ "</i> 的帖子：</b><br />--------------------------------------");
 		userInfo = (UserInfo) super.getSession().get(USERINFO);
-		if (getTopic() == null) {
-			addActionError("该贴已经不存在！");
-			return ERROR;
-		} else {
-			return SUCCESS;
-		}
-
+		return SUCCESS;
 	}
 
 	/**
@@ -154,19 +150,17 @@ public class MessageAction extends BaseAction {
 	public String goReplyWithQuote() {
 		course = super.getCourse();
 		topic = topicService.getTopicById(topicId);
-		Message rMsg = messageService.getMessageById(getMessageId());
-		setReplyString("<quote:msgheader>" + "QUOTE:原帖由第" + rMsg.getGrade()
-				+ "楼<i> " + rMsg.getUserInfo().getName()
-				+ "</i> 的帖子：</quote:msgheader><br /><br />" + rMsg.getContent()
-				+ "</b><br />--------------------------------------");
-		userInfo = (UserInfo) super.getSession().get(USERINFO);
 		if (getTopic() == null) {
 			addActionError("该贴已经不存在！");
 			return ERROR;
-		} else {
-			return SUCCESS;
 		}
-
+		Message rMsg = messageService.getMessageById(getMessageId());
+		setReplyString("<quote:msgheader>" + "QUOTE:原帖由第" + rMsg.getGrade()
+				+ "楼<i> " + rMsg.getUserInfo().getName()
+				+ "</i> 的帖子：</quote:msgheader><br />" + rMsg.getContent()
+				+ "</b><br />--------------------------------------");
+		userInfo = super.getUserInfo();
+		return SUCCESS;
 	}
 
 	/**
@@ -176,13 +170,13 @@ public class MessageAction extends BaseAction {
 	 */
 	@SuppressWarnings("unchecked")
 	public String showTopics() {
-		student = (Student) super.getSession().get(STUDENT);
-		teacher = (Teacher) super.getSession().get(TEACHER);
+		student = super.getStudent();
+		teacher = super.getTeacher();
 		course = super.getCourse();
 		if (null == teacher) {
 			if (null == student) {
 				addActionError("您还未登录，请先登录！");
-				return "login";
+				return "msglogin";
 			} else {
 				if (studentCourseService
 						.findByStudentAndCourse(course, student).size() == 0) {
@@ -204,7 +198,8 @@ public class MessageAction extends BaseAction {
 	@SuppressWarnings("unchecked")
 	public String myTopics() {
 		student = super.getStudent();
-		messageList = messageService.getMessageByUserInfo(student.getUserInfo());
+		messageList = messageService
+				.getMessageByUserInfo(student.getUserInfo());
 		if (messageList.size() == 0) {
 			addActionMessage("您目前还未发表帖子留言！");
 		}
@@ -251,7 +246,6 @@ public class MessageAction extends BaseAction {
 	 */
 	public String addReply() {
 		course = super.getCourse();
-		System.out.println("ACTION正在加入帖子为：" + topic.getId() + "的留言2");
 		topicId = topic.getId();
 		topic = topicService.getTopicById(topic.getId());
 		boolean result = messageService.addReplyMessage(topic, message, super
@@ -370,7 +364,8 @@ public class MessageAction extends BaseAction {
 		return studentCourseService;
 	}
 
-	public void setStudentCourseService(IStudentCourseService studentCourseService) {
+	public void setStudentCourseService(
+			IStudentCourseService studentCourseService) {
 		this.studentCourseService = studentCourseService;
 	}
 
@@ -429,7 +424,5 @@ public class MessageAction extends BaseAction {
 	public void setReplyString(String replyString) {
 		this.replyString = replyString;
 	}
-
-	
 
 }

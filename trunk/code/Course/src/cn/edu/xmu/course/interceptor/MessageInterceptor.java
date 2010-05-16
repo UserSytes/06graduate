@@ -3,21 +3,26 @@ package cn.edu.xmu.course.interceptor;
 import java.util.Map;
 
 import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.Student;
+import cn.edu.xmu.course.pojo.Teacher;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 
 /**
- * øŒ≥Ã¿πΩÿ∆˜
+ * ¡Ù—‘∞Â¿πΩÿ∆˜
  * 
  * @author ∫Œ…Í√‹
  * 
  */
-public class CourseInterceptor extends AbstractInterceptor{
-	
+public class MessageInterceptor extends AbstractInterceptor {
 
-	private static final long serialVersionUID = -7319412027229496950L;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4836792862377454002L;
 
 	/**
 	 * ¿πΩÿAction¥¶¿Ìµƒ¿πΩÿ∑Ω∑®
@@ -26,10 +31,17 @@ public class CourseInterceptor extends AbstractInterceptor{
 		// TODO Auto-generated method stub
 		Map session = invocation.getInvocationContext().getSession();
 		Course course = (Course) session.get("course");
-		if(null!=course) {         
-            return invocation.invoke();
-        } else {         
-            return Action.LOGIN;
-        }
+		if (null != course) {
+			Student stu = (Student) session.get("student");
+			Teacher tea = (Teacher) session.get("teacher");
+			if (null != stu || null != tea)
+				return invocation.invoke();
+			else
+				return Action.LOGIN;
+
+		} else {
+			return Action.LOGIN;
+
+		}
 	}
 }

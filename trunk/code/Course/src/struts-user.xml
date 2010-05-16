@@ -304,23 +304,6 @@
 				showMessagesByTeaAction?topicId=${topic.id}</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="goReplyByTeaAction" method="goReply" class="messageAction">
-			<result name="success">/teacher/mycourse/newreply.jsp
-			</result>
-			<result name="error">/commons/prompt.jsp</result>
-		</action>
-		<action name="goReplyToSomeoneByTeaAction" method="goReplyToSomeone"
-			class="messageAction">
-			<result name="success">/teacher/mycourse/newreply.jsp
-			</result>
-			<result name="error">/commons/prompt.jsp</result>
-		</action>
-		<action name="goReplyWithQuoteByTeaAction" method="goReplyWithQuote"
-			class="messageAction">
-			<result name="success">/teacher/mycourse/newreply.jsp
-			</result>
-			<result name="error">/commons/prompt.jsp</result>
-		</action>
 		<action name="deleteTopicByTeaAction" method="deleteTopic"
 			class="topicManageAction">
 			<result name="success" type="redirect-action">showTopicsByTeacherAction
