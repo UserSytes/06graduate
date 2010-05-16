@@ -375,7 +375,7 @@
 					style=" height: 125px;background: transparent url(${ctx}/coursepage/style/common/logo.png) no-repeat; padding-left:400px;padding-top:30px;">
 					<h1
 						style="font-family: '隶书'; font-size: 40px; linfont-weight: lighter; color: #4B4E5B; line-height: 50px;">
-						<s:property value="course.name" />
+						<s:property value="#session.course.name"/>
 					</h1>
 				</div>
 			</div>
@@ -416,28 +416,28 @@
 					<span>风格</span>
 					<div style="width: 100px;">
 						<div id="blue">
-							蓝色
+							湛蓝天空
 						</div>
 						<div id="green">
-							绿色
+							翠绿晨曦
 						</div>
 						<div id="white">
-							白色
+							空白纯净
 						</div>
 						<div id="gray">
-							灰色
+							银灰摩登
 						</div>
 						<div id="orange">
-							橙色
+							橙色秋叶
 						</div>
 						<div id="pink">
-							粉色
+							粉色糖霜
 						</div>
 						<div id="purple">
-							紫色
+							紫色初荷
 						</div>
 						<div id="red">
-							红色
+							红色豆蔻
 						</div>
 					</div>
 				</div>
