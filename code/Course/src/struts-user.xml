@@ -62,6 +62,11 @@
 			<result name="success">/teacher/changephoto.jsp
 			</result>
 		</action>
+		<action name="goChangePwdAction" method="goChangePwd"
+			class="teacherInfoAction">
+			<result name="success">/teacher/changepassword.jsp
+			</result>
+		</action>
 		<action name="changePhotoAction" method="changePhoto" class="teacherInfoAction">
 			<result name="success">/teacher/changephoto.jsp
 			</result>
@@ -121,6 +126,9 @@
 		
 		
 		<!-- 课程申报管理 -->
+		<action name="goAddNewCourseAction" method="goAddNewCourse" class="courseAction">
+			<result name="success">/teacher/courseinfomanage/addnewcourse.jsp</result>			
+		</action>
 		<action name="addNewCourseAction" method="addNewCourse" class="courseAction">
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>

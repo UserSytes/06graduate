@@ -109,10 +109,10 @@ jQuery(document).ready(function(){
 			</tr>
 		</table>
 
-		<div align="center" style="width: 100%">
+		<div align="center" style="width: 98%">
 			<s:form id="pmform" name="pmform" method="post"
 				action="deleteMailsAction">
-				<table id="table" cellspacing="0" width="98%" cellpadding="0"
+				<table id="table" cellspacing="0" width="100%" cellpadding="0"
 					class="pm_list" summary="发件箱">
 					<div class="cm_header itemtitle s_clear">
 						<ul>

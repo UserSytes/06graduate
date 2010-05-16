@@ -164,7 +164,7 @@ a:visited {
 																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
 																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
 																	<span class="STYLE2">&nbsp;<A
-																		href="changepassword.jsp" target=I2>修改密码</A> </span>
+																		href="goChangePwdAction.action" target=I2>修改密码</A> </span>
 																</td>
 															</tr>
 														</table>
@@ -297,7 +297,7 @@ a:visited {
 																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
 																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
 																	<span class="STYLE2">&nbsp;<a
-																		href="courseinfomanage/addnewcourse.jsp" target=I2>课程申请</a>
+																		href="goAddNewCourseAction.action" target=I2>课程申请</a>
 																	</span>
 																</td>
 															</tr>

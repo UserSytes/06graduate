@@ -28,7 +28,7 @@
 			</tr>
 		</table>
 		<div align="center" style="width: 100%">
-			<div class="with_side wrap" align="center" style="width: 95%;">
+			<div class="with_side wrap" align="center" style="width: 98%;">
 				<div class="cm_header itemtitle s_clear">
 					<ul>
 						<a style="color: #09C; float: right; font-weight: 700;"
