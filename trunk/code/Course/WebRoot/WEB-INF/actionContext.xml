@@ -16,6 +16,9 @@
 		<property name="superAdminService">
 			<ref bean="superAdminService" />
 		</property>
+		<property name="courseService">
+			<ref bean="courseService" />
+		</property>
 	</bean>
 	<bean id="topicManageAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.TopicManageAction">

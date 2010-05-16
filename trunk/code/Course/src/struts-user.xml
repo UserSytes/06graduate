@@ -325,7 +325,11 @@
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		
-		
+		<action name="saveCurrentCourseAction" method="saveCurrentCourse"
+			class="courseAction">
+			<result name="success">/teacher/right.jsp</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		
 	</package>
 	
@@ -379,11 +383,7 @@
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="saveCurrentCourseAction" method="saveCurrentCourse"
-			class="courseAction">
-			<result name="success">/teacher/right.jsp</result>
-			<result name="error">/commons/prompt.jsp</result>
-		</action>
+		
 		<action name="getCurrentCourseAction" method="getCurrentCourse"
 			class="applicationFormAction">
 			<result name="success">

@@ -6,6 +6,7 @@ import java.util.List;
 
 import cn.edu.xmu.course.commons.MD5;
 import cn.edu.xmu.course.pojo.*;
+import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.ISuperAdminService;
 import cn.edu.xmu.course.service.ITeacherInfoService;
 /**
@@ -23,6 +24,7 @@ public class TeacherInfoAction extends BaseAction{
 
 	private ITeacherInfoService teacherInfoService;	//管理教师信息的接口
 	private ISuperAdminService superAdminService;	//管理校方管理员的接口
+	private ICourseService courseService; // 管理课程的接口
 	
 	private Teacher teacher;	//教师
 	private UserInfo userInfo;	//用户信息
@@ -187,6 +189,10 @@ public class TeacherInfoAction extends BaseAction{
 	 */
 	public String deleteTeacher(){
 		teacher = teacherInfoService.findTeacherById(teacherId);
+		if(courseService.findCoursesByTeacher(teacherId, 3).size()>0){
+			addActionMessage("该教师名下还有课程，请确认该教师无任何课程后才能删除！");
+			return "prompt";
+		}
 		boolean result = teacherInfoService.deleteTeacher(teacher);
 		if (result) {
 			this.findTeacherBySchool();
@@ -326,6 +332,14 @@ public class TeacherInfoAction extends BaseAction{
 
 	public File getUpload() {
 		return upload;
+	}
+
+	public void setCourseService(ICourseService courseService) {
+		this.courseService = courseService;
+	}
+
+	public ICourseService getCourseService() {
+		return courseService;
 	}
 	
 }

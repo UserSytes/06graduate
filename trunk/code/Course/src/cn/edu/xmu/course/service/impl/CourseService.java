@@ -3,6 +3,9 @@ package cn.edu.xmu.course.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
+
+import cn.edu.xmu.course.commons.FileOperation;
 import cn.edu.xmu.course.dao.CourseDAO;
 import cn.edu.xmu.course.pojo.ApplicationForm;
 import cn.edu.xmu.course.pojo.Course;
@@ -13,9 +16,10 @@ import cn.edu.xmu.course.service.ICourseService;
 
 /**
  * 管理课程信息的类
+ * 
  * @author 郑冰凌
  * @author 何申密
- *
+ * 
  */
 public class CourseService implements ICourseService {
 
@@ -26,7 +30,11 @@ public class CourseService implements ICourseService {
 
 	/*
 	 * (non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ICourseService#addCourse(cn.edu.xmu.course.pojo.Course, cn.edu.xmu.course.pojo.Department, cn.edu.xmu.course.pojo.Teacher)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseService#addCourse(cn.edu.xmu.course.
+	 * pojo.Course, cn.edu.xmu.course.pojo.Department,
+	 * cn.edu.xmu.course.pojo.Teacher)
 	 */
 	public boolean addCourse(Course course, Department department,
 			Teacher teacher) {
@@ -49,7 +57,10 @@ public class CourseService implements ICourseService {
 
 	/*
 	 * (non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ICourseService#findCoursesByTeacher(java.lang.Integer, int)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseService#findCoursesByTeacher(java.lang
+	 * .Integer, int)
 	 */
 	public List findCoursesByTeacher(Integer teacherId, int type) {
 		// TODO Auto-generated method stub
@@ -61,11 +72,22 @@ public class CourseService implements ICourseService {
 
 	/*
 	 * (non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ICourseService#deleteCourse(cn.edu.xmu.course.pojo.Course)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseService#deleteCourse(cn.edu.xmu.course
+	 * .pojo.Course)
 	 */
 	public boolean deleteCourse(Course course) {
 		// TODO Auto-generated method stub
+		String path = ServletActionContext.getServletContext().getRealPath(
+				"/upload");
+		String fileName = path + "/"
+				+ course.getTeacher().getTeacherNo()+course.getTeacher().getUserInfo().getName() + "/"
+				+ course.getName();
 		try {
+			if (!FileOperation.delFolder(fileName)) {
+				return false;
+			}
 			courseDAO.delete(course);
 			return true;
 		} catch (Exception e) {
@@ -76,23 +98,28 @@ public class CourseService implements ICourseService {
 
 	/*
 	 * (non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ICourseService#findCourseListLevel(java.lang.String)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseService#findCourseListLevel(java.lang
+	 * .String)
 	 */
 	public List findCourseListLevel(String level) {
-		courses=courseDAO.findByLevel(level);
-		return courses;		
-	}	
-	
+		courses = courseDAO.findByLevel(level);
+		return courses;
+	}
 
 	/*
 	 * (non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ICourseService#findCourseListByLevel(java.lang.String)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseService#findCourseListByLevel(java.lang
+	 * .String)
 	 */
 	public List findCourseListByLevel(String level) {
-		courses=courseDAO.findByLevel(level);
-		return courses;	
+		courses = courseDAO.findByLevel(level);
+		return courses;
 	}
-	
+
 	private List<Course> getCourses() {
 		return courses;
 	}
@@ -144,7 +171,10 @@ public class CourseService implements ICourseService {
 
 	/*
 	 * (non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ICourseService#updateCourse(cn.edu.xmu.course.pojo.Course)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseService#updateCourse(cn.edu.xmu.course
+	 * .pojo.Course)
 	 */
 	public boolean updateCourse(Course course) {
 		// TODO Auto-generated method stub
@@ -156,5 +186,4 @@ public class CourseService implements ICourseService {
 		}
 	}
 
-	
 }

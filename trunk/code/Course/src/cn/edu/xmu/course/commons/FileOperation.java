@@ -20,11 +20,22 @@ public class FileOperation {
 		return instance;
 	}
 
+	/**
+	 * 删除文件
+	 * @param del
+	 */
 	public static void delete(File del) {
 		if(del.exists())
 			del.delete();
 	}
 	
+	/**
+	 * 复制文件
+	 * @param src
+	 * @param dst
+	 * @return
+	 * @throws Exception
+	 */
 	public static boolean copy(File src, File dst) throws Exception {
 		if (!dst.getParentFile().exists()) {
 			dst.getParentFile().mkdirs();
@@ -34,8 +45,7 @@ public class FileOperation {
 		try {
 			InputStream in = null;
 			OutputStream out = null;
-			try {
-				System.out.println("the path is"+src.getPath());
+			try {				
 				in = new BufferedInputStream(new FileInputStream(src),
 						BUFFER_SIZE);
 				out = new BufferedOutputStream(new FileOutputStream(dst),
@@ -53,9 +63,57 @@ public class FileOperation {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
-			throw e;
+			return false;
 		}
 		return true;
+	}
+	
+	/**
+	 * 删除文件夹下所有内容
+	 * @param folderPath
+	 * @return
+	 */
+	public static boolean delFolder(String folderPath) {
+		try {
+			delAllFile(folderPath);	
+			String filePath = folderPath;
+			filePath = filePath.toString();
+			File myFilePath = new File(filePath);
+			myFilePath.delete(); // 删除空文件夹
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	// 删除指定文件夹下所有文件
+	// param path 文件夹完整绝对路径
+	public static boolean delAllFile(String path) {
+		boolean flag = false;
+		File file = new File(path);
+		if (!file.exists()) {
+			return flag;
+		}	
+		if (!file.isDirectory()) {
+			return flag;
+		}
+		String[] tempList = file.list();
+		File temp = null;
+		for (int i = 0; i < tempList.length; i++) {
+			if (path.endsWith(File.separator)) {
+				temp = new File(path + tempList[i]);
+			} else {
+				temp = new File(path + File.separator + tempList[i]);
+			}
+			if (temp.isFile()) {
+				temp.delete();
+			}
+			if (temp.isDirectory()) {
+				delAllFile(path + "/" + tempList[i]);// 先删除文件夹里面的文件
+				delFolder(path + "/" + tempList[i]);// 再删除空文件夹
+				flag = true;
+			}
+		}
+		return flag;
 	}
 }

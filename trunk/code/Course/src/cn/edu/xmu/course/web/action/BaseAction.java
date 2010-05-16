@@ -23,18 +23,20 @@ public class BaseAction extends ActionSupport {
 	public String STUDENT = "student";
 	public String SUPERADMIN = "superAdmin";
 	public String COURSE = "course";
-	public String USERINFO= "userInfo";
-	public String EVALUATION="evaluation";
-	private ActionContext ctx ;
+	public String USERINFO = "userInfo";
+	public String EVALUATION = "evaluation";
+	private ActionContext ctx;
 	@SuppressWarnings("unchecked")
-	Map session ;
-	
+	Map session;
+
 	public BaseAction() {
-		
+
 	}
+
 	public Evaluation getEvaluation() {
 		return (Evaluation) this.getSession().get(EVALUATION);
 	}
+
 	public String getUserName() {
 		return (String) this.getSession().get("username");
 	}
@@ -58,20 +60,21 @@ public class BaseAction extends ActionSupport {
 	public Course getCourse() {
 		return (Course) this.getSession().get(COURSE);
 	}
-	public UserInfo getUserInfo(){
+
+	public UserInfo getUserInfo() {
 		return (UserInfo) this.getSession().get(USERINFO);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public Map getSession() {
 		ctx = ActionContext.getContext();
-		session = ctx.getSession(); 
+		session = ctx.getSession();
 		return session;
 	}
-	
-	public String getPreFileNameByTeacher(){
-		String preFileName = this.getTeacher().getUserInfo().getName() + "/"
-		+ new Date().getTime()+"_";
+
+	public String getPreFileNameByTeacher(Course cou) {
+		String preFileName = this.getTeacher().getTeacherNo()+this.getTeacher().getUserInfo().getName() + "/"
+				+ cou.getName() + "/" + new Date().getTime() + "_";
 		return preFileName;
 	}
 
@@ -92,12 +95,9 @@ public class BaseAction extends ActionSupport {
 		this.ctx = ctx;
 	}
 
-
-
 	@SuppressWarnings("unchecked")
 	public void setSession(Map session) {
 		this.session = session;
 	}
-
 
 }
