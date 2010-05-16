@@ -22,6 +22,16 @@
 			alert("新密码不能为空！");
 			return false;
 		}
+		if (form.newPassword.value.length <6 ) {
+			alert("密码的长度不能小于6位数！");
+			form.newPassword.focus();
+			return false;
+		}
+		if (form.newPassword.value.length > 20 ) {
+			alert("密码的长度不能大于20位数！");
+			form.newPassword.focus();
+			return false;
+		}
 		if (form.newPasswordAgain.value == "") {
 			form.newPasswordAgain.focus();
 			alert("请再次输入新密码！");

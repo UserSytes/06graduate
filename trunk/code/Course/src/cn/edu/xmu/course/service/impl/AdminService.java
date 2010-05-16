@@ -2,6 +2,7 @@ package cn.edu.xmu.course.service.impl;
 
 import java.util.List;
 
+import cn.edu.xmu.course.commons.MD5;
 import cn.edu.xmu.course.dao.AdministratorDAO;
 import cn.edu.xmu.course.dao.SuperAdminDAO;
 import cn.edu.xmu.course.pojo.Administrator;
@@ -40,8 +41,9 @@ public class AdminService implements IAdminService {
 	 */
 	public boolean addAdmin(Administrator admin, School school) {
 		// TODO Auto-generated method stub
-		admin.setSchool(school);
-		admin.setPassword(admin.getAccount());
+		MD5 md5 = new MD5();
+		admin.setPassword(md5.getMD5ofStr(admin.getAccount()));
+		admin.setSchool(school);		
 		try {
 			administratorDAO.save(admin);
 			return true;
@@ -112,6 +114,8 @@ public class AdminService implements IAdminService {
 	 */
 	public boolean addSuperAdmin(SuperAdmin superAdmin) {
 		// TODO Auto-generated method stub
+		MD5 md5 = new MD5();
+		superAdmin.setPassword(md5.getMD5ofStr(superAdmin.getPassword()));
 		try {
 			superAdminDAO.save(superAdmin);
 			return true;

@@ -25,6 +25,16 @@
 					form.newPassword.focus();
 					return false;
 				}
+				if (form.newPassword.value.length <6 ) {
+					alert("密码的长度不能小于6位数！");
+					form.newPassword.focus();
+					return false;
+				}
+				if (form.newPassword.value.length > 20 ) {
+					alert("密码的长度不能大于20位数！");
+					form.newPassword.focus();
+					return false;
+				}		
 				if (form.confirmPassword.value == "")
 				{
 					alert("确认密码不能为空！");
@@ -87,7 +97,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:password name="newPassword"  size="50" cssClass="input" />
+						<s:password name="newPassword" size="50" cssClass="input" />
 						&nbsp;*
 					</td>
 				</tr>
@@ -99,7 +109,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:password name="confirmPassword"  size="50" cssClass="INPUT" />
+						<s:password name="confirmPassword" size="50" cssClass="INPUT" />
 						&nbsp;*
 
 

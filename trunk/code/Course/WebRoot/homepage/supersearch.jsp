@@ -66,7 +66,7 @@ $(document).ready(function(){
 	}
 </script>
 </head>
-	<body onload="getSchool()" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0"	background="${ctx}/homepage/image/back_img.gif"
+	<body onload="getSchool();checkPopedom()" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0"	background="${ctx}/homepage/image/back_img.gif"
 		style="background-repeat: repeat-x">
 
 		<s:include value="include/header.jsp"></s:include>

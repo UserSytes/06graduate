@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Date;
 import java.util.List;
 
+import cn.edu.xmu.course.commons.MD5;
 import cn.edu.xmu.course.pojo.*;
 import cn.edu.xmu.course.service.ISuperAdminService;
 import cn.edu.xmu.course.service.ITeacherInfoService;
@@ -44,19 +45,24 @@ public class TeacherInfoAction extends BaseAction{
 	@SuppressWarnings("unchecked")
 	public String changePassword(){
 		teacher = super.getTeacher();
-		if(teacher.getPassword().equals(password)){
-			teacher.setPassword(newPassword);
+		MD5 md5 = new MD5();
+		if(teacher.getPassword().equals(md5.getMD5ofStr(password))){
+			teacher.setPassword(md5.getMD5ofStr(newPassword));
 			if(teacherInfoService.updatePassword(teacher)){
 				teacher = teacherInfoService.findTeacherById(super.getTeacher().getId());
 				super.getSession().put(TEACHER, teacher);
 				addActionMessage("修改密码成功！");
 				return SUCCESS;
 			}
-			else
-				return "fail";
+			else{
+				addActionError("修改密码失败！");
+				return SUCCESS;
+			}
 		}
-		else
-			return ERROR;
+		else{
+			addActionError("原密码错误！");
+			return SUCCESS;
+		}
 	}
 	
 	/**
@@ -65,7 +71,7 @@ public class TeacherInfoAction extends BaseAction{
 	 */
 	public String restorePassword(){
 		teacher = teacherInfoService.findTeacherById(teacherId);
-		teacher.setPassword(teacher.getTeacherNo());
+		teacher.setPassword(new MD5().getMD5ofStr(teacher.getTeacherNo()));
 		if(teacherInfoService.updatePassword(teacher)){
 			addActionMessage("还原密码成功！");
 			return SUCCESS;

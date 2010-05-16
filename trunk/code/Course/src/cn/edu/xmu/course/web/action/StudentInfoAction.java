@@ -3,12 +3,14 @@ package cn.edu.xmu.course.web.action;
 import java.io.File;
 import java.util.Date;
 
+import cn.edu.xmu.course.commons.MD5;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.IStudentInfoService;
 
 /**
  * 负责管理学生主页的类
+ * 
  * @author 郑冰凌
  * 
  */
@@ -18,27 +20,29 @@ public class StudentInfoAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 6085308815177983503L;
-	private IStudentInfoService studentInfoService;	//管理学生信息的接口
+	private IStudentInfoService studentInfoService; // 管理学生信息的接口
 
-	private Student student;	//学生
-	private UserInfo userInfo;	//用户信息
-	private String oldPassword;	//原密码
-	private String newPassword;	//新密码
+	private Student student; // 学生
+	private UserInfo userInfo; // 用户信息
+	private String oldPassword; // 原密码
+	private String newPassword; // 新密码
 
-	private File upload;	//头像文件
-	private String uploadContentType;	//头像文件类型
-	private String uploadFileName;	//头像文件名称
-	private String photoPath;	//头像路径
+	private File upload; // 头像文件
+	private String uploadContentType; // 头像文件类型
+	private String uploadFileName; // 头像文件名称
+	private String photoPath; // 头像路径
 
 	/**
 	 * 修改头像
+	 * 
 	 * @return
 	 */
 	public String changeHead() {
 		student = (Student) super.getSession().get(STUDENT);
 		String oldPhoto = student.getUserInfo().getPhoto();
 		int pos = uploadFileName.lastIndexOf(".");
-		String fileLink = "photo/" + new Date().getTime()+uploadFileName.substring(pos);
+		String fileLink = "photo/" + new Date().getTime()
+				+ uploadFileName.substring(pos);
 		student.getUserInfo().setPhoto(fileLink);
 		if (studentInfoService.addStudentPhoto(student.getUserInfo(), upload,
 				oldPhoto)) {
@@ -94,21 +98,23 @@ public class StudentInfoAction extends BaseAction {
 	 */
 	public String changePassword() {
 		student = (Student) super.getSession().get(STUDENT);
-		if (student.getPassword().equals(oldPassword)) {
-			student.setPassword(newPassword);
+		MD5 md5 = new MD5();
+		if (student.getPassword().equals(md5.getMD5ofStr(oldPassword))) {
+			student.setPassword(md5.getMD5ofStr(newPassword));
 			boolean result = studentInfoService.updatePassword(student);
 			if (result) {
 				addActionMessage("修改密码成功！");
 				return SUCCESS;
-			} else
+			} else {
+				addActionMessage("修改密码失败！");
 				return SUCCESS;
+			}
 		} else {
 			addActionError("原密码错误！");
 			return SUCCESS;
 		}
-	}	
+	}
 
-	
 	public IStudentInfoService getStudentInfoService() {
 		return studentInfoService;
 	}
@@ -132,7 +138,7 @@ public class StudentInfoAction extends BaseAction {
 	public void setUserInfo(UserInfo userInfo) {
 		this.userInfo = userInfo;
 	}
-	
+
 	public String getOldPassword() {
 		return oldPassword;
 	}
@@ -148,7 +154,7 @@ public class StudentInfoAction extends BaseAction {
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
 	}
-	
+
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
 	}

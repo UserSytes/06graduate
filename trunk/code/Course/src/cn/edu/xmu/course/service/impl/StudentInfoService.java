@@ -7,6 +7,7 @@ import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
 import cn.edu.xmu.course.commons.FileOperation;
+import cn.edu.xmu.course.commons.MD5;
 import cn.edu.xmu.course.dao.StudentDAO;
 import cn.edu.xmu.course.dao.UserInfoDAO;
 import cn.edu.xmu.course.pojo.Department;
@@ -25,6 +26,7 @@ public class StudentInfoService implements IStudentInfoService {
 
 	private StudentDAO studentDAO;
 	private UserInfoDAO userInfoDAO;
+	private MD5 md5 = new MD5();
 
 	/*
 	 * 修改学生头像(non-Javadoc)
@@ -54,6 +56,7 @@ public class StudentInfoService implements IStudentInfoService {
 	 */
 	public boolean addStudent(Student student, UserInfo userInfo) {
 		// TODO Auto-generated method stub
+		student.setPassword(getMd5().getMD5ofStr(student.getPassword()));
 		try {
 			studentDAO.save(student);
 			return true;
@@ -315,6 +318,14 @@ public class StudentInfoService implements IStudentInfoService {
 		} else {
 			return students.get(0);
 		}
+	}
+
+	public void setMd5(MD5 md5) {
+		this.md5 = md5;
+	}
+
+	public MD5 getMd5() {
+		return md5;
 	}
 
 	

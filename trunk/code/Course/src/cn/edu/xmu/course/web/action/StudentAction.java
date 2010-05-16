@@ -3,6 +3,7 @@ package cn.edu.xmu.course.web.action;
 import java.io.File;
 import java.util.List;
 
+import cn.edu.xmu.course.commons.MD5;
 import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.Grade;
@@ -242,7 +243,7 @@ public class StudentAction extends BaseAction {
 	 */
 	public String restorePassword(){
 		student = studentInfoService.findById(studentId);
-		student.setPassword(student.getStudentNo());
+		student.setPassword(new MD5().getMD5ofStr(student.getStudentNo()));
 		if(studentInfoService.updatePassword(student)){
 			addActionMessage("还原密码成功！");
 			return SUCCESS;
