@@ -47,39 +47,36 @@ public class TEst2 {
 		.getBean("superAdminService");		
 		IEvaluateService evaService = (IEvaluateService) factory.getBean("evaluateService");
 		MD5 md5 = new MD5();
-//		Teacher tea  = service.findTeacherById(2);
-		
-//		tea.setPassword(md5.getMD5ofStr(tea.getPassword()));
-//		service.updatePassword(tea);
-//		List<Administrator> admins = adminService.findAllAdmin();
-//		System.out.println(admins.size());
-//		for(Administrator a:admins){
-//			a.setPassword(md5.getMD5ofStr(a.getPassword()));
-//			adminService.updateAdmin(a);
-//		}
-//		List<SuperAdmin> superAdmins =adminService.findAllSuperAdmin();
-//		for(SuperAdmin sa:superAdmins){
-//			sa.setPassword(md5.getMD5ofStr(sa.getPassword()));
-//			adminService.updateSuperAdmin(sa);
-//		}
-//		List<School> schools = superAdmin.findAllSchool();
-//		for(School school:schools){
-//			List<Student> stus = stuService.findBySchool(school);
-//			for(Student stu:stus){
-//				stu.setPassword(md5.getMD5ofStr(stu.getPassword()));
-//				stuService.updatePassword(stu);
-//			}
-//			List<Teacher> teas = service.findTeachersBySchool(school);
-//			for(Teacher tea :teas){
-//				tea.setPassword(md5.getMD5ofStr(tea.getPassword()));
-//				service.updatePassword(tea);
-//			}
-//		}
+		List<Administrator> admins = adminService.findAllAdmin();
+		System.out.println(admins.size());
+		for(Administrator a:admins){
+			a.setPassword(md5.getMD5ofStr(a.getPassword()));
+			adminService.updateAdmin(a);
+		}
+		List<SuperAdmin> superAdmins =adminService.findAllSuperAdmin();
+		for(SuperAdmin sa:superAdmins){
+			sa.setPassword(md5.getMD5ofStr(sa.getPassword()));
+			adminService.updateSuperAdmin(sa);
+		}
+		List<School> schools = superAdmin.findAllSchool();
+		for(School school:schools){
+			List<Student> stus = stuService.findBySchool(school);
+			for(Student stu:stus){
+				stu.setPassword(md5.getMD5ofStr(stu.getPassword()));
+				stuService.updatePassword(stu);
+			}
+			List<Teacher> teas = service.findTeachersBySchool(school);
+			for(Teacher tea :teas){
+				tea.setPassword(md5.getMD5ofStr(tea.getPassword()));
+				service.updatePassword(tea);
+			}
+		}
 		List<Evaluation> evas = evaService.findAllEvaluation();
 		for(Evaluation eva:evas){
 			eva.setPassword(md5.getMD5ofStr(eva.getPassword()));
 			evaService.updateEvaluation(eva);
 		}
+		System.out.println("你已经运行成功!");
 	}
 
 }
