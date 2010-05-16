@@ -331,12 +331,11 @@ public class EvaluationAction extends BaseAction {
 		course = super.getCourse();
 		evaluation = (Evaluation) super.getSession().get(EVALUATION);
 		if (null == evaluation || evaluation.getSort() == 1) {
-			return "login";
-		}
-		else if (!evaluation.getCourse().getId().equals(course.getId())) {
+			return "evalogin";
+		} else if (!evaluation.getCourse().getId().equals(course.getId())) {
 			addActionError("对不起，该专家帐号不适用于该课程！请返回重试！");
 			return ERROR;
-		}else {
+		} else {
 			getExpertAverage(course.getId());
 			score = evaluation.getScore();
 			if (score == null) {
@@ -362,20 +361,22 @@ public class EvaluationAction extends BaseAction {
 		course = super.getCourse();
 		evaluation = (Evaluation) super.getSession().get(EVALUATION);
 		if (null == evaluation || evaluation.getSort() == 0) {
-			return "login";
+			return "evalogin";
 		} else if (!evaluation.getCourse().getId().equals(course.getId())) {
 			addActionError("对不起，该同行帐号不适用于该课程！请返回重试！");
 			return ERROR;
-		}else {
+		} else {
 			getTeaAverage(course.getId());
 			score = evaluation.getScore();
 			if (score == null) {
 				return "evluate";
 			} else {
 				if (evaluation.getStatus() == 1)
-					scorestring = "您已经评价过，你上一次对该课程的评分是：" + score.intValue()+ "分";
+					scorestring = "您已经评价过，你上一次对该课程的评分是：" + score.intValue()
+							+ "分";
 				else
-					scorestring = "您保存过草稿，你上一次对该课程的评分是：" + score.intValue()+ "分";
+					scorestring = "您保存过草稿，你上一次对该课程的评分是：" + score.intValue()
+							+ "分";
 				return SUCCESS;
 			}
 		}
@@ -387,11 +388,11 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String sDetailEvaluate() {
-		course = super.getCourse();
 		student = super.getStudent();
 		if (null == student) {
-			return "login";
+			return "evalogin";
 		} else {
+			course = super.getCourse();
 			List<StudentCourse> scList = evaluateService
 					.findByStudentAndCourse(course, student);
 			if (scList.size() == 0) {

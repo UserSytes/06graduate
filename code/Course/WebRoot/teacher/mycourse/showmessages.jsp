@@ -255,26 +255,16 @@ a {
                      										<s:param name="topicId"> 
                        			 								<s:property value="topic.id"/> 
                     										</s:param>
-															<s:param name="replyString" value="userInfo.name"> 
-                    										</s:param>
-															<s:param name="replyGrade" value="grade"> 
-                    										</s:param>
-															<s:param name="replyContent" value="content"> 
-                    										</s:param>
-                											</s:url>"><font
+															<s:param name="messageId" value="id"> 
+                    										</s:param></s:url>"><font
 												color="#999">引用</font> </a>
 											<a class="repquote" rel="facebox"
 												href="<s:url action="goReplyToSomeoneByTeaAction">
                      										<s:param name="topicId"> 
                        			 								<s:property value="topic.id"/> 
-                    										</s:param>
-															<s:param name="replyString"> 
-                       			 								<s:property value="userInfo.name"/>
-                    										</s:param>
-															<s:param name="replyGrade"> 
-                       			 								<s:property value="grade"/>
-                    										</s:param>
-                											</s:url>"><font
+                    										</s:param>															
+															<s:param name="messageId" value="id"> 
+                    										</s:param></s:url>"><font
 												color="#999">回复</font> </a>
 												<a class="delete"
 												href="<s:url action="deleteMessageByTeaAction">

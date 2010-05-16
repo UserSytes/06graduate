@@ -217,7 +217,7 @@ public class StudentCourseAction extends BaseAction{
 	public String addCollection(){
 		student = super.getStudent();
 		if(student == null)
-			return "login";
+			return "collogin";
 		course = super.getCourse();
 		Collection col =studentCourseService.findCollectionByStu(student, course);
 		if(col == null){

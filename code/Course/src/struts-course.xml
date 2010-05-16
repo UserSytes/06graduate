@@ -31,7 +31,7 @@
 			</result>
 			<result name="error">/coursepage/colprompt.jsp
 			</result>
-			<result name="login">/coursepage/collogin.jsp
+			<result name="collogin">/coursepage/collogin.jsp
 			</result>
 		</action>
 		
@@ -114,7 +114,7 @@
 		</action>
 		<action name="eDetailEvaluateAction" method="eDetailEvaluate"
 			class="evaluationAction">
-			<result name="login">/coursepage/evaluation/login.jsp
+			<result name="evalogin">/coursepage/evaluation/login.jsp
 			</result>
 			<result name="evluate">/coursepage/evaluation/expertevaluate.jsp
 			</result>
@@ -125,7 +125,7 @@
 		</action>
 		<action name="tDetailEvaluateAction" method="tDetailEvaluate"
 			class="evaluationAction">
-			<result name="login">/coursepage/evaluation/login.jsp
+			<result name="evalogin">/coursepage/evaluation/login.jsp
 			</result>
 			<result name="evluate">/coursepage/evaluation/teacherevaluate.jsp
 			</result>
@@ -136,7 +136,7 @@
 		</action>
 		<action name="sDetailEvaluateAction" method="sDetailEvaluate"
 			class="evaluationAction">
-			<result name="login">/coursepage/evaluation/login.jsp
+			<result name="evalogin">/coursepage/evaluation/login.jsp
 			</result>
 			<result name="evluate">/coursepage/evaluation/studentevaluate.jsp
 			</result>
@@ -256,11 +256,39 @@
 			<result name="error">/coursepage/prompt.jsp
 			</result>
 		</action>
-			<!-- 留言板 -->
-		<action name="goNewTopicAction" method="goNewTopic" class="messageAction">
-			<result name="success">/coursepage/messagemanage/newtopic.jsp
+		<action name="showTopicsAction" method="showTopics" class="messageAction">
+			<result name="topics">/coursepage/messagemanage/showtopics.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
+			<result name="msglogin">/coursepage/login.jsp
 			</result>
 		</action>
+		
+	</package>
+	
+		<!-- 课程留言板模块 -->
+	<package name="coursemsg" extends="struts-default">
+		
+		<interceptors>  
+        <!-- 定义拦截器栈 -->
+      	  <interceptor name="messageAuthority"
+				class="cn.edu.xmu.course.interceptor.MessageInterceptor" />			
+			<interceptor-stack name="messageStack">  
+                <!--配置内建默认拦截器-->
+				<interceptor-ref name="defaultStack" />  
+                 <!--配置自定义的拦截器-->
+				<interceptor-ref name="messageAuthority" />
+			</interceptor-stack>
+		</interceptors>
+		
+		 <!--定义全局Result-->
+		 <default-interceptor-ref name="messageStack" />  
+		<global-results>
+			<result name="login">/homepage/loginprompt.jsp</result>
+		</global-results>  
+		
+		<!-- 留言板 -->
 		<action name="addNewMessageAction" method="addNewMessage"
 			class="messageAction">
 			<result name="success" type="redirect-action">showTopicsAction
@@ -268,36 +296,8 @@
 			<result name="error">/coursepage/prompt.jsp
 			</result>
 		</action>
-		<action name="showTopicsAction" method="showTopics" class="messageAction">
-			<result name="topics">/coursepage/messagemanage/showtopics.jsp
-			</result>
-			<result name="error">/coursepage/prompt.jsp
-			</result>
-			<result name="login">/coursepage/login.jsp
-			</result>
-		</action>
 		<action name="showMessagesAction" method="showMessages" class="messageAction">
 			<result name="messages">/coursepage/messagemanage/showmessages.jsp
-			</result>
-			<result name="error">/coursepage/prompt.jsp
-			</result>
-		</action>
-		<action name="goReplyAction" method="goReply" class="messageAction">
-			<result name="success">/coursepage/messagemanage/newreply.jsp
-			</result>
-			<result name="error">/coursepage/prompt.jsp
-			</result>
-		</action>
-		<action name="goReplyToSomeoneAction" method="goReplyToSomeone"
-			class="messageAction">
-			<result name="success">/coursepage/messagemanage/newreply.jsp
-			</result>
-			<result name="error">/coursepage/prompt.jsp
-			</result>
-		</action>
-		<action name="goReplyWithQuoteAction" method="goReplyWithQuote"
-			class="messageAction">
-			<result name="success">/coursepage/messagemanage/newreply.jsp
 			</result>
 			<result name="error">/coursepage/prompt.jsp
 			</result>
@@ -308,7 +308,5 @@
 			<result name="error">/coursepage/prompt.jsp
 			</result>
 		</action>
-		
-		
-	</package>
+		</package>
 </struts>
