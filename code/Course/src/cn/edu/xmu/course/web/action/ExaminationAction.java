@@ -60,7 +60,7 @@ public class ExaminationAction extends BaseAction {
 	 * @return
 	 */
 	public String addExamination() {
-		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
+		String fileLink = super.getPreFileNameByTeacher(super.getCourse()) + uploadFileName;
 		examination.setFilename(uploadFileName);
 		examination.setFileLink(fileLink);
 		if (examinationService.addExamination(examination, super.getCourse(),
@@ -88,7 +88,7 @@ public class ExaminationAction extends BaseAction {
 	 * @return
 	 */
 	public String updateExamination() {
-		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
+		String fileLink = super.getPreFileNameByTeacher(super.getCourse()) + uploadFileName;
 		examination.setFilename(uploadFileName);
 		examination.setFileLink(fileLink);
 		if (examinationService.updateExamination(examination, upload))

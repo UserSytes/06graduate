@@ -90,12 +90,8 @@ public class CoursewareAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	public String addCourseware() {
-		if (upload.length() >= new Long(10485760L)) {
-			addActionError("上传课件大小不能超过10M,请重新上传！");
-			return ERROR;
-		}
-		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
+	public String addCourseware() {	
+		String fileLink = super.getPreFileNameByTeacher(super.getCourse()) + uploadFileName;
 		courseware.setFilename(uploadFileName);
 		courseware.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);
@@ -136,12 +132,8 @@ public class CoursewareAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	public String updateCourseware() {
-		if (upload.length() >= new Long(10485760L)) {
-			addActionError("上传课件大小不能超过10M,请重新上传！");
-			return ERROR;
-		}
-		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
+	public String updateCourseware() {	
+		String fileLink = super.getPreFileNameByTeacher(super.getCourse()) + uploadFileName;
 		courseware.setFilename(uploadFileName);
 		courseware.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);

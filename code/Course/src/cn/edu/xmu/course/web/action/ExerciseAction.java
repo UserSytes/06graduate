@@ -79,12 +79,8 @@ public class ExerciseAction extends BaseAction {
 	 * 添加练习
 	 * @return
 	 */
-	public String addExercise() {
-		if (upload.length() >= new Long(10485760L)) {
-			addActionError("上传习题大小不能超过10M,请重新上传！");
-			return ERROR;
-		}
-		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
+	public String addExercise() {		
+		String fileLink = super.getPreFileNameByTeacher(super.getCourse()) + uploadFileName;
 		exercise.setFilename(uploadFileName);
 		exercise.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);
@@ -119,12 +115,8 @@ public class ExerciseAction extends BaseAction {
 	 * 更新练习
 	 * @return
 	 */
-	public String updateExercise() {
-		if (upload.length() >= new Long(10485760L)) {
-			addActionError("上传习题大小不能超过10M,请重新上传！");
-			return ERROR;
-		}
-		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
+	public String updateExercise() {	
+		String fileLink = super.getPreFileNameByTeacher(super.getCourse()) + uploadFileName;
 		exercise.setFilename(uploadFileName);
 		exercise.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);

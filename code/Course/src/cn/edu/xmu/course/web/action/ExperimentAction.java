@@ -83,12 +83,8 @@ public class ExperimentAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	public String addExperiment() {
-		if (upload.length() >= new Long(10485760L)) {
-			addActionError("上传习题大小不能超过10M,请重新上传！");
-			return ERROR;
-		}
-		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
+	public String addExperiment() {		
+		String fileLink = super.getPreFileNameByTeacher(super.getCourse()) + uploadFileName;
 		experiment.setFilename(uploadFileName);
 		experiment.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);
@@ -129,12 +125,8 @@ public class ExperimentAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	public String updateExperiment() {
-		if (upload.length() >= new Long(10485760L)) {
-			addActionError("上传习题大小不能超过10M,请重新上传！");
-			return ERROR;
-		}
-		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
+	public String updateExperiment() {		
+		String fileLink = super.getPreFileNameByTeacher(super.getCourse()) + uploadFileName;
 		experiment.setFilename(uploadFileName);
 		experiment.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);

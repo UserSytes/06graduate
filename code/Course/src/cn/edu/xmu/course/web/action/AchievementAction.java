@@ -49,7 +49,7 @@ public class AchievementAction extends BaseAction {
 	 * @return
 	 */
 	public String addAchievement() {
-		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
+		String fileLink = super.getPreFileNameByTeacher(super.getCourse()) + uploadFileName;
 		achievement.setFileName(uploadFileName);
 		achievement.setFileLink(fileLink);
 		if (achievementService.addAchievement(super.getCourse(), achievement,
@@ -77,7 +77,7 @@ public class AchievementAction extends BaseAction {
 	 * @return
 	 */
 	public String updateAchievement() {
-		String fileLink = super.getPreFileNameByTeacher() + uploadFileName;
+		String fileLink = super.getPreFileNameByTeacher(super.getCourse()) + uploadFileName;
 		achievement.setFileName(uploadFileName);
 		achievement.setFileLink(fileLink);
 		if (achievementService.updateAchievement(achievement, upload))

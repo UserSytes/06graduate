@@ -103,7 +103,12 @@ public class TeacherInfoService implements ITeacherInfoService {
 	 */
 	public boolean deleteTeacher(Teacher teacher) {
 		// TODO Auto-generated method stub
+		String path = ServletActionContext.getServletContext().getRealPath(
+		"/upload");
+		String fileName = path + "/"+teacher.getTeacherNo()+ teacher.getUserInfo().getName();
 		try {
+			if(!FileOperation.delFolder(fileName))
+				return false;
 			userInfoDAO.delete(teacher.getUserInfo());
 			teacherDAO.delete(teacher);
 			return true;
