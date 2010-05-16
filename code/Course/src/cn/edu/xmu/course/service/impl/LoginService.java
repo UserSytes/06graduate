@@ -2,6 +2,7 @@ package cn.edu.xmu.course.service.impl;
 
 import java.util.List;
 
+import cn.edu.xmu.course.commons.MD5;
 import cn.edu.xmu.course.dao.AdministratorDAO;
 import cn.edu.xmu.course.dao.EvaluationDAO;
 import cn.edu.xmu.course.dao.StudentDAO;
@@ -27,6 +28,7 @@ public class LoginService implements ILoginService {
 	private AdministratorDAO administratorDAO;
 	private SuperAdminDAO superAdminDAO;
 	private EvaluationDAO evaluationDAO;
+	private MD5 md5 = new MD5();
 	
 	/*
 	 * ½ÌÊ¦µÇÂ¼(non-Javadoc)
@@ -38,7 +40,8 @@ public class LoginService implements ILoginService {
 		if (0 == teachers.size())
 			return null;
 		Teacher t = teachers.get(0);
-		if (password.equals(t.getPassword()))
+		System.out.println(t.getPassword());
+		if (t.getPassword().equals(md5.getMD5ofStr(password)))
 			return t;
 		else
 			return null;
@@ -53,8 +56,8 @@ public class LoginService implements ILoginService {
 		List<Administrator> admins = administratorDAO.findByAccount(account);
 		if (0 == admins.size())
 			return null;
-		Administrator a = admins.get(0);
-		if (password.equals(a.getPassword()))
+		Administrator a = admins.get(0);		
+		if (md5.getMD5ofStr(password).equals(a.getPassword()))
 			return a;
 		else
 			return null;
@@ -70,7 +73,7 @@ public class LoginService implements ILoginService {
 		if (0 == students.size())
 			return null;
 		Student st = students.get(0);
-		if (password.equals(st.getPassword()))
+		if (md5.getMD5ofStr(password).equals(st.getPassword()))
 			return st;
 		else
 			return null;
@@ -85,7 +88,7 @@ public class LoginService implements ILoginService {
 		SuperAdmin a = superAdminDAO.findByAccount(account);
 		if (a == null)
 			return null;
-		if (password.equals(a.getPassword()))
+		if (md5.getMD5ofStr(password).equals(a.getPassword()))
 			return a;
 		else
 			return null;
@@ -101,7 +104,7 @@ public class LoginService implements ILoginService {
 		if (0 == evaluations.size())
 			return null;
 		Evaluation a = evaluations.get(0);
-		if (password.equals(a.getPassword())&&a.getSort()==flag)
+		if (md5.getMD5ofStr(password).equals(a.getPassword())&&a.getSort()==flag)
 			return a;
 		else
 			return null;
@@ -144,6 +147,14 @@ public class LoginService implements ILoginService {
 
 	public void setEvaluationDAO(EvaluationDAO evaluationDAO) {
 		this.evaluationDAO = evaluationDAO;
+	}
+
+	public void setMd5(MD5 md5) {
+		this.md5 = md5;
+	}
+
+	public MD5 getMd5() {
+		return md5;
 	}
 
 	

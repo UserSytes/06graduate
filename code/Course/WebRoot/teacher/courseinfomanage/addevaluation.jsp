@@ -85,7 +85,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="evaname" name="evaluation.userame"
+						<s:textfield id="evaname" name="evaluation.username"
 							cssClass="input"  onblur="getEvaluationName(this.value)" />
 						<span id="result"> </span>
 					</td>

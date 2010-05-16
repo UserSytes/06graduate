@@ -2,6 +2,7 @@ package cn.edu.xmu.course.web.action;
 
 import java.util.List;
 
+import cn.edu.xmu.course.commons.MD5;
 import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.SuperAdmin;
 import cn.edu.xmu.course.service.IAdminService;
@@ -58,8 +59,9 @@ public class AdminAction extends BaseAction {
 	 */
 	public String changeAdministratorPassword(){
 		admin = super.getAdmin();
-		if(admin.getPassword().equals(oldPassword)){
-			admin.setPassword(newPassword);
+		MD5 md5 = new MD5();
+		if(admin.getPassword().equals(md5.getMD5ofStr(oldPassword))){
+			admin.setPassword(md5.getMD5ofStr(newPassword));
 			boolean result = adminService.updateAdmin(admin);
 			if(result){
 				addActionMessage("修改密码成功！");
@@ -81,8 +83,9 @@ public class AdminAction extends BaseAction {
 	 */
 	public String changeSuperAdminPassword(){
 		superAdmin = super.getSuperAdmin();
-		if(superAdmin.getPassword().equals(oldPassword)){
-			superAdmin.setPassword(newPassword);
+		MD5 md5 = new MD5();
+		if(superAdmin.getPassword().equals(md5.getMD5ofStr(oldPassword))){
+			superAdmin.setPassword(md5.getMD5ofStr(newPassword));
 			boolean result = adminService.updateSuperAdmin(superAdmin);
 			if(result){
 				addActionMessage("修改密码成功！");
@@ -152,7 +155,7 @@ public class AdminAction extends BaseAction {
 	 */
 	public String restoreSuperAdminPassword(){
 		SuperAdmin s = adminService.findSuperAdminById(superAdminId);
-		s.setPassword(s.getAccount());
+		s.setPassword(new MD5().getMD5ofStr(s.getAccount()));
 		boolean result = adminService.updateSuperAdmin(s);
 		if(result){
 			addActionMessage("还原密码成功！");

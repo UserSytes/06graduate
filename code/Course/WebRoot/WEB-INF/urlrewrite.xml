@@ -13,6 +13,10 @@
 		<from>^/homepage/course_([0-9]+).html$</from>
 		<to>/intoCourseAction.action?courseId=$1</to>
 	</rule>
+	<rule>
+		<from>^/teacher/course_([0-9]+).html$</from>
+		<to>/intoCourseAction.action?courseId=$1</to>
+	</rule>
 	<outbound-rule>
 		<from>/intoCourseAction.action\?courseId=([0-9]+)</from>
 		<to>/course_$1.html</to>

@@ -32,8 +32,8 @@
 			<tr>
 				<td width="880" valign="top">
 					&nbsp;
-					<a href="index.htm"><img src="${ctx}/homepage/image/logo.gif"
-							border="0"> </a>
+					<img src="${ctx}/homepage/image/logo.gif"
+							border="0">
 				</td>
 				<td>
 					<table border="0" cellpadding="0" cellspacing="0">

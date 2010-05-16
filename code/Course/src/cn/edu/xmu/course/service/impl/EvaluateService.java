@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 import cn.edu.xmu.course.commons.CourseEvaluate;
+import cn.edu.xmu.course.commons.MD5;
 import cn.edu.xmu.course.dao.EvaluationDAO;
 import cn.edu.xmu.course.dao.StudentCourseDAO;
 import cn.edu.xmu.course.pojo.Course;
@@ -201,8 +202,10 @@ public class EvaluateService implements IEvaluateService {
 	 * cn.edu.xmu.course.service.IEvaluateService#addEvaluation(cn.edu.xmu.course
 	 * .pojo.Evaluation, cn.edu.xmu.course.pojo.Course)
 	 */
-	public boolean addEvaluation(Evaluation evaluation, Course course) {
+	public boolean addEvaluation(Evaluation evaluation, Course course) {		
 		// TODO Auto-generated method stub
+		MD5 md5 = new MD5();
+		evaluation.setPassword(md5.getMD5ofStr(evaluation.getPassword()));
 		evaluation.setCourse(course);
 		evaluation.setStatus(0);
 
@@ -236,11 +239,14 @@ public class EvaluateService implements IEvaluateService {
 	 * @see cn.edu.xmu.course.service.IEvaluateService#getEvaluationByUsername(java.lang.String)
 	 */
 	public Evaluation getEvaluationByUsername(String username){
-		System.out.println("herer is "+username);
 		List<Evaluation> el = getEvaluationDAO().findByUsername(username);
 		if(el.size()==0)
 			return null;
 		else return el.get(0);
+	}
+	
+	public List<Evaluation> findAllEvaluation(){
+		return evaluationDAO.findAll();
 	}
 
 	public void setStudentCourseDAO(StudentCourseDAO studentCourseDAO) {

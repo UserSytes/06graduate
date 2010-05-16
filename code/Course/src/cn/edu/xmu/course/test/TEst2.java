@@ -8,10 +8,21 @@ import java.util.List;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
+import cn.edu.xmu.course.commons.MD5;
+import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Department;
+import cn.edu.xmu.course.pojo.Evaluation;
 import cn.edu.xmu.course.pojo.School;
+import cn.edu.xmu.course.pojo.Student;
+import cn.edu.xmu.course.pojo.SuperAdmin;
+import cn.edu.xmu.course.pojo.Teacher;
+import cn.edu.xmu.course.service.IAdminService;
+import cn.edu.xmu.course.service.IEvaluateService;
 import cn.edu.xmu.course.service.ISearchCourseService;
+import cn.edu.xmu.course.service.IStudentInfoService;
 import cn.edu.xmu.course.service.ISuperAdminService;
+import cn.edu.xmu.course.service.ITeacherInfoService;
+import cn.edu.xmu.course.service.impl.SuperAdminService;
 
 public class TEst2 {
 
@@ -26,55 +37,48 @@ public class TEst2 {
 				"WebRoot/WEB-INF/serviceContext.xml" };
 		FileSystemXmlApplicationContext factory = new FileSystemXmlApplicationContext(
 				locations);
-		ISearchCourseService service = (ISearchCourseService) factory
-				.getBean("searchCourseService");
+		ITeacherInfoService service = (ITeacherInfoService) factory
+				.getBean("teacherInfoService");
+		IStudentInfoService stuService = (IStudentInfoService) factory
+		.getBean("studentInfoService");
+		IAdminService adminService = (IAdminService) factory
+		.getBean("adminService");
 		ISuperAdminService superAdmin=(ISuperAdminService) factory
 		.getBean("superAdminService");		
-		File file = new File("D:" + "/" + "dept_data.txt");
-		System.out.println(file.getPath());
-		List<School> schools = superAdmin.findAllSchool();
-		try {
-			if (file.exists())
-				file.delete();
-			file.createNewFile();
-			FileOutputStream out = new FileOutputStream(file, true);
-			StringBuffer sb = new StringBuffer();
-			sb.append("[");
-			int slength = schools.size();
-			for (int i = 0; i < slength; i++) {
-				sb.append("{");
-				sb.append("\"sort\":2,");
-				sb.append("\"id\":" + schools.get(i).getId() + ",");
-				sb.append("\"text\":\"" + schools.get(i).getName() + "\",");
-				sb.append("\"state\":\"closed\",");
-				sb.append("\"children\":[");
-				List<Department> depts = superAdmin
-						.findDepartmentBySchool(schools.get(i));
-				int dlength = depts.size();
-				if (dlength > 0) {
-					for (int j = 0; j < dlength; j++) {
-						sb.append("{");
-						sb.append("\"sort\":3,");
-						sb.append("\"id\":" + depts.get(j).getId() + ",");
-						sb
-								.append("\"text\":\"" + depts.get(j).getName()
-										+ "\"");
-						sb.append("}");
-						if (j < (dlength - 1))
-							sb.append(",");
-					}
-				}
-				sb.append("]}");
-				if (i < (slength - 1))
-					sb.append(",");
-			}
-			sb.append("]");
-			out.write(sb.toString().getBytes("utf-8"));
-			out.close();
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		IEvaluateService evaService = (IEvaluateService) factory.getBean("evaluateService");
+		MD5 md5 = new MD5();
+//		Teacher tea  = service.findTeacherById(2);
+		
+//		tea.setPassword(md5.getMD5ofStr(tea.getPassword()));
+//		service.updatePassword(tea);
+//		List<Administrator> admins = adminService.findAllAdmin();
+//		System.out.println(admins.size());
+//		for(Administrator a:admins){
+//			a.setPassword(md5.getMD5ofStr(a.getPassword()));
+//			adminService.updateAdmin(a);
+//		}
+//		List<SuperAdmin> superAdmins =adminService.findAllSuperAdmin();
+//		for(SuperAdmin sa:superAdmins){
+//			sa.setPassword(md5.getMD5ofStr(sa.getPassword()));
+//			adminService.updateSuperAdmin(sa);
+//		}
+//		List<School> schools = superAdmin.findAllSchool();
+//		for(School school:schools){
+//			List<Student> stus = stuService.findBySchool(school);
+//			for(Student stu:stus){
+//				stu.setPassword(md5.getMD5ofStr(stu.getPassword()));
+//				stuService.updatePassword(stu);
+//			}
+//			List<Teacher> teas = service.findTeachersBySchool(school);
+//			for(Teacher tea :teas){
+//				tea.setPassword(md5.getMD5ofStr(tea.getPassword()));
+//				service.updatePassword(tea);
+//			}
+//		}
+		List<Evaluation> evas = evaService.findAllEvaluation();
+		for(Evaluation eva:evas){
+			eva.setPassword(md5.getMD5ofStr(eva.getPassword()));
+			evaService.updateEvaluation(eva);
 		}
 	}
 

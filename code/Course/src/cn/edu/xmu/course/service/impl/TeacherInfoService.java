@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.struts2.ServletActionContext;
 
 import cn.edu.xmu.course.commons.FileOperation;
+import cn.edu.xmu.course.commons.MD5;
 import cn.edu.xmu.course.dao.TeacherDAO;
 import cn.edu.xmu.course.dao.UserInfoDAO;
 import cn.edu.xmu.course.pojo.School;
@@ -32,8 +33,6 @@ public class TeacherInfoService implements ITeacherInfoService {
 	public Teacher getTeacher(String userName) {
 		// TODO Auto-generated method stub
 		List<Teacher> teachers = teacherDAO.findByTeacherNo(userName);
-		System.out.println("the old password is"
-				+ teachers.get(0).getPassword());
 		if (teachers.size() == 0)
 			return null;
 		else
@@ -66,6 +65,8 @@ public class TeacherInfoService implements ITeacherInfoService {
 	 */
 	public boolean addTeacher(Teacher teacher, UserInfo userInfo) {
 		// TODO Auto-generated method stub
+		MD5 md5 = new MD5();
+		teacher.setPassword(md5.getMD5ofStr(teacher.getPassword()));
 		try {
 			userInfoDAO.save(userInfo);
 			teacherDAO.save(teacher);

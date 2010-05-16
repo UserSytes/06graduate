@@ -2,6 +2,7 @@ package cn.edu.xmu.course.web.action;
 
 import java.util.List;
 
+import cn.edu.xmu.course.commons.MD5;
 import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.Grade;
@@ -127,7 +128,7 @@ public class SchoolManageAction extends BaseAction {
 	 */
 	public String restoreAdminPassword(){
 		admin = adminService.findAdminById(adminId);
-		admin.setPassword(admin.getAccount());
+		admin.setPassword(new MD5().getMD5ofStr(admin.getAccount()));
 		if(adminService.updateAdmin(admin)){
 			addActionMessage("还原密码成功！");
 			return SUCCESS;
