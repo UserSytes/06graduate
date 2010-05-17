@@ -1,7 +1,7 @@
 package cn.edu.xmu.course.dao;
 
-import java.util.Date;
 import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
@@ -10,6 +10,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import cn.edu.xmu.course.pojo.Achievement;
+import cn.edu.xmu.course.pojo.Course;
 
 /**
  * A data access object (DAO) providing persistence and search support for
@@ -30,8 +31,8 @@ public class AchievementDAO extends HibernateDaoSupport {
 	public static final String CONTENT = "content";
 	public static final String FILE_NAME = "fileName";
 	public static final String FILE_LINK = "fileLink";
-	public static final String COURSE="course";
-	
+	public static final String COURSE = "course";
+
 	protected void initDao() {
 		// do nothing
 	}
@@ -95,14 +96,17 @@ public class AchievementDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-	public List findByCourse(int courseId){		
+
+	public List findByCourse(int courseId) {
 		return findByProperty("course.id", courseId);
-		
+
 	}
-	public List findByCourse(Object course){		
+
+	public List findByCourse(Object course) {
 		return findByProperty(COURSE, course);
-		
+
 	}
+
 	public List findByTitle(Object title) {
 		return findByProperty(TITLE, title);
 	}
@@ -119,11 +123,12 @@ public class AchievementDAO extends HibernateDaoSupport {
 		return findByProperty(FILE_LINK, fileLink);
 	}
 	
-	public List findLastestSevenAchievements () {	 
+	public List findLastestSevenAchievements (Course course) {	 
 	  	try {	  	  
 	  		String queryString = 
-	  			"select achievement from Achievement achievement order by achievement.time DESC";
+	  			"select achievement from Achievement achievement where achievement.course=? order by achievement.time DESC";
 	  		Query queryObject = getSession().createQuery(queryString);
+	  		queryObject.setParameter(0, course);
 	  		queryObject.setFirstResult(0); 
 	  		queryObject.setMaxResults(7); 
 	  		return queryObject.list();
