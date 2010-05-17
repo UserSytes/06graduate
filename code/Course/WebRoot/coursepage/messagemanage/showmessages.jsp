@@ -198,7 +198,18 @@ $(document).ready(function(){
 														性别：
 														<font color="#003366"><s:property
 																value="userInfo.sex" /> </font>
-
+	<br /><img src="${ctx}/coursepage/classical/image/icon_9.gif">
+														邮箱： 
+													<a
+														href="mailto:<s:property value="userInfo.email"/>?subject=[厦门大学课程网络平台]"><font
+														color="#003366"><s:property value="userInfo.email" />
+													</font> </a>
+													<br />
+													<img src="${ctx}/coursepage/classical/image/icon_6.gif"
+														width="13" height="13">
+														联系电话： 
+													<font color="#003366"><s:property
+															value="userInfo.mobile" /> </font>
 
 													</div>
 												</td>
@@ -232,19 +243,7 @@ $(document).ready(function(){
 											<tr height="31">
 												<td width="200" align="left"
 													style="border-bottom: thin solid #9db350; border-right: thin dotted #60B7DE; border-top: 0px solid #E7EEF6;">
-													<img src="${ctx}/coursepage/classical/image/icon_9.gif">
-														邮箱： 
-													<a
-														href="mailto:<s:property value="userInfo.email"/>?subject=[厦门大学课程网络平台]"><font
-														color="#003366"><s:property value="userInfo.email" />
-													</font> </a>
-													<br />
-													<img src="${ctx}/coursepage/classical/image/icon_6.gif"
-														width="13" height="13">
-														联系电话： 
-													<font color="#003366"><s:property
-															value="userInfo.mobile" /> </font>
-												</td>
+													</td>
 												<td width="514" height="31" align="right"
 													style="border-top: 1px solid #E7EEF6; border-bottom: thin solid #9db350; padding-top: 5px; float: right;">
 													<a class="fastreply" rel="facebox"
