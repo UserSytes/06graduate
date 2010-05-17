@@ -129,7 +129,7 @@ public class AchievementService implements IAchievementService {
 	 */
 	public List findLastestSevenAchievements(Course course) {
 		// TODO Auto-generated method stub
-		return achievementDAO.findLastestSevenAchievements();
+		return achievementDAO.findLastestSevenAchievements(course);
 	}
 
 }
