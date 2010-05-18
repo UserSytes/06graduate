@@ -100,9 +100,7 @@ public class StudentAction extends BaseAction {
 		Department department = superAdminService
 				.findDepartmentById(departmentId);
 		student.setPassword(student.getStudentNo());
-		userInfo.setDepartment(department);
-		String photo = "photo/defaultPhoto.jpg";
-		userInfo.setPhoto(photo);
+		userInfo.setDepartment(department);		
 		student.setUserInfo(userInfo);
 		result = studentInfoService.addStudent(student, userInfo);
 		if (result) {
