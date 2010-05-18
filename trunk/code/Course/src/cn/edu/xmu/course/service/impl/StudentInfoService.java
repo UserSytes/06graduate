@@ -245,10 +245,10 @@ public class StudentInfoService implements IStudentInfoService {
 	}
 
 	/*
-	 * 批量添加学生(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.IStudentInfoService#addMoreStudent(cn.edu.xmu.course.pojo.Student, cn.edu.xmu.course.pojo.Grade, cn.edu.xmu.course.pojo.Department, java.io.File)
+	 * 批量添加学生(non-Javadoc)(non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentInfoService#addMoreStudent(cn.edu.xmu.course.pojo.Grade, cn.edu.xmu.course.pojo.Department, java.io.File)
 	 */
-	public String addMoreStudent(Student student, Grade grade,
+	public String addMoreStudent(Grade grade,
 			Department department, File file) {
 		// TODO Auto-generated method stub
 		Workbook book = null;
