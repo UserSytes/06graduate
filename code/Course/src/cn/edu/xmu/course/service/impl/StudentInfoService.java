@@ -36,7 +36,7 @@ public class StudentInfoService implements IStudentInfoService {
 		String path = ServletActionContext.getServletContext().getRealPath(
 				"/upload");
 		String fileName = path + "/" + userInfo.getPhoto();
-		File file = new File(fileName);		
+		File file = new File(fileName);			
 		try {
 			userInfoDAO.merge(userInfo);
 			if(!oldPhoto.equals("photo/defaultPhoto.jpg"))
@@ -57,6 +57,7 @@ public class StudentInfoService implements IStudentInfoService {
 	public boolean addStudent(Student student, UserInfo userInfo) {
 		// TODO Auto-generated method stub
 		student.setPassword(getMd5().getMD5ofStr(student.getPassword()));
+		userInfo.setPhoto("photo/defaultPhoto.jpg");
 		try {
 			studentDAO.save(student);
 			return true;

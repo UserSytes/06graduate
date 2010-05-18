@@ -67,6 +67,8 @@ public class TeacherInfoService implements ITeacherInfoService {
 		// TODO Auto-generated method stub
 		MD5 md5 = new MD5();
 		teacher.setPassword(md5.getMD5ofStr(teacher.getPassword()));
+		String photo = "photo/defaultPhoto.jpg";
+		userInfo.setPhoto(photo);
 		try {
 			userInfoDAO.save(userInfo);
 			teacherDAO.save(teacher);
