@@ -122,13 +122,12 @@ public interface IStudentInfoService {
 	
 	/**
 	 * 批量添加学生
-	 * @param student
 	 * @param grade
 	 * @param department
 	 * @param file
 	 * @return
 	 */
-	public String addMoreStudent(Student student, Grade grade, Department department, File file) ;
+	public String addMoreStudent(Grade grade, Department department, File file) ;
 	
 	/**
 	 * 修改学生头像

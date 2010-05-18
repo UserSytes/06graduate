@@ -113,7 +113,7 @@ public class MessageDAO extends HibernateDaoSupport {
       
     public List findTopicByUserInfo(UserInfo userInfo){
     	try {
-   			String queryString = "from Message as model where model.grade = 1 and model.userInfo = ?";
+   			String queryString = "from Message as model where model.grade = 1 and model.userInfo = ? order by model.time DESC";
    			return getHibernateTemplate().find(queryString, userInfo);
    		} catch (RuntimeException re) {
    			log.error("find by property name failed", re);

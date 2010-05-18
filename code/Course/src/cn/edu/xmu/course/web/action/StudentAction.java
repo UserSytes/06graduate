@@ -140,7 +140,7 @@ public class StudentAction extends BaseAction {
 		Grade grade = superAdminService.findGradeById(gradeId);
 		Department department = superAdminService
 				.findDepartmentById(departmentId);
-		String result =studentInfoService.addMoreStudent(student, grade, department, studentFile);
+		String result =studentInfoService.addMoreStudent(grade, department, studentFile);
 		addActionError(result);	
 		return SUCCESS;
 
