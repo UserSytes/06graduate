@@ -265,7 +265,8 @@ public class StudentInfoService implements IStudentInfoService {
 		for (int j = 1; j < rows; j++) {
 			Cell cellStuNo = sh.getCell(0, j);
 			String content = cellStuNo.getContents();
-			String stuNo = content.substring(0, content.length() - 1);
+			String stus[] = content.split(" ");
+			String stuNo = stus[0];			
 			if (isNumeric(stuNo)) {
 				if (studentDAO.findByStudentNo(stuNo).size() != 0) {
 					return "学号为" + stuNo + "的学生已经存在，请重新操作！";
@@ -277,7 +278,10 @@ public class StudentInfoService implements IStudentInfoService {
 		for (int j = 1; j < rows; j++) {
 			Cell cellStuNo = sh.getCell(0, j);
 			String content = cellStuNo.getContents();
-			String stuNo = content.substring(0, content.length() - 1);
+			if(content.equals(""))
+				break;			
+			String stus[] = content.split(" ");		
+			String stuNo = stus[0];			
 			Student stu = new Student();
 			stu.setGrade(grade);
 			stu.setStudentNo(stuNo);
