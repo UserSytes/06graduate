@@ -98,9 +98,9 @@ quote\:msgborder {
 	padding: 5px 10px 5px 25px;
 	color: #999;
 }
+
 .delete {
-	background: url(${ctx}/teacher/img/del.png) no-repeat
-		0 50%;
+	background: url(${ctx}/teacher/img/del.png) no-repeat 0 50%;
 	padding: 5px 10px 5px 25px;
 	color: #999;
 }
@@ -161,8 +161,9 @@ a {
 								<td align="left">
 									<font style="font-size: 14px; font-weight: 700">
 									&nbsp;&nbsp;&nbsp;主题：
-									<s:property value="topic.name" /> </font>
-										</td>
+									<s:property value="topic.name" />
+									</font>
+								</td>
 							</tr>
 						</table>
 						<table id="table" frame="below" ellspacing="0" cellpadding="4"
@@ -179,31 +180,45 @@ a {
 											<br>
 											<font
 												style="font-weight: bold; font-size: 14px;text-align: left;">&nbsp;
-											<s:property
-															value="userInfo.name" /> </font>
-													<div>
+											<s:property value="userInfo.name" />
+											</font>
+											<div>
 
-														<img src="${ctx}/coursepage/classical/image/icon_10.gif"
-															width="12" height="12">
-														系别：
-														<font color="#003366"><s:property
-																value="userInfo.department.name" /> </font>
-														<br />
-														<img src="${ctx}/coursepage/classical/image/icon_4.gif"
-															width="13" height="13">
-														学院：
-														<font color="#003366"><s:property
-																value="userInfo.department.school.name" /> </font>
-														<br />
-														<img src="${ctx}/coursepage/classical/image/icon_1.gif"
-															width="12" height="12">
-														性别：
-														<font color="#003366"><s:property
-																value="userInfo.sex" /> </font>
-
-
-													</div>
-												</td>
+												<img src="${ctx}/coursepage/classical/image/icon_10.gif"
+													width="12" height="12">
+												系别：
+												<font color="#003366">
+												<s:property value="userInfo.department.name" />
+												</font>
+												<br />
+												<img src="${ctx}/coursepage/classical/image/icon_4.gif"
+													width="13" height="13">
+												学院：
+												<font color="#003366">
+												<s:property value="userInfo.department.school.name" />
+												</font>
+												<br />
+												<img src="${ctx}/coursepage/classical/image/icon_1.gif"
+													width="12" height="12">
+												性别：
+												<font color="#003366">
+												<s:property value="userInfo.sex" />
+												</font> 
+												<br />
+												<img width="12" height="12" src="${ctx}/coursepage/classical/image/icon_9.gif">
+												邮箱：
+												<a
+													href="mailto:<s:property value="userInfo.email"/>?subject=[厦门大学课程网络平台]"><font
+													color="#003366"> <s:property value="userInfo.email" />
+												</font> </a>
+												<br />
+												<img src="${ctx}/coursepage/classical/image/icon_6.gif"
+													width="13" height="13">
+													联系电话： 
+												<font color="#003366"> <s:property
+													value="userInfo.mobile" /> </font>
+											</div>
+										</td>
 										<td width="75%" valign="top" height="100%">
 											<table border="0" cellspacing="0" cellpadding="4"
 												height="100%" width="100%">
@@ -234,19 +249,7 @@ a {
 									<tr height="31">
 										<td width="25%" align="left"
 											style="border-bottom: thin solid #9db350; border-right: thin dotted #60B7DE; border-top: 0px solid #E7EEF6;">
-											<img src="${ctx}/coursepage/classical/image/icon_9.gif">
-											邮箱：
-											<a
-												href="mailto:<s:property value="userInfo.email"/>?subject=[厦门大学课程网络平台]"><font
-												color="#003366">
-											<s:property value="userInfo.email" /> </font> </a>
-											<br />
-											<img src="${ctx}/coursepage/classical/image/icon_6.gif"
-												width="13" height="13">
-											联系电话：
-											<font color="#003366">
-											<s:property value="userInfo.mobile" />
-											</font>
+											
 										</td>
 										<td width="75%" height="31" align="right"
 											style="border-top: 1px solid #E7EEF6; border-bottom: thin solid #9db350; padding-top: 5px; float: right;">
@@ -266,12 +269,13 @@ a {
 															<s:param name="messageId" value="id"> 
                     										</s:param></s:url>"><font
 												color="#999">回复</font> </a>
-												<a class="delete"
+											<a class="delete"
 												href="<s:url action="deleteMessageByTeaAction">
                      										<s:param name="messageId"> 
                        			 								<s:property value="id"/> 
                     										</s:param>
-                											</s:url>" onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;"><font
+                											</s:url>"
+												onclick="JAVAscript:if(!confirm('确认删除？')) return false;return true;"><font
 												color="#999">删除</font> </a>
 											<a href="###" onclick="scroll(0,0)"><img
 													src="${ctx}/coursepage/classical/image/top.gif" border="0"
