@@ -67,9 +67,9 @@
 			<ref bean="studentInfoServiceTarget" />
 		</property>
 	</bean>
-	<bean id="superAdminService" parent="transactionBase">
+	<bean id="schoolService" parent="transactionBase">
 		<property name="target">
-			<ref bean="superAdminServiceTarget" />
+			<ref bean="schoolServiceTarget" />
 		</property>
 	</bean>
 	<bean id="newsService" parent="transactionBase">

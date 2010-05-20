@@ -1,18 +1,13 @@
 package cn.edu.xmu.course.web.action;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
-import com.opensymphony.xwork2.ActionSupport;
-
-import cn.edu.xmu.course.pojo.*;
+import cn.edu.xmu.course.pojo.Administrator;
+import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.Department;
+import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.IDepartmentService;
-import cn.edu.xmu.course.service.IStudentCourseService;
-import cn.edu.xmu.course.service.IStudentInfoService;
-import cn.edu.xmu.course.service.ISuperAdminService;
-import cn.edu.xmu.course.service.ITeacherInfoService;
 
 /**
  * 负责管理员、教师管理课程的类

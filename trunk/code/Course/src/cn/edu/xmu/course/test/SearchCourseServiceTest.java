@@ -14,7 +14,7 @@ import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.service.ISearchCourseService;
-import cn.edu.xmu.course.service.ISuperAdminService;
+import cn.edu.xmu.course.service.ISchoolService;
 
 public class SearchCourseServiceTest {
 	String[] locations = { "WebRoot/WEB-INF/actionContext.xml",
@@ -25,8 +25,8 @@ public class SearchCourseServiceTest {
 			locations);
 	private ISearchCourseService service = (ISearchCourseService) factory
 			.getBean("searchCourseService");
-	public ISuperAdminService superAdmin=(ISuperAdminService) factory
-	.getBean("superAdminService");
+	public ISchoolService superAdmin=(ISchoolService) factory
+	.getBean("schoolService");
 
 	@Test
 	public void testExportCustomersList() {

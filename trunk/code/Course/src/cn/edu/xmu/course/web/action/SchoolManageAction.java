@@ -2,13 +2,10 @@ package cn.edu.xmu.course.web.action;
 
 import java.util.List;
 
-import cn.edu.xmu.course.commons.MD5;
-import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.Grade;
 import cn.edu.xmu.course.pojo.School;
-import cn.edu.xmu.course.service.IAdminService;
-import cn.edu.xmu.course.service.ISuperAdminService;
+import cn.edu.xmu.course.service.ISchoolService;
 
 /**
  * 负责学院管理的类
@@ -22,8 +19,7 @@ public class SchoolManageAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private ISuperAdminService superAdminService;	//管理校方管理员的接口
-	private IAdminService adminService;	//管理学院管理员、学院信息的接口
+	private ISchoolService schoolService;	//管理学院年级的接口
 
 	private String schoolName;	//学院名称
 	private List<School> allSchoolList;	//学院列表
@@ -32,13 +28,6 @@ public class SchoolManageAction extends BaseAction {
 	private School school;	//学院
 	private int departmentId;	//系id
 	private Department department;	//系
-
-	// 添加学院管理员
-	private int adminSchoolId;	//学院管理员所属学院id
-	private Administrator admin;	//学院管理员
-	private School adminSchool;	//学院管理员所属学院	
-	private int adminId;	//学院管理员id
-	private List<Administrator> adminList;	//学院管理员列表
 
 	// 年级管理
 	private List<Grade> allGradeList;	//年级列表
@@ -52,7 +41,7 @@ public class SchoolManageAction extends BaseAction {
 	 */
 	public String addSchool() {
 		boolean result = false;
-		result = superAdminService.addSchool(school);
+		result = schoolService.addSchool(school);
 		if (result) {
 			addActionMessage("添加学院成功！");
 			return SUCCESS;
@@ -66,7 +55,7 @@ public class SchoolManageAction extends BaseAction {
 	 * @return
 	 */
 	public String findAllSchools() {
-		allSchoolList = superAdminService.findAllSchool();
+		allSchoolList = schoolService.findAllSchool();
 		// System.out.println("test:  "+allSchoolList.get(6).getName());
 		if (allSchoolList.size() == 0) {
 			return ERROR;
@@ -80,8 +69,8 @@ public class SchoolManageAction extends BaseAction {
 	 * @return
 	 */
 	public String findDepartmentBySchool() {
-		school = superAdminService.findSchoolById(schoolId);
-		departmentList = superAdminService.findDepartmentBySchool(school);
+		school = schoolService.findSchoolById(schoolId);
+		departmentList = schoolService.findDepartmentBySchool(school);
 		if (departmentList.size() == 0) {
 			addActionMessage("该学院没有系！");
 			return ERROR;
@@ -95,8 +84,8 @@ public class SchoolManageAction extends BaseAction {
 	 * @return
 	 */
 	public String deleteSchool() {
-		School s = superAdminService.findSchoolById(schoolId);
-		boolean result = superAdminService.deleteSchool(s);
+		School s = schoolService.findSchoolById(schoolId);
+		boolean result = schoolService.deleteSchool(s);
 		if (result) {
 			this.findAllSchools();
 			return SUCCESS;
@@ -107,44 +96,13 @@ public class SchoolManageAction extends BaseAction {
 	}
 
 	/**
-	 * 添加学院管理员
-	 * 
-	 * @return
-	 */
-	public String addAdmin() {
-		adminSchool = superAdminService.findSchoolById(adminSchoolId);
-		boolean result = false;
-		result = adminService.addAdmin(admin, adminSchool);
-		if (result) {
-			addActionMessage("添加学院管理员成功！");
-			return SUCCESS;
-		} else
-			return ERROR;
-	}
-	
-	/**
-	 * 还原学院管理员密码
-	 * @return
-	 */
-	public String restoreAdminPassword(){
-		admin = adminService.findAdminById(adminId);
-		admin.setPassword(new MD5().getMD5ofStr(admin.getAccount()));
-		if(adminService.updateAdmin(admin)){
-			addActionMessage("还原密码成功！");
-			return SUCCESS;
-		}
-		else
-			return ERROR;
-	}
-
-	/**
 	 * 添加年级
 	 * 
 	 * @return
 	 */
 	public String addGrade() {
 		boolean result = false;
-		result = superAdminService.addGrade(grade);
+		result = schoolService.addGrade(grade);
 		if (result) {
 			addActionMessage("添加年级成功！");
 			return SUCCESS;
@@ -160,8 +118,8 @@ public class SchoolManageAction extends BaseAction {
 	 * @return
 	 */
 	public String deleteDepartment() {
-		Department d = superAdminService.findDepartmentById(departmentId);
-		boolean result = superAdminService.deleteDepartment(d);
+		Department d = schoolService.findDepartmentById(departmentId);
+		boolean result = schoolService.deleteDepartment(d);
 		if (result) {
 			this.findDepartmentBySchool();
 			return SUCCESS;
@@ -177,7 +135,7 @@ public class SchoolManageAction extends BaseAction {
 	 * @return
 	 */
 	public String goAddDepartment() {
-		school = superAdminService.findSchoolById(schoolId);
+		school = schoolService.findSchoolById(schoolId);
 		if (school == null)
 			return ERROR;
 		else
@@ -191,44 +149,13 @@ public class SchoolManageAction extends BaseAction {
 	 */
 	public String addDepartment() {
 		// department.setSchool(school);
-		school = superAdminService.findSchoolById(schoolId);
+		school = schoolService.findSchoolById(schoolId);
 		// System.out.println("测试2： "+school);
 		// System.out.println("测试3： "+school.getName());
 		department.setSchool(school);
-		boolean result = superAdminService.addDepartment(school, department);
+		boolean result = schoolService.addDepartment(school, department);
 		if (result) {
 			addActionMessage("添加系成功！");
-			return SUCCESS;
-		} else
-			return ERROR;
-	}
-
-	/**
-	 * 跳转到学院管理员列表
-	 * 
-	 * @return
-	 */
-	public String getAllAdmin() {
-		adminList = adminService.findAllAdmin();
-		if (adminList.size() != 0) {
-			return SUCCESS;
-		} else {
-			addActionMessage("目前还没有学院管理员！");
-			return ERROR;
-		}
-
-	}
-
-	/**
-	 * 删除学院管理员
-	 * 
-	 * @return
-	 */
-	public String deleteAdmin() {
-		Administrator a = adminService.findAdminById(adminId);
-		boolean result = adminService.deleteAdmin(a);
-		if (result) {
-			adminList = adminService.findAllAdmin();
 			return SUCCESS;
 		} else
 			return ERROR;
@@ -240,7 +167,7 @@ public class SchoolManageAction extends BaseAction {
 	 * @return
 	 */
 	public String findAllGrade() {
-		allGradeList = superAdminService.findAllGrade();
+		allGradeList = schoolService.findAllGrade();
 		if (allGradeList.size() != 0) {
 			return SUCCESS;
 		} else {
@@ -255,10 +182,10 @@ public class SchoolManageAction extends BaseAction {
 	 * @return
 	 */
 	public String deleteGrade() {
-		Grade g = superAdminService.findGradeById(gradeId);
-		boolean result = superAdminService.deleteGrade(g);
+		Grade g = schoolService.findGradeById(gradeId);
+		boolean result = schoolService.deleteGrade(g);
 		if (result) {
-			allGradeList = superAdminService.findAllGrade();
+			allGradeList = schoolService.findAllGrade();
 			return SUCCESS;
 		} else{
 			addActionMessage("该年级还有学生，请先删除学生再删除年级！");
@@ -266,12 +193,12 @@ public class SchoolManageAction extends BaseAction {
 		}
 	}
 
-	public ISuperAdminService getSuperAdminService() {
-		return superAdminService;
+	public ISchoolService getSuperAdminService() {
+		return schoolService;
 	}
 
-	public void setSuperAdminService(ISuperAdminService superAdminService) {
-		this.superAdminService = superAdminService;
+	public void setSuperAdminService(ISchoolService schoolService) {
+		this.schoolService = schoolService;
 	}
 
 	public static long getSerialVersionUID() {
@@ -309,31 +236,7 @@ public class SchoolManageAction extends BaseAction {
 	public void setSchoolId(int schoolId) {
 		this.schoolId = schoolId;
 	}
-
-	public School getAdminSchool() {
-		return adminSchool;
-	}
-
-	public void setAdminSchool(School adminSchool) {
-		this.adminSchool = adminSchool;
-	}
-
-	public int getAdminSchoolId() {
-		return adminSchoolId;
-	}
-
-	public void setAdminSchoolId(int adminSchoolId) {
-		this.adminSchoolId = adminSchoolId;
-	}
-
-	public IAdminService getAdminService() {
-		return adminService;
-	}
-
-	public void setAdminService(IAdminService adminService) {
-		this.adminService = adminService;
-	}
-
+	
 	public List<Grade> getAllGradeList() {
 		return allGradeList;
 	}
@@ -358,14 +261,6 @@ public class SchoolManageAction extends BaseAction {
 		this.departmentId = departmentId;
 	}
 
-	public Administrator getAdmin() {
-		return admin;
-	}
-
-	public void setAdmin(Administrator admin) {
-		this.admin = admin;
-	}
-
 	public Grade getGrade() {
 		return grade;
 	}
@@ -382,28 +277,20 @@ public class SchoolManageAction extends BaseAction {
 		this.department = department;
 	}
 
-	public List<Administrator> getAdminList() {
-		return adminList;
-	}
-
-	public void setAdminList(List<Administrator> adminList) {
-		this.adminList = adminList;
-	}
-
-	public int getAdminId() {
-		return adminId;
-	}
-
-	public void setAdminId(int adminId) {
-		this.adminId = adminId;
-	}
-
 	public int getGradeId() {
 		return gradeId;
 	}
 
 	public void setGradeId(int gradeId) {
 		this.gradeId = gradeId;
+	}
+
+	public ISchoolService getSchoolService() {
+		return schoolService;
+	}
+
+	public void setSchoolService(ISchoolService schoolService) {
+		this.schoolService = schoolService;
 	}
 
 }

@@ -4,12 +4,11 @@ import java.util.List;
 
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Department;
-import cn.edu.xmu.course.pojo.Evaluation;
 import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.IDepartmentService;
+import cn.edu.xmu.course.service.ISchoolService;
 import cn.edu.xmu.course.service.ISearchCourseService;
-import cn.edu.xmu.course.service.ISuperAdminService;
 
 /**
  * 查找课程和执行查看操作的类
@@ -33,8 +32,8 @@ public class ExecuteViewAction extends BaseAction {
 
 	private ICourseService courseService; // 负责课程的接口
 	private ISearchCourseService searchCourseService; // 负责搜索课程的接口
-	private IDepartmentService departmentService; // 负责院系的接口
-	private ISuperAdminService superAdminService; // 负责超级管理员的接口
+	private IDepartmentService departmentService; // 负责系的接口
+	private ISchoolService schoolService; // 负责学院的接口
 	private int flag; // 搜索类型
 	private String keyword; // 搜索关键字
 	private int imageNum = 1; // 图片标示
@@ -49,7 +48,7 @@ public class ExecuteViewAction extends BaseAction {
 	 */
 	public String findCourseListBySchoolName() {
 		System.out.println("the schoolName is " + schoolName);
-		School school = superAdminService.findSchoolByName(schoolName);
+		School school = schoolService.findSchoolByName(schoolName);
 		if (school == null) {
 			addActionMessage("该学院不存在，请重新操作！");
 		} else {
@@ -320,12 +319,12 @@ public class ExecuteViewAction extends BaseAction {
 		this.courseService = courseService;
 	}
 
-	public void setSuperAdminService(ISuperAdminService superAdminService) {
-		this.superAdminService = superAdminService;
+	public void setschoolService(ISchoolService schoolService) {
+		this.schoolService = schoolService;
 	}
 
-	public ISuperAdminService getSuperAdminService() {
-		return superAdminService;
+	public ISchoolService getschoolService() {
+		return schoolService;
 	}
 
 	public String getSchoolName() {

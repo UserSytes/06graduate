@@ -104,7 +104,7 @@
 	</bean>	
 	
 	<!--院系管理模块-->
-	<bean id="superAdminServiceTarget" class="cn.edu.xmu.course.service.impl.SuperAdminService">
+	<bean id="schoolServiceTarget" class="cn.edu.xmu.course.service.impl.SchoolService">
 		<property name="schoolDAO">
 			<ref bean="SchoolDAO" />
 		</property>

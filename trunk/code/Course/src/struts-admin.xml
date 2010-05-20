@@ -377,7 +377,7 @@
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="addAdminAction" method="addAdmin" class="schoolManageAction">
+		<action name="addAdminAction" method="addAdmin" class="adminAction">
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
@@ -402,18 +402,18 @@
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
-		<action name="allAdminAction" method="getAllAdmin" class="schoolManageAction">
+		<action name="allAdminAction" method="getAllAdmin" class="adminAction">
 			<result name="success">/admin/schoolmanage/adminlist.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="deleteAdminAction" method="deleteAdmin" class="schoolManageAction">
+		<action name="deleteAdminAction" method="deleteAdmin" class="adminAction">
 			<result name="success">/admin/schoolmanage/adminlist.jsp
 			</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>
 		<action name="restoreAdminPasswordAction" method="restoreAdminPassword"
-			class="schoolManageAction">
+			class="adminAction">
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/error.jsp</result>
 		</action>

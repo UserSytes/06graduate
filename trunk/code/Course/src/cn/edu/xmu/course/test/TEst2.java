@@ -1,16 +1,11 @@
 package cn.edu.xmu.course.test;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.List;
 
-import org.apache.struts2.ServletActionContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import cn.edu.xmu.course.commons.MD5;
 import cn.edu.xmu.course.pojo.Administrator;
-import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.Evaluation;
 import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Student;
@@ -18,11 +13,9 @@ import cn.edu.xmu.course.pojo.SuperAdmin;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.service.IAdminService;
 import cn.edu.xmu.course.service.IEvaluateService;
-import cn.edu.xmu.course.service.ISearchCourseService;
+import cn.edu.xmu.course.service.ISchoolService;
 import cn.edu.xmu.course.service.IStudentInfoService;
-import cn.edu.xmu.course.service.ISuperAdminService;
 import cn.edu.xmu.course.service.ITeacherInfoService;
-import cn.edu.xmu.course.service.impl.SuperAdminService;
 
 public class TEst2 {
 
@@ -43,8 +36,8 @@ public class TEst2 {
 		.getBean("studentInfoService");
 		IAdminService adminService = (IAdminService) factory
 		.getBean("adminService");
-		ISuperAdminService superAdmin=(ISuperAdminService) factory
-		.getBean("superAdminService");		
+		ISchoolService superAdmin=(ISchoolService) factory
+		.getBean("schoolService");		
 		IEvaluateService evaService = (IEvaluateService) factory.getBean("evaluateService");
 		MD5 md5 = new MD5();
 		List<Administrator> admins = adminService.findAllAdmin();

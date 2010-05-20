@@ -7,7 +7,7 @@ import java.util.List;
 import cn.edu.xmu.course.commons.MD5;
 import cn.edu.xmu.course.pojo.*;
 import cn.edu.xmu.course.service.ICourseService;
-import cn.edu.xmu.course.service.ISuperAdminService;
+import cn.edu.xmu.course.service.ISchoolService;
 import cn.edu.xmu.course.service.ITeacherInfoService;
 /**
  * 负责管理教师信息的类
@@ -23,7 +23,7 @@ public class TeacherInfoAction extends BaseAction{
 	private static final long serialVersionUID = 1L;
 
 	private ITeacherInfoService teacherInfoService;	//管理教师信息的接口
-	private ISuperAdminService superAdminService;	//管理校方管理员的接口
+	private ISchoolService schoolService;	//管理校方管理员的接口
 	private ICourseService courseService; // 管理课程的接口
 	
 	private Teacher teacher;	//教师
@@ -155,7 +155,7 @@ public class TeacherInfoAction extends BaseAction{
 	public String getDepartmentBySchool(){
 		Administrator admin = (Administrator) super.getSession().get(ADMIN);
 		School school = admin.getSchool();
-		departmentList = superAdminService.findDepartmentBySchool(school);
+		departmentList = schoolService.findDepartmentBySchool(school);
 		if (departmentList.size() == 0) {
 			addActionMessage("本学院还没有系，请先向 校方管理员申请开设系！");
 			return ERROR;
@@ -169,7 +169,7 @@ public class TeacherInfoAction extends BaseAction{
 	 */
 	public String addTeacher(){
 		boolean result = false;
-		Department department = superAdminService.findDepartmentById(departmentId);
+		Department department = schoolService.findDepartmentById(departmentId);
 		teacher.setPassword(teacher.getTeacherNo());
 		userInfo.setDepartment(department);		
 		teacher.setUserInfo(userInfo);
@@ -292,12 +292,12 @@ public class TeacherInfoAction extends BaseAction{
 		this.teacherId = teacherId;
 	}
 
-	public ISuperAdminService getSuperAdminService() {
-		return superAdminService;
+	public ISchoolService getschoolService() {
+		return schoolService;
 	}
 
-	public void setSuperAdminService(ISuperAdminService superAdminService) {
-		this.superAdminService = superAdminService;
+	public void setschoolService(ISchoolService schoolService) {
+		this.schoolService = schoolService;
 	}
 
 	public int getDepartmentId() {

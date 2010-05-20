@@ -13,7 +13,7 @@ import cn.edu.xmu.course.dao.SchoolDAO;
 import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.Grade;
 import cn.edu.xmu.course.pojo.School;
-import cn.edu.xmu.course.service.ISuperAdminService;
+import cn.edu.xmu.course.service.ISchoolService;
 
 /**
  * 此类是负责超级管理员业务的service接口，主要包括院系管理、新闻管理、年级管理模块
@@ -21,7 +21,7 @@ import cn.edu.xmu.course.service.ISuperAdminService;
  * @author 郑冰凌
  * 
  */
-public class SuperAdminService implements ISuperAdminService {
+public class SchoolService implements ISchoolService {
 
 	private SchoolDAO schoolDAO;
 	private DepartmentDAO departmentDAO;

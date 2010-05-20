@@ -11,7 +11,7 @@ import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.IStudentInfoService;
-import cn.edu.xmu.course.service.ISuperAdminService;
+import cn.edu.xmu.course.service.ISchoolService;
 
 /**
  * 学生查找、添加、删除
@@ -26,7 +26,7 @@ public class StudentAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = 1L;
 	private IStudentInfoService studentInfoService;	//管理学生信息的接口
-	private ISuperAdminService superAdminService;	//管理校方管理员信息的接口
+	private ISchoolService schoolService;	//管理校方管理员信息的接口
 
 	private Student student;	//学生
 	private UserInfo userInfo;	//用户信息
@@ -57,7 +57,7 @@ public class StudentAction extends BaseAction {
 	public String getDepartmentBySchool() {
 		Administrator admin = (Administrator) super.getSession().get(ADMIN);
 		School school = admin.getSchool();
-		departmentList = superAdminService.findDepartmentBySchool(school);
+		departmentList = schoolService.findDepartmentBySchool(school);
 
 		if (departmentList.size() == 0) {
 			addActionMessage("本学院还没有系，请先向 校方管理员申请开设系！");
@@ -73,14 +73,14 @@ public class StudentAction extends BaseAction {
 	 */
 	@SuppressWarnings("unchecked")
 	public String goAddStudent() {
-		gradeList = superAdminService.findAllGrade();
+		gradeList = schoolService.findAllGrade();
 		if (gradeList.size() == 0) {
 			addActionMessage("学校未添加学生年级，请先向校方申请添加！");
 			return ERROR;
 		}
 		Administrator admin = (Administrator) super.getSession().get(ADMIN);
 		School school = admin.getSchool();
-		departmentList = superAdminService.findDepartmentBySchool(school);
+		departmentList = schoolService.findDepartmentBySchool(school);
 		if (departmentList.size() == 0) {
 			addActionMessage("本学院还没有系，请先向 校方管理员申请开设系！");
 			return ERROR;
@@ -95,9 +95,9 @@ public class StudentAction extends BaseAction {
 	 */
 	public String addStudent() {
 		boolean result = false;
-		Grade grade = superAdminService.findGradeById(gradeId);
+		Grade grade = schoolService.findGradeById(gradeId);
 		student.setGrade(grade);
-		Department department = superAdminService
+		Department department = schoolService
 				.findDepartmentById(departmentId);
 		student.setPassword(student.getStudentNo());
 		userInfo.setDepartment(department);		
@@ -116,13 +116,13 @@ public class StudentAction extends BaseAction {
 	 */
 	@SuppressWarnings("unchecked")
 	public String goAddMoreStudent() {
-		gradeList = superAdminService.findAllGrade();
+		gradeList = schoolService.findAllGrade();
 		if (gradeList.size() == 0) {
 			addActionMessage("学校未添加学生年级，请先向校方申请添加！");
 			return ERROR;
 		}
 		Administrator admin = (Administrator) super.getSession().get(ADMIN);
-		departmentList = superAdminService.findDepartmentBySchool(admin
+		departmentList = schoolService.findDepartmentBySchool(admin
 				.getSchool());
 		if (departmentList.size() == 0) {
 			addActionMessage("本学院还没有系，请先向 校方管理员申请开设系！");
@@ -137,8 +137,8 @@ public class StudentAction extends BaseAction {
 	 * @return
 	 */
 	public String addMoreStudent() {
-		Grade grade = superAdminService.findGradeById(gradeId);
-		Department department = superAdminService
+		Grade grade = schoolService.findGradeById(gradeId);
+		Department department = schoolService
 				.findDepartmentById(departmentId);
 		String result =studentInfoService.addMoreStudent(grade, department, studentFile);
 		addActionError(result);	
@@ -151,8 +151,8 @@ public class StudentAction extends BaseAction {
 	 * @return
 	 */
 	public String deleteMoreStudent(){
-		Grade grade = superAdminService.findGradeById(gradeId);
-		Department department = superAdminService
+		Grade grade = schoolService.findGradeById(gradeId);
+		Department department = schoolService
 				.findDepartmentById(departmentId);
 		List<Student> students = studentInfoService.findByDepartmentAndGrade(department, grade);
 		if(students.size()==0){
@@ -177,7 +177,7 @@ public class StudentAction extends BaseAction {
 	 */
 	@SuppressWarnings("unchecked")
 	public String findAllGrade() {
-		gradeList = superAdminService.findAllGrade();
+		gradeList = schoolService.findAllGrade();
 		if (gradeList.size() == 0) {
 			return ERROR;
 		} else {
@@ -274,12 +274,12 @@ public class StudentAction extends BaseAction {
 		this.studentInfoService = studentInfoService;
 	}
 
-	public ISuperAdminService getSuperAdminService() {
-		return superAdminService;
+	public ISchoolService getschoolService() {
+		return schoolService;
 	}
 
-	public void setSuperAdminService(ISuperAdminService superAdminService) {
-		this.superAdminService = superAdminService;
+	public void setschoolService(ISchoolService schoolService) {
+		this.schoolService = schoolService;
 	}
 
 	public Student getStudent() {

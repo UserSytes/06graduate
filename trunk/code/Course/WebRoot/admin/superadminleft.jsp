@@ -116,28 +116,19 @@ eval("submenu" + sid + ".style.display=\"none\";");
 												</td>
 												<td height="23">
 													<a href="<s:url action='findAllSchoolsAction'> </s:url>"
-														target="main"> 学院列表</a>┆
+														target="main"> 学院列表</a>
+													
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<img src="Images/closed.gif" />
+												</td>
+												<td height="23">
 													<a href="schoolmanage/addschool.jsp" target="main">添加学院</a>
 												</td>
 											</tr>
-											<tr>
-												<td>
-													<img src="Images/closed.gif" />
-												</td>
-												<td height="23">
-													<a href="<s:url action='allAdminAction'> </s:url>"
-														target="main"> 学院管理员列表</a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<img src="Images/closed.gif" />
-												</td>
-												<td height="23">
-													<a href="<s:url action='goAddAdminAction'> </s:url>"
-														target="main"> 添加学院管理员</a>
-												</td>
-											</tr>
+											
 										</tbody>
 									</table>
 								</td>
@@ -165,7 +156,7 @@ eval("submenu" + sid + ".style.display=\"none\";");
 									<table width="100%" border="0" cellspacing="0" cellpadding="0">
 										<tr>
 											<TD width="20"></TD>
-											<TD class=STYLE1 style="CURSOR: hand" onclick=showsubmenu(4);
+											<TD class=STYLE1 style="CURSOR: hand" onclick=showsubmenu(3);
 												height=25>
 												年级管理
 											</TD>
@@ -175,7 +166,7 @@ eval("submenu" + sid + ".style.display=\"none\";");
 							</TR>
 							<TR>
 								<TD>
-									<TABLE id=submenu4 cellSpacing=0 cellPadding=0 width="100%"
+									<TABLE id=submenu3 cellSpacing=0 cellPadding=0 width="100%"
 										border=0>
 										<TBODY>
 											<TR>
@@ -261,6 +252,24 @@ eval("submenu" + sid + ".style.display=\"none\";");
 													<A href="admininfo/addsuperadmin.jsp" target=main>添加校管理员</A>
 												</TD>
 											</TR>
+											<tr>
+												<td>
+													<img src="Images/closed.gif" />
+												</td>
+												<td height="23">
+													<a href="<s:url action='allAdminAction'> </s:url>"
+														target="main"> 学院管理员列表</a>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<img src="Images/closed.gif" />
+												</td>
+												<td height="23">
+													<a href="<s:url action='goAddAdminAction'> </s:url>"
+														target="main"> 添加学院管理员</a>
+												</td>
+											</tr>
 										</TBODY>
 									</TABLE>
 								</TD>
