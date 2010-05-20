@@ -14,7 +14,7 @@ import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.StudentCourse;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.IStudentCourseService;
-import cn.edu.xmu.course.service.ISuperAdminService;
+import cn.edu.xmu.course.service.ISchoolService;
 /**
  * 负责管理员、教师管理课程学生的类
  * @author 何申密
@@ -31,7 +31,7 @@ public class StudentCourseAction extends BaseAction{
 	private String departmentId;	//系的id
 	private Course course;	//课程
 	
-	private ISuperAdminService superAdminService;	//负责管理校方管理员的接口
+	private ISchoolService schoolService;	//负责管理院系、年级的接口
 	private IStudentCourseService studentCourseService;	//管理学生课程信息的接口
 	private ICourseService courseService;	//管理课程的接口
 	
@@ -94,8 +94,8 @@ public class StudentCourseAction extends BaseAction{
 		Administrator admin = (Administrator) super.getSession().get(
 				ADMIN);
 		School school = admin.getSchool();
-		gradeList = superAdminService.findAllGrade();
-		departmentList = superAdminService.findDepartmentBySchool(school);
+		gradeList = schoolService.findAllGrade();
+		departmentList = schoolService.findDepartmentBySchool(school);
 		return SUCCESS;
 	}
 	
@@ -259,12 +259,12 @@ public class StudentCourseAction extends BaseAction{
 		this.course = course;
 	}
 
-	public ISuperAdminService getSuperAdminService() {
-		return superAdminService;
+	public ISchoolService getschoolService() {
+		return schoolService;
 	}
 
-	public void setSuperAdminService(ISuperAdminService superAdminService) {
-		this.superAdminService = superAdminService;
+	public void setschoolService(ISchoolService schoolService) {
+		this.schoolService = schoolService;
 	}
 
 	public IStudentCourseService getStudentCourseService() {

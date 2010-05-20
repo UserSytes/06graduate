@@ -75,8 +75,8 @@
 			<param name="include" value="id,name" />
 		</convert>
 		
-		<create creator="spring" javascript="SuperAdminService" >
-			<param name="beanName" value="superAdminService" />
+		<create creator="spring" javascript="SchoolService" >
+			<param name="beanName" value="schoolService" />
 		</create>
 		<convert converter="bean" match="cn.edu.xmu.course.pojo.School">
 			<param name="include" value="id,name" />

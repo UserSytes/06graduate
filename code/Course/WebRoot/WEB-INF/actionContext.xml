@@ -13,8 +13,8 @@
 		<property name="teacherInfoService">
 			<ref bean="teacherInfoService" />
 		</property>
-		<property name="superAdminService">
-			<ref bean="superAdminService" />
+		<property name="schoolService">
+			<ref bean="schoolService" />
 		</property>
 		<property name="courseService">
 			<ref bean="courseService" />
@@ -46,8 +46,8 @@
 		<property name="studentInfoService">
 			<ref bean="studentInfoService" />
 		</property>
-		<property name="superAdminService">
-			<ref bean="superAdminService" />
+		<property name="schoolService">
+			<ref bean="schoolService" />
 		</property>
 	</bean>
 	<bean id="studentInfoAction" scope="prototype"
@@ -73,8 +73,8 @@
 		<property name="studentCourseService">
 			<ref bean="studentCourseService" />
 		</property>
-		<property name="superAdminService">
-			<ref bean="superAdminService" />
+		<property name="schoolService">
+			<ref bean="schoolService" />
 		</property>
 	</bean>
 	<bean id="courseInfoAction" scope="prototype"
@@ -85,17 +85,17 @@
 	</bean>
 	<bean id="schoolManageAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.SchoolManageAction">
-		<property name="superAdminService">
-			<ref bean="superAdminService" />
-		</property>
-		<property name="adminService">
-			<ref bean="adminService" />
+		<property name="schoolService">
+			<ref bean="schoolService" />
 		</property>
 	</bean>
 	<bean id="adminAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.AdminAction">
 		<property name="adminService">
 			<ref bean="adminService" />
+		</property>
+		<property name="schoolService">
+			<ref bean="schoolService" />
 		</property>
 	</bean>
 	<bean id="newsAction" scope="prototype"
@@ -117,8 +117,8 @@
 		<property name="courseService">
 			<ref bean="courseService" />
 		</property>
-		<property name="superAdminService">
-			<ref bean="superAdminService" />
+		<property name="schoolService">
+			<ref bean="schoolService" />
 		</property>
 	</bean>
 	<bean id="homePageAction" scope="prototype"
