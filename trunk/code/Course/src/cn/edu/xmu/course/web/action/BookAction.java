@@ -18,7 +18,7 @@ public class BookAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = -5817586834002918821L;
-	private List<Book> bookList; // 参考书籍列表
+	private List bookList; // 参考书籍列表
 	private Book book; // 参考书籍
 	private Integer bookId; // 参考书籍ID
 
@@ -132,11 +132,11 @@ public class BookAction extends BaseAction {
 		this.uploadFileName = uploadFileName;
 	}
 
-	public List<Book> getBookList() {
+	public List getBookList() {
 		return bookList;
 	}
 
-	public void setBookList(List<Book> bookList) {
+	public void setBookList(List bookList) {
 		this.bookList = bookList;
 	}
 
