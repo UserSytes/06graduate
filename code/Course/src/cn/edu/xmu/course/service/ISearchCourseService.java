@@ -10,17 +10,19 @@ import cn.edu.xmu.course.pojo.Department;
  * @author 
  *
  */
+@SuppressWarnings("unchecked")
 public interface ISearchCourseService {
-	public List<Course> findCourseByDepartment(Department department);
-	public List<Course> findCourseByName(String name);
+	
+	public List findCourseByDepartment(Department department);
+	public List findCourseByName(String name);
 	public Course findCourseById(int id);
-	public List<Course> findCourseByTeacher(String teacherName);
+	public List findCourseByTeacher(String teacherName);
 	
-	public List<Course> findCourseByNameAndTeacher(String courseName, String teacherName);
-	public List<Course> findCourseByDepartmentAndTeacher(String teacherName, Department department);
-	public List<Course> findCourseByNameAndDepartment(String courseName, Department department);
-	public List<Course> findCourseByNameAndDepartmentAndTeacher(String courseName, Department department,  String teacherName);
+	public List findCourseByNameAndTeacher(String courseName, String teacherName);
+	public List findCourseByDepartmentAndTeacher(String teacherName, Department department);
+	public List findCourseByNameAndDepartment(String courseName, Department department);
+	public List findCourseByNameAndDepartmentAndTeacher(String courseName, Department department,  String teacherName);
 	
-	public List<Course> findCourseByDate(int day);
-	public List<Course> findLatestTenCourse();
+	public List findCourseByDate(int day);
+	public List findLatestTenCourse();
 }

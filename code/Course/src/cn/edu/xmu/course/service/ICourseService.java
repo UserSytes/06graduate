@@ -64,21 +64,21 @@ public interface ICourseService {
 	 * @param school
 	 * @return
 	 */
-	public List<Course> findNoPassCourse(School school);
+	public List findNoPassCourse(School school);
 	
 	/**
 	 * 查找学院等待审核的课程
 	 * @param school
 	 * @return
 	 */
-	public List<Course> findApplicationCourse(School school);
+	public List findApplicationCourse(School school);
 	
 	/**
 	 * 查找本院已通过审核的课程
 	 * @param school
 	 * @return
 	 */
-	public List<Course> findBySchool(School school);
+	public List findBySchool(School school);
 	
 
 }

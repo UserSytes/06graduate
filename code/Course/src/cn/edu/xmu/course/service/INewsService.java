@@ -62,7 +62,7 @@ public interface INewsService {
 	 * @param news
 	 * @return
 	 */
-	public List<Attachment> findAttachmentByNews(News news);
+	public List findAttachmentByNews(News news);
 	
 	/**
 	 * 修改新闻、修改附件

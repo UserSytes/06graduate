@@ -110,7 +110,7 @@ public interface IStudentInfoService {
 	 * @param department
 	 * @return
 	 */
-	public List<Student> findByDepartment(Department department);
+	public List findByDepartment(Department department);
 	
 	/**
 	 * 根据系、年级查找学生
@@ -118,7 +118,7 @@ public interface IStudentInfoService {
 	 * @param grade
 	 * @return
 	 */
-	public List<Student> findByDepartmentAndGrade(Department department, Grade grade);
+	public List findByDepartmentAndGrade(Department department, Grade grade);
 	
 	/**
 	 * 批量添加学生
