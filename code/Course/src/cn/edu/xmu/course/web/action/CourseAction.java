@@ -25,14 +25,14 @@ public class CourseAction extends BaseAction {
 	private String departmentId; // 系的id
 	private int courseId; // 课程id
 	private Course course; // 课程
-	private List<Course> myCoursesList; // 我（教师）的课程列表
+	private List myCoursesList; // 我（教师）的课程列表
 	private int type = 3; // 课程状态标识，3:所有课程
 	private String style; // 课程风格颜色
 
 	private ICourseService courseService; // 管理课程的接口
 	private IDepartmentService departmentService; // 管理系的接口
 
-	private List<Course> applicationCourseList; // 申报课程列表
+	private List applicationCourseList; // 申报课程列表
 	private String refuseReason; // 审核课程退回时填写的理由
 
 	
@@ -309,11 +309,11 @@ public class CourseAction extends BaseAction {
 		this.course = course;
 	}
 
-	public List<Course> getMyCoursesList() {
+	public List getMyCoursesList() {
 		return myCoursesList;
 	}
 
-	public void setMyCoursesList(List<Course> myCoursesList) {
+	public void setMyCoursesList(List myCoursesList) {
 		this.myCoursesList = myCoursesList;
 	}
 
@@ -349,11 +349,11 @@ public class CourseAction extends BaseAction {
 		this.departmentService = departmentService;
 	}
 
-	public List<Course> getApplicationCourseList() {
+	public List getApplicationCourseList() {
 		return applicationCourseList;
 	}
 
-	public void setApplicationCourseList(List<Course> applicationCourseList) {
+	public void setApplicationCourseList(List applicationCourseList) {
 		this.applicationCourseList = applicationCourseList;
 	}
 
