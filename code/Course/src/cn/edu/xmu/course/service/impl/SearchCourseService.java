@@ -13,36 +13,36 @@ public class SearchCourseService implements ISearchCourseService {
 	private CourseDAO courseDAO;
 
 	@SuppressWarnings("unchecked")
-	public List<Course> findCourseByDepartment(Department department) {
+	public List findCourseByDepartment(Department department) {
 		return courseDAO.findByDepartment(department);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Course> findCourseByName(String name) {
-		List<Course> courses = courseDAO.findByName(name);
+	public List findCourseByName(String name) {
+		List courses = courseDAO.findByName(name);
 		if (courses.size() == 0)
 			return null;
 		else
 			return courses;
 	}
 
-	public List<Course> findCourseByNameAndTeacher(String courseName,
+	public List findCourseByNameAndTeacher(String courseName,
 			String teacherName) {
 		return courseDAO.findCourseByNameAndTeacher(courseName, teacherName);
 	}
 
-	public List<Course> findCourseByDepartmentAndTeacher(String teacherName,
+	public List findCourseByDepartmentAndTeacher(String teacherName,
 			Department department) {
 		return courseDAO.findCourseByDepartmentAndTeacher(teacherName,
 				department);
 	}
 
-	public List<Course> findCourseByNameAndDepartment(String courseName,
+	public List findCourseByNameAndDepartment(String courseName,
 			Department department) {
 		return courseDAO.findCourseByNameAndDepartment(courseName, department);
 	}
 
-	public List<Course> findCourseByNameAndDepartmentAndTeacher(
+	public List findCourseByNameAndDepartmentAndTeacher(
 			String courseName, Department department, String teacherName) {
 		return courseDAO.findCourseByNameAndDepartmentAndTeacher(courseName,
 				department, teacherName);
@@ -54,7 +54,7 @@ public class SearchCourseService implements ISearchCourseService {
 	 * @param day
 	 * @return
 	 */
-	public List<Course> findCourseByDate(int day) {
+	public List findCourseByDate(int day) {
 		Calendar date = CalculateDate
 				.addDate(Calendar.getInstance(), (0 - day));
 		return courseDAO.findCourseByDate(CalculateDate.toDate(date.getTime()));
@@ -72,11 +72,11 @@ public class SearchCourseService implements ISearchCourseService {
 		this.courseDAO = courseDAO;
 	}
 
-	public List<Course> findCourseByTeacher(String teacherName) {
+	public List findCourseByTeacher(String teacherName) {
 		return courseDAO.findByTeacher(teacherName);
 	}
 
-	public List<Course> findLatestTenCourse() {
+	public List findLatestTenCourse() {
 		// TODO Auto-generated method stub	
 		return  courseDAO.findLatestTenCourses();
 	}
