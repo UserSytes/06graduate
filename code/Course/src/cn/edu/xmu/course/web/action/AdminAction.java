@@ -22,7 +22,7 @@ public class AdminAction extends BaseAction {
 	private ISchoolService schoolService; //管理院系、年级的接口
 	private Administrator admin; //学院管理员
 	private SuperAdmin superAdmin; //校方管理员
-	private List<SuperAdmin> superAdminList;	//校方管理员列表
+	private List superAdminList;	//校方管理员列表
 	private int superAdminId;	//校管理员id
 	
 	private String oldPassword; //管理员帐号原密码
@@ -32,7 +32,7 @@ public class AdminAction extends BaseAction {
 	private int adminSchoolId;	//学院管理员所属学院id
 	private School adminSchool;	//学院管理员所属学院	
 	private int adminId;	//学院管理员id
-	private List<Administrator> adminList;	//学院管理员列表
+	private List adminList;	//学院管理员列表
 
 	/**
 	 * 添加学院管理员
@@ -275,11 +275,11 @@ public class AdminAction extends BaseAction {
 		this.newPassword = newPassword;
 	}
 
-	public List<SuperAdmin> getSuperAdminList() {
+	public List getSuperAdminList() {
 		return superAdminList;
 	}
 
-	public void setSuperAdminList(List<SuperAdmin> superAdminList) {
+	public void setSuperAdminList(List superAdminList) {
 		this.superAdminList = superAdminList;
 	}
 
@@ -323,11 +323,11 @@ public class AdminAction extends BaseAction {
 		this.adminId = adminId;
 	}
 
-	public List<Administrator> getAdminList() {
+	public List getAdminList() {
 		return adminList;
 	}
 
-	public void setAdminList(List<Administrator> adminList) {
+	public void setAdminList(List adminList) {
 		this.adminList = adminList;
 	}
 	

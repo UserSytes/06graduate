@@ -147,7 +147,7 @@ public class AchievementAction extends BaseAction {
 		return achievementList;
 	}
 
-	public void setAchievementList(List<Achievement> achievementList) {
+	public void setAchievementList(List achievementList) {
 		this.achievementList = achievementList;
 	}
 
