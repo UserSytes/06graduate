@@ -197,7 +197,7 @@ public class CourseDAO extends HibernateDaoSupport {
 	 * @param teacherName
 	 * @return
 	 */
-	public List<Course> findCourseByNameAndTeacher(String courseName,
+	public List findCourseByNameAndTeacher(String courseName,
 			String teacherName) {
 		try {
 			String queryString = "from Course as model where model.name like '%"
@@ -217,7 +217,7 @@ public class CourseDAO extends HibernateDaoSupport {
 	 * @param department
 	 * @return
 	 */
-	public List<Course> findCourseByDepartmentAndTeacher(String teacherName,
+	public List findCourseByDepartmentAndTeacher(String teacherName,
 			Department department){
 		try {
 			String queryString = "from Course as model where model.department = ?"
@@ -236,7 +236,7 @@ public class CourseDAO extends HibernateDaoSupport {
 	 * @param department
 	 * @return
 	 */
-	public List<Course> findCourseByNameAndDepartment(String courseName,
+	public List findCourseByNameAndDepartment(String courseName,
 			Department department){
 		try {
 			String queryString = "from Course as model where model.department = ?"
@@ -256,7 +256,7 @@ public class CourseDAO extends HibernateDaoSupport {
 	 * @param teacherName
 	 * @return
 	 */
-	public List<Course> findCourseByNameAndDepartmentAndTeacher(
+	public List findCourseByNameAndDepartmentAndTeacher(
 			String courseName, Department department, String teacherName){
 		try {
 			String queryString = "from Course as model where model.department = ?"

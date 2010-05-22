@@ -152,7 +152,7 @@ public class TopicDAO extends HibernateDaoSupport {
 	 * @return
 	 * @auther ึฃฑ๙ม่
 	 */
-	public List<Topic> searchTopicByKey(String key, School school) {
+	public List searchTopicByKey(String key, School school) {
 		try {
 			String queryString = "from Topic as model where model.name like '%"
 					+ key + "%' and model.course.department.school = ? order by model.lastUpdate DESC";
@@ -174,7 +174,7 @@ public class TopicDAO extends HibernateDaoSupport {
 	}
 
 	
-	public List<Topic> findByName(Course course, Object name) {
+	public List findByName(Course course, Object name) {
 		try {
 			String queryString = "from Topic as model where model.name like '%"
 					+ name + "%' and model.course.id=" + course.getId()+" order by model.lastUpdate DESC";
