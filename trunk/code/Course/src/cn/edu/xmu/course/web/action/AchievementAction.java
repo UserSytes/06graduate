@@ -19,7 +19,7 @@ public class AchievementAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 390526433485524738L;
-	private List<Achievement> achievementList; // 成果列表
+	private List achievementList; // 成果列表
 	private Achievement achievement; // 成果
 	private Integer achievementId; // 成果ID
 	private Course course; // 课程
@@ -143,7 +143,7 @@ public class AchievementAction extends BaseAction {
 		this.uploadFileName = uploadFileName;
 	}
 
-	public List<Achievement> getAchievementList() {
+	public List getAchievementList() {
 		return achievementList;
 	}
 
