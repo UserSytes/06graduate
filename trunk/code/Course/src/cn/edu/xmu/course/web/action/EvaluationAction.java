@@ -196,7 +196,7 @@ public class EvaluationAction extends BaseAction {
 	public String studentEvaluate() {
 		student = super.getStudent();
 		course = super.getCourse();
-		studentCourse = evaluateService.findByStudentAndCourse(course, student)
+		studentCourse = (StudentCourse) evaluateService.findByStudentAndCourse(course, student)
 				.get(0);
 		studentCourse.setScore(score);
 		result = evaluateService.updateStudentCourse(studentCourse);
