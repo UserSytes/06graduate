@@ -120,19 +120,19 @@ public class CourseService implements ICourseService {
 		return courses;
 	}
 
-	private List<Course> getCourses() {
+	private List getCourses() {
 		return courses;
 	}
 
-	private void setCourses(List<Course> courses) {
+	private void setCourses(List courses) {
 		this.courses = courses;
 	}
 
-	private List<Course> getTempList() {
+	private List getTempList() {
 		return tempList;
 	}
 
-	private void setTempList(List<Course> tempList) {
+	private void setTempList(List tempList) {
 		this.tempList = tempList;
 	}
 
@@ -149,11 +149,11 @@ public class CourseService implements ICourseService {
 		return courseDAO.findById(courseId);
 	}
 
-	public List<Course> findApplicationCourse(School school) {
+	public List findApplicationCourse(School school) {
 		return courseDAO.findApplicationBySchool(school);
 	}
 
-	public List<Course> findNoPassCourse(School school) {
+	public List findNoPassCourse(School school) {
 		return courseDAO.findNotPassBySchool(school);
 	}
 
