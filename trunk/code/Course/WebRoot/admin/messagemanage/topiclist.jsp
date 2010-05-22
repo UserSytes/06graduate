@@ -96,10 +96,10 @@ $(document).ready(function(){
 							<th width="130">
 								作者
 							</th>
-							<th width="60">
+							<th width="70">
 								回复
 							</th>
-							<th width="50">
+							<th width="70">
 								查看
 							</th>
 							<th width="130">
@@ -132,11 +132,11 @@ $(document).ready(function(){
 									<br>
 									<s:date name="time" format="yyyy-MM-dd hh:mm" />
 								</td>
-								<td width="60" align="center">
-									<s:property value="countReply" />									
+								<td width="70" align="center">
+									<s:property value="countReply" />&nbsp;&nbsp;									
 								</td>
-								<td width="50" align="center">
-									<s:property value="countPerson" />									
+								<td width="70" align="center">
+									<s:property value="countPerson" />	&nbsp;&nbsp;								
 								</td>
 								<td width="130" align="center">
 									<s:property value="lastAnswer" />
