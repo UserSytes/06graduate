@@ -34,7 +34,7 @@ public interface IStudentCourseService {
 	 * @param course
 	 * @return
 	 */
-	public List<StudentCourse> findByCourse(Course course);
+	public List findByCourse(Course course);
 	
 	/**
 	 * 根据id查找学生
@@ -78,14 +78,14 @@ public interface IStudentCourseService {
 	 * @param student
 	 * @return
 	 */
-	public List<StudentCourse> findByStudent(Student student);
+	public List findByStudent(Student student);
 	
 	/**
 	 * 根据学生查找收藏课程
 	 * @param student
 	 * @return
 	 */
-	public List<Collection> findCollectionByStudent(Student student);
+	public List findCollectionByStudent(Student student);
 	
 	/**
 	 * 删除某门课程收藏
@@ -118,6 +118,6 @@ public interface IStudentCourseService {
 	 * @param student
 	 * @return
 	 */
-	public List<StudentCourse> findByStudentAndCourse(Course course,
+	public List findByStudentAndCourse(Course course,
 			Student student);
 }
