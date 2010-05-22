@@ -22,24 +22,12 @@ public class CourseChapterAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private List<Chapter> chapterList; // 章节列表
+	private List chapterList; // 章节列表
 	private Chapter chapter; // 章节
 	private Integer chapterId; // 章节ID
-	private List<Courseware> coursewareList; // 课件列表
-	private Courseware courseware; // 课件
-
-	private List<Experiment> experimentList; // 实验指导列表
-	private Experiment experiment; // 实验指导
-
-	private List<Exercise> exerciseList; // 练习列表
-	private Exercise exercise; // 练习
-
 	private Course course; // 课程
 
 	private IChapterService chapterService; // 负责章节的接口
-	private ICoursewareService coursewareService; // 负责课件的接口
-	private IExerciseService exerciseService; // 负责习题的接口
-	private IExperimentService experimentService; // 负责实验指导的接口
 
 	/**
 	 * 添加章节
@@ -102,11 +90,11 @@ public class CourseChapterAction extends BaseAction {
 		}
 	}
 
-	public List<Chapter> getChapterList() {
+	public List getChapterList() {
 		return chapterList;
 	}
 
-	public void setChapterList(List<Chapter> chapterList) {
+	public void setChapterList(List chapterList) {
 		this.chapterList = chapterList;
 	}
 
@@ -118,52 +106,12 @@ public class CourseChapterAction extends BaseAction {
 		this.chapter = chapter;
 	}
 
-	public List<Courseware> getCoursewareList() {
-		return coursewareList;
+	public Integer getChapterId() {
+		return chapterId;
 	}
 
-	public void setCoursewareList(List<Courseware> coursewareList) {
-		this.coursewareList = coursewareList;
-	}
-
-	public Courseware getCourseware() {
-		return courseware;
-	}
-
-	public void setCourseware(Courseware courseware) {
-		this.courseware = courseware;
-	}
-
-	public List<Experiment> getExperimentList() {
-		return experimentList;
-	}
-
-	public void setExperimentList(List<Experiment> experimentList) {
-		this.experimentList = experimentList;
-	}
-
-	public Experiment getExperiment() {
-		return experiment;
-	}
-
-	public void setExperiment(Experiment experiment) {
-		this.experiment = experiment;
-	}
-
-	public List<Exercise> getExerciseList() {
-		return exerciseList;
-	}
-
-	public void setExerciseList(List<Exercise> exerciseList) {
-		this.exerciseList = exerciseList;
-	}
-
-	public Exercise getExercise() {
-		return exercise;
-	}
-
-	public void setExercise(Exercise exercise) {
-		this.exercise = exercise;
+	public void setChapterId(Integer chapterId) {
+		this.chapterId = chapterId;
 	}
 
 	public Course getCourse() {
@@ -181,37 +129,8 @@ public class CourseChapterAction extends BaseAction {
 	public void setChapterService(IChapterService chapterService) {
 		this.chapterService = chapterService;
 	}
+	
+	
 
-	public ICoursewareService getCoursewareService() {
-		return coursewareService;
-	}
-
-	public void setCoursewareService(ICoursewareService coursewareService) {
-		this.coursewareService = coursewareService;
-	}
-
-	public IExerciseService getExerciseService() {
-		return exerciseService;
-	}
-
-	public void setExerciseService(IExerciseService exerciseService) {
-		this.exerciseService = exerciseService;
-	}
-
-	public IExperimentService getExperimentService() {
-		return experimentService;
-	}
-
-	public void setExperimentService(IExperimentService experimentService) {
-		this.experimentService = experimentService;
-	}
-
-	public void setChapterId(Integer chapterId) {
-		this.chapterId = chapterId;
-	}
-
-	public Integer getChapterId() {
-		return chapterId;
-	}
-
+	
 }
