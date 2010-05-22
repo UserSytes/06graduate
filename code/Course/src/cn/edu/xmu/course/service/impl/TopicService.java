@@ -70,11 +70,11 @@ public class TopicService implements ITopicService {
 		}
 	}
 
-	public List<Topic> getTopicByShcool(School school) {
+	public List getTopicByShcool(School school) {
 		return topicDAO.getTopicByShcool(school);
 	}
 
-	public List<Topic> searchTopicByKey(String key, School school) {
+	public List searchTopicByKey(String key, School school) {
 		return topicDAO.searchTopicByKey(key, school);
 	}
 
