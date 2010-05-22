@@ -21,7 +21,7 @@ public class CourseInfoAction extends BaseAction {
 	private static final long serialVersionUID = -8520468160026179099L;
 	private CourseInfo courseInfo; // 课程信息
 	private ApplicationForm applicationForm; // 申报表格
-	private List<CourseInfo> courseInfoList; // 课程信息列表
+	private List courseInfoList; // 课程信息列表
 	private Integer courseInfoId; // 课程信息ID
 	private Integer sort = 1; // 课程信息类别
 
@@ -192,11 +192,11 @@ public class CourseInfoAction extends BaseAction {
 		return applicationForm;
 	}
 
-	public void setCourseInfoList(List<CourseInfo> courseInfoList) {
+	public void setCourseInfoList(List courseInfoList) {
 		this.courseInfoList = courseInfoList;
 	}
 
-	public List<CourseInfo> getCourseInfoList() {
+	public List getCourseInfoList() {
 		return courseInfoList;
 	}
 

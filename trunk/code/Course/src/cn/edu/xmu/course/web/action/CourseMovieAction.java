@@ -20,7 +20,7 @@ public class CourseMovieAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = -8030627275684855548L;
-	private List<CourseMovie> courseMovieList; // 教学录像列表
+	private List courseMovieList; // 教学录像列表
 	private CourseMovie courseMovie; // 教学录像
 	private Integer courseMovieId; // 教学录像ID
 
@@ -179,11 +179,11 @@ public class CourseMovieAction extends BaseAction {
 		this.uploadFileName = uploadFileName;
 	}
 
-	public List<CourseMovie> getCourseMovieList() {
+	public List getCourseMovieList() {
 		return courseMovieList;
 	}
 
-	public void setCourseMovieList(List<CourseMovie> courseMovieList) {
+	public void setCourseMovieList(List courseMovieList) {
 		this.courseMovieList = courseMovieList;
 	}
 

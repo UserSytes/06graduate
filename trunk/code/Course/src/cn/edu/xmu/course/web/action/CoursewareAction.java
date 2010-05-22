@@ -22,11 +22,11 @@ public class CoursewareAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 1786518150476463775L;
-	private List<Chapter> chapterList; // 章节列表
+	private List chapterList; // 章节列表
 	private Chapter chapter; // 章节
 	private Integer chapterId; // 章节ID
 
-	private List<Courseware> coursewareList; // 课件列表
+	private List coursewareList; // 课件列表
 	private Courseware courseware; // 课件
 	private Integer coursewareId; // 课件ID
 
@@ -161,11 +161,11 @@ public class CoursewareAction extends BaseAction {
 		}
 	}
 
-	public List<Chapter> getChapterList() {
+	public List getChapterList() {
 		return chapterList;
 	}
 
-	public void setChapterList(List<Chapter> chapterList) {
+	public void setChapterList(List chapterList) {
 		this.chapterList = chapterList;
 	}
 
@@ -185,11 +185,11 @@ public class CoursewareAction extends BaseAction {
 		this.chapterId = chapterId;
 	}
 
-	public List<Courseware> getCoursewareList() {
+	public List getCoursewareList() {
 		return coursewareList;
 	}
 
-	public void setCoursewareList(List<Courseware> coursewareList) {
+	public void setCoursewareList(List coursewareList) {
 		this.coursewareList = coursewareList;
 	}
 
