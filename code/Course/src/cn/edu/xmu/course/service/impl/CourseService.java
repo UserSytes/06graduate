@@ -24,8 +24,8 @@ import cn.edu.xmu.course.service.ICourseService;
 public class CourseService implements ICourseService {
 
 	private CourseDAO courseDAO;
-	private List<Course> courses;
-	private List<Course> tempList;
+	private List courses;
+	private List tempList;
 	private ApplicationForm applicationForm;
 
 	/*
