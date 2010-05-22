@@ -88,6 +88,7 @@ public class TeacherInfoService implements ITeacherInfoService {
 	public boolean updateTeacher(Teacher teacher, UserInfo userInfo) {
 		// TODO Auto-generated method stub
 		try {
+			teacher.setUserInfo(userInfo);
 			UserInfo u = userInfoDAO.merge(userInfo);
 			Teacher t = teacherDAO.merge(teacher);
 			if (t == null || u == null)
