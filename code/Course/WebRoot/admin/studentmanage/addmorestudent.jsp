@@ -92,7 +92,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:file name="studentFile" label="导入Excel表" id="fileName"></s:file>
+						<s:file name="studentFile" size="50" label="导入Excel表" id="fileName"></s:file>
 						&nbsp;*
 					</td>
 				</tr>

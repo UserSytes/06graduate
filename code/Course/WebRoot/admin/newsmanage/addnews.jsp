@@ -41,7 +41,7 @@
 		document.getElementById("conditionTable").style.display="block";
 	 currRow=conditionTable.insertRow();
      cellc=currRow.insertCell();
-     cellcContext= "<input type='File' NAME='myFile'>&nbsp;&nbsp;<button onclick='removeFile();'>删除</button><br>";
+     cellcContext= "<input size=50 type='File' NAME='myFile'>&nbsp;&nbsp;<button onclick='removeFile();'>删除</button><br>";
      cellc.innerHTML=cellcContext;
      
      //alert(cellcContext);

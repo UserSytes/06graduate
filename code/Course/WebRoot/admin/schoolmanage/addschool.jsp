@@ -12,14 +12,14 @@
 		<title>添加学院</title>
 		<script type="text/javascript" src="/course/dwr/engine.js"></script>
 		<script type="text/javascript" src="/course/dwr/util.js"></script>
-		<script type="text/javascript" src="/course/dwr/interface/SuperAdminService.js"></script>
+		<script type="text/javascript" src="/course/dwr/interface/SchoolService.js"></script>
 		<SCRIPT language=javascript>
 		function checkSchool(name) {
 			if (name == "") {
 				DWRUtil.setValue('result', "学院名称不能为空！");
 				return false;
 			}
-			SuperAdminService.checkSchool(name, callBack);
+			SchoolService.checkSchool(name, callBack);
 		}
 		function callBack(data) {
 			if (data != null){
