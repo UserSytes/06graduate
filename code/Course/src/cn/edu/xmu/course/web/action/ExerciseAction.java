@@ -8,11 +8,13 @@ import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Exercise;
 import cn.edu.xmu.course.service.IChapterService;
 import cn.edu.xmu.course.service.IExerciseService;
+
 /**
  * 负责习题的类
+ * 
  * @author 何申密
  * @author 许子彦
- *
+ * 
  */
 public class ExerciseAction extends BaseAction {
 
@@ -20,23 +22,24 @@ public class ExerciseAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = -7294719167547807888L;
-	private List<Chapter> chapterList; //章节目录列表
-	private Chapter chapter; //章节
-	private Integer chapterId;//章节ID
+	private List<Chapter> chapterList; // 章节目录列表
+	private Chapter chapter; // 章节
+	private Integer chapterId;// 章节ID
 
 	private List<Exercise> exerciseList; // 习题 列表
-	private Exercise exercise; //习题 
-	private Integer exerciseId;//习题ID
+	private Exercise exercise; // 习题
+	private Integer exerciseId;// 习题ID
 
-	private File upload; //上传文件
+	private File upload; // 上传文件
 	private String uploadContentType;// 文件类型
-	private String uploadFileName; //文件名字
+	private String uploadFileName; // 文件名字
 
-	private IChapterService chapterService; //负责章节目录业务的接口
-	private IExerciseService exerciseService; //负责习题业务的接口 
-	
+	private IChapterService chapterService; // 负责章节目录业务的接口
+	private IExerciseService exerciseService; // 负责习题业务的接口
+
 	/**
 	 * 根据章节查找练习
+	 * 
 	 * @return
 	 */
 	public String getExerciseListByChapter() {
@@ -50,8 +53,10 @@ public class ExerciseAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
+
 	/**
 	 * 查找所有练习
+	 * 
 	 * @return
 	 */
 	public String getAllExercise() {
@@ -59,8 +64,10 @@ public class ExerciseAction extends BaseAction {
 		exerciseList = exerciseService.getAllExercises(course);
 		return SUCCESS;
 	}
+
 	/**
 	 * 下载练习
+	 * 
 	 * @return
 	 */
 	public String downloadExercise() {
@@ -73,12 +80,15 @@ public class ExerciseAction extends BaseAction {
 		} else
 			return "exercise";
 	}
+
 	/**
 	 * 添加练习
+	 * 
 	 * @return
 	 */
-	public String addExercise() {		
-		String fileLink = super.getPreFileNameByTeacher(super.getCourse()) + uploadFileName;
+	public String addExercise() {
+		String fileLink = super.getPreFileNameByTeacher(super.getCourse())
+				+ uploadFileName;
 		exercise.setFilename(uploadFileName);
 		exercise.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);
@@ -89,8 +99,10 @@ public class ExerciseAction extends BaseAction {
 			return ERROR;
 		}
 	}
+
 	/**
 	 * 跳转到编辑练习
+	 * 
 	 * @return
 	 */
 	public String goEditExercise() {
@@ -99,20 +111,25 @@ public class ExerciseAction extends BaseAction {
 		chapterId = exercise.getChapter().getId();
 		return SUCCESS;
 	}
+
 	/**
 	 * 跳转到添加练习
+	 * 
 	 * @return
 	 */
 	public String goAddExercise() {
 		chapterList = chapterService.getAllChapter(super.getCourse());
 		return SUCCESS;
 	}
+
 	/**
 	 * 更新练习
+	 * 
 	 * @return
 	 */
-	public String updateExercise() {	
-		String fileLink = super.getPreFileNameByTeacher(super.getCourse()) + uploadFileName;
+	public String updateExercise() {
+		String fileLink = super.getPreFileNameByTeacher(super.getCourse())
+				+ uploadFileName;
 		exercise.setFilename(uploadFileName);
 		exercise.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);
@@ -123,8 +140,10 @@ public class ExerciseAction extends BaseAction {
 			return ERROR;
 		}
 	}
+
 	/**
 	 * 删除练习
+	 * 
 	 * @return
 	 */
 	public String deleteExercise() {

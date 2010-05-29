@@ -56,7 +56,7 @@ public class StudentAction extends BaseAction {
 	public String getDepartmentBySchool() {
 		Administrator admin = (Administrator) super.getSession().get(ADMIN);
 		School school = admin.getSchool();
-		departmentList = schoolService.findDepartmentBySchool(school);
+		departmentList = getSchoolService().findDepartmentBySchool(school);
 
 		if (departmentList.size() == 0) {
 			addActionMessage("本学院还没有系，请先向 校方管理员申请开设系！");
@@ -71,14 +71,14 @@ public class StudentAction extends BaseAction {
 	 * @return
 	 */
 	public String goAddStudent() {
-		gradeList = schoolService.findAllGrade();
+		gradeList = getSchoolService().findAllGrade();
 		if (gradeList.size() == 0) {
 			addActionMessage("学校未添加学生年级，请先向校方申请添加！");
 			return ERROR;
 		}
 		Administrator admin = (Administrator) super.getSession().get(ADMIN);
 		School school = admin.getSchool();
-		departmentList = schoolService.findDepartmentBySchool(school);
+		departmentList = getSchoolService().findDepartmentBySchool(school);
 		if (departmentList.size() == 0) {
 			addActionMessage("本学院还没有系，请先向 校方管理员申请开设系！");
 			return ERROR;
@@ -93,9 +93,9 @@ public class StudentAction extends BaseAction {
 	 */
 	public String addStudent() {
 		boolean result = false;
-		Grade grade = schoolService.findGradeById(gradeId);
+		Grade grade = getSchoolService().findGradeById(gradeId);
 		student.setGrade(grade);
-		Department department = schoolService
+		Department department = getSchoolService()
 				.findDepartmentById(departmentId);
 		student.setPassword(student.getStudentNo());
 		userInfo.setDepartment(department);		
@@ -113,13 +113,13 @@ public class StudentAction extends BaseAction {
 	 * @return
 	 */
 	public String goAddMoreStudent() {
-		gradeList = schoolService.findAllGrade();
+		gradeList = getSchoolService().findAllGrade();
 		if (gradeList.size() == 0) {
 			addActionMessage("学校未添加学生年级，请先向校方申请添加！");
 			return ERROR;
 		}
 		Administrator admin = (Administrator) super.getSession().get(ADMIN);
-		departmentList = schoolService.findDepartmentBySchool(admin
+		departmentList = getSchoolService().findDepartmentBySchool(admin
 				.getSchool());
 		if (departmentList.size() == 0) {
 			addActionMessage("本学院还没有系，请先向 校方管理员申请开设系！");
@@ -134,8 +134,8 @@ public class StudentAction extends BaseAction {
 	 * @return
 	 */
 	public String addMoreStudent() {
-		Grade grade = schoolService.findGradeById(gradeId);
-		Department department = schoolService
+		Grade grade = getSchoolService().findGradeById(gradeId);
+		Department department = getSchoolService()
 				.findDepartmentById(departmentId);
 		String result =studentInfoService.addMoreStudent(grade, department, studentFile);
 		addActionError(result);	
@@ -148,8 +148,8 @@ public class StudentAction extends BaseAction {
 	 * @return
 	 */
 	public String deleteMoreStudent(){
-		Grade grade = schoolService.findGradeById(gradeId);
-		Department department = schoolService
+		Grade grade = getSchoolService().findGradeById(gradeId);
+		Department department = getSchoolService()
 				.findDepartmentById(departmentId);
 		List<Student> students = studentInfoService.findByDepartmentAndGrade(department, grade);
 		if(students.size()==0){
@@ -173,7 +173,7 @@ public class StudentAction extends BaseAction {
 	 * @return
 	 */
 	public String findAllGrade() {
-		gradeList = schoolService.findAllGrade();
+		gradeList = getSchoolService().findAllGrade();
 		if (gradeList.size() == 0) {
 			return ERROR;
 		} else {
@@ -270,11 +270,11 @@ public class StudentAction extends BaseAction {
 	}
 
 	public ISchoolService getschoolService() {
-		return schoolService;
+		return getSchoolService();
 	}
 
 	public void setschoolService(ISchoolService schoolService) {
-		this.schoolService = schoolService;
+		this.setSchoolService(schoolService);
 	}
 
 	public Student getStudent() {
@@ -395,6 +395,14 @@ public class StudentAction extends BaseAction {
 
 	public String getStudentNo() {
 		return studentNo;
+	}
+
+	public void setSchoolService(ISchoolService schoolService) {
+		this.schoolService = schoolService;
+	}
+
+	public ISchoolService getSchoolService() {
+		return schoolService;
 	}
 
 }
