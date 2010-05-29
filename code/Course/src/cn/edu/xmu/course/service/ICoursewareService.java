@@ -3,7 +3,9 @@ package cn.edu.xmu.course.service;
 import java.io.File;
 import java.util.List;
 
-import cn.edu.xmu.course.pojo.*;
+import cn.edu.xmu.course.pojo.Chapter;
+import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.Courseware;
 
 /**
  * 课程教案
@@ -17,14 +19,14 @@ public interface ICoursewareService {
 	 * @param teacherCoures
 	 * @return
 	 */
-	public List getAllCoursewares(Course course);
+	public List<Courseware> getAllCoursewares(Course course);
 	
 	/**
 	 * 查找该目录下所有的习题
 	 * @param chapter
 	 * @return
 	 */
-	public List getCoursewaresByChapter(Chapter chapter);
+	public List<Courseware> getCoursewaresByChapter(Chapter chapter);
 	
 	/**
 	 * 获得该习题

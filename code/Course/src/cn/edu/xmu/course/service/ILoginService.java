@@ -1,6 +1,10 @@
 package cn.edu.xmu.course.service;
 
-import cn.edu.xmu.course.pojo.*;
+import cn.edu.xmu.course.pojo.Administrator;
+import cn.edu.xmu.course.pojo.Evaluation;
+import cn.edu.xmu.course.pojo.Student;
+import cn.edu.xmu.course.pojo.SuperAdmin;
+import cn.edu.xmu.course.pojo.Teacher;
 
 /**
  * µÇÂ¼Ä£¿é
