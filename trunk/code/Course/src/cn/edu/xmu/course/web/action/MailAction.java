@@ -10,7 +10,6 @@ import cn.edu.xmu.course.service.IMailService;
 import cn.edu.xmu.course.service.IStudentInfoService;
 import cn.edu.xmu.course.service.ITeacherInfoService;
 
-import com.googlecode.jsonplugin.annotations.JSON;
 
 /**
  * Õ¾ÄÚÐÅ²Ù×÷
@@ -531,13 +530,10 @@ public class MailAction extends BaseAction {
 		return result;
 	}
 
-	@SuppressWarnings("unchecked")
 	public void setRows(List rows) {
 		this.rows = rows;
 	}
 
-	@SuppressWarnings("unchecked")
-	@JSON(name = "rows")
 	public List getRows() {
 		return rows;
 	}

@@ -1,7 +1,6 @@
 package cn.edu.xmu.course.web.action;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import cn.edu.xmu.course.commons.CourseEvaluate;
@@ -561,7 +560,6 @@ public class EvaluationAction extends BaseAction {
 	public String genrEvaluateChart() {
 		Administrator admin = (Administrator) super.getSession().get(ADMIN);
 		School school = admin.getSchool();
-		Date currentDate = new Date();
 		super.getSession().put("title", school.getName() + "课程评价对比柱形图");
 		super.getSession().put("abscissa", "课程");
 		super.getSession().put("ordinate", "平均分");

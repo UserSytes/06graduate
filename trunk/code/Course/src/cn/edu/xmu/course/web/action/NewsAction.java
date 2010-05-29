@@ -65,7 +65,6 @@ public class NewsAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String findAllNews() {
 		newsList = newsService.findAllNews();
 		if (newsList.size() == 0) {
