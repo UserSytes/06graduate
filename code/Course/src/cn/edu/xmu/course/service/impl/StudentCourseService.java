@@ -43,6 +43,10 @@ public class StudentCourseService implements IStudentCourseService {
 			return false;// 该生已经加入该课程
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentCourseService#findCollectionByStu(cn.edu.xmu.course.pojo.Student, cn.edu.xmu.course.pojo.Course)
+	 */
 	public Collection findCollectionByStu(Student student, Course course) {
 		// TODO Auto-generated method stub
 		List<Collection> c = collectionDAO.findByStudentAndCourse(course,
@@ -290,6 +294,10 @@ public class StudentCourseService implements IStudentCourseService {
 		return studentCourseDAO.findByProperty("student", student);
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IStudentCourseService#findByStudentAndCourse(cn.edu.xmu.course.pojo.Course, cn.edu.xmu.course.pojo.Student)
+	 */
 	public List<StudentCourse> findByStudentAndCourse(Course course,
 			Student student) {
 		return getStudentCourseDAO().findByStudentAndCourse(course,

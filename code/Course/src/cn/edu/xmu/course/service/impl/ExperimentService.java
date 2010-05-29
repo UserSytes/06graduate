@@ -16,10 +16,24 @@ import cn.edu.xmu.course.pojo.Experiment;
 import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.service.IExperimentService;
 
+/**
+ * 课程实验
+ * 
+ * @author 何申密
+ * @author 许子彦
+ * 
+ */
 public class ExperimentService implements IExperimentService {
 	private ExperimentDAO experimentDAO;
 	private NoticeDAO noticeDAO;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IExperimentService#addExperiment(cn.edu.xmu
+	 * .course.pojo.Experiment, cn.edu.xmu.course.pojo.Chapter, java.io.File)
+	 */
 	public boolean addExperiment(Experiment experiment, Chapter chapter,
 			File upload) {
 		// TODO Auto-generated method stub
@@ -29,22 +43,30 @@ public class ExperimentService implements IExperimentService {
 		File file = new File(fileName);
 		experiment.setChapter(chapter);
 		experiment.setTime(Calendar.getInstance().getTime());
-		String title = "添加实验指导《"+experiment.getTitle()+"》";
-		String content = "<p>添加最新实验指导《"+experiment.getTitle()+"》，请同学们注意查阅。</p>";
-		Notice notice = new Notice(chapter.getCourse(),title,content,new Date(),1);	
-		try {			
-			if (FileOperation.copy(upload, file)){
+		String title = "添加实验指导《" + experiment.getTitle() + "》";
+		String content = "<p>添加最新实验指导《" + experiment.getTitle()
+				+ "》，请同学们注意查阅。</p>";
+		Notice notice = new Notice(chapter.getCourse(), title, content,
+				new Date(), 1);
+		try {
+			if (FileOperation.copy(upload, file)) {
 				experimentDAO.save(experiment);
 				getNoticeDAO().save(notice);
 				return true;
-			}				
-			else
+			} else
 				return false;
 		} catch (Exception e) {
 			return false;
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IExperimentService#deleteExperiment(cn.edu.
+	 * xmu.course.pojo.Experiment)
+	 */
 	public boolean deleteExperiment(Experiment experiment) {
 		// TODO Auto-generated method stub
 		try {
@@ -55,18 +77,38 @@ public class ExperimentService implements IExperimentService {
 		}
 	}
 
-	public List getAllExperiments(Course course) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IExperimentService#getAllExperiments(cn.edu
+	 * .xmu.course.pojo.Course)
+	 */
+	public List<Experiment> getAllExperiments(Course course) {
 		// TODO Auto-generated method stub
 		return experimentDAO.findByCourse(course.getId());
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IExperimentService#getExperimentById(java.lang
+	 * .Integer)
+	 */
 	public Experiment getExperimentById(Integer id) {
 		// TODO Auto-generated method stub
 		return experimentDAO.findById(id);
 	}
 
-	@SuppressWarnings("unchecked")
-	public List getExperimentsByChapter(Chapter chapter) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IExperimentService#getExperimentsByChapter(
+	 * cn.edu.xmu.course.pojo.Chapter)
+	 */
+	public List<Experiment> getExperimentsByChapter(Chapter chapter) {
 		List<Experiment> experiments = experimentDAO.findByChapter(chapter);
 		if (experiments.size() > 0)
 			return experiments;
@@ -74,7 +116,15 @@ public class ExperimentService implements IExperimentService {
 			return null;
 	}
 
-	public boolean updateExperiment(Experiment experiment, Chapter chapter,File upload) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IExperimentService#updateExperiment(cn.edu.
+	 * xmu.course.pojo.Experiment, cn.edu.xmu.course.pojo.Chapter, java.io.File)
+	 */
+	public boolean updateExperiment(Experiment experiment, Chapter chapter,
+			File upload) {
 		// TODO Auto-generated method stub
 		String path = ServletActionContext.getServletContext().getRealPath(
 				"/upload");
@@ -82,16 +132,17 @@ public class ExperimentService implements IExperimentService {
 		File file = new File(fileName);
 		experiment.setChapter(chapter);
 		experiment.setTime(Calendar.getInstance().getTime());
-		String title = "修改实验指导《"+experiment.getTitle()+"》";
-		String content = "<p>修改已有实验指导《"+experiment.getTitle()+"》，请同学们注意查阅。</p>";
-		Notice notice = new Notice(chapter.getCourse(),title,content,new Date(),1);	
-		try {			
-			if (FileOperation.copy(upload, file)){
+		String title = "修改实验指导《" + experiment.getTitle() + "》";
+		String content = "<p>修改已有实验指导《" + experiment.getTitle()
+				+ "》，请同学们注意查阅。</p>";
+		Notice notice = new Notice(chapter.getCourse(), title, content,
+				new Date(), 1);
+		try {
+			if (FileOperation.copy(upload, file)) {
 				experimentDAO.merge(experiment);
 				getNoticeDAO().save(notice);
 				return true;
-			}				
-			else
+			} else
 				return false;
 		} catch (Exception e) {
 			return false;

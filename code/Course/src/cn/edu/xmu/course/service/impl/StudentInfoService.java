@@ -127,7 +127,7 @@ public class StudentInfoService implements IStudentInfoService {
 	 * 根据学院查找学生(non-Javadoc)
 	 * @see cn.edu.xmu.course.service.IStudentInfoService#findBySchool(cn.edu.xmu.course.pojo.School)
 	 */
-	public List findBySchool(School school) {
+	public List<Student> findBySchool(School school) {
 		// TODO Auto-generated method stub
 		return studentDAO.findBySchool(school);
 	}
@@ -150,7 +150,7 @@ public class StudentInfoService implements IStudentInfoService {
 	 * 根据学院和学号查找学生信息(non-Javadoc)
 	 * @see cn.edu.xmu.course.service.IStudentInfoService#findByStudentNoFuzzy(java.lang.String, cn.edu.xmu.course.pojo.School)
 	 */
-	public List findByStudentNoFuzzy(String studentNo, School school) {
+	public List<Student> findByStudentNoFuzzy(String studentNo, School school) {
 		// TODO Auto-generated method stub
 		List<Student> students = studentDAO.findByStudentNoFuzzy(studentNo,
 				school);
@@ -212,26 +212,11 @@ public class StudentInfoService implements IStudentInfoService {
 	 * 根据系查找学生信息(non-Javadoc)
 	 * @see cn.edu.xmu.course.service.IStudentInfoService#getStuNameAndNumber(cn.edu.xmu.course.pojo.Department)
 	 */
-	public List getStuNameAndNumber(Department department) {
+	public List<Student> getStuNameAndNumber(Department department) {
 		// TODO Auto-generated method stub
 		return studentDAO.findStuNameAndNumberByDepartment(department);
 	}
 
-	public StudentDAO getStudentDAO() {
-		return studentDAO;
-	}
-
-	public void setStudentDAO(StudentDAO studentDAO) {
-		this.studentDAO = studentDAO;
-	}
-
-	public UserInfoDAO getUserInfoDAO() {
-		return userInfoDAO;
-	}
-
-	public void setUserInfoDAO(UserInfoDAO userInfoDAO) {
-		this.userInfoDAO = userInfoDAO;
-	}
 
 	/*
 	 * 根据学号查找用户信息(non-Javadoc)
@@ -336,6 +321,20 @@ public class StudentInfoService implements IStudentInfoService {
 		return md5;
 	}
 
-	
+	public StudentDAO getStudentDAO() {
+		return studentDAO;
+	}
+
+	public void setStudentDAO(StudentDAO studentDAO) {
+		this.studentDAO = studentDAO;
+	}
+
+	public UserInfoDAO getUserInfoDAO() {
+		return userInfoDAO;
+	}
+
+	public void setUserInfoDAO(UserInfoDAO userInfoDAO) {
+		this.userInfoDAO = userInfoDAO;
+	}
 
 }

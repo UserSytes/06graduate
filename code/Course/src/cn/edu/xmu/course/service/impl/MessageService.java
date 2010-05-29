@@ -11,13 +11,27 @@ import cn.edu.xmu.course.pojo.Topic;
 import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.IMessageService;
 
+/**
+ * 负责留言板中留言的接口
+ * 
+ * @author 许子彦
+ * @author 何申密
+ * 
+ */
 public class MessageService implements IMessageService {
 	private MessageDAO messageDAO;
 	private TopicDAO topicDAO;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IMessageService#addMessage(cn.edu.xmu.course
+	 * .pojo.Course, cn.edu.xmu.course.pojo.Topic,
+	 * cn.edu.xmu.course.pojo.Message, cn.edu.xmu.course.pojo.UserInfo)
+	 */
 	public boolean addMessage(Course course, Topic topic, Message message,
 			UserInfo userInfo) {
-		System.out.println("正在加入帖子为：" + topic.getId() + "的留言");
 		topic.setCourse(course);
 		topic.setTime(new Date());
 		topic.setCountPerson(0);
@@ -51,13 +65,13 @@ public class MessageService implements IMessageService {
 			UserInfo userInfo) {
 		// TODO Auto-generated method stub
 		topic.setCountReply(topic.getCountReply() + 1);
-		topic.setCountPerson(topic.getCountPerson()+1);
+		topic.setCountPerson(topic.getCountPerson() + 1);
 		topic.setLastUpdate(new Date());
 		topic.setLastAnswer(userInfo.getName());
 		message.setGrade(topic.getCountReply() + 1);
 		message.setUserInfo(userInfo);
 		message.setTopic(topic);
-		message.setTime(new Date());	
+		message.setTime(new Date());
 		try {
 			topicDAO.merge(topic);
 			messageDAO.save(message);
@@ -67,6 +81,13 @@ public class MessageService implements IMessageService {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IMessageService#deleteMessage(cn.edu.xmu.course
+	 * .pojo.Message)
+	 */
 	public boolean deleteMessage(Message message) {
 		try {
 			messageDAO.delete(message);
@@ -75,11 +96,26 @@ public class MessageService implements IMessageService {
 			return false;
 		}
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IMessageService#getMessageById(java.lang.Integer
+	 * )
+	 */
 	public Message getMessageById(Integer id) {
 
 		return messageDAO.findById(id);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IMessageService#updateMessage(cn.edu.xmu.course
+	 * .pojo.Message)
+	 */
 	public boolean updateMessage(Message message) {
 		// TODO Auto-generated method stub
 		try {
@@ -90,17 +126,25 @@ public class MessageService implements IMessageService {
 		}
 	}
 
-	public List getMessageByTopic(Topic topic) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IMessageService#getMessageByTopic(cn.edu.xmu
+	 * .course.pojo.Topic)
+	 */
+	public List<Message> getMessageByTopic(Topic topic) {
 		return messageDAO.findByTopicByOrder(topic);
 	}
 
-	/**
-	 * 根据用户查找主题（grade为1的message）
+	/*
+	 * (non-Javadoc)
 	 * 
-	 * @param userInfo
-	 * @return
+	 * @see
+	 * cn.edu.xmu.course.service.IMessageService#getMessageByUserInfo(cn.edu
+	 * .xmu.course.pojo.UserInfo)
 	 */
-	public List getMessageByUserInfo(UserInfo userInfo) {
+	public List<Message> getMessageByUserInfo(UserInfo userInfo) {
 		return messageDAO.findTopicByUserInfo(userInfo);
 	}
 
@@ -119,6 +163,5 @@ public class MessageService implements IMessageService {
 	public TopicDAO getTopicDAO() {
 		return topicDAO;
 	}
-
 
 }

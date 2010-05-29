@@ -16,11 +16,25 @@ import cn.edu.xmu.course.pojo.Exercise;
 import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.service.IExerciseService;
 
+/**
+ * 课程习题
+ * 
+ * @author 何申密
+ * @author 许子彦
+ * 
+ */
 public class ExerciseService implements IExerciseService {
 
 	private ExerciseDAO exerciseDAO;
 	private NoticeDAO noticeDAO;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IExerciseService#addExercise(cn.edu.xmu.course
+	 * .pojo.Exercise, cn.edu.xmu.course.pojo.Chapter, java.io.File)
+	 */
 	public boolean addExercise(Exercise exercise, Chapter chapter, File upload) {
 		// TODO Auto-generated method stub
 		String path = ServletActionContext.getServletContext().getRealPath(
@@ -29,22 +43,30 @@ public class ExerciseService implements IExerciseService {
 		File file = new File(fileName);
 		exercise.setChapter(chapter);
 		exercise.setTime(Calendar.getInstance().getTime());
-		String title = "添加作业习题《"+exercise.getTitle()+"》";
-		String content = "<p>添加最新作业习题《"+exercise.getTitle()+"》，请同学们注意查阅。</p>";
-		Notice notice = new Notice(chapter.getCourse(),title,content,new Date(),1);	
-		try {			
-			if (FileOperation.copy(upload, file)){
+		String title = "添加作业习题《" + exercise.getTitle() + "》";
+		String content = "<p>添加最新作业习题《" + exercise.getTitle()
+				+ "》，请同学们注意查阅。</p>";
+		Notice notice = new Notice(chapter.getCourse(), title, content,
+				new Date(), 1);
+		try {
+			if (FileOperation.copy(upload, file)) {
 				exerciseDAO.save(exercise);
 				getNoticeDAO().save(notice);
 				return true;
-			}				
-			else
+			} else
 				return false;
 		} catch (Exception e) {
 			return false;
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IExerciseService#deleteExercise(cn.edu.xmu.
+	 * course.pojo.Exercise)
+	 */
 	public boolean deleteExercise(Exercise exercise) {
 		// TODO Auto-generated method stub
 		try {
@@ -55,17 +77,38 @@ public class ExerciseService implements IExerciseService {
 		}
 	}
 
-	public List getAllExercises(Course course) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IExerciseService#getAllExercises(cn.edu.xmu
+	 * .course.pojo.Course)
+	 */
+	public List<Exercise> getAllExercises(Course course) {
 		// TODO Auto-generated method stub
 		return exerciseDAO.findByCourse(course.getId());
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IExerciseService#getExerciseById(java.lang.
+	 * Integer)
+	 */
 	public Exercise getExerciseById(Integer id) {
 		// TODO Auto-generated method stub
 		return exerciseDAO.findById(id);
 	}
 
-	public List getExercisesByChapter(Chapter chapter) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IExerciseService#getExercisesByChapter(cn.edu
+	 * .xmu.course.pojo.Chapter)
+	 */
+	public List<Exercise> getExercisesByChapter(Chapter chapter) {
 		// TODO Auto-generated method stub
 		List<Exercise> exerciseList = exerciseDAO.findByChapter(chapter);
 		if (exerciseList.size() > 0)
@@ -74,6 +117,13 @@ public class ExerciseService implements IExerciseService {
 			return null;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IExerciseService#updateExercise(cn.edu.xmu.
+	 * course.pojo.Exercise, cn.edu.xmu.course.pojo.Chapter, java.io.File)
+	 */
 	public boolean updateExercise(Exercise exercise, Chapter chapter,
 			File upload) {
 		// TODO Auto-generated method stub
@@ -83,16 +133,17 @@ public class ExerciseService implements IExerciseService {
 		File file = new File(fileName);
 		exercise.setChapter(chapter);
 		exercise.setTime(Calendar.getInstance().getTime());
-		String title = "修改作业习题《"+exercise.getTitle()+"》";
-		String content = "<p>修改已有作业习题《"+exercise.getTitle()+"》，请同学们注意查阅。</p>";
-		Notice notice = new Notice(chapter.getCourse(),title,content,new Date(),1);	
-		try {			
-			if (FileOperation.copy(upload, file)){
+		String title = "修改作业习题《" + exercise.getTitle() + "》";
+		String content = "<p>修改已有作业习题《" + exercise.getTitle()
+				+ "》，请同学们注意查阅。</p>";
+		Notice notice = new Notice(chapter.getCourse(), title, content,
+				new Date(), 1);
+		try {
+			if (FileOperation.copy(upload, file)) {
 				exerciseDAO.merge(exercise);
 				getNoticeDAO().save(notice);
-				return true;			
-			}
-			else
+				return true;
+			} else
 				return false;
 		} catch (Exception e) {
 			return false;

@@ -13,8 +13,10 @@ import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.ITeacherInfoService;
+
 /**
  * 教师信息管理
+ * 
  * @author 何申密
  * @author 郑冰凌
  */
@@ -102,15 +104,19 @@ public class TeacherInfoService implements ITeacherInfoService {
 
 	/*
 	 * 删除教师信息(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ITeacherInfoService#deleteTeacher(cn.edu.xmu.course.pojo.Teacher)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ITeacherInfoService#deleteTeacher(cn.edu.xmu
+	 * .course.pojo.Teacher)
 	 */
 	public boolean deleteTeacher(Teacher teacher) {
 		// TODO Auto-generated method stub
 		String path = ServletActionContext.getServletContext().getRealPath(
-		"/upload");
-		String fileName = path + "/"+teacher.getTeacherNo()+ teacher.getUserInfo().getName();
+				"/upload");
+		String fileName = path + "/" + teacher.getTeacherNo()
+				+ teacher.getUserInfo().getName();
 		try {
-			if(!FileOperation.delFolder(fileName))
+			if (!FileOperation.delFolder(fileName))
 				return false;
 			userInfoDAO.delete(teacher.getUserInfo());
 			teacherDAO.delete(teacher);
@@ -122,6 +128,7 @@ public class TeacherInfoService implements ITeacherInfoService {
 
 	/*
 	 * 根据id查找教师(non-Javadoc)
+	 * 
 	 * @see cn.edu.xmu.course.service.ITeacherInfoService#findTeacherById(int)
 	 */
 	public Teacher findTeacherById(int id) {
@@ -131,16 +138,22 @@ public class TeacherInfoService implements ITeacherInfoService {
 
 	/*
 	 * 根据学院查找教师(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ITeacherInfoService#findTeachersBySchool(cn.edu.xmu.course.pojo.School)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ITeacherInfoService#findTeachersBySchool(cn
+	 * .edu.xmu.course.pojo.School)
 	 */
-	public List findTeachersBySchool(School school) {
+	public List<Teacher> findTeachersBySchool(School school) {
 		return teacherDAO.findBySchool(school);
 
 	}
 
 	/*
 	 * 根据教师帐号查找教师(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ITeacherInfoService#findTeacherByTeacherNo(java.lang.String)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ITeacherInfoService#findTeacherByTeacherNo(
+	 * java.lang.String)
 	 */
 	public Teacher findTeacherByTeacherNo(String teacherNo) {
 		// TODO Auto-generated method stub
@@ -154,7 +167,10 @@ public class TeacherInfoService implements ITeacherInfoService {
 
 	/*
 	 * 根据用户信息查找教师(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ITeacherInfoService#findTeacherByUserInfo(cn.edu.xmu.course.pojo.UserInfo)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ITeacherInfoService#findTeacherByUserInfo(cn
+	 * .edu.xmu.course.pojo.UserInfo)
 	 */
 	public Teacher findTeacherByUserInfo(UserInfo userInfo) {
 		// TODO Auto-generated method stub
@@ -168,25 +184,28 @@ public class TeacherInfoService implements ITeacherInfoService {
 
 	/*
 	 * 修改头像(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ITeacherInfoService#addTeacherPhoto(cn.edu.xmu.course.pojo.UserInfo, java.io.File, java.lang.String)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ITeacherInfoService#addTeacherPhoto(cn.edu.
+	 * xmu.course.pojo.UserInfo, java.io.File, java.lang.String)
 	 */
-	public boolean addTeacherPhoto(UserInfo userInfo, File photo, String fileLink) {
+	public boolean addTeacherPhoto(UserInfo userInfo, File photo,
+			String fileLink) {
 		// TODO Auto-generated method stub
 		String oldPhoto = userInfo.getPhoto();
 		String path = ServletActionContext.getServletContext().getRealPath(
-				"/upload");		
+				"/upload");
 		String fileName = path + "/" + fileLink;
 		File file = new File(fileName);
-		userInfo.setPhoto(fileLink);		
+		userInfo.setPhoto(fileLink);
 		try {
-			
+
 			if (!oldPhoto.equals("photo/defaultPhoto.jpg"))
 				FileOperation.delete(new File(path + "/" + oldPhoto));
-			if (FileOperation.copy(photo, file)){	
+			if (FileOperation.copy(photo, file)) {
 				userInfoDAO.merge(userInfo);
 				return true;
-			}
-			else
+			} else
 				return false;
 		} catch (Exception e) {
 			return false;
@@ -195,7 +214,10 @@ public class TeacherInfoService implements ITeacherInfoService {
 
 	/*
 	 * 根据学院查找教师部分信息(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.ITeacherInfoService#getTeaNameAndNumber(cn.edu.xmu.course.pojo.School)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ITeacherInfoService#getTeaNameAndNumber(cn.
+	 * edu.xmu.course.pojo.School)
 	 */
 	public List getTeaNameAndNumber(School school) {
 		// TODO Auto-generated method stub
