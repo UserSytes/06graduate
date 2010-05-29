@@ -56,7 +56,6 @@ public class SchoolManageAction extends BaseAction {
 	 */
 	public String findAllSchools() {
 		allSchoolList = schoolService.findAllSchool();
-		// System.out.println("test:  "+allSchoolList.get(6).getName());
 		if (allSchoolList.size() == 0) {
 			return ERROR;
 		} else
@@ -148,11 +147,7 @@ public class SchoolManageAction extends BaseAction {
 	 * @return
 	 */
 	public String addDepartment() {
-		// department.setSchool(school);
-		school = schoolService.findSchoolById(schoolId);
-		// System.out.println("测试2： "+school);
-		// System.out.println("测试3： "+school.getName());
-		department.setSchool(school);
+		school = schoolService.findSchoolById(schoolId);	
 		boolean result = schoolService.addDepartment(school, department);
 		if (result) {
 			addActionMessage("添加系成功！");

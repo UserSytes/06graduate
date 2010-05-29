@@ -33,9 +33,7 @@ public class ExaminationAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getExaminationListByCourse() {
-		System.out.println(super.getCourse());
 		examinationList = examinationService.getAllExaminations(super
 				.getCourse());
 		return SUCCESS;
@@ -46,7 +44,6 @@ public class ExaminationAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getAllExamination() {
 		Course course = super.getCourse();
 		examinationList = examinationService.getAllExaminations(course);

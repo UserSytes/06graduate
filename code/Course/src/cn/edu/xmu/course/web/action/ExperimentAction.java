@@ -35,7 +35,6 @@ public class ExperimentAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getExperimentListByChapter() {
 		Course course = super.getCourse();
 		chapterList = chapterService.getAllChapter(super.getCourse());
@@ -53,7 +52,6 @@ public class ExperimentAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getAllExperiment() {
 		Course course = super.getCourse();
 		experimentList = experimentService.getAllExperiments(course);
@@ -65,7 +63,6 @@ public class ExperimentAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String downloadExperiment() {
 		Chapter currentChapter = chapterService.getChapterById(chapterId);
 		experimentList = experimentService
@@ -101,7 +98,6 @@ public class ExperimentAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String goEditExperiment() {
 		experiment = experimentService.getExperimentById(experimentId);
 		chapterList = chapterService.getAllChapter(super.getCourse());
@@ -114,7 +110,6 @@ public class ExperimentAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String goAddExperiment() {
 		chapterList = chapterService.getAllChapter(super.getCourse());
 		return SUCCESS;

@@ -53,7 +53,6 @@ public class StudentAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getDepartmentBySchool() {
 		Administrator admin = (Administrator) super.getSession().get(ADMIN);
 		School school = admin.getSchool();
@@ -71,7 +70,6 @@ public class StudentAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String goAddStudent() {
 		gradeList = schoolService.findAllGrade();
 		if (gradeList.size() == 0) {
@@ -114,7 +112,6 @@ public class StudentAction extends BaseAction {
 	 * 跳转到批量添加学生
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String goAddMoreStudent() {
 		gradeList = schoolService.findAllGrade();
 		if (gradeList.size() == 0) {
@@ -175,7 +172,6 @@ public class StudentAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String findAllGrade() {
 		gradeList = schoolService.findAllGrade();
 		if (gradeList.size() == 0) {
@@ -191,7 +187,6 @@ public class StudentAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String findStudentBySchool() {
 		this.goAddStudent();
 		Administrator admin = (Administrator) super.getSession().get(ADMIN);

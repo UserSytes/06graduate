@@ -15,6 +15,7 @@ import cn.edu.xmu.course.service.ILoginService;
  * @author 郑冰凌
  * 
  */
+@SuppressWarnings("unchecked")
 public class LoginAction extends BaseAction {
 
 	/**
@@ -37,7 +38,6 @@ public class LoginAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String adminLogin() {
 		if (flag == 0) {
 			Administrator admin = loginService.adminLogin(userName, password);
@@ -67,7 +67,6 @@ public class LoginAction extends BaseAction {
 	 * 专家登录
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String evaluationLogin() {
 		Evaluation evaluation = getLoginService().expertLogin(userName,
 				getPassword(), flag);
@@ -112,7 +111,10 @@ public class LoginAction extends BaseAction {
 
 	}
 
-	@SuppressWarnings("unchecked")
+	/**
+	 * 学生登录收藏课程
+	 * @return
+	 */
 	public String studentLoginForCol() {
 		student = loginService.studentLogin(userName, password);
 		if (student == null) {

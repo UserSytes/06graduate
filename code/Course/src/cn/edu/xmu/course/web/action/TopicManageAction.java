@@ -57,8 +57,7 @@ public class TopicManageAction extends BaseAction{
 		}else{
 			return ERROR;
 		}
-	}
-	
+	}	
 
 	/**
 	 * 老师删除留言主题
@@ -79,11 +78,9 @@ public class TopicManageAction extends BaseAction{
 	 * 获取某主题的所有留言
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getMessageByTopic(){
 		topic = topicService.getTopicById(topicId);
 		messageList = messageService.getMessageByTopic(topic);
-		//System.out.println(messageList.get(0).getUserInfo().getName());
 		if(messageList.size()==0){
 			addActionMessage("本主题目前还无回复！");
 			return ERROR;
@@ -106,8 +103,7 @@ public class TopicManageAction extends BaseAction{
 			addActionError("删除留言失败，请重新操作！");
 			return ERROR;
 		}
-	}
-	
+	}	
 
 	/**
 	 * 教师删除留言
@@ -125,7 +121,6 @@ public class TopicManageAction extends BaseAction{
 		}
 	}
 	
-
 	public ITopicService getTopicService() {
 		return topicService;
 	}

@@ -14,6 +14,7 @@ import cn.edu.xmu.course.service.IStudentInfoService;
  * @author ึฃฑ๙ม่
  * 
  */
+@SuppressWarnings("unchecked")
 public class StudentInfoAction extends BaseAction {
 
 	/**
@@ -77,7 +78,6 @@ public class StudentInfoAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String changeStudentInfo() {
 		boolean result = studentInfoService.updateStudent(student, userInfo);
 		if (result) {

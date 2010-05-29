@@ -51,7 +51,7 @@ public class SchoolService implements ISchoolService {
 	 */
 	public boolean addDepartment(School school, Department department) {
 		// TODO Auto-generated method stub
-		// department.setSchool(school);
+		department.setSchool(school);
 		try {
 			departmentDAO.save(department);
 			this.createTreeData();
@@ -186,10 +186,12 @@ public class SchoolService implements ISchoolService {
 		return departmentDAO.findByProperty("school", school);
 	}
 
+	/**
+	 * 创建树文件
+	 */
 	public void createTreeData() {
 		String path = ServletActionContext.getServletContext().getRealPath("");
-		File file = new File(path + "/" + "dept_data.properties");
-		System.out.println(file.getPath());
+		File file = new File(path + "/" + "dept_data.properties");		
 		List<School> schools = this.findAllSchool();
 		try {
 			if (file.exists())
