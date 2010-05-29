@@ -54,6 +54,7 @@ a:hover {
 			{ "sSortDataType": "dom-text", "sType": "numeric" },
 			null,
 			null,
+			null,
 			{ "sSortDataType": "dom-text", "sType": "numeric" },
 			{ "sSortDataType": "dom-text", "sType": "numeric" },				
 			null,
@@ -81,7 +82,7 @@ a:hover {
 			</table>
 
 			<div class="demo_jui" style="margin-top: 10px;">
-				<a href="${ctx}/teacher/mycourse/newtopic.jsp" rel="facebox"><img
+				<a href="goAddNewTopicByTeaAction.action" rel="facebox"><img
 						src="${ctx}/coursepage/classical/image/newtopic.gif" alt="新帖"
 						border="0" /> </a>
 
@@ -92,10 +93,13 @@ a:hover {
 							<th>
 
 							</th>
-							<th width="480">
+							<th width="380">
 								标题
 							</th>
-							<th width="130">
+							<th width="140">
+								课程
+							</th>
+							<th width="110">
 								作者
 							</th>
 							<th width="60">
@@ -104,7 +108,7 @@ a:hover {
 							<th width="50">
 								查看
 							</th>
-							<th width="130">
+							<th width="110">
 								最后发表
 							</th>
 							<th>
@@ -128,6 +132,9 @@ a:hover {
 																	</s:param>
 																</s:url>">
 										<s:property value="name" /> </a>
+								</td>
+								<td width="140" align="left">
+									<s:property value="course.name" />
 								</td>
 								<td width="130" align="center">
 									<s:property value="authorName" />

@@ -104,7 +104,6 @@ public class CourseAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String findMyCoursesListInLeft() {
 		myCoursesList = courseService.findCoursesByTeacher(super.getTeacher()
 				.getId(), type);
@@ -283,6 +282,16 @@ public class CourseAction extends BaseAction {
 			addActionError("该课程未通过审核，请联系教学秘书做相关处理！");
 			return ERROR;
 		}
+	}
+	
+	public String goAddNewTopicByTea(){
+		myCoursesList = courseService.findCoursesByTeacher(super.getTeacher()
+				.getId(), 1);
+		if (myCoursesList.size() < 0) {
+			addActionError("你还未添加任何课程，不能添加留言！");
+			return ERROR;
+		} else
+			return SUCCESS;		
 	}
 
 	public String getDepartmentId() {

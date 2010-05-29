@@ -21,6 +21,11 @@ function check(form) {
 			form.title.focus();
 			return false;
 		}	
+		if(form.courseId.value == -1)
+		{
+			alert("请先选择课程！");
+			return false;
+		}
 		var oEditor = FCKeditorAPI.GetInstance("message.content");
    		if(oEditor.GetXHTML(true) == "")
    		{
@@ -42,6 +47,14 @@ function check(form) {
 	background: #FFF;
 	width: 500px;
 }
+
+.sel {
+	padding: 2px; *
+	padding: 0 2px;	
+	border: 1px solid;
+	border-color: #999 #CCC #CCC #999;
+	background: #FFF;	
+}
 </style>
 	</head>
 
@@ -60,6 +73,14 @@ function check(form) {
 						<td style="padding: 5px 10px 5px 0;">
 							&nbsp;&nbsp;标题：
 							<s:textfield cssClass="txt" id="title" name="topic.name"></s:textfield>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding: 5px 10px 5px 0;">
+							&nbsp;&nbsp;课程：
+							<s:select id="courseId" cssClass="sel" name="courseId" list="myCoursesList"
+							listKey="id" listValue="name" headerValue="请选择要发布主题的课程"
+							headerKey="-1" />
 						</td>
 					</tr>
 					<tr
