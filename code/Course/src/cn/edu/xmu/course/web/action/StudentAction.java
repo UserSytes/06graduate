@@ -10,8 +10,8 @@ import cn.edu.xmu.course.pojo.Grade;
 import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.UserInfo;
-import cn.edu.xmu.course.service.IStudentInfoService;
 import cn.edu.xmu.course.service.ISchoolService;
+import cn.edu.xmu.course.service.IStudentInfoService;
 
 /**
  * 学生查找、添加、删除

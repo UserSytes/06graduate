@@ -3,13 +3,23 @@ package cn.edu.xmu.course.web.action;
 import java.util.Date;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
-import cn.edu.xmu.course.pojo.*;
+import cn.edu.xmu.course.pojo.Administrator;
+import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.Evaluation;
+import cn.edu.xmu.course.pojo.Student;
+import cn.edu.xmu.course.pojo.SuperAdmin;
+import cn.edu.xmu.course.pojo.Teacher;
+import cn.edu.xmu.course.pojo.UserInfo;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+
+/**
+ * 所有Action的基类
+ *
+ */
+@SuppressWarnings("unchecked")
 public class BaseAction extends ActionSupport {
 
 	/**
@@ -25,8 +35,7 @@ public class BaseAction extends ActionSupport {
 	public String COURSE = "course";
 	public String USERINFO = "userInfo";
 	public String EVALUATION = "evaluation";
-	private ActionContext ctx;
-	@SuppressWarnings("unchecked")
+	private ActionContext ctx;	
 	Map session;
 
 	public BaseAction() {
@@ -64,20 +73,28 @@ public class BaseAction extends ActionSupport {
 	public UserInfo getUserInfo() {
 		return (UserInfo) this.getSession().get(USERINFO);
 	}
-
-	@SuppressWarnings("unchecked")
+	
 	public Map getSession() {
 		ctx = ActionContext.getContext();
 		session = ctx.getSession();
 		return session;
 	}
 
+	/**
+	 * 获得教师文件夹名字
+	 * @param cou
+	 * @return
+	 */
 	public String getPreFileNameByTeacher(Course cou) {
 		String preFileName = this.getTeacher().getTeacherNo()+this.getTeacher().getUserInfo().getName() + "/"
 				+ cou.getName() + "/" + new Date().getTime() + "_";
 		return preFileName;
 	}
-
+	
+	/**
+	 * 用户注销
+	 * @return
+	 */
 	public String logout() {
 		try {
 			this.getSession().clear();
@@ -95,7 +112,6 @@ public class BaseAction extends ActionSupport {
 		this.ctx = ctx;
 	}
 
-	@SuppressWarnings("unchecked")
 	public void setSession(Map session) {
 		this.session = session;
 	}

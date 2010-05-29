@@ -22,11 +22,11 @@ public class CoursewareAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 1786518150476463775L;
-	private List chapterList; // 章节列表
+	private List<Chapter> chapterList; // 章节列表
 	private Chapter chapter; // 章节
 	private Integer chapterId; // 章节ID
 
-	private List coursewareList; // 课件列表
+	private List<Courseware> coursewareList; // 课件列表
 	private Courseware courseware; // 课件
 	private Integer coursewareId; // 课件ID
 
@@ -42,7 +42,6 @@ public class CoursewareAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getCoursewareListByChapter() {
 		Course course = super.getCourse();
 		chapterList = chapterService.getAllChapter(super.getCourse());
@@ -60,7 +59,6 @@ public class CoursewareAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getAllCourseware() {
 		Course course = super.getCourse();
 		coursewareList = coursewareService.getAllCoursewares(course);
@@ -72,7 +70,6 @@ public class CoursewareAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String downloadCourseware() {
 		Chapter currentChapter = chapterService.getChapterById(chapterId);
 		coursewareList = coursewareService
@@ -108,7 +105,6 @@ public class CoursewareAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String goEditCourseware() {
 		courseware = coursewareService.getCoursewareById(coursewareId);
 		chapterList = chapterService.getAllChapter(super.getCourse());
@@ -121,7 +117,6 @@ public class CoursewareAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String goAddCourseware() {
 		chapterList = chapterService.getAllChapter(super.getCourse());
 		return SUCCESS;
@@ -161,11 +156,11 @@ public class CoursewareAction extends BaseAction {
 		}
 	}
 
-	public List getChapterList() {
+	public List<Chapter> getChapterList() {
 		return chapterList;
 	}
 
-	public void setChapterList(List chapterList) {
+	public void setChapterList(List<Chapter> chapterList) {
 		this.chapterList = chapterList;
 	}
 
@@ -185,11 +180,11 @@ public class CoursewareAction extends BaseAction {
 		this.chapterId = chapterId;
 	}
 
-	public List getCoursewareList() {
+	public List<Courseware> getCoursewareList() {
 		return coursewareList;
 	}
 
-	public void setCoursewareList(List coursewareList) {
+	public void setCoursewareList(List<Courseware> coursewareList) {
 		this.coursewareList = coursewareList;
 	}
 
@@ -201,28 +196,12 @@ public class CoursewareAction extends BaseAction {
 		this.courseware = courseware;
 	}
 
-	public IChapterService getChapterService() {
-		return chapterService;
-	}
-
-	public void setChapterService(IChapterService chapterService) {
-		this.chapterService = chapterService;
-	}
-
-	public ICoursewareService getCoursewareService() {
-		return coursewareService;
-	}
-
-	public void setCoursewareService(ICoursewareService coursewareService) {
-		this.coursewareService = coursewareService;
+	public Integer getCoursewareId() {
+		return coursewareId;
 	}
 
 	public void setCoursewareId(Integer coursewareId) {
 		this.coursewareId = coursewareId;
-	}
-
-	public Integer getCoursewareId() {
-		return coursewareId;
 	}
 
 	public File getUpload() {
@@ -249,4 +228,21 @@ public class CoursewareAction extends BaseAction {
 		this.uploadFileName = uploadFileName;
 	}
 
+	public IChapterService getChapterService() {
+		return chapterService;
+	}
+
+	public void setChapterService(IChapterService chapterService) {
+		this.chapterService = chapterService;
+	}
+
+	public ICoursewareService getCoursewareService() {
+		return coursewareService;
+	}
+
+	public void setCoursewareService(ICoursewareService coursewareService) {
+		this.coursewareService = coursewareService;
+	}
+	
+	
 }

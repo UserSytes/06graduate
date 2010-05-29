@@ -21,7 +21,7 @@ public class CourseInfoAction extends BaseAction {
 	private static final long serialVersionUID = -8520468160026179099L;
 	private CourseInfo courseInfo; // 课程信息
 	private ApplicationForm applicationForm; // 申报表格
-	private List courseInfoList; // 课程信息列表
+	private List<CourseInfo> courseInfoList; // 课程信息列表
 	private Integer courseInfoId; // 课程信息ID
 	private Integer sort = 1; // 课程信息类别
 
@@ -110,7 +110,6 @@ public class CourseInfoAction extends BaseAction {
 	 * @return
 	 */
 	public String updateCourseInfo() {
-
 		if (courseInfoId == null)
 			courseInfo = new CourseInfo();
 		else {
@@ -192,14 +191,6 @@ public class CourseInfoAction extends BaseAction {
 		return applicationForm;
 	}
 
-	public void setCourseInfoList(List courseInfoList) {
-		this.courseInfoList = courseInfoList;
-	}
-
-	public List getCourseInfoList() {
-		return courseInfoList;
-	}
-
 	public void setCourseInfoId(Integer courseInfoId) {
 		this.courseInfoId = courseInfoId;
 	}
@@ -238,6 +229,14 @@ public class CourseInfoAction extends BaseAction {
 
 	public void setUploadFileName(String uploadFileName) {
 		this.uploadFileName = uploadFileName;
+	}
+
+	public void setCourseInfoList(List<CourseInfo> courseInfoList) {
+		this.courseInfoList = courseInfoList;
+	}
+
+	public List<CourseInfo> getCourseInfoList() {
+		return courseInfoList;
 	}
 
 }

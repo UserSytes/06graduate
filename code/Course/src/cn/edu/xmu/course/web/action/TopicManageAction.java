@@ -1,7 +1,7 @@
 package cn.edu.xmu.course.web.action;
 
 import java.util.List;
-import cn.edu.xmu.course.pojo.Administrator;
+
 import cn.edu.xmu.course.pojo.Message;
 import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Topic;

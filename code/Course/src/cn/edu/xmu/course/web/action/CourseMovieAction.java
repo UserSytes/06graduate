@@ -20,7 +20,7 @@ public class CourseMovieAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = -8030627275684855548L;
-	private List courseMovieList; // 教学录像列表
+	private List<CourseMovie> courseMovieList; // 教学录像列表
 	private CourseMovie courseMovie; // 教学录像
 	private Integer courseMovieId; // 教学录像ID
 
@@ -35,7 +35,6 @@ public class CourseMovieAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getCourseMovieListByCourse() {
 		System.out.println(super.getCourse());
 		courseMovieList = courseMovieService.getAllCourseMovies(super
@@ -155,6 +154,30 @@ public class CourseMovieAction extends BaseAction {
 		}
 	}
 
+	public List<CourseMovie> getCourseMovieList() {
+		return courseMovieList;
+	}
+
+	public void setCourseMovieList(List<CourseMovie> courseMovieList) {
+		this.courseMovieList = courseMovieList;
+	}
+
+	public CourseMovie getCourseMovie() {
+		return courseMovie;
+	}
+
+	public void setCourseMovie(CourseMovie courseMovie) {
+		this.courseMovie = courseMovie;
+	}
+
+	public Integer getCourseMovieId() {
+		return courseMovieId;
+	}
+
+	public void setCourseMovieId(Integer courseMovieId) {
+		this.courseMovieId = courseMovieId;
+	}
+
 	public File getUpload() {
 		return upload;
 	}
@@ -179,36 +202,13 @@ public class CourseMovieAction extends BaseAction {
 		this.uploadFileName = uploadFileName;
 	}
 
-	public List getCourseMovieList() {
-		return courseMovieList;
-	}
-
-	public void setCourseMovieList(List courseMovieList) {
-		this.courseMovieList = courseMovieList;
-	}
-
-	public CourseMovie getCourseMovie() {
-		return courseMovie;
-	}
-
-	public void setCourseMovie(CourseMovie courseMovie) {
-		this.courseMovie = courseMovie;
-	}
-
-	public Integer getCourseMovieId() {
-		return courseMovieId;
-	}
-
-	public void setCourseMovieId(Integer courseMovieId) {
-		this.courseMovieId = courseMovieId;
+	public ICourseMovieService getCourseMovieService() {
+		return courseMovieService;
 	}
 
 	public void setCourseMovieService(ICourseMovieService courseMovieService) {
 		this.courseMovieService = courseMovieService;
 	}
-
-	public ICourseMovieService getCourseMovieService() {
-		return courseMovieService;
-	}
-
+	
+	
 }
