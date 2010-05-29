@@ -1,9 +1,6 @@
 package cn.edu.xmu.course.service;
 
 import java.io.File;
-import java.util.Date;
-import java.util.List;
-
 import cn.edu.xmu.course.pojo.ApplicationForm;
 import cn.edu.xmu.course.pojo.Course;
 

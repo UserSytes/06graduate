@@ -7,6 +7,10 @@ package cn.edu.xmu.course.commons;
  */
 public class CourseEvaluate implements java.io.Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -580551564912698962L;
 	private String courseName; //课程名称
 	private String teacherName; //教师姓名
 	private Object stuAvgScore = 0; //学生评价

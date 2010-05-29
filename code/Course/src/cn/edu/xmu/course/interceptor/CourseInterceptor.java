@@ -22,6 +22,7 @@ public class CourseInterceptor extends AbstractInterceptor{
 	/**
 	 * 拦截Action处理的拦截方法
 	 */
+	@SuppressWarnings("unchecked")
 	public String intercept(ActionInvocation invocation) throws Exception {
 		// TODO Auto-generated method stub
 		Map session = invocation.getInvocationContext().getSession();
