@@ -7,6 +7,10 @@ import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * 文件下载
+ *
+ */
 public class DownloadAction extends ActionSupport {
 	/**
 	 * 
@@ -37,7 +41,7 @@ public class DownloadAction extends ActionSupport {
 		this.originalFileName = forginalFileName;
 	}
 
-	/*
+	/**
 	 * @getFileName 此方法对应的是struts.xml文件中的： <param
 	 * name="contentDisposition">attachment;filename="${fileName}"</param>
 	 * 

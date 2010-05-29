@@ -1,7 +1,6 @@
 package cn.edu.xmu.course.web.action;
 
 import java.io.File;
-import java.util.Date;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.Book;
@@ -18,7 +17,7 @@ public class BookAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = -5817586834002918821L;
-	private List bookList; // 参考书籍列表
+	private List<Book> bookList; // 参考书籍列表
 	private Book book; // 参考书籍
 	private Integer bookId; // 参考书籍ID
 
@@ -28,10 +27,13 @@ public class BookAction extends BaseAction {
 
 	private IBookService bookService; // 负责参考书籍的接口
 
-	@SuppressWarnings("unchecked")
+	/**
+	 * 根据课程查找参考书籍
+	 * @return
+	 */
 	public String getBookListByCourse() {
 		System.out.println(super.getCourse());
-		bookList = bookService.getAllBooks(super.getCourse());
+		setBookList(bookService.getAllBooks(super.getCourse()));
 		return SUCCESS;
 	}
 
@@ -132,14 +134,6 @@ public class BookAction extends BaseAction {
 		this.uploadFileName = uploadFileName;
 	}
 
-	public List getBookList() {
-		return bookList;
-	}
-
-	public void setBookList(List bookList) {
-		this.bookList = bookList;
-	}
-
 	public Book getBook() {
 		return book;
 	}
@@ -162,6 +156,14 @@ public class BookAction extends BaseAction {
 
 	public void setBookService(IBookService bookService) {
 		this.bookService = bookService;
+	}
+
+	public void setBookList(List<Book> bookList) {
+		this.bookList = bookList;
+	}
+
+	public List<Book> getBookList() {
+		return bookList;
 	}
 
 }

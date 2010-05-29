@@ -4,13 +4,7 @@ import java.util.List;
 
 import cn.edu.xmu.course.pojo.Chapter;
 import cn.edu.xmu.course.pojo.Course;
-import cn.edu.xmu.course.pojo.Courseware;
-import cn.edu.xmu.course.pojo.Exercise;
-import cn.edu.xmu.course.pojo.Experiment;
 import cn.edu.xmu.course.service.IChapterService;
-import cn.edu.xmu.course.service.ICoursewareService;
-import cn.edu.xmu.course.service.IExerciseService;
-import cn.edu.xmu.course.service.IExperimentService;
 /**
  * 负责课程章节的类
  * @author 何申密
@@ -22,7 +16,7 @@ public class CourseChapterAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private List chapterList; // 章节列表
+	private List<Chapter> chapterList; // 章节列表
 	private Chapter chapter; // 章节
 	private Integer chapterId; // 章节ID
 	private Course course; // 课程
@@ -49,13 +43,16 @@ public class CourseChapterAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getChapterListByCourse() {
 		course = super.getCourse();
-		chapterList = chapterService.getAllChapter(course);
+		setChapterList(chapterService.getAllChapter(course));
 		return SUCCESS;
 	}
 
+	/**
+	 * 删除章节
+	 * @return
+	 */
 	public String deleteChapter() {
 		Chapter delChapter = chapterService.getChapterById(chapterId);
 		if (chapterService.deleteChapter(delChapter))
@@ -90,14 +87,6 @@ public class CourseChapterAction extends BaseAction {
 		}
 	}
 
-	public List getChapterList() {
-		return chapterList;
-	}
-
-	public void setChapterList(List chapterList) {
-		this.chapterList = chapterList;
-	}
-
 	public Chapter getChapter() {
 		return chapter;
 	}
@@ -128,6 +117,14 @@ public class CourseChapterAction extends BaseAction {
 
 	public void setChapterService(IChapterService chapterService) {
 		this.chapterService = chapterService;
+	}
+
+	public void setChapterList(List<Chapter> chapterList) {
+		this.chapterList = chapterList;
+	}
+
+	public List<Chapter> getChapterList() {
+		return chapterList;
 	}
 	
 	

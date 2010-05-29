@@ -11,7 +11,6 @@ import cn.edu.xmu.course.pojo.Evaluation;
 import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.StudentCourse;
-import cn.edu.xmu.course.pojo.SuperAdmin;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.ICourseService;

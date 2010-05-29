@@ -13,8 +13,8 @@ import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Student;
 import cn.edu.xmu.course.pojo.StudentCourse;
 import cn.edu.xmu.course.service.ICourseService;
-import cn.edu.xmu.course.service.IStudentCourseService;
 import cn.edu.xmu.course.service.ISchoolService;
+import cn.edu.xmu.course.service.IStudentCourseService;
 /**
  * 负责管理员、教师管理课程学生的类
  * @author 何申密

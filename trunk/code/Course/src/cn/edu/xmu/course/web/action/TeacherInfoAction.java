@@ -5,7 +5,11 @@ import java.util.Date;
 import java.util.List;
 
 import cn.edu.xmu.course.commons.MD5;
-import cn.edu.xmu.course.pojo.*;
+import cn.edu.xmu.course.pojo.Administrator;
+import cn.edu.xmu.course.pojo.Department;
+import cn.edu.xmu.course.pojo.School;
+import cn.edu.xmu.course.pojo.Teacher;
+import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.ISchoolService;
 import cn.edu.xmu.course.service.ITeacherInfoService;

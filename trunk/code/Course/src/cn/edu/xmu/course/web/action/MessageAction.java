@@ -5,7 +5,6 @@ import java.util.List;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Message;
 import cn.edu.xmu.course.pojo.Student;
-import cn.edu.xmu.course.pojo.StudentCourse;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.pojo.Topic;
 import cn.edu.xmu.course.pojo.UserInfo;

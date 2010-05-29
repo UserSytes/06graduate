@@ -16,6 +16,7 @@ import cn.edu.xmu.course.service.IDepartmentService;
  * @author 郑冰凌
  * 
  */
+@SuppressWarnings("unchecked")
 public class CourseAction extends BaseAction {
 
 	/**
@@ -25,16 +26,15 @@ public class CourseAction extends BaseAction {
 	private String departmentId; // 系的id
 	private int courseId; // 课程id
 	private Course course; // 课程
-	private List myCoursesList; // 我（教师）的课程列表
+	private List<Course> myCoursesList; // 我（教师）的课程列表
 	private int type = 3; // 课程状态标识，3:所有课程
 	private String style; // 课程风格颜色
 
 	private ICourseService courseService; // 管理课程的接口
 	private IDepartmentService departmentService; // 管理系的接口
 
-	private List applicationCourseList; // 申报课程列表
+	private List<Course> applicationCourseList; // 申报课程列表
 	private String refuseReason; // 审核课程退回时填写的理由
-
 	
 	/**
 	 * 跳转到申报课程
@@ -44,7 +44,6 @@ public class CourseAction extends BaseAction {
 	public String goAddNewCourse() {
 			return SUCCESS;
 	}
-
 	
 	/**
 	 * 申报课程
@@ -66,7 +65,6 @@ public class CourseAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String findMyCoursesList() {
 		myCoursesList = courseService.findCoursesByTeacher(super.getTeacher()
 				.getId(), type);
@@ -272,7 +270,6 @@ public class CourseAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String saveCurrentCourse() {
 		Course currentCourse = courseService.getCourseById(courseId);
 		if (currentCourse.getStatus() == 1) {
@@ -284,6 +281,10 @@ public class CourseAction extends BaseAction {
 		}
 	}
 	
+	/**
+	 * 教师跳转到发布新贴
+	 * @return
+	 */
 	public String goAddNewTopicByTea(){
 		myCoursesList = courseService.findCoursesByTeacher(super.getTeacher()
 				.getId(), 1);
@@ -318,14 +319,6 @@ public class CourseAction extends BaseAction {
 		this.course = course;
 	}
 
-	public List getMyCoursesList() {
-		return myCoursesList;
-	}
-
-	public void setMyCoursesList(List myCoursesList) {
-		this.myCoursesList = myCoursesList;
-	}
-
 	public int getType() {
 		return type;
 	}
@@ -356,14 +349,6 @@ public class CourseAction extends BaseAction {
 
 	public void setDepartmentService(IDepartmentService departmentService) {
 		this.departmentService = departmentService;
-	}
-
-	public List getApplicationCourseList() {
-		return applicationCourseList;
-	}
-
-	public void setApplicationCourseList(List applicationCourseList) {
-		this.applicationCourseList = applicationCourseList;
 	}
 
 	public String getRefuseReason() {
