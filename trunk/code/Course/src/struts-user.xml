@@ -15,21 +15,22 @@
 				<interceptor-ref name="teacherAuthority" />
 			</interceptor-stack>			
 			<interceptor-stack name="fileImgStack">
-				<interceptor-ref name="defaultStack" />
-				<interceptor-ref name="teacherAuthority" />
 				<interceptor-ref name="fileUpload">
 					<param name="maximumSize">1048576</param>
 					<param name="allowedTypes">
 						image/x-ms-bmp,image/jpeg,image/gif,image/png,image/pjpeg,image/x-png</param>
 				</interceptor-ref>
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="teacherAuthority" />				
 			</interceptor-stack>			
 			<interceptor-stack name="fileExcelStack">
-				<interceptor-ref name="defaultStack" />
-				<interceptor-ref name="teacherAuthority" />
 				<interceptor-ref name="fileUpload">
 					<param name="maximumSize">10485760</param>
 					<param name="allowedTypes"> application/excel,application/vnd.ms-excel</param>
 				</interceptor-ref>
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="teacherAuthority" />
+				
 			</interceptor-stack>
 		</interceptors>
 		
@@ -301,7 +302,7 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
-		<action name="addNewMessageByTeaAction" method="addNewMessage"
+		<action name="addNewMessageByTeaAction" method="addNewMessageByTea"
 			class="messageAction">
 			<result name="success" type="redirect-action">showTopicsByTeacherAction
 			</result>
@@ -322,6 +323,12 @@
 			class="topicManageAction">
 			<result name="success" type="redirect-action">
 				showMessagesByTeaAction?topicId=${topic.id}</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		
+		<action name="goAddNewTopicByTeaAction" method="goAddNewTopicByTea"
+			class="courseAction">
+			<result name="success">/teacher/mycourse/newtopic.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		
@@ -350,14 +357,14 @@
 			</interceptor-stack>
 
 			<interceptor-stack name="fileTextStack">
-				<interceptor-ref name="defaultStack" />
-				<interceptor-ref name="teacourseAuthority" />	
-				<interceptor-ref name="courseAuthority" />	
 				<interceptor-ref name="fileUpload">
 					<param name="maximumSize">104857600</param>
 					<param name="allowedTypes">
 						application/msword,application/vnd.ms-powerpoint,application/pdfW,text/plain</param>
 				</interceptor-ref>
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="teacourseAuthority" />	
+				<interceptor-ref name="courseAuthority" />				
 			</interceptor-stack>
 		</interceptors>
 		
@@ -798,13 +805,13 @@
 				<interceptor-ref name="studentAuthority" />
 			</interceptor-stack>
 			<interceptor-stack name="fileImgStack">
-				<interceptor-ref name="defaultStack" />
-				<interceptor-ref name="studentAuthority" />
 				<interceptor-ref name="fileUpload">
 					<param name="maximumSize">1048576</param>
 					<param name="allowedTypes">
 						image/x-ms-bmp,image/jpeg,image/gif,image/png,image/pjpeg,image/x-png</param>
-				</interceptor-ref>				
+				</interceptor-ref>	
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="studentAuthority" />							
 			</interceptor-stack>
 		</interceptors>		
 		

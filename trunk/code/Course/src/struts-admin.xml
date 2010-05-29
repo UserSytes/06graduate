@@ -10,12 +10,12 @@
 			<interceptor name="adminAuthority"
 				class="cn.edu.xmu.course.interceptor.AdminInterceptor" />
 			<interceptor-stack name="fileExcelStack">
-				<interceptor-ref name="defaultStack" />
-				<interceptor-ref name="adminAuthority" />
 				<interceptor-ref name="fileUpload">
 					<param name="maximumSize">10485760</param>
 					<param name="allowedTypes"> application/excel,application/vnd.ms-excel</param>
 				</interceptor-ref>
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="adminAuthority" />				
 			</interceptor-stack>
 			<interceptor-stack name="adminStack">  
                 <!--配置内建默认拦截器-->

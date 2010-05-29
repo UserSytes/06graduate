@@ -134,7 +134,7 @@ a {
 							<tr height="39">
 								<td valign="bottom" align="left">
 									&nbsp;&nbsp;
-									<a href="${ctx}/teacher/mycourse/newtopic.jsp" rel="facebox"><img
+									<a href="goAddNewTopicByTeaAction.action" rel="facebox"><img
 											src="${ctx}/coursepage/classical/image/newtopic.gif" alt="新帖"
 											border="0" /> </a>
 									<a

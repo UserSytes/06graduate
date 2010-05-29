@@ -219,6 +219,9 @@
 		<property name="studentCourseService">
 			<ref bean="studentCourseService" />
 		</property>
+		<property name="courseService">
+			<ref bean="courseService" />
+		</property>
 	</bean>
 	<!--课程评价 -->
 		<bean id="evaluationAction" scope="prototype"

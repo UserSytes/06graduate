@@ -24,8 +24,7 @@ public class ServletChartGenerator extends HttpServlet{
 	{
 		doGet(request, response);
 	}
-
-	@SuppressWarnings("unchecked")
+	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{

@@ -9,6 +9,7 @@ import cn.edu.xmu.course.pojo.StudentCourse;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.pojo.Topic;
 import cn.edu.xmu.course.pojo.UserInfo;
+import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.ILoginService;
 import cn.edu.xmu.course.service.IMessageService;
 import cn.edu.xmu.course.service.IStudentCourseService;
@@ -39,19 +40,20 @@ public class MessageAction extends BaseAction {
 	private IMessageService messageService; // 负责留言的接口
 	private ILoginService loginService; // 负责登陆的接口
 	private IStudentCourseService studentCourseService;
+	private ICourseService courseService;
 	private Student student; // 学生
 	private Teacher teacher; // 老师
 	private int flag; // 登陆类型
 	private String userName, password; // 用户名、密码
 	private int time = 0; // 次数
 	private String replyString = ""; // 回复、引用标题
+	private int courseId; //课程ID
 
 	/**
 	 * 从留言板登陆
 	 * 
 	 * @return
-	 */
-	@SuppressWarnings("unchecked")
+	 */	
 	public String loginFromMessageBoard() {
 		if (getFlag() == 0) {
 			Teacher teacher = getLoginService().teacherLogin(userName,
@@ -98,6 +100,25 @@ public class MessageAction extends BaseAction {
 				message, super.getUserInfo());
 		if (result) {
 			userInfo = super.getUserInfo();
+			message = null;
+			return SUCCESS;
+		} else {
+			addActionError("添加帖子失败！");
+			return ERROR;
+		}
+	}
+	
+	/**
+	 * 教师添加新留言
+	 * 
+	 * @return
+	 */
+	public String addNewMessageByTea() {
+		Course cou = courseService.getCourseById(courseId);
+		boolean result = messageService.addMessage(cou, topic,
+				message, super.getTeacher().getUserInfo());
+		if (result) {
+			userInfo = super.getTeacher().getUserInfo();
 			message = null;
 			return SUCCESS;
 		} else {
@@ -168,7 +189,6 @@ public class MessageAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String showTopics() {
 		student = super.getStudent();
 		teacher = super.getTeacher();
@@ -195,7 +215,6 @@ public class MessageAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String myTopics() {
 		student = super.getStudent();
 		messageList = messageService
@@ -212,7 +231,6 @@ public class MessageAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String showMessages() {
 		course = super.getCourse();
 		userInfo = super.getUserInfo();
@@ -264,7 +282,6 @@ public class MessageAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String showTopicsByTeacher() {
 		topicList = getTopicService().getTopicsByTeacher(super.getTeacher(),
 				getTime());
@@ -423,6 +440,22 @@ public class MessageAction extends BaseAction {
 
 	public void setReplyString(String replyString) {
 		this.replyString = replyString;
+	}
+
+	public void setCourseId(int courseId) {
+		this.courseId = courseId;
+	}
+
+	public int getCourseId() {
+		return courseId;
+	}
+
+	public void setCourseService(ICourseService courseService) {
+		this.courseService = courseService;
+	}
+
+	public ICourseService getCourseService() {
+		return courseService;
 	}
 
 }

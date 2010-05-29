@@ -10,7 +10,6 @@ import cn.edu.xmu.course.pojo.Department;
  * @author 
  *
  */
-@SuppressWarnings("unchecked")
 public interface ISearchCourseService {
 	
 	public List findCourseByDepartment(Department department);
