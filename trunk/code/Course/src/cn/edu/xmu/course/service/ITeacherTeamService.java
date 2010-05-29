@@ -7,7 +7,8 @@ import cn.edu.xmu.course.pojo.TeacherTeam;
 
 /**
  * 教师队伍
- * @author Administrator
+ * @author 何申密
+ * @author 许子彦
  *
  */
 public interface ITeacherTeamService {
@@ -23,7 +24,7 @@ public interface ITeacherTeamService {
 	 * @param course
 	 * @return
 	 */
-	public List getTeacherTeamList(int courseId);
+	public List<TeacherTeam> getTeacherTeamList(int courseId);
 	
 	/**
 	 * 添加课程教师队伍

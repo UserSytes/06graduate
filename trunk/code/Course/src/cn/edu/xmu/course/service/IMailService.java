@@ -95,7 +95,7 @@ public interface IMailService {
 	 * @param status
 	 * @return
 	 */
-	public List getMailsBySender(UserInfo sender, int status);
+	public List<Mail> getMailsBySender(UserInfo sender, int status);
 
 	/**
 	 * 更新站内信

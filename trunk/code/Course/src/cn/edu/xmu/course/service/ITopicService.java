@@ -13,14 +13,56 @@ import cn.edu.xmu.course.pojo.Topic;
  *
  */
 public interface ITopicService {
-	public List getAllTopics(Course course);
-	public List getTopicsByTeacher(Teacher teacher,int day);
+	
+	/**
+	 * 根据课程查找所有的留言主题
+	 * @param course
+	 * @return
+	 */
+	public List<Topic> getAllTopics(Course course);
+	
+	/**
+	 * 根据教师查找所有的留言主题
+	 * @param teacher
+	 * @param day
+	 * @return
+	 */
+	public List<Topic> getTopicsByTeacher(Teacher teacher,int day);
+	
+	/**
+	 * 根据ID查找留言
+	 * @param id
+	 * @return
+	 */
 	public Topic getTopicById(Integer id);
+	
+	/**
+	 * 添加新的主题 
+	 * @param course
+	 * @param topic
+	 * @return
+	 */
 	public boolean addTopic(Course course,Topic topic);
+	
+	/**
+	 * 更新一个主题 
+	 * @param topic
+	 * @return
+	 */
 	public boolean updateTopic(Topic topic);
+	
+	/**
+	 * 删除主题 
+	 * @param topic
+	 * @return
+	 */
 	public boolean deleteTopic(Topic topic);
-	public List getTopicByShcool(School school);
-	public List searchTopicByKey(String key, School school);
-
+	
+	/**
+	 * 根据院获得主题列表
+	 * @param school
+	 * @return
+	 */
+	public List<Topic> getTopicByShcool(School school);
 
 }
