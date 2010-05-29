@@ -2,6 +2,7 @@ package cn.edu.xmu.course.service;
 
 import java.util.List;
 
+import cn.edu.xmu.course.commons.CourseEvaluate;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Evaluation;
 import cn.edu.xmu.course.pojo.Student;
@@ -9,7 +10,8 @@ import cn.edu.xmu.course.pojo.StudentCourse;
 
 /**
  * 负责评价的接口
- * @author 赵海虹 何申密
+ * @author 赵海虹
+ * @author 何申密
  *
  */
 public interface IEvaluateService {
@@ -66,15 +68,6 @@ public interface IEvaluateService {
 	public List<StudentCourse>  findByStudentAndCourse(Course course, Student student);
 	
 	/**
-	 * 根据课程，用户名和分类查找专家或者老师的评价
-	 * @param course
-	 * @param username
-	 * @param sort
-	 * @return
-	 */
-	public List<Evaluation> findByCourseAndUsernameAndSort(Course course,String username,int sort);
-	
-	/**
 	 * 根据课程和分类查找专家或者老师的评价
 	 * @param course
 	 * @param sort
@@ -104,7 +97,7 @@ public interface IEvaluateService {
 	 * @param courseList
 	 * @return
 	 */
-	public List<Evaluation> getEvaluateByCourseList(List<Course> courseList);
+	public List<CourseEvaluate> getEvaluateByCourseList(List<Course> courseList);
 	
 	/**
 	 * 删除评价帐号

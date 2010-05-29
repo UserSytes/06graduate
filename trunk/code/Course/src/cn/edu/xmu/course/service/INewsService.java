@@ -3,6 +3,7 @@ package cn.edu.xmu.course.service;
 import java.io.File;
 import java.util.List;
 
+import cn.edu.xmu.course.pojo.Attachment;
 import cn.edu.xmu.course.pojo.News;
 
 /**
@@ -17,7 +18,7 @@ public interface INewsService {
 	 * 查找所有新闻
 	 * @return
 	 */
-	public List findAllNews();
+	public List<News> findAllNews();
 	
 	/**
 	 * 发布新闻（无附件）
@@ -30,7 +31,7 @@ public interface INewsService {
 	 * 找出最新的10条新闻
 	 * @return
 	 */
-	public List findLastestTenNews();
+	public List<News> findLastestTenNews();
 	
 	/**
 	 * 发布新闻(带附件)
@@ -61,7 +62,7 @@ public interface INewsService {
 	 * @param news
 	 * @return
 	 */
-	public List findAttachmentByNews(News news);
+	public List<Attachment> findAttachmentByNews(News news);
 	
 	/**
 	 * 修改新闻、修改附件

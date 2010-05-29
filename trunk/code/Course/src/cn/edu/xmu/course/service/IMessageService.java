@@ -13,6 +13,12 @@ import cn.edu.xmu.course.pojo.UserInfo;
  *
  */
 public interface IMessageService {
+	
+	/**
+	 * 根据ID查找留言
+	 * @param id
+	 * @return
+	 */
 	public Message getMessageById(Integer id);
 	/**
 	 * 添加新的主题和留言
@@ -31,10 +37,33 @@ public interface IMessageService {
 	 * @return
 	 */
 	public boolean addReplyMessage(Topic topic,Message message,UserInfo userinfo);
+
+	/**
+	 * 更新留言
+	 * @param Message
+	 * @return
+	 */
 	public boolean updateMessage(Message Message);
+	
+	/**
+	 * 删除留言
+	 * @param Message
+	 * @return
+	 */
 	public boolean deleteMessage(Message Message);
 	
-	public List getMessageByTopic(Topic topic);
-	public List getMessageByUserInfo(UserInfo userInfo);
+	/**
+	 * 根据主题查找留言更表
+	 * @param topic
+	 * @return
+	 */
+	public List<Message> getMessageByTopic(Topic topic);
+	
+	/**
+	 * 查找我的留言列表
+	 * @param userInfo
+	 * @return
+	 */
+	public List<Message> getMessageByUserInfo(UserInfo userInfo);
 
 }

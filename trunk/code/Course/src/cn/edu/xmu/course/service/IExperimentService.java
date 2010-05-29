@@ -9,8 +9,8 @@ import cn.edu.xmu.course.pojo.Experiment;
 
 /**
  * 课程实验
- * 
- * @author Administrator
+ * @author 何申密
+ * @author 许子彦
  * 
  */
 public interface IExperimentService {
@@ -21,7 +21,7 @@ public interface IExperimentService {
 	 * @param teacherCoures
 	 * @return
 	 */
-	public List getAllExperiments(Course course);
+	public List<Experiment> getAllExperiments(Course course);
 
 	/**
 	 * 查找该目录下所有的实验
@@ -29,7 +29,7 @@ public interface IExperimentService {
 	 * @param chapter
 	 * @return
 	 */
-	public List getExperimentsByChapter(Chapter chapter);
+	public List<Experiment> getExperimentsByChapter(Chapter chapter);
 
 	/**
 	 * 获得该实验

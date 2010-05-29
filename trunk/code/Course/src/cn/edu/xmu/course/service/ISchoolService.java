@@ -53,7 +53,7 @@ public interface ISchoolService {
 	 * 查找所有学院
 	 * @return
 	 */
-	public List findAllSchool();
+	public List<School> findAllSchool();
 	
 	/**
 	 * 根据id查找学院
@@ -67,7 +67,7 @@ public interface ISchoolService {
 	 * @param school
 	 * @return
 	 */
-	public List findDepartmentBySchool(School school);
+	public List<Department> findDepartmentBySchool(School school);
 	
 	/**
 	 * 根据Id查找系
@@ -92,7 +92,7 @@ public interface ISchoolService {
 	 * 查找所有年级
 	 * @return
 	 */
-	public List findAllGrade();
+	public List<Grade> findAllGrade();
 	
 	/**
 	 * 根据id查找年级
