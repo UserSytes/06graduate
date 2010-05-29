@@ -159,7 +159,7 @@ public class SchoolService implements ISchoolService {
 	 * 
 	 * @see cn.edu.xmu.course.service.ISuperAdminService#findAllGrade()
 	 */
-	public List findAllGrade() {
+	public List<Grade> findAllGrade() {
 		// TODO Auto-generated method stub
 		return gradeDAO.findAll();
 	}
@@ -169,7 +169,7 @@ public class SchoolService implements ISchoolService {
 	 * 
 	 * @see cn.edu.xmu.course.service.ISuperAdminService#findAllSchool()
 	 */
-	public List findAllSchool() {
+	public List<School> findAllSchool() {
 		// TODO Auto-generated method stub
 		return schoolDAO.findAll();
 	}
@@ -181,15 +181,14 @@ public class SchoolService implements ISchoolService {
 	 * cn.edu.xmu.course.service.ISuperAdminService#findDepartmentBySchool(cn
 	 * .edu.xmu.course.pojo.School)
 	 */
-	public List findDepartmentBySchool(School school) {
-		// TODO Auto-generated method stub		
+	public List<Department> findDepartmentBySchool(School school) {
+		// TODO Auto-generated method stub
 		return departmentDAO.findByProperty("school", school);
 	}
 
 	public void createTreeData() {
-		String path = ServletActionContext.getServletContext().getRealPath(
-				"");
-		File file = new File(path +"/"+ "dept_data.properties");
+		String path = ServletActionContext.getServletContext().getRealPath("");
+		File file = new File(path + "/" + "dept_data.properties");
 		System.out.println(file.getPath());
 		List<School> schools = this.findAllSchool();
 		try {
@@ -200,28 +199,31 @@ public class SchoolService implements ISchoolService {
 			StringBuffer sb = new StringBuffer();
 			sb.append("[");
 			int slength = schools.size();
-			for (int i=0;i<slength;i++) {				
+			for (int i = 0; i < slength; i++) {
 				sb.append("{");
 				sb.append("\"id\":2,");
-				sb.append("\"text\":\""+schools.get(i).getName()+"\",");	
+				sb.append("\"text\":\"" + schools.get(i).getName() + "\",");
 				sb.append("\"state\":\"closed\",");
 				sb.append("\"children\":[");
-				List<Department> depts = this.findDepartmentBySchool(schools.get(i));
+				List<Department> depts = this.findDepartmentBySchool(schools
+						.get(i));
 				int dlength = depts.size();
-				if(dlength>0){									
-					for(int j=0;j<dlength;j++){
-						sb.append("{");	
-						sb.append("\"id\":3,");						
-						sb.append("\"text\":\""+depts.get(j).getName()+"\"");						
+				if (dlength > 0) {
+					for (int j = 0; j < dlength; j++) {
+						sb.append("{");
+						sb.append("\"id\":3,");
+						sb
+								.append("\"text\":\"" + depts.get(j).getName()
+										+ "\"");
 						sb.append("}");
-						if(j<(dlength-1))
+						if (j < (dlength - 1))
 							sb.append(",");
-					}				
-				}				
+					}
+				}
 				sb.append("]}");
-				if(i<(slength-1))
+				if (i < (slength - 1))
 					sb.append(",");
-			}	
+			}
 			sb.append("]");
 			out.write(sb.toString().getBytes("utf-8"));
 			out.close();
@@ -230,6 +232,51 @@ public class SchoolService implements ISchoolService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see cn.edu.xmu.course.service.ISchoolService#findGradeById(int)
+	 */
+	public Grade findGradeById(int id) {
+		// TODO Auto-generated method stub
+		return gradeDAO.findById(id);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see cn.edu.xmu.course.service.ISchoolService#findSchoolById(int)
+	 */
+	public School findSchoolById(int id) {
+		// TODO Auto-generated method stub
+		return schoolDAO.findById(id);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see cn.edu.xmu.course.service.ISchoolService#findDepartmentById(int)
+	 */
+	public Department findDepartmentById(int id) {
+		return departmentDAO.findById(id);
+	}
+
+	/*
+	 * 根据学院名字查找
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ISuperAdminService#findSchoolByName(java.lang
+	 * .String)
+	 */
+	public School findSchoolByName(String name) {
+		// TODO Auto-generated method stub
+		List<School> schools = schoolDAO.findByName(name);
+		if (schools.size() > 0)
+			return schools.get(0);
+		else
+			return null;
 	}
 
 	public SchoolDAO getSchoolDAO() {
@@ -255,31 +302,4 @@ public class SchoolService implements ISchoolService {
 	public void setGradeDAO(GradeDAO gradeDAO) {
 		this.gradeDAO = gradeDAO;
 	}
-
-	public Grade findGradeById(int id) {
-		// TODO Auto-generated method stub
-		return gradeDAO.findById(id);
-	}
-
-	public School findSchoolById(int id) {
-		// TODO Auto-generated method stub
-		return schoolDAO.findById(id);
-	}
-
-	public Department findDepartmentById(int id) {
-		return departmentDAO.findById(id);
-	}
-	
-	/*
-	 * 根据学院名字查找
-	 * @see cn.edu.xmu.course.service.ISuperAdminService#findSchoolByName(java.lang.String)
-	 */
-	public School findSchoolByName(String name) {
-		// TODO Auto-generated method stub
-		List<School> schools =schoolDAO.findByName(name);
-		if(schools.size()>0)
-			return schools.get(0);
-		else return null;
-	}
-
 }

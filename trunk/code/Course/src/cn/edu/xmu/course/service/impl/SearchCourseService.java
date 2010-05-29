@@ -9,59 +9,131 @@ import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.service.ISearchCourseService;
 
+/**
+ * 课程搜索
+ * 
+ * @author 赵海虹
+ * @author 郑冰凌
+ * 
+ */
 public class SearchCourseService implements ISearchCourseService {
 	private CourseDAO courseDAO;
 
-	@SuppressWarnings("unchecked")
-	public List findCourseByDepartment(Department department) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ISearchCourseService#findCourseByDepartment
+	 * (cn.edu.xmu.course.pojo.Department)
+	 */
+	public List<Course> findCourseByDepartment(Department department) {
 		return courseDAO.findByDepartment(department);
 	}
 
-	@SuppressWarnings("unchecked")
-	public List findCourseByName(String name) {
-		List courses = courseDAO.findByName(name);
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ISearchCourseService#findCourseByName(java.
+	 * lang.String)
+	 */
+	public List<Course> findCourseByName(String name) {
+		List<Course> courses = courseDAO.findByName(name);
 		if (courses.size() == 0)
 			return null;
 		else
 			return courses;
 	}
 
-	public List findCourseByNameAndTeacher(String courseName,
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ISearchCourseService#findCourseByNameAndTeacher
+	 * (java.lang.String, java.lang.String)
+	 */
+	public List<Course> findCourseByNameAndTeacher(String courseName,
 			String teacherName) {
 		return courseDAO.findCourseByNameAndTeacher(courseName, teacherName);
 	}
 
-	public List findCourseByDepartmentAndTeacher(String teacherName,
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seecn.edu.xmu.course.service.ISearchCourseService#
+	 * findCourseByDepartmentAndTeacher(java.lang.String,
+	 * cn.edu.xmu.course.pojo.Department)
+	 */
+	public List<Course> findCourseByDepartmentAndTeacher(String teacherName,
 			Department department) {
 		return courseDAO.findCourseByDepartmentAndTeacher(teacherName,
 				department);
 	}
 
-	public List findCourseByNameAndDepartment(String courseName,
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ISearchCourseService#findCourseByNameAndDepartment
+	 * (java.lang.String, cn.edu.xmu.course.pojo.Department)
+	 */
+	public List<Course> findCourseByNameAndDepartment(String courseName,
 			Department department) {
 		return courseDAO.findCourseByNameAndDepartment(courseName, department);
 	}
 
-	public List findCourseByNameAndDepartmentAndTeacher(
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seecn.edu.xmu.course.service.ISearchCourseService#
+	 * findCourseByNameAndDepartmentAndTeacher(java.lang.String,
+	 * cn.edu.xmu.course.pojo.Department, java.lang.String)
+	 */
+	public List<Course> findCourseByNameAndDepartmentAndTeacher(
 			String courseName, Department department, String teacherName) {
 		return courseDAO.findCourseByNameAndDepartmentAndTeacher(courseName,
 				department, teacherName);
 	}
 
-	/**
-	 * 按时间查找课程
+	/*
+	 * (non-Javadoc)
 	 * 
-	 * @param day
-	 * @return
+	 * @see cn.edu.xmu.course.service.ISearchCourseService#findCourseByDate(int)
 	 */
-	public List findCourseByDate(int day) {
+	public List<Course> findCourseByDate(int day) {
 		Calendar date = CalculateDate
 				.addDate(Calendar.getInstance(), (0 - day));
 		return courseDAO.findCourseByDate(CalculateDate.toDate(date.getTime()));
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see cn.edu.xmu.course.service.ISearchCourseService#findCourseById(int)
+	 */
 	public Course findCourseById(int id) {
 		return courseDAO.findById(id);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ISearchCourseService#findCourseByTeacher(java
+	 * .lang.String)
+	 */
+	public List<Course> findCourseByTeacher(String teacherName) {
+		return courseDAO.findByTeacher(teacherName);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see cn.edu.xmu.course.service.ISearchCourseService#findLatestTenCourse()
+	 */
+	public List<Course> findLatestTenCourse() {
+		// TODO Auto-generated method stub
+		return courseDAO.findLatestTenCourses();
 	}
 
 	public CourseDAO getCourseDAO() {
@@ -71,14 +143,4 @@ public class SearchCourseService implements ISearchCourseService {
 	public void setCourseDAO(CourseDAO courseDAO) {
 		this.courseDAO = courseDAO;
 	}
-
-	public List findCourseByTeacher(String teacherName) {
-		return courseDAO.findByTeacher(teacherName);
-	}
-
-	public List findLatestTenCourse() {
-		// TODO Auto-generated method stub	
-		return  courseDAO.findLatestTenCourses();
-	}
-
 }

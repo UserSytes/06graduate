@@ -8,10 +8,19 @@ import cn.edu.xmu.course.pojo.Mail;
 import cn.edu.xmu.course.pojo.UserInfo;
 import cn.edu.xmu.course.service.IMailService;
 
+/**
+ * 站内信功能模块接口
+ * @author 何申密
+ *
+ */
 public class MailService implements IMailService {
 
 	private MailDAO mailDAO;
 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IMailService#addNewMail(cn.edu.xmu.course.pojo.Mail, cn.edu.xmu.course.pojo.UserInfo, cn.edu.xmu.course.pojo.UserInfo)
+	 */
 	public boolean addNewMail(Mail mail, UserInfo sender, UserInfo receiver) {
 		// TODO Auto-generated method stub
 		mail.setSender(sender);
@@ -27,6 +36,10 @@ public class MailService implements IMailService {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IMailService#addDraft(cn.edu.xmu.course.pojo.Mail, cn.edu.xmu.course.pojo.UserInfo, cn.edu.xmu.course.pojo.UserInfo)
+	 */
 	public boolean addDraft(Mail mail, UserInfo sender, UserInfo receiver) {
 		// TODO Auto-generated method stub
 		mail.setSender(sender);
@@ -42,6 +55,10 @@ public class MailService implements IMailService {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IMailService#addAndSaveMail(cn.edu.xmu.course.pojo.Mail, cn.edu.xmu.course.pojo.UserInfo, cn.edu.xmu.course.pojo.UserInfo)
+	 */
 	public boolean addAndSaveMail(Mail mail, UserInfo sender, UserInfo receiver) {
 		// TODO Auto-generated method stub
 		Mail saveMail = new Mail();
@@ -66,6 +83,10 @@ public class MailService implements IMailService {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IMailService#deleteMail(cn.edu.xmu.course.pojo.Mail)
+	 */
 	public boolean deleteMail(Mail mail) {
 		// TODO Auto-generated method stub
 		try {
@@ -76,27 +97,47 @@ public class MailService implements IMailService {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IMailService#getMailById(java.lang.Integer)
+	 */
 	public Mail getMailById(Integer id) {
 		// TODO Auto-generated method stub
 		return mailDAO.findById(id);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IMailService#getMailDetail(java.lang.Integer)
+	 */
 	public String getMailDetail(Integer id) {
 		// TODO Auto-generated method stub
 		System.out.println("here");
 		return mailDAO.findById(id).getContent();
 	}
 
-	public List getMailsByReceiver(UserInfo receiver) {
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IMailService#getMailsByReceiver(cn.edu.xmu.course.pojo.UserInfo)
+	 */
+	public List<Mail> getMailsByReceiver(UserInfo receiver) {
 		// TODO Auto-generated method stub
 		return mailDAO.findByReceiver(receiver);
 	}
 
-	public List getMailsBySender(UserInfo sender, int status) {
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IMailService#getMailsBySender(cn.edu.xmu.course.pojo.UserInfo, int)
+	 */
+	public List<Mail> getMailsBySender(UserInfo sender, int status) {
 		// TODO Auto-generated method stub
 		return mailDAO.findBySender(sender, status);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IMailService#updateMail(cn.edu.xmu.course.pojo.Mail)
+	 */
 	public boolean updateMail(Mail mail) {
 		// TODO Auto-generated method stub
 		try {
@@ -107,6 +148,10 @@ public class MailService implements IMailService {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IMailService#deleteMails(java.lang.String[])
+	 */
 	public boolean deleteMails(String[] mailIds) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < mailIds.length; i++) {
@@ -120,6 +165,10 @@ public class MailService implements IMailService {
 		return true;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IMailService#updateMailStatus(java.lang.Integer)
+	 */
 	public Mail updateMailStatus(Integer id) {
 		// TODO Auto-generated method stub
 		Mail mail = this.getMailById(id);
@@ -134,6 +183,10 @@ public class MailService implements IMailService {
 		return mail;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IMailService#updateMails(java.lang.String[], int)
+	 */
 	public boolean updateMails(String[] mailIds, int status) {
 		// TODO Auto-generated method stub
 		
