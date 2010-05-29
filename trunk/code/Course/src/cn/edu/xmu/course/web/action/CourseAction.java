@@ -66,8 +66,8 @@ public class CourseAction extends BaseAction {
 	 * @return
 	 */
 	public String findMyCoursesList() {
-		myCoursesList = courseService.findCoursesByTeacher(super.getTeacher()
-				.getId(), type);
+		setMyCoursesList(courseService.findCoursesByTeacher(super.getTeacher()
+				.getId(), type));
 		return SUCCESS;
 	}
 
@@ -103,9 +103,9 @@ public class CourseAction extends BaseAction {
 	 * @return
 	 */
 	public String findMyCoursesListInLeft() {
-		myCoursesList = courseService.findCoursesByTeacher(super.getTeacher()
-				.getId(), type);
-		if (myCoursesList.size() == 0) {
+		setMyCoursesList(courseService.findCoursesByTeacher(super.getTeacher()
+				.getId(), type));
+		if (getMyCoursesList().size() == 0) {
 			return null;
 		} else
 			return SUCCESS;
@@ -286,9 +286,9 @@ public class CourseAction extends BaseAction {
 	 * @return
 	 */
 	public String goAddNewTopicByTea(){
-		myCoursesList = courseService.findCoursesByTeacher(super.getTeacher()
-				.getId(), 1);
-		if (myCoursesList.size() < 0) {
+		setMyCoursesList(courseService.findCoursesByTeacher(super.getTeacher()
+				.getId(), 1));
+		if (getMyCoursesList().size() < 0) {
 			addActionError("你还未添加任何课程，不能添加留言！");
 			return ERROR;
 		} else
@@ -357,6 +357,14 @@ public class CourseAction extends BaseAction {
 
 	public void setRefuseReason(String refuseReason) {
 		this.refuseReason = refuseReason;
+	}
+
+	public void setMyCoursesList(List<Course> myCoursesList) {
+		this.myCoursesList = myCoursesList;
+	}
+
+	public List<Course> getMyCoursesList() {
+		return myCoursesList;
 	}
 
 }
