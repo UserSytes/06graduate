@@ -1,6 +1,7 @@
 package cn.edu.xmu.course.service.impl;
 
 import java.util.List;
+
 import cn.edu.xmu.course.dao.ChapterDAO;
 import cn.edu.xmu.course.pojo.Chapter;
 import cn.edu.xmu.course.pojo.Course;
