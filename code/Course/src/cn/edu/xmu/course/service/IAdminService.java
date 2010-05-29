@@ -39,7 +39,7 @@ public interface IAdminService {
 	 * 查找所有的学院管理员
 	 * @return
 	 */
-	public List findAllAdmin();
+	public List<Administrator> findAllAdmin();
 	
 	/**
 	 * 更新学院管理员
@@ -87,7 +87,7 @@ public interface IAdminService {
 	 * 查找所有的校管理员
 	 * @return
 	 */
-	public List findAllSuperAdmin();
+	public List<SuperAdmin> findAllSuperAdmin();
 	
 	/**
 	 * 删除校管理员

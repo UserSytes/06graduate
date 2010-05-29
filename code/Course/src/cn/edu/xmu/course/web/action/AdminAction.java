@@ -22,7 +22,7 @@ public class AdminAction extends BaseAction {
 	private ISchoolService schoolService; //管理院系、年级的接口
 	private Administrator admin; //学院管理员
 	private SuperAdmin superAdmin; //校方管理员
-	private List superAdminList;	//校方管理员列表
+	private List<SuperAdmin> superAdminList;	//校方管理员列表
 	private int superAdminId;	//校管理员id
 	
 	private String oldPassword; //管理员帐号原密码
@@ -32,7 +32,7 @@ public class AdminAction extends BaseAction {
 	private int adminSchoolId;	//学院管理员所属学院id
 	private School adminSchool;	//学院管理员所属学院	
 	private int adminId;	//学院管理员id
-	private List adminList;	//学院管理员列表
+	private List<Administrator> adminList;	//学院管理员列表
 
 	/**
 	 * 添加学院管理员
@@ -189,7 +189,6 @@ public class AdminAction extends BaseAction {
 	 * 查获所有校管理员
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String findAllSuperAdmin(){
 		superAdminList = adminService.findAllSuperAdmin();
 		if (superAdminList.size() != 0) {			
@@ -203,7 +202,6 @@ public class AdminAction extends BaseAction {
 	 * 删除校管理员
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String deleteSuperAdmin(){
 		superAdminList = adminService.findAllSuperAdmin();
 		if (superAdminList.size() == 1) {
@@ -234,13 +232,21 @@ public class AdminAction extends BaseAction {
 		else
 			return ERROR;
 	}
-	
+
 	public IAdminService getAdminService() {
 		return adminService;
 	}
 
 	public void setAdminService(IAdminService adminService) {
 		this.adminService = adminService;
+	}
+
+	public ISchoolService getSchoolService() {
+		return schoolService;
+	}
+
+	public void setSchoolService(ISchoolService schoolService) {
+		this.schoolService = schoolService;
 	}
 
 	public Administrator getAdmin() {
@@ -259,6 +265,22 @@ public class AdminAction extends BaseAction {
 		this.superAdmin = superAdmin;
 	}
 
+	public List<SuperAdmin> getSuperAdminList() {
+		return superAdminList;
+	}
+
+	public void setSuperAdminList(List<SuperAdmin> superAdminList) {
+		this.superAdminList = superAdminList;
+	}
+
+	public int getSuperAdminId() {
+		return superAdminId;
+	}
+
+	public void setSuperAdminId(int superAdminId) {
+		this.superAdminId = superAdminId;
+	}
+
 	public String getOldPassword() {
 		return oldPassword;
 	}
@@ -273,30 +295,6 @@ public class AdminAction extends BaseAction {
 
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
-	}
-
-	public List getSuperAdminList() {
-		return superAdminList;
-	}
-
-	public void setSuperAdminList(List superAdminList) {
-		this.superAdminList = superAdminList;
-	}
-
-	public int getSuperAdminId() {
-		return superAdminId;
-	}
-
-	public void setSuperAdminId(int superAdminId) {
-		this.superAdminId = superAdminId;
-	}
-
-	public ISchoolService getSchoolService() {
-		return schoolService;
-	}
-
-	public void setSchoolService(ISchoolService schoolService) {
-		this.schoolService = schoolService;
 	}
 
 	public int getAdminSchoolId() {
@@ -323,11 +321,11 @@ public class AdminAction extends BaseAction {
 		this.adminId = adminId;
 	}
 
-	public List getAdminList() {
+	public List<Administrator> getAdminList() {
 		return adminList;
 	}
 
-	public void setAdminList(List adminList) {
+	public void setAdminList(List<Administrator> adminList) {
 		this.adminList = adminList;
 	}
 	

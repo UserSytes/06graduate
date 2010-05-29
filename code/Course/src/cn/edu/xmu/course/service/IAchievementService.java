@@ -7,7 +7,8 @@ import cn.edu.xmu.course.pojo.*;
 
 /**
  * 教学成果
- * @author Administrator
+ * @author 何申密
+ * @author 许子彦
  *
  */
 public interface IAchievementService {
@@ -20,20 +21,12 @@ public interface IAchievementService {
 	public Achievement getAchievementById(Integer id);
 	
 	
-	//修改的时候需要把该方法去掉
-	/**
-	 * 查找该课程的教学成果
-	 * @param teacherCourse
-	 * @return
-	 */
-	public Achievement getAchievement(int courseId);
-	
 	/**
 	 * 查找该课程所有的教学成果
 	 * @param teacherCourse
 	 * @return
 	 */
-	public List getAllAchievements(Course course);
+	public List<Achievement> getAllAchievements(Course course);
 	
 	/**
 	 * 添加教学成果
@@ -62,5 +55,5 @@ public interface IAchievementService {
 	 * @param course
 	 * @return
 	 */
-	public List findLastestSevenAchievements(Course course);
+	public List<Achievement> findLastestSevenAchievements(Course course);
 }

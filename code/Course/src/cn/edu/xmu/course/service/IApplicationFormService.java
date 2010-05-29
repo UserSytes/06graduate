@@ -8,7 +8,8 @@ import cn.edu.xmu.course.pojo.*;
 
 /**
  * 申报表格
- * @author Administrator
+ * @author 何申密
+ * @author 许子彦
  *
  */
 public interface IApplicationFormService {
@@ -46,13 +47,13 @@ public interface IApplicationFormService {
 	 * @param level
 	 * @return
 	 */
-	public List findApplicationByLevel(Object level);
+	public List<ApplicationForm> findApplicationByLevel(Object level);
 	/**
 	 * 根据时间查找申请表
 	 * @param time
 	 * @return
 	 */
-	public List findApplicationByTime(Date time);
+	public List<ApplicationForm> findApplicationByTime(Date time);
 	
 	
 }

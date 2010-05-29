@@ -1,7 +1,6 @@
 package cn.edu.xmu.course.web.action;
 
 import java.io.File;
-import java.util.Date;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.Achievement;
@@ -19,11 +18,10 @@ public class AchievementAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 390526433485524738L;
-	private List achievementList; // 成果列表
+	private List<Achievement> achievementList; // 成果列表
 	private Achievement achievement; // 成果
 	private Integer achievementId; // 成果ID
 	private Course course; // 课程
-	private int courseId; // 课程ID
 	private File upload; // 附件
 	private String uploadContentType; // 文件类型
 	private String uploadFileName; // 文件名称
@@ -35,7 +33,6 @@ public class AchievementAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getAchievementListByCourse() {
 		course = super.getCourse();
 		achievementList = achievementService.getAllAchievements(super
@@ -119,6 +116,38 @@ public class AchievementAction extends BaseAction {
 		}
 	}
 
+	public List<Achievement> getAchievementList() {
+		return achievementList;
+	}
+
+	public void setAchievementList(List<Achievement> achievementList) {
+		this.achievementList = achievementList;
+	}
+
+	public Achievement getAchievement() {
+		return achievement;
+	}
+
+	public void setAchievement(Achievement achievement) {
+		this.achievement = achievement;
+	}
+
+	public Integer getAchievementId() {
+		return achievementId;
+	}
+
+	public void setAchievementId(Integer achievementId) {
+		this.achievementId = achievementId;
+	}
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
 	public File getUpload() {
 		return upload;
 	}
@@ -143,30 +172,6 @@ public class AchievementAction extends BaseAction {
 		this.uploadFileName = uploadFileName;
 	}
 
-	public List getAchievementList() {
-		return achievementList;
-	}
-
-	public void setAchievementList(List achievementList) {
-		this.achievementList = achievementList;
-	}
-
-	public Achievement getAchievement() {
-		return achievement;
-	}
-
-	public void setAchievement(Achievement achievement) {
-		this.achievement = achievement;
-	}
-
-	public Integer getAchievementId() {
-		return achievementId;
-	}
-
-	public void setAchievementId(Integer achievementId) {
-		this.achievementId = achievementId;
-	}
-
 	public IAchievementService getAchievementService() {
 		return achievementService;
 	}
@@ -175,20 +180,5 @@ public class AchievementAction extends BaseAction {
 		this.achievementService = achievementService;
 	}
 
-	public void setCourseId(int courseId) {
-		this.courseId = courseId;
-	}
-
-	public int getCourseId() {
-		return courseId;
-	}
-
-	public void setCourse(Course course) {
-		this.course = course;
-	}
-
-	public Course getCourse() {
-		return course;
-	}
 
 }
