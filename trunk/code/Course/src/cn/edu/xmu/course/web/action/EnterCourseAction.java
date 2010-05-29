@@ -128,7 +128,6 @@ public class EnterCourseAction extends BaseAction {
 	 */
 	public String getLeftNotice() {
 		course = super.getCourse();
-		System.out.println(course.getName());
 		setTeacher(course.getTeacher());
 		setUserInfo(getTeacher().getUserInfo());
 		setNoticeList2(noticeService.findLastestLeftNotices(course));

@@ -47,7 +47,6 @@ public class ExecuteViewAction extends BaseAction {
 	 * @return
 	 */
 	public String findCourseListBySchoolName() {
-		System.out.println("the schoolName is " + schoolName);
 		School school = getSchoolService().findSchoolByName(schoolName);
 		if (school == null) {
 			addActionMessage("该学院不存在，请重新操作！");

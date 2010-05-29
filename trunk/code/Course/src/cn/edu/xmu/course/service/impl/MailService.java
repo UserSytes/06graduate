@@ -112,7 +112,6 @@ public class MailService implements IMailService {
 	 */
 	public String getMailDetail(Integer id) {
 		// TODO Auto-generated method stub
-		System.out.println("here");
 		return mailDAO.findById(id).getContent();
 	}
 

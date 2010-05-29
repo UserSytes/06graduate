@@ -32,7 +32,6 @@ public class BookAction extends BaseAction {
 	 * @return
 	 */
 	public String getBookListByCourse() {
-		System.out.println(super.getCourse());
 		setBookList(bookService.getAllBooks(super.getCourse()));
 		return SUCCESS;
 	}

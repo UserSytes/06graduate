@@ -74,7 +74,6 @@ public class ExerciseAction extends BaseAction {
 		Chapter currentChapter = chapterService.getChapterById(chapterId);
 		exerciseList = exerciseService.getExercisesByChapter(currentChapter);
 		if (getExerciseList() == null) {
-			System.out.println("本章节无习题！");
 			addActionError("本章节无习题！");
 			return ERROR;
 		} else

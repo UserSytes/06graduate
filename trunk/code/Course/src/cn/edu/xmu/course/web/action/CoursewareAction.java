@@ -75,7 +75,6 @@ public class CoursewareAction extends BaseAction {
 		coursewareList = coursewareService
 				.getCoursewaresByChapter(currentChapter);
 		if (getCoursewareList() == null) {
-			System.out.println("本章节无课件！");
 			addActionError("本章节无课件！");
 			return ERROR;
 		} else
