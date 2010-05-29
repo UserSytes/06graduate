@@ -1,6 +1,5 @@
 package cn.edu.xmu.course.web.action;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.Mail;
@@ -13,6 +12,12 @@ import cn.edu.xmu.course.service.ITeacherInfoService;
 
 import com.googlecode.jsonplugin.annotations.JSON;
 
+/**
+ * 站内信操作
+ * @author 何申密
+ *
+ */
+@SuppressWarnings("unchecked")
 public class MailAction extends BaseAction {
 
 	/**
@@ -20,24 +25,22 @@ public class MailAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = -7887886471455615261L;
 
-	private IMailService mailService;
-	private IStudentInfoService studentInfoService;
-	private ITeacherInfoService teacherInfoService;
-	private Mail mail;
-	private Mail oldMail;
-	private UserInfo replyUser;
-	private List<Mail> mailList;
-	private Integer mailId;
-	private Integer studentId;
-	private String studentNo;
-	private String teacherNo;
-	private int count;
-	private int status;
-	private String[] pmitemid;
-	private String savetosentbox;
-	private String result;
-	@SuppressWarnings("unchecked")
-	private List rows = new ArrayList();
+	private IMailService mailService; //负责站内信业务的接口
+	private IStudentInfoService studentInfoService;//负责学生信息的接口
+	private ITeacherInfoService teacherInfoService;//负责教师信息的接口
+	private Mail mail; //站内信
+	private Mail oldMail; //原有的站内信
+	private UserInfo replyUser;//回复的发件人
+	private List<Mail> mailList;//站内信列表
+	private Integer mailId;//站内信ID
+	private Integer studentId;//学生ID
+	private String studentNo;//学号
+	private String teacherNo;//老师工作号
+	private int status;//站内信状态
+	private String[] pmitemid;//单选框ID
+	private String savetosentbox;//是否保存到发件箱
+	private String result;//返回给JSON的结果
+	private List rows;
 
 	/**
 	 * 查找本学院所有的老师
@@ -288,11 +291,9 @@ public class MailAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getReceiveMailByStu() {
 		mailList = mailService.getMailsByReceiver(super.getStudent()
 				.getUserInfo());
-		count = mailList.size();
 		return SUCCESS;
 	}
 
@@ -301,11 +302,9 @@ public class MailAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getReceiveMailByTea() {
 		mailList = mailService.getMailsByReceiver(super.getTeacher()
 				.getUserInfo());
-		count = mailList.size();
 		return SUCCESS;
 	}
 
@@ -314,11 +313,9 @@ public class MailAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getSendMailByStu() {
 		mailList = mailService.getMailsBySender(super.getStudent()
 				.getUserInfo(), 1);
-		count = mailList.size();
 		return SUCCESS;
 	}
 
@@ -327,11 +324,9 @@ public class MailAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getSendMailByTea() {
 		mailList = mailService.getMailsBySender(super.getTeacher()
 				.getUserInfo(), 1);
-		count = mailList.size();
 		return SUCCESS;
 	}
 
@@ -340,11 +335,9 @@ public class MailAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getDraftByStu() {
 		mailList = mailService.getMailsBySender(super.getStudent()
 				.getUserInfo(), 2);
-		count = mailList.size();
 		return SUCCESS;
 	}
 
@@ -353,11 +346,9 @@ public class MailAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getDraftByTea() {
 		mailList = mailService.getMailsBySender(super.getTeacher()
 				.getUserInfo(), 2);
-		count = mailList.size();
 		return SUCCESS;
 	}
 
@@ -522,14 +513,6 @@ public class MailAction extends BaseAction {
 
 	public UserInfo getReplyUser() {
 		return replyUser;
-	}
-
-	public void setCount(int count) {
-		this.count = count;
-	}
-
-	public int getCount() {
-		return count;
 	}
 
 	public void setSavetosentbox(String savetosentbox) {

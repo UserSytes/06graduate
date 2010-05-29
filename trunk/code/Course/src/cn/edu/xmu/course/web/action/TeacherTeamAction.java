@@ -28,7 +28,6 @@ public class TeacherTeamAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getTeacherTeamListByCourse() {
 		Course course = super.getCourse();
 		teacherTeamList = teacherTeamService.getTeacherTeamList(course.getId());
@@ -40,7 +39,6 @@ public class TeacherTeamAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String findTeacherTeam() {
 		Course course = super.getCourse();
 		teacherTeamList = teacherTeamService.getTeacherTeamList(course.getId());

@@ -20,25 +20,25 @@ public class ExerciseAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = -7294719167547807888L;
-	private List<Chapter> chapterList;
-	private Chapter chapter;
-	private Integer chapterId;
+	private List<Chapter> chapterList; //章节目录列表
+	private Chapter chapter; //章节
+	private Integer chapterId;//章节ID
 
-	private List<Exercise> exerciseList;
-	private Exercise exercise;
-	private Integer exerciseId;
+	private List<Exercise> exerciseList; // 习题 列表
+	private Exercise exercise; //习题 
+	private Integer exerciseId;//习题ID
 
-	private File upload;
-	private String uploadContentType;
-	private String uploadFileName;
+	private File upload; //上传文件
+	private String uploadContentType;// 文件类型
+	private String uploadFileName; //文件名字
 
-	private IChapterService chapterService;
-	private IExerciseService exerciseService;
+	private IChapterService chapterService; //负责章节目录业务的接口
+	private IExerciseService exerciseService; //负责习题业务的接口 
+	
 	/**
 	 * 根据章节查找练习
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getExerciseListByChapter() {
 		Course course = super.getCourse();
 		chapterList = chapterService.getAllChapter(super.getCourse());
@@ -54,7 +54,6 @@ public class ExerciseAction extends BaseAction {
 	 * 查找所有练习
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getAllExercise() {
 		Course course = super.getCourse();
 		exerciseList = exerciseService.getAllExercises(course);
@@ -64,7 +63,6 @@ public class ExerciseAction extends BaseAction {
 	 * 下载练习
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String downloadExercise() {
 		Chapter currentChapter = chapterService.getChapterById(chapterId);
 		exerciseList = exerciseService.getExercisesByChapter(currentChapter);
@@ -95,7 +93,6 @@ public class ExerciseAction extends BaseAction {
 	 * 跳转到编辑练习
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String goEditExercise() {
 		exercise = exerciseService.getExerciseById(exerciseId);
 		chapterList = chapterService.getAllChapter(super.getCourse());
@@ -106,7 +103,6 @@ public class ExerciseAction extends BaseAction {
 	 * 跳转到添加练习
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String goAddExercise() {
 		chapterList = chapterService.getAllChapter(super.getCourse());
 		return SUCCESS;

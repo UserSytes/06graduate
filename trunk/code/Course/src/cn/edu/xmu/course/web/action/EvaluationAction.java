@@ -25,6 +25,7 @@ import cn.edu.xmu.course.service.ILoginService;
  * @author 许子彦
  * 
  */
+@SuppressWarnings("unchecked")
 public class EvaluationAction extends BaseAction {
 
 	/**
@@ -66,7 +67,6 @@ public class EvaluationAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String loginFromEvaluation() {
 		course = super.getCourse();
 		if (getFlag() == 0) {
@@ -195,8 +195,8 @@ public class EvaluationAction extends BaseAction {
 	public String studentEvaluate() {
 		student = super.getStudent();
 		course = super.getCourse();
-		studentCourse = (StudentCourse) evaluateService.findByStudentAndCourse(course, student)
-				.get(0);
+		studentCourse = (StudentCourse) evaluateService.findByStudentAndCourse(
+				course, student).get(0);
 		studentCourse.setScore(score);
 		result = evaluateService.updateStudentCourse(studentCourse);
 		if (result) {
@@ -535,7 +535,6 @@ public class EvaluationAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String showEvaluateCourses() {
 		courseList = new ArrayList<Course>();
 		for (int i = 0; i < courseIds.size(); i++) {
@@ -559,21 +558,14 @@ public class EvaluationAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String genrEvaluateChart() {
-		try {
-			Administrator admin = (Administrator) super.getSession().get(ADMIN);
-			School school = admin.getSchool();
-			Date currentDate = new Date();
-			super.getSession().put("title", school.getName() + "课程评价对比柱形图");
-			super.getSession().put("abscissa", "课程");
-			super.getSession().put("ordinate", "平均分");
-
-			return SUCCESS;
-		} catch (RuntimeException e) {
-			e.printStackTrace();
-			return ERROR;
-		}
+		Administrator admin = (Administrator) super.getSession().get(ADMIN);
+		School school = admin.getSchool();
+		Date currentDate = new Date();
+		super.getSession().put("title", school.getName() + "课程评价对比柱形图");
+		super.getSession().put("abscissa", "课程");
+		super.getSession().put("ordinate", "平均分");
+		return SUCCESS;
 	}
 
 	/**
@@ -591,6 +583,10 @@ public class EvaluationAction extends BaseAction {
 		}
 	}
 
+	/**
+	 * 查看评价详情
+	 * @return
+	 */
 	public String getEvaluationDetail() {
 		evaluation = evaluateService.findById(evaluationId);
 		return SUCCESS;

@@ -20,6 +20,7 @@ import cn.edu.xmu.course.service.ITeacherInfoService;
  * @author 许子彦
  *
  */
+@SuppressWarnings("unchecked")
 public class EnterCourseAction extends BaseAction {
 
 	/**
@@ -51,16 +52,19 @@ public class EnterCourseAction extends BaseAction {
 	private int courseId;
 
 	/**
-	 * 进入课程首页查询
+	 * 刷新课程首页
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String goIndexQuery() {
 		this.initCourseIndex(super.getCourse());
 		return SUCCESS;
 	}
 	
+	/**
+	 * 进入课程首页
+	 * @return
+	 */
 	public String intoCourse(){
 		course = courseService.getCourseById(courseId);
 		if (course == null) {
@@ -122,7 +126,6 @@ public class EnterCourseAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getLeftNotice() {
 		course = super.getCourse();
 		System.out.println(course.getName());
@@ -138,7 +141,6 @@ public class EnterCourseAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String changeColor() {
 		if (color.equals(super.getSession().get("style")))
 			color = null;
@@ -152,7 +154,6 @@ public class EnterCourseAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String changeHeader() {
 		super.getSession().put("header", header);
 		course = super.getCourse();
@@ -168,7 +169,6 @@ public class EnterCourseAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String sortSand() {
 		if (sortname != null)
 			super.getSession().put("sort", sortname);

@@ -1,6 +1,5 @@
 package cn.edu.xmu.course.web.action;
 
-
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.Attachment;
@@ -16,203 +15,203 @@ import cn.edu.xmu.course.service.ISearchCourseService;
 
 /**
  * 负责首页的类
+ * 
  * @author 赵海虹
  * @author 郑冰凌
  * 
  */
-public class HomePageAction extends BaseAction{
-	
+@SuppressWarnings("unchecked")
+public class HomePageAction extends BaseAction {
+
 	private static final long serialVersionUID = 1L;
 	private List<News> newsList;// 新闻列表
-  private UserInfo userInfo;// 用户信息
+	private UserInfo userInfo;// 用户信息
 	private List<Course> courseList;// 课程列表
 	private ICourseService courseService;// 课程管理方法的接口
 	private INewsService newsService;// 新闻管理方法的接口
-	private ISearchCourseService searchCourseService;// 查找课程方法的接口	
+	private ISearchCourseService searchCourseService;// 查找课程方法的接口
 	private int newsId;// 新闻ID
 	private News news;// 新闻
 	private int flag;// 标志
-	private String userName,password;// 用户名，密码
+	private String userName, password;// 用户名，密码
 	private ILoginService loginService;// 登陆管理方法的接口
 	private int courseId;// 课程ID
-	private String level="country";// 课程等级
-	private List<String> times=null;//没用的。。。应该要删除掉
+	private String level = "country";// 课程等级
+	private List<String> times = null;// 没用的。。。应该要删除掉
 	private int country;// 国家级课程的数目
 	private int province;// 省级课程的数目
 	private int city;// 市级课程的数目
 	private int school;// 市级课程的数目
 	private int other;// 其他级别课程的数目
-	private String levelNow;// 课程级别	
-	private Student student;// 学生	
+	private String levelNow;// 课程级别
+	private Student student;// 学生
 	private List<Attachment> attachmentList;// 附件列表
 	private List<Course> achievementList;// 课程列表
 	private String ifAttachment;// 附件
 	private String idLogin;// 登陆
 	private String afterLogin;// 登陆后
 	private String user;// 用户
-	
+
 	/**
 	 * 首页数据载入
+	 * 
 	 * @return
 	 */
-    @SuppressWarnings("unchecked")
-	public String homepageDisplay(){
-    	System.out.println("测试首页1："+super.getSession());
-    	user = (String) super.getSession().get("user");
-    	System.out.println("测试首页："+user);
-    	if( user == null){
-    		this.setIdLogin("block");
-    		this.setAfterLogin("none");
-    	}else{
-    		this.setIdLogin("none");
-    		this.setAfterLogin("block");
-    	}
-    	
-    	newsList=newsService.findLastestTenNews();
+	public String homepageDisplay() {
+		user = (String) super.getSession().get("user");
+		if (user == null) {
+			this.setIdLogin("block");
+			this.setAfterLogin("none");
+		} else {
+			this.setIdLogin("none");
+			this.setAfterLogin("block");
+		}
+		newsList = newsService.findLastestTenNews();
 		this.countCourseByLevel();
-		courseList = searchCourseService.findLatestTenCourse();    	
+		courseList = searchCourseService.findLatestTenCourse();
 		return SUCCESS;
 	}
- 
-    /**
-     * 计算级别课程数
-     */
-    @SuppressWarnings("unchecked")
-	public void countCourseByLevel(){
-    	courseList = courseService.findCourseListLevel("country");
-    	country=courseList.size();
-    	courseList = courseService.findCourseListLevel("province");
-    	province=courseList.size();
-    	courseList = courseService.findCourseListLevel("city");
-    	city=courseList.size();
-    	courseList = courseService.findCourseListLevel("school");
-    	school=courseList.size();
-    	courseList = courseService.findCourseListLevel("other");
-    	other=courseList.size();
-    }
-    
-    /**
-     * 查找所有课程
-     * @return
-     */
-    @SuppressWarnings("unchecked")
-	public String newsDisplay(){
-    	newsList=newsService.findAllNews();
+
+	/**
+	 * 计算级别课程数
+	 */
+	public void countCourseByLevel() {
+		courseList = courseService.findCourseListLevel("country");
+		country = courseList.size();
+		courseList = courseService.findCourseListLevel("province");
+		province = courseList.size();
+		courseList = courseService.findCourseListLevel("city");
+		city = courseList.size();
+		courseList = courseService.findCourseListLevel("school");
+		school = courseList.size();
+		courseList = courseService.findCourseListLevel("other");
+		other = courseList.size();
+	}
+
+	/**
+	 * 查找所有课程
+	 * 
+	 * @return
+	 */
+	public String newsDisplay() {
+		newsList = newsService.findAllNews();
 		if (newsList == null) {
 			addActionError("对不起，目前尚无任何新闻，请重新操作！");
 			return ERROR;
 		} else
 			return "news";
 	}
-    
-    /**
-     * 查看选定课程
-     * @return
-     */
-    public String enterNews(){
-    	news=newsService.findNewsById(newsId);
+
+	/**
+	 * 查看选定课程
+	 * 
+	 * @return
+	 */
+	public String enterNews() {
+		news = newsService.findNewsById(newsId);
 		if (news == null) {
 			addActionError("对不起，该新闻不存在，请重新操作！");
 			return ERROR;
-		} else{
-			news.setCount( news.getCount() +1 );
+		} else {
+			news.setCount(news.getCount() + 1);
 			newsService.updateNewsWithoutAttachment(news);
 			attachmentList = newsService.findAttachmentByNews(news);
-			if(attachmentList.size()!=0){
+			if (attachmentList.size() != 0) {
 				ifAttachment = "附件下载：";
-			}else{
+			} else {
 				ifAttachment = "";
 			}
 			return "newsdetail";
 		}
-    }
-    
-    /**
-     * 首页登录
-     * @return
-     */
-	@SuppressWarnings("unchecked")
+	}
+
+	/**
+	 * 首页登录
+	 * 
+	 * @return
+	 */
 	public String loginFromHomePage() {
-		
+
 		if (getFlag() == 0) {
-			Teacher teacher = getLoginService().teacherLogin(userName, getPassword());
-			if (null == teacher){
+			Teacher teacher = getLoginService().teacherLogin(userName,
+					getPassword());
+			if (null == teacher) {
 				addActionError("帐号或者密码错误，请重新登录！");
 				this.homepageDisplay();
 				return ERROR;
-			}
-			else {				
+			} else {
 				userInfo = teacher.getUserInfo();
 				super.getSession().put(TEACHER, teacher);
-				super.getSession().put("user", userInfo.getName()+"老师");
+				super.getSession().put("user", userInfo.getName() + "老师");
 				super.getSession().put(USERINFO, userInfo);
 				return "teacher";
 			}
 		} else {
 			student = getLoginService().studentLogin(userName, getPassword());
-			if (null == student){
+			if (null == student) {
 				addActionError("帐号或者密码错误，请重新登录！");
 				this.homepageDisplay();
 				return ERROR;
-			}
-			else {
+			} else {
 				userInfo = student.getUserInfo();
 				super.getSession().put(STUDENT, student);
-				super.getSession().put("user",userInfo.getName()+"同学");				
+				super.getSession().put("user", userInfo.getName() + "同学");
 				super.getSession().put(USERINFO, userInfo);
 				return "student";
 			}
 		}
 	}
-       
-    /**
+
+	/**
 	 * 根据级别查找课程
+	 * 
 	 * @return
 	 */
-    @SuppressWarnings("unchecked")
-	public String achievementDisplay(){
-    	achievementList=courseService.findCourseListLevel(level);
-    	if(level.equals("country")){
-    		levelNow = "国家级";
-    	}else if(level.equals("province")){
-    		levelNow = "省级";
-    	}else if(level.equals("city")){
-    		levelNow = "市级";
-    	}else if(level.equals("school")){
-    		levelNow = "校级";
-    	}else{
-    		levelNow = "其他";
-    	}
+	public String achievementDisplay() {
+		achievementList = courseService.findCourseListLevel(level);
+		if (level.equals("country")) {
+			levelNow = "国家级";
+		} else if (level.equals("province")) {
+			levelNow = "省级";
+		} else if (level.equals("city")) {
+			levelNow = "市级";
+		} else if (level.equals("school")) {
+			levelNow = "校级";
+		} else {
+			levelNow = "其他";
+		}
 		if (achievementList == null) {
 			addActionError("对不起，没有符合条件的课程信息，请重新操作！");
 			return ERROR;
-		} else{
+		} else {
 			return SUCCESS;
 		}
-    }
-    
+	}
 
-    public String forwardToSuperSearch(){
-    	return SUCCESS;
-    }
-    
-    public String forwardToSchoolSearch(){
-    	return SUCCESS;
-    }
-    
-    public String forwardToIndex(){
+	public String forwardToSuperSearch() {
+		return SUCCESS;
+	}
+
+	public String forwardToSchoolSearch() {
+		return SUCCESS;
+	}
+
+	public String forwardToIndex() {
 		return "index";
-}
-    public String forwardToContact(){
+	}
+
+	public String forwardToContact() {
 		return "contact";
-}
-    
+	}
+
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
 	}
+
 	public INewsService getNewsService() {
 		return newsService;
 	}
+
 	public void setNewsService(INewsService newsService) {
 		this.newsService = newsService;
 	}
@@ -225,11 +224,9 @@ public class HomePageAction extends BaseAction{
 		return newsList;
 	}
 
-
 	public void setNewsId(int newsId) {
 		this.newsId = newsId;
 	}
-
 
 	public int getNewsId() {
 		return newsId;
@@ -274,7 +271,7 @@ public class HomePageAction extends BaseAction{
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	
+
 	public List<Course> getCourseList() {
 		return courseList;
 	}
@@ -282,7 +279,6 @@ public class HomePageAction extends BaseAction{
 	public void setCourseList(List<Course> courseList) {
 		this.courseList = courseList;
 	}
-
 
 	public ICourseService getCourseService() {
 		return courseService;

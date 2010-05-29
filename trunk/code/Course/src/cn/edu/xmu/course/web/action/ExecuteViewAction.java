@@ -98,6 +98,10 @@ public class ExecuteViewAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	/**
+	 * ¸ß¼¶ËÑË÷¿Î³Ì
+	 * @return
+	 */
 	public String superSearchCourse() {
 
 		if (departmentId.equals("-1")) {
@@ -164,9 +168,7 @@ public class ExecuteViewAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String enterCourse() {
-		this.courseId = courseId;
 		return "course";
 	}
 
