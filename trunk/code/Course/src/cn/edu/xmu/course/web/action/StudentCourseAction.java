@@ -93,8 +93,8 @@ public class StudentCourseAction extends BaseAction{
 		Administrator admin = (Administrator) super.getSession().get(
 				ADMIN);
 		School school = admin.getSchool();
-		gradeList = schoolService.findAllGrade();
-		departmentList = schoolService.findDepartmentBySchool(school);
+		gradeList = getSchoolService().findAllGrade();
+		departmentList = getSchoolService().findDepartmentBySchool(school);
 		return SUCCESS;
 	}
 	
@@ -259,11 +259,11 @@ public class StudentCourseAction extends BaseAction{
 	}
 
 	public ISchoolService getschoolService() {
-		return schoolService;
+		return getSchoolService();
 	}
 
 	public void setschoolService(ISchoolService schoolService) {
-		this.schoolService = schoolService;
+		this.setSchoolService(schoolService);
 	}
 
 	public IStudentCourseService getStudentCourseService() {
@@ -352,6 +352,14 @@ public class StudentCourseAction extends BaseAction{
 
 	public void setStudentFile(File studentFile) {
 		this.studentFile = studentFile;
+	}
+
+	public void setSchoolService(ISchoolService schoolService) {
+		this.schoolService = schoolService;
+	}
+
+	public ISchoolService getSchoolService() {
+		return schoolService;
 	}
 
 	

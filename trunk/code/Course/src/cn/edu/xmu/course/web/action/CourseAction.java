@@ -367,4 +367,11 @@ public class CourseAction extends BaseAction {
 		return myCoursesList;
 	}
 
+	public List<Course> getApplicationCourseList() {
+		return applicationCourseList;
+	}
+
+	public void setApplicationCourseList(List<Course> applicationCourseList) {
+		this.applicationCourseList = applicationCourseList;
+	}
 }

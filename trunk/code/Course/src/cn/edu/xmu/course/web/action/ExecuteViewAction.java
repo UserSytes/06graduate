@@ -48,7 +48,7 @@ public class ExecuteViewAction extends BaseAction {
 	 */
 	public String findCourseListBySchoolName() {
 		System.out.println("the schoolName is " + schoolName);
-		School school = schoolService.findSchoolByName(schoolName);
+		School school = getSchoolService().findSchoolByName(schoolName);
 		if (school == null) {
 			addActionMessage("该学院不存在，请重新操作！");
 		} else {
@@ -322,11 +322,11 @@ public class ExecuteViewAction extends BaseAction {
 	}
 
 	public void setschoolService(ISchoolService schoolService) {
-		this.schoolService = schoolService;
+		this.setSchoolService(schoolService);
 	}
 
 	public ISchoolService getschoolService() {
-		return schoolService;
+		return getSchoolService();
 	}
 
 	public String getSchoolName() {
@@ -343,6 +343,14 @@ public class ExecuteViewAction extends BaseAction {
 
 	public void setDeptName(String deptName) {
 		this.deptName = deptName;
+	}
+
+	public void setSchoolService(ISchoolService schoolService) {
+		this.schoolService = schoolService;
+	}
+
+	public ISchoolService getSchoolService() {
+		return schoolService;
 	}
 
 }

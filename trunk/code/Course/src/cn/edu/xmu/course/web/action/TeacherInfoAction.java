@@ -156,7 +156,7 @@ public class TeacherInfoAction extends BaseAction{
 	public String getDepartmentBySchool(){
 		Administrator admin = (Administrator) super.getSession().get(ADMIN);
 		School school = admin.getSchool();
-		departmentList = schoolService.findDepartmentBySchool(school);
+		departmentList = getSchoolService().findDepartmentBySchool(school);
 		if (departmentList.size() == 0) {
 			addActionMessage("本学院还没有系，请先向 校方管理员申请开设系！");
 			return ERROR;
@@ -170,7 +170,7 @@ public class TeacherInfoAction extends BaseAction{
 	 */
 	public String addTeacher(){
 		boolean result = false;
-		Department department = schoolService.findDepartmentById(departmentId);
+		Department department = getSchoolService().findDepartmentById(departmentId);
 		teacher.setPassword(teacher.getTeacherNo());
 		userInfo.setDepartment(department);		
 		teacher.setUserInfo(userInfo);
@@ -294,11 +294,11 @@ public class TeacherInfoAction extends BaseAction{
 	}
 
 	public ISchoolService getschoolService() {
-		return schoolService;
+		return getSchoolService();
 	}
 
 	public void setschoolService(ISchoolService schoolService) {
-		this.schoolService = schoolService;
+		this.setSchoolService(schoolService);
 	}
 
 	public int getDepartmentId() {
@@ -339,6 +339,14 @@ public class TeacherInfoAction extends BaseAction{
 
 	public ICourseService getCourseService() {
 		return courseService;
+	}
+
+	public void setSchoolService(ISchoolService schoolService) {
+		this.schoolService = schoolService;
+	}
+
+	public ISchoolService getSchoolService() {
+		return schoolService;
 	}
 	
 }
