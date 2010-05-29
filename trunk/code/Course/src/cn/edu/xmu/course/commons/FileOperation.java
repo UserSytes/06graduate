@@ -8,6 +8,11 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+/**
+ * 上传文件处理
+ * @author 何申密
+ *
+ */
 public class FileOperation {
 	private static final int BUFFER_SIZE = 16 * 1024;
 	private static FileOperation instance = new FileOperation();
@@ -86,8 +91,12 @@ public class FileOperation {
 		}
 	}
 
-	// 删除指定文件夹下所有文件
-	// param path 文件夹完整绝对路径
+	/**
+	 * 删除指定文件夹下所有文件
+	 * 
+	 * @param path 文件夹完整绝对路径
+	 * @return
+	 */
 	public static boolean delAllFile(String path) {
 		boolean flag = false;
 		File file = new File(path);

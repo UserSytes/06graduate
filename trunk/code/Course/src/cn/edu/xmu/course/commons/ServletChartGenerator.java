@@ -13,6 +13,11 @@ import javax.servlet.http.HttpSession;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 
+/**
+ * Éú³ÉÖù×´Í¼
+ * @author Ö£±ùÁè
+ *
+ */
 public class ServletChartGenerator extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
@@ -25,6 +30,7 @@ public class ServletChartGenerator extends HttpServlet{
 		doGet(request, response);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
