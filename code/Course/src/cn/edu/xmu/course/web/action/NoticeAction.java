@@ -68,7 +68,6 @@ public class NoticeAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getNoticeListByCourse() {
 		courseList = courseService.findCoursesByTeacher(super.getTeacher()
 				.getId(), 1);
@@ -86,7 +85,6 @@ public class NoticeAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getNoticeListByTeacher() {
 		courseList = courseService.findCoursesByTeacher(super.getTeacher()
 				.getId(), 1);
@@ -100,7 +98,6 @@ public class NoticeAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String getNoticeBySort2() {
 		course = super.getCourse();
 		noticeList = getNoticeService().getNoticeBySort(course, sort);	
@@ -139,7 +136,6 @@ public class NoticeAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String goAddNotice() {
 		courseList = courseService.findCoursesByTeacher(super.getTeacher()
 				.getId(), 1);
@@ -151,7 +147,6 @@ public class NoticeAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public String goEditNotice() {
 		courseList = courseService.findCoursesByTeacher(super.getTeacher()
 				.getId(), 1);

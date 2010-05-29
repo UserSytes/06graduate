@@ -21,6 +21,7 @@ import cn.edu.xmu.course.service.ITopicService;
  * @author Ðí×ÓÑå
  * 
  */
+@SuppressWarnings("unchecked")
 public class MessageAction extends BaseAction {
 
 	/**
