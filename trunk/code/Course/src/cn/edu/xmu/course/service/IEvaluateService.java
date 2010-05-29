@@ -112,10 +112,4 @@ public interface IEvaluateService {
 	 * @return
 	 */
 	public Evaluation getEvaluationByUsername(String username);
-	
-	/**
-	 * 查找所有的评价用户
-	 * @return
-	 */
-	public List<Evaluation> findAllEvaluation();
 }

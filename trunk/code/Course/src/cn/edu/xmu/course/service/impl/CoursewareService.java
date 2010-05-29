@@ -16,11 +16,24 @@ import cn.edu.xmu.course.pojo.Courseware;
 import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.service.ICoursewareService;
 
+/**
+ * 课程教案
+ * 
+ * @author Administrator
+ * 
+ */
 public class CoursewareService implements ICoursewareService {
 
 	private CoursewareDAO coursewareDAO;
 	private NoticeDAO noticeDAO;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICoursewareService#addCourseware(cn.edu.xmu
+	 * .course.pojo.Courseware, cn.edu.xmu.course.pojo.Chapter, java.io.File)
+	 */
 	public boolean addCourseware(Courseware courseware, Chapter chapter,
 			File upload) {
 		// TODO Auto-generated method stub
@@ -30,22 +43,30 @@ public class CoursewareService implements ICoursewareService {
 		File file = new File(fileName);
 		courseware.setChapter(chapter);
 		courseware.setTime(Calendar.getInstance().getTime());
-		String title = "添加课件《"+courseware.getTitle()+"》";
-		String content = "<p>添加最新课件《"+courseware.getTitle()+"》，请同学们注意查阅。</p>";
-		Notice notice = new Notice(chapter.getCourse(),title,content,new Date(),1);	
-		try {			
-			if (FileOperation.copy(upload, file)){
+		String title = "添加课件《" + courseware.getTitle() + "》";
+		String content = "<p>添加最新课件《" + courseware.getTitle()
+				+ "》，请同学们注意查阅。</p>";
+		Notice notice = new Notice(chapter.getCourse(), title, content,
+				new Date(), 1);
+		try {
+			if (FileOperation.copy(upload, file)) {
 				coursewareDAO.save(courseware);
 				noticeDAO.save(notice);
 				return true;
-			}				
-			else
+			} else
 				return false;
 		} catch (Exception e) {
 			return false;
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICoursewareService#deleteCourseware(cn.edu.
+	 * xmu.course.pojo.Courseware)
+	 */
 	public boolean deleteCourseware(Courseware courseware) {
 		// TODO Auto-generated method stub
 		try {
@@ -56,25 +77,53 @@ public class CoursewareService implements ICoursewareService {
 		}
 	}
 
-	public List getAllCoursewares(Course course) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICoursewareService#getAllCoursewares(cn.edu
+	 * .xmu.course.pojo.Course)
+	 */
+	public List<Courseware> getAllCoursewares(Course course) {
 		// TODO Auto-generated method stub
 		return coursewareDAO.findByCourse(course.getId());
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICoursewareService#getCoursewareById(java.lang
+	 * .Integer)
+	 */
 	public Courseware getCoursewareById(Integer id) {
 		// TODO Auto-generated method stub
 		return coursewareDAO.findById(id);
 	}
 
-	public List getCoursewaresByChapter(Chapter chapter) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICoursewareService#getCoursewaresByChapter(
+	 * cn.edu.xmu.course.pojo.Chapter)
+	 */
+	public List<Courseware> getCoursewaresByChapter(Chapter chapter) {
 		// TODO Auto-generated method stub
-		List<Courseware> coursewareList=coursewareDAO.findByChapter(chapter);
+		List<Courseware> coursewareList = coursewareDAO.findByChapter(chapter);
 		if (coursewareList.size() > 0)
 			return coursewareList;
 		else
 			return null;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICoursewareService#updateCourseware(cn.edu.
+	 * xmu.course.pojo.Courseware, cn.edu.xmu.course.pojo.Chapter, java.io.File)
+	 */
 	public boolean updateCourseware(Courseware courseware, Chapter chapter,
 			File upload) {
 		// TODO Auto-generated method stub
@@ -84,16 +133,17 @@ public class CoursewareService implements ICoursewareService {
 		File file = new File(fileName);
 		courseware.setChapter(chapter);
 		courseware.setTime(Calendar.getInstance().getTime());
-		String title = "修改课件《"+courseware.getTitle()+"》";
-		String content = "<p>修改已有课件《"+courseware.getTitle()+"》，请同学们注意查阅。</p>";
-		Notice notice = new Notice(chapter.getCourse(),title,content,new Date(),1);	
-		try {			
-			if (FileOperation.copy(upload, file)){
+		String title = "修改课件《" + courseware.getTitle() + "》";
+		String content = "<p>修改已有课件《" + courseware.getTitle()
+				+ "》，请同学们注意查阅。</p>";
+		Notice notice = new Notice(chapter.getCourse(), title, content,
+				new Date(), 1);
+		try {
+			if (FileOperation.copy(upload, file)) {
 				coursewareDAO.merge(courseware);
 				noticeDAO.save(notice);
 				return true;
-			}
-			else
+			} else
 				return false;
 		} catch (Exception e) {
 			return false;

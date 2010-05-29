@@ -12,6 +12,7 @@ import cn.edu.xmu.course.service.IAdminService;
 
 /**
  * 负责校、学院管理员信息管理的类
+ * 
  * @author 郑冰凌
  * 
  */
@@ -22,7 +23,10 @@ public class AdminService implements IAdminService {
 
 	/*
 	 * (non-Javadoc)
-	 * @see cn.edu.xmu.course.service.IAdminService#getAdminByAccount(java.lang.String)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IAdminService#getAdminByAccount(java.lang.String
+	 * )
 	 */
 	public Administrator getAdminByAccount(String account) {
 		List<Administrator> admins = administratorDAO.findByAccount(account);
@@ -43,7 +47,7 @@ public class AdminService implements IAdminService {
 		// TODO Auto-generated method stub
 		MD5 md5 = new MD5();
 		admin.setPassword(md5.getMD5ofStr(admin.getAccount()));
-		admin.setSchool(school);		
+		admin.setSchool(school);
 		try {
 			administratorDAO.save(admin);
 			return true;
@@ -74,7 +78,7 @@ public class AdminService implements IAdminService {
 	 * 
 	 * @see cn.edu.xmu.course.service.IAdminService#findAllAdmin()
 	 */
-	public List findAllAdmin() {
+	public List<Administrator> findAllAdmin() {
 		// TODO Auto-generated method stub
 		return administratorDAO.findAll();
 	}
@@ -87,22 +91,6 @@ public class AdminService implements IAdminService {
 	public Administrator findAdminById(int id) {
 		// TODO Auto-generated method stub
 		return administratorDAO.findById(id);
-	}
-
-	public AdministratorDAO getAdministratorDAO() {
-		return administratorDAO;
-	}
-
-	public void setAdministratorDAO(AdministratorDAO administratorDAO) {
-		this.administratorDAO = administratorDAO;
-	}
-
-	public SuperAdminDAO getSuperAdminDAO() {
-		return superAdminDAO;
-	}
-
-	public void setSuperAdminDAO(SuperAdminDAO superAdminDAO) {
-		this.superAdminDAO = superAdminDAO;
 	}
 
 	/*
@@ -167,18 +155,24 @@ public class AdminService implements IAdminService {
 			return false;
 		}
 	}
-	
+
 	/*
 	 * 根据帐号获取校管理员(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.IAdminService#getSuperAdminByAccount(java.lang.String)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IAdminService#getSuperAdminByAccount(java.lang
+	 * .String)
 	 */
-	public SuperAdmin getSuperAdminByAccount(String account){
+	public SuperAdmin getSuperAdminByAccount(String account) {
 		return superAdminDAO.findByAccount(account);
 	}
 
 	/*
 	 * 删除校管理员(non-Javadoc)
-	 * @see cn.edu.xmu.course.service.IAdminService#deleteSuperAmdin(cn.edu.xmu.course.pojo.SuperAdmin)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IAdminService#deleteSuperAmdin(cn.edu.xmu.course
+	 * .pojo.SuperAdmin)
 	 */
 	public boolean deleteSuperAmdin(SuperAdmin superAdmin) {
 		// TODO Auto-generated method stub
@@ -192,12 +186,27 @@ public class AdminService implements IAdminService {
 
 	/*
 	 * 查找所有校管理员(non-Javadoc)
+	 * 
 	 * @see cn.edu.xmu.course.service.IAdminService#findAllSuperAdmin()
 	 */
-	public List findAllSuperAdmin() {
+	public List<SuperAdmin> findAllSuperAdmin() {
 		// TODO Auto-generated method stub
 		return superAdminDAO.findAll();
 	}
-	
 
+	public AdministratorDAO getAdministratorDAO() {
+		return administratorDAO;
+	}
+
+	public void setAdministratorDAO(AdministratorDAO administratorDAO) {
+		this.administratorDAO = administratorDAO;
+	}
+
+	public SuperAdminDAO getSuperAdminDAO() {
+		return superAdminDAO;
+	}
+
+	public void setSuperAdminDAO(SuperAdminDAO superAdminDAO) {
+		this.superAdminDAO = superAdminDAO;
+	}
 }

@@ -7,7 +7,6 @@ import org.apache.struts2.ServletActionContext;
 
 import cn.edu.xmu.course.commons.FileOperation;
 import cn.edu.xmu.course.dao.CourseDAO;
-import cn.edu.xmu.course.pojo.ApplicationForm;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.School;
@@ -24,9 +23,6 @@ import cn.edu.xmu.course.service.ICourseService;
 public class CourseService implements ICourseService {
 
 	private CourseDAO courseDAO;
-	private List courses;
-	private List tempList;
-	private ApplicationForm applicationForm;
 
 	/*
 	 * (non-Javadoc)
@@ -48,7 +44,7 @@ public class CourseService implements ICourseService {
 		course.setHeader("header.jsp");
 		course.setTime(new Date());
 		try {
-			courseDAO.save(course);
+			getCourseDAO().save(course);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -62,12 +58,12 @@ public class CourseService implements ICourseService {
 	 * cn.edu.xmu.course.service.ICourseService#findCoursesByTeacher(java.lang
 	 * .Integer, int)
 	 */
-	public List findCoursesByTeacher(Integer teacherId, int type) {
+	public List<Course> findCoursesByTeacher(Integer teacherId, int type) {
 		// TODO Auto-generated method stub
 		if (type == 3)
-			return courseDAO.findByTeacherId(teacherId);
+			return getCourseDAO().findByTeacherId(teacherId);
 		else
-			return courseDAO.findByTeacherAndType(teacherId, type);
+			return getCourseDAO().findByTeacherAndType(teacherId, type);
 	}
 
 	/*
@@ -81,14 +77,14 @@ public class CourseService implements ICourseService {
 		// TODO Auto-generated method stub
 		String path = ServletActionContext.getServletContext().getRealPath(
 				"/upload");
-		String fileName = path + "/"
-				+ course.getTeacher().getTeacherNo()+course.getTeacher().getUserInfo().getName() + "/"
+		String fileName = path + "/" + course.getTeacher().getTeacherNo()
+				+ course.getTeacher().getUserInfo().getName() + "/"
 				+ course.getName();
 		try {
 			if (!FileOperation.delFolder(fileName)) {
 				return false;
 			}
-			courseDAO.delete(course);
+			getCourseDAO().delete(course);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -103,8 +99,8 @@ public class CourseService implements ICourseService {
 	 * cn.edu.xmu.course.service.ICourseService#findCourseListLevel(java.lang
 	 * .String)
 	 */
-	public List findCourseListLevel(String level) {
-		courses = courseDAO.findByLevel(level);
+	public List<Course> findCourseListLevel(String level) {
+		List<Course> courses = getCourseDAO().findByLevel(level);
 		return courses;
 	}
 
@@ -115,58 +111,53 @@ public class CourseService implements ICourseService {
 	 * cn.edu.xmu.course.service.ICourseService#findCourseListByLevel(java.lang
 	 * .String)
 	 */
-	public List findCourseListByLevel(String level) {
-		courses = courseDAO.findByLevel(level);
+	public List<Course> findCourseListByLevel(String level) {
+		List<Course> courses = getCourseDAO().findByLevel(level);
 		return courses;
 	}
 
-	private List getCourses() {
-		return courses;
-	}
-
-	private void setCourses(List courses) {
-		this.courses = courses;
-	}
-
-	private List getTempList() {
-		return tempList;
-	}
-
-	private void setTempList(List tempList) {
-		this.tempList = tempList;
-	}
-
-	private ApplicationForm getApplicationForm() {
-		return applicationForm;
-	}
-
-	private void setApplicationForm(ApplicationForm applicationForm) {
-		this.applicationForm = applicationForm;
-	}
-
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseService#getCourseById(java.lang.Integer)
+	 */
 	public Course getCourseById(Integer courseId) {
 		// TODO Auto-generated method stub
-		return courseDAO.findById(courseId);
+		return getCourseDAO().findById(courseId);
 	}
 
-	public List findApplicationCourse(School school) {
-		return courseDAO.findApplicationBySchool(school);
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseService#findApplicationCourse(cn.edu
+	 * .xmu.course.pojo.School)
+	 */
+	public List<Course> findApplicationCourse(School school) {
+		return getCourseDAO().findApplicationBySchool(school);
 	}
 
-	public List findNoPassCourse(School school) {
-		return courseDAO.findNotPassBySchool(school);
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseService#findNoPassCourse(cn.edu.xmu.
+	 * course.pojo.School)
+	 */
+	public List<Course> findNoPassCourse(School school) {
+		return getCourseDAO().findNotPassBySchool(school);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseService#findBySchool(cn.edu.xmu.course
+	 * .pojo.School)
+	 */
 	public List<Course> findBySchool(School school) {
-		return courseDAO.findBySchool(school);
-	}
-
-	public void setCourseDAO(CourseDAO courseDAO) {
-		this.courseDAO = courseDAO;
-	}
-
-	public CourseDAO getCourseDAO() {
-		return courseDAO;
+		return getCourseDAO().findBySchool(school);
 	}
 
 	/*
@@ -179,11 +170,19 @@ public class CourseService implements ICourseService {
 	public boolean updateCourse(Course course) {
 		// TODO Auto-generated method stub
 		try {
-			courseDAO.merge(course);
+			getCourseDAO().merge(course);
 			return true;
 		} catch (Exception e) {
 			return false;
 		}
+	}
+
+	public void setCourseDAO(CourseDAO courseDAO) {
+		this.courseDAO = courseDAO;
+	}
+
+	public CourseDAO getCourseDAO() {
+		return courseDAO;
 	}
 
 }

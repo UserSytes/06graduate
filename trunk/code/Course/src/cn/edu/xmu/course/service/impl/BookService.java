@@ -14,11 +14,25 @@ import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.service.IBookService;
 
+/**
+ * 参考书籍
+ * 
+ * @author 何申密
+ * @author 许子彦
+ * 
+ */
 public class BookService implements IBookService {
 
 	private BookDAO bookDAO;
 	private NoticeDAO noticeDAO;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IBookService#addBook(cn.edu.xmu.course.pojo
+	 * .Book, cn.edu.xmu.course.pojo.Course, java.io.File)
+	 */
 	public boolean addBook(Book book, Course course, File upload) {
 		// TODO Auto-generated method stub
 		book.setCourse(course);
@@ -33,8 +47,7 @@ public class BookService implements IBookService {
 				File file = new File(fileName);
 				if (!FileOperation.copy(upload, file))
 					return false;
-			}
-			else{
+			} else {
 				book.setFileLink("");
 				book.setFilename("");
 			}
@@ -47,6 +60,13 @@ public class BookService implements IBookService {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IBookService#deleteBook(cn.edu.xmu.course.pojo
+	 * .Book)
+	 */
 	public boolean deleteBook(Book book) {
 		// TODO Auto-generated method stub
 		try {
@@ -57,16 +77,36 @@ public class BookService implements IBookService {
 		}
 	}
 
-	public List getAllBooks(Course course) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IBookService#getAllBooks(cn.edu.xmu.course.
+	 * pojo.Course)
+	 */
+	public List<Book> getAllBooks(Course course) {
 		// TODO Auto-generated method stub
 		return bookDAO.findByCourse(course);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IBookService#getBookById(java.lang.Integer)
+	 */
 	public Book getBookById(Integer id) {
 		// TODO Auto-generated method stub
 		return bookDAO.findById(id);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IBookService#updateBook(cn.edu.xmu.course.pojo
+	 * .Book, java.io.File)
+	 */
 	public boolean updateBook(Book book, File upload) {
 		// TODO Auto-generated method stub
 		String title = "修改参考书籍《" + book.getName() + "》";
@@ -81,8 +121,7 @@ public class BookService implements IBookService {
 				File file = new File(fileName);
 				if (!FileOperation.copy(upload, file))
 					return false;
-			}
-			else{
+			} else {
 				book.setFileLink("");
 				book.setFilename("");
 			}

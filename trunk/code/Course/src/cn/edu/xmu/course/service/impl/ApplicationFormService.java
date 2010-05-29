@@ -1,7 +1,6 @@
 package cn.edu.xmu.course.service.impl;
 
 import java.io.File;
-import java.util.Date;
 import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
@@ -12,9 +11,19 @@ import cn.edu.xmu.course.pojo.ApplicationForm;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.service.IApplicationFormService;
 
+/**
+ * 申报表格
+ * @author 何申密
+ * @author 许子彦
+ *
+ */
 public class ApplicationFormService implements IApplicationFormService {
 	private ApplicationFormDAO applicationFormDAO;
 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IApplicationFormService#addApplicationForm(cn.edu.xmu.course.pojo.ApplicationForm, cn.edu.xmu.course.pojo.Course, java.io.File)
+	 */
 	public boolean addApplicationForm(ApplicationForm applicationForm,
 			Course course, File upload) {
 		// TODO Auto-generated method stub
@@ -39,11 +48,19 @@ public class ApplicationFormService implements IApplicationFormService {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IApplicationFormService#deleteApplicationForm(cn.edu.xmu.course.pojo.ApplicationForm)
+	 */
 	public boolean deleteApplicationForm(ApplicationForm applicationForm) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IApplicationFormService#getApplicationForm(int)
+	 */
 	public ApplicationForm getApplicationForm(int courseId) {
 		List<ApplicationForm> applicationForms = applicationFormDAO
 				.findByCourse(courseId);
@@ -51,8 +68,12 @@ public class ApplicationFormService implements IApplicationFormService {
 			return applicationForms.get(0);
 		else
 			return null;
-	}
-
+	}	
+	
+	/*
+	 * (non-Javadoc)
+	 * @see cn.edu.xmu.course.service.IApplicationFormService#updateApplicationForm(cn.edu.xmu.course.pojo.ApplicationForm, java.io.File)
+	 */
 	public boolean updateApplicationForm(ApplicationForm applicationForm,
 			File upload) {
 		// TODO Auto-generated method stub
@@ -74,14 +95,6 @@ public class ApplicationFormService implements IApplicationFormService {
 		} catch (Exception e) {
 			return false;
 		}
-	}
-
-	public List findApplicationByLevel(Object level) {
-		return applicationFormDAO.findByLevel(level);
-	}
-
-	public List findApplicationByTime(Date time) {
-		return applicationFormDAO.findByProperty("time", time);
 	}
 
 	// get and set method

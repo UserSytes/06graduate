@@ -14,10 +14,24 @@ import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.service.IAchievementService;
 
+/**
+ * 教学成果
+ * 
+ * @author 何申密
+ * @author 许子彦
+ * 
+ */
 public class AchievementService implements IAchievementService {
 	private AchievementDAO achievementDAO;
 	private NoticeDAO noticeDAO;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IAchievementService#addAchievement(cn.edu.xmu
+	 * .course.pojo.Course, cn.edu.xmu.course.pojo.Achievement, java.io.File)
+	 */
 	public boolean addAchievement(Course course, Achievement achievement,
 			File upload) {
 		// TODO Auto-generated method stub
@@ -46,6 +60,13 @@ public class AchievementService implements IAchievementService {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IAchievementService#deleteAchievement(cn.edu
+	 * .xmu.course.pojo.Achievement)
+	 */
 	public boolean deleteAchievement(Achievement achievement) {
 		// TODO Auto-generated method stub
 		try {
@@ -56,27 +77,49 @@ public class AchievementService implements IAchievementService {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
-	public Achievement getAchievement(int courseId) {
-		List<Achievement> achievements = achievementDAO.findByCourse(courseId);
-		;
-		if (achievements.size() == 0) {
-			return null;
-		} else {
-			return achievements.get(0);
-		}
-	}
-
-	public List getAllAchievements(Course course) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IAchievementService#getAllAchievements(cn.edu
+	 * .xmu.course.pojo.Course)
+	 */
+	public List<Achievement> getAllAchievements(Course course) {
 		// TODO Auto-generated method stub
 		return achievementDAO.findByCourse(course);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IAchievementService#getAchievementById(java
+	 * .lang.Integer)
+	 */
 	public Achievement getAchievementById(Integer id) {
 		// TODO Auto-generated method stub
 		return achievementDAO.findById(id);
 	}
 
+	/*
+	 * 查找 最新教学成果(non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IAchievementService#findLastestSevenAchievements
+	 * (cn.edu.xmu.course.pojo.Course)
+	 */
+	public List<Achievement> findLastestSevenAchievements(Course course) {
+		// TODO Auto-generated method stub
+		return achievementDAO.findLastestSevenAchievements(course);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.IAchievementService#updateAchievement(cn.edu
+	 * .xmu.course.pojo.Achievement, java.io.File)
+	 */
 	public boolean updateAchievement(Achievement achievement, File upload) {
 		// TODO Auto-generated method stub
 		String title = "修改成果《" + achievement.getTitle() + "》";
@@ -118,18 +161,6 @@ public class AchievementService implements IAchievementService {
 
 	public NoticeDAO getNoticeDAO() {
 		return noticeDAO;
-	}
-
-	/*
-	 * 查找 最新教学成果(non-Javadoc)
-	 * 
-	 * @see
-	 * cn.edu.xmu.course.service.IAchievementService#findLastestSevenAchievements
-	 * (cn.edu.xmu.course.pojo.Course)
-	 */
-	public List findLastestSevenAchievements(Course course) {
-		// TODO Auto-generated method stub
-		return achievementDAO.findLastestSevenAchievements(course);
 	}
 
 }
