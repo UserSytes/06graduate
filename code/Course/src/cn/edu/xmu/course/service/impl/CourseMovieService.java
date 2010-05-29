@@ -14,11 +14,25 @@ import cn.edu.xmu.course.pojo.CourseMovie;
 import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.service.ICourseMovieService;
 
+/**
+ * 课程录像
+ * 
+ * @author 何申密
+ * @author 许子彦
+ * 
+ */
 public class CourseMovieService implements ICourseMovieService {
 
 	private CourseMovieDAO courseMovieDAO;
 	private NoticeDAO noticeDAO;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseMovieService#addCourseMovie(cn.edu.xmu
+	 * .course.pojo.CourseMovie, cn.edu.xmu.course.pojo.Course, java.io.File)
+	 */
 	public boolean addCourseMovie(CourseMovie courseMovie, Course course,
 			File upload) {
 		// TODO Auto-generated method stub
@@ -48,12 +62,19 @@ public class CourseMovieService implements ICourseMovieService {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseMovieService#deleteCourseMovie(cn.edu
+	 * .xmu.course.pojo.CourseMovie)
+	 */
 	public boolean deleteCourseMovie(CourseMovie courseMovie) {
 		// TODO Auto-generated method stub
 		try {
 			courseMovieDAO.delete(courseMovie);
-			String path = ServletActionContext.getServletContext()
-			.getRealPath("/upload");
+			String path = ServletActionContext.getServletContext().getRealPath(
+					"/upload");
 			String fileName = path + "/" + courseMovie.getFileLink();
 			File file = new File(fileName);
 			FileOperation.delete(file);
@@ -63,16 +84,37 @@ public class CourseMovieService implements ICourseMovieService {
 		}
 	}
 
-	public List getAllCourseMovies(Course course) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseMovieService#getAllCourseMovies(cn.edu
+	 * .xmu.course.pojo.Course)
+	 */
+	public List<CourseMovie> getAllCourseMovies(Course course) {
 		// TODO Auto-generated method stub
 		return courseMovieDAO.findByCourse(course);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseMovieService#getCourseMovieById(java
+	 * .lang.Integer)
+	 */
 	public CourseMovie getCourseMovieById(Integer id) {
 		// TODO Auto-generated method stub
 		return courseMovieDAO.findById(id);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseMovieService#updateCourseMovie(cn.edu
+	 * .xmu.course.pojo.CourseMovie, java.io.File)
+	 */
 	public boolean updateCourseMovie(CourseMovie courseMovie, File upload) {
 		// TODO Auto-generated method stub
 
@@ -86,7 +128,7 @@ public class CourseMovieService implements ICourseMovieService {
 				String path = ServletActionContext.getServletContext()
 						.getRealPath("/upload");
 				String fileName = path + "/" + courseMovie.getFileLink();
-				File file = new File(fileName);				
+				File file = new File(fileName);
 				courseMovie.setSrc("");
 				if (!FileOperation.copy(upload, file))
 					return false;

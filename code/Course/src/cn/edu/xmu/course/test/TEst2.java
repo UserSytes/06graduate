@@ -64,12 +64,12 @@ public class TEst2 {
 				service.updatePassword(tea);
 			}
 		}
-		List<Evaluation> evas = evaService.findAllEvaluation();
-		for(Evaluation eva:evas){
-			eva.setPassword(md5.getMD5ofStr(eva.getPassword()));
-			evaService.updateEvaluation(eva);
-		}
-		System.out.println("你已经运行成功!");
+//		List<Evaluation> evas = evaService.findAllEvaluation();
+//		for(Evaluation eva:evas){
+//			eva.setPassword(md5.getMD5ofStr(eva.getPassword()));
+//			evaService.updateEvaluation(eva);
+//		}
+//		System.out.println("你已经运行成功!");
 	}
 
 }

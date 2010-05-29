@@ -43,18 +43,5 @@ public interface IApplicationFormService {
 	 * @return
 	 */
 	public boolean deleteApplicationForm(ApplicationForm applicationForm);
-	/**
-	 * 根据级别查找申请表
-	 * @param level
-	 * @return
-	 */
-	public List<ApplicationForm> findApplicationByLevel(Object level);
-	/**
-	 * 根据时间查找申请表
-	 * @param time
-	 * @return
-	 */
-	public List<ApplicationForm> findApplicationByTime(Date time);
-	
 	
 }

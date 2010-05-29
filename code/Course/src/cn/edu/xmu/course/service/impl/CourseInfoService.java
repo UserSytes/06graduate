@@ -8,9 +8,24 @@ import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.CourseInfo;
 import cn.edu.xmu.course.service.ICourseInfoService;
 
+/**
+ * 编辑课程信息，包括教学大纲，课程简介等
+ * 
+ * @author 何申密
+ * @author 许子彦
+ * 
+ */
 public class CourseInfoService implements ICourseInfoService {
+
 	private CourseInfoDAO courseInfoDAO;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseInfoService#addCoureseInfo(cn.edu.xmu
+	 * .course.pojo.CourseInfo, cn.edu.xmu.course.pojo.Course)
+	 */
 	public boolean addCoureseInfo(CourseInfo courseInfo, Course course) {
 		// TODO Auto-generated method stub
 		courseInfo.setCourse(course);
@@ -23,6 +38,13 @@ public class CourseInfoService implements ICourseInfoService {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseInfoService#deleteCourseInfo(cn.edu.
+	 * xmu.course.pojo.CourseInfo)
+	 */
 	public boolean deleteCourseInfo(CourseInfo courseInfo) {
 		// TODO Auto-generated method stub
 		try {
@@ -33,16 +55,37 @@ public class CourseInfoService implements ICourseInfoService {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseInfoService#getCourseInfoById(java.lang
+	 * .Integer)
+	 */
 	public CourseInfo getCourseInfoById(Integer courseInfoId) {
 		// TODO Auto-generated method stub
 		return courseInfoDAO.findById(courseInfoId);
 	}
 
-	public List getCourseInfosByCourse(Course course) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseInfoService#getCourseInfosByCourse(cn
+	 * .edu.xmu.course.pojo.Course)
+	 */
+	public List<CourseInfo> getCourseInfosByCourse(Course course) {
 		// TODO Auto-generated method stub
 		return courseInfoDAO.findByCourse(course);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.edu.xmu.course.service.ICourseInfoService#updateCourseInfo(cn.edu.
+	 * xmu.course.pojo.CourseInfo)
+	 */
 	public boolean updateCourseInfo(CourseInfo courseInfo) {
 		// TODO Auto-generated method stub
 		courseInfo.setTime(new Date());
@@ -54,6 +97,11 @@ public class CourseInfoService implements ICourseInfoService {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see cn.edu.xmu.course.service.ICourseInfoService#getCourseInfo(int, int)
+	 */
 	public CourseInfo getCourseInfo(int courseId, int sort) {
 		List<CourseInfo> courseInfos = getCourseInfoDAO().findByCourse(
 				courseId, sort);

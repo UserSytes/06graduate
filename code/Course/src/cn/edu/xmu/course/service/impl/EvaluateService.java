@@ -245,9 +245,6 @@ public class EvaluateService implements IEvaluateService {
 		else return el.get(0);
 	}
 	
-	public List<Evaluation> findAllEvaluation(){
-		return evaluationDAO.findAll();
-	}
 
 	public void setStudentCourseDAO(StudentCourseDAO studentCourseDAO) {
 		this.studentCourseDAO = studentCourseDAO;
