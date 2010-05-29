@@ -6,6 +6,12 @@ import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Notice;
 import cn.edu.xmu.course.pojo.Teacher;
 
+/**
+ * 负责通知公告的接口
+ * @author 许子彦
+ * @author 何申密
+ *
+ */
 public interface INoticeService {
 
 	/**
@@ -35,14 +41,14 @@ public interface INoticeService {
 	 * @param teacher
 	 * @return
 	 */
-	public List getNoticeListByTeacher(Teacher teacher);
+	public List<Notice> getNoticeListByTeacher(Teacher teacher);
 	
 	/**
 	 * 根据课程查找课程通知公告
 	 * @param course
 	 * @return
 	 */
-	public List getNoticeListByCourse(Course course); 
+	public List<Notice> getNoticeListByCourse(Course course); 
 	
 	/**
 	 * 根据ID查找课程通知公告
@@ -56,21 +62,21 @@ public interface INoticeService {
 	 * @param sort
 	 * @return
 	 */
-	public List getNoticeBySort(Course course,Integer sort);
+	public List<Notice> getNoticeBySort(Course course,Integer sort);
 
 	/**
 	 * 查找最新的7个课程新闻
 	 * @param course
 	 * @return
 	 */
-	public List findLastestSevenNotices(Course course,int sort);
+	public List<Notice> findLastestSevenNotices(Course course,int sort);
 	
 	/**
 	 * 查找最新的10个课程通知
 	 * @param course
 	 * @return
 	 */
-	public List findLastestLeftNotices(Course course);
+	public List<Notice> findLastestLeftNotices(Course course);
 	
 
 }

@@ -8,7 +8,8 @@ import cn.edu.xmu.course.pojo.Examination;
 
 /**
  * 课程考卷
- * @author Administrator
+ * @author 何申密
+ * @author 许子彦
  *
  */
 public interface IExaminationService {
@@ -18,7 +19,7 @@ public interface IExaminationService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public List getAllExaminations(Course course);
+	public List<Examination> getAllExaminations(Course course);
 	
 	/**
 	 * 查找课程考卷

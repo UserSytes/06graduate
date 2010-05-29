@@ -9,7 +9,8 @@ import cn.edu.xmu.course.pojo.Exercise;
 
 /**
  * 课程习题
- * @author Administrator
+ * @author 何申密
+ * @author 许子彦
  *
  */
 public interface IExerciseService {
@@ -19,14 +20,14 @@ public interface IExerciseService {
 	 * @param teacherCoures
 	 * @return
 	 */
-	public List getAllExercises(Course course);
+	public List<Exercise> getAllExercises(Course course);
 	
 	/**
 	 * 查找该目录下所有的习题
 	 * @param chapter
 	 * @return
 	 */
-	public List getExercisesByChapter(Chapter chapter);
+	public List<Exercise> getExercisesByChapter(Chapter chapter);
 	
 	/**
 	 * 获得该习题

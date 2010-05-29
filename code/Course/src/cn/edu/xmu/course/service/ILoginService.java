@@ -9,7 +9,7 @@ import cn.edu.xmu.course.pojo.Teacher;
 /**
  * µÇÂ¼Ä£¿é
  * @author ºÎÉêÃÜ 
- *
+ * @author Ö£±ùÁè
  */
 public interface ILoginService {
 
