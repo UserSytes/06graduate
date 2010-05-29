@@ -3,11 +3,13 @@ package cn.edu.xmu.course.service;
 import java.io.File;
 import java.util.List;
 
-import cn.edu.xmu.course.pojo.*;
+import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.CourseMovie;
 
 /**
  * 课程录像
- * @author Administrator
+ * @author 何申密
+ * @author 许子彦
  *
  */
 public interface ICourseMovieService {
@@ -17,7 +19,7 @@ public interface ICourseMovieService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public List getAllCourseMovies(Course course);
+	public List<CourseMovie> getAllCourseMovies(Course course);
 	
 	/**
 	 * 查找课程录像

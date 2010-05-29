@@ -2,7 +2,6 @@ package cn.edu.xmu.course.service;
 
 import java.util.List;
 
-import cn.edu.xmu.course.commons.CourseEvaluate;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Evaluation;
 import cn.edu.xmu.course.pojo.Student;
@@ -64,7 +63,7 @@ public interface IEvaluateService {
 	 * @param student
 	 * @return
 	 */
-	public List  findByStudentAndCourse(Course course, Student student);
+	public List<StudentCourse>  findByStudentAndCourse(Course course, Student student);
 	
 	/**
 	 * 根据课程，用户名和分类查找专家或者老师的评价
@@ -73,7 +72,7 @@ public interface IEvaluateService {
 	 * @param sort
 	 * @return
 	 */
-	public List findByCourseAndUsernameAndSort(Course course,String username,int sort);
+	public List<Evaluation> findByCourseAndUsernameAndSort(Course course,String username,int sort);
 	
 	/**
 	 * 根据课程和分类查找专家或者老师的评价
@@ -81,7 +80,7 @@ public interface IEvaluateService {
 	 * @param sort
 	 * @return
 	 */
-	public List findByCourseAndSort(Course course,int sort);
+	public List<Evaluation> findByCourseAndSort(Course course,int sort);
 	
 	/**
 	 * 根据课程，分类和状态专家或者老师的评价
@@ -90,7 +89,7 @@ public interface IEvaluateService {
 	 * @param status
 	 * @return
 	 */
-	public List findByCourseAndSortAndStatus(Course course,int sort,int status);
+	public List<Evaluation> findByCourseAndSortAndStatus(Course course,int sort,int status);
 	
 	/**
 	 * 邀请专家评价
@@ -105,7 +104,7 @@ public interface IEvaluateService {
 	 * @param courseList
 	 * @return
 	 */
-	public List getEvaluateByCourseList(List<Course> courseList);
+	public List<Evaluation> getEvaluateByCourseList(List<Course> courseList);
 	
 	/**
 	 * 删除评价帐号
@@ -125,5 +124,5 @@ public interface IEvaluateService {
 	 * 查找所有的评价用户
 	 * @return
 	 */
-	public List findAllEvaluation();
+	public List<Evaluation> findAllEvaluation();
 }

@@ -3,7 +3,8 @@ package cn.edu.xmu.course.service;
 import java.io.File;
 import java.util.List;
 
-import cn.edu.xmu.course.pojo.*;
+import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.Examination;
 
 /**
  * ¿Î³Ì¿¼¾í

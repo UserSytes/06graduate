@@ -2,11 +2,12 @@ package cn.edu.xmu.course.service;
 
 import java.util.List;
 
-import cn.edu.xmu.course.pojo.*;
+import cn.edu.xmu.course.pojo.Chapter;
+import cn.edu.xmu.course.pojo.Course;
 
 /**
  * 教学目录编辑
- * @author Administrator
+ * @author 何申密
  *
  */
 public interface IChapterService {
@@ -23,7 +24,7 @@ public interface IChapterService {
 	 * @param teacherCourse
 	 * @return
 	 */
-	public List getAllChapter(Course course);
+	public List<Chapter> getAllChapter(Course course);
 	
 	/**
 	 * 添加课程目录
@@ -52,8 +53,6 @@ public interface IChapterService {
 	 * @param courseId
 	 * @return
 	 */
-	public List getAllChapter(int courseId);
-	
-	public Chapter getChapter(int chapterId);
+	public List<Chapter> getAllChapter(int courseId);
 	
 }

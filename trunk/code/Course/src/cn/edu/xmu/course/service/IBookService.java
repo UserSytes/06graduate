@@ -3,11 +3,13 @@ package cn.edu.xmu.course.service;
 import java.io.File;
 import java.util.List;
 
-import cn.edu.xmu.course.pojo.*;
+import cn.edu.xmu.course.pojo.Book;
+import cn.edu.xmu.course.pojo.Course;
 
 /**
  * 参考书籍
- * @author Administrator
+ * @author 何申密
+ * @author 许子彦
  *
  */
 public interface IBookService {
@@ -17,7 +19,7 @@ public interface IBookService {
 	 * @param course
 	 * @return
 	 */
-	public List getAllBooks(Course course);
+	public List<Book> getAllBooks(Course course);
 	
 	/**
 	 * 查找参考书籍

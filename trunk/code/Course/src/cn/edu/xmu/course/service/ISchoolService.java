@@ -1,6 +1,7 @@
 package cn.edu.xmu.course.service;
 
 import java.util.List;
+
 import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.Grade;
 import cn.edu.xmu.course.pojo.School;

@@ -4,7 +4,8 @@ import java.io.File;
 import java.util.Date;
 import java.util.List;
 
-import cn.edu.xmu.course.pojo.*;
+import cn.edu.xmu.course.pojo.ApplicationForm;
+import cn.edu.xmu.course.pojo.Course;
 
 /**
  * …Í±®±Ì∏Ò

@@ -66,7 +66,7 @@ public class ExerciseAction extends BaseAction {
 	 */
 	@SuppressWarnings("unchecked")
 	public String downloadExercise() {
-		Chapter currentChapter = chapterService.getChapter(chapterId);
+		Chapter currentChapter = chapterService.getChapterById(chapterId);
 		exerciseList = exerciseService.getExercisesByChapter(currentChapter);
 		if (getExerciseList() == null) {
 			System.out.println("本章节无习题！");

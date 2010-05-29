@@ -1,7 +1,11 @@
 package cn.edu.xmu.course.service;
 
 import java.util.List;
-import cn.edu.xmu.course.pojo.*;
+
+import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.Department;
+import cn.edu.xmu.course.pojo.School;
+import cn.edu.xmu.course.pojo.Teacher;
 /**
  * 负责管理课程的接口
  * @author 郑冰凌
@@ -30,7 +34,7 @@ public interface ICourseService {
 	 * @param teacherId
 	 * @return
 	 */
-	public List findCoursesByTeacher(Integer teacherId,int type);
+	public List<Course> findCoursesByTeacher(Integer teacherId,int type);
 	
 	/**
 	 * 删除课程
@@ -44,14 +48,14 @@ public interface ICourseService {
 	 * @param time
 	 * @return
 	 */
-	public List findCourseListLevel(String level);
+	public List<Course> findCourseListLevel(String level);
 
 	/**
 	 * 根据级别查找课程
 	 * @param time
 	 * @return
 	 */
-	public List findCourseListByLevel(String level);
+	public List<Course> findCourseListByLevel(String level);
 	/**
 	 * 更新课程
 	 * @param course
@@ -64,21 +68,21 @@ public interface ICourseService {
 	 * @param school
 	 * @return
 	 */
-	public List findNoPassCourse(School school);
+	public List<Course> findNoPassCourse(School school);
 	
 	/**
 	 * 查找学院等待审核的课程
 	 * @param school
 	 * @return
 	 */
-	public List findApplicationCourse(School school);
+	public List<Course> findApplicationCourse(School school);
 	
 	/**
 	 * 查找本院已通过审核的课程
 	 * @param school
 	 * @return
 	 */
-	public List findBySchool(School school);
+	public List<Course> findBySchool(School school);
 	
 
 }

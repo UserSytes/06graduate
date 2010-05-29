@@ -67,7 +67,7 @@ public class ExperimentAction extends BaseAction {
 	 */
 	@SuppressWarnings("unchecked")
 	public String downloadExperiment() {
-		Chapter currentChapter = chapterService.getChapter(chapterId);
+		Chapter currentChapter = chapterService.getChapterById(chapterId);
 		experimentList = experimentService
 				.getExperimentsByChapter(currentChapter);
 		if (getExperimentList() == null) {

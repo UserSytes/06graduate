@@ -49,7 +49,7 @@ public class CoursewareAction extends BaseAction {
 		if (chapterId == null || chapterId == -1)
 			coursewareList = coursewareService.getAllCoursewares(course);
 		else {
-			chapter = chapterService.getChapter(chapterId);
+			chapter = chapterService.getChapterById(chapterId);
 			coursewareList = coursewareService.getCoursewaresByChapter(chapter);
 		}
 		return SUCCESS;
@@ -74,7 +74,7 @@ public class CoursewareAction extends BaseAction {
 	 */
 	@SuppressWarnings("unchecked")
 	public String downloadCourseware() {
-		Chapter currentChapter = chapterService.getChapter(chapterId);
+		Chapter currentChapter = chapterService.getChapterById(chapterId);
 		coursewareList = coursewareService
 				.getCoursewaresByChapter(currentChapter);
 		if (getCoursewareList() == null) {

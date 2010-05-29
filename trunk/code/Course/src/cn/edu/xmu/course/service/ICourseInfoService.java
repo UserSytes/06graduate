@@ -2,11 +2,13 @@ package cn.edu.xmu.course.service;
 
 import java.util.List;
 
-import cn.edu.xmu.course.pojo.*;
+import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.CourseInfo;
 
 /**
  * 编辑课程信息，包括教学大纲，课程简介等
- * @author Administrator
+ * @author 何申密
+ * @author 许子彦
  *
  */
 public interface ICourseInfoService {
@@ -16,7 +18,7 @@ public interface ICourseInfoService {
 	 * @param course
 	 * @return
 	 */
-	public List getCourseInfosByCourse(Course course);
+	public List<CourseInfo> getCourseInfosByCourse(Course course);
 	
 	/**
 	 * 根据课程信息Id查找该课程信息
