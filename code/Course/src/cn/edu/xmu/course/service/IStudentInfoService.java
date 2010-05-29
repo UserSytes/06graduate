@@ -44,7 +44,7 @@ public interface IStudentInfoService {
 	 * @param school
 	 * @return
 	 */
-	public List findBySchool(School school);
+	public List<Student> findBySchool(School school);
 	
 	/**
 	 * 根据id查获学生
@@ -73,7 +73,7 @@ public interface IStudentInfoService {
 	 * @param school
 	 * @return
 	 */
-	public List findByStudentNoFuzzy(String studentNo , School school);
+	public List<Student> findByStudentNoFuzzy(String studentNo , School school);
 	
 	/**
 	 * DWR用到的根据学号查找学生信息
@@ -109,7 +109,7 @@ public interface IStudentInfoService {
 	 * @param department
 	 * @return
 	 */
-	public List findByDepartment(Department department);
+	public List<Student> findByDepartment(Department department);
 	
 	/**
 	 * 根据系、年级查找学生
@@ -117,7 +117,7 @@ public interface IStudentInfoService {
 	 * @param grade
 	 * @return
 	 */
-	public List findByDepartmentAndGrade(Department department, Grade grade);
+	public List<Student> findByDepartmentAndGrade(Department department, Grade grade);
 	
 	/**
 	 * 批量添加学生
@@ -142,6 +142,6 @@ public interface IStudentInfoService {
 	 * @param department
 	 * @return
 	 */
-	public List getStuNameAndNumber(Department department);
+	public List<Student> getStuNameAndNumber(Department department);
 
 }

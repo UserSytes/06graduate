@@ -63,7 +63,7 @@ public interface ITeacherInfoService {
 	 * @param school
 	 * @return
 	 */
-	public List findTeachersBySchool(School school);
+	public List<Teacher> findTeachersBySchool(School school);
 	
 	/**
 	 * 根据帐号查找教师
@@ -84,7 +84,7 @@ public interface ITeacherInfoService {
 	 * @param school
 	 * @return
 	 */
-	public List getTeaNameAndNumber(School school);
+	public List<Teacher> getTeaNameAndNumber(School school);
 	
 	/**
 	 * 修改头像

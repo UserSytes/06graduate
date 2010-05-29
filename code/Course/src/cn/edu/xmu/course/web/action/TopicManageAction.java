@@ -125,22 +125,6 @@ public class TopicManageAction extends BaseAction{
 		}
 	}
 	
-	/**
-	 * 根据主题关键字和学院查找主题
-	 * @return
-	 */
-	public String searchTopic(){
-		Administrator admin = (Administrator) super.getSession().get(
-				ADMIN);
-		School school = admin.getSchool();
-		topicList = topicService.searchTopicByKey(topicKey, school);
-		if(topicList.size()==0){
-			addActionMessage("没有找到相关留言！");
-			return ERROR;
-		}else{
-			return SUCCESS;
-		}
-	}
 
 	public ITopicService getTopicService() {
 		return topicService;
