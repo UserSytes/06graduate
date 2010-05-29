@@ -40,7 +40,6 @@ public class LoginService implements ILoginService {
 		if (0 == teachers.size())
 			return null;
 		Teacher t = teachers.get(0);
-		System.out.println(t.getPassword());
 		if (t.getPassword().equals(md5.getMD5ofStr(password)))
 			return t;
 		else

@@ -68,7 +68,6 @@ public class ExperimentAction extends BaseAction {
 		experimentList = experimentService
 				.getExperimentsByChapter(currentChapter);
 		if (getExperimentList() == null) {
-			System.out.println("本章节无实验！");
 			addActionError("本章节无实验！");
 			return ERROR;
 		} else

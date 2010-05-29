@@ -36,7 +36,6 @@ public class CourseMovieAction extends BaseAction {
 	 * @return
 	 */
 	public String getCourseMovieListByCourse() {
-		System.out.println(super.getCourse());
 		courseMovieList = courseMovieService.getAllCourseMovies(super
 				.getCourse());
 		return SUCCESS;

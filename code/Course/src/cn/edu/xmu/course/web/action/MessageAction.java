@@ -236,7 +236,6 @@ public class MessageAction extends BaseAction {
 		userInfo = super.getUserInfo();
 		topic = topicService.getTopicById(topicId);
 		messageList = messageService.getMessageByTopic(topic);
-		System.out.println("²éÕÒµ½£º" + messageList.size() + "¸öÁôÑÔ");
 		topic.setCountPerson(topic.getCountPerson() + 1);
 		topicService.updateTopic(topic);
 		if (getMessageList().size() > 0) {
