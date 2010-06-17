@@ -24,6 +24,7 @@ public class Course implements java.io.Serializable {
 	private Integer visible;
 	private String style;
 	private String header;
+	private String number;
 	private Date time;
 	private Set courseMovies = new HashSet(0);
 	private Set collections = new HashSet(0);
@@ -53,7 +54,7 @@ public class Course implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Course(Department department, Teacher teacher, String name,
+	public Course(Department department, Teacher teacher, String number,String name,
 			String remark, Integer status, String level, String refuseReason,
 			Integer count, Integer visible, String style,Date time, Set courseMovies,
 			Set collections, Set evaluations, Set topics, Set books,
@@ -84,6 +85,7 @@ public class Course implements java.io.Serializable {
 		this.teacherTeams = teacherTeams;
 		this.courseInfos = courseInfos;
 		this.studentCourses = studentCourses;
+		this.number = number;
 	}
 
 	// Property accessors
@@ -296,4 +298,13 @@ public class Course implements java.io.Serializable {
 		return header;
 	}
 
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
+	}
+
+	
 }

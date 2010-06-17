@@ -9,6 +9,9 @@
 			序号
 		</th>
 		<th>
+			编号
+		</th>
+		<th>
 			课程名称
 		</th>
 		<th>
@@ -32,16 +35,19 @@
 			<td width="5%">
 				<s:property value="#course.count" />
 			</td>
-			<td  width="22%">
+			<td  width="10%">
+				<s:property value="number" />
+			</td>
+			<td  width="20%">
 				<s:property value="name" />
 			</td>
 			<td  width="10%">
 				<s:property value="level" />
 			</td>
-			<td width="15%">
+			<td width="10%">
 				<s:property value="department.school.name" />
 			</td>
-			<td width="15%">
+			<td width="10%">
 				<s:property value="department.name" />
 			</td>
 			<td width="8%">
