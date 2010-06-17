@@ -44,21 +44,22 @@
 				return true;
 			}
 			
-			function getTeacher(teacherNo) {
+	function checkTeacher(teacherNo) {
 		if (teacherNo == "")
 				{
-					DWRUtil.setValue('result',"账号不能为空！");
+					DWRUtil.setValue('result1',"账号不能为空！");
 					return false;
 				}
 		TeacherInfoService.findTeacherByTeacherNo(teacherNo,callBack);
 	}
 	function callBack(data){
 		if(data != null){
-			DWRUtil.setValue('result',"该教师帐号已被注册，请另选帐号！");
+			DWRUtil.setValue('result1',"该教师帐号已被注册，请另选帐号！");
 			document.getElementById("button").disabled = true;
 			}
 		else{
-			DWRUtil.setValue('result',"该教师帐号可用！");
+			DWRUtil.setValue('result1',"");
+			DWRUtil.setValue('result2',"该教师帐号可用！");
 			document.getElementById("button").disabled = false;
 			}
 	}
@@ -93,8 +94,8 @@
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<s:textfield cssClass="INPUT" id="teacherNo"  size="30"
-							name="teacher.teacherNo" label="账号" onblur="getTeacher(this.value)"></s:textfield>
-						&nbsp;*<span id="result" style="color: green;" >
+							name="teacher.teacherNo" label="账号" onblur="checkTeacher(this.value)"></s:textfield>
+						&nbsp;*<span id="result1" style="color: red;" ><span id="result2" style="color: green;" >
 						</span>
 					</td>
 				</tr>

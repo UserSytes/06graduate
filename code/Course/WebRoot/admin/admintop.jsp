@@ -10,7 +10,7 @@
 <body bgcolor="#03A8F6">
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td width="270" height="60" align="center" background="Images/top_logo.gif"></td>
+    <td width="320" height="60" align="center" background="Images/top_logo2.gif"></td>
     <td align="center" style="background:url(Images/top_bg.jpg) no-repeat"><table cellspacing="0" cellpadding="0" border="0" width="100%" height="33">
       <tbody>
         <tr>
