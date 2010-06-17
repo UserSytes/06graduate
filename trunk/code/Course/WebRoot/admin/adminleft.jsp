@@ -209,6 +209,40 @@ border=0>
   <tr>
     <td height="5" background="Images/tableline_bottom.gif" bgcolor="#9BC2ED"></td>
   </tr>
+<tr>
+    <td height="5" background="Images/tableline_top.gif" bgcolor="#9BC2ED"></td>
+  </tr>
+  <tr>
+    <td><TABLE class=leftframetable cellSpacing=0 cellPadding=0 width="97%" align=right border=0>
+      <TBODY>
+        <TR>
+          <TD height="25" style="background:url(Images/left_tt.gif) no-repeat"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <TD width="20"></TD>
+          <TD class=STYLE1 style="CURSOR: hand" onclick=showsubmenu(6); height=25>信息集成</TD>
+            </tr>
+          </table></TD>
+          </TR>
+        <TR>
+          <TD><TABLE id=submenu6 cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+                <TR>
+                  <TD width="2%"><IMG src="Images/closed.gif"></TD>
+                  <TD height=23><A href="integrationmanage/getaccount.jsp" target=main>帐号管理</A> </TD>
+             </TR>
+                <TR>
+                  <TD><IMG src="Images/closed.gif"></TD>
+                  <TD height=23><A href="integrationmanage/getcourse.jsp" target=main>课程管理</A></TD>
+                </TR>
+              </TBODY>
+          </TABLE></TD>
+        </TR>
+      </TBODY>
+    </TABLE></td>
+  </tr>
+  <tr>
+    <td height="5" background="Images/tableline_bottom.gif" bgcolor="#9BC2ED"></td>
+  </tr>
   <tr>
     <td height="5" background="Images/tableline_top.gif" bgcolor="#9BC2ED"></td>
   </tr>
