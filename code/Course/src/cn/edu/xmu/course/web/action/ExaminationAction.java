@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.Evaluation;
 import cn.edu.xmu.course.pojo.Examination;
 import cn.edu.xmu.course.service.IExaminationService;
 /**
@@ -34,8 +35,31 @@ public class ExaminationAction extends BaseAction {
 	 * @return
 	 */
 	public String getExaminationListByCourse() {
-		examinationList = examinationService.getAllExaminations(super
-				.getCourse());
+		Course currentCourse = super.getCourse();
+		if (super.getTeacher() == null
+				|| !super.getTeacher().getId().equals(currentCourse.getTeacher().getId())) {
+			if (currentCourse.getPopedom().getExamination() == 1) {
+				if (null == super.getEvaluation() && null == super.getStudent()) {
+					addActionError("对不起，课程试卷目前仅对学生、同行和专家开放。已有帐号请先登录！");
+					return ERROR;
+				}
+			} else if (currentCourse.getPopedom().getExamination() == 2) {
+				if (null == super.getEvaluation()) {
+					addActionError("对不起，课程试卷目前仅对同行和专家开放。已有帐号请先登录 ！");
+					return ERROR;
+				}
+			} else if (currentCourse.getPopedom().getExamination() == 3) {
+				Evaluation eva = super.getEvaluation();
+				if (eva == null || eva.getSort() == 0) {
+					addActionError("对不起，课程试卷目前仅对专家开放。已有帐号请先登录 ！");
+					return ERROR;
+				}
+			} else if (currentCourse.getPopedom().getExamination() == 4) {
+				addActionError("对不起，课程试卷目前不对用户开放!");
+				return ERROR;
+			}
+		}
+		examinationList = examinationService.getAllExaminations(currentCourse);
 		return SUCCESS;
 	}
 

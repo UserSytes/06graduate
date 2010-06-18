@@ -45,6 +45,9 @@
 		<property name="courseDAO">
 			<ref bean="CourseDAO" />
 		</property>
+		<property name="popedomDAO">
+			<ref bean="PopedomDAO" />
+		</property>
 	</bean>
 	<bean id="studentCourseServiceTarget" class="cn.edu.xmu.course.service.impl.StudentCourseService">
 		<property name="studentCourseDAO">

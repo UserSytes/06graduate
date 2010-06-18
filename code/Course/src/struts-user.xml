@@ -147,10 +147,10 @@
 		</action>
 		<action name="getMyCourseByStateAction" method="findMyCoursesList"
 			class="courseAction">
-			<result>/teacher/courseinfomanage/courseslist.jsp
+			<result name="success">/teacher/courseinfomanage/courseslist.jsp
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
-		</action>
+		</action>	
 		<action name="getMyCourseInLeft" method="findMyCoursesListInLeft"
 			class="courseAction">
 			<result>/teacher/left_course_children.jsp
@@ -166,12 +166,24 @@
 			</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
+		<action name="goSetCoursePopedomAction" method="goSetCoursePopedom"
+			class="courseAction">
+			<result name="success"> /teacher/courseinfomanage/editcoursepopedom.jsp
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
 		<action name="setCourseStyleAction" method="setCourseStyle"
 			class="courseAction">
 			<result name="success">/commons/prompt.jsp</result>
 			<result name="error">/commons/prompt.jsp</result>
 		</action>
 		<action name="updateCourseAction" method="updateCourseVisible"
+			class="courseAction">
+			<result name="success" type="redirect-action">getMyCourseAction
+			</result>
+			<result name="error">/commons/prompt.jsp</result>
+		</action>
+		<action name="updateCoursePopedomAction" method="updateCoursePopedom"
 			class="courseAction">
 			<result name="success" type="redirect-action">getMyCourseAction
 			</result>

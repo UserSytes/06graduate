@@ -64,6 +64,13 @@
                 					</s:url>">
 					<font color="green">【详情】</font> </a>
 					<a
+					href="<s:url action="goSetCoursePopedomAction"> 
+                     			<s:param name="courseId"> 
+                       			 	<s:property value="id"/> 
+                    			</s:param> 
+                					</s:url>">
+					<font color="blue">【设置权限】</font> </a>
+					<a
 					href="<s:url action="goSetCourseStyleAction"> 
                      			<s:param name="courseId"> 
                        			 	<s:property value="id"/> 

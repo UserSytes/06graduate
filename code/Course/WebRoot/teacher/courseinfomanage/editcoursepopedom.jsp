@@ -131,7 +131,6 @@
 						<s:reset cssClass="lable" value="取消"></s:reset>
 					</td>
 				</tr>
-				</s:else>
 			</table>
 		</s:form>
 <div align="left" style="border: 1px solid #ccc;padding: 10px; width: 98%">

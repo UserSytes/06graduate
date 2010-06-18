@@ -7,6 +7,7 @@ import org.apache.struts2.ServletActionContext;
 
 import cn.edu.xmu.course.commons.FileOperation;
 import cn.edu.xmu.course.dao.CourseDAO;
+import cn.edu.xmu.course.dao.PopedomDAO;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.Popedom;
@@ -24,6 +25,7 @@ import cn.edu.xmu.course.service.ICourseService;
 public class CourseService implements ICourseService {
 
 	private CourseDAO courseDAO;
+	private PopedomDAO popedomDAO;
 
 	/*
 	 * (non-Javadoc)
@@ -179,6 +181,15 @@ public class CourseService implements ICourseService {
 			return false;
 		}
 	}
+	
+	public boolean updatePopedom(Popedom popedom){
+		try {
+			popedomDAO.merge(popedom);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 
 	public void setCourseDAO(CourseDAO courseDAO) {
 		this.courseDAO = courseDAO;
@@ -186,6 +197,14 @@ public class CourseService implements ICourseService {
 
 	public CourseDAO getCourseDAO() {
 		return courseDAO;
+	}
+
+	public void setPopedomDAO(PopedomDAO popedomDAO) {
+		this.popedomDAO = popedomDAO;
+	}
+
+	public PopedomDAO getPopedomDAO() {
+		return popedomDAO;
 	}
 
 }

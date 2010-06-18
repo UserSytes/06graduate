@@ -63,9 +63,17 @@ public class CourseAction extends BaseAction {
 			return ERROR;
 	}
 	
+	
+	
 	public String updateCoursePopedom(){
-		
-		return ERROR;
+		if (courseService.updatePopedom(popedom)) {
+			addActionMessage("修改课程内容浏览权限成功！");
+			return SUCCESS;
+		}
+		else{
+			addActionMessage("修改课程内容浏览权限失败，请重新操作！");
+			return ERROR;
+		}
 	}
 
 	/**
@@ -77,6 +85,23 @@ public class CourseAction extends BaseAction {
 		setMyCoursesList(courseService.findCoursesByTeacher(super.getTeacher()
 				.getId(), type));
 		return SUCCESS;
+	}
+	
+	/**
+	 * 获取某教师的课程
+	 * 
+	 * @return
+	 */
+	public String goSetCoursePopedom() {
+		course =courseService.getCourseById(courseId);
+		if(course !=null){
+			popedom = course.getPopedom();
+			return SUCCESS;
+		}else{
+			addActionMessage("该课程不存在！");
+			return ERROR;
+		}
+		
 	}
 
 	/**

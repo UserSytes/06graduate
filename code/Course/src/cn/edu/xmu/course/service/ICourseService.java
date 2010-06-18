@@ -4,6 +4,7 @@ import java.util.List;
 
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Department;
+import cn.edu.xmu.course.pojo.Popedom;
 import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Teacher;
 /**
@@ -83,6 +84,13 @@ public interface ICourseService {
 	 * @return
 	 */
 	public List<Course> findBySchool(School school);
+	
+	/**
+	 * 更新课程部分内容权限
+	 * @param popedom
+	 * @return
+	 */
+	public boolean updatePopedom(Popedom popedom);
 	
 
 }

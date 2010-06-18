@@ -5,6 +5,7 @@ import java.util.List;
 
 import cn.edu.xmu.course.pojo.Chapter;
 import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.Evaluation;
 import cn.edu.xmu.course.pojo.Experiment;
 import cn.edu.xmu.course.service.IChapterService;
 import cn.edu.xmu.course.service.IExperimentService;
@@ -53,8 +54,32 @@ public class ExperimentAction extends BaseAction {
 	 * @return
 	 */
 	public String getAllExperiment() {
-		Course course = super.getCourse();
-		experimentList = experimentService.getAllExperiments(course);
+		Course currentCourse = super.getCourse();
+		if (super.getTeacher() == null
+				|| !super.getTeacher().getId().equals(
+						currentCourse.getTeacher().getId())) {
+			if (currentCourse.getPopedom().getExperiment() == 1) {
+				if (null == super.getEvaluation() && null == super.getStudent()) {
+					addActionError("对不起，实验指导目前仅对学生、同行和专家开放。已有帐号请先登录！");
+					return ERROR;
+				}
+			} else if (currentCourse.getPopedom().getExperiment() == 2) {
+				if (null == super.getEvaluation()) {
+					addActionError("对不起，实验指导目前仅对同行和专家开放。已有帐号请先登录 ！");
+					return ERROR;
+				}
+			} else if (currentCourse.getPopedom().getExperiment() == 3) {
+				Evaluation eva = super.getEvaluation();
+				if (eva == null || eva.getSort() == 0) {
+					addActionError("对不起，实验指导目前仅对专家开放。已有帐号请先登录 ！");
+					return ERROR;
+				}
+			} else if (currentCourse.getPopedom().getExperiment() == 4) {
+				addActionError("对不起，实验指导目前不对用户开放!");
+				return ERROR;
+			}
+		}
+		experimentList = experimentService.getAllExperiments(currentCourse);
 		return SUCCESS;
 	}
 
@@ -79,8 +104,9 @@ public class ExperimentAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	public String addExperiment() {		
-		String fileLink = super.getPreFileNameByTeacher(super.getCourse()) + uploadFileName;
+	public String addExperiment() {
+		String fileLink = super.getPreFileNameByTeacher(super.getCourse())
+				+ uploadFileName;
 		experiment.setFilename(uploadFileName);
 		experiment.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);
@@ -119,8 +145,9 @@ public class ExperimentAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	public String updateExperiment() {		
-		String fileLink = super.getPreFileNameByTeacher(super.getCourse()) + uploadFileName;
+	public String updateExperiment() {
+		String fileLink = super.getPreFileNameByTeacher(super.getCourse())
+				+ uploadFileName;
 		experiment.setFilename(uploadFileName);
 		experiment.setFileLink(fileLink);
 		chapter = chapterService.getChapterById(chapterId);

@@ -188,6 +188,8 @@
 			</result>
 			<result name="courseinfo2">/coursepage/courseintro2.jsp
 			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
 		<action name="findTeacherTeamAction" method="findTeacherTeam"
 			class="teacherTeamAction">
@@ -210,20 +212,28 @@
 			class="coursewareAction">
 			<result name="success">/coursepage/downloadcourseware.jsp
 			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
 		<action name="getAllExperimentAction" method="getAllExperiment"
 			class="experimentAction">
 			<result name="success">/coursepage/downloadexperiment.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
 			</result>
 		</action>
 		<action name="getAllExerciseAction" method="getAllExercise"
 			class="exerciseAction">
 			<result name="success">/coursepage/downloadexercise.jsp
 			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
 		<action name="getCourseMovieListAction" method="getCourseMovieListByCourse"
 			class="courseMovieAction">
 			<result name="success">/coursepage/coursemovielist.jsp
+			</result>
+			<result name="error">/coursepage/prompt.jsp
 			</result>
 		</action>
 		<action name="watchMovieAction" method="getCourseMovieById"
@@ -237,10 +247,14 @@
 			class="examinationAction">
 			<result name="success">/coursepage/downloadexam.jsp
 			</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
 		<action name="getAllBookAction" method="getBookListByCourse"
 			class="bookAction">
 			<result name="success">/coursepage/book.jsp</result>
+			<result name="error">/coursepage/prompt.jsp
+			</result>
 		</action>
 		<action name="downloadExperimentAction" method="downloadExperiment"
 			class="experimentAction">
