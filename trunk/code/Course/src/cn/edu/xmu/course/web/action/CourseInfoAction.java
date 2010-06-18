@@ -6,12 +6,15 @@ import java.util.List;
 import cn.edu.xmu.course.pojo.ApplicationForm;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.CourseInfo;
+import cn.edu.xmu.course.pojo.Evaluation;
 import cn.edu.xmu.course.service.ICourseInfoService;
+
 /**
  * 负责课程信息的类
+ * 
  * @author 何申密
  * @author 许子彦
- *
+ * 
  */
 public class CourseInfoAction extends BaseAction {
 
@@ -163,8 +166,33 @@ public class CourseInfoAction extends BaseAction {
 		}
 		if (sort == 1)
 			return "courseinfo1";
-		else
+		else {
+			if (super.getTeacher() == null
+					|| !super.getTeacher().getId().equals(currentCourse.getTeacher().getId())) {
+				if (currentCourse.getPopedom().getOutline() == 1) {
+					if (null == super.getEvaluation() && null == super.getStudent()) {
+						addActionError("对不起，教学大纲目前仅对学生、同行和专家开放。已有帐号请先登录！");
+						return ERROR;
+					}
+				} else if (currentCourse.getPopedom().getOutline() == 2) {
+					if (null == super.getEvaluation()) {
+						addActionError("对不起，教学大纲目前仅对同行和专家开放。已有帐号请先登录 ！");
+						return ERROR;
+					}
+				} else if (currentCourse.getPopedom().getOutline() == 3) {
+					Evaluation eva = super.getEvaluation();
+					if (eva == null || eva.getSort() == 0) {
+						addActionError("对不起，教学大纲目前仅对专家开放。已有帐号请先登录 ！");
+						return ERROR;
+					}
+				} else if (currentCourse.getPopedom().getOutline() == 4) {
+					addActionError("对不起，教学大纲目前不对用户开放!");
+					return ERROR;
+				}
+			}
 			return "courseinfo2";
+		}
+
 	}
 
 	public void setCourseInfo(CourseInfo courseInfo) {

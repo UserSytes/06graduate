@@ -5,6 +5,7 @@ import java.util.List;
 
 import cn.edu.xmu.course.pojo.Chapter;
 import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.Evaluation;
 import cn.edu.xmu.course.pojo.Exercise;
 import cn.edu.xmu.course.service.IChapterService;
 import cn.edu.xmu.course.service.IExerciseService;
@@ -60,8 +61,31 @@ public class ExerciseAction extends BaseAction {
 	 * @return
 	 */
 	public String getAllExercise() {
-		Course course = super.getCourse();
-		exerciseList = exerciseService.getAllExercises(course);
+		Course currentCourse = super.getCourse();
+		if (super.getTeacher() == null
+				|| !super.getTeacher().getId().equals(currentCourse.getTeacher().getId())) {
+			if (currentCourse.getPopedom().getExercise() == 1) {
+				if (null == super.getEvaluation() && null == super.getStudent()) {
+					addActionError("对不起，作业习题目前仅对学生、同行和专家开放。已有帐号请先登录！");
+					return ERROR;
+				}
+			} else if (currentCourse.getPopedom().getExercise() == 2) {
+				if (null == super.getEvaluation()) {
+					addActionError("对不起，作业习题目前仅对同行和专家开放。已有帐号请先登录 ！");
+					return ERROR;
+				}
+			} else if (currentCourse.getPopedom().getExercise() == 3) {
+				Evaluation eva = super.getEvaluation();
+				if (eva == null || eva.getSort() == 0) {
+					addActionError("对不起，作业习题目前仅对专家开放。已有帐号请先登录 ！");
+					return ERROR;
+				}
+			} else if (currentCourse.getPopedom().getExercise() == 4) {
+				addActionError("对不起，作业习题目前不对用户开放!");
+				return ERROR;
+			}
+		}
+		exerciseList = exerciseService.getAllExercises(currentCourse);
 		return SUCCESS;
 	}
 

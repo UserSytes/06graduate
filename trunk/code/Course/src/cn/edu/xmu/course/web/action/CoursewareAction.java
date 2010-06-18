@@ -6,6 +6,7 @@ import java.util.List;
 import cn.edu.xmu.course.pojo.Chapter;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Courseware;
+import cn.edu.xmu.course.pojo.Evaluation;
 import cn.edu.xmu.course.service.IChapterService;
 import cn.edu.xmu.course.service.ICoursewareService;
 
@@ -60,8 +61,31 @@ public class CoursewareAction extends BaseAction {
 	 * @return
 	 */
 	public String getAllCourseware() {
-		Course course = super.getCourse();
-		coursewareList = coursewareService.getAllCoursewares(course);
+		Course currentCourse = super.getCourse();
+		if (super.getTeacher() == null
+				|| !super.getTeacher().getId().equals(currentCourse.getTeacher().getId())) {
+			if (currentCourse.getPopedom().getCourseware() == 1) {
+				if (null == super.getEvaluation() && null == super.getStudent()) {
+					addActionError("对不起，课件教案目前仅对学生、同行和专家开放。已有帐号请先登录！");
+					return ERROR;
+				}
+			} else if (currentCourse.getPopedom().getCourseware() == 2) {
+				if (null == super.getEvaluation()) {
+					addActionError("对不起，课件教案目前仅对同行和专家开放。已有帐号请先登录 ！");
+					return ERROR;
+				}
+			} else if (currentCourse.getPopedom().getCourseware() == 3) {
+				Evaluation eva = super.getEvaluation();
+				if (eva == null || eva.getSort() == 0) {
+					addActionError("对不起，课件教案目前仅对专家开放。已有帐号请先登录 ！");
+					return ERROR;
+				}
+			} else if (currentCourse.getPopedom().getCourseware() == 4) {
+				addActionError("对不起，课件教案目前不对用户开放!");
+				return ERROR;
+			}
+		}
+		coursewareList = coursewareService.getAllCoursewares(currentCourse);
 		return SUCCESS;
 	}
 

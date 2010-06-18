@@ -4,7 +4,9 @@ import java.io.File;
 import java.util.Date;
 import java.util.List;
 
+import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.CourseMovie;
+import cn.edu.xmu.course.pojo.Evaluation;
 import cn.edu.xmu.course.service.ICourseMovieService;
 
 /**
@@ -36,8 +38,31 @@ public class CourseMovieAction extends BaseAction {
 	 * @return
 	 */
 	public String getCourseMovieListByCourse() {
-		courseMovieList = courseMovieService.getAllCourseMovies(super
-				.getCourse());
+		Course currentCourse = super.getCourse();
+		if (super.getTeacher() == null
+				|| !super.getTeacher().getId().equals(currentCourse.getTeacher().getId())) {
+			if (currentCourse.getPopedom().getMovie() == 1) {
+				if (null == super.getEvaluation() && null == super.getStudent()) {
+					addActionError("对不起，教学录像目前仅对学生、同行和专家开放。已有帐号请先登录！");
+					return ERROR;
+				}
+			} else if (currentCourse.getPopedom().getMovie() == 2) {
+				if (null == super.getEvaluation()) {
+					addActionError("对不起，教学录像目前仅对同行和专家开放。已有帐号请先登录 ！");
+					return ERROR;
+				}
+			} else if (currentCourse.getPopedom().getMovie() == 3) {
+				Evaluation eva = super.getEvaluation();
+				if (eva == null || eva.getSort() == 0) {
+					addActionError("对不起，教学录像目前仅对专家开放。已有帐号请先登录 ！");
+					return ERROR;
+				}
+			} else if (currentCourse.getPopedom().getMovie() == 4) {
+				addActionError("对不起，教学录像目前不对用户开放!");
+				return ERROR;
+			}
+		}
+		courseMovieList = courseMovieService.getAllCourseMovies(currentCourse);
 		return SUCCESS;
 	}
 

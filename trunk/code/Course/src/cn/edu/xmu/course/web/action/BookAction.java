@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.List;
 
 import cn.edu.xmu.course.pojo.Book;
+import cn.edu.xmu.course.pojo.Course;
+import cn.edu.xmu.course.pojo.Evaluation;
 import cn.edu.xmu.course.service.IBookService;
 /**
  * 负责参考书籍的类
@@ -32,7 +34,32 @@ public class BookAction extends BaseAction {
 	 * @return
 	 */
 	public String getBookListByCourse() {
-		setBookList(bookService.getAllBooks(super.getCourse()));
+		Course currentCourse = super.getCourse();
+		if (super.getTeacher() == null
+				|| !super.getTeacher().getId().equals(
+						currentCourse.getTeacher().getId())) {
+			if (currentCourse.getPopedom().getBook() == 1) {
+				if (null == super.getEvaluation() && null == super.getStudent()) {
+					addActionError("对不起，参考书籍目前仅对学生、同行和专家开放。已有帐号请先登录！");
+					return ERROR;
+				}
+			} else if (currentCourse.getPopedom().getBook() == 2) {
+				if (null == super.getEvaluation()) {
+					addActionError("对不起，参考书籍目前仅对同行和专家开放。已有帐号请先登录 ！");
+					return ERROR;
+				}
+			} else if (currentCourse.getPopedom().getBook() == 3) {
+				Evaluation eva = super.getEvaluation();
+				if (eva == null || eva.getSort() == 0) {
+					addActionError("对不起，参考书籍目前仅对专家开放。已有帐号请先登录 ！");
+					return ERROR;
+				}
+			} else if (currentCourse.getPopedom().getBook() == 4) {
+				addActionError("对不起，参考书籍目前不对用户开放!");
+				return ERROR;
+			}
+		}
+		setBookList(bookService.getAllBooks(currentCourse));
 		return SUCCESS;
 	}
 
