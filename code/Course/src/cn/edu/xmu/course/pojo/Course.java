@@ -13,6 +13,7 @@ public class Course implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
+	private Popedom popedom;
 	private Department department;
 	private Teacher teacher;
 	private String name;
@@ -24,21 +25,21 @@ public class Course implements java.io.Serializable {
 	private Integer visible;
 	private String style;
 	private String header;
-	private String number;
 	private Date time;
-	private Set courseMovies = new HashSet(0);
-	private Set collections = new HashSet(0);
-	private Set evaluations = new HashSet(0);
-	private Set topics = new HashSet(0);
-	private Set books = new HashSet(0);
-	private Set applicationForms = new HashSet(0);
-	private Set examinations = new HashSet(0);
-	private Set chapters = new HashSet(0);
-	private Set achievements = new HashSet(0);
-	private Set notices = new HashSet(0);
+	private String number;
 	private Set teacherTeams = new HashSet(0);
+	private Set topics = new HashSet(0);
+	private Set notices = new HashSet(0);
+	private Set applicationForms = new HashSet(0);
 	private Set courseInfos = new HashSet(0);
+	private Set examinations = new HashSet(0);
 	private Set studentCourses = new HashSet(0);
+	private Set achievements = new HashSet(0);
+	private Set books = new HashSet(0);
+	private Set evaluations = new HashSet(0);
+	private Set collections = new HashSet(0);
+	private Set chapters = new HashSet(0);
+	private Set courseMovies = new HashSet(0);
 
 	// Constructors
 
@@ -54,13 +55,14 @@ public class Course implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Course(Department department, Teacher teacher, String number,String name,
-			String remark, Integer status, String level, String refuseReason,
-			Integer count, Integer visible, String style,Date time, Set courseMovies,
-			Set collections, Set evaluations, Set topics, Set books,
-			Set applicationForms, Set examinations, Set chapters,
-			Set achievements, Set notices, Set teacherTeams, Set courseInfos,
-			Set studentCourses) {
+	public Course(Popedom popedom, Department department, Teacher teacher,
+			String name, String remark, Integer status, String level,
+			String refuseReason, Integer count, Integer visible, String style,
+			String header, Date time, String number, Set teacherTeams,
+			Set topics, Set notices, Set applicationForms, Set courseInfos,
+			Set examinations, Set studentCourses, Set achievements, Set books,
+			Set evaluations, Set collections, Set chapters, Set courseMovies) {
+		this.popedom = popedom;
 		this.department = department;
 		this.teacher = teacher;
 		this.name = name;
@@ -71,21 +73,22 @@ public class Course implements java.io.Serializable {
 		this.count = count;
 		this.visible = visible;
 		this.style = style;
-		this.setTime(time);
-		this.courseMovies = courseMovies;
-		this.collections = collections;
-		this.evaluations = evaluations;
-		this.topics = topics;
-		this.books = books;
-		this.applicationForms = applicationForms;
-		this.examinations = examinations;
-		this.chapters = chapters;
-		this.achievements = achievements;
-		this.notices = notices;
-		this.teacherTeams = teacherTeams;
-		this.courseInfos = courseInfos;
-		this.studentCourses = studentCourses;
+		this.header = header;
+		this.time = time;
 		this.number = number;
+		this.teacherTeams = teacherTeams;
+		this.topics = topics;
+		this.notices = notices;
+		this.applicationForms = applicationForms;
+		this.courseInfos = courseInfos;
+		this.examinations = examinations;
+		this.studentCourses = studentCourses;
+		this.achievements = achievements;
+		this.books = books;
+		this.evaluations = evaluations;
+		this.collections = collections;
+		this.chapters = chapters;
+		this.courseMovies = courseMovies;
 	}
 
 	// Property accessors
@@ -96,6 +99,14 @@ public class Course implements java.io.Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Popedom getPopedom() {
+		return this.popedom;
+	}
+
+	public void setPopedom(Popedom popedom) {
+		this.popedom = popedom;
 	}
 
 	public Department getDepartment() {
@@ -178,84 +189,28 @@ public class Course implements java.io.Serializable {
 		this.style = style;
 	}
 
-	public Set getCourseMovies() {
-		return this.courseMovies;
+	public String getHeader() {
+		return this.header;
 	}
 
-	public void setCourseMovies(Set courseMovies) {
-		this.courseMovies = courseMovies;
+	public void setHeader(String header) {
+		this.header = header;
 	}
 
-	public Set getCollections() {
-		return this.collections;
+	public Date getTime() {
+		return this.time;
 	}
 
-	public void setCollections(Set collections) {
-		this.collections = collections;
+	public void setTime(Date time) {
+		this.time = time;
 	}
 
-	public Set getEvaluations() {
-		return this.evaluations;
+	public String getNumber() {
+		return this.number;
 	}
 
-	public void setEvaluations(Set evaluations) {
-		this.evaluations = evaluations;
-	}
-
-	public Set getTopics() {
-		return this.topics;
-	}
-
-	public void setTopics(Set topics) {
-		this.topics = topics;
-	}
-
-	public Set getBooks() {
-		return this.books;
-	}
-
-	public void setBooks(Set books) {
-		this.books = books;
-	}
-
-	public Set getApplicationForms() {
-		return this.applicationForms;
-	}
-
-	public void setApplicationForms(Set applicationForms) {
-		this.applicationForms = applicationForms;
-	}
-
-	public Set getExaminations() {
-		return this.examinations;
-	}
-
-	public void setExaminations(Set examinations) {
-		this.examinations = examinations;
-	}
-
-	public Set getChapters() {
-		return this.chapters;
-	}
-
-	public void setChapters(Set chapters) {
-		this.chapters = chapters;
-	}
-
-	public Set getAchievements() {
-		return this.achievements;
-	}
-
-	public void setAchievements(Set achievements) {
-		this.achievements = achievements;
-	}
-
-	public Set getNotices() {
-		return this.notices;
-	}
-
-	public void setNotices(Set notices) {
-		this.notices = notices;
+	public void setNumber(String number) {
+		this.number = number;
 	}
 
 	public Set getTeacherTeams() {
@@ -266,12 +221,44 @@ public class Course implements java.io.Serializable {
 		this.teacherTeams = teacherTeams;
 	}
 
+	public Set getTopics() {
+		return this.topics;
+	}
+
+	public void setTopics(Set topics) {
+		this.topics = topics;
+	}
+
+	public Set getNotices() {
+		return this.notices;
+	}
+
+	public void setNotices(Set notices) {
+		this.notices = notices;
+	}
+
+	public Set getApplicationForms() {
+		return this.applicationForms;
+	}
+
+	public void setApplicationForms(Set applicationForms) {
+		this.applicationForms = applicationForms;
+	}
+
 	public Set getCourseInfos() {
 		return this.courseInfos;
 	}
 
 	public void setCourseInfos(Set courseInfos) {
 		this.courseInfos = courseInfos;
+	}
+
+	public Set getExaminations() {
+		return this.examinations;
+	}
+
+	public void setExaminations(Set examinations) {
+		this.examinations = examinations;
 	}
 
 	public Set getStudentCourses() {
@@ -282,29 +269,52 @@ public class Course implements java.io.Serializable {
 		this.studentCourses = studentCourses;
 	}
 
-	public void setTime(Date time) {
-		this.time = time;
+	public Set getAchievements() {
+		return this.achievements;
 	}
 
-	public Date getTime() {
-		return time;
+	public void setAchievements(Set achievements) {
+		this.achievements = achievements;
 	}
 
-	public void setHeader(String header) {
-		this.header = header;
+	public Set getBooks() {
+		return this.books;
 	}
 
-	public String getHeader() {
-		return header;
+	public void setBooks(Set books) {
+		this.books = books;
 	}
 
-	public String getNumber() {
-		return number;
+	public Set getEvaluations() {
+		return this.evaluations;
 	}
 
-	public void setNumber(String number) {
-		this.number = number;
+	public void setEvaluations(Set evaluations) {
+		this.evaluations = evaluations;
 	}
 
-	
+	public Set getCollections() {
+		return this.collections;
+	}
+
+	public void setCollections(Set collections) {
+		this.collections = collections;
+	}
+
+	public Set getChapters() {
+		return this.chapters;
+	}
+
+	public void setChapters(Set chapters) {
+		this.chapters = chapters;
+	}
+
+	public Set getCourseMovies() {
+		return this.courseMovies;
+	}
+
+	public void setCourseMovies(Set courseMovies) {
+		this.courseMovies = courseMovies;
+	}
+
 }

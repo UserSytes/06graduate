@@ -9,6 +9,7 @@ import cn.edu.xmu.course.commons.FileOperation;
 import cn.edu.xmu.course.dao.CourseDAO;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Department;
+import cn.edu.xmu.course.pojo.Popedom;
 import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.pojo.Teacher;
 import cn.edu.xmu.course.service.ICourseService;
@@ -43,6 +44,8 @@ public class CourseService implements ICourseService {
 		course.setStyle("blue");
 		course.setHeader("header.jsp");
 		course.setTime(new Date());
+		Popedom popedom = new Popedom(0,0,0,0,0,0,0,null);
+		course.setPopedom(popedom);
 		try {
 			getCourseDAO().save(course);
 			return true;

@@ -10,6 +10,9 @@
             <column name="id" />
             <generator class="increment" />
         </id>
+        <many-to-one name="popedom" class="cn.edu.xmu.course.pojo.Popedom" fetch="select" lazy="false" cascade="all" >
+            <column name="popedom_id" />
+        </many-to-one>
         <many-to-one name="department" class="cn.edu.xmu.course.pojo.Department" lazy="false" fetch="select">
             <column name="department_id" />
         </many-to-one>

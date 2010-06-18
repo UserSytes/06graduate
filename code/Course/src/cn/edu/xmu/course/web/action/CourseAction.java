@@ -5,6 +5,7 @@ import java.util.List;
 import cn.edu.xmu.course.pojo.Administrator;
 import cn.edu.xmu.course.pojo.Course;
 import cn.edu.xmu.course.pojo.Department;
+import cn.edu.xmu.course.pojo.Popedom;
 import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.service.ICourseService;
 import cn.edu.xmu.course.service.IDepartmentService;
@@ -36,6 +37,8 @@ public class CourseAction extends BaseAction {
 	private List<Course> applicationCourseList; // 申报课程列表
 	private String refuseReason; // 审核课程退回时填写的理由
 	
+	private Popedom popedom;
+	
 	/**
 	 * 跳转到申报课程
 	 * 
@@ -58,6 +61,11 @@ public class CourseAction extends BaseAction {
 			return SUCCESS;
 		} else
 			return ERROR;
+	}
+	
+	public String updateCoursePopedom(){
+		
+		return ERROR;
 	}
 
 	/**
@@ -373,5 +381,13 @@ public class CourseAction extends BaseAction {
 
 	public void setApplicationCourseList(List<Course> applicationCourseList) {
 		this.applicationCourseList = applicationCourseList;
+	}
+
+	public void setPopedom(Popedom popedom) {
+		this.popedom = popedom;
+	}
+
+	public Popedom getPopedom() {
+		return popedom;
 	}
 }

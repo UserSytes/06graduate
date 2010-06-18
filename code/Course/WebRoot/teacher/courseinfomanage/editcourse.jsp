@@ -40,6 +40,7 @@
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
+						<s:property value="course.department.school.name" />
 						<s:property value="course.department.name" />
 					</td>
 				</tr>
@@ -52,6 +53,17 @@
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
 						<s:property value="course.level" />
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							编号：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<s:property value="course.number" />
 					</td>
 				</tr>
 				<tr>

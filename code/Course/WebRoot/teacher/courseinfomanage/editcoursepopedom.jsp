@@ -12,137 +12,114 @@
 		<title>课程申报</title>
 	</head>
 
-	<body onload="getSchool()">
-		<script type="text/javascript" src="/course/dwr/engine.js"></script>
-		<script type="text/javascript" src="/course/dwr/util.js"></script>
-		<script type="text/javascript"
-			src="/course/dwr/interface/DepartmentDAO.js"></script>
-		<script type="text/javascript"
-			src="/course/dwr/interface/SchoolDAO.js"></script>
-		<script language="javascript">
-	function getSchool() {
-		SchoolDAO.findAll(callbackorg);
-	}
-	function callbackorg(data) {
-		DWRUtil.addOptions("School", data, "id", "name");
-	}
-	function getDepartment(prvid) {
-		if (prvid == -1) {
-		} else {
-			DepartmentDAO.findBySchool(prvid, callbackorg2);
-		}
-	}
-	function callbackorg2(data) { //显示出二级类别
-		DWRUtil.removeAllOptions("Department");
-		DWRUtil.addOptions("Department", data, "id", "name");
-	}
-	function check(form) {
-		if (form.Department.value == -1) {
-			alert("请先选择申报的院系！");
-			return false;
-		}
-		if (form.number.value == "") {
-			alert("课程编号不能为空！");
-			form.number.focus();
-			return false;
-		}
-		if (form.name.value == "") {
-			alert("名字不能为空！");
-			form.name.focus();
-			return false;
-		}
-		if (form.name.value.length >= 50) {
-			alert("名字长度不能超过50！");
-			form.name.focus();
-			return false;
-		}
-		form.submit.disabled = true;
-
-	}
-</script>
+	<body>		
 <div align="center" width="98%">
 		<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 			align=center border=0>
 			<tr class=position bgcolor="#ECF3FD">
 				<td>
-					当前位置: 课程管理-&gt; 课程申报
+					当前位置: 课程管理-&gt; 课程权限设置
 				</td>
 			</tr>
 		</table>
 
-		<s:form action="addNewCourseAction" method="post"
-			onsubmit="return check(this);">
+		<s:form action="updateCoursePopedomAction" method="post"
+			onsubmit="submit.disabled=1">
+			<s:hidden name="popedom.id"></s:hidden>
+			<s:hidden name="popedom.course.id"></s:hidden>
 			<table class=editTable cellSpacing=1 cellPadding=0 width="100%"
 				align=center border=0>
 				<tr class=editHeaderTr>
 					<td class=editHeaderTd colSpan=7>
-						添加课程：
+						课程内容公开访问对象：
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							院系：
+							教学大纲：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<select id="School" name="School"
-							onchange="getDepartment(this.value)">
-							<option value="-1">
-								--请选择院--
-							</option>
-						</select>
-						<select id="Department" name="departmentId">
-							<option value="-1">
-								--请选择系--
-							</option>
-						</select>
+						<s:select name="popedom.outline"
+							list="#{0:'所有用户',1:'学生、同行和专家',2:'同行和专家',3:'仅专家',4:'仅自己'}"
+							listKey="key" listValue="value" />
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							级别：
+							课件教案：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:select id="level" list="{'国家级','省级','市级','校级','其它'}"
-							name="course.level"></s:select>
+						<s:select name="popedom.courseware"
+							list="#{0:'所有用户',1:'学生、同行和专家',2:'同行和专家',3:'仅专家',4:'仅自己'}"
+							listKey="key" listValue="value" />
+					</td>
+				</tr>				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							作业习题：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<s:select name="popedom.exercise"
+							list="#{0:'所有用户',1:'学生、同行和专家',2:'同行和专家',3:'仅专家',4:'仅自己'}"
+							listKey="key" listValue="value" />
+					</td>
+				</tr>				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							实验指导：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<s:select name="popedom.experiment"
+							list="#{0:'所有用户',1:'学生、同行和专家',2:'同行和专家',3:'仅专家',4:'仅自己'}"
+							listKey="key" listValue="value" />
+					</td>
+				</tr>				<tr>
+					<td bgcolor="#FFFDF0">
+						<div align="center">
+							教学录像：
+						</div>
+					</td>
+					<td colspan="3" bgcolor="#FFFFFF">
+						&nbsp;&nbsp;&nbsp;
+						<s:select name="popedom.movie"
+							list="#{0:'所有用户',1:'学生、同行和专家',2:'同行和专家',3:'仅专家',4:'仅自己'}"
+							listKey="key" listValue="value" />
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							编号：
+							课程试卷：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="name" size="50" name="course.number" cssClass="input" />
+						<s:select name="popedom.examination"
+							list="#{0:'所有用户',1:'学生、同行和专家',2:'同行和专家',3:'仅专家',4:'仅自己'}"
+							listKey="key" listValue="value" />
 					</td>
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="center">
-							名称：
+							教学资源：
 						</div>
 					</td>
 					<td colspan="3" bgcolor="#FFFFFF">
 						&nbsp;&nbsp;&nbsp;
-						<s:textfield id="name" size="50" name="course.name" cssClass="input" />
-					</td>
-				</tr>				
-				<tr>
-					<td bgcolor="#FFFDF0">
-						<div align="center">
-							备注：
-						</div>
-					</td>
-					<td colspan="3" bgcolor="#FFFFFF">
-						&nbsp;&nbsp;&nbsp;
-						<s:textarea name="course.remark" cssClass="TEXTAREA"></s:textarea>
+						<s:select name="popedom.book"
+							list="#{0:'所有用户',1:'学生、同行和专家',2:'同行和专家',3:'仅专家',4:'仅自己'}"
+							listKey="key" listValue="value" />
 					</td>
 				</tr>
 				<tr class=editHeaderTr>
@@ -151,9 +128,10 @@
 					</td>
 					<td width="70%">
 						<s:submit id="submit" cssClass="label" value="确认" />
-						<s:reset cssClass="label" value="取消" />
+						<s:reset cssClass="lable" value="取消"></s:reset>
 					</td>
 				</tr>
+				</s:else>
 			</table>
 		</s:form>
 <div align="left" style="border: 1px solid #ccc;padding: 10px; width: 98%">
