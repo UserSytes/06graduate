@@ -54,6 +54,7 @@
 		<mapping resource="cn/edu/xmu/course/pojo/Evaluation.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/Notice.hbm.xml" />
 		<mapping resource="cn/edu/xmu/course/pojo/Mail.hbm.xml" />
+		<mapping resource="cn/edu/xmu/course/pojo/Popedom.hbm.xml" />
 
 	</session-factory>
 
