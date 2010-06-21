@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>作业习题-厦门大学课程网络平台</title>
+		<title>优秀作业-厦门大学课程网络平台</title>
 		<link href="${ctx}/coursepage/style/common/common.css"
 			rel="stylesheet" type="text/css" />
 		<link href="${ctx}/coursepage/style/common/layout.css"
@@ -25,18 +25,17 @@
 						<a href="goIndexQueryAction.action">首页</a>&gt;
 						<a
 							href="<s:url action="getAllExerciseAction"> 
-                					</s:url>">作业习题</a>&gt;详细浏览
+                					</s:url>">作业习题</a>&gt;优秀作业 
 					</h2>
 				</div>
 				<!-- 正文 -->
 				<div>
-					<table border="0" cellpadding="0" cellspacing="0">	
+					<table border="0" cellpadding="0" cellspacing="0">						
 						<tr>
 							<td width="724" align="center">
 								<!--게시판 -->
 								<table border="0" cellpadding="0" cellspacing="0" width="704" class="table-list">
-									
-<tr class="tr-title">
+									<tr class="tr-title">
 										<td width="30" height="40" align="center">
 											序号
 										</td>
@@ -44,19 +43,19 @@
 											&nbsp;
 										</td>
 										<td width="200" height="40" align="center">
-											习题名称
-										</td>
-										<td>
-											&nbsp;
-										</td>
-										<td width="180" height="40" align="center">
-											章节
+											作业名称
 										</td>
 										<td>
 											&nbsp;
 										</td>
 										<td width="70" height="40" align="center">
 											作者
+										</td>
+										<td>
+											&nbsp;
+										</td>
+										<td width="180" height="40" align="center">
+											评语
 										</td>
 										<td>
 											&nbsp;
@@ -71,11 +70,11 @@
 											链接
 										</td>
 									</tr>
-									<s:iterator value="exerciseList" status="exercise">
+									<s:iterator value="excellentWorkList" status="excellentWork">
 										<tr height="33" class="tr-content"
-											<s:if test="#exercise.odd">style="background-color:#FFF"</s:if>>
+											<s:if test="#excellentWork.odd">style="background-color:#FFF"</s:if>>
 											<td align="center" width="30">
-												<s:property value="#exercise.count" />
+												<s:property value="#excellentWork.count" />
 											</td>
 											<td></td>
 
@@ -83,14 +82,12 @@
 												<s:property value="title" />
 											</td>
 											<td></td>
-											<td width="180" align="center">
-												<s:property value="chapter.number" />
-												--
-												<s:property value="chapter.name" />
+											<td width="70" align="center">
+													<s:property value="author" />
 											</td>
 											<td></td>
-											<td width="70" align="center">
-												<s:property value="author" />
+											<td width="180" align="center">
+												<s:property value="reason" />
 											</td>
 											<td></td>
 											<td width="62" align="center">
@@ -112,11 +109,6 @@
 											</td>
 										</tr>
 									</s:iterator>
-<tr align="center"><td colspan="11"  height="40">
-<a
-							href="<s:url action="getAllExcellentWorksAction"> 
-                					</s:url>">优秀作业展示区点此进入&gt;&gt;</a>
-</td></tr>
 									<tr height="4">
 										<td></td>
 									</tr>
