@@ -322,5 +322,11 @@
 			<result name="error">/coursepage/prompt.jsp
 			</result>
 		</action>
+		<action name="getAllExcellentWorksAction" method="getAllExcellentWorks"
+			class="excellentWorkAction">
+			<result name="success">/coursepage/excellentwork.jsp
+			</result>
+		</action>
+		
 		</package>
 </struts>
