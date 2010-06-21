@@ -278,5 +278,11 @@
 			<ref bean="teacherInfoService" />
 		</property>
 	</bean>
+	<bean id="excellentWorkAction" scope="prototype"
+		class="cn.edu.xmu.course.web.action.ExcellentWorkAction">
+		<property name="excellentWorkService">
+			<ref bean="excellentWorkService" />
+		</property>
+	</bean>
 	
 </beans>

@@ -156,4 +156,9 @@
 			<ref bean="mailServiceTarget" />
 		</property>
 	</bean>
+	<bean id="excellentWorkService" parent="transactionBase">
+		<property name="target">
+			<ref bean="excellentWorkServiceTarget" />
+		</property>
+	</bean>
 </beans>

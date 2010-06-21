@@ -214,4 +214,9 @@
 			<ref bean="MailDAO" />
 		</property>
 	</bean>
+		<bean id="excellentWorkServiceTarget" class="cn.edu.xmu.course.service.impl.ExcellentWorkService">
+		<property name="excellentWorkDAO">
+			<ref bean="ExcellentWorkDAO" />
+		</property>
+	</bean>
 </beans>
