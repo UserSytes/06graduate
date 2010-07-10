@@ -79,6 +79,7 @@ public class StudentInfoAction extends BaseAction {
 	 * @return
 	 */
 	public String changeStudentInfo() {
+		student.setPassword(super.getStudent().getPassword());
 		boolean result = studentInfoService.updateStudent(student, userInfo);
 		if (result) {
 			student = studentInfoService.findById(student.getId());
