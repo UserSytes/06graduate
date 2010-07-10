@@ -153,7 +153,7 @@ a:visited {
 												<tr>
 													<td width="41" height="35">
 														<div align="center">
-															<img src="images/left_2.gif" width="31" height="31">
+															<img src="images/left_1.gif" width="31" height="31">
 														</div>
 													</td>
 													<td height="35">
@@ -173,7 +173,7 @@ a:visited {
 												<tr>
 													<td width="41" height="35">
 														<div align="center">
-															<img src="images/left_3.gif" width="31" height="31">
+															<img src="images/left_1.gif" width="31" height="31">
 														</div>
 													</td>
 													<td height="35">
@@ -194,7 +194,7 @@ a:visited {
 												<tr>
 													<td width="41" height="35">
 														<div align="center">
-															<img src="images/left_3.gif" width="31" height="31">
+															<img src="images/left_1.gif" width="31" height="31">
 														</div>
 													</td>
 													<td height="35">
@@ -266,7 +266,7 @@ a:visited {
 												<tr>
 													<td width="41" height="35">
 														<div align="center">
-															<img src="images/left_2.gif" width="31" height="31">
+															<img src="images/left_1.gif" width="31" height="31">
 														</div>
 													</td>
 													<td height="35">
@@ -328,7 +328,7 @@ a:visited {
 												<tr>
 													<td width="41" height="35">
 														<div align="center">
-															<img src="images/left_3.gif" width="31" height="31">
+															<img src="images/left_1.gif" width="31" height="31">
 														</div>
 													</td>
 													<td width="89" height="35">
