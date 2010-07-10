@@ -90,6 +90,7 @@ public class TeacherInfoAction extends BaseAction{
 	 * @return
 	 */
 	public String changeTeacherInfo(){
+		teacher.setPassword(super.getTeacher().getPassword());
 		if(teacherInfoService.updateTeacher(teacher, userInfo)){
 			teacher = teacherInfoService.findTeacherById(super.getTeacher().getId());
 			super.getSession().put(TEACHER, teacher);

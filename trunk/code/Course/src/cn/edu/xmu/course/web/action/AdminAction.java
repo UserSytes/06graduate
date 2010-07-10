@@ -114,7 +114,7 @@ public class AdminAction extends BaseAction {
 	 * @return
 	 */
 	public String changeAdministratorInfo(){
-		
+		admin.setPassword(super.getAdmin().getPassword());
 		boolean result = adminService.updateAdmin(admin);
 		if(result){
 			this.getAdministratorInfo();
