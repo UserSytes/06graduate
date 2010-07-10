@@ -4,13 +4,40 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-
+	
+	
+<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+            <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+            <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/graduate"></property>
+            <property name="user" value="root"></property>
+            <property name="password" value="root"></property>
+            <property name="maxPoolSize" value="40"></property>
+            <property name="minPoolSize" value="1"></property>
+            <property name="initialPoolSize" value="1"></property>
+            <property name="maxIdleTime" value="20"></property>
+                    
+  
+  				 <property name="acquireIncrement" value="1"/>
+  
+   <property name="acquireRetryAttempts" value="30"/>
+   <property name="acquireRetryDelay" value="100"/>
+   <property name="testConnectionOnCheckin" value="true"/>
+   <property name="automaticTestTable" value="course"/>
+   <property name="idleConnectionTestPeriod" value="18000"/>
+   <property name="checkoutTimeout" value="3000"/>
+        </bean>
+        
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+  <ref local="dataSource" /> 
+  </property>
 		<property name="configLocation"
 			value="classpath:hibernate.cfg.xml">
 		</property>
 	</bean>
+
+
 	
 	 <!-- 定义事务管理器（声明式的事务） -->
     <bean id="transactionManager"
