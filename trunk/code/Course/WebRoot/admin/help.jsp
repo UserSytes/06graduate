@@ -15,15 +15,15 @@ border="0">
     </tr>
     <tr>
       <td class="td_bg" width="17%" height="23">程序制作<span class="TableRow2"></span></td>
-      <td width="83%" class="td_bg"><strong>ACT(承接网站制作,后台开发 )</strong></td>
+      <td width="83%" class="td_bg"><strong>厦门大学软件学院</strong></td>
     </tr>
     <tr>
       <td class="td_bg" height="23">联系方式<span class="TableRow2"></span></td>
-      <td class="td_bg">E_mail：andy123061@163.com    QQ：215288671 </td>
+      <td class="td_bg">E_mail：micaroo@vip.qq.com    QQ：125177027 </td>
     </tr>
     <tr>
-      <td class="td_bg" width="17%" height="23">程序主页<span class="TableRow2"></span></td>
-      <td class="td_bg" width="83%"><a href="http://www.865171.cn" target="_blank">www.865171.cn</a> &nbsp;&nbsp;&nbsp;<a href="http://www.865171.cn" target="_blank">www.865171.cn</a> </td>
+      <td class="td_bg" width="17%" height="23">开发小组<span class="TableRow2"></span></td>
+      <td class="td_bg" width="83%">许子彦 &nbsp;何申密 &nbsp; 赵海虹 &nbsp;郑冰凌 </td>
     </tr>
   </tbody>
 </table>
