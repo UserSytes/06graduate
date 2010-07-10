@@ -88,6 +88,9 @@
 		<property name="schoolService">
 			<ref bean="schoolService" />
 		</property>
+		<property name="studentInfoService">
+			<ref bean="studentInfoService" />
+		</property>
 	</bean>
 	<bean id="adminAction" scope="prototype"
 		class="cn.edu.xmu.course.web.action.AdminAction">

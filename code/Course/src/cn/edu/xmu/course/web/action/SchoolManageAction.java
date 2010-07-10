@@ -6,6 +6,7 @@ import cn.edu.xmu.course.pojo.Department;
 import cn.edu.xmu.course.pojo.Grade;
 import cn.edu.xmu.course.pojo.School;
 import cn.edu.xmu.course.service.ISchoolService;
+import cn.edu.xmu.course.service.IStudentInfoService;
 
 /**
  * 负责学院管理的类
@@ -33,6 +34,8 @@ public class SchoolManageAction extends BaseAction {
 	private List<Grade> allGradeList;	//年级列表
 	private Grade grade;	//年级
 	private int gradeId;	//年级id
+	
+	private IStudentInfoService studentInfoService; // 管理学生信息的接口
 
 	/**
 	 * 添加学院
@@ -84,6 +87,10 @@ public class SchoolManageAction extends BaseAction {
 	 */
 	public String deleteSchool() {
 		School s = schoolService.findSchoolById(schoolId);
+		if(schoolService.findDepartmentBySchool(s).size()>0){
+			addActionMessage("该学院还有系，请先删除系再删除学院！");
+			return ERROR;
+		}
 		boolean result = schoolService.deleteSchool(s);
 		if (result) {
 			this.findAllSchools();
@@ -118,6 +125,10 @@ public class SchoolManageAction extends BaseAction {
 	 */
 	public String deleteDepartment() {
 		Department d = schoolService.findDepartmentById(departmentId);
+		if(studentInfoService.findByDepartment(d).size()>0){
+			addActionMessage("该系还有学生，请先删除学生再删除系！");
+			return ERROR;
+		}
 		boolean result = schoolService.deleteDepartment(d);
 		if (result) {
 			this.findDepartmentBySchool();
@@ -178,6 +189,10 @@ public class SchoolManageAction extends BaseAction {
 	 */
 	public String deleteGrade() {
 		Grade g = schoolService.findGradeById(gradeId);
+		if(studentInfoService.findByGrade(g).size()>0){
+			addActionMessage("该年级还有学生，请先删除学生再删除年级！");
+			return ERROR;
+		}
 		boolean result = schoolService.deleteGrade(g);
 		if (result) {
 			allGradeList = schoolService.findAllGrade();
@@ -286,6 +301,14 @@ public class SchoolManageAction extends BaseAction {
 
 	public void setSchoolService(ISchoolService schoolService) {
 		this.schoolService = schoolService;
+	}
+
+	public void setStudentInfoService(IStudentInfoService studentInfoService) {
+		this.studentInfoService = studentInfoService;
+	}
+
+	public IStudentInfoService getStudentInfoService() {
+		return studentInfoService;
 	}
 
 }

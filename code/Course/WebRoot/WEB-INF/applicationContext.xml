@@ -22,7 +22,7 @@
    <property name="acquireRetryAttempts" value="30"/>
    <property name="acquireRetryDelay" value="100"/>
    <property name="testConnectionOnCheckin" value="true"/>
-   <property name="automaticTestTable" value="course"/>
+   <property name="automaticTestTable" value="C3POTestTable"/>
    <property name="idleConnectionTestPeriod" value="18000"/>
    <property name="checkoutTimeout" value="3000"/>
         </bean>

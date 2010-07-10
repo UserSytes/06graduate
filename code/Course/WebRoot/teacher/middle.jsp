@@ -7,7 +7,7 @@
 		<META http-equiv=Pragma content=no-cache>
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
-		<title>无标题文档</title>
+		<title>无标题文�?/title>
 		<style type="text/css">
 <!--
 body {
@@ -30,7 +30,7 @@ body {
 			marginwidth="0" marginheight="0" frameborder="0" />
 		<frame src="leftmiddle.jsp" name="I3" noresize="noresize"
 			scrolling="No" marginwidth="0" marginheight="0" frameborder="0" />
-		<frame src="" name="I2" marginwidth="0" marginheight="0" frameborder="0" />
+		<frame src="navindex.jsp" name="I2" marginwidth="0" marginheight="0" frameborder="0" />
 	</frameset>
 	<noframes><body></body>
 	</noframes>
