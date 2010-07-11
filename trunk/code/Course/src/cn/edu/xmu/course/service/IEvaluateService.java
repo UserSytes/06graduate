@@ -48,9 +48,10 @@ public interface IEvaluateService {
 	 * 计算专家或者老师的评价结果
 	 * @param courseId
 	 * @param sort
+	 * @param status
 	 * @return
 	 */
-	public Object[] getEvaluationCalculateResult(int courseId, int sort);
+	public Object[] getEvaluationCalculateResult(int courseId, int sort,int status);
 	
 	/**
 	 * 查询学生对课程的平均评分
