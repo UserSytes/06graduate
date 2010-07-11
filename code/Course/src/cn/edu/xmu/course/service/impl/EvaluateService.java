@@ -100,8 +100,8 @@ public class EvaluateService implements IEvaluateService {
 	 * cn.edu.xmu.course.service.IEvaluateService#getEvaluationCalculateResult
 	 * (int, int)
 	 */
-	public Object[] getEvaluationCalculateResult(int courseId, int sort) {
-		List result = getEvaluationDAO().findCountAndScoreAvg(courseId, sort);
+	public Object[] getEvaluationCalculateResult(int courseId, int sort,int status) {
+		List result = getEvaluationDAO().findCountAndScoreAvg(courseId, sort ,status);
 		ListIterator iterator = result.listIterator();
 		Object[] rows = (Object[]) iterator.next();
 		return rows;
@@ -122,9 +122,9 @@ public class EvaluateService implements IEvaluateService {
 			courseEvaluate.setTeacherName(course.getTeacher().getUserInfo()
 					.getName());
 			Object[] expertEvaluationResult = this
-					.getEvaluationCalculateResult(course.getId(), 0);
+					.getEvaluationCalculateResult(course.getId(), 0 ,1);
 			Object[] teacherEvaluationResult = this
-					.getEvaluationCalculateResult(course.getId(), 1);
+					.getEvaluationCalculateResult(course.getId(), 1 ,1);
 			Object[] scResult = this.getStudentCourseCalculateResult(course
 					.getId());
 			courseEvaluate.setStuCount(scResult[0]);
