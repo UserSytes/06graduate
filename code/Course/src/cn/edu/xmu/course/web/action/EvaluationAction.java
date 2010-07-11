@@ -217,6 +217,7 @@ public class EvaluationAction extends BaseAction {
 		course = super.getCourse();
 		score = evaluation.getScore();
 		evaluation.setStatus(1);
+		evaluation.setPassword(evaluation.getPassword());
 		result = evaluateService.updateEvaluation(evaluation);
 		if (result) {
 			scorestring = "评价成功，你的评分是：" + score.intValue() + "分";
@@ -238,6 +239,7 @@ public class EvaluationAction extends BaseAction {
 		course = super.getCourse();
 		score = evaluation.getScore();
 		evaluation.setStatus(1);
+		evaluation.setPassword(evaluation.getPassword());
 		result = evaluateService.updateEvaluation(evaluation);
 		if (result) {
 			scorestring = "评价成功，你的评分是：" + score.intValue() + "分";
@@ -258,6 +260,7 @@ public class EvaluationAction extends BaseAction {
 		course = super.getCourse();
 		score = evaluation.getScore();
 		evaluation.setStatus(0);
+		evaluation.setPassword(evaluation.getPassword());
 		result = evaluateService.updateEvaluation(evaluation);
 		if (result) {
 			scorestring = "保存草稿成功！";
@@ -278,6 +281,7 @@ public class EvaluationAction extends BaseAction {
 		course = super.getCourse();
 		score = evaluation.getScore();
 		evaluation.setStatus(0);
+		evaluation.setPassword(evaluation.getPassword());
 		result = evaluateService.updateEvaluation(evaluation);
 		if (result) {
 			scorestring = "保存草稿成功！";
@@ -450,7 +454,7 @@ public class EvaluationAction extends BaseAction {
 	 */
 	public void getExpertAverage(int courseId) {
 		Object[] evaluationResult = evaluateService
-				.getEvaluationCalculateResult(courseId, 0);
+				.getEvaluationCalculateResult(courseId, 0,1);
 		expertCount = evaluationResult[0];
 		if (evaluationResult[1] != null)
 			expertAvgScore = evaluationResult[1];
@@ -463,7 +467,7 @@ public class EvaluationAction extends BaseAction {
 	 */
 	public void getTeaAverage(int courseId) {
 		Object[] teaResult = evaluateService.getEvaluationCalculateResult(
-				courseId, 1);
+				courseId, 1,1);
 		teaCount = teaResult[0];
 		if (teaResult[1] != null)
 			teaAvgScore = teaResult[1];
