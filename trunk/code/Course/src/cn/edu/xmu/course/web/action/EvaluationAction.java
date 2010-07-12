@@ -214,10 +214,14 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String expertEvaluate() {
+		if(null == super.getEvaluation()){
+			addActionError("操作超时，请重新登录！");
+			return ERROR;
+		}
 		course = super.getCourse();
 		score = evaluation.getScore();
 		evaluation.setStatus(1);
-		evaluation.setPassword(evaluation.getPassword());
+		evaluation.setPassword(super.getEvaluation().getPassword());
 		result = evaluateService.updateEvaluation(evaluation);
 		if (result) {
 			scorestring = "评价成功，你的评分是：" + score.intValue() + "分";
@@ -235,11 +239,15 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String teacherEvaluate() {
+		if(null == super.getEvaluation()){
+			addActionError("操作超时，请重新登录！");
+			return ERROR;
+		}
 		teacher = super.getTeacher();
 		course = super.getCourse();
 		score = evaluation.getScore();
 		evaluation.setStatus(1);
-		evaluation.setPassword(evaluation.getPassword());
+		evaluation.setPassword(super.getEvaluation().getPassword());
 		result = evaluateService.updateEvaluation(evaluation);
 		if (result) {
 			scorestring = "评价成功，你的评分是：" + score.intValue() + "分";
@@ -257,10 +265,14 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String expertEvaluateDraft() {
+		if(null == super.getEvaluation()){
+			addActionError("操作超时，请重新登录！");
+			return ERROR;
+		}
 		course = super.getCourse();
 		score = evaluation.getScore();
 		evaluation.setStatus(0);
-		evaluation.setPassword(evaluation.getPassword());
+		evaluation.setPassword(super.getEvaluation().getPassword());
 		result = evaluateService.updateEvaluation(evaluation);
 		if (result) {
 			scorestring = "保存草稿成功！";
@@ -277,11 +289,15 @@ public class EvaluationAction extends BaseAction {
 	 * @return
 	 */
 	public String teacherEvaluateDraft() {
+		if(null == super.getEvaluation()){
+			addActionError("操作超时，请重新登录！");
+			return ERROR;
+		}
 		teacher = super.getTeacher();
 		course = super.getCourse();
 		score = evaluation.getScore();
 		evaluation.setStatus(0);
-		evaluation.setPassword(evaluation.getPassword());
+		evaluation.setPassword(super.getEvaluation().getPassword());
 		result = evaluateService.updateEvaluation(evaluation);
 		if (result) {
 			scorestring = "保存草稿成功！";
