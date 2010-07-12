@@ -28,7 +28,7 @@
     <td width="353" height="259" align="center" valign="bottom" background="${ctx}/admin/Images/login_1.gif"><table width="90%" border="0" cellspacing="3" cellpadding="0">
       
     </table></td>
-    <td width="195" background="${ctx}/admin/Images/login_2.gif">
+    <td width="195" background="${ctx}/homepage/image/login_3.gif">
 	<table width="190" height="106" border="0" align="center" cellpadding="2" cellspacing="0">
       <s:form action="evaluationLoginAction" method="post" onsubmit="return check(this);" name="NETSJ_Login">
             <tr>
