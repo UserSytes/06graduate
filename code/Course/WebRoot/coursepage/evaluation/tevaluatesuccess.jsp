@@ -41,8 +41,10 @@
 						</tr>
 						<tr height="19">
 							<td class="timefont">
-								<font class="timefont"><span style="float: left;"><s:property value="scorestring" />  | 平均得分：<s:property
-										value="teaAvgScore" />分  | 评价人数: <s:property
+								<font class="timefont"><span style="float: left;"><s:property value="scorestring" />  | 平均得分：<s:text
+														name="global.format.score">
+														<s:param value="teaAvgScore" />
+													</s:text>分  | 评价人数: <s:property
 										value="teaCount" />人</span>
 								</font>
 								<a	style="float: right;"

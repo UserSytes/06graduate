@@ -104,8 +104,10 @@
 						</tr>
 						<tr height="19">
 							<td>
-								<font class="timefont">当前平均得分：<s:property
-										value="expertAvgScore" />分  | 评价人数: <s:property
+								<font class="timefont">当前平均得分：<s:text
+														name="global.format.score">
+														<s:param value="expertAvgScore" />
+													</s:text>分  | 评价人数: <s:property
 										value="expertCount" />人
 								</font>
 							</td>
