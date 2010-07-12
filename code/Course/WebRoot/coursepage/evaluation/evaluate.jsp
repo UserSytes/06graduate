@@ -46,16 +46,17 @@
 											<span>&nbsp;</span>
 										</dd>
 										<dd class="desc">
-											<span><font style="font-size: 16px;">&nbsp;&nbsp;&nbsp;平均得分:
-													<s:property value="stuAvgScore" /> 分 <br /> </font> <font
-												style="font-size: 16px;">&nbsp;&nbsp;&nbsp;评价人数: <s:property
-														value="stuCount" /> 人 </font> </span>
+											<span><font style="font-size: 16px;">&nbsp;&nbsp;&nbsp;平均得分:<s:text
+														name="global.format.score">
+														<s:param value="stuAvgScore" />
+													</s:text> 分 <br /> </font> <font style="font-size: 16px;">&nbsp;&nbsp;&nbsp;评价人数:
+													<s:property value="stuCount" /> 人 </font> </span>
 										</dd>
 									</dl>
 
 									<dl>
 										<dd class="detail">
-											<span><a href="#">详细内容</a> | <a
+											<span> <a
 												href="<s:url action="sDetailEvaluateAction"></s:url>">我要评价</a>
 											</span>
 										</dd>
@@ -77,7 +78,10 @@
 										</dd>
 										<dd class="desc">
 											<span><font style="font-size: 16px;">&nbsp;&nbsp;&nbsp;平均得分:
-													<s:property value="teaAvgScore" /> 分 <br /> </font> <font
+													<s:text
+														name="global.format.score">
+														<s:param value="teaAvgScore" />
+													</s:text>分 <br /> </font> <font
 												style="font-size: 16px;">&nbsp;&nbsp;&nbsp;评价人数: <s:property
 														value="teaCount" /> 人 </font> </span>
 										</dd>
@@ -96,7 +100,7 @@
 								</div>
 							</td>
 						</tr>
-<tr>
+						<tr>
 							<td>
 								<div class="newslist">
 									<dl>
@@ -109,7 +113,10 @@
 										</dd>
 										<dd class="desc">
 											<span><font style="font-size: 16px;">&nbsp;&nbsp;&nbsp;平均得分:
-													<s:property value="expertAvgScore" /> 分 <br /> </font> <font
+													<s:text
+														name="global.format.score">
+														<s:param value="expertAvgScore" />
+													</s:text>分 <br /> </font> <font
 												style="font-size: 16px;">&nbsp;&nbsp;&nbsp;评价人数: <s:property
 														value="expertCount" /> 人 </font> </span>
 										</dd>
