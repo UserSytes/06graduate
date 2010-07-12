@@ -40,8 +40,10 @@
 						</tr>
 						<tr height="19">
 							<td class="timefont">
-								<font class="timefont"><span style="float: left;">当前平均得分：<s:property
-										value="stuAvgScore" />分  | 评价人数: <s:property
+								<font class="timefont"><span style="float: left;">当前平均得分：<s:text
+														name="global.format.score">
+														<s:param value="stuAvgScore" />
+													</s:text>分  | 评价人数: <s:property
 										value="stuCount" />人</span>
 								</font><a
 									style="float: right;"
