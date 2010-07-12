@@ -50,9 +50,11 @@
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
-						<div align="left"  style="padding: 5px;">
-							<font size="3">&nbsp;&nbsp;&nbsp;平均得分: <s:property
-									value="stuAvgScore" /> <br> </font>
+						<div align="left" style="padding: 5px;">
+							<font size="3">&nbsp;&nbsp;&nbsp;平均得分:<s:text
+									name="global.format.score">
+									<s:param value="stuAvgScore" />
+								</s:text>  <br> </font>
 							<font size="3">&nbsp;&nbsp;&nbsp;评价人数: <s:property
 									value="stuCount" /> <br> </font>
 						</div>
@@ -70,14 +72,17 @@
 				<tr>
 					<td bgcolor="#FFFDF0">
 						<div align="left" style="padding: 5px;">
-							<font size="3">&nbsp;&nbsp;&nbsp;平均得分: <s:property
-									value="teaAvgScore" /> <a
+							<font size="3">&nbsp;&nbsp;&nbsp;平均得分:<s:text
+									name="global.format.score">
+									<s:param value="teaAvgScore" />
+								</s:text>  <a
 								href="getEvaTeacherListByCourseAction.action"> <font
 									color="green">【查看详情】</font> </a> <br> </font>
 							<font size="3">&nbsp;&nbsp;&nbsp;评价人数: <s:property
 									value="teaCount" /> <br> </font>
 							<font size="3">&nbsp;&nbsp;&nbsp;点击<a
-								href="${ctx}/teacher/courseinfomanage/addevateacher.jsp" style="color: #008000;font-weight: 700">【这里】</a>邀请新的同行进行课程评价<br>
+								href="${ctx}/teacher/courseinfomanage/addevateacher.jsp"
+								style="color: #008000; font-weight: 700">【这里】</a>邀请新的同行进行课程评价<br>
 							</font>
 						</div>
 					</td>
@@ -92,15 +97,17 @@
 				</tr>
 				<tr>
 					<td bgcolor="#FFFDF0">
-						<div align="left"  style="padding: 5px;">
-							<font size="3">&nbsp;&nbsp;&nbsp;平均得分: <s:property
-									value="expertAvgScore" /> <a
-								href="getEvaluationListByCourseAction.action"> <font
+						<div align="left" style="padding: 5px;">
+							<font size="3">&nbsp;&nbsp;&nbsp;平均得分:<s:text
+									name="global.format.score">
+									<s:param value="expertAvgScore" />
+								</s:text> <a href="getEvaluationListByCourseAction.action"> <font
 									color="green">【查看详情】</font> </a> <br> </font>
 							<font size="3">&nbsp;&nbsp;&nbsp;评价人数: <s:property
 									value="expertCount" /> <br> </font>
 							<font size="3">&nbsp;&nbsp;&nbsp;点击<a
-								href="${ctx}/teacher/courseinfomanage/addevaluation.jsp" style="color: #008000;font-weight: 700">【这里】</a>邀请专家新的专家进行课程评价<br>
+								href="${ctx}/teacher/courseinfomanage/addevaluation.jsp"
+								style="color: #008000; font-weight: 700">【这里】</a>邀请专家新的专家进行课程评价<br>
 							</font>
 						</div>
 					</td>
@@ -127,7 +134,8 @@
 								受邀请的同行或专家通过专门的网站登录点进行登录，登录后方可进行评价。
 							</li>
 							<li>
-								同行和专家登录网址为：http://(厦门大学课程平台网址)/homepage/login.jsp							</li>							
+								同行和专家登录网址为：http://(厦门大学课程平台网址)/homepage/login.jsp
+							</li>
 						</ul>
 
 					</div>
