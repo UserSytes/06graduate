@@ -7,7 +7,7 @@
 		<META http-equiv=Pragma content=no-cache>
 		<META http-equiv=Cache-Control content=no-cache>
 		<META http-equiv=Expires content=-1000>
-		<title>无标题文�?/title>
+		<title>无标题文档</title>
 		<style type="text/css">
 <!--
 body {
