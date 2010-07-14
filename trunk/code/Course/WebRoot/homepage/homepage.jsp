@@ -667,8 +667,9 @@
 													</td>
 													<td width="19"></td>
 													<td>
-														<img src="${ctx}/homepage/image/open_yard.gif" border="0"
-															alt="">
+														<a href="${ctx}/homepage/help.jsp"><img
+																						src="${ctx}/homepage/image/open_yard.gif"
+																						alt="" border="0"></a>
 													</td>
 												</tr>
 											</table>
