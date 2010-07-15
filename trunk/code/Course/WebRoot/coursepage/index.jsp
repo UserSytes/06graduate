@@ -87,7 +87,11 @@
 						课程简介
 					</h2>
 					<div id="more">
-						<a href="#" class="cblue">MORE</a>
+						<a href="<s:url action="findCourseInfoAction"> 
+                     			<s:param name="sort"> 
+                       			 	1 
+                    			</s:param>
+                					</s:url>" class="cblue">MORE</a>
 					</div>					
 				</div>
 				<!-- 正文 -->
