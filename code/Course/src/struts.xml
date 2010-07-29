@@ -66,6 +66,14 @@
 			</result>
 		</action>
 		
+		<action name="getHelpMovieAction" method="getHelpMovie"
+			class="homePageAction">
+			<result name="doc">/homepage/helpdoc.jsp
+			</result>
+			<result name="success">/homepage/helpmovie.jsp
+			</result>
+		</action>
+		
 		<!-- 从首页登录 -->
 		<action name="loginFromHomePageAction" method="loginFromHomePage"
 			class="homePageAction">

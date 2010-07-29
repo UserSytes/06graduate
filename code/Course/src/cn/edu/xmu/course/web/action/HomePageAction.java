@@ -51,6 +51,11 @@ public class HomePageAction extends BaseAction {
 	private String idLogin;// 登陆
 	private String afterLogin;// 登陆后
 	private String user;// 用户
+	private String treeId;
+	private String treeName;
+	private String[] tree = { "文档", "前台子系统", "课程子系统", "学生子系统", "教师子系统",
+			"学校后台管理子系统", "学院后台管理子系统" };
+	private String src;
 
 	/**
 	 * 首页数据载入
@@ -69,6 +74,21 @@ public class HomePageAction extends BaseAction {
 		newsList = newsService.findLastestTenNews();
 		this.countCourseByLevel();
 		courseList = searchCourseService.findLatestTenCourse();
+		return SUCCESS;
+	}
+
+	/**
+	 * 获得帮助信息
+	 * 
+	 * @return
+	 */
+	public String getHelpMovie() {
+		if (getTreeId().equals("0"))
+			return "doc";
+		if (Integer.parseInt(treeId) < 9)
+			return null;
+		int num = Integer.parseInt(treeId.substring(0, 1));
+		src = "upload/help/" + num + "/" + treeId + ".avi";
 		return SUCCESS;
 	}
 
@@ -430,6 +450,38 @@ public class HomePageAction extends BaseAction {
 
 	public void setOther(int other) {
 		this.other = other;
+	}
+
+	public void setTreeId(String treeId) {
+		this.treeId = treeId;
+	}
+
+	public String getTreeId() {
+		return treeId;
+	}
+
+	public void setTreeName(String treeName) {
+		this.treeName = treeName;
+	}
+
+	public String getTreeName() {
+		return treeName;
+	}
+
+	public void setSrc(String src) {
+		this.src = src;
+	}
+
+	public String getSrc() {
+		return src;
+	}
+
+	public void setTree(String[] tree) {
+		this.tree = tree;
+	}
+
+	public String[] getTree() {
+		return tree;
 	}
 
 }
