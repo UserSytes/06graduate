@@ -667,7 +667,7 @@
 													</td>
 													<td width="19"></td>
 													<td>
-														<a href="${ctx}/homepage/help.jsp"><img
+														<a href="${ctx}/homepage/helptree.jsp"><img
 																						src="${ctx}/homepage/image/open_yard.gif"
 																						alt="" border="0"></a>
 													</td>

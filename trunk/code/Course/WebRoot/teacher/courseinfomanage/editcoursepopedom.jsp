@@ -133,24 +133,7 @@
 				</tr>
 			</table>
 		</s:form>
-<div align="left" style="border: 1px solid #ccc;padding: 10px; width: 98%">
-				<img src="${ctx}/teacher/images/icon_1.png" width="16" height="16" />
-				<strong><font color="red" size="3"> 提示</font> </strong>
-				<div id="content_note">
-					<ul>
-						<li>
-							请认真填写课程相关信息和选择课程所属学院。
-						</li>
-						<li>
-							申请新的课程后需要等待所申请学院的教学秘书审核通过才能进行上传课件等操作。
-						</li>						
-						<li>
-							如果您的课程长时间未审核通过，请向教学秘书反映相关情况。
-						</li>						
-					</ul>
 
-				</div>
-			</div>	
 </div>
 	</body>
 </html>
